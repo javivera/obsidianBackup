@@ -1,0 +1,303 @@
+{
+  "main": {
+    "id": "6e82182ecde0cddd",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2d7a17f47f59dd9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "51317c8a08be6b49",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Practicos/Pr1CF Resuelto.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Pr1CF Resuelto"
+            }
+          },
+          {
+            "id": "2d85597cfcf256dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoricos/GS - Teo4.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Teo4"
+            }
+          },
+          {
+            "id": "5186699c1c6d8e67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoricos/GS - Teo2.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Teo2"
+            }
+          },
+          {
+            "id": "413558e042092b6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoricos/GS - Teo1.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Teo1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e9d7a88153e9954c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "469f98f08f398f74",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Practicos/Pr1CF.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Pr1CF"
+            }
+          },
+          {
+            "id": "b39c6fb986215fc4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoricos/GS - Teo4.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Teo4"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f5e3212262af9cb3",
+    "type": "split",
+    "children": [
+      {
+        "id": "c8f8cc38d172d877",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd5a7202445e1d7a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "07959d6318812caf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "suave",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8f7ab7701f4ac23d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "e4c509da46b3a57e",
+    "type": "split",
+    "children": [
+      {
+        "id": "4fec29e115b1feff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5358f9e818f8be04",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Geometría Superiór - Apunte Teórico.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Geometría Superiór - Apunte Teórico"
+            }
+          },
+          {
+            "id": "fb8fdb19a6e22ee0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Practicos/jpgs/GD - Pr2-2.png",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from GD - Pr2-2"
+            }
+          },
+          {
+            "id": "b0f6604a739f3bf1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fc3e6d55eb179ff0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Practicos/jpgs/GD - Pr2-2.png",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of GD - Pr2-2"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 884.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
+      "terminal:Open terminal": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "51317c8a08be6b49",
+  "lastOpenFiles": [
+    "Teoricos/GS - Teo4.md",
+    "Practicos/Pr1CF Resuelto.md",
+    "Practicos/Pr1CF.pdf",
+    "Teoricos/GS - Teo2.md",
+    "Teoricos/GS - Teo1.md",
+    "Teoricos/GS - Teo3.md",
+    "Teoricos/GS - Teo5.md",
+    "page-10-test.png",
+    "Teoricos/GS - Teo6.md",
+    "Teoricos/3-19.pdf",
+    "Teoricos/Geometría Superiór - Apunte Teórico.md",
+    "Teoricos/GS - Teo1.app.md",
+    "Teoricos",
+    "probando.md",
+    "fix_formatting.py",
+    "transform.py",
+    "Teoricos/probando.md",
+    "Practicos/Pr0CF Resuelto.md",
+    "Teoricos/GS - 4to Teo.md",
+    "Teoricos/GS - 5to Teo.md",
+    "GS - Teo5.md",
+    "GS - 5to Teo.md",
+    "AGENT.md",
+    "AGENTS.md",
+    "Teoricos/GS - 3er Teo.md",
+    "Teoricos/GS - 2do Teo.md",
+    "Untitled.md",
+    "Practicos/Pr0CF.pdf",
+    "Teoricos/GS - 1er Teo.md",
+    "3-10.pdf",
+    "3-12.pdf",
+    "Practicos/Soluciones Pr0CF y Pr1CF.md",
+    "asdasd.md",
+    "3-10.aux",
+    "3-10.log",
+    "crops/p2-denom2.png",
+    "crops/p2-denom.png",
+    "crops/p2-formula-right2.png",
+    "crops/p2-formula-right1.png",
+    "crops/p2-top-small.png",
+    "crops/crop-p13-top-wide-small.png",
+    "crops/crop-p12-bottom-wide-small.png",
+    "crops/crop-p11-full-small.png",
+    "crops/p2-formula-big-small.png",
+    "Answers/spheres-topological-manifold.md"
+  ]
+}

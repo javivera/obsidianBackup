@@ -1,0 +1,22 @@
+slee Lio 9: wiente lantarja Str hi (45+)
+Given an open subset U C M, the isomorphism di, between 7,U and 7,M is
+canonically defined, independently of any choices. From now on we identify 1,U
+with 7,M for any point p € U. This identification just amounts to the observation
+that di,(v) is the same derivation as v, thought of as acting on functions on the
+bigger manifold M instead of functions on U. Since the action of a derivation on
+a function depends only on the values of the function in an arbitrarily small neigh-
+borhood, this is a harmless identification. In particular, this means that any tangent
+vector v € 1,M can be unambiguously applied to functions defined only in a neigh-
+borhood of p, not necessarily on all of M.
+E| SOR, a tA aod aa richer L) We [Pf bh
+Biercicio 7
+eas e Sean M,N variedades suaves y F : M — N una funcién suave, con M conexa. Probar que (dF), :
+1 ¥ T,M — Tr,)N es la transformacion nula para todo p € M si y solo si F es una funcién constante.
+(Sushi HK (por Jenadlers:
+Dean (U0: A520), P20 45,--5Y0)) Gordes
+Ae P. Tomems Grats dos bases Ae PM
+e@y,- 2? & a:
+sz t Sx,Ip! <= 7 Sx! f
+By - 4 2 |,,--- 2 {
+Veane s (Sa ra dk ve ae pe Causje Ae Sse Ag Be a
+PP 4.

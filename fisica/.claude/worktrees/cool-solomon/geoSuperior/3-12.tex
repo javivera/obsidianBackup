@@ -1,0 +1,312 @@
+\documentclass[11pt]{article}
+
+\usepackage{iftex}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\else
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{texgyrepagella-regular.otf}[
+    BoldFont=texgyrepagella-bold.otf,
+    ItalicFont=texgyrepagella-italic.otf,
+    BoldItalicFont=texgyrepagella-bolditalic.otf
+  ]
+  \setsansfont{texgyreheros-regular.otf}[
+    BoldFont=texgyreheros-bold.otf,
+    ItalicFont=texgyreheros-italic.otf,
+    BoldItalicFont=texgyreheros-bolditalic.otf
+  ]
+  \setmonofont{DejaVuSansMono.ttf}[
+    BoldFont=DejaVuSansMono-Bold.ttf,
+    Scale=MatchLowercase
+  ]
+  \setmathfont{texgyrepagella-math.otf}
+\fi
+
+\newtheorem*{theorem}{Teorema}
+\newtheorem*{corollary}{Corolario}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definici\'on}
+\newtheorem*{exercise}{Ejercicio}
+\theoremstyle{remark}
+\newtheorem*{remark}{Observaci\'on}
+
+\title{2do Teorico Geometria Superior}
+\author{EDISON ALBERTO FERNANDEZ CULMA}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent\textit{Nota:} esta es una transcripci\'on fiel en lo posible de apuntes manuscritos. En la funci\'on de ejemplo de la primera p\'agina se us\'o la versi\'on est\'andar que coincide con el enunciado visible.
+
+\begin{definition}
+Sea $F:U\subseteq \mathbb{R}^n \to \mathbb{R}^m$ tal que todas sus derivadas parciales existen en cada punto de $U$ y las funciones
+\[
+\frac{\partial F_j}{\partial x_i}:U\subseteq \mathbb{R}^n \longrightarrow \mathbb{R}
+\]
+son continuas.
+
+Entonces se dice que $F$ es una funci\'on de clase $C^1$, o continuamente diferenciable, sobre $U$.
+\end{definition}
+
+\begin{remark}
+Sea $F:U\subseteq \mathbb{R}^n \to \mathbb{R}^m$. Vimos que si $F$ es diferenciable en $p\in U$, entonces para todo $v\in \mathbb{R}^n$ existe la derivada de $F$ en la direcci\'on de $v$:
+\[
+(dF)_p v=\lim_{t\to 0}\frac{F(p+tv)-F(p)}{t}.
+\]
+En particular, existen todas sus derivadas parciales $\dfrac{\partial F_j}{\partial x_i}$.
+
+Tambi\'en vimos que $F$ es continua en $p$.
+
+Por otro lado, la existencia de todas las derivadas direccionales de $F$ en un punto $p$ no garantiza que $F$ sea diferenciable en $p$.
+\end{remark}
+
+\begin{exercise}
+Sea $F:\mathbb{R}^2\to \mathbb{R}$ dada por
+\[
+f(x,y)=
+\begin{cases}
+\dfrac{x^2y}{x^4+y^2}, & (x,y)\neq (0,0),\\[0.6em]
+0, & (x,y)=(0,0).
+\end{cases}
+\]
+Mostrar que todas las derivadas direccionales existen en $p=(0,0)$, pero $F$ no es continua en $(0,0)$. \textquestiondown Qu\'e puede decir de la funci\'on?
+\end{exercise}
+
+\begin{theorem}
+\textbf{(Diferenciabilidad en $C^1$)}\;
+Sea $U\subseteq \mathbb{R}^n$ un abierto. Si $F:U\subseteq \mathbb{R}^n\to \mathbb{R}^m$ es de clase $C^1$ sobre $U$ (esto es, las funciones $\dfrac{\partial F_j}{\partial x_i}:U\subseteq \mathbb{R}^n\to \mathbb{R}$ existen y son continuas), entonces $F$ es diferenciable sobre todo $U$.
+\end{theorem}
+
+\begin{proof}
+Repasarlo. Cualquier libro cl\'asico de an\'alisis (Rudin, Spivak, Apostol, \dots).
+\end{proof}
+
+\begin{definition}
+\textbf{(Derivadas parciales de orden superior)}\;
+Sea $U$ un abierto de $\mathbb{R}^n$ y
+\[
+F:U\subseteq \mathbb{R}^n \longrightarrow \mathbb{R}^m,\qquad
+x\longmapsto (F_1,\dots,F_m),
+\]
+una funci\'on tal que existen todas sus derivadas parciales sobre $U$.
+
+Es decir, podemos definir funciones
+\[
+\frac{\partial F_j}{\partial x_i}:U\subseteq \mathbb{R}^n \longrightarrow \mathbb{R},
+\qquad
+p=(x_1,\dots,x_n)\longmapsto \frac{\partial F_j}{\partial x_i}(p).
+\]
+
+En este caso, podemos derivar estas funciones para obtener derivadas parciales de segundo orden:
+\[
+\frac{\partial^2 F_j}{\partial x_k\,\partial x_i}
+:=
+\frac{\partial}{\partial x_k}\left(\frac{\partial F_j}{\partial x_i}\right),
+\]
+cuando tales derivadas existan.
+
+Continuando de forma recursiva, se definen las derivadas parciales de orden superior. Las derivadas parciales de orden $k$ son las derivadas parciales de orden $k-1$, cuando estas existen.
+\end{definition}
+
+\begin{definition}
+\textbf{(Clases de diferenciabilidad)}\;
+Sea $U\subseteq \mathbb{R}^n$ un abierto y $k\in \mathbb{N}\cup\{0\}$. Una funci\'on $F:U\subseteq \mathbb{R}^n\to \mathbb{R}^m$ se dice de clase $C^k$, o diferenciable continuamente $k$ veces, si todas las derivadas parciales de $F$ de \'orden menor o igual a $k$ existen y son funciones continuas en $U$.
+
+As\'i, la clase $C^0$ son solo las funciones continuas sobre $U$.
+
+Una funci\'on que es de clase $C^k$ para todo $k\in \mathbb{N}\cup\{0\}$ se dice de clase $C^\infty$, o \emph{suave}, o infinitamente diferenciable.
+\end{definition}
+
+\begin{theorem}
+\textbf{(de Schwarz--Clairaut de las derivadas cruzadas)}\;
+Si $U$ es un abierto de $\mathbb{R}^n$ y $F:U\subseteq \mathbb{R}^n\to \mathbb{R}^m$ es una funci\'on de clase $C^2$ sobre $U$, entonces las derivadas parciales mixtas de segundo orden no dependen del orden de diferenciaci\'on:
+\[
+\frac{\partial^2 F_j}{\partial x_i\,\partial x_k}
+=
+\frac{\partial^2 F_j}{\partial x_k\,\partial x_i}.
+\]
+\end{theorem}
+
+\begin{corollary}
+Si $F:U\subseteq \mathbb{R}^n\to \mathbb{R}^m$ es suave, entonces las derivadas parciales mixtas de $F$ de cualquier orden son independientes del orden de diferenciaci\'on.
+\end{corollary}
+
+\begin{proof}
+Repasarlo. Cualquier libro cl\'asico de an\'alisis (Rudin, Spivak, Apostol, \dots).
+\end{proof}
+
+\begin{remark}
+Desde el punto de vista de Teor\'ia de Lie, puede entenderse este teorema como que ciertos grupos de transformaciones conmutan entre s\'i (en este caso, dos translaciones conmutan entre s\'i; las translaciones ``generan'' las derivadas parciales).
+\end{remark}
+
+\section*{Curvas y diferenciabilidad}
+
+Sea $I\subseteq \mathbb{R}$ un intervalo abierto y $\gamma:I\subseteq \mathbb{R}\to \mathbb{R}^n$ una funci\'on diferenciable en $t_0\in I$. Esto quiere decir que tenemos una transformaci\'on lineal
+\[
+(d\gamma)_{t_0}:\mathbb{R}\longrightarrow \mathbb{R}^n.
+\]
+
+Como el dominio de $(d\gamma)_{t_0}$ es $\mathbb{R}$, que es un espacio vectorial real de dimensi\'on $1$, la imagen de $(d\gamma)_{t_0}$ est\'a determinada por su valor en $1$.
+
+Luego $(d\gamma)_{t_0}(1)$ es un vector en $\mathbb{R}^n$, cuyas coordenadas sabemos calcular. Si
+\[
+(d\gamma)_{t_0}(1)=\sum_{j=1}^n a_j(t_0)e_j,
+\]
+entonces
+\[
+a_j(t_0)
+=
+\left\langle (d\gamma)_{t_0}(1),e_j\right\rangle
+=
+\lim_{t\to 0}\left\langle \frac{\gamma(t_0+t)-\gamma(t_0)}{t},e_j\right\rangle
+=
+\lim_{t\to 0}\frac{\gamma_j(t_0+t)-\gamma_j(t_0)}{t}
+=
+\gamma_j'(t_0).
+\]
+
+\begin{definition}
+Sea $I\subseteq \mathbb{R}$ un intervalo. Una funci\'on del tipo
+\[
+\gamma:I\subseteq \mathbb{R}\longrightarrow \mathbb{R}^n
+\]
+se llama \emph{curva}, y se define el \emph{vector velocidad} en $t_0$, denotado por $\gamma'(t_0)$, como el vector
+\[
+\bigl(\gamma_1'(t_0),\dots,\gamma_n'(t_0)\bigr),
+\]
+cuando cada una de las derivadas existe.
+\end{definition}
+
+\begin{remark}
+Usando esta notaci\'on de vector velocidad, si $\gamma:I\subseteq \mathbb{R}\to \mathbb{R}^n$ es diferenciable en $t_0$, entonces
+\[
+(d\gamma)_{t_0}(1)=\gamma'(t_0),
+\]
+y en general, si $h\in \mathbb{R}$,
+\[
+(d\gamma)_{t_0}(h)=h\,\gamma'(t_0).
+\]
+\end{remark}
+
+\begin{exercise}
+Sea $\gamma:I\subseteq \mathbb{R}\to \mathbb{R}^n$ tal que el vector velocidad $\gamma'(t_0)$ existe. Mostrar que $\gamma$ es diferenciable en $t_0$, es decir, existe la transformaci\'on lineal
+\[
+(d\gamma)_{t_0}:\mathbb{R}\to \mathbb{R}^n
+\]
+dada por $(d\gamma)_{t_0}(h)=h\,\gamma'(t_0)$.
+\end{exercise}
+
+\section*{Variedades diferenciables}
+
+\begin{definition}
+\textbf{(Variedad topol\'ogica)}\;
+Sea $M$ un espacio topol\'ogico. Se dice que $M$ es una variedad topol\'ogica de dimensi\'on $n$ si tiene las siguientes propiedades:
+\begin{enumerate}
+\item $M$ es Hausdorff: para todo par de puntos distintos $p\neq q$ en $M$, existen abiertos disjuntos $U$ y $V$ de $M$ tales que $p\in U$ y $q\in V$.
+\item $M$ satisface el segundo axioma de numerabilidad (es $N_2$), esto es, tiene una base numerable para la topolog\'ia de $M$.
+\item $M$ es localmente eucl\'ideo de dimensi\'on $n$: para cada $p\in M$, existe un conjunto abierto $U$ de $M$ conteniendo a $p$, un conjunto abierto $\widehat U$ de $\mathbb{R}^n$, y un homeomorfismo
+\[
+\varphi:U\subseteq M\longrightarrow \widehat U\subseteq \mathbb{R}^n.
+\]
+\end{enumerate}
+\end{definition}
+
+\noindent En el punto (ii), decir que $M$ tiene una base numerable significa que existe una familia numerable $\mathcal{B}$ de abiertos de $M$ tal que todo abierto de $M$ es uni\'on de miembros de $\mathcal{B}$.
+
+\begin{remark}
+Se prueba (en topolog\'ia algebraica) que si un abierto de $\mathbb{R}^n$ es homeomorfo a un abierto de $\mathbb{R}^m$, entonces $n=m$. En virtud de este resultado, est\'a bien definida la noci\'on de dimensi\'on de una variedad topol\'ogica.
+\end{remark}
+
+\begin{definition}
+\textbf{(Cartas)}\;
+Sea $M$ una variedad topol\'ogica de dimensi\'on $n$. Una \emph{carta coordenada} (o simplemente, una \emph{carta}) sobre $M$ es un par $(U,\varphi=(x_1,\dots,x_n))$, donde $U$ es un abierto de $M$ y
+\[
+\varphi:U\subseteq M\longrightarrow \widehat U\subseteq \mathbb{R}^n
+\]
+es un homeomorfismo, con $\widehat U=\varphi(U)$.
+\end{definition}
+
+Cuando se dice que $(U,\varphi)$ es una carta de $p$, nos referimos a que $p\in U$. Se dice que la carta est\'a \emph{centrada} en $p$ si $\varphi(p)=0$.
+
+\begin{remark}
+Notar que en toda variedad topol\'ogica $M$, cualquier punto $p\in M$ tiene una carta centrada en ese punto: se toma $(U,\varphi)$, una carta de $p$, y se usa una traslaci\'on, restando $\varphi(p)$.
+\end{remark}
+
+\subsection*{Ejemplos}
+
+\begin{enumerate}
+\item $\mathbb{R}^n$ con su topolog\'ia usual.
+\item Cualquier abierto $U$ de $\mathbb{R}^n$.
+\item Cualquier espacio vectorial real de dimensi\'on finita.
+\item Esferas.
+\end{enumerate}
+
+Sea $S^n$ la esfera unidad de $\mathbb{R}^{n+1}$:
+\[
+S^n:=\left\{(x_1,\dots,x_{n+1})\in \mathbb{R}^{n+1}:x_1^2+\cdots+x_{n+1}^2=1\right\}.
+\]
+
+Consideramos sobre $S^n$ la topolog\'ia heredada (inducida) de $\mathbb{R}^{n+1}$, y con esta $S^n$ es Hausdorff y satisface $N_2$. Solo falta ver que es localmente eucl\'ideo.
+
+Sea $p=(a_1,\dots,a_{n+1})\in S^n$ arbitrario. Como
+\[
+a_1^2+\cdots+a_{n+1}^2=1,
+\]
+existe alg\'un $a_i\neq 0$.
+
+Supongamos que $a_i>0$ (el caso $a_i<0$ es an\'alogo). Consideremos el abierto de $\mathbb{R}^{n+1}$
+\[
+U_i^+:=\left\{(x_1,\dots,x_i,\dots,x_{n+1})\in \mathbb{R}^{n+1}:x_i>0\right\}.
+\]
+\textquestiondown Por qu\'e es abierto?
+
+Esto define un abierto de $S^n$ dado por
+\[
+S^n\cap U_i^+.
+\]
+
+\medskip
+
+Definimos la funci\'on
+\[
+\varphi_i^+:S^n\cap U_i^+\longrightarrow \mathbb{R}^n,
+\qquad
+(x_1,\dots,x_i,\dots,x_{n+1})\longmapsto (x_1,\dots,\widehat{x_i},\dots,x_{n+1}),
+\]
+donde el sombrero significa que se ha borrado la coordenada $x_i$.
+
+Claramente $\varphi_i^+$ es continua, y la imagen de $\varphi_i^+$ es el abierto
+\[
+B^n:=\left\{(y_1,\dots,y_n)\in \mathbb{R}^n:y_1^2+\cdots+y_n^2<1\right\}.
+\]
+
+En efecto, si $(x_1,\dots,x_i,\dots,x_{n+1})\in S^n\cap U_i^+$, entonces $x_i>0$ y
+\[
+x_1^2+\cdots+\widehat{x_i^2}+\cdots+x_{n+1}^2<1.
+\]
+Rec\'iprocamente, cualquier $(y_1,\dots,y_n)\in B^n$ define un punto bien definido en $S^n\cap U_i^+$ dado por
+\[
+p:=\left(y_1,\dots,y_{i-1},\sqrt{1-(y_1^2+\cdots+y_n^2)},y_i,\dots,y_n\right).
+\]
+
+Notar que $\varphi_i^+$ es un homeomorfismo entre $S^n\cap U_i^+$ y $B^n$, pues la inversa ser\'ia
+\[
+(\varphi_i^+)^{-1}:B^n\longrightarrow S^n\cap U_i^+,
+\]
+\[
+(y_1,\dots,y_n)\longmapsto
+\left(y_1,\dots,y_{i-1},\sqrt{1-(y_1^2+\cdots+y_n^2)},y_i,\dots,y_n\right),
+\]
+la cual es continua. \textquestiondown Por qu\'e?
+
+\end{document}
