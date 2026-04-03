@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "32bb0e51dcf9c47e",
+    "type": "split",
+    "children": [
+      {
+        "id": "801310b23e6d6d75",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "29e73520ae6043e1",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.6"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.6"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "14d545153c54142c",
+    "type": "split",
+    "children": [
+      {
+        "id": "339f50cbdfe53248",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d82544f44d14f9ef",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9650a7ca1456eb86",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d4f39fb97454c846",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "57c6697ba13e8aef",
+    "type": "split",
+    "children": [
+      {
+        "id": "864a097e592cdcf0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed73636f28be8dbf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "JBP.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for JBP"
+            }
+          },
+          {
+            "id": "7fd85bb7f08b02cf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "JBP.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from JBP"
+            }
+          },
+          {
+            "id": "cb93c3f6ff9d64bf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8f746e89a0a3b4b3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "JBP.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of JBP"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "media-extended:Open media": false
+    }
+  },
+  "active": "29e73520ae6043e1",
+  "lastOpenFiles": [
+    "Movies and Series/Murderbot.md",
+    "templates/Movie Template.md",
+    "Movies and Series/Demolition.md",
+    "Movies and Series/Babylon.md",
+    "Movies and Series/The Sanctuary.md",
+    "Movies and Series/The Voyeurs.md",
+    "Movies and Series/Mank.md",
+    "Movies and Series/Mr Gatsy.md",
+    "Hermanos Karamazov.md",
+    "Vervaeke.md",
+    "JBP.md",
+    "Lenguaje.md",
+    "Papel pintado.md",
+    "Untitled.md",
+    "The Begging of Infinity.md",
+    "The righteouss mind. Haidt.md",
+    "Quotes.md",
+    "Movies and Series",
+    "templates"
+  ]
+}

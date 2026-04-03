@@ -83,9 +83,6 @@
 >[!Definition] Función diferenciable
 >Sea $(M,\mathcal{F})$ una variedad diferenciable y sea $F:M\to\mathbb{R}^k$ una función. Se dice que $F$ es **diferenciable** o **$C^\infty$** si para toda carta $(U,\varphi)\in\mathcal{F}$ se cumple que $$F\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb{R}^n\to\mathbb{R}^k$$ es una función $C^\infty$ en el abierto $\varphi(U)$.
 
->[!Remark] Chequeo sobre un atlas
->En la práctica alcanza con chequear suavidad en las cartas de un atlas, no hace falta usar el atlas maximal completo.
-
 >[!Exercise] Criterio usando un atlas
 >Sea $M$ una variedad diferenciable y $\mathcal{A}\subseteq\mathcal{F}$ un atlas de $M$. Sea $F:M\to\mathbb{R}^k$. Probar que $F$ es suave si para toda carta $(U,\varphi)\in\mathcal{A}$ se cumple que $F\circ\varphi^{-1}$ es suave sobre el abierto $\varphi(U)$.
 >>[!Proof]-
@@ -161,9 +158,7 @@
 >>3. Entonces $$F|_U=\psi^{-1}\circ(\psi\circ F\circ\varphi^{-1})\circ\varphi$$ es continua.
 >>4. Como esto vale en un abierto alrededor de cada punto, $F$ es continua en todo $M$.
 
-## Ejercicios básicos sobre funciones suaves
-
->[!Exercise] Ejercicios básicos sobre funciones suaves
+>[!Proposition] Ejercicios básicos sobre funciones suaves
 >Sean $M$, $N$ y $P$ variedades suaves.
 >
 >1. Si $F:M\to N$ es suave, entonces para todo par de cartas suaves $(\widetilde{U},\widetilde{\varphi})$ de $M$ y $(\widetilde{V},\widetilde{\psi})$ de $N$ se cumple que $$\widetilde{\psi}\circ F\circ\widetilde{\varphi}^{-1}:\widetilde{\varphi}(\widetilde{U}\cap F^{-1}(\widetilde{V}))\to\widetilde{\psi}(\widetilde{V})$$ es suave.

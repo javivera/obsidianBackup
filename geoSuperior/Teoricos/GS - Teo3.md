@@ -59,6 +59,13 @@
 >[!Exercise] Propiedad universal del cociente
 >Sean $X$ y $Z$ espacios topológicos, $\pi:X\to Y$ sobreyectiva, y consideremos en $Y$ la topología cociente.
 >Si $F:Y\to Z$ es una función, entonces $$F \text{ es continua}\iff F\circ \pi:X\to Z \text{ es continua}.$$
+
+>[!Lemma] Paso al cociente
+>Repasemos lo que decia si tenemos $\pi:X\rightarrow X/\sim$ y $F:X\rightarrow Y$ decimos que $F$ pasa al cociente si $x\sim y$ entonces $F(x)=F(y)$. 
+>Pasar al cociente es que existe una unica funcion $\tilde{F}:X/\sim\rightarrow Y$ tal que $\tilde{F}\circ\pi=F$. Ademas si $F$ es continua entonces $\tilde{F}$ es continua y es facil ver que si $F$ es suave entonces $\tilde{F}$ tambien  
+
+^af5aa3
+
 ## El espacio proyectivo real
 
 >[!Definition] Presentación de $\mathbb{RP}^n$ como cociente de la esfera

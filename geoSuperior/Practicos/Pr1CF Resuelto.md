@@ -1,3 +1,5 @@
+### Exercise 1
+
 >[!Exercise]
 >- Mostrar que $$\{(x,y)\in\mathbb R^2:xy=0\}$$ no es un espacio topológico localmente euclídeo.
 >- Sea $X$ el cociente $$(\mathbb R\times\{0,1\})/{\sim}$$ de dos copias de $\mathbb R$, donde $(x,0)\sim(x,1)$ para $x\neq 0$. Mostrar que $X$ es un espacio topológico tal que todo punto tiene un entorno abierto homeomorfo a un abierto de $\mathbb R$, pero no es Hausdorff.
@@ -176,13 +178,16 @@
 >>	3. Ademas $\phi_U\circ \tilde\pi \circ \varphi_i^{-1}=\varphi_i\circ \tilde\pi|_U^{-1}\circ \tilde\pi \circ \varphi_i^{-1}=\mathrm{Id}$  
 >>	4. Y como $\mathrm{Id}$ es $C^\infty$ entonces $\pi$ es difeo local
 >>- **Unicidad**
->>	1. Supongamos hubiese otra estructura para $RP^2$, $\tilde{\mathcal{F}}_2 = \{(V,\psi)\}$ tal que $\pi : (S^2,\mathcal{F}_1) \to (RP^2,\tilde{\mathcal{F}}_2)$ es difeo local
+>>	1. Supongamos hubiese otra estructura para $\mathbb{R}\mathbb{P}^2$, $\tilde{\mathcal{F}}_2 = \{(V,\psi)\}$ tal que $\pi : (\mathbb{S}^2,\mathcal{F}_1) \to (\mathbb{R}\mathbb{P}^2,\tilde{\mathcal{F}}_2)$ es difeo local
 >>	2. Dados $(V,\psi)$ y $(\tilde{U},\phi_U)$. Queremos ver que $$\psi \circ \phi_{U}^{-1} : \phi_{U}(\tilde{U}\cap V) \to \psi(\tilde{U}\cap V) \subseteq \mathbb{R}^2 \to \subseteq \mathbb{R}^2$$es difeo
 >>- **Suavidad de cambio de coordenadas**
 >>	1. Primero notamos $$\psi \circ \phi|_{U}^{-1} =\psi\circ(\varphi_{i}\circ\pi |_{U}^{-1})^{-1}=\psi\circ\pi|_{U}\circ\varphi_{i}^{-1}$$
->>	2. Como $\pi$ es difeomorfismo local dado $q \in \tilde{U}\cap V$ tomamos $p\in S^{2}$ tal que $\pi(p)=q$.
->>	3. Luego para digo $p$ sabemos $\exists U_p$ abierto tal que $\pi|_{U_p} : U_p \to \pi(U_p)$ es difeo, osea $\exists (O_{p},\varphi),(V_{q},\tilde{\psi})$ cartas de la esfera y de $\mathbb{R}\mathbb{P}^2$ con la nueva estructura, respectivamente, tal que $$\tilde{\psi} \circ \pi|_{U_p} \circ \varphi^{-1} : \varphi(O_p) \to \tilde{\psi}(V_{p})$$ es suave. Y ademas $\pi|_{U_{p}}(O_{p})\subseteq V_{q}$ (Notar $O_{p}\subseteq U_{p}$ obviamente) y notar que $\pi(O_{p}\cap U)\subseteq \pi(U)=\tilde{U}$ 
->>	4. Luego restringiendo dominios para los cambios de coordenadas $\varphi$ con $\varphi_{i}$ y $\psi$ con $\tilde{\psi}$    $$\psi \circ \pi|_{U} \circ \varphi_i^{-1} = (\psi \circ \tilde{\psi}^{-1}) \circ (\tilde{\psi}\circ \pi|_{U_p\cap U} \circ \varphi^{-1}) \circ (\varphi \circ \varphi_{i}^{-1})$$es suave por ser composición de suaves obviamente ajustando el conjunto $\tilde{U}\cap V$ a $\tilde{U}\cap\pi(O_{p}\cap U)\cap V\cap V_{q}$  
+>>	2. Como $\pi$ es difeomorfismo local dado $q \in \phi_{U}(\tilde{U}\cap V)$ tomamos $p\in S^{2}$ tal que $\pi(p)=q$.
+>>	3. Luego para digo $p$ sabemos $\exists U_p$ abierto tal que $\pi|_{U_p} : U_p \to \pi(U_p)$ es difeomorfismo entonces es suave
+>>	4. Luego para todo par de cartas, en particular para $(V,\psi)$ y $(\pi|_{U}^{-1}(\tilde{U}),\varphi_{i})$ (considerando que estamos usando la nueva estructura en el codominio de $\pi$) sucede que $$\psi \circ \pi|_{U_p} \circ \varphi_{i}^{-1} : \varphi_{i}(\pi|_{U}^{-1}(\tilde{U})\cap\pi|_{U_{p}}^{-1}(V)) \to \psi(V)$$ es suave.
+>>	5. Notar que claramente $p\in \pi|_{U}^{-1}(\tilde{U})\cap\pi|_{U_{p}}^{-1}(V)$ que es un abierto entonces $q\in \varphi_{i}(\pi|_{U}^{-1}(\tilde{U})\cap\pi|_{U_{p}}^{-1}(V))$ que es tambien abierto por que $\varphi_{i}$ es carta.
+>>	6. Luego encontramos un abierto $\varphi_{i}(\pi|_{U}^{-1}(\tilde{U})\cap\pi|_{U_{p}}^{-1}(V))\cap\phi_{U}(\tilde{U}\cap V)$ (no es vacio por que $q$ esta adentro) donde $\psi\circ\phi|_{U}^{-1}=\psi\circ\pi|_{U}\circ\varphi_{i}^{-1}$ es suave. Por ende $\psi\circ\phi|_{U}^{-1}$ es suave
+>>	7. Que la inversa de la composicion es suave sale analogamente usando que como $\pi|_{U_{p}}$ es difeo entonces si inversa es suave
 >>- **Biyectiva**
 >>	1. Es composición de biyectivas entonces es inyectiva y es sobre por def del codominio
 
@@ -209,17 +214,40 @@
 >>	12. Para ver que la inversa de $\pi|_{U}$ es suave se hace basicamente lo mismo
 >>	13. Luego $\pi|_{U}$ es difeomorfismo. Entonces $\pi$ es difeomorfismo local
 >>- **Unicidad de la estructura tal que la proyeccion es difeo local**
->>	1. Supongamos tenemos $\tilde{\mathcal{F}}$ otra estructura suave de $\mathbb{T}^{2}$
->>	2. Sean $(\tilde{U},\varphi) \in \tilde{\mathcal{F}}$ y $(U,\pi|_{U}^{-1})\in \mathcal{F}$ queremos ver que $$\varphi\circ(\pi|_{U}^{-1})^{-1}:\pi|_{U}^{-1}(U\cap \tilde{U})\rightarrow\varphi(U\cap \tilde{U})$$ es difeomorfismo 
->>	3. 
+>>	1. Supongamos tenemos $\tilde{\mathcal{F}}$ otra estructura suave de $\mathbb{T}^{2}$ tal que $\pi$ es difeo local 
+>>	2. Sean $(\tilde{U},\psi) \in \tilde{\mathcal{F}}$ y $(\pi(U),\pi|_{U}^{-1})\in \mathcal{F}$ queremos ver que $$\psi\circ(\pi|_{U}^{-1})^{-1}:\pi|_{U}^{-1}(\pi(U)\cap \tilde{U})\rightarrow\psi(\pi(U)\cap \tilde{U})$$ es difeomorfismo.
+>>	3. Analogamente queremos ver que $\psi\circ\pi|_{U}$ es difeomorfismo
+>>	4. Veamos suavidad localmente. Dado $p \in \pi|_{U}^{-1}(\pi(U)\cap \tilde{U})$ tenemos que existe un abierto $O$ tal que $\pi|_{O}:O\rightarrow\pi(O)$ es difeomorfismo en particular es suave
+>>	5. Spd podemos tomar $\tilde{O}=O\cap \pi|_{U}^{-1}(\pi(U)\cap \tilde{U})$ que es claramente abierto de $p$ y afirmar lo mismo
+>>	6. Ahora como es suave y tomando $(O,Id)$ $$\psi\circ\pi|_{U}\circ Id^{-1}:\tilde{O}\rightarrow\psi(\pi(U)\cap \tilde{U})$$ es $C^{\infty}$ (suave) como queriamos ver.
+>>	7. Que es homeomorfismo ya lo tenemos porque es composicion de cartas
+>>	8. Y que la inversa es suave. Sale de forma analoga considerando que $\pi|_{O}$ es difeomorfismo, entonces su inversa es suave
+>>- **Veamos $\mathbb{T}^{2}$ es difeomorfo a $\mathbb{S}\times\mathbb{S}$**
+>>	1. Miremos $F:\mathbb{R}^{2}\rightarrow \mathbb{S}\times\mathbb{S}$ dada por $F(x,y)=(e^{2\pi ix},e^{2\pi i y})$ esta cumple que $F(x+k_{1},y+k_{2})=(e^{2\pi ix+2k_{1}\pi i},e^{2\pi y+2k_{2}\pi i})=(e^{2\pi ix},e^{2\pi y})=F(x,y)$ para todo $(k_{1},k_{2})\in \mathbb{Z}^{2}$ osea cumple las hipotesis de [[GS - Teo3#^af5aa3]]     
+>>	2. **Veamos inyectividad** Sean $F(x_{1},y_{1})=F(x_{2},y_{2})$ entonces $e^{2x_{1}\pi i}=e^{2x_{2}\pi i}$ por lo tanto $2x_{2}\pi i+2k\pi i=2x_{1}\pi i$ entonces $2(x_{2}-x_{1})\pi i +2k\pi i=0$ osea $x_{2}-x_{1}=-k$ que es un entero y lo mismo podemos hacer con $y_{2}-y_{1}=-q$ ambos enteros por ende $[x_{1},y_{1}]$ y $[x_{2},y_{2}]$ son la misma clase
+>>	3. **Sobreyectividad:** Dado $(z,w)\in S^1\times S^1$ tenemos que existe $x$ tal que $z = e^{2\pi i x}$ y existe $y$ tal que $w = e^{2\pi i y}$ luego $(z,w)=\tilde F([x,y])$
+>>	4. Concluimos que $\tilde F$ es biyectiva.
+>>	5. Ademas como $\pi$ es difeomorfismo local entonces dado $p$ existe un $U$ abierto de $p$ tal que $\pi|_{U}$ es difeomorfismo. Y como $\tilde{F}$ es difeo local tenes otro abierto $\tilde{U}$ de $p$ tal que $\tilde{F}|_{\tilde{U}}$ es difeo
+>>	6. Luego $\tilde{F}|_{\pi(U\cap \tilde{U})}=F|_{U\cap \tilde{U}}\circ(\pi|_{U\cap \tilde{U}})^{-1}$ es difeo por ser composicion de difeomorfismo
+>>	7. Por lo tanto $\tilde{F}$ es difeomorfismo local. Y como era biyectiva entonces es difeomorfismo global
 
 ### Ejercicio 12
 
 >[!Exercise]
 >Considerar en $\mathbb R$ las estructuras diferenciables $\mathcal F$ y $\mathcal F'$ que contienen respectivamente los sistemas coordenados $(\mathbb R,\operatorname{id})$ y $(\mathbb R,t\mapsto t^3)$. Mostrar que son difeomorfas pero $\mathcal F\neq\mathcal F'$.
 >>[!Proof]-
->>Sea $\mathcal F$ la estructura generada por $$(\mathbb R,\operatorname{id})$$ y $\mathcal F'$ la generada por $$(\mathbb R,\psi),\qquad \psi(t)=t^3.$$ No son iguales, porque si lo fueran, las cartas $$(\mathbb R,\operatorname{id})\qquad\text{y}\qquad(\mathbb R,\psi)$$ serían compatibles. Eso exigiría que $$\operatorname{id}\circ\psi^{-1}(t)=t^{1/3}$$ fuera suave, lo cual es falso en $0$.
->>Sin embargo, son difeomorfas. La aplicación $$h:(\mathbb R,\mathcal F)\to(\mathbb R,\mathcal F'),\qquad h(t)=t^{1/3}$$ es un difeomorfismo: en coordenadas, $$\psi\circ h\circ \operatorname{id}^{-1}(t)=t,\qquad \operatorname{id}\circ h^{-1}\circ \psi^{-1}(t)=t.$$
+>>1. Sea
+>>$$h:(\mathbb R,\mathcal F)\to(\mathbb R,\mathcal F'),\qquad h(x)=x^{1/3}.$$
+>>Como función entre espacios topológicos subyacentes, $h$ es biyectiva y continua, con inversa
+>>$$h^{-1}(x)=x^3.$$
+>>2. Veamos que $h$ es suave. Tomamos la carta $(\mathbb R,\operatorname{id})\in\mathcal F$ en el dominio y la carta $(\mathbb R,\psi)\in\mathcal F'$ en el codominio, donde $$\psi(t)=t^3.$$
+>>3. Entonces la representación en coordenadas es $$\psi\circ h\circ \operatorname{id}^{-1}(x)=\psi(x^{1/3})=(x^{1/3})^3=x,$$que es la identidad de $\mathbb R$, luego es $C^\infty$.
+>>4. Veamos ahora que $h^{-1}$ es suave. Usando las cartas $(\mathbb R,\psi)\in\mathcal F'$ y $(\mathbb R,\operatorname{id})\in\mathcal F$, obtenemos $$\operatorname{id}\circ h^{-1}\circ \psi^{-1}(x)=h^{-1}(x^{1/3})=(x^{1/3})^3=x,$$que otra vez es la identidad, y por lo tanto es $C^\infty$.
+>>5. Concluimos que $h$ es un difeomorfismo entre $(\mathbb R,\mathcal F)$ y $(\mathbb R,\mathcal F')$. Por lo tanto, las dos estructuras son difeomorfas.
+>>6. Veamos ahora que $\mathcal F\neq\mathcal F'$. Si fueran iguales, entonces las cartas $$(\mathbb R,\operatorname{id})\qquad\text{y}\qquad(\mathbb R,\psi)$$pertenecerían a una misma estructura diferenciable, y por ende deberían ser compatibles.
+>>7. Pero uno de los cambios de coordenadas sería $$\operatorname{id}\circ\psi^{-1}(x)=x^{1/3}.$$su derivada para $x\neq 0$ es $$\frac{d}{dx}\,x^{1/3}=\frac{1}{3}x^{-2/3},$$que no está definida en $x=0$. En particular, $x^{1/3}$ no es $C^1$ en $0$, y mucho menos $C^\infty$.
+>>8. Luego las cartas no son compatibles, contradicción. Por consiguiente,
+>>$$\mathcal F\neq\mathcal F'.$$
 
 ### Ejercicio 13 (Opcional)
 
@@ -241,7 +269,7 @@
 >[!Exercise]
 >Considerar en $\mathbb C$ la relación de equivalencia $$x\sim e^{i2k\pi/3}x,\qquad k=0,1,2.$$ Mostrar que $$\mathbb C/{\sim}$$ es localmente euclídeo de dimensión $2$, que admite estructura diferenciable, pero que no admite ninguna estructura diferenciable tal que la proyección sea un difeomorfismo local.
 >>[!Proof]-
->>Sea $$G=\{1,\omega,\omega^2\},\qquad \omega=e^{2\pi i/3},$$ actuando sobre $$\mathbb C$$ por multiplicación. El cociente $$\mathbb C/G$$ es localmente euclídeo de dimensión $2$:
+>>1. Sea $$G=\{1,\omega,\omega^2\},\qquad \omega=e^{2\pi i/3},$$ actuando sobre $$\mathbb C$$ por multiplicación. El cociente $$\mathbb C/G$$ es localmente euclídeo de dimensión $2$:
 >>- si $$z\ne 0,$$ la acción es libre, y para un disco pequeño $$D$$ alrededor de $$z,$$ la proyección $$D\to\pi(D)$$ es homeomorfismo;
 >>- cerca de $$0,$$ la aplicación $$[z]\longmapsto z^3$$ está bien definida en el cociente y da un homeomorfismo entre un entorno de $$[0]$$ y un disco de $$\mathbb C.$$
 >>Eso da también una estructura suave: usar las cartas de cociente fuera de $$[0]$$ y la carta $$[z]\mapsto z^3$$ en torno a $$[0].$$
