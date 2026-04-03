@@ -1,0 +1,33 @@
+—_ ! '
+
+En oh pork etree Vel Gu rb. Be Lanicien € putvelute
+1 al Gores MH sevrvac CALS enn) VU 4; hs 5) we Borves
+Suse $}
+
+Ejercicio 1
+Sea M una variedad diferenciable, J un intervalo en R y y : / 4 M una curva diferenciable. La velocidad de
+y en el instante t € I, que se denota por 7’ (t), es por definicién el vector tangente que satisface y’ (t) (f) =
+< lo f (y(t+ s)) para toda funcioén diferenciable definida en un entorno abierto de y(t) en M.
+e Mostrar que efectivamente y' (t) € Ty4)M.
+e Probar que y’ (t) = (dy), (2 | ) € T,4)M, donde 2 | , € T;R es el vector tangente a R en ¢ asociado al
+sistema coordenado canoénico (R, id = s). |
+e Mostrar que si (U,@ = (x1,...,%,)) es un sistema coordenado de M alrededor de y (0) y (@0 y) (t) =
+(r, (t),...,1%, (t)) para t proximos a cero, entonces
+YO=VnO Z|
+n=l Ox; (0)
+e Mostrar que para todo p € M y todo v € T,M se cumple que v = o’ (0) para alguna curva diferenciable
+ao en M con oa (0) =p.
+Ev Put cuheer Zhu. VL ruse vesubpole Aik pe
+bejr VET ab, By dana riste We CUHK Youre
+KicecyeR—amM +e 6 Xvls0
+1 ale
+Cun abt preesunte, teresa’ hn tad Ho Cobtuter
+‘ *
+. 4 \
+Z$ Med Comin Su US Lu ha War wee)
+IA We pros, $ fieM VET,
+See sy fu G4 9YU, € (
+Si ok (rh th) es a A Ft ty pCi) 3¢
+y; | om: =
+Lot(s! 74
+Lustuins CAF pV es tpk & Bur an Bata,

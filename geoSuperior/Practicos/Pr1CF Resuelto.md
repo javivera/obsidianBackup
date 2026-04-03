@@ -269,11 +269,34 @@
 >[!Exercise]
 >Considerar en $\mathbb C$ la relación de equivalencia $$x\sim e^{i2k\pi/3}x,\qquad k=0,1,2.$$ Mostrar que $$\mathbb C/{\sim}$$ es localmente euclídeo de dimensión $2$, que admite estructura diferenciable, pero que no admite ninguna estructura diferenciable tal que la proyección sea un difeomorfismo local.
 >>[!Proof]-
->>1. Sea $$G=\{1,\omega,\omega^2\},\qquad \omega=e^{2\pi i/3},$$ actuando sobre $$\mathbb C$$ por multiplicación. El cociente $$\mathbb C/G$$ es localmente euclídeo de dimensión $2$:
->>- si $$z\ne 0,$$ la acción es libre, y para un disco pequeño $$D$$ alrededor de $$z,$$ la proyección $$D\to\pi(D)$$ es homeomorfismo;
->>- cerca de $$0,$$ la aplicación $$[z]\longmapsto z^3$$ está bien definida en el cociente y da un homeomorfismo entre un entorno de $$[0]$$ y un disco de $$\mathbb C.$$
->>Eso da también una estructura suave: usar las cartas de cociente fuera de $$[0]$$ y la carta $$[z]\mapsto z^3$$ en torno a $$[0].$$
->>No puede existir una estructura suave para la cual la proyección $$\pi:\mathbb C\to\mathbb C/G$$ sea un difeomorfismo local en $$0$$: cualquier entorno de $$0$$ contiene puntos $$z,\omega z,\omega^2 z$$ distintos con la misma imagen, así que $$\pi$$ no es inyectiva en ningún entorno de $$0.$$ Un difeomorfismo local debe ser localmente biyectivo.
+>>1. Sea $$\omega=e^{2\pi i/3}$$ y consideremos la aplicación
+>>$$F:\mathbb C\to\mathbb C,\qquad F(z)=z^3.$$
+>>Como $$\omega^3=1,$$ si $$y=\omega^k x$$ con $$k=0,1,2,$$ entonces
+>>$$F(y)=(\omega^k x)^3=\omega^{3k}x^3=x^3=F(x).$$
+>>Luego $F$ es constante sobre las clases de equivalencia, es decir, pasa al cociente.
+>>2. Por la propiedad universal del cociente, existe una única aplicación continua
+>>$$\widetilde F:\mathbb C/{\sim}\to\mathbb C$$
+>>tal que
+>>$$\widetilde F([z])=z^3\qquad\text{y}\qquad \widetilde F\circ \pi=F,$$
+>>donde $$\pi:\mathbb C\to\mathbb C/{\sim}$$ es la proyección canónica.
+>>3. Veamos que $\widetilde F$ es biyectiva.
+>>- **Inyectiva:** si $$\widetilde F([x])=\widetilde F([y]),$$ entonces $$x^3=y^3,$$ luego $$(y/x)^3=1$$ si $$x\neq 0,$$ y por tanto $$y=\omega^k x$$ para algún $$k=0,1,2.$$ Es decir, $$x\sim y,$$ luego $$[x]=[y].$$ Si $$x=0,$$ entonces también $$y=0.$$
+>>- **Sobreyectiva:** dado $$w\in\mathbb C,$$ existe $$z\in\mathbb C$$ tal que $$z^3=w$$, y entonces $$\widetilde F([z])=w.$$
+>>4. Veamos que $\widetilde F^{-1}$ es continua. Como $$\widetilde F\circ\pi=F$$ y $F$ es continua, la aplicación $$\widetilde F^{-1}:\mathbb C\to\mathbb C/{\sim}$$ verifica
+>>$$\widetilde F^{-1}(z)=\pi(\sqrt[3]{z}),$$
+>>donde puede elegirse cualquier raíz cúbica, pues todas dan la misma clase en el cociente. En particular, $$\widetilde F^{-1}\circ F=\pi,$$ y como $\pi$ es continua, se concluye que $\widetilde F^{-1}$ también es continua. Por lo tanto, $\widetilde F$ es un homeomorfismo.
+>>5. Como $$\mathbb C\cong\mathbb R^2,$$ se sigue que $$\mathbb C/{\sim}$$ es homeomorfo a $\mathbb R^2$. En particular, es localmente euclídeo de dimensión $2$.
+>>6. Transportando por $\widetilde F$ la estructura diferenciable usual de $$\mathbb C\cong\mathbb R^2,$$ obtenemos una estructura diferenciable sobre $$\mathbb C/{\sim}$$. De hecho, $$(\mathbb C/{\sim},\widetilde F)$$ es una carta global, de modo que el cociente admite una estructura diferenciable de dimensión $2$.
+>>7. Falta ver que no existe ninguna estructura diferenciable sobre $$\mathbb C/{\sim}$$ tal que la proyección
+>>$$\pi:\mathbb C\to\mathbb C/{\sim}$$
+>>sea un difeomorfismo local.
+>>8. Supongamos por contradicción que existiera tal estructura. Entonces, en particular, $\pi$ debería ser localmente un difeomorfismo en $$0\in\mathbb C.$$ Por definición, existiría un abierto $$U\ni 0$$ tal que
+>>$$\pi|_U:U\to \pi(U)$$
+>>fuera un difeomorfismo.
+>>9. Pero todo entorno abierto de $$0$$ en $$\mathbb C$$ contiene un punto $$z\neq 0,$$ y entonces también contiene $$\omega z$$ y $$\omega^2 z$$ si tomamos $z$ suficientemente pequeño. Estos tres puntos son distintos y satisfacen
+>>$$\pi(z)=\pi(\omega z)=\pi(\omega^2 z).$$
+>>Luego $$\pi|_U$$ no puede ser inyectiva.
+>>10. Esto contradice que $$\pi|_U$$ sea un difeomorfismo. Por lo tanto, no existe ninguna estructura diferenciable sobre $$\mathbb C/{\sim}$$ para la cual la proyección canónica sea un difeomorfismo local.
 
 ### Ejercicio 16
 
