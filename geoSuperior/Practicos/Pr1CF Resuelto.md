@@ -132,6 +132,9 @@
 >>8. Finalmente probamos $F$ es homeomorfismo. Luego $F$ es una carta que cubre el cilindro.
 >>- **Otra alternativa** 
 >>Usar la de meter la esfera en el cilindro y mandarlos puntos del cilindro a la interseccion con la esfera de la recta que une dicho punto con el origen. Y de ahi usar la estereografica para ir a $\mathbb{R}^{2}$. 
+
+^d2ec54
+
 ### Ejercicio 9
 
 >[!Exercise] Ejercicio 9
@@ -324,7 +327,15 @@
 >>	2. Nuestro problema es claramente la inyectividad. Pero si miramos las franjas $U=(a,b)\times \mathbb{R}$ con $b-a<2\pi$ entonces obviamente no tenemos dos puntos de la misma clase de equivalencia.
 >>	3. Luego $\pi|_{U}$ seria inyectiva y obviamente $\pi|_{U}:U\rightarrow\pi(U)$ seria biyectiva y claramente continua con inversa continua.
 >>	4. Luego si tomamos $U_{a}=(a,a+2\pi)$ y $$\{(\pi(U_{a}),\pi|_{U_{a}}^{-1})\}_{a\in \mathbb{R}}$$ evidentemnte tenemos cartas que cubren $C$   
->>	5. Veamos que son compatibles si $U_{a}\cap U_{b}$  
+>>	5. Veamos que son compatibles si $U_{a}\cap U_{b}$. Notamos que $$\pi|_{U_{a}}\circ(\pi|_{U_{b}})^{-1}:\pi|_{U_{b}}(U_{a}\cap U_{b})\rightarrow \pi|_{U_{a}}(U_{a}\cap U_{b})$$ es la identidad con lo cual es difeo.
+>>- **Difeomorfismo local**
+>>	1. Sea $p\in \mathbb{R}^{2}$ tomamos $U=(a,b)\times\mathbb{R}$ como en 2. abierto de $p$ 
+>>	2. Evidentemente $\pi|_{U}:U\rightarrow\pi(U)$ es homeomorfismo por definicion
+>>	3. Veamos que es difeomorfismo. Tomamos carta de $C$, $(\pi(U),\pi|_{U}^{-1})$ que esta bien definida, por como tomamos $U$.
+>>	4. Ahora $\pi|_{U}\circ\pi|_{U}^{-1}=Id$ que es suave. Por ende $\pi|_{U}$ es suave. Analogamente sale con la inversa.
+>>	5. Entonces $\pi|_{U}$ es difeomorfismo. Mostrando que $\pi$ es difeomorfismo local
+>>- **Unicidad de dicha estructura**
+>>	1. Supongamos que hubiera otra estructura $\tilde{\mathcal{F}}$ tal que $\pi$ es difeo  
 >>- **$C$ es difeo con $\mathbb{S}\times\mathbb{R}$**  
 >>	1. La relación $z\sim z+2k\pi e_1$ escencialmente concentra $\mathbb{R}^{2}$  en por ejemplo la franja $[0,2\pi)\times \mathbb{R}$
 >>	2. Miramos $$F:\mathbb{R}^{2}\rightarrow \mathbb{S}\times \mathbb{R}$$ dada por $F(x,y)=(e^{ix},y)$ 
@@ -333,17 +344,26 @@
 >>	5. Y por ultimo $F$ es sobreyectiva. 
 >>	6. Entonces $F$ pasa al cociente osea obtenemos $$\tilde{F}:\mathbb{R}^{2}/\sim=C\rightarrow \mathbb{S}\times\mathbb{R}$$ que es biyectiva y como $F$ es suave $\tilde{F}$ lo es
 >>	7. Por lo tanto tenemos una difeomorfismo como queriamos
-  
->>8. iramos $\pi:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}/\sim =C$ po
->>
-
-es un difeomorfismo local.
->>
->>**17.a: $C\cong S^1\times\mathbb R$** Definimos $$F([x,y])=(e^{ix},y).$$ Está bien definida porque $$e^{i(x+2k\pi)}=e^{ix}.$$ Es biyectiva y suave, con inversa local dada por una rama del argumento en $$S^1.$$ Por lo tanto es un difeomorfismo.
->>
->>**17.b: $C\cong \mathbb R^2\setminus\{0\}$** Definimos $$G([x,y])=\bigl(e^y\cos x,\,e^y\sin x\bigr).$$ De nuevo es bien definida por la periodicidad en $$x.$$ Su inversa es $$(u,v)\longmapsto\left[\arg(u+iv),\,\log\sqrt{u^2+v^2}\right].$$ Entonces $$G$$ es un difeomorfismo.
->>
->>**17.c: superficie con una vuelta entera** Una parametrización periódica natural es $$H([x,y])=\bigl((2+y\cos x)\cos x,\,(2+y\cos x)\sin x,\,y\sin x\bigr).$$ La periodicidad en $$x$$ muestra que está bien definida sobre el cociente. Esta aplicación describe la superficie obtenida al pegar una cinta después de dar una vuelta entera. En los dominios locales donde se usan coordenadas $$(x,y),$$ $$H$$ es un difeomorfismo local, y por tanto identifica esa superficie con el cilindro $$C.$$
+>>- **$C$ difeomorfa con $\mathbb{R}^{2}\setminus \{ 0 \}$** 
+>>	1. En [[Pr1CF Resuelto#^d2ec54]] ya dimos un homeo que va desde $\mathbb{S}\times\mathbb{R}$ a $\mathbb{R}^{2}\setminus \{ 0 \}$ $$G((x,y),z)=(e^z x,\, e^z y)$$
+>>	2. Veamos que es difeomorfismo. Tomamos $(U\times \mathbb{R},\varphi \times Id)$ y miramos $$\begin{align}G\circ(\varphi\times Id)^{-1}(x,y,z)& =G((\varphi_{1} ^{-1}(x,y),\varphi_{2}^{-1}(x,y)),z)\\&=(e^{z}\varphi_{1}^{-1}(x,y),e^{z}\varphi_{2}^{-1}(x,y))\\&=e^{z} \varphi ^{-1}(x,y)\end{align}$$ que es claramente suave por ser multiplicacion de suaves
+>>	3. Ademas $G$ es claramente homeomorfismo.
+>>	4. La inversa de $G$ es $$\tilde{G}(u,v)=\left(\frac{u}{\sqrt{u^2+v^2}},\,\frac{v}{\sqrt{u^2+v^2}},\,\ln\!\left(\sqrt{u^2+v^2}\right)\right)$$ y haciendo lo mismo con $(U\times\mathbb{R},\varphi\times\mathbb{R})$ a la izquierda se ve que es suave y evidentemente es homeo (en $\mathbb{R}\setminus \{ 0 \}$) 
+>>	5. Entonces $G$ es difeomorfismo como queriamos
+>>	6. Ahora si componemos $G\circ \tilde{F}:C\rightarrow\mathbb{R}^{2}\setminus \{ 0 \}$ y es composicion de difeormorfismos
+>>- **$C$ difeomorfma a construccion de cinta con $2\pi$**
+>>1. Definimos $H:\mathbb R^2\to\mathbb R^3$ por $$H(x,y)=\big((1+\tfrac{y}{2}\cos x)\cos x,\ (1+\tfrac{y}{2}\cos x)\sin x,\ \tfrac{y}{2}\sin x\big)$$
+>>2. Notamos que $$H(x+2\pi,y)=H(x,y)$$por lo tanto $H$ es constante en clases de equivalencia y pasa al cociente, obteniendo $$\tilde H:C=\mathbb R^2/\sim\ \to\ \Sigma\subset\mathbb R^3$$
+>>3. Veamos que $\tilde H$ es biyectiva: Si $H(x_1,y_1)=H(x_2,y_2)$, entonces necesariamente $y_1=y_2$ y $x_1=x_2+2k\pi$, luego $(x_1,y_1)\sim(x_2,y_2)$ 
+>>4. Por construcción, todo punto de $\Sigma$ tiene preimagen  
+>>5. Veamos que $\tilde H$ es suave. Tomamos una carta de $C$ de la forma $(\pi(U),\pi|_U^{-1})$, entonces $$H\circ \pi|_U^{-1}:\pi(U)\to\mathbb R^3$$es una función explícita en coordenadas, luego es $C^\infty$  
+>>6. Veamos que la inversa es suave. Dado $(x_1,x_2,x_3)\in\Sigma$, recuperamos: $x=\arg(x_1,x_2)$ (bien definido módulo $2\pi$)
+>>7. $y$ a partir de la distancia radial 
+>>8. Esto define una función suave en coordenadas locales  
+>>9. Entonces $\tilde H$ es difeomorfismo  
+>>10. Observación:  
+>>- Si la torsión fuera $\pi$ se obtiene la banda de Möbius (no orientable)  
+>>- Como la torsión es $2\pi$, la superficie es orientable y difeomorfa al cilindro
 
 ### Ejercicio 18
 
@@ -354,7 +374,17 @@ es un difeomorfismo local.
 >- el conjunto de todos los planos punteados orientados en $\mathbb R^3$,
 >- el conjunto de todas las rectas orientadas en el plano.
 >>[!Proof]-
->>**18.a** Sea $$M=\{(v,w)\in\mathbb R^2\times\mathbb R^2:\|v\|=1,\ \|w\|=1,\ \langle v,w\rangle=0\}.$$ Si $$v=(\cos\theta,\sin\theta),$$ entonces necesariamente $$w=\pm(-\sin\theta,\cos\theta).$$ Así, $$M\cong S^1\times\{\pm1\}.$$ En particular es una variedad diferenciable de dimensión $1$, con dos componentes conexas.
+>>- **(a)**
+>>	1. Sea $$M=\{(v,w)\in\mathbb R^2\times\mathbb R^2:\|v\|=1,\ \|w\|=1,\ \langle v,w\rangle=0\}.$$
+>>	2. Por lo tanto podemos definir $\pi:M\rightarrow \mathbb{S}$ dada por $\pi(v,w)=v$
+>>	3. Si $v=(v_{1},v_{2}),$ entonces necesariamente $w=\epsilon(-v_{2},v_{1}).$ con $\epsilon=\pm 1$ por lo tanto podemos tomar los abiertos $$U_{+}=\{ (v,w)\in M:w=(-v_{2},v_{1}) \text{ con }v_{1}\neq-1\}\qquad U_{-}=\{ (v,w)\in M:w=-(-v_{2},v_{1}) \text{ con }v_{1}\neq-1\}$$
+>>	4. Dado $p\in M$ seguro esta en alguno de estos dos, supongamos $p\in U_{+}$. Entonces evidentemente $\pi|_{U_{+}}$ es homeomorfismo
+>>	5. Ahora miramos $\pi|_{U_{+}}(p)$ y seguro alguna de las dos cartas estereo graficas nos sirve y son ambas homeomorfismos
+>>	6. Entonces tenemos $\varphi_{+}\circ\pi|_{U_{+}}:M\rightarrow \mathbb{R}$ es homeomorfismo
+>>	7. Analogo con $U_{-}$ 
+>>	8. Con lo cual $M$ es variedad topologica de dimension $1$ 
+>>	9. Que es $N_{2}$ y Hausdorff sale por que es producto de $N_{2}$ y Hausdorff.
+>>	10. Ademas $\{ (U_{\pm},\varphi_{\pm}\circ\pi|_{U_{\pm}}) \}$ cubre todo $M$ y son claramente compatibles las cartas. Por que $U_{+}\cap U_{-}=\emptyset$   
 >>
 >>**18.b** Un prisma con caras paralelas a los ejes y volumen $1$ queda determinado por:
 >>- un vértice $$(x_0,y_0,z_0)\in\mathbb R^3,$$
