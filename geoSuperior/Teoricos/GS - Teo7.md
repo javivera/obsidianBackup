@@ -79,6 +79,8 @@
 >$$
 >se llama **proyección natural**.
 
+^4762ec
+
 >[!Remark] Notación
 >Dado un punto $(p,v)\in TM$, suele escribirse simplemente $v$ en lugar de $(p,v)$ cuando el punto base $p$ está claro por el contexto. O si no $v_{p}$ 
 
@@ -95,12 +97,34 @@
 >>4. Definimos $$\widetilde\varphi:\widetilde U\subseteq TM\to\varphi(U)\times\mathbb R^n\subseteq\mathbb R^{2n}$$por $$\widetilde\varphi(p,v)=\bigl(x_1(p),\dots,x_n(p),v_1,\dots,v_n\bigr)$$ llamada **carta inducida**
 >>5. Esta aplicación es biyectiva, y su inversa es $$\widetilde\varphi^{-1}(r_1,\dots,r_n,t_1,\dots,t_n)=\left(\varphi^{-1}(r_1,\dots,r_n),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r_1,\dots,r_n)}\right).$$
 >>6. Esta claro que estas cartas cubren todo $TM$. Veamos que son compatibles
->>7. Si $(V,\psi=(y_1,\dots,y_n))$ es otra carta de $M$ y $\widetilde\psi$ es la carta inducida en $TM$, y es tal que $\tilde{V}\cap \tilde{U}\neq 0$, luego $V\cap U\neq0$
->>8. Luego$$\tilde{\psi}\circ \tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}\longrightarrow\tilde{\psi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}$$ que es: $$\begin{align}(r_{1},\ldots r_{n},t_{1},...,t_{n})&\longmapsto^{\tilde{\varphi}^{-1}} \left(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}\right)\\&\longmapsto^{\tilde{\psi}}(y_{1}(\tilde{\varphi}^{-1}(r)),\ldots,y_{n}(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{1},\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{n}) \\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{1}\circ\varphi ^{-1}),\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{n}\circ\varphi ^{-1})\bigg)\\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{1}(r),\ldots,\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{n}(r)\bigg)\end{align}$$    
->>9. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que $\psi\circ\varphi ^{-1}$ es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves 
->>10. Por lo tanto, las cartas $\{(\widetilde U,\widetilde\varphi)\}$ forman un atlas suave sobre $TM$, y la dimensión es $2n$.
->>11. La topología sobre $TM$ se toma como la generada por estos dominios coordenados. Con esa topología, $TM$ es Hausdorff y segundo numerable si $M$ lo es.
->>12. Finalmente, la proyección natural es suave porque en coordenadas vale $$\varphi\circ\pi\circ\widetilde\varphi^{-1}(r_1,\dots,r_n,t_1,\dots,t_n)=(r_1,\dots,r_n)$$que es suave.
+>>7. Sean $(\tilde{V},\tilde{\psi})$ y $(\tilde{U},\tilde{\varphi})$ dos cartas de $TM$ asociadas a $(V,\psi=(y_1,\dots,y_n))$ y $(U,\varphi=(x_{1},\ldots x_{n}))$ tales que $\tilde{V}\cap \tilde{U}\neq 0$, luego $V\cap U\neq0$
+>>8. Entonces $$\tilde{\psi}\circ \tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}\longrightarrow\tilde{\psi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}$$ que es: $$\begin{align}(r_{1},\ldots r_{n},t_{1},...,t_{n})&\longmapsto^{\tilde{\varphi}^{-1}} \left(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}\right)\\&\longmapsto^{\tilde{\psi}}(y_{1}(\tilde{\varphi}^{-1}(r)),\ldots,y_{n}(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{1},\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{n}) \\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{1}\circ\varphi ^{-1}),\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{n}\circ\varphi ^{-1})\bigg)\\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{1}(r),\ldots,\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{n}(r)\bigg)\end{align}$$    
+>>9. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que $\psi\circ\varphi ^{-1}$ es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves
+>>10. Y obviamente cambiando los roles obtenemos que la otra composicion es suave tambien
+>>11. Por lo tanto, las cartas $\{(\widetilde U,\widetilde\varphi)\}$ formarian un atlas suave sobre $TM$ de dimensión es $2n$. (Si $\tilde{U},\tilde{V}$ fueran abiertos) 
+>>12. Sea $$\mathcal{B}=\{\tilde{\varphi}^{-1}(W): W \text{ es abierto de } \mathbb{R}^{2n},\ (U,\varphi) \text{ es carta suave de } M\}$$
+>>13. Veamos que $\mathcal{B}$ cumple las condiciones para ser una base de una topología (para $TM$)
+>>14. $\mathcal{B}$ cubre $TM$. Pues el conjunto de cartas suaves de $M$ cubre a $M$, y en $\mathcal{B}$ están los $\tilde{U}=\pi^{-1}(U)$, con $U$ dominio de carta suave.
+>>15. Sean $\tilde{\varphi}_1^{-1}(W_1)$ y $\tilde{\varphi}_2^{-1}(W_2)$ en $\mathcal{B}$, y sea $z \in \tilde{\varphi}_1^{-1}(W_1)\cap \tilde{\varphi}_2^{-1}(W_2)$. Queremos ver que existe un miembro de $\mathcal{B}$ que contiene a $z$ y está contenido en la intersección. 
+>>16. Para ver esto, alcanza con ver que $\tilde{\varphi}_1^{-1}(W_1)\cap \tilde{\varphi}_2^{-1}(W_2)\in \mathcal{B}$. Llamemos $\tilde{U}_1=\operatorname{dm}\tilde{\varphi}_1$ y $\tilde{U}_2=\operatorname{dm}\tilde{\varphi}_2$. Entonces $$\tilde{\varphi}_1^{-1}(W_1)\cap \tilde{\varphi}_2^{-1}(W_2)=\tilde{\varphi}_1^{-1}(W_1)\cap \tilde{\varphi}_{1}^{-1}\circ\tilde{\varphi}_1\circ \tilde{\varphi}_{2}^{-1}(W_{2}\cap \tilde{\varphi}_2(\tilde{U}_{1}\cap \tilde{U}_{2}))$$
+>>17. Como las funciones biyectivas se llevan bien con las uniones e intersecciones $$\tilde{\varphi}_1^{-1}(W_1)\cap \tilde{\varphi}_2^{-1}(W_2)=\tilde{\varphi}_1^{-1}(W_1\cap \tilde{\varphi}_{1}\circ \tilde{\varphi}_{2}^{-1}(W_{2}\cap \tilde{\varphi}_2(\tilde{U}_{1}\cap \tilde{U}_{2}))$$
+>>18. Y $W_{1}\cap \tilde{\varphi}_{1}\circ \tilde{\varphi}_{2}^{-1}(W_{2}\cap \tilde{\varphi}_{2}(\tilde{U_{1}}\cap \tilde{U}_{2}))$ es abierto por que $W_{1}$ es abierto.
+>>19. Y ademas vimos en 8. y 9. que $\tilde{\varphi}_{1}\circ\tilde{\varphi}_{2}^{-1}$ es difeo entre sus abiertos $\tilde{\varphi}_{1}(\tilde{U_{1}}\cap \tilde{U_{2}})$ y $\tilde{\varphi}_{2}(\tilde{U_{1}}\cap \tilde{U_{2}})$ por ende es homeomorfismo luego $W_{2}\cap \tilde{\varphi_{2}}(\tilde{U}_{1}\cap \tilde{U}_{2})$ es abierto de $\mathbb{R}^{2n}$ por ser interseccion de abiertos
+>>20. Mostrando que $\tilde{\varphi}_1^{-1}(W_1)\cap \tilde{\varphi}_2^{-1}(W_2)\in \mathcal{B}$ como queriamos
+>>21. Esta topología tiene una base numerable. Tomamos una base numerable de dominios de cartas de $M$, digamos $\{U_i\}$, y entonces $\{\tilde{U}_i=\pi^{-1}(U_i)\}$ es una base numerable para $TM$.
+>>22. ¿Por qué se puede hacer esto? Porque $M$ es $N2$ por definicion de variedad topologica luego existe una base numerable formada por dominios de cartas, y la proyección $\pi:TM\to M$ permite levantar esos abiertos.
+>>23. Chequeemos que $TM$ es Hausdorff. Sean $(p,v)\neq(q,w)$ en $TM$. Tenemos dos casos:
+>>	- Si $p\neq q$
+>>		1. como $M$ es Hausdorff, existen abiertos disjuntos $U,V\subset M$ tales que $p\in U$ y $q\in V$. Entonces $\tilde{U}=\pi^{-1}(U)$ y $\tilde{V}=\pi^{-1}(V)$ son abiertos disjuntos por [[GS - Teo7#^4762ec]] y que separan $(p,v)$ y $(q,w)$.
+>>	- Si $p=q$ 
+>>		1. Entonces $v\neq w$. Tenemos que $(p,v),(p,w)\in \tilde{U}$ con $(U,\varphi=(x_{1},\ldots x_{n}))$ cartas de $M$ en $p$. 
+>>		2. Escribimos $$v=\sum t_i\frac{\partial}{\partial x_{i}}\big|_p \qquad w=\sum s_i\frac{\partial}{\partial x_{i}}\big|_p$$
+>>		3. Como $v\neq w$, se tiene $(t_1,\dots,t_n)\neq(s_1,\dots,s_n)$.
+>>		4. Luego existen abiertos disjuntos $B_1,B_2\subset \mathbb{R}^n$ que separan estos puntos. 
+>>		5. Identificando $\mathbb{R}^{2n}\cong\mathbb{R}^n\times\mathbb{R}^n$, Tenemos que $$W_{1}=\varphi(U)\times B_1 \qquad \varphi(U)\times B_2=W_2$$ son abiertos de $\mathbb{R}^{2n}$ que contienen a $\tilde{\varphi}(p,v)$ y $\tilde{\varphi}(p,w)$ y los separan. 
+>>		6. Por lo tanto, $\tilde{\varphi}^{-1}(W_1)$ y $\tilde{\varphi}^{-1}(W_2)$ son abiertos de $\mathcal{B}$ que separan a $(p,v)$ y $(p,w)$. 
+>>7. Por último, la proyección $\pi:TM\to M$ es suave. Esto se verifica usando las cartas inducidas $\{(\tilde{U},\tilde{\varphi})\}$ asociadas a $\{(U,\varphi)\}$ de $M$ . 
+>>8. En coordenadas se tiene $\varphi\circ\pi\circ\tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U})\subset\mathbb{R}^{2n}\to\mathbb{R}^n$, $(x,v)\mapsto x$, que es claramente una aplicación suave.
 
 >[!Remark] Fórmula de los cambios de coordenadas en $TM$
 >Si
@@ -122,6 +146,8 @@
 >$$
 >como variedades suaves.
 
+>[!Example] Opcional
+>Sea $M$ una variedad que puede ser cubierta con una sola carta, entonces $TM$ es difeomorfa a $M\times \mathbb{R}^{n}$  
 ## Diferencial global
 
 >[!Definition] Diferencial global
@@ -134,16 +160,18 @@
 >dF(p,v)=\bigl(F(p),(dF)_p(v)\bigr).
 >$$
 >
->Esta aplicación extiende simultáneamente todas las diferenciales puntuales $(dF)_p$.
+>Esta aplicación extiende lo que hace $(dF)_{q}$ con $q\in M$ a toda la variedad.
 
->[!Exercise] Suavidad de la diferencial global
+>[!Remark] Suavidad de la diferencial global
 >Mostrar que si $F:M\to N$ es suave, entonces
 >$$
 >dF:TM\to TN
 >$$
 >también es suave.
+>>[!Proof]
+>>Se ve en el practico
 
->[!Remark] El funtor tangente
+>[!Remark] El funtor tangente Lee pagina 73
 >Si $\mathbf{Diff}$ denota la categoría cuyas:
 >
 >- objetos son las variedades suaves,

@@ -121,8 +121,8 @@
 >[!Exercise]
 >Sea $M$ el cilindro infinito; $M:=\{(x,y,z)\in\mathbb{R}^3:x^2+y^2=1\}$. Cubrir a $M$ con una sola carta.
 >>[!Proof]-
->>1. Vamos a ver que $M\cong S^1\times\mathbb{R}$. Además:
->>$$S^1\times\mathbb{R}\cong S^1\times(0,\infty)\cong\mathbb{R}^2\setminus\{0\}$$
+>>1. Vamos a ver:
+>>$$M\cong S^1\times\mathbb{R}\cong S^1\times(0,\infty)\cong\mathbb{R}^2\setminus\{0\}$$
 >>2. $M\cong S^1\times\mathbb{R}$ (trivial): $(x,y,z)\mapsto(x,y,z)$ es homeo.
 >>3. $S^1\times\mathbb{R}\cong S^1\times(0,\infty)$ osea $\mathbb{R}\cong(0,\infty)$: $(x,y,z)\mapsto(x,y,e^z)$ es homeo.
 >>4. $S^1\times(0,\infty)\cong\mathbb{R}^2\setminus\{(0,0)\}$: $(x,y,h)\mapsto(hx,hy)$, obviamente $(hx,hy)\ne 0$ y es claramente homeomorfismo.
@@ -269,51 +269,75 @@
 >[!Exercise]
 >Considerar en $\mathbb C$ la relación de equivalencia $$x\sim e^{i2k\pi/3}x,\qquad k=0,1,2.$$ Mostrar que $$\mathbb C/{\sim}$$ es localmente euclídeo de dimensión $2$, que admite estructura diferenciable, pero que no admite ninguna estructura diferenciable tal que la proyección sea un difeomorfismo local.
 >>[!Proof]-
->>1. Sea $$\omega=e^{2\pi i/3}$$ y consideremos la aplicación
->>$$F:\mathbb C\to\mathbb C,\qquad F(z)=z^3.$$
->>Como $$\omega^3=1,$$ si $$y=\omega^k x$$ con $$k=0,1,2,$$ entonces
->>$$F(y)=(\omega^k x)^3=\omega^{3k}x^3=x^3=F(x).$$
->>Luego $F$ es constante sobre las clases de equivalencia, es decir, pasa al cociente.
->>2. Por la propiedad universal del cociente, existe una única aplicación continua
->>$$\widetilde F:\mathbb C/{\sim}\to\mathbb C$$
->>tal que
->>$$\widetilde F([z])=z^3\qquad\text{y}\qquad \widetilde F\circ \pi=F,$$
->>donde $$\pi:\mathbb C\to\mathbb C/{\sim}$$ es la proyección canónica.
->>3. Veamos que $\widetilde F$ es biyectiva.
->>- **Inyectiva:** si $$\widetilde F([x])=\widetilde F([y]),$$ entonces $$x^3=y^3,$$ luego $$(y/x)^3=1$$ si $$x\neq 0,$$ y por tanto $$y=\omega^k x$$ para algún $$k=0,1,2.$$ Es decir, $$x\sim y,$$ luego $$[x]=[y].$$ Si $$x=0,$$ entonces también $$y=0.$$
->>- **Sobreyectiva:** dado $$w\in\mathbb C,$$ existe $$z\in\mathbb C$$ tal que $$z^3=w$$, y entonces $$\widetilde F([z])=w.$$
->>4. Veamos que $\widetilde F^{-1}$ es continua. Como $$\widetilde F\circ\pi=F$$ y $F$ es continua, la aplicación $$\widetilde F^{-1}:\mathbb C\to\mathbb C/{\sim}$$ verifica
->>$$\widetilde F^{-1}(z)=\pi(\sqrt[3]{z}),$$
->>donde puede elegirse cualquier raíz cúbica, pues todas dan la misma clase en el cociente. En particular, $$\widetilde F^{-1}\circ F=\pi,$$ y como $\pi$ es continua, se concluye que $\widetilde F^{-1}$ también es continua. Por lo tanto, $\widetilde F$ es un homeomorfismo.
->>5. Como $$\mathbb C\cong\mathbb R^2,$$ se sigue que $$\mathbb C/{\sim}$$ es homeomorfo a $\mathbb R^2$. En particular, es localmente euclídeo de dimensión $2$.
->>6. Transportando por $\widetilde F$ la estructura diferenciable usual de $$\mathbb C\cong\mathbb R^2,$$ obtenemos una estructura diferenciable sobre $$\mathbb C/{\sim}$$. De hecho, $$(\mathbb C/{\sim},\widetilde F)$$ es una carta global, de modo que el cociente admite una estructura diferenciable de dimensión $2$.
->>7. Falta ver que no existe ninguna estructura diferenciable sobre $$\mathbb C/{\sim}$$ tal que la proyección
->>$$\pi:\mathbb C\to\mathbb C/{\sim}$$
->>sea un difeomorfismo local.
->>8. Supongamos por contradicción que existiera tal estructura. Entonces, en particular, $\pi$ debería ser localmente un difeomorfismo en $$0\in\mathbb C.$$ Por definición, existiría un abierto $$U\ni 0$$ tal que
->>$$\pi|_U:U\to \pi(U)$$
->>fuera un difeomorfismo.
->>9. Pero todo entorno abierto de $$0$$ en $$\mathbb C$$ contiene un punto $$z\neq 0,$$ y entonces también contiene $$\omega z$$ y $$\omega^2 z$$ si tomamos $z$ suficientemente pequeño. Estos tres puntos son distintos y satisfacen
->>$$\pi(z)=\pi(\omega z)=\pi(\omega^2 z).$$
->>Luego $$\pi|_U$$ no puede ser inyectiva.
->>10. Esto contradice que $$\pi|_U$$ sea un difeomorfismo. Por lo tanto, no existe ninguna estructura diferenciable sobre $$\mathbb C/{\sim}$$ para la cual la proyección canónica sea un difeomorfismo local.
+>>1. Sea $F(x)=x^3$. Entonces $F$ pasa al cociente, porque si $x\sim y$, entonces $y=xe^{i2k\pi/3}$ para algún $k=0,1,2$, y por lo tanto
+>>$$F(y)=y^3=x^3e^{i2k\pi}=x^3=F(x).$$
+>>2. Además es claro que si $F(x)=F(y)$ sucede que $x\sim y$ luego $\tilde{F}$ es inyectiva 
+>>3. Y $F$ es sobreyectiva. Por lo tanto $\tilde{F}$ lo es.
+>>4. Luego la función inducida
+>>$$\widetilde F:\mathbb C/{\sim}\to\mathbb C,\qquad \widetilde F([x])=F(x)=x^3$$
+>>es biyectiva.
+>>5. Además, $\widetilde F$ es continua por definición de topología cociente, ya que $$\widetilde F\circ\pi=F$$y $F$ es continua.
+>>6. Veamos que su inversa también es continua. Notemos que para todo $x\in\mathbb C$ y toda elección de raíz cúbica de $x$, se tiene $$\widetilde F^{-1}(x)=\pi(\sqrt[3]{x})$$lo cual está bien definido porque las distintas raíces cúbicas difieren por multiplicación por $e^{i2k\pi/3}$ y entonces pertenecen a la misma clase. 
+>>7. Como es composición de funciones continuas, resulta que $\widetilde F^{-1}$ es continua.
+>>8. Por lo tanto, $\widetilde F$ es un homeomorfismo. Como $\mathbb C\simeq\mathbb R^2$, concluimos que $\mathbb C/{\sim}$ es localmente euclídeo de dimensión $2$.
+>>9. Propongo como carta global $(\mathbb C/{\sim},\widetilde F)$. Como $\widetilde F$ es homeomorfismo sobre $\mathbb C\simeq\mathbb R^2$, esto define una estructura diferenciable de dimensión $2$ sobre $\mathbb C/{\sim}$.
+>>10. Supongamos ahora que existe una estructura diferenciable $\mathcal F$ sobre $\mathbb C/{\sim}$ tal que $$\pi:(\mathbb C,\text{can})\to(\mathbb C/{\sim},\mathcal F)$$es difeomorfismo local.
+>>11. Entonces en particular, para $p=0$, debería existir un abierto $U\ni 0$ tal que $$\pi|_U:U\to\pi(U)$$sea un difeomorfismo.
+>>12. Pero como $U$ es abierto de $\mathbb C$, contiene puntos no nulos arbitrariamente cercanos a $0$. Si tomamos uno de ellos, digamos $z$, entonces también $ze^{i2\pi/3}$ pertenece a $U$ 
+>>13. Luego $\pi(z)=\pi(ze^{i2\pi/3})$ con $z\neq ze^{i2\pi/3}$.
+>>14. Entonces $\pi|_U$ no es inyectiva, contradicción. 
+>>15. Luego no existe ninguna estructura diferenciable tal que la proyección sea un difeomorfismo local.
 
 ### Ejercicio 16
 
 >[!Exercise]
->Sea $$M_1=S^1\times\mathbb R$$ con la estructura diferenciable producto, y sea $$M_2$$ la variedad diferenciable del ejercicio del cilindro infinito. ¿Puede probar que $$M_1$$ y $$M_2$$ son difeomorfas?
+>Sea $M_1=\mathbb{S}^1\times\mathbb R$ con la estructura diferenciable producto, y sea $M_2$ la variedad diferenciable del ejercicio del cilindro infinito. ¿Puede probar que $M_1$ y $M_2$ son difeomorfas?
 >>[!Proof]-
->>Sí. La aplicación $$F:S^1\times\mathbb R\to M_2,\qquad F((x,y),t)=(x,y,t)$$ es un difeomorfismo, donde $$M_2=\{(x,y,z)\in\mathbb R^3:x^2+y^2=1\}.$$ Su inversa es $$(x,y,z)\mapsto((x,y),z).$$ Ambas son suaves.
+>>1. Sea $\mathcal F$ el atlas de $S^1$ dado por las estereográficas. Entonces
+>>$$\{(U_i\times \mathbb R,\ \varphi_i\times \mathrm{Id})\}$$
+>>es un atlas producto para $M_1=S^1\times \mathbb R$.
+>>2. Sea además $M_2=(M,\mathcal{F})$ donde $M$ es el cilundro y $\mathcal{F}$ es la estructura suave dada en el ejercicio $8$ 
+>>3. Definimos $$H:M_1\to M_2,\qquad H((x,y),z)=(x,y,z).$$y afirmamos que es difeomorfismo.
+>>4. Que $H$ es homeomorfismo es trivial: su inversa es
+>>$$H^{-1}(x,y,z)=((x,y),z).$$
+>>5. Veamos que $H$ es suave. Tomemos $p=((p_1,p_2),p_3)\in M_1$. Elegimos una carta producto $(U_i\times \mathbb R,\varphi_i\times \mathrm{Id})$ de $M_1$ con $p\in U_i\times\mathbb R$, y para $M_2$ tomamos la carta global $(M_2,F)$ del ejercicio $8$, donde $$F(x,y,z)=(e^z x,e^z y).$$
+>>6. Obviamente $H(p)\in M$. Además, como $U_i\times\mathbb R$ es abierto de $M_1$ por definición de atlas producto y $F$ es carta global de $M_2$, la composición $$F\circ H\circ (\varphi_i\times \mathrm{Id})^{-1}$$está bien definida.
+>>7. Ahora notemos que $$(\varphi_i\times \mathrm{Id})((x,y),z)=(\varphi_{1}(x,y),\varphi_{2}(x,y),z)\Longrightarrow   (\varphi_i\times \mathrm{Id})^{-1}(x,y,v)=(\varphi^{-1}(x,y),z).$$por lo tanto
+>>$$H\circ (\varphi_i\times \mathrm{Id})^{-1}(x,y,z)=(\varphi_1^{-1}(x,y),\varphi_{2}^{-1}(x,y),z),$$
+>>y aplicando $F$ obtenemos $$F\circ H\circ (\varphi_i\times \mathrm{Id})^{-1}(x,y,z)=(e^z\varphi_1^{-1}(x,y),e^{z}\varphi_{2}^{-1}(x,y)) =e^{z}\varphi ^{-1}(x,y) $$que es producto y composición de funciones suaves. Luego $H$ es suave.
+>>8. Veamos ahora que $H^{-1}$ es suave. Sea $q=(x,y,z)\in M_2$. Sin perdida de generalidades tomamos un abierto $U$ de $q$ tal que $(U\times \mathbb R,\varphi_i\times \mathrm{Id})$ es carta de $M_1$. Y obviamente para la otra carta tomamos nuevamente la carta global $(U,F)$ restringida que clarmente es carta
+>>9. Luego recordamos $$F^{-1}(u,v)=\left(\frac{u}{\sqrt{u^2+v^2}},\frac{v}{\sqrt{u^2+v^2}},\ln\sqrt{u^2+v^2}\right),$$
+>>10. Por lo tanto obtenemos $$(\varphi_i\times \mathrm{Id})\circ H^{-1}\circ F^{-1}(u,v)=\left(\varphi_i\!\left(\frac{u}{\sqrt{u^2+v^2}},\frac{v}{\sqrt{u^2+v^2}}\right),\ln\sqrt{u^2+v^2}\right).$$ que esta bien definida y es suave en su dominio, luego $H^{-1}$ es suave.
+>>11. Concluimos que $H$ es un difeomorfismo. Por lo tanto, $M_1$ y $M_2$ son difeomorfas.
 
 ### Ejercicio 17
 
 >[!Exercise]
->Mostrar que el cilindro $$C=\mathbb R^2/{\sim},$$ donde $$z\sim z+2k\pi e_1$$ con $$k\in\mathbb Z,$$ admite una única estructura diferenciable tal que la proyección canónica es un difeomorfismo local. Probar que es difeomorfo a cada una de las siguientes variedades diferenciables:
->- la variedad producto $$S^1\times\mathbb R,$$
->- $$\mathbb R^2\setminus\{0\},$$
->- la superficie de $\mathbb R^3$ cuya construcción es análoga a la de la banda de Moebius a partir de una cinta, pero dando una vuelta entera antes de pegar.
+>Mostrar que el cilindro $C=\mathbb R^2/{\sim}$ donde $z\sim z+2k\pi e_1$ con $k\in\mathbb Z$, admite una única estructura diferenciable tal que la proyección canónica es un difeomorfismo local. 
+>Probar que es difeomorfo a cada una de las siguientes variedades diferenciables:
+>	- la variedad producto $S^1\times\mathbb R,$
+>	- $\mathbb R^2\setminus\{0\}$
+>	- la superficie de $\mathbb R^3$ cuya construcción es análoga a la de la banda de Moebius a partir de una cinta, pero dando una vuelta entera antes de pegar.
 >>[!Proof]-
->>La relación $$z\sim z+2k\pi e_1$$ es la acción de $$\mathbb Z$$ por traslaciones horizontales. Como es libre y propiamente discontinua, existe una única estructura suave sobre $$C=\mathbb R^2/{\sim}$$ tal que la proyección canónica $$\pi:\mathbb R^2\to C$$ es un difeomorfismo local.
+>>- **Demosle estructura a $C$**
+>>	1. Miramos $\pi:\mathbb{R}^{2}\rightarrow C$ dada por $\pi(x,y)=[x,y]$ 
+>>	2. Nuestro problema es claramente la inyectividad. Pero si miramos las franjas $U=(a,b)\times \mathbb{R}$ con $b-a<2\pi$ entonces obviamente no tenemos dos puntos de la misma clase de equivalencia.
+>>	3. Luego $\pi|_{U}$ seria inyectiva y obviamente $\pi|_{U}:U\rightarrow\pi(U)$ seria biyectiva y claramente continua con inversa continua.
+>>	4. Luego si tomamos $U_{a}=(a,a+2\pi)$ y $$\{(\pi(U_{a}),\pi|_{U_{a}}^{-1})\}_{a\in \mathbb{R}}$$ evidentemnte tenemos cartas que cubren $C$   
+>>	5. Veamos que son compatibles si $U_{a}\cap U_{b}$  
+>>- **$C$ es difeo con $\mathbb{S}\times\mathbb{R}$**  
+>>	1. La relación $z\sim z+2k\pi e_1$ escencialmente concentra $\mathbb{R}^{2}$  en por ejemplo la franja $[0,2\pi)\times \mathbb{R}$
+>>	2. Miramos $$F:\mathbb{R}^{2}\rightarrow \mathbb{S}\times \mathbb{R}$$ dada por $F(x,y)=(e^{ix},y)$ 
+>>	3. es directo ver que si $(x_{1},y_{1})\sim (x_{2},y_{2})$ entonces $F(x_{1},y_{1})=F(x_{2},y_{2})$ 
+>>	4. Ademas si $F(x_{1},y_{1})=F(x_{2},y_{2})$ entonces $y_{1}=y_{2}$ y $e^{ix_{1}}=e^{i x_{2}}$ entonces $ix_{1}=i x_{2}+2k\pi i$ entonces luego $x_{1}=x_{2}+2k\pi$ osea $(x_{1},y_{1})\sim(x_{2},y_{2})$ como queriamos.
+>>	5. Y por ultimo $F$ es sobreyectiva. 
+>>	6. Entonces $F$ pasa al cociente osea obtenemos $$\tilde{F}:\mathbb{R}^{2}/\sim=C\rightarrow \mathbb{S}\times\mathbb{R}$$ que es biyectiva y como $F$ es suave $\tilde{F}$ lo es
+>>	7. Por lo tanto tenemos una difeomorfismo como queriamos
+  
+>>8. iramos $\pi:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}/\sim =C$ po
+>>
+
+es un difeomorfismo local.
 >>
 >>**17.a: $C\cong S^1\times\mathbb R$** Definimos $$F([x,y])=(e^{ix},y).$$ Está bien definida porque $$e^{i(x+2k\pi)}=e^{ix}.$$ Es biyectiva y suave, con inversa local dada por una rama del argumento en $$S^1.$$ Por lo tanto es un difeomorfismo.
 >>
