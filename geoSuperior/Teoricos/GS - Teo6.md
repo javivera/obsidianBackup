@@ -49,8 +49,6 @@
 >>3. Como ambas derivaciones actúan igual sobre toda función $h\in C^\infty(P)$, son iguales. 
 >>4. Y luego como ambas actuan sobre todo $v\in T_{p}M$ son iguales
 
-# Diferencial e identificación del tangente local
-
 ## Diferencial de un difeomorfismo
 
 >[!Corollary] El diferencial de un difeomorfismo es un isomorfismo

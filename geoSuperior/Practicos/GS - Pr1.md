@@ -345,7 +345,7 @@
 >>	6. Entonces $F$ pasa al cociente osea obtenemos $$\tilde{F}:\mathbb{R}^{2}/\sim=C\rightarrow \mathbb{S}\times\mathbb{R}$$ que es biyectiva y como $F$ es suave $\tilde{F}$ lo es
 >>	7. Por lo tanto tenemos una difeomorfismo como queriamos
 >>- **$C$ difeomorfa con $\mathbb{R}^{2}\setminus \{ 0 \}$** 
->>	1. En [[Pr1CF Resuelto#^d2ec54]] ya dimos un homeo que va desde $\mathbb{S}\times\mathbb{R}$ a $\mathbb{R}^{2}\setminus \{ 0 \}$ $$G((x,y),z)=(e^z x,\, e^z y)$$
+>>	1. En [[GS - Pr1#^d2ec54]] ya dimos un homeo que va desde $\mathbb{S}\times\mathbb{R}$ a $\mathbb{R}^{2}\setminus \{ 0 \}$ $$G((x,y),z)=(e^z x,\, e^z y)$$
 >>	2. Veamos que es difeomorfismo. Tomamos $(U\times \mathbb{R},\varphi \times Id)$ y miramos $$\begin{align}G\circ(\varphi\times Id)^{-1}(x,y,z)& =G((\varphi_{1} ^{-1}(x,y),\varphi_{2}^{-1}(x,y)),z)\\&=(e^{z}\varphi_{1}^{-1}(x,y),e^{z}\varphi_{2}^{-1}(x,y))\\&=e^{z} \varphi ^{-1}(x,y)\end{align}$$ que es claramente suave por ser multiplicacion de suaves
 >>	3. Ademas $G$ es claramente homeomorfismo.
 >>	4. La inversa de $G$ es $$\tilde{G}(u,v)=\left(\frac{u}{\sqrt{u^2+v^2}},\,\frac{v}{\sqrt{u^2+v^2}},\,\ln\!\left(\sqrt{u^2+v^2}\right)\right)$$ y haciendo lo mismo con $(U\times\mathbb{R},\varphi\times\mathbb{R})$ a la izquierda se ve que es suave y evidentemente es homeo (en $\mathbb{R}\setminus \{ 0 \}$) 
@@ -386,14 +386,28 @@
 >>	9. Que es $N_{2}$ y Hausdorff sale por que es producto de $N_{2}$ y Hausdorff.
 >>	10. Ademas $\{ (U_{\pm},\varphi_{\pm}\circ\pi|_{U_{\pm}}) \}$ cubre todo $M$ y son claramente compatibles las cartas. Por que $U_{+}\cap U_{-}=\emptyset$   
 >>
->>**18.b** Un prisma con caras paralelas a los ejes y volumen $1$ queda determinado por:
->>- un vértice $$(x_0,y_0,z_0)\in\mathbb R^3,$$
->>- longitudes $$a,b,c>0$$ con $$abc=1.$$
->>Tomando $$u=\log a$$ y $$v=\log b,$$ resulta $$c=e^{-u-v}.$$ Luego el espacio de prismas es difeomorfo a $$\mathbb R^3\times\mathbb R^2\cong\mathbb R^5.$$
+>>- **(b)** 
+>>	1. Un prisma con caras paralelas a los ejes y volumen $1$ queda determinado por:
+>>		- Un vértice $$(x_0,y_0,z_0)\in\mathbb R^3,$$
+>>		- Longitudes $$a,b,c>0\quad \text{ tales que }\quad abc=1.$$
+>>	1. Entonces $$M=\{ (x,y,z,a,b,c)\in \mathbb{R}^{3}\times (0,\infty)^{3}:abc=1 \}$$
+>>	2. Obviamente aca tenemos la topologia heredad de $\mathbb{R}^{6}$. 
+>>	3. Como $abc=1$ entonces $c=\frac{1}{ab}$ por lo tanto tenemos $\psi:M\rightarrow \mathbb{R}^{3}\times(0,\infty)^{2}$ dada for $$\psi(x,y,z,a,b,c)=( x,y,z,a,b)$$con inversa $\psi ^{-1}(x,y,z,a,b)=\left( x,y,z,a,b, \frac{1}{ab} \right)$ 
+>>	4. Es claramente continua (en su dominio) con inversa continua. Ademas es evidentemente biyectiva. (Notar que una vez que das $a,b$ entonces $c$ queda fijado para cumplir $abc=1$)
+>>	5. Luego $M$ es localmente euclideo (mas aun con una sola carta puede ser cubierto). 
+>>	6. Que es $N2$ y Hausdorf por que $\mathbb{R}^{6}$ lo es (por ser producto finito de $N2$ y Haussdorf) luego $M$ lo es por que es un subconjunto con la topologia heredada. 
+>>	7. Luego $M$ es variedad lineal y le damos el atlas $\{(U,\psi)\}$ con $U$ abierto de $\mathbb{R}^{3}\times (0,\infty)^{3}$. 
+>>	8. Y con eso tenemos una estructura 
 >>
->>**18.c** Un plano punteado orientado en $$\mathbb R^3$$ queda determinado por:
->>- un punto $$p\in\mathbb R^3,$$
->>- una orientación del plano, equivalente a elegir un normal unitario $$n\in S^2.$$
->>Entonces el espacio de todos los planos punteados orientados es difeomorfo a $$\mathbb R^3\times S^2,$$ que es una variedad de dimensión $5$.
->>
->>**18.d** Una recta orientada del plano queda determinada por un vector unitario de dirección $$u\in S^1$$ y por la distancia orientada $$\rho\in\mathbb R$$ al origen en la dirección normal $$Ju,$$ donde $$J$$ es la rotación de $$\pi/2.$$ La recta es $$\ell_{u,\rho}=\{\rho\,Ju+tu:t\in\mathbb R\}.$$ El par $$(u,\rho)$$ determina $$\ell_{u,\rho}$$ de manera única. Por lo tanto el espacio de rectas orientadas es difeomorfo a $$S^1\times\mathbb R.$$
+>>- **(c)** 
+>>	1. Un plano punteado orientado en $\mathbb R^3$ queda determinado por: Un punto $x\in\mathbb R^3$, una orientación del plano, equivalente a elegir un normal unitario $n\in S^2.$
+>>	2. Entonces podemos definir $$\psi:M\rightarrow \mathbb{R}^{3}\times \mathbb{S}^{2}\qquad\text{dada por}\qquad\psi(P)=(x,n)$$ donde $x$ es la base del plano $P$ y $n$ orientacion.
+>>	3. Esta $\psi$ es claramente homeomorfismo 
+>>	4. Luego usamos $\varphi(x,n)=(x,\varphi_{i}(n))$ donde $\varphi_{i}$ es una estereografica adecuada.
+>>	5. Osea dado $P\in M$ tenemos $(x,n)\in M$ si $n \not\in\{ (0,0,1),(0,0,-1) \}$ entonces tomamos cualquier abierto $U$ de $\mathbb{R}^{3}\times\mathbb{S}^{2}$ que contenga a $(x,n)$ y no contenga polo norte o sur, por comodidad (notando que su preimagen por $\psi$ va a ser abierto de $M$ por ser $\psi$ homeo)
+>>	6. $\varphi(\psi(\psi ^{-1}(U))$ es abierto por que $\varphi_{i}$ es homeomorfismo (y la identidad tambien)  
+>>	7. Y si $n$ es un polo, se hace lo mismo pero con cuidado de que estereografica tomamos 
+>>- **(d)** 
+>>	1. Una recta orientada del plano queda determinada por un vector unitario de dirección $u\in \mathbb{S}^1$ y por un desplazamiento $\rho\in\mathbb R$.
+>>	2. Entonces devuelta tenemos un homeomorfismo de $M$ a $\mathbb{R}\times \mathbb{S}^{1}$ 
+>>	3. Y despues componemos con $Id\times \varphi_{\pm}$ con $\varphi_{\pm}$ estereograficas  

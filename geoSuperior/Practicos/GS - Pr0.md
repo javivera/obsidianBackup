@@ -36,7 +36,7 @@
 >>	1. Escribiendo $X=(x_{ij})$ y $Y=(y_{ij})$, por multilinealidad del determinante en las columnas: $$\det(X+tY)=\det(X)+t\sum_{j=1}^n \det(X_1,\dots,Y_j,\dots,X_n)+o(t).$$
 >>	2. Recordamos que por expanision de Laplace tenemos $$\det(A)=\sum^{n}_{i=1} a_{ij}C_{ij}(A)$$
 >>	3. Luego $$\det(X+tY)=\det(X)+t\sum_{i,j} C_{ij}(X)y_{ij}+o(t)$$ donde $C_{ij}(X)$ es el cofactor $(i,j)$
->>	4. Y usando la misma idea que el [[Pr0CF Resuelto#^527a68]] llegamos a que $$(d\det)_X(Y) = \sum_{i,j} C_{ij}(X)y_{ij}.$$
+>>	4. Y usando la misma idea que el [[GS - Pr0#^527a68]] llegamos a que $$(d\det)_X(Y) = \sum_{i,j} C_{ij}(X)y_{ij}.$$
 >>	5. Esta suma coincide con el producto interno $\langle \operatorname{cof}(X), Y \rangle$.
 >>	6. Y ademas usando que $\langle A, B \rangle = \operatorname{tr}(A^t B)$ y que $\operatorname{adj}(X) = \operatorname{cof}(X)^t$, concluimos: $$(d\det)_X(Y) =\langle\operatorname{cof}(X),Y\rangle=\operatorname{tr}(\operatorname{cof}(X)^{t}Y)=  \operatorname{tr}(\operatorname{adj}(X) Y).$$
 >>- **4.b**
