@@ -71,6 +71,8 @@
 >>$$
 >>Luego $(dF)_p$ es invertible y su inversa es $(dF^{-1})_{F(p)}$.
 
+^3d3615
+
 ## Identificación entre $T_pU$ y $T_pM$
 
 >[!Proposition] La inclusión induce un isomorfismo
@@ -111,11 +113,11 @@ envía cada vector coordenado de $T_pU$ en el vector coordenado correspondiente 
 >$$
 >dos cartas suaves alrededor de $p$.
 >
->Las bases coordenadas $$\mathcal B_1=\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\},\qquad\mathcal B_2=\left\{\left.\frac{\partial}{\partial y_1}\right|_p,\dots,\left.\frac{\partial}{\partial y_n}\right|_p\right\}$$están relacionadas por la matriz jacobiana de la función de transición: $$\bigl[\operatorname{Id}_{T_pM}\bigr]_{\mathcal B_2}^{\mathcal B_1}=J(\varphi\circ\psi^{-1})(\psi(p))$$
+>Las bases coordenadas $$\mathcal B_1=\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\},\qquad\mathcal B_2=\left\{\left.\frac{\partial}{\partial y_1}\right|_p,\dots,\left.\frac{\partial}{\partial y_n}\right|_p\right\}$$Entonces la matriz $C$ cambio de base es $$\bigl[C\bigr]_{\mathcal B_2}^{\mathcal B_1}=J(\varphi\circ\psi^{-1})(\psi(p))$$
 >>[!Proof]-
 >>1. Escribimos $$\left.\frac{\partial}{\partial y_j}\right|_p=\sum_{i=1}^n a_{ij}\left.\frac{\partial}{\partial x_i}\right|_p$$
 >>2. Para hallar los coeficientes, aplicamos ambos lados a la función coordenada $x_i$: $$a_{ij}=\left.\frac{\partial}{\partial y_j}\right|_p(x_i)$$
 >>3. Por definición de vector coordenado, $$a_{ij}=\left.\frac{\partial}{\partial t_j}\right|_{\psi(p)}(x_i\circ\psi^{-1})$$donde $(t_1,\dots,t_n)$ son las coordenadas usuales en $\mathbb{R}^n$.
 >>4. Pero $x_i=\pi_i\circ\varphi$, donde $\pi_i:\mathbb{R}^n\to\mathbb{R}$ es la proyección sobre la $i$-ésima coordenada. Luego $$x_i\circ\psi^{-1}=\pi_i\circ\varphi\circ\psi^{-1}$$
 >>5. Por lo tanto $$a_{ij}=\left.\frac{\partial}{\partial t_j}\right|_{\psi(p)}\bigl(\pi_i\circ\varphi\circ\psi^{-1}\bigr)$$que es exactamente la entrada $(i,j)$ de la jacobiana de $\varphi\circ\psi^{-1}$ en $\psi(p)$.
->>6. Así, la matriz de cambio de base es $$\bigl(a_{ij}\bigr)=J(\varphi\circ\psi^{-1})(\psi(p))$$
+>>6. Así, la matriz de cambio de base es $$C(B_{2},B_{1})=J(\varphi\circ\psi^{-1})(\psi(p))$$

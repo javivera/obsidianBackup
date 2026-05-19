@@ -408,6 +408,12 @@
 >>	6. $\varphi(\psi(\psi ^{-1}(U))$ es abierto por que $\varphi_{i}$ es homeomorfismo (y la identidad tambien)  
 >>	7. Y si $n$ es un polo, se hace lo mismo pero con cuidado de que estereografica tomamos 
 >>- **(d)** 
->>	1. Una recta orientada del plano queda determinada por un vector unitario de dirección $u\in \mathbb{S}^1$ y por un desplazamiento $\rho\in\mathbb R$.
->>	2. Entonces devuelta tenemos un homeomorfismo de $M$ a $\mathbb{R}\times \mathbb{S}^{1}$ 
->>	3. Y despues componemos con $Id\times \varphi_{\pm}$ con $\varphi_{\pm}$ estereograficas  
+>>	1. Sea $L$ una recta orientada del plano. Su orientación queda determinada por un vector director unitario $$u\in S^{1}.$$
+>>	2. Fijado $u=(u_{1},u_{2})$, tomamos el vector unitario perpendicular compatible $$u^{\perp}=(-u_{2},u_{1}).$$
+>>	3. Toda recta orientada puede escribirse de manera única como
+>>	$$L=\{\rho\,u^{\perp}+tu:t\in\mathbb{R}\},$$
+>>	donde $\rho\in\mathbb{R}$. En efecto, $\rho\,u^{\perp}$ es el vector perpendicular a la recta basado en el origen, y su módulo es $|\rho|$.
+>>	4. Entonces el conjunto $M$ de rectas orientadas queda en biyección con $$S^{1}\times\mathbb{R},\qquad L\longmapsto (u,\rho).$$
+>>	5. La inversa está dada por $$(u,\rho)\longmapsto \{\rho\,u^{\perp}+tu:t\in\mathbb{R}\},$$ y es continua; por lo tanto obtenemos un homeomorfismo $$M\cong S^{1}\times\mathbb{R}.$$
+>>	6. Finalmente, componiendo con las cartas estereográficas de $S^{1}$, obtenemos cartas de $M$ con valores en abiertos de $\mathbb{R}^{2}$.
+>>	7. Por consiguiente, el conjunto de rectas orientadas del plano tiene estructura natural de variedad diferenciable de dimensión $2$.

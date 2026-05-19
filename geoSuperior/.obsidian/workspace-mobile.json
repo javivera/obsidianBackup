@@ -8,36 +8,37 @@
         "type": "tabs",
         "children": [
           {
-            "id": "81892f2baff01bb7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Practicos/Pr1CF Resuelto.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Pr1CF Resuelto"
-            }
-          },
-          {
             "id": "8e7e229a8ac5fe75",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoricos/GS - Teo4.md",
+                "file": "Teoricos/GS - Teo17.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "GS - Teo4"
+              "title": "GS - Teo17"
+            }
+          },
+          {
+            "id": "82161b3606c00917",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Practicos/GS - Pr4.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Pr4"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -114,7 +115,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Practicos/Pr1CF Resuelto.md",
+            "file": "Practicos/GS - Pr4.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -182,52 +183,53 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "81892f2baff01bb7",
+  "active": "82161b3606c00917",
   "lastOpenFiles": [
-    "Teoricos/GS - Teo4.md",
-    "Teoricos/GS - Teo6.md",
-    "Practicos/Pr1CF Resuelto.md",
+    "Teoricos/GS - Teo16.md",
+    "Practicos/GS - Pr4.md",
+    "Teoricos/GS - Teo17.md",
+    "Teoricos/GS - Teo15.md",
+    "Teoricos/GS - Teo14.md",
     "Teoricos/GS - Teo5.md",
-    "Untitled.md",
-    "Practicos/Pr2CF.pdf",
-    "page-10-test.png",
-    "Practicos/Pr0CF Resuelto.md",
-    "Practicos/Pr1CF.pdf",
+    "Teoricos/GS - Teo10.md",
+    "Teoricos/GS - Teo13.md",
+    "Practicos/GS - Pr3.md",
+    "Teoricos/GS - Teo6.md",
+    "Teoricos/GS - Teo7.md",
+    "Teoricos/GS - Teo9.md",
+    "Teoricos/GS - Teo8.md",
+    "Dudas.md",
+    "Pasted image 20260518154921.png",
+    "Pasted image 20260518214156.png",
+    "Pasted image 20260518154922.png",
+    "Images/Pasted image 20260513203029.png",
+    "Images/Pasted image 20260513203229.png",
+    "Images/Pasted image 20260513203039.png",
+    "Pasted image 20260513203039.png",
+    "formatting.md",
+    "Pasted image 20260513203229.png",
+    "Pasted image 20260513203029.png",
+    "Images/Pasted image 20260510002225.png",
+    "Practicos/GS - Pr4.pdf",
+    "Teoricos/GS - Teo11.md",
+    "Teoricos/GS - Teo12.md",
+    "Teoricos/GS - Teo4.md",
+    "Examenes/Parcial 2026-04-30 - soluciones.md",
+    "Examenes",
+    "Practicos/GS - Pr2.pdf",
+    "Images/GS - Teo12",
     "Teoricos/GS - Teo2.md",
-    "Teoricos/GS - Teo1.app.md",
-    "Teoricos/GS - 4to Teo.md",
-    "Teoricos/GS - 2do Teo.md",
-    "Teoricos/GS - 3er Teo.md",
-    "Teoricos/GS - 5to Teo.md",
-    "AGENT.md",
-    "Teoricos/Geometría Superiór - Apunte Teórico.md",
-    "Teoricos/GS - 1er Teo.md",
+    "Teoricos/GS - Teo3.md",
+    "Teoricos/AGENT_FORMATTING_GUIDE.md",
+    "Practicos/GS - Pr2.md",
+    "Practicos/GS - Pr3.pdf",
+    "Images",
+    "Practicos/GS - Pr1.md",
+    "Prueba.md",
+    "Practicos/Pr1CF Resuelto.md",
+    "Practicos/Pr2CF.pdf",
+    "Practicos/Pr1CF.pdf",
     "[Graduate texts in mathematics 218] Lee, John M - Introduction to smooth manifolds (2013, Springer) - libgen.li.pdf",
-    "Geometría Superiór - Apunte Teórico.md",
-    "[Graduate Texts in Mathematics №94] Frank W. Warner (auth.) - Foundations of Differentiable Manifolds and Lie Groups (1983, Springer) [10.1007_978-1-4757-1799-0] - libgen.li.pdf",
-    "Practicos/Resueltos/GD - Pr8.md",
-    "Definiciones.md",
-    "Practicos/Resueltos/GD - Pr7.md",
-    "Practicos/Resueltos/GD - Pr6.md",
-    "Examenes/GD - Examen Final 2.pdf",
-    "Practicos/Resueltos/GD - Pr5.md",
-    "Practicos/Resueltos/GD - Pr4.md",
-    "Practicos/Resueltos/GD - Pr3.md",
-    "Imagenes/Pasted image 20251205225053.png",
-    "Practicos/GD - Pr2.pdf",
-    "GD - Apunte.pdf",
-    "Practicos/GD - Pr1.pdf",
-    "Theory/Teórico 5.md",
-    "Theory/Teórico 7.md",
-    "Practicos/AF - Pr2-3.png",
-    "Practicos/AF - Pr2-2.png",
-    "Practicos/AF - Pr2-1.png",
-    "teoricos_1_2.pdf",
-    "Pasted image 20250709184958.png",
-    "Untitled",
-    "Pasted image 20250526192210.png",
-    "Pasted image 20250526170113.png",
-    "Inferencia Estadistica/Imagenes/Pasted image 20250525125822.png",
-    "Inferencia Estadistica/Imagenes/Pasted image 20250506100617.png"
+    "[Graduate Texts in Mathematics №94] Frank W. Warner (auth.) - Foundations of Differentiable Manifolds and Lie Groups (1983, Springer) [10.1007_978-1-4757-1799-0] - libgen.li.pdf"
   ]
 }

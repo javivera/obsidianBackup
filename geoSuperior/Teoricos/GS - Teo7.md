@@ -98,7 +98,7 @@
 >>5. Esta aplicación es biyectiva, y su inversa es $$\widetilde\varphi^{-1}(r_1,\dots,r_n,t_1,\dots,t_n)=\left(\varphi^{-1}(r_1,\dots,r_n),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r_1,\dots,r_n)}\right).$$
 >>6. Esta claro que estas cartas cubren todo $TM$. Veamos que son compatibles
 >>7. Sean $(\tilde{V},\tilde{\psi})$ y $(\tilde{U},\tilde{\varphi})$ dos cartas de $TM$ asociadas a $(V,\psi=(y_1,\dots,y_n))$ y $(U,\varphi=(x_{1},\ldots x_{n}))$ tales que $\tilde{V}\cap \tilde{U}\neq 0$, luego $V\cap U\neq0$
->>8. Entonces $$\tilde{\psi}\circ \tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}\longrightarrow\tilde{\psi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}$$ que es: $$\begin{align}(r_{1},\ldots r_{n},t_{1},...,t_{n})&\longmapsto^{\tilde{\varphi}^{-1}} \left(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}\right)\\&\longmapsto^{\tilde{\psi}}(y_{1}(\tilde{\varphi}^{-1}(r)),\ldots,y_{n}(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{1},\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{n}) \\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{1}\circ\varphi ^{-1}),\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{n}\circ\varphi ^{-1})\bigg)\\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{1}(r),\ldots,\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{n}(r)\bigg)\end{align}$$    
+>>8. Entonces $$\tilde{\psi}\circ \tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}\longrightarrow\tilde{\psi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2n}$$ que es: $$\begin{align}(r_{1},\ldots r_{n},t_{1},...,t_{n})&\longmapsto^{\tilde{\varphi}^{-1}} \left(\tilde{\varphi}^{-1}(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}\right)\\&\longmapsto^{\tilde{\psi}}(y_{1}(\tilde{\varphi}^{-1}(r)),\ldots,y_{n}(\tilde{\varphi}^{-1}(r)),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{1},\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial x_i}\right|_{\varphi^{-1}(r)}y_{n}) \\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{1}\circ\varphi ^{-1}),\ldots,\sum_{i=1}^n t_i\left.\frac{\partial}{\partial r_i}\right|_{r}(y_{n}\circ\varphi ^{-1})\bigg)\\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{1}(r),\ldots,\sum_{i=1}^n t_i\frac{\partial}{\partial r_i}(\psi\circ\varphi ^{-1})_{n}(r)\bigg)\end{align}$$    
 >>9. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que $\psi\circ\varphi ^{-1}$ es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves
 >>10. Y obviamente cambiando los roles obtenemos que la otra composicion es suave tambien
 >>11. Por lo tanto, las cartas $\{(\widetilde U,\widetilde\varphi)\}$ formarian un atlas suave sobre $TM$ de dimensión es $2n$. (Si $\tilde{U},\tilde{V}$ fueran abiertos) 
@@ -162,6 +162,8 @@
 >
 >Esta aplicación extiende lo que hace $(dF)_{q}$ con $q\in M$ a toda la variedad.
 
+^fce8ee
+
 >[!Remark] Suavidad de la diferencial global
 >Mostrar que si $F:M\to N$ es suave, entonces
 >$$
@@ -170,6 +172,8 @@
 >también es suave.
 >>[!Proof]
 >>Se ve en el practico
+
+^a36c7a
 
 >[!Remark] El funtor tangente Lee pagina 73
 >Si $\mathbf{Diff}$ denota la categoría cuyas:

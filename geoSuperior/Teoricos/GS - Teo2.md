@@ -57,7 +57,7 @@
 >Sea $M$ un espacio topológico. Se dice que $M$ es una variedad topológica de dimensión $n$ si tiene las siguientes propiedades:
 >1. $M$ es Hausdorff (es $T_{2}$) : para todo par de puntos distintos $p\neq q$ en $M$, existen abiertos disjuntos $U$ y $V$ de $M$ tales que $p\in U$ y $q\in V$.
 >2. $M$ satisface el segundo axioma de numerabilidad (es $N_2$), esto es, tiene una base numerable para la topología de $M$.
->3. $M$ es localmente euclídeo de dimensión $n$: para cada $p\in M$, existe un conjunto abierto $U$ de $M$ conteniendo a $p$, un conjunto abierto $\widehat U$ de $\mathbb{R}^n$, y un homeomorfismo $$\varphi:U\subseteq M\longrightarrow \widehat U\subseteq \mathbb{R}^n.$$
+>3. $M$ es localmente euclídeo de dimensión $n$: para cada $p\in M$, existe un conjunto abierto $U$ de $M$ conteniendo a $p$, un conjunto abierto $\widehat U$ de $\mathbb{R}^n$ (con la topologia euclidea estandar), y un homeomorfismo $$\varphi:U\subseteq M\longrightarrow \widehat U\subseteq \mathbb{R}^n.$$
 
 ^5bf2ca
 
@@ -69,10 +69,7 @@
 
 >[!Definition] Carta
 >Sea $M$ una variedad topológica de dimensión $n$. Una *carta coordenada* (o simplemente, una *carta*) sobre $M$ es un par $(U,\varphi(x_1,\dots,x_n))$, donde $U$ es un abierto de $M$ y
-> $$
-> \varphi:U\subseteq M\longrightarrow \widehat U\subseteq \mathbb{R}^n
-> $$
-> es un homeomorfismo, con $\widehat U=\varphi(U)$.
+> $$\varphi:U\subseteq M\longrightarrow \widehat U\subseteq\mathbb{R}^n$$es un homeomorfismo, con $\widehat U=\varphi(U)$. (Y creo que aca hay que exigir que $\widehat{U}$ sea abierto de $\mathbb{R}^{n}$ con la topologia estandar)  
 
 >[!Definition] Carta centrada
 >Cuando se dice que $(U,\varphi)$ es una carta de $p$, nos referimos a que $p\in U$. Se dice que la carta está *centrada* en $p$ si $\varphi(p)=0$.

@@ -57,6 +57,36 @@
 >$$\begin{align} & (I)\quad0\leq \beta(x)\leq 1\qquad\forall x\in M \\ & (II) \quad\beta|_{\overline{V}}\equiv 1\\&(III)\quad\operatorname{supp}(\beta)\subseteq U\end{align}$$
 >Recordar el soporte es $\operatorname{supp}(\beta)=\{ q\in M:\beta(q)\neq0 \}$ 
 >Este es el lema de funciones campana o de levantamiento en variedades suaves.
+>>[!Proof]-
+>>6. Sea $p\in M$ y $U$ abierto de $p$. Sea $(W,\psi)$ una carta suave de $p$ tal que, sin pérdida de generalidad, podemos asumir que:  
+>>	- $W\subset U$  
+>>	- $\psi(W)=B(0,3)$ 
+>>(Esto por que las bolas son base $\mathbb{R}^{n}$ y son difeomorfas entre si)
+>>1. Por tanto hay un abierto $V$ de $p$, $V\subset W\subset U$ tal que: $$\psi(V)=B(0,1)$$
+>>2. Pensamos en la función $\beta:M\to\mathbb{R}$: $$\beta(q)=\begin{cases}h\circ\psi(q) & \text{si } q\in W,\\0 & \text{si } q\notin W.\end{cases}$$con $h$ como [[GS - Teo8#^83d0e9]] con $\gamma_1=1$, $\gamma_2=2$.  
+>>3. Veamos que cumple las condiciones que buscamos: 
+>>	- (i)  $0\le \beta(x)\le 1$ es trivial
+>>	- (ii) 
+>>		1. Veamos $\beta|_{\overline{V}}\equiv 1$. Tenemos que $V=\psi^{-1}(B(0,1))$ que es un abierto de $W$ y por tanto es abierto de $M$.  
+>>		2. Notemos que como $V\subseteq K=\psi ^{-1}(\overline{B(0,1)})\subseteq W$ con $K$ compacto por que $\psi$ es homeomorfismo entonces $\overline{V}^{W}=\overline{V}^{M}=\overline{V}$ 
+>>		3. Ahora como $\psi$ es homeo $$\overline{V} =\overline{V}^{W}=\psi ^{-1}(\psi(\overline{V}^{B(0,3)}  ))=\psi ^{-1}(\overline{B(0,1)}^{B(0,3)})  \subseteq B(0,2)\subseteq W  $$
+>>		4. En particular, $\overline{V}\subseteq W\subseteq U$ entonces $\beta|_{\overline{V}}\equiv 1$.  
+>>	- (ii) Soporte de $\beta\subseteq U$:
+>>		1. Recordemos que $\operatorname{supp}(\beta)=\overline{\{q\in M:\beta(q)\neq 0\}}$.  
+>>		2. En el caso de la función $h$, el soporte es $\overline{B(0,2)}$.  
+>>		3. Afirmación: $\operatorname{supp}(\beta)=\psi^{-1}(\overline{B(0,2)})$.
+>>		4. En efecto, por definición de $\beta$, $\beta(q)\neq 0$ sii $q\in W$ y $\psi(q)\in B(0,2)$.
+>>		5. Luego por definicion $$\operatorname{supp}(\beta)=\overline{(\psi^{-1}(B(0,2)))}^{M} $$
+>>		6. Como $\psi^{-1}(B(0,2))$ está contenido en el compacto $K=\psi^{-1}(\overline{B(0,2.5)})$, que a su vez está contenido en $W$ devuelta las clausura coinciden $$\overline{(\psi^{-1}(B(0,2)))}^{M}=\overline{(\psi^{-1}(B(0,2)))}^{W}$$  
+>>		7. Por lo tanto se tiene: $$\operatorname{supp}(\beta)=\overline{\psi ^{-1}(B(0,2)) }^{W}=\psi^{-1}(\overline{B(0,2)}^{B(0,3)}) \subset K\subset W\subset U$$
+>>		8. Nuevamente, hay que tener cuidado al clausurar: podría haber pasado algo como $U=(0,5)$ y $\psi^{-1}(\Delta(0,2))=(0,5)$, y en este caso se sale de $U$. Por eso tomamos $W$ tal que $\psi(W)=\Delta(0,3)$, para quedar holgados y que la clausura del soporte no se escape de $U$.  
+>>		9. Por último, veamos que $\beta$ es suave mostrando que lo es en algún entorno abierto de cada punto.  
+>>		10. Tenemos dos casos:  
+>>			- (i) Si $q\in W$, entonces $\beta|_{W}=h\circ\psi$, que es composición de suaves.
+>>			- (ii) Si $q\notin W$, entonces $q\not\in \operatorname{supp}(\beta)$ por que $\operatorname{supp}(\beta) \subseteq W$ y como $\operatorname{supp}(\beta)$ es cerrado, su complemento es abierto entonces existe un abierto $O\subseteq \operatorname{supp}(\beta)^{c}$ de $q$ tal que $\beta|_{O}=0$, como función constante es suave, se tiene que $\beta|_{O}$ es suave. 
+>>		6. Por lo tanto, $\beta$ es suave.
+
+^45cd5d
 
 ## Lema técnico: extensión de funciones suaves
 
