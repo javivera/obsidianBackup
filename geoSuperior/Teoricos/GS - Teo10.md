@@ -20,6 +20,8 @@
 >>6. Entonces por el teorema de la funcion inversa en $\mathbb R^n$, existe un abierto $\widetilde U$ de $\varphi(p)$ tal que $$\widetilde F|_{\widetilde U}:\widetilde U \to \widetilde F(\widetilde U)$$ es difeomorfismo, con $\widetilde F(\widetilde U)$ abierto.
 >>7. Definiendo $$U=\varphi^{-1}(\widetilde U),$$ se obtiene que $U$ es abierto de $p$ y $$F|_U=\psi^{-1} \circ \widetilde F|_{\widetilde U} \circ \varphi|_U$$ es difeomorfismo. (Misma aclaracion de suavidad que en paso 4.) 
 
+^b664ba
+
 >[!Corollary]
 >Sea $$F:M \to N$$ funcion suave tal que $(dF)_p$ es un isomorfismo para todo $p \in M$. Entonces $F$ es un difeomorfismo local.
 

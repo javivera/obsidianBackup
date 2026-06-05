@@ -191,6 +191,8 @@
 >>3. Para $p\in A$ se tiene $\sigma(p)=0$, luego $$\rho(p)=1$$
 >>4. Tomamos $f=\rho$ que es la funcion que buscabamos
 
+^cf02ec
+
 >[!Definition] Función suave sobre un subconjunto arbitrario
 >Sean $M$ y $N$ variedades suaves y sea $A\subseteq M$ un subconjunto cualquiera. Una función $$F:A\to N$$se dice **suave** si para todo $p\in A$ existe un abierto $W_p$ de $M$ con $p\in W_p$ y una función suave $$F_p:W_p\to N$$que coincide con $F$ sobre $W_p\cap A$
 

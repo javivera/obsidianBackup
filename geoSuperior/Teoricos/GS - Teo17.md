@@ -56,6 +56,8 @@
 >>	19. Esta aplicación también es suave como aplicación con codominio $D_{-t}$, porque la suavidad hacia un abierto de $M$ se verifica componiendo con la inclusión $D_{-t}\hookrightarrow M$. Y usando continuidad de $\Theta_{t}$ 
 >>	20. Por lo tanto, $\Theta_t:D_t\to D_{-t}$ es un difeomorfismo con inversa $\Theta_{-t}$.
 
+^8d50da
+
 ## Groundwork de generador infinitesimal
 
 >[!Remark] Observación muy importante
@@ -152,6 +154,7 @@
 >>$$(a(p),b(p))=\mathbb R$$
 >>19. Concluimos que $X$ es completo.
 
+^17fba4
 
 ## Campo con soporte compacto es completo
 
@@ -214,43 +217,3 @@
 >>32. Esto contradice la maximalidad de $\gamma_p$.
 >>33. Por lo tanto, ningún tramo final $\gamma_p([t_0,b(p)))$ puede estar contenido en un compacto de $M$.
 
->[!Definition] Variedad paralelizable
->Sea $M$ una variedad suave de dimensión $n$, y sea $U\subseteq M$ un abierto. Un conjunto de campos suaves $\{E_1,\dots,E_n\}$ sobre $U$ se dice un marco local suave si $$\{E_1|_p,\dots,E_n|_p\}$$ forma una base de $T_pM$ para todo $p\in U$. El marco se llama global si $U=M$.
->Una variedad suave se dice paralelizable si admite un marco global.
-
->[!Example] 
->$\mathbb{R}^{n}$ es paralelizable
->>[!Proof]-  
->>34. Consideremos la carta global estándar $\operatorname{Id}_{\mathbb R^n}:\mathbb R^n\to\mathbb R^n$.  
->>35. Definimos, para cada $i=1,\dots,n$, el campo vectorial $E_i=\frac{\partial}{\partial x_{i}}$.  
->>36. Es decir, para cada $p\in\mathbb R^n$,$$(E_i)_p=\frac{\partial}{\partial x_{i}}\bigg|_p\in T_p\mathbb R^n$$
->>37. Veamos que cada $E_i$ es suave. En la carta global estándar, las funciones coordenadas de $E_i$ son constantes: $E_i(p)=(0,\dots,0,1,0,\dots,0)$.  
->>38. Como las funciones constantes son suaves, cada $E_i$ es un campo vectorial suave sobre $\mathbb R^n$.  
->>39. Además, para cada $p\in\mathbb R^n$, los vectores $$\left\{\frac{\partial}{\partial x_{1}}\bigg|_p,\dots,\frac{\partial}{\partial x_{n}}\bigg|_p\right\}$$forman una base de $T_p\mathbb R^n$.  
->>40. Por lo tanto, $\{E_1,\dots,E_n\}$ es un marco global suave sobre $\mathbb R^n$.  
->>41. Concluimos que $\mathbb R^n$ es paralelizable.
-
->[!Example] 
->$S^{1}$ es paralelizable
->>[!Proof]-  
->>42. Pensamos $S^1$ como la subvariedad de $\mathbb R^2$ dada por $S^1=\{(x,y)\in\mathbb R^2:x^2+y^2=1\}$.  
->>43. Obviamente en $\mathbb{R}^{2}$ tenemos la carta canonica y la base del $T_{p}\mathbb{R}^{2}$ dada por esa carta $$\left\{ \frac{\partial}{\partial x}\bigg|_{p},\frac{\partial}{\partial y}\bigg|_{p} \right\}$$     
->>44. Como $\dim S^1=1$, alcanza construir un campo vectorial suave global que nunca se anule.  
->>45. Definimos $E:S^1\to TS^1$ por $E_{(x,y)}=(-y,x)$. (Osea $E(x,y)=((x,y),(-y,x))$ que esta en el fibrado tangente y luego lo identificamos como $E_{(x,y)}=(-y,x)$ [[GS - Teo15#^4e6c26]]) 
->>46. Notemos ademas que aca $(-y,x)$ son las coordenadas en la base del $T_{(x,y)}\mathbb{R}^{2}$  
->>47. Primero veamos que **$E_{(x,y)}$ es tangente a $S^1$**. Si $p=(x,y)\in S^1$, entonces $$T_pS^1=\{v\in\mathbb R^2:\langle v,p\rangle=0\}$$ esto es basicamente [[Parcial 2026-04-30 - soluciones#^483e02]]   
->>48. Calculamos $\langle (-y,x),(x,y)\rangle=-yx+xy=0$.  
->>49. Por lo tanto, $E_p\in T_pS^1$ para todo $p\in S^1$.  
->>50. Ahora veamos que $E$ nunca se anula. Si $E_{(x,y)}=(-y,x)=(0,0)$, entonces $x=0$ e $y=0$.  
->>51. Pero $(0,0)\notin S^1$, porque $0^2+0^2\neq 1$.  
->>52. Luego $E_p\neq 0$ para todo $p\in S^1$.  
->>53. Además, $E$ es suave, porque sus componentes ambiente son $E(x,y)=(-y,x)$, que son funciones suaves en $x$ e $y$.  
->>54. Como $\dim S^1=1$, para cada $p\in S^1$, el conjunto $\{E_p\}$ forma una base de $T_pS^1$.  
->>55. Entonces $\{E\}$ es un marco global suave sobre $S^1$.  
->>56. Concluimos que $S^1$ es paralelizable. 
->>57. Aca al final en realidad creo deberia usar que $d\iota$ es isomorfismo con su imagen (por ser incrustacion) y en realidad deberia tomar $V_{p}=d\iota ^{-1}(E_{p})$ como los que forman una base para cada $p$ y quizas algo asi como $\{ V \}$ como marco global    
-
->[!Example]
->- Veremos más adelante que los grupos de Lie son paralelizables.
->- $S^2$ no es paralelizable; esto se relaciona con el teorema de la bola peluda.
->- Topología algebraica: $S^1$, $S^3$ y $S^7$ son las únicas esferas paralelizables.

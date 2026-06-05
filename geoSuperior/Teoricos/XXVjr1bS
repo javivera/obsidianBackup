@@ -1,0 +1,274 @@
+### Un poco de algebra multilineal
+
+>[!Definition]
+>Sean $V_1,V_2,\ldots,V_k$ y $W$ espacios vectoriales. Una funcion
+>$$F:V_1\times\cdots\times V_k\to W$$
+>se dice multilineal si esta es lineal en cada variable, es decir, $\lambda\in\mathbb R$,
+>$$F(v_1,\ldots,\lambda v_i+\tilde v_i,\ldots,v_k)
+>=
+>\lambda F(v_1,\ldots,v_i,\ldots,v_k)+F(v_1,\ldots,\tilde v_i,\ldots,v_k),$$
+>$i=1,\ldots,k$.
+>>Se suele denotar por $L(V_1,\ldots,V_k;W)$ el conjunto de todas las funciones multilineales de $V_1\times\cdots\times V_k$ en $W$, el cual resulta ser un espacio vectorial real bajo la suma y producto escalar natural. Si $\lambda\in\mathbb R$:
+>$$(F+G)(v_1,\ldots,v_k):=F(v_1,\ldots,v_k)+G(v_1,\ldots,v_k),$$
+>$$(\lambda F)(v_1,\ldots,v_k):=\lambda F(v_1,\ldots,v_k).$$
+
+>[!example]-
+>$$\det:\underbrace{\mathbb R^n\times\cdots\times\mathbb R^n}_{n\text{-veces}}\to\mathbb R$$$$\det(v_1,\ldots,v_n)=\det(v_1|\cdots|v_n).$$
+
+>[!example]-
+>$$\langle\ ,\ \rangle:\mathbb R^n\times\mathbb R^n\to\mathbb R$$
+>$$((x_1,\ldots,x_n),(y_1,\ldots,y_n))\mapsto \langle v_1,v_2\rangle=\sum_{k=1}^n x_k y_k.$$
+>Producto interno usual de $\mathbb R^n$.
+
+>[!example]-
+>$$\times:\mathbb R^3\times\mathbb R^3\to\mathbb R^3$$
+>$$((x_1,x_2,x_3),(y_1,y_2,y_3))
+>\mapsto
+>\det\begin{pmatrix}
+>e_1&e_2&e_3\\
+>x_1&x_2&x_3\\
+>y_1&y_2&y_3
+>\end{pmatrix},$$
+>el producto cruz en $\mathbb R^3$.
+
+>[!Definition] Producto tensorial
+>Sean $V_1,\ldots,V_k,W_1,\ldots,W_l$ espacios vectoriales reales y sean
+>$$F\in L(V_1,\ldots,V_k;\mathbb R),\qquad G\in L(W_1,\ldots,W_l;\mathbb R),$$
+>y considerar la funcion
+>$$F\otimes G:V_1\times\cdots\times V_k\times W_1\times\cdots\times W_l\to\mathbb R$$
+>$$(v_1,\ldots,v_k,w_1,\ldots,w_l)\mapsto F(v_1,\ldots,v_k)G(w_1,\ldots,w_l).$$
+>Es facil ver que $F\otimes G$ es multilineal, asi que
+>$$F\otimes G\in L(V_1,\ldots,V_k,W_1,\ldots,W_l;\mathbb R)$$
+>y se llama el producto tensorial de $F$ y $G$.
+
+>[!Exercise]
+>Probar que el producto tensorial es bilineal y asociativo:
+>$$(F+\lambda H)\otimes G=F\otimes G+\lambda(H\otimes G),$$
+>$$F\otimes(G+\beta K)=F\otimes G+\beta(F\otimes K),$$
+>$$(F\otimes G)\otimes K=F\otimes(G\otimes K).$$
+
+>[!Proposition] Ejercicio
+>Sean $V_1,\ldots,V_k$ espacios vectoriales reales de dimension finita $n_1,\ldots,n_k$ respectivamente, y sea $\{e^j_1,\ldots,e^j_{n_j}\}$ una base de $V_j$, $j=1,\ldots,k$, y sean $\{\varepsilon^j_1,\ldots,\varepsilon^j_{n_j}\}$ la respectiva base dual de $V_j^*$.
+>>Entonces
+>$$B=\left\{\varepsilon^1_{i_1}\otimes\cdots\otimes\varepsilon^k_{i_k}:1\le i_j\le n_j,\ 1\le j\le k\right\}$$
+>es una base para $L(V_1,\ldots,V_k;\mathbb R)$, el cual es un espacio vectorial real de dimension $n_1n_2\cdots n_k$.
+
+>[!Definition]
+>Sean $V_1,\ldots,V_k$ espacios vectoriales y $V_1^*,\ldots,V_k^*$ sus respectivos espacios duales. Se denota por
+>$$V_1^*\otimes\cdots\otimes V_k^*$$
+>al subespacio de $L(V_1,\ldots,V_k;\mathbb R)$ generado por
+>$$\{\alpha_1\otimes\cdots\otimes\alpha_k:\alpha_i\in V_i^*\}.$$
+>Por la prop. anterior:
+>$$L(V_1,\ldots,V_k;\mathbb R)=V_1^*\otimes\cdots\otimes V_k^*.$$
+
+>[!Proposition] Propiedad caracteristica del producto tensorial
+>Sean $V_1,\ldots,V_k$ espacios vectoriales reales de dimension finita y sea $W$ un espacio vectorial real (no necesariamente de dimension finita). Sea
+>$$A:V_1^*\times\cdots\times V_k^*\to W$$
+>en $L(V_1^*,\ldots,V_k^*;W)$.
+>>Entonces existe una unica transformacion lineal
+>$$\hat A:V_1^*\otimes\cdots\otimes V_k^*\to W$$
+>tal que $A=\hat A\circ\pi$, con
+>$$\pi:V_1^*\times\cdots\times V_k^*\to V_1^*\otimes\cdots\otimes V_k^*,$$
+>$$\pi(\alpha_1,\ldots,\alpha_k)=\alpha_1\otimes\cdots\otimes\alpha_k.$$
+
+>>[!Proof]-
+>>Fijar base $\{\varepsilon^i_1,\ldots,\varepsilon^i_{n_i}\}$ base dual de $V_i^*$.
+>>>>La multilinealidad de $A$ nos dice que $A$ va estar determinada por lo que haga en la $k$-upla
+>>$$(\varepsilon^1_{i_1},\ldots,\varepsilon^k_{i_k}).$$
+>>Llamemos
+>>$$w_{i_1,\ldots,i_k}=A(\varepsilon^1_{i_1},\ldots,\varepsilon^k_{i_k}).$$
+>>>>Por la proposicion anterior, $\varepsilon^1_{i_1}\otimes\cdots\otimes\varepsilon^k_{i_k}$ es base de $V_1^*\otimes\cdots\otimes V_k^*$, entonces definimos $\hat A$ sobre los elementos de la base como
+>>$$\hat A(\varepsilon^1_{i_1}\otimes\cdots\otimes\varepsilon^k_{i_k})=w_{i_1,\ldots,i_k}.$$
+>>>>Y $\hat A$ es la unica que cumple esta condicion, pues cualquier otra, digamos $\tilde A$, al cumplir
+>>$$\tilde A\circ\pi=A,$$
+>>va a implicar que
+>>$$\tilde A\circ\pi(\varepsilon^1_{i_1},\ldots,\varepsilon^k_{i_k})=w_{i_1,\ldots,i_k},$$
+>>es decir
+>>$$\tilde A(\varepsilon^1_{i_1}\otimes\cdots\otimes\varepsilon^k_{i_k})=w_{i_1,\ldots,i_k}.$$
+
+## Tensores covariantes
+
+>[!Definition]
+>Sea $V^*$ un espacio vectorial real de dimension finita y sea $k\in\mathbb N$. Un $k$-tensor covariante sobre $V$ es un elemento de
+>$$\underbrace{V^*\otimes\cdots\otimes V^*}_{k\text{-veces}},$$
+>lo cual es lo mismo a tener una funcion multilineal real valuada
+>$$\alpha:\underbrace{V\times\cdots\times V}_{k\text{-veces}}\to\mathbb R.$$
+>>El numero $k$ se llama rango del tensor.
+>>Por convencion, un $0$-tensor es un numero real.
+>>Se denota por $T^k(V^*):=V^*\otimes\cdots\otimes V^*$, con
+>$$T^1(V^*)=V^*,\qquad T^0(V^*)=\mathbb R.$$
+
+>[!Definition] Tensores alternantes
+>Sea $\alpha:V\times\cdots\times V\to\mathbb R$ un $k$-tensor covariante. Se dice que $\alpha$ es alternante, si para todo $\sigma\in S_k$, una permutacion de $k$ elementos, se cumple
+>$$\alpha(v_{\sigma(1)},\ldots,v_{\sigma(k)})=\operatorname{sign}(\sigma)\alpha(v_1,\ldots,v_k)$$
+>para todo $v_1,\ldots,v_k\in V$.
+>>Se denota por $\Lambda^k(V^*)$ el subconjunto de $T^k(V^*)$ formado solo por los que son alternantes, el cual es naturalmente un subespacio vectorial.
+
+>[!Exercise]
+>Mostrar que $\alpha\in\Lambda^k(V^*)$ sii
+>$$\alpha(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)=-\alpha(v_1,\ldots,v_j,\ldots,v_i,\ldots,v_k)$$
+>para todo $i,j$ con $1\le i<j\le k$.
+
+>[!Example]
+>Cualquier $\alpha\in V^*=T^1(V^*)$ es alternante.
+>>$$\det:\underbrace{\mathbb R^n\times\cdots\times\mathbb R^n}_{n\text{-veces}}\to\mathbb R$$
+>esta en $\Lambda^n((\mathbb R^n)^*)$.
+
+>[!Definition] Alternador
+>Dado $\theta\in T^k(V^*)$, se define la parte antisimetrica de $\theta$, denotada por $\operatorname{Alt}(\theta)$, como el $k$-tensor
+>$$\operatorname{Alt}(\theta)(v_1,\ldots,v_k)=\frac1{k!}\sum_{\sigma\in S_k}(\operatorname{sign}\sigma)\theta(v_{\sigma(1)},\ldots,v_{\sigma(k)}).$$
+
+>[!Proposition] Ejercicio
+>1. Para todo $\theta\in T^k(V^*)$, se tiene $\operatorname{Alt}(\theta)\in\Lambda^k(V^*)$, lo cual define una transformacion lineal
+>$$\operatorname{Alt}:T^k(V^*)\to\Lambda^k(V^*).$$
+>2. Si $\theta\in\Lambda^k(V^*)$, entonces $\operatorname{Alt}(\theta)=\theta$.
+
+>[!Definition] Producto exterior o producto cuña
+>Sean $\omega\in\Lambda^k(V^*)$, $\theta\in\Lambda^l(V^*)$. Se define el producto exterior de $\omega$ y $\theta$, denotado por $\omega\wedge\theta$, como el $(k+l)$-tensor covariante
+>$$\omega\wedge\theta:=\frac{(k+l)!}{k!\,l!}\operatorname{Alt}(\omega\otimes\theta).$$
+>Es decir,
+>$$(\omega\wedge\theta)(v_1,\ldots,v_{k+l})=
+>\frac{(k+l)!}{k!\,l!}\frac1{(k+l)!}\sum_{\sigma\in S_{k+l}}(\operatorname{sign}\sigma)(\omega\otimes\theta)(v_{\sigma(1)},\ldots,v_{\sigma(k+l)})$$
+>$$=
+>\frac1{k!\,l!}\sum_{\sigma\in S_{k+l}}(\operatorname{sign}\sigma)\,
+>\omega(v_{\sigma(1)},\ldots,v_{\sigma(k)})\theta(v_{\sigma(k+1)},\ldots,v_{\sigma(k+l)}).$$
+
+>[!Proposition] Ejercicio
+>1. $(\omega_1+\omega_2)\wedge\theta=\omega_1\wedge\theta+\omega_2\wedge\theta$.
+>2. $\omega\wedge(\theta_1+\theta_2)=\omega\wedge\theta_1+\omega\wedge\theta_2$.
+>3. Si $s\in\mathbb R$, entonces $(s\omega)\wedge\theta=\omega\wedge(s\theta)=s(\omega\wedge\theta)$.
+>4. Asociativa:
+>$$\omega\wedge(\theta\wedge\xi):=(\omega\wedge\theta)\wedge\xi.$$
+>5. Anticonmutatividad: si $\omega\in\Lambda^k(V^*)$, $\theta\in\Lambda^l(V^*)$, entonces
+>$$\omega\wedge\theta=(-1)^{kl}\theta\wedge\omega.$$
+>6. Menores: si $\alpha_1,\ldots,\alpha_k\in V^*$, entonces
+>$$(\alpha_1\wedge\cdots\wedge\alpha_k)(v_1,\ldots,v_k)=\det(\alpha_i(v_j)).$$
+>7. Si $\theta\in\Lambda^k(V^*)$ con $k$ impar, entonces
+>$$\theta\wedge\theta=0.$$
+>En particular, si $\alpha\in V^*$, entonces $\alpha\wedge\alpha=0$.
+>8. Leer Tu seccion 3.9.
+>9. Leer Tu, prop. 3.27.
+
+>>[!Proof]- Ayuda para (5)
+>>Sean $\omega\in\Lambda^k(V^*)$, $\theta\in\Lambda^l(V^*)$. Se define $\mu\in S_{k+l}$ por
+>>$$\mu=(1,\ldots,l,l+1,\ldots,l+k;\ k+1,\ldots,k+l,1,\ldots,k).$$
+>>>>Asi,
+>>$$\omega\wedge\theta(v_1,\ldots,v_{k+l})
+>>=\frac1{k!\,l!}\sum_{\sigma\in S_{k+l}}(\operatorname{sign}\sigma)\omega(v_{\sigma(1)},\ldots,v_{\sigma(k)})
+>>\theta(v_{\sigma(k+1)},\ldots,v_{\sigma(k+l)}).$$
+>>>>Resta calcular el signo de $\mu$. Considerar
+>>$$\rho_1=\begin{pmatrix}
+>>1&2&\cdots&k+l-1&k+l\\
+>>2&3&\cdots&k+l&1
+>>\end{pmatrix},$$
+>>$$\rho_2=\begin{pmatrix}
+>>1&2&\cdots&k+l-1&k+l\\
+>>3&4&\cdots&1&2
+>>\end{pmatrix},$$
+>>$$\vdots$$
+>>$$\rho^k=\begin{pmatrix}
+>>1&\cdots&l&l+1&\cdots&k+l\\
+>>k+1&\cdots&k+l&1&\cdots&k
+>>\end{pmatrix}=\mu.$$
+>>>>Por tanto, $\operatorname{sign}\mu=(\operatorname{sign}\rho)^k$.
+>>Como $\rho$ es un ciclo,
+>>$$\operatorname{sign}\rho=(-1)^{k+l-1},$$
+>>de donde
+>>$$\operatorname{sign}\mu=\left((-1)^{k+l-1}\right)^k=(-1)^{kl}.$$
+
+>>[!Proof]- Ayuda para (6)
+>>Venimos a probar que $\theta$ es un conjunto L.I. si
+>>$$\theta=\sum_{1\le i_1<\cdots<i_k\le n}c_{i_1,\ldots,i_k}e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}.$$
+>>Evaluamos en la $k$-upla $(e_{j_1},\ldots,e_{j_k})$, con $1\le j_1<\cdots<j_k\le n$.
+>>>>Como
+>>$$e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}(e_{j_1},\ldots,e_{j_k})
+>>=
+>>\det(e^*_{i_p}(e_{j_q}))_{p,q=1}^k,$$
+>>entonces vale $1$ si $(i_1,\ldots,i_k)=(j_1,\ldots,j_k)$ y $0$ en otro caso. Luego los coeficientes son cero.
+
+>[!Corollary]
+>Si $\theta\in\Lambda^k(V^*)$ con $k$ impar, entonces
+>$$\theta\wedge\theta=0.$$
+>En particular, si $\alpha\in V^*$, entonces $\alpha\wedge\alpha=0$.
+
+>[!Theorem]
+>Sea $\{e_1,\ldots,e_n\}$ base de $V$ y $\{e^*_1,\ldots,e^*_n\}$ la respectiva base dual de $V^*$. Si $k\le n$, entonces
+>$$\mathcal B=\{e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}:1\le i_1<\cdots<i_k\le n\}$$
+>es una base de $\Lambda^k(V^*)$ y
+>$$\dim\Lambda^k(V^*)=\binom nk.$$
+>>Si $k>n$, entonces $\Lambda^k(V^*)=\{0\}$.
+
+>>[!Proof]-
+>>Veamos primero que $\mathcal B$ es un conjunto L.I. Si
+>>$$0=\sum_{1\le i_1<\cdots<i_k\le n}c_{i_1,\ldots,i_k}e^*_{i_1}\wedge\cdots\wedge e^*_{i_k},$$
+>>evaluamos en la $k$-upla $(e_{j_1},\ldots,e_{j_k})$, con $1\le j_1<\cdots<j_k\le n$.
+>>>>Como
+>>$$e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}(e_{j_1},\ldots,e_{j_k})
+>>=
+>>\begin{cases}
+>>1 & \text{si }(i_1,\ldots,i_k)=(j_1,\ldots,j_k),\\
+>>0 & \text{en otro caso},
+>>\end{cases}$$
+>>resulta $c_{i_1,\ldots,i_k}=0$ para todo $1\le i_1<\cdots<i_k\le n$.
+>>>>Veamos que genera. Sea $\theta\in\Lambda^k(V^*)$ y entonces, como $\theta\in T^k(V^*)$,
+>>$$\theta=\sum a_{i_1,\ldots,i_k}e^*_{i_1}\otimes\cdots\otimes e^*_{i_k}.$$
+>>Entonces, como $\theta\in\Lambda^k(V^*)$,
+>>$$\theta=\operatorname{Alt}\theta=
+>>\sum a_{i_1,\ldots,i_k}\operatorname{Alt}(e^*_{i_1}\otimes\cdots\otimes e^*_{i_k}).$$
+>>Luego se reordena cada termino, y si hay al menos dos indices iguales el termino es cero; si no,
+>>$$\operatorname{Alt}(e^*_{i_1}\otimes\cdots\otimes e^*_{i_k})=\text{multiplo de }e^*_{i_{\sigma(1)}}\wedge\cdots\wedge e^*_{i_{\sigma(k)}}$$
+>>para indices ordenados. Por lo que genera.
+
+>[!Theorem]
+>Si $\theta\in\Lambda^k(V^*)$ con $k$ impar, entonces $\theta\wedge\theta=0$.
+>>En particular, si $\alpha\in V^*$, entonces $\alpha\wedge\alpha=0$.
+
+>[!Theorem]
+>Sea $\{e_1,\ldots,e_n\}$ base de $V$ y $\{e^*_1,\ldots,e^*_n\}$ la respectiva base dual de $V^*$. Si $k\le n$, entonces
+>$$\mathcal B=\{e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}:1\le i_1<\cdots<i_k\le n\}$$
+>es una base de $\Lambda^k(V^*)$ y asi $\dim\Lambda^k(V^*)=\binom nk$.
+>>Si $k>n$, entonces $\Lambda^k(V^*)=\{0\}$.
+
+>>[!Proof]-
+>>Veamos primero que $\mathcal B$ es un conjunto L.I.
+>>$$0=\sum c_{i_1,\ldots,i_k}e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}.$$
+>>Evaluamos en la $k$-upla $(e_{j_1},\ldots,e_{j_k})$, con $1\le j_1<\cdots<j_k\le n$.
+>>>>Como
+>>$$e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}(e_{j_1},\ldots,e_{j_k})=
+>>\det(e^*_{i_p}(e_{j_q})),$$
+>>entonces $c_{i_1,\ldots,i_k}=0$ para todo $1\le i_1<\cdots<i_k\le n$.
+>>>>Veamos que genera. Sea $\theta\in\Lambda^k(V^*)$ y entonces, como $\theta\in T^k(V^*)$,
+>>$$\theta=\sum a_{i_1,\ldots,i_k}e^*_{i_1}\otimes\cdots\otimes e^*_{i_k}.$$
+>>Por lo que
+>>$$\theta=\operatorname{Alt}\theta=\sum a_{i_1,\ldots,i_k}\operatorname{Alt}(e^*_{i_1}\otimes\cdots\otimes e^*_{i_k}).$$
+>>Si hay al menos dos indices iguales, el termino es cero, y si no hay indices repetidos, se obtiene un multiplo de
+>>$$e^*_{i_1}\wedge\cdots\wedge e^*_{i_k}$$
+>>con indices ordenados.
+
+>[!Definition] Algebra exterior
+>Se define $\Lambda^0(V^*)=\mathbb R$.
+>>Se define
+>$$\Lambda(V^*):=\Lambda^0(V^*)\oplus\Lambda^1(V^*)\oplus\cdots\oplus\Lambda^n(V^*)$$
+>y se extiende el producto cuña $\wedge$ a todo $\Lambda(V^*)$ de manera bilineal, donde
+>$$t\in\Lambda^0(V^*),\quad \theta\in\Lambda^k(V^*)\implies t\wedge\theta=t\theta.$$
+>>Por las propiedades anteriores, $(\Lambda(V^*),\wedge)$ es una algebra asociativa, no conmutativa y con unidad $1\in\Lambda^0(V^*)$, que tiene dimension
+>$$\binom n0+\binom n1+\cdots+\binom nn=2^n,$$
+>y se llama algebra exterior.
+
+>[!Definition] Pullback
+>Sea $A:V\to W$ transf. lineal y sea $A^*:W^*\to V^*$ el pullback de $A$,
+>$$A^*\alpha:=\alpha\circ A.$$
+>Se puede extender $A^*$ a un pullback entre $\Lambda^k(W^*)$ y $\Lambda^k(V^*)$:
+>$$A^*:\Lambda^k(W^*)\to\Lambda^k(V^*)$$
+>$$(A^*\theta)(v_1,\ldots,v_k)=\theta(Av_1,\ldots,Av_k),\qquad v_1,\ldots,v_k\in V.$$
+
+>[!Exercise] Practico
+>[La operacion pullback] Sea $T:V\to W$ una transformacion lineal, donde $V$ y $W$ son espacios vectoriales reales de dimension finita. Se define
+>$$T^*:\Lambda^k(W^*)\to\Lambda^k(V^*)$$
+>mediante
+>$$T^*\sigma(v_1,\ldots,v_k)=\sigma(Tv_1,\ldots,Tv_k),\qquad \sigma\in\Lambda^k(W^*),\quad v_1,\ldots,v_k\in V.$$
+>>- Probar que $T^*$ es lineal y que $T^*(\sigma\wedge\tau)=T^*\sigma\wedge T^*\tau$, con $\sigma\in\Lambda^k(W^*)$ y $\tau\in\Lambda^l(W^*)$.
+>- Sean $\lambda_1,\ldots,\lambda_k\in\Lambda^1(W^*)$. Mostrar que $T^*(\lambda_1\wedge\cdots\wedge\lambda_k)(v_1,\ldots,v_k)$ es igual a $\det(\lambda_i(Tv_j))$.
+>- Si $W=V$ y $n$ es la dimension de $V$, verificar que $T^*$ es igual a $(\det T)\operatorname{Id}_{\Lambda^n(V^*)}$.
+
+

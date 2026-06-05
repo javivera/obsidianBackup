@@ -48,8 +48,8 @@
 ^3ff110
 
 >[!Corollary] Uniformidad local del tiempo
->Sea $X\in\mathfrak X(M)$. Entonces, para todo $p\in M$, existe un abierto $V_{p}$ de $M$ en $p$ y un $\epsilon>0$ tales que para todo $q\in V$ hay curvas integrales de $X$ que en $t=0$ pasan por $q$ y estan definidas en $(-\epsilon_{p},\epsilon_{p})$.
->Ademas la funcion $$\theta:(-\epsilon_{p},\epsilon_{p})\times V\to M,\qquad (t,q)\mapsto\theta(t,q)=\gamma_q(t)$$ es suave.
+>Sea $X\in\mathfrak X(M)$. Entonces, para todo $p\in M$, existe un abierto $V_{p}$ de $M$ en $p$ y un $\epsilon_{p}>0$ tales que para todo $q\in V_{p}$ hay curvas integrales de $X$ que en $t=0$ pasan por $q$ y estan definidas en $(-\epsilon_{p},\epsilon_{p})$.
+>Ademas la funcion $$\theta:(-\epsilon_{p},\epsilon_{p})\times V_{p}\to M,\qquad (t,q)\mapsto\theta(t,q)=\gamma_q(t)$$ es suave.
 >
 >En criollo: en el abierto $V$, me puedo mover desde $t=0$ el mismo periodo de tiempo hacia atras o hacia adelante.
 
@@ -85,6 +85,8 @@
 >En particular, para cada $t\in\mathbb R$, el conjunto
 >$$\mathcal D_t=\{p\in M:(t,p)\in\mathcal D\}$$
 >es un abierto de $M$.
+
+^aab78f
 
 >[!Remark]
 >Sea $\gamma_p:(a(p),b(p))\to M$ la curva integral maximal de $X$ que pasa por $p$. Fijemos $q=\gamma_p(t_0)$.

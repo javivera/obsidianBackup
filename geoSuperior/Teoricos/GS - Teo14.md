@@ -76,7 +76,7 @@
 > Se denota al conjunto de campos suaves sobre $M$ por $\mathfrak X(M)$.
 
 >[!Remark]
->Sea $X:M\rightarrow TM$ un campo vectorial. Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave de $M$. Para cualquier $p \in U$, el conjunto $\{\frac{\partial}{\partial x_1}|_p,\ldots,\frac{\partial}{\partial x_n}|_p\}$ es una base de $T_pM$. 
+>Sea $X:M\rightarrow TM$ un campo vectorial. Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave de $M$. Para cualquier $p \in U$, el conjunto $$\left\{\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_n}\bigg|_p\right\}$$ es una base de $T_pM$. 
 >Por lo tanto, si $X_p \in T_pM$, entonces $$X_p=\sum_{i=1}^n a_i(p)\frac{\partial}{\partial x_i}|_p$$
 >Asi tenemos funciones $a_i:U \to \mathbb R$. Ademas se define $$\frac{\partial}{\partial x_{i}}:U\rightarrow  TU\qquad \text{dada por }\qquad \frac{\partial}{\partial x_{i}}(q)=\left(q,\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$$
 >Luego a $a_{i}$ se llaman las funciones coordenadas de $X|_U$ con respecto al marco coordenado $$\left\{\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_n}\right\}$$

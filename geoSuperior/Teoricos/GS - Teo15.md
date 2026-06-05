@@ -4,16 +4,18 @@
 >>- $(\Rightarrow)$ Caso particular de [[GS - Teo14#^3accf8]] 
 >>- $(\Leftarrow)$ 
 >>	1. Tenemos la carta asociada a la carta $\varphi$ $$\bigg(\widetilde U=\pi^{-1}(U),\tilde\varphi=\left(x_1\circ\pi,\ldots,x_n\circ\pi,v_1,\ldots,v_n\right)\bigg)$$ que en este caso es un difeo entre $TU$ y $\varphi(U)\times\mathbb{R}^n$.  
->>	2. Por tanto, $X$ es suave si $\widetilde\varphi\circ X$ es suave (por que si esto es suave componiendo con una carta a derecha sigue siendo suave por que la carta $\varphi ^{-1}:\varphi(U)\rightarrow U$ es homeo osea que al componer no cambiamos codominio) 
+>>	2. Por tanto, $X$ es suave si $\widetilde\varphi\circ X$ es suave (por que si esto es suave componer a derecha con $\varphi ^{-1}:\varphi(U)\rightarrow U$ sigue siendo suave, por que $\varphi ^{-1}$ es homeo, osea que al componer no cambiamos codominio) 
 >>	3. Como $$\widetilde\varphi\circ X:U\subseteq M\longrightarrow\mathbb{R}^{2n}\quad\text{esta dada por}\quad p\longmapsto \left(x_1(p),\ldots,x_n(p),a_1(p),\ldots,a_n(p)\right)$$ donde $a_i:U\to\mathbb{R}$ son las coordenadas de $X_{p}$ con respecto al marco $$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\ldots,\left.\frac{\partial}{\partial x_n}\right|_p\right\},$$
 >>	4. Y por hipotesis son suaves las coordenadas $a_{i}$ son suaves (obviemente $x_{i}(p)$ son suaves por ser carta), se sigue que $\widetilde\varphi\circ X$ es suave
 
 ^f23a3b
 
 >[!Corollary] Campos coordenados
-> Los campos coordenados $\frac{\partial}{\partial x_i}$ son campos suaves en $\mathfrak X(U)$. Recordamos que aca aca estamos pensando $$\frac{\partial}{\partial x_{i}}:U\rightarrow  TU\qquad \text{dada por }\qquad \frac{\partial}{\partial x_{i}}(q)=\left(q,\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$$ por eso es que son campos
+>Los campos coordenados $\frac{\partial}{\partial x_i}$ son campos suaves en $\mathfrak X(U)$. Recordamos que aca aca estamos pensando $$\frac{\partial}{\partial x_{i}}:U\rightarrow  TU\qquad \text{dada por }\qquad \frac{\partial}{\partial x_{i}}(q)=\left(q,\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$$ por eso es que son campos. Pero tambien los puedo pensar como que $$\left(\frac{\partial}{\partial x_{i}}\right)_{p}=\frac{\partial}{\partial x_{i}}\bigg|_{p}\in T_{p}U$$ 
 >>[!Proof]-
->>1. En el marco coordenado, las coordenadas de $\frac{\partial}{\partial x_i}$ son constantes: una coordenada vale $1$ y las demas valen $0$.
+>>1. En el marco coordenado de la carta tenemos $$\frac{\partial}{\partial x_{i}}\bigg|_{p}=\sum^{n}_{i=1}a_{i}(p)\frac{\partial}{\partial x_{i}}\bigg|_{p}$$
+>>2. Por lo tanto $a_{j}(t)\equiv 0$ si $i=j$ y $a_{i}(t)\equiv 1$ 
+>>3. Osea las coordenadas de $\frac{\partial}{\partial x_{i}}$ en el marco dado por la carta son suaves 
 
 ^4e6c26
 

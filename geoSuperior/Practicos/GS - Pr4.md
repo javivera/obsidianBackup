@@ -13,7 +13,7 @@
 >>8. Por lo tanto, para todo $t\in I$, $$\sigma'(t)=0=X_{\sigma(t)}$$
 >>9. Luego $\sigma$ es curva integral de $X$.
 >>10. Además, $\sigma(t_0)=p=\gamma(t_0)$.
->>11. Luego por [[GS - Pr4#^c00595]], como $\gamma$ y $\sigma$ son curvas integrales de $X$ y coinciden en el instante $t_0$, se sigue que $\gamma(t)=\sigma(t)$ para todo $t\in I$.
+>>11. Luego por [[Glosario#^c00595z]], como $\gamma$ y $\sigma$ son curvas integrales de $X$ y coinciden en el instante $t_0$, se sigue que $\gamma(t)=\sigma(t)$ para todo $t\in I$.
 >>12. Como $\sigma(t)=p$ para todo $t\in I$, concluimos que $\gamma(t)=p$ para todo $t\in I$.
 >>13. Por lo tanto,
 >>$$\gamma \text{ es constante.}$$
@@ -76,12 +76,14 @@
 >>5. y
 >>$$X \text{ es completo.}$$
 
+^ce146f
+
 ### Ejercicio 5
 
 >[!Exercise]
 >Sea $M=\{(x,y)\in\mathbb R^2:x<0\}$ y sea $X$ el campo vectorial definido por $X(z)=\left.\frac{\partial}{\partial x}\right|_z$. Mostrar que no existe un intervalo de tiempo uniforme alrededor de cero donde están definidas todas las curvas integrales de $X$.
 >>[!Proof]-
->>1. Usando coordenadas como en [[GS - Pr4#^da6e6d]] y asumiendo carta canonica $(\mathbb{R}^{2},Id)$ tenemos que, la curva integral $\gamma(t)=Id\circ\gamma(t)=(x(t),y(t))$ que parte de $(x_0,y_0)\in M$ satisface $$x'(t)=1,\qquad y'(t)=0.$$
+>>1. Usando coordenadas como en [[Glosario#^da6e6d]] y asumiendo carta canonica $(\mathbb{R}^{2},Id)$ tenemos que, la curva integral $\gamma(t)=Id\circ\gamma(t)=(x(t),y(t))$ que parte de $(x_0,y_0)\in M$ satisface $$x'(t)=1,\qquad y'(t)=0.$$
 >>2. Luego, integrando, se obtiene $$\gamma(t)=(x_0+t,y_0).$$
 >>3. Para que $\gamma(t)$ permanezca en $M$, debe cumplirse $$x_0+t<0.$$
 >>4. Es decir, $$t<-x_0.$$
@@ -145,6 +147,8 @@
 >>- **Describamos las curvas integrales**
 >>	1. Miramos $$\lVert \gamma_{p}(t) \rVert^{2} =p_1^2+p_2^2$$
 >>	2. Con lo cual las curvas integrales son circunferencias centradas en el origen. A excepcion de la curva maximal con inicio en $0$ que es constantemente $0$
+>>
+>>Tambien podemos verlo asi [[Glosario#^d158d2]]
 
 ### Ejercicio 8
 
@@ -221,23 +225,45 @@
 
 ### Ejercicio 10
 
->[!Exercise]
->[Extensión de campos de subvariedades] Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que hay un campo suave $Y$ sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ sobre $S$. Mostrar que tal campo $Y$ extiende a sobre todo $M$ si y solo si $S$ es un subconjunto cerrado de $M$.
+>[!Exercise] Extensión de campos de subvariedades
+>Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que hay un campo suave $Y$ sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ sobre $S$. Mostrar que tal campo $Y$ extiende a sobre todo $M$ si y solo si $S$ es un subconjunto cerrado de $M$.
 >>[!Proof]-
->>- **Solución 1.**
+>>- **Existe dicho campo**
 >>	1. Estoy asumiendo $\dim M=m$ y $\dim S=n$  
->>	2. Primero notamos que por [[GS - Teo13#^8f3892]] tenemos que $\iota(U)=\iota(S)\cap V$ y es la rebanada cero de $(V,\psi)$
->>	3. Esto es lo mismo que decir que $U=S\cap V$ es la rebanada $0$ de $(V,\psi=(x_{1},\ldots,x_{n},x_{n+1},\ldots x_{m}))$ osea $$S\cap V=\{ q\in V:x_{n+1}(q)=\ldots=x_{m}(q)=0 \}$$
->>	4. Entonces tenemos una carta en $S$ dada por $$(S\cap V,\varphi=(x_{1},\ldots x_{n}))$$ notar que $S\cap V$ es abierto por que $\iota$ es homemorfismo sobre su imagen con la topologia heredada de $M$. Entonces $S=\iota(S)$ tiene la topologia heredada de $M$ con lo cual $S\cap V$ es un abierto de la topologia heredada de $M$ luego es un abierto de $S$. 
->>	5. Y es claramente homeomorfismo, por tanto una carta de $S$   
->>	6. Luego puedo escribir a $X\in \mathfrak{X}(S\cap V)$ como $$X=\sum^{n}_{i=1} X^{i} \frac{\partial}{\partial x_{i}}$$ con $X^{i}:S\cap V\rightarrow\mathbb{R}$ funciones suaves
->>	7. Ahora si miramos notamos que $\pi\circ\psi:V\rightarrow\mathbb{R}^{n}$ entonces podemos mirar $$W=(\pi\circ\psi)^{-1}(\varphi(S\cap V))$$ que es un abierto (por que $\psi$ y $\pi$ son continuas y $\varphi(S\cap V)$ es abierto) y ademas sucede que $S\cap V\subseteq W$  
->>	8. Luego definimos $$\widetilde{X }^{i}=(X^{i} \circ\varphi ^{-1})\circ\pi\circ\psi|_{W}:W\rightarrow \mathbb{R}$$ que es suave por ser composicion de suaves
->>	9. Ahora notamos que $(W,\psi|_{W})$  es carta de $M$ entonces podemos definir $\widetilde{X}\in \mathfrak{X}(W)$ como $$\widetilde{X}=\sum^{n}_{i=1} \widetilde{X}^{i}\frac{\partial}{\partial x_{i}}+\sum^{m}_{j=n+1} 0.\frac{\partial}{\partial x_{j}} $$
->>	10. Veamos que extiende a $X$ si $q\in S\cap V$ entonces $(\pi\circ\psi)(q)=\varphi(q)$ luego $$\widetilde{X}^{i}(q)=(X^{i} \circ\varphi ^{-1})\circ(\pi\circ\psi|_{W})(q)=(X^{i}\circ\varphi ^{-1})(\varphi(q)) =X^{i}(q) $$
->>	11. Entonces $$\widetilde X_q =\sum_{i=1}^n X^i(q)\frac{\partial}{\partial x^i}\Big|_q$$ que es exactamente la imagen de $(d\iota)_{q}(X_{q})$ osea que es como ver a $X_{q}$ dentro de $T_{q}M$
->>	12. Con lo cual $$\widetilde X|_{S\cap V}=X$$ 
-
+>>	2. Primero notamos que por [[GS - Teo13#^8f3892]] tenemos cartas $(U,\tilde\varphi)$ con $p\in U$ y $(V,\psi)$ tal que $$\iota(U)=\iota(S)\cap V$$ y es la rebanada cero de $(V,\psi=x_{1},\ldots,x_{n},x_{n+1},\ldots,x_{m})$
+>>	3. Esto es lo mismo que decir que $U=S\cap V\subseteq S$ es la rebanada $0$ de $(V,\psi=(x_{1},\ldots,x_{n},x_{n+1},\ldots x_{m}))$ osea $$U=\{ q\in V:x_{n+1}(q)=\ldots=x_{m}(q)=0 \}$$
+>>	4. Entonces podemos mirar $$(U,\varphi=(x_{1},\ldots x_{n}))$$ como carta de $S$
+>>	5. Veamos que es carta. Tenemos que $\iota$ es homeomorfismo. Con lo cual como $S=\iota (S)$ ambas tienen la misma topologia. Y la topologia en $\iota(S)$ es la heredada de $M$ 
+>>	6. Entonces $U=S\cap V$ es abierto relativo de $S$ por que es $V$ es abierto de $M$   
+>>	7. Y ademas $$\varphi=\pi\circ\psi|_{U}$$ con $\pi(x_{1},\ldots,x_{m})=(x_{1},\ldots,x_{n})$. Como ambas son homeomorfismo $\varphi$ es homeomorfismo. Probando que es carta de $S$  
+>>	8. Luego puedo escribir a $X|_{U}\in \mathfrak{X}(U)$ como $$X=\sum^{n}_{i=1} X^{i} \frac{\partial}{\partial x_{i}}$$ con $X^{i}:U\rightarrow\mathbb{R}$ funciones suaves
+>>	9. Ahora si miramos notamos que $\pi\circ\psi:V\rightarrow\mathbb{R}^{n}$ entonces podemos mirar $$W=(\pi\circ\psi)^{-1}(\varphi(U))$$ que es **un abierto de $M$** (por que $\psi$ y $\pi$ son continuas y $\varphi(U)$ es abierto) y ademas sucede que $S\cap W=U$ **importante** (Tambien podria haber hecho algo asi [[Glosario#^fd9e9b]] algun dia reescribir esta parte usandolo) 
+>>	10. Luego definimos $$\widetilde{X }^{i}=(X^{i} \circ\varphi ^{-1})\circ\pi\circ\psi|_{W}:W\rightarrow \mathbb{R}$$ que es suave por ser composicion de suaves
+>>	11. Ahora notamos que $(W,\psi|_{W})$ es carta de $M$ entonces podemos definir $\widetilde{X}|_{W}\in \mathfrak{X}(W)$ como $$\widetilde{X}=\sum^{n}_{i=1} \widetilde{X}^{i}\frac{\partial}{\partial x_{i}}+\sum^{m}_{j=n+1} 0.\frac{\partial}{\partial x_{j}} $$
+>>	12. Veamos que extiende a $X$ si $q\in U$ entonces $(\pi\circ\psi)(q)=\varphi(q)$ luego $$\widetilde{X}^{i}(q)=(X^{i} \circ\varphi ^{-1})\circ(\pi\circ\psi|_{W})(q)=(X^{i}\circ\varphi ^{-1})(\varphi(q)) =X^{i}(q) $$
+>>	13. Entonces $$\widetilde X_q =\sum_{i=1}^n X^i(q)\frac{\partial}{\partial x^i}\Big|_q$$ osea $\widetilde{X}_{q}=(d\iota)_{q}(X_{q})$ digamos que es como ver a $X_{q}$ dentro de $T_{q}M$
+>>	14. Con lo cual $$\widetilde X|_{U}=X$$
+>>	15. Osea recapitulando tomamos un abierto $p\in U$ miramos $X$ localmente en ese abierto y nos extendimos a otro abierto $W$. Y notamos que $p\in W$ con lo cual lo podiamos llamar $W_{p}$ 
+>>	16. Y esto lo podemos hacer para cada $p\in S$ entonces podemos armar $\{ W_{p} \}_{p\in S}$ que cubre a $S$ y luego definir $$W=\bigcup_{p\in S}W_{p}$$ entonces $W$ es un cubrimiento de $S$ por abiertos de $M$
+>>	17. Tomamos la particion de la unidad $\{ \rho_{\alpha } \}_{\alpha \in \Lambda}$ sobre $W$ subordinada al cubrimiento $\{ W_{\alpha } \}_{\alpha \in \Lambda}$ es decir $$\operatorname{supp}(\rho_{\alpha })\subseteq W_{\alpha }\qquad0\leq \rho_{\alpha }\leq 1\qquad\sum_{\alpha }\rho_{\alpha }=1 $$
+>>	18. Luego para cada $\alpha$ tenemos un campo local $\rho_{\alpha }\widetilde{X}_{\alpha }:=_{\text{def}}\rho_{\alpha }\widetilde{X}|_{W_{\alpha} }\in \mathfrak{X}(W_{\alpha })$ que puede ser extendido a $\mathfrak{X}(W)$ [[Glosario#^c3dcb6]]
+>>	19. Luego usando estos campos extendidos $$Z_\alpha=\rho_\alpha\widetilde X_\alpha$$ definimos $$Y=\sum_{\alpha\in\Lambda}Z_\alpha.$$
+>>	20. La suma es localmente finita, porque $\{\rho_\alpha\}$ es una partición de la unidad. Por tanto, localmente $Y$ es una suma finita de campos suaves. Luego $$Y\in\mathfrak X(W).$$
+>>	21. Ahora veamos que $Y$ restringe a $X$ sobre $S$. Sea $q\in S$. Entonces $$Y_q=\sum_{\alpha\in\Lambda}(Z_\alpha)_q=\sum_{\alpha\in\Lambda}\rho_\alpha(q)(\widetilde X_\alpha)_q.$$  
+>>	22. Si $\rho_\alpha(q)\neq 0$, entonces $q\in\operatorname{supp}(\rho_\alpha)\subseteq W_\alpha$, luego $q\in S\cap W_\alpha=U_{\alpha }$. Por construcción, $$(\widetilde X_\alpha)_q=di_q(X_q).$$  
+>>	23. Por lo tanto,  $$Y_q=\sum_{\alpha\in\Lambda}\rho_\alpha(q)di_q(X_q).$$  
+>>	24. Como la suma es localmente finita y $\sum_{\alpha\in\Lambda}\rho_\alpha(q)=1$, obtenemos $$Y_q=\left(\sum_{\alpha\in\Lambda}\rho_\alpha(q)\right)di_q(X_q)=di_q(X_q).$$  
+>>	25. Así, $$Y_q=di_q(X_q)$$ para todo $q\in S$. 
+>>	26. Finalmente identificando $T_qS$ con su imagen $di_q(T_qS)\subseteq T_qM$, escribimos $$Y|_S=X.$$
+>>- **$S$ cerrado**
+>>	1. Por [[GS - Teo8#^cf02ec]] existe $f:M\rightarrow\mathbb{R}$ tal que $f|_{S}\equiv 1$ y tal que $\operatorname{supp}(f)\subseteq W$. (Una funcion de corte)
+>>	2. Definimos $$\widetilde{Y}:M\rightarrow TM$$ dada por $$\widetilde{Y}_{q}=\begin{cases}f(q)Y_{q} \quad&q\in W\\ 0_{q}&q\not\in W\end{cases}$$
+>>	3. Esta bien definida por que $\operatorname{supp}(f)\subseteq W$. Luego tenemos $\widetilde{Y}\in \mathfrak{X}(M)$ 
+>>	4. Finalmente si $q\in S$ entonces $f(q)=1$ por lo tanto $\widetilde{Y}_{q}=Y_{q}=d\iota_{q}(X_{q})$  
+>>	5. Osea usando la identificacion de antes $\widetilde{Y}|_{S}=X$ 
+>>- **Tengo campo que extiende a todo $M$**
+>>	1. No es cierto por ejemplo si tengo el campo $X\in \mathfrak{X}(S)$ constantemente nulo por mas que $S$ sea abierto lo puedo extender a todo $M$    
+ 
 ^7d5d0b
 
 ### Ejercicio 11
@@ -245,15 +271,17 @@
 >[!Exercise]
 >Sea $M$ una variedad diferenciable compacta y conexa, sea $X\in\mathfrak X(M)$ y sea $f\in C^\infty(M)$ no idénticamente cero. Probar que si un $c\in\mathbb R$ satisface $X(f)=cf$, entonces $c$ debe ser cero.
 >>[!Proof]-
->>1. Como $M$ es compacta, por el Ejercicio 4 el campo $X$ es completo. Sea $\phi_t$ su flujo. Para cualquier $p\in M$,
->>$$
->>\frac d{dt}f(\phi_t(p))
->>=X(f)(\phi_t(p))
->>=c f(\phi_t(p)).
->>$$
->>2. Por lo tanto,
->>$$f(\phi_t(p))=e^{ct}f(p).$$
->>3. Como $f$ no es idénticamente cero, existe $p$ tal que $f(p)\neq0$. Si $c>0$, entonces $e^{ct}f(p)$ no es acotada cuando $t\to+\infty$. Si $c<0$, no es acotada cuando $t\to-\infty$. Pero $f$ es continua sobre el compacto $M$, luego es acotada. Contradicción. Por lo tanto,
+>>1. Sea $\gamma_p(t)=\phi_t(p)$. Como $\gamma_p$ es la curva integral de $X$ que parte de $p$, se tiene $$\gamma_p'(t)=X_{\gamma_p(t)}=X_{\phi_t(p)}.$$
+>>2.  Ahora, por definición de velocidad de una curva en una variedad, para toda $h\in C^\infty(M)$ vale $$\gamma_p'(t)(h)=(d\gamma_{p})_{t}\left(\frac{d}{ds}\bigg|_{s=t}\right)(h)=\frac{d}{ds}\bigg|_{s=t}h(\gamma_p(s))=\frac{d}{dt}h(\gamma_{p}(t))$$ este ultimo igual por que si $F(s)=h(\gamma_{p}(s))$ entonces $F'(t)=\frac{d}{ds}|_{s=t}h(\gamma_{p}(s))$ pero  $F'(t)=\frac{d}{dt}F(t)=\frac{d}{dt}h(\gamma_{p}(t))$  
+>>3. Aplicando esto a $h=f$, obtenemos $$\frac{d}{dt}f(\phi_t(p))=\gamma_p'(t)(f).$$
+>>4. Como $\gamma_p'(t)=X_{\phi_t(p)}$ y $X(f)(q)=X_q(f)$ resulta $$\frac{d}{dt}f(\phi_t(p))=X_{\phi_t(p)}(f)=X(f)(\phi_t(p))=cf(\phi_{t}(p))$$
+>>5. Por lo tanto, resolviendo le ecuacion diferencial (para sacar la constante se evalua $f(\phi_{t}(p))=k_{1}e^{ct}$ en $0$ y se nota que $\phi_{0}(p)=\gamma_{p}(0)=p$) $$f(\phi_t(p))=e^{ct}f(p).$$
+>>6. Como $f$ no es idénticamente cero, existe $p$ tal que $f(p)\neq0$. 
+>>7. Recordemos por [[GS - Pr4#^ce146f]] como $M$ compacto $X$ es completo. Entonces el flujo esta definido para todo $t\in \mathbb{R}$  
+>>8. Si $c>0$, entonces $e^{ct}f(p)$ no es acotada cuando $t\to+\infty$. y si $c<0$, no es acotada cuando $t\to-\infty$. 
+>>9. Osea una vez que fijo ese $p$ tal que $f(p)\neq 0$ me puedo mover por el flujo tanto como quieras y sigo obteniendo puntos de $q\in M$ que cumplen $f(q)=e^{ct}f(p)$ pero con $e^{ct}$ cada vez mas grande       
+>>10. Pero $f$ es continua sobre el compacto $M$, luego es acotada. 
+>>11. Contradicción. Por lo tanto,
 >>$$c=0.$$
 
 ### Ejercicio 12
@@ -261,41 +289,18 @@
 >[!Exercise]
 >Sea $M$ una variedad diferenciable y sean $X,Y$ campos en $M$ y $f,g:M\to\mathbb R$ funciones diferenciables.
 >
->- Calcular $[fX,gY]$.
->- Si $\varphi=(x_1,\dots,x_n)$ es un sistema coordenado, mostrar que $\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0$ para todo $i,j$.
->- En $\mathbb R^2$ se definen los campos $V$ y $W$ por $V(x,y)=e_1$ y $W(x,y)=e^x e_2$. Mostrar que no existe un sistema coordenado $\psi=(u,v)$ tal que $\frac{\partial}{\partial u}=V$ y $\frac{\partial}{\partial v}=W$.
+>- **(a)** Calcular $[fX,gY]$.
+>- **(b)** Si $\varphi=(x_1,\dots,x_n)$ es un sistema coordenado, mostrar que $\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0$ para todo $i,j$.
+>- **(c)** En $\mathbb R^2$ se definen los campos $V$ y $W$ por $V(x,y)=e_1$ y $W(x,y)=e^x e_2$. Mostrar que no existe un sistema coordenado $\psi=(u,v)$ tal que $\frac{\partial}{\partial u}=V$ y $\frac{\partial}{\partial v}=W$.
 >>[!Proof]-
->>1. **Solución 1.**
->>2. Para $h\in C^\infty(M)$,
->>$$[fX,gY](h)=fX(gY(h))-gY(fX(h)).$$
->>3. Usando la regla de Leibniz:
->>$$fX(gY(h))=fX(g)Y(h)+fgX(Y(h)),$$
->>$$gY(fX(h))=gY(f)X(h)+fgY(X(h)).$$
->>4. Restando:
->>$$
->>[fX,gY](h)
->>=fg[X,Y](h)+fX(g)Y(h)-gY(f)X(h).
->>$$
->>5. Como vale para toda función $h$, queda la fórmula.
->>
->>6. **Solución 2.**
->>7. Para cualquier función suave $h$,
->>$$
->>\left[\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j}\right](h)
->>=\frac{\partial^2 h}{\partial x^i\partial x^j}
->>-\frac{\partial^2 h}{\partial x^j\partial x^i}=0,
->>$$
->>8. por igualdad de derivadas parciales mixtas.
->>
->>9. **Solución 3.**
->>10. Si $V$ y $W$ fueran campos coordenados, deberían conmutar. Pero
->>$$
->>[V,W]
->>=\left[\frac{\partial}{\partial x},e^x\frac{\partial}{\partial y}\right]
->>=e^x\frac{\partial}{\partial y}=W\neq0.
->>$$
->>11. Por lo tanto,
->>$$\text{no puede existir tal sistema coordenado.}$$
+>>- **(a)** 
+>>	1. [[GS - Teo19#^411d32]] (iv) 
+>>- **(b)** 
+>>	1. [[GS - Teo19#^411d32]] (ii) 
+>>- **(c)**
+>>	1. Notemos que $V(x,y)=e_{1}=1.\frac{\partial}{\partial x}$ y $W(x,y)=e^{x}\frac{\partial}{\partial y}$ 
+>>	2. Si $V$ y $W$ fueran campos coordenados, deberían conmutar. Pero $$\left[\frac{\partial}{\partial u},\frac{\partial}{\partial v}\right]=[V,W]=\left[\frac{\partial}{\partial x},e^x\frac{\partial}{\partial y}\right]=\frac{\partial}{\partial x}e^{x}\frac{\partial}{\partial y} + e^{x}\left[\frac{\partial}{\partial u},\frac{\partial}{\partial v}\right] =e^x\frac{\partial}{\partial y}=W\neq0.$$
+>>	3. Por lo tanto, no puede existir tal sistema coordenado
 
 ### Ejercicio 13
 
@@ -566,45 +571,23 @@
 >[!Exercise]
 >Sea $M=\mathbb C\setminus\{0\}$ y sea $\sim$ la relación de equivalencia sobre $M$ definida por $z\sim w$ si $z=2^kw$ para algún $k\in\mathbb Z$. Considerar sobre $M/\sim$ la única estructura de variedad diferenciable tal que la proyección canónica $\pi$ es un difeomorfismo local.
 >
->- Sea $V$ el campo en $M$ definido por $V_z=z^2$ (se ha identificado $T_zM$ con $\mathbb C$). Encontrar la curva integral $\gamma$ con $\gamma(0)=1$.
->- Mostrar que ningún campo diferenciable en $\widetilde M$ está $\pi$-relacionado con $V$.
+>- (a) Sea $V$ el campo en $M$ definido por $V_z=z^2$ (se ha identificado $T_zM$ con $\mathbb C$). Encontrar la curva integral $\gamma$ con $\gamma(0)=1$.
+>- (b) Mostrar que ningún campo diferenciable en $M/\sim$ está $\pi$-relacionado con $V$.
 >>[!Proof]-
->>1. **Solución 1.**
->>2. La ecuación es
->>$$z'(t)=z(t)^2,\qquad z(0)=1.$$
->>3. Separando variables,
->>$$\frac{dz}{z^2}=dt,$$
->>4. de donde
->>$$-\frac1z=t+C.$$
->>5. Usando $z(0)=1$, obtenemos $C=-1$, así que
->>$$z(t)=\frac1{1-t}.$$
->>6. Esta curva nunca vale $0$, pero explota cuando $t\to1^-$. Por lo tanto, su intervalo maximal en $M$ es
->>$$(-\infty,1).$$
->>
->>7. **Solución 2.**
->>8. La relación es
->>$$z\sim w \iff z=2^kw$$
->>9. para algún $k\in\mathbb Z$. En particular, $z\sim 2z$.
->>
->>10. Supongamos que existe un campo $\widetilde V$ en $\widetilde M$ tal que $V$ y $\widetilde V$ están $\pi$-relacionados. Entonces
->>$$
->>d\pi_z(V_z)=\widetilde V_{\pi(z)}
->>=\widetilde V_{\pi(2z)}
->>=d\pi_{2z}(V_{2z}).
->>$$
->>11. Es decir,
->>$$d\pi_z(z^2)=d\pi_{2z}(4z^2).$$
->>
->>12. Como $\pi(z)=\pi(2z)$, tenemos $\pi\circ D_2=\pi$, donde $D_2(z)=2z$. Derivando:
->>$$d\pi_z=d\pi_{2z}\circ d(D_2)_z.$$
->>13. Pero $d(D_2)_z$ es multiplicación por $2$, por lo que
->>$$d\pi_z(z^2)=d\pi_{2z}(2z^2).$$
->>14. Comparando con la relación anterior:
->>$$d\pi_{2z}(2z^2)=d\pi_{2z}(4z^2).$$
->>15. Como $\pi$ es difeomorfismo local, $d\pi_{2z}$ es inyectiva. Luego
->>$$2z^2=4z^2,$$
->>16. lo cual es imposible para $z\neq0$. Por lo tanto,
->>$$\text{no existe tal campo } \widetilde V.$$
+>>- **(a)**
+>>		1. La ecuación es $$z'(t)=z(t)^2,\qquad z(0)=1.$$
+>>	2. Separando variables, $$\frac{dz}{z^2}=dt,$$de donde $$-\frac1z=t+C.$$
+>>	3. Usando $z(0)=1$, obtenemos $C=-1$, así que $$z(t)=\frac1{1-t}.$$
+>>	4. Esta curva nunca vale $0$, pero explota cuando $t\to1^-$. Por lo tanto, su intervalo maximal en $M$ es $$(-\infty,1).$$
+>>- **(b)**
+>>	1. La relación es $$z\sim w \iff z=2^kw$$para algún $k\in\mathbb Z$. En particular, $z\sim 2z$.
+>>	2. Supongamos que existe un campo $\widetilde V$ en $\widetilde M$ tal que $V$ y $\widetilde V$ están $\pi$-relacionados. Entonces $$d\pi_z(V_z)=\widetilde V_{\pi(z)}=\widetilde V_{\pi(2z)}=d\pi_{2z}(V_{2z})$$
+>>	3. Es decir, $$d\pi_z(z^2)=d\pi_{2z}(4z^2).$$
+>>	4. **Paso clave** Como $\pi(z)=\pi(2z)$, tenemos $\pi\circ D_2=\pi$, donde $D_2(z)=2z$. Derivando $$d\pi_z=d\pi_{2z}\circ d(D_2)_z.$$
+>>	5. Pero $d(D_2)_z=2z$ (Para verlo se puede pensar $\mathbb{C}\simeq \mathbb{R}^{2}$ y ver la matriz diferencial), por lo que $$d\pi_z(z^2)=d\pi_{2z}(2z^2).$$
+>>	6. Comparando con la relación anterior: $$d\pi_{2z}(2z^2)=d\pi_{2z}(4z^2).$$
+>>	7. Como $\pi$ es difeomorfismo local, $d\pi_{2z}$ es inyectiva. Luego $$2z^2=4z^2,$$
+>>	8. Con lo cual es imposible para $z\neq0$. Por lo tanto, no existe tal campo $\widetilde V$
 
 ### Ejercicio 22
 
@@ -637,31 +620,32 @@
 ### Ejercicio 23
 
 >[!Exercise]
->Sean $M$ una variedad diferenciable, $X,Y\in\mathfrak X(M)$ y sea $p\in M$. Probar que
->$$t\longmapsto (d\theta_{-t})_{\theta_t(p)}(Y_{\theta_t(p)})$$
->define una curva $C^\infty$ en $T_pM$, donde $\theta_t$ es el flujo local asociado a $X$. (Recordar de la teoría que derivando esta curva en $t=0$, obtenemos el corchete $[X,Y]_p$, con las identificaciones usuales.)
+>Sean $M$ una variedad diferenciable, $X,Y\in\mathfrak X(M)$ y sea $p\in M$. Probar que $\alpha(t)$ dada por $$t\longmapsto (d\theta_{-t})_{\theta_t(p)}(Y_{\theta_t(p)})$$define una curva $C^\infty$ en $T_pM$, donde $\theta_t$ es el flujo local asociado a $X$. (Recordar de la teoría que derivando esta curva en $t=0$, obtenemos el corchete $[X,Y]_p$, con las identificaciones usuales.)
 >>[!Proof]-
->>1. Para $t$ suficientemente pequeño, $\theta_t(p)$ está definido y $\theta_{-t}$ lleva $\theta_t(p)$ nuevamente a $p$. Por lo tanto,
->>$$
->>(d\theta_{-t})_{\theta_t(p)}:
->>T_{\theta_t(p)}M\to T_pM
->>$$
->>2. está bien definido.
->>
->>3. La suavidad se verifica localmente. Tomemos una carta alrededor de $p$ y de los puntos $\theta_t(p)$ para $t$ pequeño. En coordenadas, el flujo se escribe como una función suave
->>$$\Theta(t,x).$$
->>4. Entonces $\theta_{-t}$ se escribe como $\Theta(-t,x)$, y su diferencial respecto de $x$ tiene matriz jacobiana
->>$$D_x\Theta(-t,x),$$
->>5. que depende suavemente de $(t,x)$. Además, el campo $Y$ tiene componentes suaves, y la curva
->>$$t\mapsto \theta_t(p)$$
->>6. es suave. Por composición,
->>$$t\mapsto D_x\Theta(-t,\Theta(t,p))\,Y(\Theta(t,p))$$
->>7. es una función suave de $t$ con valores en $\mathbb R^n$, que representa la curva dada en $T_pM$.
->>
->>8. Luego la curva es
->>$$C^\infty.$$
->>9. Además, como se recuerda en el enunciado, su derivada en $t=0$ es
->>$$[X,Y]_p.$$
+>>- **Buena definicion**
+>>	1. Para $t$ suficientemente pequeño, $\theta_t(p)$ está definido y $\theta_{-t}$ lleva $\theta_t(p)$ nuevamente a $p$. 
+>>	2. Luego por [[GS - Teo17#^8d50da]] parte **(iv)** tenemos $$\theta_{-t}:D_{-t}\rightarrow D_{t}$$ por lo tanto $$(d\theta_{-t})_{\theta_t(p)}:T_{\theta_t(p)}D_{-t}\to T_{\theta_{-t}(\theta_{t}(p))}D_{t}=T_{p}D_{t}$$
+>>	3. Como $D_{t},D_{-t}$ son abiertos de $M$ podemos identificar $T_{p}D_{t}=T_{p}M$ luego $$(d\theta_{-t})_{\theta_t(p)}:T_{\theta_t(p)}M\to T_{p}M$$
+>>	4. Finalmente $$\alpha:\mathbb{R}\rightarrow T_{p}M$$ está bien definida.
+>>- **Suavidad**
+>>	1. Sabemos por localidad que $\alpha$ esta bien definida en un intervalo $(-\epsilon,\epsilon)$ ahora vamos a ver suavidad cerca del $0$ que es lo que nos importa para luego poder tener la derivada de Lie
+>>	2. Tomamos $(U,\varphi=x^{1},\ldots,x^{n})$ carta con $U$ entorno de $p$.
+>>	3. Ahora como $\Theta$ es continua y $\Theta(0,p)=p\in U$ podemos tomar $\Theta^{-1}(U)$ (preimagen). Esto nos da un intervalo $I_{1}$ (que ademas lo puedo ver como $(-\epsilon,\epsilon)$) que contiene al $0$ y un abierto $\widetilde{U}$ que contiene a $p$ (nos da un abierto de la topo producto, que adentro tiene a $I_{1}\times\tilde U$)
+>>	4. Ahora como $Y_{\gamma_{p}(t)}\in T_{\gamma_{p}(t)}M.$ y $\gamma_{p}(t)\in U$ tenemos $$Y_{\theta_t(p)}=\sum_{j=1}^n Y^j(\theta_t(p))\frac{\partial}{\partial x^j}\bigg|_{\theta_t(p)}.$$ que queda definida para cualquier $t\in I_{1}$ 
+>>	5. Aplicamos $(d\theta_{-t})_{\theta_t(p)}$: $$(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}=\sum_{j=1}^n Y^j(\theta_t(p))(d\theta_{-t})_{\theta_t(p)}\left(\frac{\partial}{\partial x^{j} }\bigg|_{\theta_t(p)}\right).$$
+>>	6. Además, como $\theta_{-t}(\theta_t(p))=p$, la diferencial $$ (d\theta_{-t})_{\theta_{t}(p)}:T_{\theta_{t}(p)}M\to T_pM $$ con lo cual $$(d\theta_{-t})_{\theta_t(p)}\left(\frac{\partial}{\partial x^{j} }\bigg|_{\theta_t(p)}\right)=\sum_{i=1}^n a_{ij}(t)\frac{\partial}{\partial x^{i} }\bigg|_p,$$
+>>	7. Ahora calculamos $a_{ij}(t)$ $$a_{ij}(t)=(d\theta_{-t})_{\theta_t(p)}\left(\frac{\partial}{\partial x^{j} }\bigg|_{\theta_t(p)}\right)(x^{i} ).$$
+>>	8. Por definición del diferencial,$$a_{ij}(t)=\frac{\partial}{\partial x^{j} }\bigg|_{\theta_t(p)}(x^{i} \circ\theta_{-t})=\frac{\partial}{\partial r^{j} }\bigg|_{\varphi(\theta_t(p))}x^{i} \circ\theta_{-t}\circ\varphi ^{-1}=\frac{\partial}{\partial r^{j} }\bigg|_{\varphi(\theta_t(p))}\pi_{i}\circ\varphi \circ\theta_{-t}\circ\varphi ^{-1}$$
+>>	9. Por paso 3. como el intervalo es simetrico $\theta_{-t}$ cumple lo mismo osea $\theta_{-t}(\widetilde{U})\subseteq U$ para todo $t\in I_{1}$. 
+>>	10. Ademas por continuidad de $\theta_{t}(p)=\gamma_{p}(t)$ puedo ver $I_{2}=\gamma_{p}^{-1}(\widetilde{U})$. Que devuelta es un abierto que tiene al $0$. Y ahora tomo $I=I_{1}\cap I_{2}$ (que devuelta lo puedo asumir simetrico). Y entonces puedo afirmar $\theta_{t}(p)\in \widetilde{U}$ para $t\in I$
+>>	11. Esto me permite escribir $$\varphi\circ\theta_{-t}\circ\varphi ^{-1}(\varphi(\theta_{t}(p)))$$ y que tenga sentido para todo $t\in I$ 
+>>	12. Pero $H(t,r)=\varphi\circ\theta_{-t}\circ\varphi ^{-1}(r)$ es suave por ser composicion de suaves para con $r\in \varphi(\widetilde{U})$ y $t\in I$, con lo cual sus derivadas son suaves con respecto a $t$ y $r$ con lo cual son suaves si evaluamos a lo largo de la curva $t\mapsto (t,r(t))$ con $r(t)=\varphi(\theta_{t}(p))$ $$\frac{\partial H^{i}}{\partial r^{j}}(t,r(t))=\frac{\partial}{\partial r^{j} }\bigg|_{\varphi(\theta_t(p))}\pi_{i}\circ\varphi \circ\theta_{-t}\circ\varphi ^{-1}=a_{ij}(t)$$  
+>>	13. Ademas $Y^{i}(\theta_{t}(p))$ tambien son suaves con respecto a $t\in I\subseteq I_{1}$ por ser $Y$ campo suave (para cualquier $p\in \widetilde{U}$ en particular para el $p$ fijo que tenemos)  
+>>	14. Por lo tanto $$\alpha(t)=\sum_{j=1}^n\sum^{n}_{i=1} Y^j(\theta_t(p)) a_{ij}(t)\left(\frac{\partial}{\partial x^{i} }\bigg|_p\right).$$
+>>	15. Luego las coordenadas de $\alpha$ en la base $\left\{\frac{\partial}{\partial x^{1}}\big|_p,\ldots,\frac{\partial}{\partial x^{n}}\big|_p\right\}$ son localmente suaves en un entorno del $0$.
+>>	16. Entonces $\alpha$ es suave. Concluyendo que la curva es suave en un entorno del $0$ 
+
+^d6291e
 
 ### Ejercicio 24
 
@@ -669,28 +653,16 @@
 >[Uniformidad conjunta para dos flujos] Sean $X$ e $Y$ dos campos en una variedad $M$ y sea $\theta$ y $\phi$ sus respectivos flujos. Mostrar que para todo $p\in M$ existen un entorno abierto $U$ en $M$ de $p$ y $\delta>0$ tal que $\theta_s\circ\phi_t$ y $\phi_t\circ\theta_s$ están definidos en $U$ para $|s|<\delta$ y $|t|<\delta$.
 >>[!Proof]-
 >>1. La idea es usar que los dominios de los flujos locales son abiertos y que los flujos dependen suavemente, luego continuamente, de las condiciones iniciales y del tiempo.
->>
->>2. Como $\theta$ está definido en un entorno abierto de $(0,p)$, existen un entorno $U_\theta$ de $p$ y $\delta_\theta>0$ tales que
->>$$(-\delta_\theta,\delta_\theta)\times U_\theta$$
->>3. está contenido en el dominio de $\theta$.
->>
->>4. Análogamente, como $\phi$ está definido cerca de $(0,p)$, existen un entorno $U_\phi$ de $p$ y $\delta_\phi>0$ tales que
->>$$(-\delta_\phi,\delta_\phi)\times U_\phi$$
->>5. está contenido en el dominio de $\phi$.
->>
->>6. Queremos además que, después de aplicar uno de los flujos por tiempo pequeño, el resultado siga dentro del entorno donde el otro flujo está definido. Por continuidad de $\phi$, y como $\phi_0(p)=p$, podemos achicar $U_\phi$ y tomar $\delta_1>0$ de modo que
->>$$\phi_t(q)\in U_\theta$$
->>7. para todo $q\in U_\phi$ y $|t|<\delta_1$. Entonces $\theta_s(\phi_t(q))$ está definido si también $|s|<\delta_\theta$.
->>
->>8. Del mismo modo, por continuidad de $\theta$, podemos achicar un entorno $U_\theta'$ de $p$ y tomar $\delta_2>0$ de modo que
->>$$\theta_s(q)\in U_\phi$$
->>9. para todo $q\in U_\theta'$ y $|s|<\delta_2$. Entonces $\phi_t(\theta_s(q))$ está definido si $|t|<\delta_\phi$.
->>
->>10. Finalmente tomamos
->>$$U=U_\phi\cap U_\theta',$$
->>11. y
->>$$\delta=\min\{\delta_\theta,\delta_\phi,\delta_1,\delta_2\}.$$
->>12. Entonces ambas composiciones están definidas en $U$ para $|s|<\delta$ y $|t|<\delta$.
+>>2. Primero notamos que dado $p\in M$ sabemos que $\theta_{s}$ esta bien definida en $U_{\theta}$ y para todo $s\in I_{1}$   
+>>3. Queremos además que, después de aplicar uno de los flujos por tiempo pequeño, el resultado siga dentro del entorno donde el otro flujo está definido. 
+>>4. Por continuidad de $\phi$, y como $\phi_0(p)=p\in U_{\theta}$ podemos tomar $U=\phi ^{-1}(U_{\theta})$ que tiene que ser un abierto de $\mathbb{R}\times M$ 
+>>5. Y dentro de $U$ tenemos $I_{2}\times U_{\phi}$ que cumple $\phi_{t}(U_{\phi})\subseteq U_{\theta}$ para $t\in I_{2}$.
+>>6. Finalmente $\theta_{s}\circ\phi_{t}$ esta bien definido en $U_{\phi}$ para todo $s\in I_{1}$ y $t\in I_{2}$   
+>>7. Haciendo lo mismo tenemos $I_{3}$ y $V_{\phi}$ tal que $\phi_{t}$ esta bien definida para todo $q\in V_{\phi}$ para todo $t\in I_{3}$ 
+>>8. Otra vez por continuidad de $\theta$ tenemos $I_{4}$ y $V_{\theta}$ tal que $\theta_{s}(V_{\theta})\subseteq V_{\phi}$ para todo $s\in I_{4}$ 
+>>9. Por lo tanto $\phi_{t}\circ\theta_{s}$ esta bien definida en $V_{\theta}$ para todo $t\in I_{3}$ y para todo $s\in  I_{4}$ 
+>>10. Luego si definimos $W=U_{\phi}\cap V_{\theta}$ e $I=I_{1}\cap I_{2}\cap I_{3} \cap I_{4}$. Tenemos que ambas $\theta_s\circ\phi_t$ y $\phi_t\circ\theta_s$ están definidos en $W$ para todo $t,s\in I$. 
+>>11. Como $I$ es un intervalo sin perdida de generalidades lo podemos asumir de la pinta $(-\delta ,\delta )$.
 
 ### Ejercicio 25
 
@@ -776,134 +748,3 @@
 >>$$
 >>17. Finalmente, $E_1$ y $E_2$ no tienen componente en dirección $\partial/\partial\theta$, y sus coeficientes dependen solamente de $\theta$. Por eso ninguno deriva los coeficientes del otro:
 >>$$[E_1,E_2]=0.$$
-
-## Glosario
-
->[!Lemma] Unicidad de curvas integrales con tiempo arbitrario
->Sea $X\in\mathfrak X(M)$. Sean $\gamma:I\to M$ y $\sigma:J\to M$ curvas integrales de $X$, donde $I,J\subseteq\mathbb R$ son intervalos abiertos. Si existe $t_0\in I\cap J$ tal que $\gamma(t_0)=\sigma(t_0)$, entonces $\gamma(t)=\sigma(t)$ para todo $t\in I\cap J$.
->>[!Proof]-
->>1. Sea $p=\gamma(t_0)=\sigma(t_0)$.
->>2. Definimos los intervalos trasladados $I_0=I-t_0=\{s\in\mathbb R:t_0+s\in I\}$ y $J_0=J-t_0=\{s\in\mathbb R:t_0+s\in J\}$.
->>3. Entonces $0\in I_0\cap J_0$.
->>4. Definimos $\widetilde{\gamma}:I_0\to M$ por $\widetilde{\gamma}(s)=\gamma(t_0+s)$ y $\tilde{\sigma}:J_0\to M$ por $\tilde{\sigma}(s)=\sigma(t_0+s)$.
->>5. Tenemos $\widetilde{\gamma}(0)=\gamma(t_0)=p$ y $\tilde{\sigma}(0)=\sigma(t_0)=p$.
->>6. Además, por regla de la cadena, $$\widetilde{\gamma}'(s)=\gamma'(t_0+s)=X_{\gamma(t_0+s)}=X_{\tilde{\gamma}(s)}$$
->>7. De la misma forma, $$\tilde{\sigma}'(s)=\sigma'(t_0+s)=X_{\sigma(t_0+s)}=X_{\tilde{\sigma}(s)}$$
->>8. Entonces $\widetilde{\gamma}$ y $\tilde{\sigma}$ son curvas integrales de $X$ que empiezan en $p$ en tiempo $0$.
->>9. Por [[GS - Teo16#^3ff110]], existe una unica curva integral maximal $\gamma_p:(a(p),b(p))\to M$ que empieza en $p$.
->>10. Como $\widetilde{\gamma}$ cumple la condición inicial $\widetilde{\gamma}(0)=p$ y es curva integral de $X$, por maximalidad se tiene $I_0\subseteq(a(p),b(p))$ y $\widetilde{\gamma}(s)=\gamma_p(s)$ para todo $s\in I_0$.
->>11. Como $\widetilde{\gamma}$ cumple la condición inicial $\widetilde{\sigma}(0)=p$ y es curva integral de $X$, por maximalidad se tiene $J_0\subseteq(a(p),b(p))$ y $\widetilde{\sigma}(s)=\gamma_p(s)$ para todo $s\in J_0$.
->>12. Por lo tanto, para todo $s\in I_0\cap J_0$, se tiene $$\widetilde{\gamma}(s)=\widetilde{\sigma}(s).$$
->>13. Si $t\in I\cap J$, entonces $s=t-t_0\in I_0\cap J_0$. Luego
->>$$\gamma(t)=\gamma(t_0+s)=\widetilde{\gamma}(s)=\widetilde{\sigma}(s)=\sigma(t_0+s)=\sigma(t).$$
->>14. Por lo tanto,
->>$$\gamma(t)=\sigma(t)\qquad\forall t\in I\cap J.$$
-
-^c00595z
-
->[!Lemma] Unicidad de curvas integrales salvo traslación temporal no se si se usa
->Sea $X\in\mathfrak X(M)$. Sean $\gamma:I\to M$ y $\sigma:J\to M$ curvas integrales de $X$. Si existen $t_0\in I$ y $s_0\in J$ tales que $\gamma(t_0)=\sigma(s_0)$, entonces $\gamma(t)=\sigma(t-t_0+s_0)$ para todo $t\in I$ tal que $t-t_0+s_0\in J$.
->>[!Proof]-
->>1. Sea $p=\gamma(t_0)=\sigma(s_0)$.
->>2. Definimos $\widetilde\sigma:I'\to M$ por $\widetilde\sigma(t)=\sigma(t-t_0+s_0)$, donde $I'=\{t\in I:t-t_0+s_0\in J\}$.
->>3. Como $\sigma$ es curva integral de $X$, por regla de la cadena se tiene $\widetilde\sigma'(t)=\sigma'(t-t_0+s_0)=X_{\sigma(t-t_0+s_0)}=X_{\widetilde\sigma(t)}$.
->>4. Entonces $\widetilde\sigma$ es curva integral de $X$.
->>5. Además, $\widetilde\sigma(t_0)=\sigma(s_0)=p=\gamma(t_0)$.
->>6. Por el lema anterior, $\gamma(t)=\widetilde\sigma(t)$ para todo $t\in I'$.
->>7. Por lo tanto,
->>$$\gamma(t)=\sigma(t-t_0+s_0)$$
->>8. para todo $t\in I$ tal que $t-t_0+s_0\in J$.
-
->[!Remark] Curvas integrales en coordenadas
->Sea $M$ una variedad suave y sea $X\in\mathfrak X(M)$ un campo vectorial suave. Sea $(U,\varphi)$ una carta local, con coordenadas $(x^1,\dots,x^n)$. En esa carta, el campo se escribe como $$X=\sum_{i=1}^n X^i\frac{\partial}{\partial x^i}.$$
->Esto significa que para cada punto $q\in U$, el vector $X_q\in T_qM$ está dado por $$X_q=\sum_{i=1}^n X^i(q)\frac{\partial}{\partial x^i}\bigg|_q.$$
->Sea $\gamma:I\to M$ una curva suave tal que $\gamma(I)\subseteq U$. La curva $\gamma$ es una curva integral de $X$ si y solo si, para todo $t\in I$, $$\gamma'(t)=X_{\gamma(t)}.$$
->Como $\gamma'(t)\in T_{\gamma(t)}M$, podemos escribirlo en la base coordenada del espacio tangente en $\gamma(t)$: $$\gamma'(t)=\sum_{i=1}^n (x^i\circ\gamma)'(t)\frac{\partial}{\partial x^i}\bigg|_{\gamma(t)}.$$ (evaluando en $x^{i}$ sale el coeficiente) 
->Por otro lado, evaluando el campo en el punto $\gamma(t)$, tenemos $$X_{\gamma(t)}=\sum_{i=1}^n X^i(\gamma(t))\frac{\partial}{\partial x^i}\bigg|_{\gamma(t)}.$$
->Entonces la igualdad $\gamma'(t)=X_{\gamma(t)}$ equivale a comparar coeficientes en la base $$\left\{\frac{\partial}{\partial x^1}\bigg|_{\gamma(t)},\dots,\frac{\partial}{\partial x^n}\bigg|_{\gamma(t)}\right\}.$$
->Por lo tanto, $\gamma$ es curva integral de $X$ si y solo si sus funciones coordenadas satisfacen el sistema de EDOs $$(x^i\circ\gamma)'(t)=X^i(\gamma(t)),\qquad i=1,\dots,n.$$
->Si escribimos la curva en coordenadas como $$\varphi(\gamma(t))=(x^1(t),\dots,x^n(t)),$$ entonces el sistema queda $$\frac{d x^i}{dt}(t)=X^i(x^1(t),\dots,x^n(t)),\qquad i=1,\dots,n.$$
-
-^da6e6d
-
->[!Theorem]
->Sean $M,N$ variedades suaves y sea $F:M\to N$ una inmersión. Supongamos que
->$$\dim M=\dim N.$$
->Entonces $F(M)$ es abierto en $N$.
->
->>[!Proof]-
->>1. Sea $p\in M$. Como $F$ es una inmersión,
->>$$dF_p:T_pM\to T_{F(p)}N$$
->>es inyectiva.
->>2. Como $\dim M=\dim N$, los espacios vectoriales $T_pM$ y $T_{F(p)}N$ tienen la misma dimensión. Por lo tanto, $dF_p$ es un isomorfismo.
->>3. Por el teorema de la función inversa para variedades, existen abiertos $U_p\subseteq M$ y $V_p\subseteq N$ tales que $p\in U_p$, $F(p)\in V_p$, y
->>$$F|_{U_p}:U_p\to V_p$$
->>es un difeomorfismo.
->>4. En particular,
->>$$F(U_p)=V_p,$$
->>y por lo tanto $F(U_p)$ es abierto en $N$.
->>5. Como esto vale para todo $p\in M$, tenemos
->>$$F(M)=\bigcup_{p\in M}F(U_p).$$
->>6. Cada $F(U_p)$ es abierto en $N$, y una unión arbitraria de abiertos es abierta. Por lo tanto,
->>$$F(M)$$
->>es abierto en $N$.
-
->[!Corollary]
->Sea $S\subseteq M$ una subvariedad inmersa de $M$ mediante la inclusión
->$$\iota:S\hookrightarrow M.$$
->Si
->$$\dim S=\dim M,$$
->entonces $S$ es abierto en $M$.
->
->>[!Proof]-
->>1. Como $S$ es una subvariedad inmersa de $M$, la inclusión
->>$$\iota:S\hookrightarrow M$$
->>es una inmersión.
->>2. Además, por hipótesis,
->>$$\dim S=\dim M.$$
->>3. Por el teorema anterior,
->>$$\iota(S)$$
->>es abierto en $M$.
->>4. Como $\iota$ es la inclusión,
->>$$\iota(S)=S.$$
->>5. Por lo tanto, $S$ es abierto en $M$.
-
->[!Corollary]
->Sea $S\subseteq M$ una subvariedad inmersa de $M$ mediante la inclusión
->$$\iota:S\hookrightarrow M.$$
->Supongamos que
->$$\dim S=\dim M$$
->y que $S$ es cerrado en $M$. Entonces $S$ es abierto y cerrado en $M$.
->
->>[!Proof]-
->>6. Por el corolario anterior, como $\dim S=\dim M$, tenemos que $S$ es abierto en $M$.
->>7. Por hipótesis, $S$ es cerrado en $M$.
->>8. Por lo tanto, $S$ es abierto y cerrado en $M$.
-
->[!Corollary]
->Sea $M$ una variedad conexa y sea $S\subseteq M$ una subvariedad inmersa  y $S$ cerrado de $M$ . Si $$\dim S=\dim M,$$ entonces $$S=\varnothing \qquad \text{o}\qquad S=M.$$
->>[!Proof]-
->>9. Por el corolario anterior, $S$ es abierto y cerrado en $M$.
->>10. Como $M$ es conexa, los únicos subconjuntos de $M$ que son abiertos y cerrados son
->>$$\varnothing$$
->>y
->>$$M.$$
->>11. Por lo tanto,
->>$$S=\varnothing$$
->>o
->>$$S=M.$$
->>12. En particular, si $S\neq\varnothing$, entonces $$S=M.$$
-
-
->[!Remark]
->Identificando $\mathbb R^2\simeq \mathbb C$ mediante $z=x+iy$, la transformación $$\varphi_t(x,y)=(x\cos t+y\sin t,-x\sin t+y\cos t)$$se puede escribir como $$\varphi_t(z)=e^{-it}z.$$
->En efecto, $$e^{-it}z=(\cos t-i\sin t)(x+iy)=(x\cos t+y\sin t)+i(-x\sin t+y\cos t).$$
->Si ahora escribimos $z$ en coordenadas polares como $$z=re^{i\theta},$$entonces $$\varphi_t(z)=e^{-it}re^{i\theta}=re^{i(\theta-t)}.$$
->Así, el radio permanece constante y solo cambia el ángulo. 
->Luego las órbitas, para $z\neq 0$, son circunferencias centradas en el origen.
->El campo generado se obtiene derivando el flujo en $t=0$: $$X_z=\left.\frac{d}{dt}\right|_{t=0}\varphi_t(z)=\left.\frac{d}{dt}\right|_{t=0}e^{-it}z=-iz.$$
->Si $z=x+iy$, entonces $$-iz=-i(x+iy)=y-ix.$$
->Por lo tanto, en coordenadas reales, $$X_{(x,y)}=(y,-x).$$
->Equivalente: $$X=y\frac{\partial}{\partial x}-x\frac{\partial}{\partial y}.$$
->En coordenadas polares esto se interpreta como $$X=-\frac{\partial}{\partial \theta},$$porque el flujo satisface $\dot r=0$ y $\dot\theta=-1$. En el origen, $z=0$, se tiene $$X_0=-i0=0,$$ por lo que el origen queda fijo. Entonces el campo no es radial: es tangente a las circunferencias centradas en el origen.
->
