@@ -169,7 +169,7 @@
 >>	10. Como esto lo puedo hacer para cualqueir $p\in M$ entonces $X$ es suave
 >>- **(b)**
 >>	1. Primero queremos ver que $Y_{\iota(p)}=Y_{p}\in \operatorname{Im}(d\iota_{p})$ 
->>	2. Recordamos de [[Parcial 2026-04-30 - soluciones#^483e02]] que $$\operatorname{Im} ((d\iota)_{p})=(d\iota)_p(T_pS^n)=\left\{\sum_{j=1}^{n+1}a_j\frac{\partial}{\partial r_j}\bigg|_p:\sum_{j=1}^{n+1}a_jp_j=0,\ a_j\in\mathbb R\right\}.$$
+>>	2. Recordamos de [[Parcial 1 - soluciones#^483e02]] que $$\operatorname{Im} ((d\iota)_{p})=(d\iota)_p(T_pS^n)=\left\{\sum_{j=1}^{n+1}a_j\frac{\partial}{\partial r_j}\bigg|_p:\sum_{j=1}^{n+1}a_jp_j=0,\ a_j\in\mathbb R\right\}.$$
 >>	3. Sea $p=(x_1,y_1,\dots,x_n,y_n)\in S^{2n-1}.$ entonces $Y_{p}=(-y_{1},x_{1},\ldots,-y_{n},x_{n})$ (mirado en coordenadas) y obviamente cumple $\langle p,Y_{p}\rangle =0$ entonces $Y_{p}$ esta en la imagen como queriamos
 >>	4. Entonces por (a) existe un campo $X$ que esta dado por $(d\iota)_{p}(X_{p})=Y_{p}$ 
 >>	5. Entonces ahora podemos ver el flujo de $Y_{p}$. Busquemos las curvas integrales de este flujo osea $\gamma'(t)=Y_{\gamma(t)}$ y $\gamma(0)=p\in S^{2n-1}$ 

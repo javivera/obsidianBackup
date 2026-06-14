@@ -173,46 +173,6 @@
 
 ^fd9e9b
 
-## Teorico 18
-
->[!Lemma] Otra forma de hacerlo (creo) 
->Sea $M$ una variedad suave de dimensión $n$ y sea $p\in M$. Si $\{v_1,\ldots,v_k\}\subset T_pM$ es linealmente independiente, entonces existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial x_j}\right|_p=v_j,\qquad j=1,\ldots,k.$$
->>[!Proof]-
->>1. Completamos $\{v_1,\ldots,v_k\}$ a una base $\{v_1,\ldots,v_n\}$ de $T_pM$.
->>2. Tomemos una carta suave $(U,\psi=(y_1,\ldots,y_n))$ centrada en $p$, es decir, $\psi(p)=0$.
->>3. Como $(d\psi)_p:T_pM\to T_0\mathbb R^n$ es un isomorfismo, los vectores $$w_j:=(d\psi)_p(v_j),\qquad j=1,\ldots,n,$$ forman una base de $T_0\mathbb R^n$.
->>4. Identificamos canónicamente $T_0\mathbb R^n$ con $\mathbb R^n$ mediante $$\sum_{i=1}^n a_i\left.\frac{\partial}{\partial r_i}\right|_0\longleftrightarrow (a_1,\ldots,a_n).$$ Denotemos por $\widetilde w_j\in\mathbb R^n$ al vector correspondiente a $w_j$ bajo esta identificación.
->>5. Como $\{w_1,\ldots,w_n\}$ es base de $T_0\mathbb R^n$, entonces $\{\widetilde w_1,\ldots,\widetilde w_n\}$ es base de $\mathbb R^n$.
->>6. Definimos $T:\mathbb R^n\to\mathbb R^n$ como la única transformación lineal tal que $$T(\widetilde w_j)=e_j,\qquad j=1,\ldots,n,$$ donde $\{e_1,\ldots,e_n\}$ es la base estándar de $\mathbb R^n$.
->>7. Como $T$ manda una base en una base, $T$ es invertible. Por lo tanto $T$ es un difeomorfismo lineal de $\mathbb R^n$ en $\mathbb R^n$.
->>8. Definimos ahora $$\varphi=T\circ\psi.$$ Como $\psi$ es carta suave y $T$ es un difeomorfismo lineal, $\varphi$ es una carta suave.
->>9. Además, como $\psi(p)=0$ y $T$ es lineal, tenemos $$\varphi(p)=T(\psi(p))=T(0)=0.$$ Luego $\varphi$ está centrada en $p$.
->>10. Veamos qué hace su diferencial sobre los $v_j$. Por regla de la cadena, $$(d\varphi)_p(v_j)=(dT)_{\psi(p)}((d\psi)_p(v_j))=(dT)_0(w_j).$$
->>11. Como $T$ es lineal, $(dT)_0$ actúa sobre los vectores tangentes usando la misma transformación lineal $T$ sobre sus coordenadas. Como $T(\widetilde w_j)=e_j$, se obtiene $$(dT)_0(w_j)=\left.\frac{\partial}{\partial r_j}\right|_0.$$
->>12. Por lo tanto, $$(d\varphi)_p(v_j)=\left.\frac{\partial}{\partial r_j}\right|_0.$$
->>13. Por otro lado, si $\varphi=(x_1,\ldots,x_n)$, entonces por definición del vector coordenado asociado a la carta $\varphi$, $$(d\varphi)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\left.\frac{\partial}{\partial r_j}\right|_{\varphi(p)}.$$
->>14. Como $\varphi(p)=0$, esto queda $$(d\varphi)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\left.\frac{\partial}{\partial r_j}\right|_0.$$
->>15. Comparando con el paso 12, obtenemos $$(d\varphi)_p(v_j)=(d\varphi)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right).$$
->>16. Como $(d\varphi)_p:T_pM\to T_0\mathbb R^n$ es un isomorfismo, concluimos que $$v_j=\left.\frac{\partial}{\partial x_j}\right|_p,\qquad j=1,\ldots,n.$$
->>17. En particular, esto vale para $j=1,\ldots,k$, que era lo que queríamos probar.
-
-^3071e3
-
->[!Proposition]
->Sea $\sigma:U\subseteq\mathbb R^k\to M$ una aplicación suave, con $0\in U$, y sea $\alpha:\mathbb R\to U$ la curva dada por $\alpha(s)=se_1=(s,0,\ldots,0)$. Entonces $$(\sigma\circ\alpha)'(0)=(d\sigma)_0\left(\frac{\partial}{\partial r^1}\big|_0\right).$$
->>[!Proof]-
->>1. Por definición de velocidad de una curva, tenemos $$\alpha'(0)=(d\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)\in T_0\mathbb R^k$$
->>2. Queremos probar que $$\alpha'(0)=\frac{\partial}{\partial r^1}\big|_0$$
->>3. Para eso basta probar que ambos vectores tangentes actúan igual sobre toda función $g\in C^\infty(\mathbb R^k)$.
->>4. Por definición de diferencial, $$\alpha'(0)(g)=(d\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)(g)=\frac{\partial}{\partial s}\big|_0(g\circ\alpha)$$
->>5. Como $\alpha(s)=(s,0,\ldots,0)$, se tiene $$\frac{\partial}{\partial s}\big|_0(g\circ\alpha)=\frac{d}{ds}\big|_{s=0}g(s,0,\ldots,0)$$
->>6. Pero esto es exactamente la derivada parcial de $g$ respecto de la primera coordenada en $0$, es decir, $$\frac{d}{ds}\big|_{s=0}g(s,0,\ldots,0)=\frac{\partial g}{\partial r^1}(0)$$
->>7. Por definición del vector coordenado, $$\frac{\partial}{\partial r^1}\bigg|_0(g)=\frac{\partial g}{\partial r^1}(0)$$
->>8. Luego, para toda $g\in C^\infty(\mathbb R^k)$, se cumple $$\alpha'(0)(g)=\frac{\partial}{\partial r^1}\big|_0(g)$$
->>9. Por lo tanto, $$\alpha'(0)=\frac{\partial}{\partial r^1}\big|_0$$
->>10. En consecuencia, si $\sigma:U\subseteq\mathbb R^k\to M$ es suave y $0\in U$, entonces $$(\sigma\circ\alpha)'(0)=d(\sigma\circ\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)=(d\sigma)_0\left((d\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)\right)=(d\sigma)_0\left(\frac{\partial}{\partial r^1}\big|_0\right)$$
-
-^99bdaa
 
 ## Practico 5
 
@@ -227,11 +187,11 @@
 
 ^9b49d4
 
-> [!Proposition]
-> Si $X,Y\in\mathfrak X(M)$ y en una carta local $(U,x^1,\ldots,x^n)$ escribimos $X=\sum_j X^j\frac{\partial}{\partial x^j}$ y $Y=\sum_j Y^j\frac{\partial}{\partial x^j}$, entonces
+>[!Proposition]
+>Si $X,Y\in\mathfrak X(M)$ y en una carta local $(U,x^1,\ldots,x^n)$ escribimos $X=\sum_j X^j\frac{\partial}{\partial x^j}$ y $Y=\sum_j Y^j\frac{\partial}{\partial x^j}$, entonces
 > $$[X,Y]=\sum_i\left(\sum_j X^j\frac{\partial Y^i}{\partial x^j}-\sum_j Y^j\frac{\partial X^i}{\partial x^j}\right)\frac{\partial}{\partial x^i}.$$
->> [!Proof]
->> 1. Por definición del corchete de Lie, para toda función suave $f\in C^\infty(U)$ se tiene $$[X,Y](f)=X(Y(f))-Y(X(f)).$$
+>>[!Proof]-
+>>1. Por definición del corchete de Lie, para toda función suave $f\in C^\infty(U)$ se tiene $$[X,Y](f)=X(Y(f))-Y(X(f)).$$
 >> 2. Como $[X,Y]$ es un campo vectorial, en coordenadas se puede escribir $$[X,Y]=\sum_i [X,Y]^i\frac{\partial}{\partial x^i}.$$
 >> 3. Para encontrar el coeficiente $[X,Y]^i$, evaluamos el campo $[X,Y]$ en la función coordenada $x^i$. Como $\frac{\partial}{\partial x^k}(x^i)=\delta^i_k$, se tiene $$[X,Y](x^i)=\sum_k [X,Y]^k\frac{\partial x^i}{\partial x^k}=\sum_k [X,Y]^k\delta^i_k=[X,Y]^i.$$
 >> 4. Por otro lado, usando la definición del corchete, $$[X,Y](x^i)=X(Y(x^i))-Y(X(x^i)).$$
@@ -257,3 +217,19 @@
 > Finalmente, reemplazando la expresión de $[X,Y]^i$, queda $$\omega([X,Y])=\sum_i a_i\left(\sum_j X^j\frac{\partial Y^i}{\partial x^j}-\sum_jY^j\frac{\partial X^i}{\partial x^j}\right).$$
 
 ^151174
+
+>[!Proposition] $dg=0$ implica $g$ localmente constante 
+>Let $M$ be a smooth manifold, let $U\subset M$ be open, and let $g\in C^\infty(U)$. If $$dg=0,$$ then $g$ is locally constant.
+>>[!Proof]-
+>>1. Fix an arbitrary point $p\in U$.
+>>2. Choose a smooth coordinate chart around $p$, say $$(W,r),$$ with $p\in W\subset U$ and $W$ connected.
+>>3. Since $$dg=0,$$ for every $q\in W$ we have $$0=(dg)_q\left(\frac{\partial}{\partial r}\bigg|_q\right).$$
+>>4. By definition of the differential of a smooth function, $$(dg)_q\left(\frac{\partial}{\partial r}\bigg|_q\right)=\frac{\partial g}{\partial r}(q).$$
+>>5. Therefore, for every $q\in W$, $$\frac{\partial g}{\partial r}(q)=0.$$
+>>6. Let $\widetilde g=g\circ r^{-1}$ be the coordinate representation of $g$. Then $$\frac{d\widetilde g}{dr}=0$$ on the interval $r(W)\subset\mathbb R$.
+>>7. By the ordinary one-variable result from calculus, $\widetilde g$ is constant on $r(W)$.
+>>8. Therefore $g$ is constant on $W$. (esto es por que la carta coordenada es una biyecion) 
+>>9. Since every point $p\in U$ has a neighborhood $W$ on which $g$ is constant, $g$ is locally constant.
+
+^8cc5ce
+

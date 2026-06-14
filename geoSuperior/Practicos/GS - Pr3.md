@@ -118,7 +118,7 @@
 >[!Exercise]
 >Probar que no existe una inmersión de una variedad compacta $M$ de dimensión $n$ en $\mathbb R^n$.
 >>[!Proof]-
->>1. Si $F:M\to\mathbb R^n$ fuera una inmersión, entonces $(dF)_p$ sería un isomorfismo para todo $p$. Por que inyeccion nos dice que $dim\ker (dF)_{p}=0$ entonces $\dim im (dF)_{p}=n$ por lo tanto $(dF)_{p}$ es sobreyectiva osea es isomorfismo  
+>>1. Si $F:M\to\mathbb R^n$ fuera una inmersión, entonces $(dF)_p$ sería un isomorfismo para todo $p$. Por que inyeccion nos dice que $dim\ker (dF)_{p}=0$ entonces $\dim im (dF)_{p}=\dim T_{p}M=\dim M=n$ por lo tanto $(dF)_{p}$ es sobreyectiva osea es isomorfismo  
 >>2. Por el teorema de la función inversa, $F$ es un difeomorfismo local; 
 >>3. En particular es una aplicación abierta. Por que difeomorfimos local es para cada $p\in M$ existen abiertos $U_{p}\subseteq M$ y $V_{p}\subseteq \mathbb{R}^{n}$ tales que $$F|_{U_{p}}:U_{p}\rightarrow V_{p}$$ es difeomorfimos.
 >>4. Luego dado $U$ abierto tenemos que $$F(U)=\bigcup_{p\in U} F(U_{p})=\bigcup_{p\in U}V_{p}$$ que es union de abiertos
@@ -153,12 +153,15 @@
 >[!Exercise] 
 >Probar que si $F:M\to N$ es una biyección diferenciable y $(dF)_{p}$ no singular en todo punto, entonces $F$ es un difeomorfismo.
 >>[!Proof]-
->>1. Como $(dF)_{p}$ es no singular, $(dF)_p$ es un isomorfismo para todo $p$. 
->>2. Por el teorema de la función inversa, $F$ es un difeomorfismo local. 
->>3. En particular, para cada $q\in N$ existe un entorno abierto $V$ de $q$ tal que $$F^{-1}|_V:V\to M$$es suave. 
->>4. Como esto vale cerca de todo punto de $N$, la inversa global $F^{-1}$ es suave.
->>5. Luego recordamos que suave implica continua. Por lo tanto $F$ es suave y entonces continua y su inversa es suave y por lo tanto continua
->>6. Luego $F$ es un difeomorfismo.
+>>1. Queremos probar que $F^{-1}:N\to M$ es suave.
+>>2. Como la suavidad es local, basta probar que $F^{-1}$ es suave en un entorno de cada punto de $N$.
+>>3. Sea $q\in N$. Como $F$ es biyectiva, existe un único $p\in M$ tal que $F(p)=q$.
+>>4. Como $(dF)_p$ es no singular, por el teorema de la función inversa existen abiertos $U\subset M$ de $p$ y $V\subset N$ de $q$ tales que $$F|_U:U\to V$$ es un difeomorfismo.
+>>5. Por lo tanto $$(F|_U)^{-1}:V\to U$$ es suave.
+>>6. Como $F$ es biyectiva, para todo $y\in V$ se tiene $F^{-1}(y)=(F|_U)^{-1}(y)$.
+>>7. Entonces $$F^{-1}|_V=(F|_U)^{-1}.$$
+>>8. Así, $F^{-1}$ es suave en un entorno de $q$. Como $q\in N$ era arbitrario, $F^{-1}$ es suave.
+>>9. Como $F$ es ya era continua y suave entonces $F$ es un difeomorfismo.
 
 ### Ejercicio 10
 

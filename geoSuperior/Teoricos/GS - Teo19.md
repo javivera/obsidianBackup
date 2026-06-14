@@ -194,74 +194,78 @@
 
 ^39cc9a
 
->[!Proposition] Criterio de conmutación de flujos
+>[!Proposition] Criterio de conmutación de flujos (Hulet 9.15) 
 >Sean $X,Y\in\mathfrak X(M)$ tales que $[X,Y]=0$ y sean $\theta,\phi$ los flujos respectivos. Dado $p\in M$, sean $U$ y $\delta$ los del [[GS - Teo19#^39cc9a]]. Entonces:
->- **(i)** $(d\theta_t)_qY_q=Y_{\theta_t(q)}$ con $q\in U$ para $t\in(-\delta,\delta)$.
+>- **(i)** $(d\theta_s)_qY_q=Y_{\theta_s(q)}$ con $q\in U$ para $s\in(-\delta,\delta)$.
 >- **(ii)** $\theta_t\circ\phi_s=\phi_s\circ\theta_t$ en $U$ para $t,s\in(-\delta,\delta)$.
 >>[!Proof]-
->>1. **(i)** Queremos mostrar
->>$$(d\theta_t)_qY_q=Y_{\theta_t(q)}.$$
->>2. Esto equivale a mostrar que
->>$$Y_q=(d\theta_{-t})_{\theta_t(q)}Y_{\theta_t(q)}.$$
->>3. Consideramos la curva
->>$$\alpha(t)=(d\theta_{-t})_{\theta_t(q)}Y_{\theta_t(q)}.$$
->>4. Por el ejercicio anterior, $\alpha$ es una curva suave en $T_qM$ y
->>$$\alpha'(0)=[X,Y]_q.$$
->>5. Pero como $[X,Y]=0$, esta variación infinitesimal se anula. Aplicando el mismo argumento trasladado en el tiempo por el flujo, se obtiene que $\alpha$ es constante.
->>6. Como
->>$$\alpha(0)=Y_q,$$
->>concluimos que
->>$$(d\theta_{-t})_{\theta_t(q)}Y_{\theta_t(q)}=Y_q,$$
->>y por lo tanto
->>$$(d\theta_t)_qY_q=Y_{\theta_t(q)}.$$
->>7. **(ii)** Ahora fijemos $t$ y $q$. Consideramos
+>>- (i)
+>>	1. Recordemos la fórmula $$[X,Y](p)=\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(p)}\big(Y_{\theta_t(p)}\big),\qquad p\in M.$$
+>>	2. Notar que probar $(i)$ equivale a probar que $$Y_p=(d\theta_{-s})_{\theta_s(p)}\big(Y_{\theta_s(p)}\big),\qquad \forall s\in (-\delta ,\delta),\forall p\in U$$
+>>	3. En otras palabras, para probar $(i)$ debemos ver que, para cada $p$, la curva $$z(s)=(d\theta_{-s})_{\theta_s(p)}\big(Y_{\theta_s(p)}\big)$$es constantemente igual a $Y_p$.
+>>	4. Calculamos $z'(s)$. Por definición, $$z'(s)=\frac{d}{dt}\Big|_{t=0}z(t+s).$$
+>>	5. Ahora, $$z(t+s)=(d\theta_{-(t+s)})_{\theta_{t+s}(p)}\big(Y_{\theta_{t+s}(p)}\big).$$
+>>	6. Como $$\theta_{t+s}(p)=\theta_t(\theta_s(p))$$y $$\theta_{-(t+s)}=\theta_{-s}\circ\theta_{-t},$$por la regla de la cadena obtenemos $$z(t+s)=(d\theta_{-s})_{\theta_s(p)}\left((d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)\right).$$
+>>	7. Por lo tanto, $$z'(s)=\frac{d}{dt}\Big|_{t=0}(d\theta_{-s})_{\theta_s(p)}\left((d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)\right).$$
+>>	8. Como $(d\theta_{-s})_{\theta_s(p)}$ es lineal y no depende de $t$, $$z'(s)=(d\theta_{-s})_{\theta_s(p)}\left(\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)\right).$$
+>>	9. Por la fórmula del corchete aplicada al punto $\theta_s(p)$, $$\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)=[X,Y]_{\theta_s(p)}.$$
+>>	10. Luego $$z'(s)=(d\theta_{-s})_{\theta_s(p)}\big([X,Y]_{\theta_s(p)}\big).$$
+>>	11. Como $[X,Y]=0$, concluimos que $$z'(s)=0,\qquad \forall s\in (-\delta ,\delta )$$ osea $z(s)$ es constante
+>>	12. Además, $$z(0)=(d\theta_0)_p(Y_p)=Y_p.$$
+>>	13. Por lo tanto, $$z(s)=Y_p,\qquad \forall s,$$es decir, $$(d\theta_{-t})_{\theta_t(p)}\big(Y_{\theta_t(p)}\big)=Y_p.$$
+>>	14. Aplicando $(d\theta_t)_p$ a ambos lados, obtenemos
+>>$$(d\theta_t)_p(Y_p)=Y_{\theta_t(p)}.$$
+>>15. **(ii)** Ahora fijemos $t$ y $q$. Consideramos
 >>$$\alpha(s)=\theta_t(\phi_s(q)),$$
 >>$$\beta(s)=\phi_s(\theta_t(q)).$$
->>8. Tenemos
+>>16. Tenemos
 >>$$\alpha(0)=\theta_t(q)=\beta(0).$$
->>9. Además,
+>>17. Además,
 >>$$\alpha'(s)=(d\theta_t)_{\phi_s(q)}Y_{\phi_s(q)}=Y_{\theta_t(\phi_s(q))}=Y_{\alpha(s)},$$
 >>donde usamos **(i)**.
->>10. Por otro lado,
+>>18. Por otro lado,
 >>$$\beta'(s)=Y_{\phi_s(\theta_t(q))}=Y_{\beta(s)}.$$
->>11. Entonces $\alpha$ y $\beta$ son curvas integrales de $Y$ con el mismo dato inicial.
->>12. Por unicidad,
+>>19. Entonces $\alpha$ y $\beta$ son curvas integrales de $Y$ con el mismo dato inicial.
+>>20. Por unicidad,
 >>$$\theta_t(\phi_s(q))=\phi_s(\theta_t(q)).$$
+
+^26db5d
+
+>[!Proposition] (Hulet 9.16) 
+>Sean $X,Y\in\mathfrak{X}(M)$, cuyos flujos conmutan. Entonces $$[X,Y]=0.$$
+>>[!Proof]-
+>>1. Sean $\theta$ y $\phi$ los flujos de $X$ e $Y$, respectivamente. Fijemos $p\in M$. Por el lema de uniformidad conjunta de los flujos, existen un abierto $U$ que contiene a $p$ y $\delta>0$ tales que, para $|s|,|t|<\delta$, las composiciones $\theta_t\circ\phi_s$ y $\phi_s\circ\theta_t$ están definidas en $U$.
+>>2. Como los flujos conmutan, para $|s|,|t|<\delta$ se cumple $$\theta_t(\phi_s(p))=\phi_s(\theta_t(p)).$$
+>>3. Derivando respecto de $s$ en $s=0$, obtenemos $$(d\theta_{t})_{\frac{phttps:}{/www.google.com
+>>4. }}(Y_{p})=(d\theta_t)_{\phi_{0}(p)}\left(\frac{d}{ds}\bigg|_{s=0}\phi_s(p)\right)=\frac{d}{ds}\bigg|_{s=0}\theta_{t}(\phi_{s}(p))=\frac{d}{ds}\bigg|_{s=0}\phi_s(\theta_t(p))=Y_{\theta_{t}(p)}$$
+>>5. Aplicamos $(d\theta_{-t})_{\theta_t(p)}$ a ambos lados. Entonces $$\begin{aligned}(d\theta_{-t})_{\theta_t(p)}\left((d\theta_t)_p(Y_p)\right)&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right),\\d(\theta_{-t}\circ\theta_t)_p(Y_p)&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right),\\Y_p&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right).\end{aligned}$$
+>>6. Por lo tanto, la curva $$t\mapsto(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right)$$ es constante para $|t|<\delta$.
+>>7. Usando la fórmula del corchete en términos del flujo de $X$, $$[X,Y]_p=\frac{d}{dt}\bigg|_{t=0}(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right)=0.$$
+>>8. Como $p\in M$ era arbitrario, concluimos que $$[X,Y]=0.$$
 
 >[!Remark]
 >Recordar que si $\frac{\partial}{\partial x_i}$ y $\frac{\partial}{\partial x_j}$ son los campos de un marco coordenado, entonces
 >$$\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0.$$
->Por tanto, si queremos rectificar dos campos $X,Y$ necesitamos como hipótesis $[X,Y]=0$. Esto motiva lo siguiente.
+>Por tanto, si queremos rectificar dos campos $X,Y$ necesitamos como hipótesis $[X,Y]=0$. Por que si pudieramos rectificarlos entonces $$[X,Y]=\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0$$  
 
->[!Proposition] Rectificación simultánea
->Sean $X_1,\ldots,X_k\in\mathfrak X(M)$ linealmente independientes en un abierto de $M$ en $p$. Entonces existe un sistema coordenado $(U,\varphi=(x_1,\ldots,x_n))$ centrado en $p$ tal que
+>[!Proposition] Rectificación simultánea (Hulet 9.18) 
+>Sean $X_1,\ldots,X_k\in\mathfrak X(M)$ linealmente independientes en un abierto de $M$ en $p$ tales que $$[X_{i},X_{j}]=0\quad 1\leq i,j\leq k$$
+>Entonces existe un sistema coordenado $(U,\varphi=(x_1,\ldots,x_n))$ centrado en $p$ tal que
 >$$X_1|_U=\frac{\partial}{\partial x_1},\ldots,\qquad X_k|_U=\frac{\partial}{\partial x_k}$$
->si los campos conmutan:
->$$[X_i,X_j]=0.$$
 >>[!Proof]-
->>1. Ayuda un poco usar uniformidad conjunta para los $k$ campos. Sea $\theta_i$ el flujo de $X_i$.
->>2. Existe $\varepsilon>0$ y un abierto $V$ de $p$ tal que la composición
->>$$(\theta_1)_{t_1}\circ\cdots\circ(\theta_k)_{t_k}$$
+>>9. Por [[GS - Teo19#^39cc9a]]. Existe $\varepsilon>0$ y un abierto $V$ de $p$ tal que la composición
+>>$$\theta^{1}_{t_1}\circ\cdots\circ\theta^k_{t_k}$$
 >>está bien definida sobre $V$ para todos $t_1,\ldots,t_k\in(-\varepsilon,\varepsilon)$.
->>3. Además, como $[X_i,X_j]=0$, los flujos conmutan localmente.
->>4. Achicando $V$ si hace falta, tomamos una carta cúbica centrada en $p$,
->>$$(V,\psi=(y_1,\ldots,y_n)),$$
->>tal que
->>$$\left.\frac{\partial}{\partial y_i}\right|_p=X_i|_p,\qquad i=1,\ldots,k.$$
->>5. Nos enfocamos en la rebanada
->>$$R=\{(y_1,\ldots,y_n):y_1=\cdots=y_k=0\},$$
->>que tiene dimensión $n-k$.
->>6. Armamos el mapa
->>$$\sigma:(-\varepsilon,\varepsilon)^k\times R\to M$$
->>por
->>$$\sigma(t_1,\ldots,t_k,r)=\theta^1_{t_1}\circ\cdots\circ\theta^k_{t_k}(\psi^{-1}(0,\ldots,0,r)).$$
->>7. En $(0,\ldots,0,0)$, el diferencial de $\sigma$ manda las primeras $k$ direcciones coordenadas a
->>$$X_1|_p,\ldots,X_k|_p,$$
->>y las restantes a los vectores de la rebanada.
->>8. Por construcción, estos vectores forman una base de $T_pM$.
->>9. Entonces, por el teorema de la función inversa, $\sigma$ es un difeomorfismo local alrededor de $(0,\ldots,0,0)$.
->>10. Definimos la carta
->>$$\varphi=\sigma^{-1}.$$
->>11. Como los flujos conmutan, variar $t_i$ en la construcción equivale a seguir el flujo de $X_i$ dejando fijas las demás coordenadas.
->>12. Por lo tanto,
->>$$X_i|_U=\frac{\partial}{\partial x_i},\qquad i=1,\ldots,k.$$
+>>10. Como los campos son linealmente independientes. Achicando $V$ si hace falta, tomamos una carta cúbica centrada en $p$, $$(V,\psi=(x_1,\ldots,x_n)),$$tal que $$\left.\frac{\partial}{\partial x_i}\right|_p=X_i|_p,\qquad i=1,\ldots,k.$$ por [[GS - Teo18#^047506]]
+>>11. Nos enfocamos en la rebanada $$R=\{(r_1,\ldots,r_n)\in C_{\epsilon}^{n} (0):r_1=\cdots=r_k=0\}\simeq C_{\epsilon}^{n-k} (0)\subseteq \psi(V)$$que tiene dimensión $n-k$.
+>>12. Armamos el mapa $$\sigma:(-\varepsilon,\varepsilon)^k\times C_{\epsilon}^{n-k}\subseteq \mathbb{R}^{n}  \to M$$por $$\sigma(t_1,\ldots,t_k,r^{k+1},\ldots,r^{n}  )=\theta^1_{t_1}\circ\cdots\circ\theta^k_{t_k}(\psi^{-1}(0,\ldots 0,r^{k+1},\ldots,r^{n}  )).$$ Notar que esto este bien definido por que al ser carta cubica $\psi ^{-1}(0,\ldots,0,r^{k+1},\ldots r^{n})$ cae en $V$ 
+>>13. Como en la vez anterior, vamos a ver que $\sigma$ es un difeomorfismo entre un abierto de $\mathbb{R}^n$ y un abierto de $M$ que contiene a $p$, mostrando que $$(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)=\begin{cases} X_i|_p, & i=1,\ldots,k,\\[4pt] \left.\dfrac{\partial}{\partial x^i}\right|_p, & i>k.\end{cases}$$
+>>14. En efecto, si $i\leq k$, $$\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial t^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1}_{0}\circ\cdots\circ\theta^{i}_{s}\circ\cdots\circ\theta^{k}_{0}\right)\left(\psi^{-1}(0,\ldots,0)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i}_{s}(p)\\&=X_i|_p\end{aligned}$$
+>>15. Si $i>k$, $$\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}(\theta^{1}_{0}\circ\cdots\circ\theta^{k}_{0})(\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)\\&=\left.\frac{\partial}{\partial x^i}\right|_p\end{aligned}$$ este ultimo igual sale rapido escribiendo a $(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)$ en coordenadas del $T_{\phi ^{-1}(0)}M$ 
+>>16. Entonces $(d\sigma)_{0}$ es isomorfismo lineal por que manda base $\{ \frac{\partial}{\partial r_{i}} \}_{i<n}$ (notar aca llamo $t_{i}:=r^{i}$ es solo notacion para cordenadas en $\mathbb{R}$) en base $\{ X_{1}|_{p},\ldots,X_{k}|_{p},\frac{\partial}{\partial x^{k+1}}|_{p},\ldots, \frac{\partial}{\partial x^{n}}|_{p} \}$  
+>>17. Estamos entonces en condiciones de aplicar el Teorema de la Función Inversa. Existe un abierto $\widetilde U\subseteq\mathbb{R}^n$ que contiene a $0$ y un abierto $U\subseteq M$ que contiene a $p$ tales que $$\sigma|_{\widetilde U}:\widetilde U\longrightarrow U$$es un difeomorfismo.
+>>18. Como $\sigma$ es un difeomorfismo entre $\widetilde U$ y $U$, llamamos $\sigma^{-1}=\varphi$, de modo que $(U,\varphi=y^{1},\ldots,y^{i})$ es una carta coordenada.
+>>19. Recordamos nuestro objetivo es probar que $$X_i|_U=\frac{\partial}{\partial y^i},\qquad i=1,\ldots,k.$$
+>>20. Equivalentemente, queremos ver que para todo $(r^1,\ldots,r^n)\in\widetilde U$, e $1\leq i\leq k$  $$(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(X_i)_{\sigma(r^1,\ldots,r^n)}.$$ por que si esto es cierto usamos que $$(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(d\varphi ^{-1})_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=\frac{\partial}{\partial y^{i} }\bigg|_{\varphi ^{-1}(r)=\sigma(r)}$$
+>>21. Primero notemos que, como $$[X_i,X_j]=0$$los flujos conmutan localmente por [[GS - Teo19#^26db5d]]
+>>22. Fijemos $1\leq i\leq k$. Entonces $$\begin{aligned}(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(r^1,\ldots,r^i+s,\ldots,r^n)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i+s}\circ\cdots\circ\theta_{k,r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i}\circ\theta^{i} _{s}\circ\cdots\circ\theta^{k} _{r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i} _{s}\left(\sigma(r^1,\ldots,r^n)\right)\\&=(X_i)_{\sigma(r^1,\ldots,r^n)}.\end{aligned}$$ donde usamos que los flujos conmutan

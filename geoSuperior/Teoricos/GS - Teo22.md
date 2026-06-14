@@ -24,7 +24,7 @@
 ## Pullback de formas
 
 >[!Definition] Pullback de formas
->Sea $F:M\to N$ suave y $\omega\in\Omega^k(N)$. Se define el pullback $F^*\omega$ de $\omega$ como la $k$-forma
+>Sea $F:M\to N$ suave y $\omega\in\Omega^k(N)$. Se define el pullback $F^*\omega$ de $\omega$ como la $k$-forma (se prueba en el siguiente enunciado que es suave) 
 >$$(F^*\omega)_p(v_1,\ldots,v_k)=\omega_{F(p)}((dF)_pv_1,\ldots,(dF)_pv_k),$$
 >para todo $v_1,\ldots,v_k\in T_pM$.
 
@@ -58,32 +58,3 @@
 >>$$=\left(d_M\left(\sum_{i_1<\cdots<i_k}(a_I\circ F)\wedge d(x_{i_1}\circ F)\wedge\cdots\wedge d(x_{i_k}\circ F)\right)\right)_p.$$
 >>Como $d_Md_M=0$, queda la misma expresion.
 
-## Distribuciones
-
->[!Remark]
->Intentamos generalizar la idea de campo: que a cada punto asigna un vector. A cada punto asigna un subespacio tangente.
-
->[!Definition] Distribucion
->Una distribucion en $M$ es una aplicacion $\mathcal D$ que a cada punto $p\in M$ le asigna un subespacio $\mathcal D_p$ de $T_pM$ de dimension $k$.
-
->[!Definition] Suavidad de Distribucion
->Una distribucion $\mathcal D$ se dice suave si para todo $p\in M$, existe un abierto de $M$ en $p$, y campos $X_1,\ldots,X_k$ en $\mathfrak X(U)$ tales que
->$$\mathcal D_q=\operatorname{span}\{X_1(q),\ldots,X_k(q)\},$$
->para todo $q\in U$.
-
->[!Remark]
->Existe la nocion de subfibrado de rango $k$ de $TM$, habria estado lindo haberla visto y definir distribucion con esto.
-
->[!Remark]
->Intentamos generalizar la nocion de curva integral.
-
->[!Definition] Distribucion integrable
->Una distribucion suave $\mathcal D$ se dice integrable si para todo $p\in M$, existe una subvariedad $(N,F)$ de $M$ con $p\in F(N)$ y
->$$(dF)_qT_qN=\mathcal D_{F(q)},$$
->para todo $q\in N$.
->
->La subvariedad $(N,F)$ se llama subvariedad integral de $M$ para $\mathcal D$ que pasa por $p$.
-
->[!Remark]
->Criollo: una subvariedad integral es una subvariedad que se acomoda muy bien a los subespacios que hay fijos en cada punto.
->![[Pasted image 20260603132446.png]]

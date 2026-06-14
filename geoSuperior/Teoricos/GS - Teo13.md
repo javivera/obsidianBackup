@@ -1,7 +1,6 @@
 
 >[!Proposition] Inmersiones son localmente incrustaciones
 >Sea $F:M\to N$ una inmersion y sea $p\in M$. Entonces existe una carta suave cubica $(V,\psi)$ centrada en $F(p)$, y un entorno $U$ de $p$ tal que $F|_U$ es inyectiva y $F(U)=R(0,\ldots,0)$, la rebanada cero de $(V,\psi)$. En particular, $(U,F|_U)$ se vuelve una subvariedad incrustada de $N$.
->Si $(M,F)$ es incrustada, entonces existe $U$ y $V$ como arriba y tales que $$F(U)=F(M)\cap V$$
 >>[!Proof]-
 >>1. Sea $m=\dim M$ y $n=\dim N$. Luego $m\le n$.
 >>2. Usamos la forma local de una inmersion: existen cartas $(\widetilde U,\widetilde\varphi)$ centrada en $p$ y $(\widetilde V,\psi)$ centrada en $F(p)$ t.q. $F(\widetilde U)\subset\widetilde V$ y $$\psi\circ F\circ\widetilde\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0)$$
@@ -20,28 +19,32 @@
 >>15. Falta ver que $F|_U$ es un homeo entre $U$ y $F(U)=R(0,\ldots,0)$, donde $R(0,\ldots,0)$ tiene la topologia relativa de $N$, que es lo mismo que la topologia relativa con respecto al abierto $V$.
 >>16. Por tanto, ambas estructuras deben coincidir y esto implica que $F|_U:U\subset M\to R\subset N$ es incrustacion.
 
+^d6bd60
+
 >[!Corollary] SÚPER útil: caso incrustado
->Sea $F:M\to N$ una incrustación y sea $p\in M$. Entonces existe una carta cúbica suave $(V,\psi)$ de $N$ centrada en $F(p)$ tal que $F(U)=F(M)\cap V$ es exactamente la rebanada cero de $(V,\psi)$.
->La idea es que, como $F$ es incrustación, su imagen no solo se ve localmente como una rebanada alrededor de cada punto de $F(M)$, sino que esa rebanada coincide exactamente con $F(M)$ dentro de un entorno abierto de $N$.
+>Sea $F:M\to N$ una incrustación y sea $p\in M$. Entonces existe una carta cúbica suave $(V,\psi)$ de $N$ centrada en $F(p)$ y un entorno $U$ de $p$ tal que $F(U)=F(M)\cap V$ es exactamente la rebanada cero de $(V,\psi)$.
 >![[Pasted image 20260505200757.png]]
 >
 >>[!Proof]-
->>17. Por el resultado anterior, existen cartas cúbicas $(U,\varphi)$ y $(V,\psi)$ centradas en $p$ y $F(p)$ respectivamente, tales que $F(U)$ es la rebanada cero de $V$
->>18. Por otro lado, $F$ es incrustación. Es decir, $F$ es homeomorfismo entre $M$ y $F(M)$, donde $F(M)$ tiene la topología relativa.
->>19. Ahora como $U\subseteq M$ es abierto $F(U)$ debera ser abierto relativo. Por tanto, existe $W$ abierto en $N$ tal que $$F(U)=F(M)\cap W.$$
->>20. Consideremos el abierto $W\cap V$ y restrinjamos la carta $\psi$ a $W\cap V$. 
+>>1. Por el resultado anterior [[GS - Teo13#^d6bd60]], existen cartas cúbicas $(U,\varphi)$ y $(V,\psi)$ centradas en $p$ y $F(p)$ respectivamente, tales que $F(U)$ es la rebanada cero de $V$
+>>2. Por otro lado, $F$ es incrustación. Es decir, $F$ es homeomorfismo entre $M$ y $F(M)$, donde $F(M)$ tiene la topología relativa.
+>>3. Ahora como $U\subseteq M$ es abierto $F(U)$ debera ser abierto relativo. Por tanto, existe $W$ abierto en $N$ tal que $$F(U)=F(M)\cap W.$$
+>>4. Consideremos el abierto $W\cap V$ y restrinjamos la carta $\psi$ a $W\cap V$. 
 >>![[Pasted image 20260505203810.png]]
->>21. Como $$F(p)\in W\cap V,$$ entonces $\psi(W\cap V)$ tiene al $0$ y es abierto de $\mathbb{R}^n$. (Por que $\psi$ es homeomorfismo) 
->>22. Como los cubos abiertos generan la topología de $\mathbb{R}^n$, existe $\varepsilon>0$ tal que $$C_\varepsilon^n(0)\subseteq \psi(W\cap V).$$
->>23. Sea $$\widehat V=\psi^{-1}\left(C_\varepsilon^n(0)\right).$$
->>24. Consideremos las rebanadas cero $$R^{\widehat V}(0,\ldots,0)=\left\{q\in \widehat V:x_{m+1}(q)=0,\ldots,x_n(q)=0\right\}$$ y $$R^V(0,\ldots,0)=\left\{q\in V:x_{m+1}(q)=0,\ldots,x_n(q)=0\right\}.$$
->>25. Claramente, $$R^{\widehat V}(0,\ldots,0)=R^V(0,\ldots,0)\cap \widehat V.$$
->>26. Ahora, como $F(U)=R^{V}(0,\ldots,0)$ tenemos $$F(U)\cap W=R^V(0,\ldots,0)\cap W$$  por lo tanto tenemos que $$F(U)\cap W\cap \widehat V=R^V(0,\ldots,0)\cap \widehat V.$$
->>27. Luego como $\widehat V\subseteq W$, $$F(U)\cap \widehat V=R^{\widehat V}(0,\ldots,0).$$
->>28. Y recordamos $F(U)=F(M)\cap W.$ entonces $$F(U)\cap \widehat{V}=F(M)\cap W\cap \widehat{V}=F(M)\cap \widehat{V}.$$ 
->>29. Así, tomando la carta restringida $$(\widehat V,\psi|_{\widehat V}),$$ obtenemos una carta de $N$ centrada en $F(p)$ tal que $F(M)\cap \widehat V$ es la rebanada cero de $\widehat V$
+>>5. Como $$F(p)\in W\cap V,$$ entonces $\psi(W\cap V)$ tiene al $0$ y es abierto de $\mathbb{R}^n$. (Por que $\psi$ es homeomorfismo) 
+>>6. Como los cubos abiertos generan la topología de $\mathbb{R}^n$, existe $\varepsilon>0$ tal que $$C_\varepsilon^n(0)\subseteq \psi(W\cap V).$$
+>>7. Sea $$\widehat V=\psi^{-1}\left(C_\varepsilon^n(0)\right).$$
+>>8. Consideremos las rebanadas cero $$R^{\widehat V}(0,\ldots,0)=\left\{q\in \widehat V:x_{m+1}(q)=0,\ldots,x_n(q)=0\right\}$$ y $$R^V(0,\ldots,0)=\left\{q\in V:x_{m+1}(q)=0,\ldots,x_n(q)=0\right\}.$$
+>>9. Claramente, $$R^{\widehat V}(0,\ldots,0)=R^V(0,\ldots,0)\cap \widehat V.$$
+>>10. Ahora, como $F(U)=R^{V}(0,\ldots,0)$ tenemos $$F(U)\cap W=R^V(0,\ldots,0)\cap W$$  por lo tanto tenemos que $$F(U)\cap W\cap \widehat V=R^V(0,\ldots,0)\cap \widehat V.$$
+>>11. Luego como $\widehat V\subseteq W$, $$F(U)\cap \widehat V=R^{\widehat V}(0,\ldots,0).$$
+>>12. Y recordamos $F(U)=F(M)\cap W.$ entonces $$F(U)\cap \widehat{V}=F(M)\cap W\cap \widehat{V}=F(M)\cap \widehat{V}.$$ 
+>>13. Así, tomando la carta restringida $$(\widehat V,\psi|_{\widehat V}),$$ obtenemos una carta de $N$ centrada en $F(p)$ tal que $F(M)\cap \widehat V$ es la rebanada cero de $\widehat V$
 
 ^8f3892
+
+>[!Remark]
+>La idea de este ultimo corolario es que, como $F$ es incrustación, su imagen no solo se ve localmente como una rebanada alrededor de cada punto de $F(M)$, sino que esa rebanada coincide exactamente con $F(M)$ dentro de un entorno abierto de $N$.
 
 >[!Remark]- Otra forma de hacer la parte de subvariedad
 >Otra forma para hacer esta ultima parte, es haciendo y usando el siguiente ejercicio del Werner
@@ -167,6 +170,9 @@
 >>6. Como ser subvariedad incrustada es una propiedad local, concluimos que $F^{-1}(c)$ es una subvariedad incrustada de $M$ de dimensión $\dim M-\dim N$
 
 ^3f8e58
+
+>[!Remark]
+>Notar que [[GS - Teo13#^3f8e58]] no pedimos rango constante. Pero pedimos que $c$ sea valor regular. Osea $F^{-1}(c)$ sea una conjunto de puntos regulares. Osea que la diferencial en esos puntos sea sobreyectiva. Con lo cual la diferencial en esos puntos va a tener rango constante 
 
 >[!Exercise] MUY IMPORTANTE y lo veran en el practico.
 >Sea $f:N\to Q$ una funcion diferenciable entre variedades diferenciables y sea $q\in Q$ un valor regular de $f$. Sea $M$ la subvariedad $f^{-1}\{q\}$ y sea $i:M\to N$ la inclusion.

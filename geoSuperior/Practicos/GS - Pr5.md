@@ -106,7 +106,7 @@
 >>	- $k=n-1$
 >>		1. Tomamos un $\omega\in \Lambda^{n}(V^{*})$ no nulo entonces por (c) dado $\alpha\in \Lambda^{n-1}(V^{*})$ tenemos que existe $v$ tal que $\alpha =F(v)$ 
 >>		2. Si $v=0$ entonces $\alpha =0$ con lo cual ya esta descompuesto  
->>		3. Si no completamos a una base $\{e_{1},\ldots,e_{n-1},v\}$ y tomamos su dual $\{ e^{1},\ldots e^{n-1},\widetilde{v} \}$  
+>>		3. Si no completamos $\{ v \}$ a una base $\{e_{1},\ldots,e_{n-1},v\}$ y tomamos su dual $\{ e^{1},\ldots e^{n-1},\widetilde{v} \}$  
 >>		4. Como $w\in \Lambda^{n}(V^{*})$ entonces $w=ce^{1}\wedge\ldots\wedge \widetilde{v}$ por la parte de $k=n$  
 >>		5. Entonces tenemos que $$\alpha(v_{1},\ldots,v_{n-1})=F(v)(v_{1},\ldots,v_{n-1})=w(v_{1},\ldots,v_{n-1},v)=ce^{1}\wedge\ldots\wedge \widetilde{v}\ . (v_{1},\ldots,v_{n-1},v)$$
 >>		6. Pero si miramos bien $$\begin{align} ce^{1}\wedge\ldots\wedge \widetilde{v}\ . (v_{1},\ldots,v_{n-1},v)& =\det\begin{pmatrix}e^{1}(v_{1})& \ldots &e^{n-1} (v_{n-1}) & e^{1}(v)\\ \vdots & &\vdots &\vdots \\ e^{n-1} (v_{1})&\dots &e^{n-1} (v_{n-1})&e^{n-1} (v)\\ \tilde{v}(v_{1})&\ldots&\tilde{v}(v_{n-1})&\tilde v(v) \end{pmatrix}& \\& =\det\begin{pmatrix}e^{1}(v_{1})& \ldots &e^{n-1} (v_{n-1}) \\ \vdots & &\vdots  \\ e^{n-1} (v_{1})&\dots &e^{n-1} (v_{n-1})\end{pmatrix}\\&=ce^{1} \wedge\ldots\wedge e^{n-1}\ .(v_{1},\ldots,v_{n-1}) \end{align}$$
@@ -312,158 +312,126 @@
 >- (b) Encontrar una $(n-1)$-forma $\epsilon$ tal que $d^{n-1}\epsilon=dx_1\wedge\cdots\wedge dx_n\in\Omega^n(\mathbb R^n)$.
 >>[!Proof]-
 >>- (a) 
->>	1. Para $\varphi=\cos(xy^2)\,dx\wedge dz$, $$d\varphi=d(\cos(xy^2))\wedge dx\wedge dz$$
->>	2. Veamos como actuad $d(\cos(xy^{2}))(v)$ con $v\in T_{p}\mathbb{R}^{3}$ entonces $$v=a\frac{\partial}{\partial x}+b\frac{\partial}{\partial y}+c\frac{\partial}{\partial z}$$ luego $$\begin{align}d(\cos(xy^{2}))_{p}(v)&=d(\cos(xy^{2}))\frac{\partial}{\partial x}\bigg|_{p}+d(\cos(xy^{2}))\frac{\partial}{\partial y}\bigg|_{p}+d(\cos(xy^{2}))\frac{\partial}{\partial z}\bigg|_{p}\\&=-ap_{2}^{2}\sin(p_{1}p_{2}^{2})-b2p_{1}p_{2}\sin(p_{1}p_{2}^{2})\end{align}$$ (donde identifique $T_{f(p)\mathbb{R}}$ con $\mathbb{R}$)
->>	3. Con lo cual podemos ver a $$d(\cos(xy^{2}))=-y^{2}\sin(xy^{2})dx-2xy\sin(xy^{2})dy$$ (la igualdad vale, se nota simplmente evaluando en un $v$ como arriba y usando $dx_{i}\frac{\partial}{\partial x_{j}}=\delta_{ij}$) 
->>	4. Finalmente $$\begin{align}d\varphi& =(-y^{2}\sin(xy^{2})dx-2xy\sin(xy^{2})dy)\wedge dx\wedge dz\\&=-2xy\sin(xy^{2})dy\wedge dx\wedge dz\\&=2xy\sin(xy^{2})dx\wedge dy\wedge dz\end{align}$$
->>	5. Haciendo algo analogo al paso 2. nos queda que $$d\omega=dx\wedge dy\wedge dz+ dy\wedge dz\wedge dx+ dz\wedge dx\wedge dy=3dx\wedge dy \wedge dz$$ 
+>>	1. Podemos pensar a $$\cos(xy^{2})=\cos\circ f(x,y,x)=h(x,y,z):\mathbb{R}^{3}\rightarrow \mathbb{R}$$ donde $f(x,y,z)=xy^{2}$
+>>	2. Entonces $$d(\cos(xy^{2}))_{p}:T_{p}\mathbb{R}^{3} \rightarrow T_{\cos(p_{1}p_{2}^{2})}\mathbb{R}\simeq\mathbb{R}$$
+>>	3. Entonces por la identificacion y usando la carta canonica  $$d(\cos(xy^{2}))_{p}=a_{1}dx +a_{2}dy+a_{3}dz$$
+>>	4. Calculando coordenadas $$a_{1}=\frac{\partial}{\partial x}\cos(xy^{2})=-y^{2}\sin(xy^{2})\qquad a_{2}=\frac{\partial}{\partial y}\cos(xy^{2})=-2xy\sin(xy^{2})\qquad a_{3}=\frac{\partial}{\partial z}\cos(xy^{2})=0$$ (en realidad deberian ser evaluadas en $p$ pero es lo mismo verlas antes de evaluar) 
+>>	5. Finalmente $$(d\cos(xy^{2}))=-y^{2}\sin(xy^{2})dx -2xy\sin(xy^{2})dy$$
+>>	6. Entonces $$d\varphi=(d\cos(xy^{2}))=-2xy\sin(xy^{2})dy\wedge dx\wedge dz=2xy\sin(xy^{2})dx\wedge dy\wedge dz$$ 
+>>	7. Haciendo algo analogo al paso 2. nos queda que $$d\omega=dx\wedge dy\wedge dz+ dy\wedge dz\wedge dx+ dz\wedge dx\wedge dy=3dx\wedge dy \wedge dz$$ 
 >>- (b) 
 >>	1. La mas simple es: $$\omega=x_{1}dx_{2}\wedge\ldots\wedge dx_{n}$$ 
 
 ### Ejercicio 16
 
 >[!Exercise]
->Sea $\omega\in\Omega^1(M)$ y $X,Y\in\mathfrak X(M)$. Probar que $$d\omega(X,Y)=X(\omega(Y))-Y(\omega(X))-\omega([X,Y]).$$
+>Sea $\omega\in\Omega^1(M)$ y sean $X,Y\in\mathfrak{X}(M)$. Probar que $$d\omega(X,Y)=X(\omega(Y))-Y(\omega(X))-\omega([X,Y]).$$
 >>[!Proof]-
->>1. Sea $(U,x^1,\ldots,x^n)$ una carta local. En $U$ podemos escribir $$\omega=\sum_i a_i\,dx^i,\qquad X=\sum_j X^j\frac{\partial}{\partial x^j},\qquad Y=\sum_k Y^k\frac{\partial}{\partial x^k}.$$
->>2. Entonces, usando la definición local de $d$ sobre $1$-formas, $$d\omega=d\left(\sum_i a_i\,dx^i\right)=\sum_i da_i\wedge dx^i.$$
->>3. Como $da_{i}$ es una $1$-forma podemos escribirla asi: $$da_i=\sum_j \frac{\partial a_i}{\partial x^j}\,dx^j,$$ entonces obtenemos $$d\omega=\sum_{i,j}\frac{\partial a_i}{\partial x^j}\,dx^j\wedge dx^i.$$
->>4. Evaluando en $(X,Y)$, resulta $$d\omega(X,Y)=\sum_{i,j}\frac{\partial a_i}{\partial x^j}(dx^j\wedge dx^i)(X,Y).$$
->>5. Para calcular $(dx^j\wedge dx^i)(X,Y)$ usamos la propiedad de menores con $k=2$: $$(dx^j\wedge dx^i)(X,Y)=\det\begin{pmatrix}dx^j(X)&dx^j(Y)\\ dx^i(X)&dx^i(Y)\end{pmatrix}.$$
->>6. Como $Y=\sum_k Y^k\frac{\partial}{\partial x^k}$ y $dx^j$ es la base dual de $\frac{\partial}{\partial x^1},\ldots,\frac{\partial}{\partial x^n}$, se tiene $dx^j\left(\frac{\partial}{\partial x^k}\right)=\delta^j_k$. Por lo tanto, $$dx^j(Y)=dx^j\left(\sum_k Y^k\frac{\partial}{\partial x^k}\right)=\sum_k Y^k dx^j\left(\frac{\partial}{\partial x^k}\right)=\sum_k Y^k\delta^j_k=Y^j.$$
->>7. Análogamente, $$dx^j(X)=X^j,\qquad dx^i(X)=X^i,\qquad dx^i(Y)=Y^i.$$
->>8. Entonces $$(dx^j\wedge dx^i)(X,Y)=\det\begin{pmatrix}X^j&Y^j\\ X^i&Y^i\end{pmatrix}=X^jY^i-Y^jX^i.$$
->>9. Por lo tanto, $$d\omega(X,Y)=\sum_{i,j}\frac{\partial a_i}{\partial x^j}(X^jY^i-Y^jX^i).$$
->>10. Es decir, $$d\omega(X,Y)=\sum_{i,j}X^jY^i\frac{\partial a_i}{\partial x^j}-\sum_{i,j}Y^jX^i\frac{\partial a_i}{\partial x^j}.$$
->>11. Ahora calculamos el lado derecho. Primero, $$\omega(Y)=\sum_i a_iY^i.$$ tambien escribiendo a $\omega$ en su base adecuada y escribiendo a $Y$ en su base adecuada y cancelando terminos  
->>12. Entonces $$X(\omega(Y))=X\left(\sum_i a_iY^i\right)=\sum_{i,j}X^j\frac{\partial}{\partial x^j}(a_iY^i).$$
->>13. Usando la regla del producto para funciones (regla Leibniz para vectores tangentes) , $$X(\omega(Y))=\sum_{i,j}X^jY^i\frac{\partial a_i}{\partial x^j}+\sum_{i,j}a_iX^j\frac{\partial Y^i}{\partial x^j}.$$
->>14. Análogamente, $$Y(\omega(X))=\sum_{i,j}Y^jX^i\frac{\partial a_i}{\partial x^j}+\sum_{i,j}a_iY^j\frac{\partial X^i}{\partial x^j}.$$
->>15. Luego $$X(\omega(Y))-Y(\omega(X))=\sum_{i,j}X^jY^i\frac{\partial a_i}{\partial x^j}-\sum_{i,j}Y^jX^i\frac{\partial a_i}{\partial x^j}+\sum_{i,j}a_iX^j\frac{\partial Y^i}{\partial x^j}-\sum_{i,j}a_iY^j\frac{\partial X^i}{\partial x^j}.$$
->>16. Por otro lado, en coordenadas tenemos por [[Glosario#^0415b0]] que $$[X,Y]=\sum_i\left(\sum_j X^j\frac{\partial Y^i}{\partial x^j}-\sum_jY^j\frac{\partial X^i}{\partial x^j}\right)\frac{\partial}{\partial x^i}.$$
->>17. Y por [[Glosario#^151174]] $$\omega([X,Y])=\sum_i a_i\left(\sum_j X^j\frac{\partial Y^i}{\partial x^j}-\sum_jY^j\frac{\partial X^i}{\partial x^j}\right).$$
->>18. Es decir, $$\omega([X,Y])=\sum_{i,j}a_iX^j\frac{\partial Y^i}{\partial x^j}-\sum_{i,j}a_iY^j\frac{\partial X^i}{\partial x^j}.$$
->>19. Por lo tanto, al restar $\omega([X,Y])$, se cancelan los términos con derivadas de las coordenadas de $X$ e $Y$. Así, $$X(\omega(Y))-Y(\omega(X))-\omega([X,Y])=\sum_{i,j}X^jY^i\frac{\partial a_i}{\partial x^j}-\sum_{i,j}Y^jX^i\frac{\partial a_i}{\partial x^j}.$$
->>20. Pero esta expresión es exactamente la obtenida para $d\omega(X,Y)$ en el paso 10. Por lo tanto, $$d\omega(X,Y)=X(\omega(Y))-Y(\omega(X))-\omega([X,Y]).$$
+>>1. Sea $(U,(x^1,\ldots,x^n))$ una carta suave y escribamos $$\omega=\sum_i c_i\,dx^i.$$
+>>2. Como $$d\omega=\sum_i dc_i\wedge dx^i,$$ tenemos $$d\omega(X,Y)=\sum_i\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\right).$$
+>>3. El otro lado usando 1. $$\omega(Y)=\sum_i c_iY(x^i),\qquad \omega(X)=\sum_i c_iX(x^i).$$
+>>4. Por linealidad de $X$ y la regla de Leibniz, $$\begin{aligned}X(\omega(Y))&=X\left(\sum_i c_iY(x^i)\right)\\&=\sum_i X\left(c_iY(x^i)\right)\\&=\sum_i\left(X(c_i)Y(x^i)+c_iX(Y(x^i))\right).\end{aligned}$$
+>>5. De la misma manera, $$\begin{aligned}Y(\omega(X))&=Y\left(\sum_i c_iX(x^i)\right)\\&=\sum_i Y\left(c_iX(x^i)\right)\\&=\sum_i\left(Y(c_i)X(x^i)+c_iY(X(x^i))\right).\end{aligned}$$
+>>6. Por lo tanto, $$\begin{aligned}X(\omega(Y))-Y(\omega(X))&=\sum_i\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\right)\\&\quad+\sum_i c_i\left(X(Y(x^i))-Y(X(x^i))\right).\end{aligned}$$
+>>7. Como $$[X,Y](x^i)=X(Y(x^i))-Y(X(x^i)),$$ resulta $$\omega([X,Y])=\sum_{i=1}c_{i}dx^{i}[X,Y]  =\sum_i c_i\left(X(Y(x^i))-Y(X(x^i))\right).$$
+>>8. Restando este término, obtenemos $$X(\omega(Y))-Y(\omega(X))-\omega([X,Y])=\sum_i\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\right)=d\omega(X,Y).$$
 
 ### Ejercicio 17
 
 >[!Exercise]
->Sea $F:M\to N$ una funcion suave y sea $\theta\in\Omega^k(N)$. Mostrar que $F^*\theta\in\Omega^k(M)$ y que $d^k(F^*\theta)=F^*(d^k\theta)$.
+>Sea $F:M\to N$ una función suave y sea $\theta\in\Omega^k(N)$. Mostrar que $F^*\theta\in\Omega^k(M)$ y que $d^k(F^*\theta)=F^*(d^k\theta)$.
 >>[!Proof]-
->>Si $\theta\in\Omega^k(N)$, entonces
->>$$
->>(F^*\theta)_p(v_1,\ldots,v_k)
->>=\theta_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
->>$$
->>En coordenadas, si $\theta=\sum_I a_I\,dy^I$, entonces
->>$$
->>F^*\theta=\sum_I(a_I\circ F)\,d(F^{i_1})\wedge\cdots\wedge d(F^{i_k}),
->>$$
->>que tiene coeficientes suaves. Ademas,
->>$$
->>d(F^*\theta)=F^*(d\theta)
->>$$
->>porque vale para funciones y para $dy^i$, y ambas operaciones satisfacen la misma regla de Leibniz graduada.
+>>1. Primero probamos que $F^*\theta\in\Omega^k(M)$. Por definición, si $p\in M$ y $v_1,\ldots,v_k\in T_pM$, entonces $$(F^*\theta)_p(v_1,\ldots,v_k)=\theta_{F(p)}(dF_pv_1,\ldots,dF_pv_k).$$
+>>2. Fijamos $p\in M$. Tomamos una carta suave $(V,\varphi=(y^1,\ldots,y^n))$ de $N$ tal que $F(p)\in V$. Como $F$ es continua, $F^{-1}(V)$ es abierto en $M$ y contiene a $p$. Tomamos una carta suave $(W,\psi=(x^1,\ldots,x^m))$ de $M$ tal que $p\in W$, y definimos $$U:=W\cap F^{-1}(V).$$ Entonces $(U,x^1,\ldots,x^m)$ es una carta suave de $M$, $p\in U$ y $F(U)\subseteq V$.
+>>3. En la carta $(V,y^1,\ldots,y^n)$ escribimos localmente $$\theta|_V=\sum_I a_I\,dy^I=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k},$$ donde $I=(i_1,\ldots,i_k)$ con $i_1<\cdots<i_k$ y $a_I\in C^\infty(V)$.
+>>4. Para $q\in U$ y $v_1,\ldots,v_k\in T_qM$, tenemos $$\begin{align}(F^*\theta)_q(v_1,\ldots,v_k)&=\theta_{F(q)}(dF_qv_1,\ldots,dF_qv_k)\\&=\sum_I a_I(F(q))(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}(dF_qv_1,\ldots,dF_qv_k)\\&=\sum_I (a_I\circ F)(q)\det\big(dy^{i_r}_{F(q)}(dF_qv_s)\big)\\&=\sum_I (a_I\circ F)(q)\det\big(d(y^{i_r}\circ F)_q(v_s)\big)\\&=\sum_I (a_I\circ F)(q)(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F))_q(v_1,\ldots,v_k).\end{align}$$
+>>5. Definimos $$F^i:=y^i\circ F.$$ Entonces, en $U$, $$F^*\theta=\sum_I (a_I\circ F)\,dF^{i_1}\wedge\cdots\wedge dF^{i_k}.$$
+>>6. Ahora escribimos esta expresión en la base coordenada de $M$. Como $(U,x^1,\ldots,x^m)$ es una carta de $M$, para cada $i$ tenemos $$dF^i=\sum_{a=1}^m\frac{\partial F^i}{\partial x^a}\,dx^a.$$ Entonces $$F^*\theta=\sum_I (a_I\circ F)\left(\sum_{a_1=1}^m\frac{\partial F^{i_1}}{\partial x^{a_1}}dx^{a_1}\right)\wedge\cdots\wedge\left(\sum_{a_k=1}^m\frac{\partial F^{i_k}}{\partial x^{a_k}}dx^{a_k}\right).$$
+>>7. Reagrupando en la base $dx^J=dx^{j_1}\wedge\cdots\wedge dx^{j_k}$, con $J=(j_1,\ldots,j_k)$ y $j_1<\cdots<j_k$, obtenemos $$F^*\theta=\sum_J b_J\,dx^J,$$ donde $$b_J=\sum_I(a_I\circ F)\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}.$$ Estos $b_J$ son suaves porque son sumas finitas de productos de funciones suaves. Luego $F^*\theta$ tiene coeficientes suaves en coordenadas alrededor de $p$.
+>>8. Como $p\in M$ era arbitrario, concluimos que $$F^*\theta\in\Omega^k(M).$$
+>>9. Ahora probamos que $$d^k(F^*\theta)=F^*(d^k\theta).$$ Usamos la expresión coordenada del paso anterior: $$F^*\theta=\sum_J b_J\,dx^J.$$ Por definición local de la derivada exterior, $$d^k(F^*\theta)=\sum_J db_J\wedge dx^J=\sum_J\sum_{\ell=1}^m\frac{\partial b_J}{\partial x^\ell}\,dx^\ell\wedge dx^J.$$
+>>10. Derivamos $b_J$. Como $$b_J=\sum_I(a_I\circ F)\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}},$$ entonces $$\begin{align}\frac{\partial b_J}{\partial x^\ell}&=\sum_I\frac{\partial(a_I\circ F)}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\\&+\sum_I(a_I\circ F)\frac{\partial}{\partial x^\ell}\left(\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\right).\end{align}$$
+>>11. El segundo sumando no contribuye a $d^k(F^*\theta)$, porque al derivar los factores $\frac{\partial F^{i_r}}{\partial x^{j_{\sigma(r)}}}$ aparecen segundas derivadas $$\frac{\partial^2F^{i_r}}{\partial x^\ell\partial x^{j_{\sigma(r)}}},$$ que son simétricas en $\ell$ y $j_{\sigma(r)}$, mientras que $$dx^\ell\wedge dx^{j_1}\wedge\cdots\wedge dx^{j_k}$$ es alternante. Por lo tanto esos términos se cancelan. Luego $$d^k(F^*\theta)=\sum_{J,\ell,I}\frac{\partial(a_I\circ F)}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\,dx^\ell\wedge dx^J.$$
+>>12. Por la regla de la cadena, $$\frac{\partial(a_I\circ F)}{\partial x^\ell}=\sum_{\alpha=1}^n\left(\frac{\partial a_I}{\partial y^\alpha}\circ F\right)\frac{\partial F^\alpha}{\partial x^\ell}.$$ Sustituyendo, queda $$d^k(F^*\theta)=\sum_{J,\ell,I,\alpha}\left(\frac{\partial a_I}{\partial y^\alpha}\circ F\right)\frac{\partial F^\alpha}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\,dx^\ell\wedge dx^J.$$
+>>13. Ahora calculamos el otro lado. Como $$\theta=\sum_I a_I\,dy^I,$$ entonces por definición de derivada exterior en coordenadas, $$d^k\theta=\sum_I da_I\wedge dy^I=\sum_{I,\alpha}\frac{\partial a_I}{\partial y^\alpha}\,dy^\alpha\wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k}.$$
+>>14. Al aplicar $F^*$, cada $dy^\alpha$ se transforma en $$F^*(dy^\alpha)=dF^\alpha=\sum_{\ell=1}^m\frac{\partial F^\alpha}{\partial x^\ell}\,dx^\ell,$$ y cada $dy^{i_r}$ se transforma en $$F^*(dy^{i_r})=dF^{i_r}=\sum_{a=1}^m\frac{\partial F^{i_r}}{\partial x^a}\,dx^a.$$ Por lo tanto, al reagrupaar en los términos $dx^\ell\wedge dx^J$, obtenemos $$F^*(d^k\theta)=\sum_{J,\ell,I,\alpha}\left(\frac{\partial a_I}{\partial y^\alpha}\circ F\right)\frac{\partial F^\alpha}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\,dx^\ell\wedge dx^J.$$
+>>15. Las expresiones de los pasos 12 y 14 coinciden. Por lo tanto, localmente en $U$, $$d^k(F^*\theta)=F^*(d^k\theta).$$ Como la igualdad es local y $p\in M$ era arbitrario, concluimos que $$d^k(F^*\theta)=F^*(d^k\theta).$$
 
 ### Ejercicio 18
 
 >[!Exercise]
 >Una forma diferencial $\alpha$ de grado $k$ se dice cerrada si $d\alpha=0$. La forma $\alpha$ se dice exacta si existe una forma $\beta$ tal que $d\beta=\alpha$.
 >
->- Mostrar que toda forma exacta es cerrada y que toda $n$-forma en una variedad de dimension $n$ es cerrada.
->- Mostrar que el producto exterior de dos formas cerradas es una forma cerrada y que el producto exterior de una forma cerrada con una exacta es una forma exacta.
->- Mostrar que la $1$-forma $\theta=x\,dy$ en $\mathbb R^2$ no es exacta. Mas aun, en ningun abierto $U$ esta definida una funcion $f$ tal que $df=\theta$ en $U$.
+>- (a) Mostrar que toda forma exacta es cerrada y que toda $n$-forma en una variedad de dimension $n$ es cerrada.
+>- (b) Mostrar que el producto exterior de dos formas cerradas es una forma cerrada y que el producto exterior de una forma cerrada con una exacta es una forma exacta.
+>- (c) Mostrar que la $1$-forma $\theta=x\,dy$ en $\mathbb R^2$ no es exacta. Mas aun, en ningun abierto $U$ esta definida una funcion $f$ tal que $df=\theta$ en $U$.
 >>[!Proof]-
->>Si $\alpha=d\beta$, entonces $d\alpha=d^2\beta=0$. Toda $n$-forma en una variedad de dimension $n$ es cerrada porque su diferencial seria una $(n+1)$-forma, y $\Omega^{n+1}(M)=0$.
->>
->>Si $d\alpha=d\beta=0$, entonces
->>$$
->>d(\alpha\wedge\beta)=d\alpha\wedge\beta+(-1)^{\deg\alpha}\alpha\wedge d\beta=0.
->>$$
->>Si $\beta=d\gamma$ y $d\alpha=0$, entonces
->>$$
->>\alpha\wedge\beta=\alpha\wedge d\gamma
->>=(-1)^{\deg\alpha}d(\alpha\wedge\gamma),
->>$$
->>luego es exacta, salvo el signo indicado.
->>
->>Para $\theta=x\,dy$ en $\mathbb R^2$,
->>$$
->>d\theta=dx\wedge dy\ne0.
->>$$
->>Si existiera $f$ en algun abierto $U$ con $df=\theta$, entonces $d\theta=d^2f=0$ en $U$, contradiccion. Por tanto no es exacta, ni siquiera localmente en ningun abierto no vacio.
+>>- (a)
+>>	1. Si $\alpha=d\beta$, entonces $d\alpha=d^2\beta=0$. Toda $n$-forma en una variedad de dimension $n$ es cerrada porque su diferencial seria una $(n+1)$-forma, y $\Omega^{n+1}(M)=0$.
+>>- (b)
+>>	1. Si $d\alpha=d\beta=0$, entonces $$d(\alpha\wedge\beta)=d\alpha\wedge\beta+(-1)^{\deg\alpha}\alpha\wedge d\beta=0$$
+>>	2. Si $\beta=d\gamma$ y $d\alpha=0$, entonces $$(-1)^{\deg\alpha}\alpha\wedge\beta=(-1)^{\deg\alpha}\alpha\wedge d\gamma=d(\alpha\wedge\gamma)$$
+>>	3. Entonces $$\alpha \wedge\beta=d((-1)^{\deg\alpha}\alpha \wedge \gamma)$$ con lo cual es exacta
+>>- (c) 
+>>	1. Para $\theta=x\,dy$ en $\mathbb R^2$, $$d\theta=dx\wedge dy\ne0$$ por lo tanto no es cerrada, entonces por (a) no puede ser exacta
+>>	2. Si existiera $f$ en algun abierto $U$ con $df=\theta|_{U}$, entonces $$(dx\wedge dy)|_{U}=d_{U}\theta=d^2_{U}f=0$$ en $U$, contradiccion por que $(dx\wedge dy)$ es distinto de $0$ entodos lados 
 
 ### Ejercicio 19
 
 >[!Exercise]
 >Considerar en la circunferencia $S^1$ los sistemas coordenados canonicos $s=\phi^{-1}$ y $t=\psi^{-1}$ con imagenes los intervalos $(0,2\pi)$ y $(-\pi,\pi)$, respectivamente. Mostrar que $ds$, $dt$ definen bien una $1$-forma suave $\theta$ en $S^1$. Probar que $\theta$ es localmente exacta, pero no exacta.
 >>[!Proof]-
->>En $S^1$, las coordenadas angulares canonicas $s$ y $t$ difieren en las intersecciones por una constante:
->>$$
->>t=s \quad\text{o}\quad t=s-2\pi
->>$$
->>segun la rama. Por tanto $dt=ds$ en los solapamientos. Asi $ds$ y $dt$ pegan y definen una $1$-forma suave global $\theta$.
->>
->>Localmente, en una carta angular, $\theta=ds=d(s)$, luego es localmente exacta. Si fuese globalmente exacta, $\theta=df$ en $S^1$. Entonces la integral sobre la circunferencia seria
->>$$
->>\int_{S^1}\theta=\int_{S^1}df=0.
->>$$
->>Pero en una vuelta completa,
->>$$
->>\int_{S^1}\theta=\int_0^{2\pi}ds=2\pi.
->>$$
->>Contradiccion. Luego no es exacta.
+>>- 1era parte
+>>	1. Define the two open sets $$U=S^1\setminus\{(1,0)\},\qquad V=S^1\setminus\{(-1,0)\}.$$
+>>	2. The canonical angle coordinate functions are $$s:U\to(0,2\pi),\qquad t:V\to(-\pi,\pi).$$ Therefore, locally we have the $1$-forms $$ds\in\Omega^1(U),\qquad dt\in\Omega^1(V).$$
+>>	3. We want to define a global $1$-form $\theta\in\Omega^1(S^1)$ by $$\theta|_U=ds,\qquad \theta|_V=dt.$$
+>>	4. To prove that this definition is valid, we must check that the two local formulas agree on the overlap $$U\cap V=S^1\setminus\{(1,0),(-1,0)\}.$$
+>>	5. The overlap has two parts. On the upper semicircle, the two angle coordinates agree: $$s=t.$$ Hence $$ds=dt.$$
+>>	6. On the lower semicircle, the coordinates differ by a constant: $$s=t+2\pi.$$ Hence $$ds=d(t+2\pi)dt+d(2\pi)=dt+2\pi d(0)=dt$$ esto todo vale por que la derivada exterior es lineal (en este caso como esta aplicado $0$-forma es la diferencial de siempe, pero ambas son lineales) 
+>>	7. Therefore, on all of $U\cap V$ we have $$ds=dt.$$
+>>	8. Digamos puedo definir $$\theta_{p}=\begin{cases}(ds)_{p} & p\in U \\ (dt)_{p} & p\in V \end{cases}$$ y esta bien definida
+>>	9. Finally, smoothness is local. Since $\theta=ds$ on $U$ and $\theta=dt$ on $V$, and both $ds$ and $dt$ are smooth local $1$-forms, we conclude that $$\theta\in\Omega^1(S^1)$$ is a smooth $1$-form. (Sus coeficientes en esas cartas o en la interseccion son constantemente $1$) 
+>>- No global exacta
+>>	1. Seguimos con la misma carta coordenada $s:U\subseteq M\rightarrow \mathbb{R}$ que es obviamente una $0$-forma por ser suave  
+>>	2. Entonces sus derivdad exterior es claramente una $1$-forma $$ds\in\Omega^1(U).$$
+>>	3. Con lo cual $ds$ es exacta y como $ds=\theta|_{U}$ entonces $\theta$ es localmente exacta
+>>	4. Supongamos que fuese globalmente exacta. Entonces existiria un $0$-forma osea $f\in C^{\infty}(S^{1})$ tal que $df=\theta$ 
+>>	5. Pero $\theta=ds$ entonces $d(f-s)=0$ con lo cual $f-s$ es localmente constante (por [[Glosario#^8cc5ce]]) y como $U$ es conexo entonces $(f-s)(p)=C$ para todo $p\in U$  
+>>	6. Pero entonces $f(p)=s(p)+C$ para todo $p\in U$ entonces si agarramos sucesion $p_{n}$ en $U$ que tienda por abajo al $(1,0)$ tenemos que $s(p_{n})\rightarrow 2\pi$ osea $f(p_{n})\rightarrow 2\pi+C$ y si agarramos otra por arriba $s(\widetilde{p}_{n})\rightarrow 0$ osea $f(\widetilde{p}_{n})\rightarrow C$. Lo que es absurdo por que $f$ es continua en todo $S_{1}$  
+>>- Localmente exacta
+>>	1. Probemos primero que $\theta$ es localmente exacta. Si $p\in U$, entonces en un entorno de $p$ se tiene $$\theta=ds=d(s),$$ donde $s\in\Omega^0(U)$.
+>>	2. Si $p\in V$, entonces en un entorno de $p$ se tiene $$\theta=dt=d(t),$$ donde $t\in\Omega^0(V)$.
+>>	3. Por lo tanto, alrededor de todo punto de $S^1$, la forma $\theta$ es la derivada exterior de una $0$-forma. Luego $\theta$ es localmente exacta.
 
 ### Ejercicio 20
 
 >[!Exercise]
 >Sea $U$ un abierto de $\mathbb R^3$. Para un campo suave $u=(a,b,c)$ en $U$ se definen
->$$
->\operatorname{div}(u)=\frac{\partial a}{\partial x}+\frac{\partial b}{\partial y}+\frac{\partial c}{\partial z},\qquad
->\operatorname{rot}(u)=\left(\frac{\partial c}{\partial y}-\frac{\partial b}{\partial z},\frac{\partial a}{\partial z}-\frac{\partial c}{\partial x},\frac{\partial b}{\partial x}-\frac{\partial a}{\partial y}\right).
->$$
+>$$\operatorname{div}(u)=\frac{\partial a}{\partial x}+\frac{\partial b}{\partial y}+\frac{\partial c}{\partial z},\qquad\operatorname{rot}(u)=\left(\frac{\partial c}{\partial y}-\frac{\partial b}{\partial z},\frac{\partial a}{\partial z}-\frac{\partial c}{\partial x},\frac{\partial b}{\partial x}-\frac{\partial a}{\partial y}\right).$$
 >Considerar el diagrama con $F_1(u)=a\,dx+b\,dy+c\,dz$, $F_2(u)=a\,dy\wedge dz+b\,dz\wedge dx+c\,dx\wedge dy$ y $F_3(f)=f\,dx\wedge dy\wedge dz$.
 >
->- Para cada $j=1,2,3$, mostrar que $F_j$ es un isomorfismo de $C^\infty(U)$-modulos.
->- Probar que el diagrama es conmutativo y deducir que $\operatorname{div}\operatorname{rot}=0$ y $\operatorname{rot}\operatorname{grad}=0$.
->- Decidir si el campo vectorial $u(x,y,z)=(x,0,0)$ puede ser el rotor de algun campo vectorial en $\mathbb R^3$.
+>- (a) Para cada $j=1,2,3$, mostrar que $F_j$ es un isomorfismo de $C^\infty(U)$-modulos.
+>- (b) Probar que el diagrama es conmutativo y deducir que $\operatorname{div}\operatorname{rot}=0$ y $\operatorname{rot}\operatorname{grad}=0$.
+>- (c) Decidir si el campo vectorial $u(x,y,z)=(x,0,0)$ puede ser el rotor de algun campo vectorial en $\mathbb R^3$.
 >>[!Proof]-
->>Las aplicaciones
->>$$
->>F_0(f)=f,\quad F_1(a,b,c)=a\,dx+b\,dy+c\,dz,
->>$$
->>$$
->>F_2(a,b,c)=a\,dy\wedge dz+b\,dz\wedge dx+c\,dx\wedge dy,\quad
->>F_3(f)=f\,dx\wedge dy\wedge dz
->>$$
->>son isomorfismos de $C^\infty(U)$-modulos porque solo expresan funciones o campos en las bases canonicas de formas.
->>
->>Si $f\in C^\infty(U)$,
->>$$
->>dF_0(f)=f_xdx+f_y dy+f_z dz=F_1(\nabla f).
->>$$
->>Si $u=(a,b,c)$,
->>$$
->>dF_1(u)
->>=(c_y-b_z)\,dy\wedge dz+(a_z-c_x)\,dz\wedge dx+(b_x-a_y)\,dx\wedge dy
->>=F_2(\operatorname{rot}u).
->>$$
->>Tambien
->>$$
->>dF_2(u)=(a_x+b_y+c_z)\,dx\wedge dy\wedge dz
->>=F_3(\operatorname{div}u).
->>$$
->>El diagrama conmuta. Como $d^2=0$, se deduce
->>$$
->>\operatorname{rot}\nabla f=0,\qquad \operatorname{div}\operatorname{rot}u=0.
->>$$
->>
->>El campo $u(x,y,z)=(x,0,0)$ no puede ser rotor en $\mathbb R^3$, porque
->>$$
->>\operatorname{div}u=1\ne0,
->>$$
->>mientras que todo rotor tiene divergencia nula.
+>>- (a)
+>>	1. Recordamos que un campo vectorial suave en $U\subset\mathbb R^3$ se escribe como $$u=a\frac{\partial}{\partial x}+b\frac{\partial}{\partial y}+c\frac{\partial}{\partial z},$$ con $a,b,c\in C^\infty(U)$.  
+>>	2. Primero probamos que $F_1$ es un isomorfismo de $C^\infty(U)$-módulos. Toda $1$-forma $\alpha\in\Omega^1(U)$ se escribe de manera única como $$\alpha=A\,dx+B\,dy+C\,dz,$$ con $A,B,C\in C^\infty(U)$. Por lo tanto, si $\alpha=A\,dx+B\,dy+C\,dz$, definimos $$F_1^{-1}(\alpha)=A\frac{\partial}{\partial x}+B\frac{\partial}{\partial y}+C\frac{\partial}{\partial z}.$$ Además, para todo $h\in C^\infty(U)$, $$F_1(hu)=F_1(ha,hb,hc)=ha\,dx+hb\,dy+hc\,dz=hF_1(u).$$ Entonces $F_1$ es un isomorfismo de $C^\infty(U)$-módulos.  
+>>	3. Probamos ahora que $F_2$ es un isomorfismo. Toda $2$-forma $\beta\in\Omega^2(U)$ se escribe de manera única como $$\beta=A\,dy\wedge dz+B\,dz\wedge dx+C\,dx\wedge dy,$$ con $A,B,C\in C^\infty(U)$. Por lo tanto, si $\beta=A\,dy\wedge dz+B\,dz\wedge dx+C\,dx\wedge dy$, definimos $$F_2^{-1}(\beta)=A\frac{\partial}{\partial x}+B\frac{\partial}{\partial y}+C\frac{\partial}{\partial z}.$$ Además, para todo $h\in C^\infty(U)$, $$F_2(hu)=hF_2(u).$$ Entonces $F_2$ es un isomorfismo de $C^\infty(U)$-módulos.  
+>>	4. Probamos ahora que $F_3$ es un isomorfismo. Toda $3$-forma $\omega\in\Omega^3(U)$ se escribe de manera única como $$\omega=f\,dx\wedge dy\wedge dz,$$ con $f\in C^\infty(U)$. Por lo tanto, si $\omega=f\,dx\wedge dy\wedge dz$, definimos $$F_3^{-1}(\omega)=f.$$ Además, para todo $h\in C^\infty(U)$, $$F_3(hf)=hf\,dx\wedge dy\wedge dz=hF_3(f).$$ Entonces $F_3$ es un isomorfismo de $C^\infty(U)$-módulos.  
+>>- (b)
+>>	1. ![[Pasted image 20260607121743.png]]
+>>	2. **Probamos la conmutatividad del primer cuadrado**. Sea $f\in C^\infty(U)$. Entonces $$\operatorname{grad}(f)=\frac{\partial f}{\partial x}\frac{\partial}{\partial x}+\frac{\partial f}{\partial y}\frac{\partial}{\partial y}+\frac{\partial f}{\partial z}\frac{\partial}{\partial z}.$$ Aplicando $F_1$, obtenemos $$F_1(\operatorname{grad}f)=\frac{\partial f}{\partial x}\,dx+\frac{\partial f}{\partial y}\,dy+\frac{\partial f}{\partial z}\,dz=df.$$ Por lo tanto, $$F_1(\operatorname{grad}f)=df.$$  
+>>	3. **Probamos la conmutatividad del segundo cuadrado**. Sea $u=(a,b,c)$. Entonces $$F_1(u)=a\,dx+b\,dy+c\,dz.$$ Aplicamos $d$: $$dF_1(u)=d(a\,dx+b\,dy+c\,dz)=da\wedge dx+db\wedge dy+dc\wedge dz.$$ Como $$da=a_x\,dx+a_y\,dy+a_z\,dz,$$ se tiene $$da\wedge dx=a_y\,dy\wedge dx+a_z\,dz\wedge dx=-a_y\,dx\wedge dy+a_z\,dz\wedge dx.$$ Como $$db=b_x\,dx+b_y\,dy+b_z\,dz,$$ se tiene $$db\wedge dy=b_x\,dx\wedge dy+b_z\,dz\wedge dy=b_x\,dx\wedge dy-b_z\,dy\wedge dz.$$ Como $$dc=c_x\,dx+c_y\,dy+c_z\,dz,$$ se tiene $$dc\wedge dz=c_x\,dx\wedge dz+c_y\,dy\wedge dz=-c_x\,dz\wedge dx+c_y\,dy\wedge dz.$$ Sumando, obtenemos $$dF_1(u)=(c_y-b_z)\,dy\wedge dz+(a_z-c_x)\,dz\wedge dx+(b_x-a_y)\,dx\wedge dy.$$ Pero $$\operatorname{rot}(u)=\left(c_y-b_z,a_z-c_x,b_x-a_y\right).$$ Por la definición de $F_2$, resulta $$F_2(\operatorname{rot}u)=(c_y-b_z)\,dy\wedge dz+(a_z-c_x)\,dz\wedge dx+(b_x-a_y)\,dx\wedge dy.$$ Por lo tanto, $$dF_1(u)=F_2(\operatorname{rot}u).$$  
+>>	4. **Probamos la conmutatividad del tercer cuadrado**. Sea $u=(a,b,c)$. Entonces $$F_2(u)=a\,dy\wedge dz+b\,dz\wedge dx+c\,dx\wedge dy.$$ Aplicamos $d$: $$dF_2(u)=da\wedge dy\wedge dz+db\wedge dz\wedge dx+dc\wedge dx\wedge dy.$$ Ahora $$da\wedge dy\wedge dz=a_x\,dx\wedge dy\wedge dz,$$ porque los términos con $dy\wedge dy$ y $dz\wedge dz$ son cero. También $$db\wedge dz\wedge dx=b_y\,dy\wedge dz\wedge dx=b_y\,dx\wedge dy\wedge dz,$$ y $$dc\wedge dx\wedge dy=c_z\,dz\wedge dx\wedge dy=c_z\,dx\wedge dy\wedge dz.$$ Por lo tanto, $$dF_2(u)=(a_x+b_y+c_z)\,dx\wedge dy\wedge dz.$$ Pero $$\operatorname{div}(u)=a_x+b_y+c_z.$$ Entonces, por la definición de $F_3$, $$F_3(\operatorname{div}u)=(a_x+b_y+c_z)\,dx\wedge dy\wedge dz.$$ Por lo tanto, $$dF_2(u)=F_3(\operatorname{div}u).$$  
+>>	5. De los pasos anteriores, el diagrama conmuta: $$F_1\circ\operatorname{grad}=d,$$ $$F_2\circ\operatorname{rot}=d\circ F_1,$$ $$F_3\circ\operatorname{div}=d\circ F_2.$$  
+>>	6. Deducimos que $\operatorname{div}\operatorname{rot}=0$. Sea $u\in\mathfrak X(U)$. Entonces $$F_3(\operatorname{div}(\operatorname{rot}u))=dF_2(\operatorname{rot}u)=d(dF_1(u))=d^2F_1(u)=0.$$ Como $F_3$ es un isomorfismo, se sigue que $$\operatorname{div}(\operatorname{rot}u)=0.$$  
+>>	7. Deducimos que $\operatorname{rot}\operatorname{grad}=0$. Sea $f\in C^\infty(U)$. Entonces $$F_2(\operatorname{rot}(\operatorname{grad}f))=dF_1(\operatorname{grad}f)=d(df)=d^2f=0.$$ Como $F_2$ es un isomorfismo, se sigue que $$\operatorname{rot}(\operatorname{grad}f)=0.$$
+>>- (c)
+>>	1. Finalmente decidimos si $u(x,y,z)=(x,0,0)$ puede ser el rotor de algún campo vectorial en $\mathbb R^3$. 
+>>	2. Si existiera $v\in\mathfrak X(\mathbb R^3)$ tal que $$\operatorname{rot}(v)=u,$$ entonces por el paso anterior tendríamos $$\operatorname{div}(u)=\operatorname{div}(\operatorname{rot}v)=0.$$
+>>	3. Pero para $u=(x,0,0)$, $$\operatorname{div}(u)=\frac{\partial x}{\partial x}+\frac{\partial 0}{\partial y}+\frac{\partial 0}{\partial z}=1.$$
+>>	4. Esto contradice que $\operatorname{div}(u)=0$. Por lo tanto, $$u(x,y,z)=(x,0,0)$$ no puede ser el rotor de ningún campo vectorial suave en $\mathbb R^3$.
 
 ### Ejercicio 21
 

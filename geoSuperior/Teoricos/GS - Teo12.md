@@ -82,11 +82,12 @@
 >Sea $m<n$ y sean $c_{m+1},\ldots,c_n$ constantes en $\mathbb R$ con $|c_j|<\epsilon$ para todo $j$. $$R(c_{m+1},\ldots,c_n):=\{y\in C_\epsilon^n(0):y_{m+1}=c_{m+1},\ldots,y_n=c_n\}.$$
 >Se le llama rebanada de $C_\epsilon^n(0)$ a la altura de $(c_{m+1},\ldots,c_n)$.
 
->[!Definition] Rebanadas
+>[!Definition] Rebanada de una variedad
 >Sea $M$ una variedad de dimension $n$ y $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave cubica de $M$ centrada en $p$; esto es $\varphi(U)=C_\epsilon^n(0)$ con $\varphi(p)=0$ de $\mathbb R^n$.
 >
->Dado $m\in\mathbb N$, $m<n$, y constantes $c_{m+1},\ldots,c_n$ con $|c_j|<\epsilon$, se define la rebanada $R(c_{m+1},\ldots,c_n)$ de $(U,\varphi)$ como el conjunto:
->$$R(c_{m+1},\ldots,c_n)=\{q\in U:x_{m+1}(q)=c_{m+1},\ldots,x_n(q)=c_n\}.$$
+>Dado $m\in\mathbb N$, $m<n$, y constantes $c_{m+1},\ldots,c_n$ con $|c_j|<\epsilon$, se define la rebanada $R(c_{m+1},\ldots,c_n)$ de $(U,\varphi)$ como el conjunto: $$R(c_{m+1},\ldots,c_n)=\{q\in U:x_{m+1}(q)=c_{m+1},\ldots,x_n(q)=c_n\}.$$
+>Otra forma de verlo es $$R(c_{m+1},\ldots,c_{n})=\varphi ^{-1}((-\epsilon,\epsilon)^{m} \times \{ c_{m+1},\ldots c_{n} \})$$ para esta idea es que se usa una carta cubica
+  
 
 >[!Remark] Ejercicio
 >Para todo $p\in M$ variedad, existe una carta cubica centrada en $p$.

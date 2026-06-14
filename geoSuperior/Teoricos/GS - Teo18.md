@@ -22,7 +22,7 @@
 >>44. Como $\dim S^1=1$, alcanza construir un campo vectorial suave global que nunca se anule.  
 >>45. Definimos $E:S^1\to TS^1$ por $E_{(x,y)}=(-y,x)$. (Osea $E(x,y)=((x,y),(-y,x))$ que esta en el fibrado tangente y luego lo identificamos como $E_{(x,y)}=(-y,x)$ [[GS - Teo15#^4e6c26]]) 
 >>46. Notemos ademas que aca $(-y,x)$ son las coordenadas en la base del $T_{(x,y)}\mathbb{R}^{2}$  
->>47. Primero veamos que **$E_{(x,y)}$ es tangente a $S^1$**. Si $p=(x,y)\in S^1$, entonces $$T_pS^1=\{v\in\mathbb R^2:\langle v,p\rangle=0\}$$ esto es basicamente [[Parcial 2026-04-30 - soluciones#^483e02]]   
+>>47. Primero veamos que **$E_{(x,y)}$ es tangente a $S^1$**. Si $p=(x,y)\in S^1$, entonces $$T_pS^1=\{v\in\mathbb R^2:\langle v,p\rangle=0\}$$ esto es basicamente [[Parcial 1 - soluciones#^483e02]]   
 >>48. Calculamos $\langle (-y,x),(x,y)\rangle=-yx+xy=0$.  
 >>49. Por lo tanto, $E_p\in T_pS^1$ para todo $p\in S^1$.  
 >>50. Ahora veamos que $E$ nunca se anula. Si $E_{(x,y)}=(-y,x)=(0,0)$, entonces $x=0$ e $y=0$.  
@@ -47,12 +47,9 @@
 >
 >Se dice que $\widetilde X$ es una extensión local de $df(X)$.
 >>[!Proof]-
->>1. Recordemos que, por la forma local de una inmersión, existen cartas cúbicas $(U,\varphi=(x_1,\ldots,x_m))$ centrada en $p$ y $(V,\psi=(y_1,\ldots,y_n))$ centrada en $f(p)$ tales que
->>$$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$
->>2. Escribimos el campo $X$ en la carta de $M$ como
->>$$X|_U=\sum_{k=1}^m a_k\frac{\partial}{\partial x_k},\qquad a_k\in C^\infty(U).$$
->>3. Si $q\in U$, entonces (ya lo probamos usando forma local [[GS - Pr4#^b71da3]]) 
->>$$(df)_q\left(\left.\frac{\partial}{\partial x_k}\right|_q\right)=\left.\frac{\partial}{\partial y_k}\right|_{f(q)},\qquad 1\le k\le m.$$
+>>1. Recordemos que, por la forma local de una inmersión, existen cartas cúbicas $(U,\varphi=(x_1,\ldots,x_m))$ centrada en $p$ y $(V,\psi=(y_1,\ldots,y_n))$ centrada en $f(p)$ tales que $$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$
+>>2. Escribimos el campo $X$ en la carta de $M$ como $$X|_U=\sum_{k=1}^m a_k\frac{\partial}{\partial x_k},\qquad a_k\in C^\infty(U).$$
+>>3. Si $q\in U$, entonces (ya lo probamos usando forma local [[GS - Pr4#^b71da3]]) $$(df)_q\left(\left.\frac{\partial}{\partial x_k}\right|_q\right)=\left.\frac{\partial}{\partial y_k}\right|_{f(q)},\qquad 1\le k\le m.$$
 >>4. Por lo tanto, $$(df)_qX_q=\sum_{k=1}^m a_k(q)\left.\frac{\partial}{\partial y_k}\right|_{f(q)}$$
 >>5. Necesitamos extender $a_{k}$ para eso definimos funciones suaves $A_k$ sobre $V$ (En realidad esta definido sobre $V'=V\cap\psi ^{-1}(\pi ^{-1}(\varphi(U)))$, pero abusamos de notacion para hacerlo mas legible, ver demo de [[GS - Pr4#^7d5d0b]] para mas detalle, notar que ademas $f(U)\subseteq V'$ con lo cual no hace falta cambiar $U$. Si no otra forma seria hacer [[Glosario#^fd9e9b]]) por $$A_k=\begin{cases}a_k\circ\varphi^{-1}\circ\pi\circ\psi,&1\le k\le m,\\0,&m<k\le n,\end{cases}$$donde $\pi:\mathbb R^n\to\mathbb R^m$ está dada por $\pi(y_1,\ldots,y_n)=(y_1,\ldots,y_m)$. 
 >>6. Y notamos $A_{k}$ cumple que $$A_{k}\circ f=a_{k}\circ\varphi ^{-1}\circ\pi\circ\psi\circ f(\varphi ^{-1} \circ\varphi(p))=a_{k}\circ\varphi ^{-1}\circ\varphi(p)=a_{k}(p)$$  
@@ -82,7 +79,7 @@
 ^047506
 
 >[!Remark]
->Otra prueba mas simple de [[GS - Teo18#^047506]] es [[Glosario#^3071e3]] 
+>Otra prueba mas simple de [[GS - Teo18#^047506]] es [[Glosario Teorico#^3071e3]] 
 
 >[!Theorem] Teorema de enderezamiento
 >Sea $X\in\mathfrak X(M)$ y sea $p\in M$ tal que $X_p\neq0$. Entonces existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que
@@ -96,8 +93,8 @@
 >>4. Ahora nos vamos a enfocar en una cierta rebanada de $\psi(V)$ dada por $$\{ (r_{1},\ldots,r_{n})\in \psi(V):r_{1}=0 \}$$  que en este caso es igual a $(-\epsilon,\epsilon)^{n-1}$ por ser $\psi$ carta cubica 
 >>5. Proponemos $$\sigma:(-\epsilon,\epsilon)\times C_{\epsilon}^{n-1}(0)\rightarrow M\qquad (r_{1},(0,r_{2},\ldots r_{n}))\mapsto \Theta_{r_{1}}(\psi ^{-1}(0,r_{2},\ldots,r_{n}))=\Theta_{r_{1}}\circ\psi ^{-1}(0,r_{2},\ldots,r_{n})$$
 >>6. Ahora vamos a notar que $\sigma$ nos va a ayudar a armar una carta, para esto veamos que $(d\sigma)_{0}$ es invertible. Por que si sucediera entonces es isomorfismo luego por [[GS - Teo10#^b664ba]] tendremos un abierto $U$ abierto del $0$ tal que $$\sigma|_{U}^{-1}:W\subseteq M\rightarrow U$$ sera difeo (osea carta)
->>7. Luego tenemos si definimos la curva $\alpha (t)=(t,0,\ldots,0)$  $$\begin{align}(d\sigma)_0\left(\frac{\partial}{\partial r_1}\bigg|_0\right)&=(\sigma\circ\alpha )'(0)\\&=\frac{d}{dt}\bigg|_0\sigma(t,0,\dots,0)\\&=\frac{d}{dt}\bigg|_0\theta_t(\psi^{-1}(0,\dots,0))\\&=\frac{d}{dt}\bigg|_0\theta_t(p)\\&=\frac{d}{dt}\bigg|_0\gamma_{p}(t)\\&=\gamma'_{p}(0)\\&=X_{p}\\&=\left.\frac{\partial}{\partial y_1}\right|_p\end{align}$$ en el primer paso usamos [[Glosario#^99bdaa]] 
->>8. Por otro lado para $k>1$ $$\begin{align}(d\sigma)_0\frac{\partial}{\partial r_k}\bigg|_0 &=\frac{d}{dt}\bigg|_0\sigma(0,\ldots,t,\ldots,0)\\ &=\frac{d}{dt}\bigg|_0\Theta_{0}\left(\psi^{-1}(0,\ldots,t,\ldots,0)\right)\\ &=\frac{d}{dt}\bigg|_0\psi^{-1}(0,\ldots,t,\ldots,0)\\ &=(d\psi^{-1})_0\frac{\partial}{\partial y_k}\bigg|_0 \end{align}$$ el primer igual sale como en [[Glosario#^99bdaa]] cambiando la curva $\alpha(t)=te_{k}$ 
+>>7. Luego tenemos si definimos la curva $\alpha (t)=(t,0,\ldots,0)$  $$\begin{align}(d\sigma)_0\left(\frac{\partial}{\partial r_1}\bigg|_0\right)&=(\sigma\circ\alpha )'(0)\\&=\frac{d}{dt}\bigg|_0\sigma(t,0,\dots,0)\\&=\frac{d}{dt}\bigg|_0\theta_t(\psi^{-1}(0,\dots,0))\\&=\frac{d}{dt}\bigg|_0\theta_t(p)\\&=\frac{d}{dt}\bigg|_0\gamma_{p}(t)\\&=\gamma'_{p}(0)\\&=X_{p}\\&=\left.\frac{\partial}{\partial y_1}\right|_p\end{align}$$ en el primer paso usamos [[Glosario Teorico#^99bdaa]] 
+>>8. Por otro lado para $k>1$ $$\begin{align}(d\sigma)_0\frac{\partial}{\partial r_k}\bigg|_0 &=\frac{d}{dt}\bigg|_0\sigma(0,\ldots,t,\ldots,0)\\ &=\frac{d}{dt}\bigg|_0\Theta_{0}\left(\psi^{-1}(0,\ldots,t,\ldots,0)\right)\\ &=\frac{d}{dt}\bigg|_0\psi^{-1}(0,\ldots,t,\ldots,0)\\ &=(d\psi^{-1})_0\frac{\partial}{\partial y_k}\bigg|_0 \end{align}$$ el primer igual sale como en [[Glosario Teorico#^99bdaa]] cambiando la curva $\alpha(t)=te_{k}$ 
 >>9. Entonces $d\sigma$ es isomorfismo. Por tanto, por el teorema de la función inversa existe $U$ abierto de $M$ en $p$ y $W$ abierto de $\mathbb R^n$ en $(0,\dots,0)$ tal que $\sigma:W\to U$ es un difeomorfismo.
 >>10. Ahora nuestra candidata es la carta suave $(U,\phi=\sigma^{-1}|_U=(x_1,\dots,x_n)).$
 >>11. Veamos que $$X|_U=\frac{\partial}{\partial x_1}.$$

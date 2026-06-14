@@ -66,7 +66,7 @@
 ## Curvas integrales y flujos
 
 >[!Definition] Curva integral
->Sea $M$ una variedad suave y sea $X \in \mathfrak X(M)$. Una curva suave $\gamma:I \subset \mathbb R \to M$, con $I$ intervalo abierto, se dice curva integral de $X$ si para todo $t \in I$ se cumple $$(d\gamma)_t\frac{d}{ds}|_t=X_{\gamma(t)}$$
+>Sea $M$ una variedad suave y sea $X \in \mathfrak X(M)$. Una curva suave $\gamma:I \subset \mathbb R \to M$, con $I$ intervalo abierto, se dice curva integral de $X$ si para todo $t \in I$ se cumple $$\gamma'(t):=(d\gamma)_t\frac{d}{ds}|_t=X_{\gamma(t)}$$
 >En coordenadas, esto dice $(\gamma^i)'(t)=X^i(\gamma(t))$. Donde $\gamma^{i}=x^{i}\circ \gamma$ con $x^{i}$ coordenadas de una carta para $M$  
 >
 > Dicho de forma informal: es una curva que se acomoda a las flechas dibujadas por $X$.
