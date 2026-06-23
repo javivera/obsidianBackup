@@ -53,7 +53,7 @@
             }
           },
           {
-            "id": "e68d2801e9b3f824",
+            "id": "e3620ecf49851bb0",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -62,18 +62,6 @@
               },
               "icon": "lucide-file-text",
               "title": "FG - Guia 8"
-            }
-          },
-          {
-            "id": "719a6bc8769fffaa",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Apuntes/Apunte_Masas_Puntuales_Wolfenson2023.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Apunte_Masas_Puntuales_Wolfenson2023"
             }
           }
         ],
@@ -243,19 +231,19 @@
   },
   "active": "15c2a8ba912a8d7e",
   "lastOpenFiles": [
+    "FG - Guia 6.pdf",
     "FG - Guia 8.pdf",
     "FG - Guia 7.pdf",
+    "FG - Guia 9.pdf",
     "FG - Guia 7 - Soluciones.md",
+    "Apuntes/Apunte_Masas_Puntuales_Wolfenson2023.pdf",
     "FG - Guia 5.pdf",
     "FG - Guia 8 - Resuelta.md",
     "FG - Guia 6.md",
-    "FG - Guia 6.pdf",
     "Examenes/FG-2-2doP.pdf",
     "Examenes/FG-1-2doP.pdf",
     "Examenes/ParcialPractica.pdf",
     "Examenes/Problema2_SCoord en tierra.pdf",
-    "FG - Guia 9.pdf",
-    "Guía 9 2026.pdf",
     "FG - Guia 5 - Soluciones.md",
     "FG - Guia 4 - Soluciones.md",
     "FG - Guia 3 - Soluciones.md",

@@ -13,96 +13,80 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Practicos/GS - Pr6.md",
+                "file": "Practicos/GS - Pr5.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Pr5"
+            }
+          },
+          {
+            "id": "3da6320e95b93de1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoricos/GS - Teo13.md",
                 "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "GS - Pr6"
+              "title": "GS - Teo13"
             }
           }
         ]
       },
       {
-        "id": "19bd286b8bfbb407",
-        "type": "split",
+        "id": "3f95b8eb39feceb2",
+        "type": "tabs",
         "children": [
           {
-            "id": "3f95b8eb39feceb2",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "1ce4e52c130f4d34",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Teoricos/GS - Teo21.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "GS - Teo21"
-                }
+            "id": "1ce4e52c130f4d34",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoricos/GS - Teo25.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              {
-                "id": "a2eb25066aaa5aa3",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Practicos/GS - Pr4.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "GS - Pr4"
-                }
-              }
-            ],
-            "currentTab": 1
+              "icon": "lucide-file",
+              "title": "GS - Teo25"
+            }
           },
           {
-            "id": "e9d7a88153e9954c",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "3da6320e95b93de1",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Examenes/Parcial 2 - soluciones 1.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Parcial 2 - soluciones 1"
-                }
+            "id": "a2eb25066aaa5aa3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Practicos/GS - Pr5.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              {
-                "id": "d083e0649a2fe745",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Practicos/GS - Pr4.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "GS - Pr4"
-                }
-              }
-            ]
+              "icon": "lucide-file",
+              "title": "GS - Pr5"
+            }
+          },
+          {
+            "id": "f7dd5c03a86c55c8",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Practicos/GS - Pr5.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "GS - Pr5"
+            }
           }
         ],
-        "direction": "horizontal"
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -134,7 +118,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "propiedad",
+                "query": "pullback",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -175,7 +159,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Examenes/Parcial 2 - soluciones 1.md",
+                "file": "Practicos/GS - Pr5.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +169,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Parcial 2 - soluciones 1"
+              "title": "Backlinks for GS - Pr5"
             }
           },
           {
@@ -194,12 +178,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Examenes/Parcial 2 - soluciones 1.md",
+                "file": "Practicos/GS - Pr5.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Parcial 2 - soluciones 1"
+              "title": "Outgoing links from GS - Pr5"
             }
           },
           {
@@ -252,52 +236,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "cd5a7202445e1d7a",
+  "active": "b76d8b04b163b4b5",
   "lastOpenFiles": [
-    "Teoricos/GS - Teo22.md",
-    "Practicos/GS - Pr4.md",
-    "Teoricos/GS - Teo23.md",
-    "Teoricos/GS - Teo21.md",
-    "Practicos/GS - Pr6.pdf",
-    "Teoricos/GS - Teo13.md",
-    "Practicos/GS - Pr6.md",
-    "Practicos/GS - Pr3.pdf",
-    "Practicos/GS - Pr3.md",
-    "Teoricos/GS - Teo20.md",
-    "Teoricos/GS - Teo15.md",
-    "Teoricos/GS - Teo16.md",
-    "Teoricos/GS - Teo14.md",
-    "Teoricos/GS - Teo11.md",
-    "Teoricos/GS - Teo12.md",
-    "Examenes/Parcial 2 - soluciones 1.md",
-    "Pasted image 20260612163318.png",
-    "Teoricos/GS - Teo18.md",
-    "Glosario Teorico.md",
-    "Teoricos/GS - Teo17.md",
-    "Teoricos/GS - Teo19.md",
-    "Practicos/GS - Pr2.pdf",
-    "Teoricos/GS - Teo10.md",
-    "Practicos/GS - Pr2.md",
-    "Practicos/GS - Pr5.md",
-    "Teoricos/GS - Teo6.md",
-    "Teoricos/GS - Teo5.md",
-    "Practicos/Pr6CF.pdf",
-    "Practicos/Glosario.md",
-    "Images/Pasted image 20260603132433.png",
-    "Images/Pasted image 20260603132446.png",
-    "Images/Pasted image 20260603235453.png",
-    "Images/Pasted image 20260607121743.png",
     "Practicos/GS - Pr5.pdf",
+    "Practicos/GS - Pr6.pdf",
+    "Practicos/GS - Pr5.md",
+    "Teoricos/GS - Teo22.md",
+    "Teoricos/GS - Teo10.md",
     "Teoricos/GS - Teo8.md",
-    "Practicos/Pr5CF.pdf",
-    "Teoricos/XXVjr1bS",
-    "Practicos/GS - Pr4.pdf",
-    "Apuntes/[Graduate texts in mathematics 218] Lee, John M - Introduction to smooth manifolds (2013, Springer) - libgen.li.pdf",
-    "Apuntes/[Graduate Texts in Mathematics №94] Frank W. Warner (auth.) - Foundations of Differentiable Manifolds and Lie Groups (1983, Springer) [10.1007_978-1-4757-1799-0] - libgen.li.pdf",
-    "Pasted image 20260522124044.png",
-    "Pasted image 20260518154922.png",
-    "Pasted image 20260518154921.png",
-    "Pasted image 20260518214156.png",
-    "Images/Pasted image 20260513203029.png"
+    "Teoricos/GS - Teo25.md",
+    "Teoricos/GS - Teo19.md",
+    "Teoricos/GS - Teo24.md",
+    "Teoricos/GS - Teo18.md",
+    "Teoricos/GS - Teo17.md",
+    "Teoricos/GS - Teo20.md",
+    "Teoricos/GS - Teo21.md",
+    "Teoricos/GS - Teo13.md",
+    "Examenes/Parcial 2 - soluciones 1.md",
+    "tmp/pdfs/teo24_render/sheet-25.jpg",
+    "tmp/pdfs/teo24_render/sheet-17.jpg",
+    "tmp/pdfs/teo24_render/sheet-09.jpg",
+    "tmp/pdfs/teo24_render/sheet-01.jpg",
+    "tmp/pdfs/teo24_render/page-32.txt",
+    "tmp/pdfs/teo24_render/page-31.txt",
+    "tmp/pdfs/teo24_render/page-30.txt",
+    "tmp/pdfs/teo24_render/page-29.txt",
+    "tmp/pdfs/teo24_render/page-28.txt",
+    "tmp/pdfs/teo24_render/page-27.txt",
+    "tmp/pdfs/teo24_render/page-26.txt",
+    "tmp/pdfs/teo24_render/page-25.txt",
+    "tmp/pdfs/teo24_render/page-24.txt",
+    "tmp/pdfs/teo25/page-19.png",
+    "tmp/pdfs/teo25/page-18.png",
+    "tmp/pdfs/teo25/page-17.png",
+    "tmp/pdfs/teo25/page-16.png",
+    "tmp/pdfs/teo25/page-15.png",
+    "tmp/pdfs/teo25/page-14.png",
+    "Examenes/Parcial 1 - soluciones.md",
+    "Teoricos/GS - Teo12.md",
+    "Teoricos/GS - Teo9.md",
+    "Teoricos/GS - Teo5.md",
+    "Practicos/GS - Pr6.md",
+    "Teoricos/GS - Teo23.md",
+    "Teoricos/GS - Teo6.md",
+    "Teoricos/GS - Teo7.md",
+    "Practicos/GS - Pr4.md",
+    "Teoricos/GS - Teo15.md",
+    "Teoricos/GS - Teo14.md",
+    "Practicos/GS - Pr3.md"
   ]
 }

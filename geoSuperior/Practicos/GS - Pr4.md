@@ -106,9 +106,9 @@
 >>[!Proof]-
 >>- **Caso $X=e^{-x}\frac{\partial}{\partial x}$**  
 >>	1. Para $X$, el sistema es $$x'(t)=e^{-x(t)},\qquad y'(t)=0.$$
->>	2. Entonces $y(t)=y_0$ y $$e^x(t) x'(t)=1,$$
->>	3. por lo que
->>	$$\frac d{dt}(e^{x(t)})=1.$$
+>>	2. Entonces $y(t)=y_0$ y $$e^{x(t)} x'(t)=1,$$
+>>	3. Por lzo que
+>>	$$\frac d{dt}(e^{x(t)})=e^{x(t)} x'(t)=1.$$
 >>	4. Así, $e^{x(t)}=t+c_{0}$  entinces  $x(t)=\log(t+c_{0})$ por lo tanto $x(0)=\log(c_{0})$ ósea $c_{0}=e^{x_{0}}$ 
 >>	5. Mostrando que $$x(t)=\log(t+e^{x_{0}})$$  
 >>	6. El intervalo maximal es $(-e^{x_0},\infty)$

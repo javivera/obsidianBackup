@@ -29,17 +29,17 @@
 > [!Exercise]
 > Hallar la subvariedad integral conexa maximal que contiene a $(0,0)$ para la distribución $D$ en $\mathbb{R}^2$ definida por $D=\operatorname{span}\{e_1\}$.
 >>[!Proof]-
->>1. Consideremos $$N=\mathbb{R}\times\{0\}\subset \mathbb{R}^2.$$
->>2. Esta es una subvariedad embebida conexa de $\mathbb{R}^2$, pues es una recta.
->>3. Sea $$i:N\hookrightarrow \mathbb{R}^2$$ la inclusión.
->>4. Queremos probar que $N$ es una subvariedad integral de $D$, es decir, que para todo $p\in N$ se cumple $$(di)_p(T_pN)=D_{i(p)}.$$
->>5. Como $i$ es la inclusión, tenemos $i(p)=p$. Luego basta probar que $$(di)_p(T_pN)=D_p.$$
->>6. Sea $p=(x,0)\in N$. Como $N=\mathbb{R}\times\{0\}$, el espacio tangente a $N$ en $p$ está generado por el vector horizontal: $$T_pN=\operatorname{span}\left\{\frac{\partial}{\partial x}\Big|_p\right\}.$$
->>7. Ahora calculamos la imagen de este generador por $(di)_p$. Escribimos $$(di)_p\left(\frac{\partial}{\partial x}\Big|_p\right)=a\frac{\partial}{\partial x}\Big|_{i(p)}+b\frac{\partial}{\partial y}\Big|_{i(p)}.$$
->>8. Para hallar $a$, evaluamos en la función coordenada $x:\mathbb{R}^2\to\mathbb{R}$: $$a=(di)_p\left(\frac{\partial}{\partial x}\Big|_p\right)(x)=\frac{\partial}{\partial x}\Big|_p(x\circ i).$$
->>9. Pero $x\circ i=x|_N$, y sobre $N$ esta función es la coordenada horizontal. Por tanto $$a=\frac{\partial}{\partial x}\Big|_p(x|_N)=1.$$
->>10. Para hallar $b$, evaluamos en la función coordenada $y:\mathbb{R}^2\to\mathbb{R}$: $$b=(di)_p\left(\frac{\partial}{\partial x}\Big|_p\right)(y)=\frac{\partial}{\partial x}\Big|_p(y\circ i).$$
->>11. Pero $y\circ i=y|_N=0$, porque todos los puntos de $N$ tienen segunda coordenada igual a $0$. Entonces $$b=\frac{\partial}{\partial x}\Big|_p(0)=0.$$
+>>1. Notar que implicitamente estamos tomando $(\mathbb{R}^{2},Id=(x,y))$ como carta de $\mathbb{R}^{2}$ por eso considerando que $D_{p}\in T_{p}\mathbb{R}^{2}\simeq \mathbb{R}^{2}$ (es una distribucion de $\mathbb{R}^{2}$) y podemos identificar $e_{1}|_{p}=\frac{\partial}{\partial x}|_{p}$    
+>>2. Ahora consideremos $$N=\mathbb{R}\times\{0\}\subset \mathbb{R}^2.$$
+>>3. Esta es una subvariedad embebida conexa de $\mathbb{R}^2$, pues es una recta.
+>>4. Sea $$i:N\hookrightarrow \mathbb{R}^2$$ la inclusión.
+>>5. Queremos probar que $N$ es una subvariedad integral de $D$, es decir, que para todo $p\in N$ se cumple $$(di)_p(T_pN)=D_{i(p)}.$$
+>>6. Como $i$ es la inclusión, tenemos $i(p)=p$. Luego basta probar que $$(di)_p(T_pN)=D_p.$$
+>>7. Sea $p=(x,0)\in N$. Podemos tomar la misma carta identidad restringida $(N,\varphi=(x,y))$ 
+>>8. Entonces como $N=\mathbb{R}\times\{0\}$, el espacio tangente a $N$ en $p$ está generado por el vector horizontal: $$T_pN=\operatorname{span}\left\{\frac{\partial}{\partial x}\Big|_p\right\}.$$
+>>9. Ahora calculamos la imagen de este generador por $(di)_p$. Escribimos $$(di)_p\left(\frac{\partial}{\partial x}\Big|_p\right)=a\frac{\partial}{\partial x}\Big|_{i(p)}+b\frac{\partial}{\partial y}\Big|_{i(p)}.$$
+>>10. Para hallar $a$, evaluamos en la función coordenada $x:\mathbb{R}^2\to\mathbb{R}$: $$a=(di)_p\left(\frac{\partial}{\partial x}\Big|_p\right)(x)=\frac{\partial}{\partial x}\Big|_p(x\circ i)=\frac{\partial}{\partial r_{1}}\bigg|_{\varphi(p)}x|_{N}\circ\varphi ^{-1}=\frac{\partial}{\partial r_{1}}\pi_{1}(r_{1},r_{2})=1$$
+>>11. Para hallar $b$, hacemos lo mismo pero llegamos a $$\frac{\partial}{\partial r_{1}}\pi_{2}(r_{1},r_{2})=0$$  
 >>12. Por lo tanto $$(di)_p\left(\frac{\partial}{\partial x}\Big|_p\right)=\frac{\partial}{\partial x}\Big|_p=e_1|_p=e_{1}$$
 >>13. Luego $$(di)_p(T_pN)=\operatorname{span}\{e_1\}=D_p.$$
 >>14. Como esto vale para todo $p\in N$, concluimos que $N$ es una subvariedad integral de $D$.
@@ -47,7 +47,7 @@
 >>16. Sea $S$ una subvariedad integral conexa de $D$ tal que $(0,0)\in S$, y sea $$\iota:S\hookrightarrow \mathbb{R}^2$$ la inclusión.
 >>17. Como $S$ es integral, para todo $p\in S$ se cumple $$(d\iota)_p(T_pS)=D_{\iota(p)}=D_p=\operatorname{span}\{e_1|_p\}.$$
 >>18. Consideremos la función coordenada $$y:\mathbb{R}^2\to\mathbb{R},\qquad y(x_1,x_2)=x_2.$$
->>19. Entonces $y|_S=y\circ \iota$. Para todo $v\in T_pS$, tenemos $$d(y|_S)_p(v)=d(y\circ \iota)_p(v)=dy_p((d\iota)_p(v)).$$
+>>19. Entonces $y|_S=y\circ \iota$. Para todo $v\in T_pS$, tenemos $$(dy|_S)_p(v)=(dy\circ \iota)_p(v)=dy_p((d\iota)_p(v)).$$
 >>20. Pero $(d\iota)_p(v)\in D_p=\operatorname{span}\{e_1\}$, así que existe $c\in\mathbb{R}$ tal que $$(d\iota)_p(v)=c e_1|_p.$$
 >>21. Entonces $$dy_p((d\iota)_p(v))=dy_p(c e_1|_p)=c\,dy_p(e_1|_p).$$
 >>22. Veamos que $dy_p(e_1|_p)=0$. Escribimos $$dy_p(e_1|_p)=a\frac{d}{dt}\Big|_{y(p)}.$$

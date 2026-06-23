@@ -96,15 +96,15 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 
 ^ce25ad
 
->[!Proposition]
->Resulta que $\Omega^k(M)$ es un espacio vectorial sobre $\mathbb R$: la suma y producto escalar se definen de manera puntual, $\omega,\theta\in\Omega^k(M)$ y $\lambda\in\mathbb R$,
+>[!Definition] Construccion de $\Omega^{*}(M)$ 
+>$\Omega^{k}(M)$ es espacio vectorial sobre $\mathbb{R}$ 
+>La suma y producto escalar se definen de manera puntual, $\omega,\theta\in\Omega^k(M)$ y $\lambda\in\mathbb R$,
 >$$(\omega+\lambda\theta)_p=\omega_p+\lambda\theta_p,$$
 >y se ve que $\omega+\lambda\theta\in\Omega^k(M)$.
->
->Tambien, $\Omega^k(M)$ es un $C^\infty(M)$-modulo con la accion dada por: si $f\in C^\infty(M)$ y $\omega\in\Omega^k(M)$, entonces
+>  
+>Ademas $\Omega^k(M)$ es un $C^\infty(M)$-modulo con la accion dada por: si $f\in C^\infty(M)$ y $\omega\in\Omega^k(M)$, entonces
 >$$(f\omega)_p=f(p)\omega_p,$$
 >y se ve que $f\omega\in\Omega^k(M)$.
->
 >Extendiendo el producto cuña por bilinealidad a todo $\Omega^*(M)$, tenemos que este espacio es un espacio vectorial real con estructura de algebra dada por $\wedge$, que es graduada osea tiene una descomposicion en subespacios, en este caso $\Omega^k(M)$, $k=0,\ldots,n$, que cumplen
 >$$\Omega^k(M)\wedge\Omega^\ell(M)\subset\Omega^{k+\ell}(M),$$
 >y tambien es un $C^\infty(M)$-modulo.

@@ -1,0 +1,26 @@
+~
+Ueto u Nali2zuto w Lee
+Suppose M is a smooth manifold with or without boundary, and S C M isa
+smooth submanifold (immersed or embedded, with or without boundary). Recall
+(Example 10.10) that a vector field along S is a section of the ambient tangent
+bundle T7M|s, i.e., a continuous map NV: S — TM with the property that N, €
+T,M for each p € S (Fig. 15.4). For example, any vector field on M restricts to a
+vector field along S, but in general, not every vector field along S is of this form
+(see Problem 10-9).
+Proposition 15.21. Suppose M is an oriented smooth n-manifold with or without
+boundary, S is an immersed hypersurface with or without boundary in M, and N is
+a vector field along S that is nowhere tangent to S. Then S has a unique orientation
+such that for each p € S, (£4,..., En—1) is an oriented basis for T,S if and only if
+(N,, £y,..., £n—1) is an oriented basis for TM. If w is an orientation form for M,
+then \,(N 1 @) is an orientation form for S with respect to this orientation, where
+ts: S — M is inclusion.
+Owed Lee k pitnsaniine
+For Riemannian hypersurfaces, we have the following important characterization
+of the volume form on the hypersurface in terms of that of the ambient manifold.
+If X is a vector field and yp is a differential form, recall that X I jz denotes interior
+multiplication of zu by X (see p. 401).
+Proposition 2.43. Suppose M is a hypersurface in an oriented Riemannian mani-
+fold (M,Z) and g is the induced metric on M. Then M is orientable if and only if
+there exists a global unit normal vector field N for M, and in that case the volume
+form of (M, g) is given by
+dV, =(NdVz)|,). (2.17)

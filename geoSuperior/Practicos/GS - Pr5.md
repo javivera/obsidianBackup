@@ -328,7 +328,7 @@
 >Sea $\omega\in\Omega^1(M)$ y sean $X,Y\in\mathfrak{X}(M)$. Probar que $$d\omega(X,Y)=X(\omega(Y))-Y(\omega(X))-\omega([X,Y]).$$
 >>[!Proof]-
 >>1. Sea $(U,(x^1,\ldots,x^n))$ una carta suave y escribamos $$\omega=\sum_i c_i\,dx^i.$$
->>2. Como $$d\omega=\sum_i dc_i\wedge dx^i,$$ tenemos $$d\omega(X,Y)=\sum_i\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\right).$$
+>>2. Como $$d\omega=\sum_i dc_i\wedge dx^i,$$ tenemos $$d\omega(X,Y)=\sum_i\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\right).$$ donde usamos que $(dc_{i})X=X(c_{i})$ etc 
 >>3. El otro lado usando 1. $$\omega(Y)=\sum_i c_iY(x^i),\qquad \omega(X)=\sum_i c_iX(x^i).$$
 >>4. Por linealidad de $X$ y la regla de Leibniz, $$\begin{aligned}X(\omega(Y))&=X\left(\sum_i c_iY(x^i)\right)\\&=\sum_i X\left(c_iY(x^i)\right)\\&=\sum_i\left(X(c_i)Y(x^i)+c_iX(Y(x^i))\right).\end{aligned}$$
 >>5. De la misma manera, $$\begin{aligned}Y(\omega(X))&=Y\left(\sum_i c_iX(x^i)\right)\\&=\sum_i Y\left(c_iX(x^i)\right)\\&=\sum_i\left(Y(c_i)X(x^i)+c_iY(X(x^i))\right).\end{aligned}$$
@@ -339,23 +339,29 @@
 ### Ejercicio 17
 
 >[!Exercise]
->Sea $F:M\to N$ una función suave y sea $\theta\in\Omega^k(N)$. Mostrar que $F^*\theta\in\Omega^k(M)$ y que $d^k(F^*\theta)=F^*(d^k\theta)$.
+>Sea $F:M\to N$ una función suave y sea $\theta\in\Omega^k(N)$. Mostrar que $F^*\theta\in\Omega^k(M)$ y que $d^k(F^*\theta)=F^*(d^k\theta)$
 >>[!Proof]-
->>1. Primero probamos que $F^*\theta\in\Omega^k(M)$. Por definición, si $p\in M$ y $v_1,\ldots,v_k\in T_pM$, entonces $$(F^*\theta)_p(v_1,\ldots,v_k)=\theta_{F(p)}(dF_pv_1,\ldots,dF_pv_k).$$
->>2. Fijamos $p\in M$. Tomamos una carta suave $(V,\varphi=(y^1,\ldots,y^n))$ de $N$ tal que $F(p)\in V$. Como $F$ es continua, $F^{-1}(V)$ es abierto en $M$ y contiene a $p$. Tomamos una carta suave $(W,\psi=(x^1,\ldots,x^m))$ de $M$ tal que $p\in W$, y definimos $$U:=W\cap F^{-1}(V).$$ Entonces $(U,x^1,\ldots,x^m)$ es una carta suave de $M$, $p\in U$ y $F(U)\subseteq V$.
->>3. En la carta $(V,y^1,\ldots,y^n)$ escribimos localmente $$\theta|_V=\sum_I a_I\,dy^I=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k},$$ donde $I=(i_1,\ldots,i_k)$ con $i_1<\cdots<i_k$ y $a_I\in C^\infty(V)$.
->>4. Para $q\in U$ y $v_1,\ldots,v_k\in T_qM$, tenemos $$\begin{align}(F^*\theta)_q(v_1,\ldots,v_k)&=\theta_{F(q)}(dF_qv_1,\ldots,dF_qv_k)\\&=\sum_I a_I(F(q))(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}(dF_qv_1,\ldots,dF_qv_k)\\&=\sum_I (a_I\circ F)(q)\det\big(dy^{i_r}_{F(q)}(dF_qv_s)\big)\\&=\sum_I (a_I\circ F)(q)\det\big(d(y^{i_r}\circ F)_q(v_s)\big)\\&=\sum_I (a_I\circ F)(q)(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F))_q(v_1,\ldots,v_k).\end{align}$$
->>5. Definimos $$F^i:=y^i\circ F.$$ Entonces, en $U$, $$F^*\theta=\sum_I (a_I\circ F)\,dF^{i_1}\wedge\cdots\wedge dF^{i_k}.$$
->>6. Ahora escribimos esta expresión en la base coordenada de $M$. Como $(U,x^1,\ldots,x^m)$ es una carta de $M$, para cada $i$ tenemos $$dF^i=\sum_{a=1}^m\frac{\partial F^i}{\partial x^a}\,dx^a.$$ Entonces $$F^*\theta=\sum_I (a_I\circ F)\left(\sum_{a_1=1}^m\frac{\partial F^{i_1}}{\partial x^{a_1}}dx^{a_1}\right)\wedge\cdots\wedge\left(\sum_{a_k=1}^m\frac{\partial F^{i_k}}{\partial x^{a_k}}dx^{a_k}\right).$$
->>7. Reagrupando en la base $dx^J=dx^{j_1}\wedge\cdots\wedge dx^{j_k}$, con $J=(j_1,\ldots,j_k)$ y $j_1<\cdots<j_k$, obtenemos $$F^*\theta=\sum_J b_J\,dx^J,$$ donde $$b_J=\sum_I(a_I\circ F)\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}.$$ Estos $b_J$ son suaves porque son sumas finitas de productos de funciones suaves. Luego $F^*\theta$ tiene coeficientes suaves en coordenadas alrededor de $p$.
->>8. Como $p\in M$ era arbitrario, concluimos que $$F^*\theta\in\Omega^k(M).$$
->>9. Ahora probamos que $$d^k(F^*\theta)=F^*(d^k\theta).$$ Usamos la expresión coordenada del paso anterior: $$F^*\theta=\sum_J b_J\,dx^J.$$ Por definición local de la derivada exterior, $$d^k(F^*\theta)=\sum_J db_J\wedge dx^J=\sum_J\sum_{\ell=1}^m\frac{\partial b_J}{\partial x^\ell}\,dx^\ell\wedge dx^J.$$
->>10. Derivamos $b_J$. Como $$b_J=\sum_I(a_I\circ F)\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}},$$ entonces $$\begin{align}\frac{\partial b_J}{\partial x^\ell}&=\sum_I\frac{\partial(a_I\circ F)}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\\&+\sum_I(a_I\circ F)\frac{\partial}{\partial x^\ell}\left(\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\right).\end{align}$$
->>11. El segundo sumando no contribuye a $d^k(F^*\theta)$, porque al derivar los factores $\frac{\partial F^{i_r}}{\partial x^{j_{\sigma(r)}}}$ aparecen segundas derivadas $$\frac{\partial^2F^{i_r}}{\partial x^\ell\partial x^{j_{\sigma(r)}}},$$ que son simétricas en $\ell$ y $j_{\sigma(r)}$, mientras que $$dx^\ell\wedge dx^{j_1}\wedge\cdots\wedge dx^{j_k}$$ es alternante. Por lo tanto esos términos se cancelan. Luego $$d^k(F^*\theta)=\sum_{J,\ell,I}\frac{\partial(a_I\circ F)}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\,dx^\ell\wedge dx^J.$$
->>12. Por la regla de la cadena, $$\frac{\partial(a_I\circ F)}{\partial x^\ell}=\sum_{\alpha=1}^n\left(\frac{\partial a_I}{\partial y^\alpha}\circ F\right)\frac{\partial F^\alpha}{\partial x^\ell}.$$ Sustituyendo, queda $$d^k(F^*\theta)=\sum_{J,\ell,I,\alpha}\left(\frac{\partial a_I}{\partial y^\alpha}\circ F\right)\frac{\partial F^\alpha}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\,dx^\ell\wedge dx^J.$$
->>13. Ahora calculamos el otro lado. Como $$\theta=\sum_I a_I\,dy^I,$$ entonces por definición de derivada exterior en coordenadas, $$d^k\theta=\sum_I da_I\wedge dy^I=\sum_{I,\alpha}\frac{\partial a_I}{\partial y^\alpha}\,dy^\alpha\wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k}.$$
->>14. Al aplicar $F^*$, cada $dy^\alpha$ se transforma en $$F^*(dy^\alpha)=dF^\alpha=\sum_{\ell=1}^m\frac{\partial F^\alpha}{\partial x^\ell}\,dx^\ell,$$ y cada $dy^{i_r}$ se transforma en $$F^*(dy^{i_r})=dF^{i_r}=\sum_{a=1}^m\frac{\partial F^{i_r}}{\partial x^a}\,dx^a.$$ Por lo tanto, al reagrupaar en los términos $dx^\ell\wedge dx^J$, obtenemos $$F^*(d^k\theta)=\sum_{J,\ell,I,\alpha}\left(\frac{\partial a_I}{\partial y^\alpha}\circ F\right)\frac{\partial F^\alpha}{\partial x^\ell}\sum_{\sigma\in S_k}\operatorname{sgn}(\sigma)\frac{\partial F^{i_1}}{\partial x^{j_{\sigma(1)}}}\cdots\frac{\partial F^{i_k}}{\partial x^{j_{\sigma(k)}}}\,dx^\ell\wedge dx^J.$$
->>15. Las expresiones de los pasos 12 y 14 coinciden. Por lo tanto, localmente en $U$, $$d^k(F^*\theta)=F^*(d^k\theta).$$ Como la igualdad es local y $p\in M$ era arbitrario, concluimos que $$d^k(F^*\theta)=F^*(d^k\theta).$$
+>>- $F^{*}\theta\in \Omega^{k}(M)$  
+>>	1. Primero probamos que $F^*\theta\in\Omega^k(M)$. Sea $\theta=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}$.
+>>	2. Por linealidad del pullback, $$F^*\theta=\sum_I F^*\!\left(a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}\right).$$
+>>	3. Afirmamos que $F^*(f\omega)=(f\circ F)\,F^*(\omega)$. En efecto, para todo $p\in M$ y $v_1,\ldots,v_k\in T_pM$, $$(F^*(f\omega))_p(v_1,\ldots,v_k)=(f\omega)_{F(p)}(dF_p(v_1),\ldots,dF_p(v_k)).$$  
+>>	4. Como $(f\omega)_{F(p)}=f(F(p))\,\omega_{F(p)}$, obtenemos $$(F^* f\omega))_p(v_1,\ldots,v_k)=f(F(p))\,\omega_{F(p)}(dF_p(v_1),\ldots,dF_p(v_k)).$$
+>>	5. Como $f(F(p))=(f\circ F)(p)$, $$(F^*(f\omega))_p(v_1,\ldots,v_k)=(f\circ F)(p)\,(F^*\omega)_p(v_1,\ldots,v_k).$$
+>>	6. Aplicando esta propiedad,  
+>>	$$F^*\theta=\sum_I (a_I\circ F)\,F^*\!\left(dy^{i_1}\wedge\cdots\wedge dy^{i_k}\right).$$
+>>	7. Como el pullback preserva productos wedge, $F^*(\alpha_1\wedge\cdots\wedge\alpha_k)=F^*(\alpha_1)\wedge\cdots\wedge F^*(\alpha_k)$, obtenemos $$F^*\theta=\sum_I (a_I\circ F)\,F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k}).$$
+>>	8. Afirmamos que $F^*(dy^j)=d(y^j\circ F)$. En efecto, para todo $p\in M$ y $v\in T_pM$, $$(F^*(dy^j))_p(v)=(dy^j)_{F(p)}(dF_p(v))=dF_p(v)(y^j)=v(y^j\circ F).$$ primer igual por definicion de $F^{*}$, segundo y tercero por definicion de diferencial 
+>>	9. Ahora usando este resultado $$F^*\theta=\sum_I (a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).$$
+>>	10. Los coeficientes $(a_I\circ F)$ son suaves y las formas $d(y^j\circ F)$ son $1$-formas suaves sobre $M$. Por lo tanto, $$F^*\theta\in\Omega^k(M).$$
+>>- $d^k(F^*\theta)=F^*(d^k\theta).$ 
+>>	1. Por la primera parte, $$F^*\theta=\sum_I (a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).$$
+>>	2. Aplicando $d$ y usando la regla de Leibniz para derivada exterior, $$d(F^*\theta)=\sum_I d(a_I\circ F)\wedge d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).$$
+>>	3. Afirmamos que $d(a_I\circ F)=F^*(da_I)$ sale analogo a paso 8.
+>>	4. Sustituyendo en la expresión de $d(F^*\theta)$ y usando que $d(y^{i_j}\circ F)=F^*(dy^{i_j})$, $$d(F^*\theta)=\sum_I F^*(da_I)\wedge F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k}).$$
+>>	5. Como el pullback preserva productos wedge, $$d(F^*\theta)=\sum_I F^*\!\left(da_I\wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k}\right).$$
+>>	6. Por linealidad del pullback, $$d(F^*\theta)=F^*\!\left(\sum_I da_I\wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k}\right).$$
+>>	7. Pero $$d\theta=\sum_I da_I\wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k}.$$
+>>	8. Por lo tanto, $$d(F^*\theta)=F^*(d\theta).$$
 
 ### Ejercicio 18
 
@@ -386,11 +392,19 @@
 >>	2. The canonical angle coordinate functions are $$s:U\to(0,2\pi),\qquad t:V\to(-\pi,\pi).$$ Therefore, locally we have the $1$-forms $$ds\in\Omega^1(U),\qquad dt\in\Omega^1(V).$$
 >>	3. We want to define a global $1$-form $\theta\in\Omega^1(S^1)$ by $$\theta|_U=ds,\qquad \theta|_V=dt.$$
 >>	4. To prove that this definition is valid, we must check that the two local formulas agree on the overlap $$U\cap V=S^1\setminus\{(1,0),(-1,0)\}.$$
->>	5. The overlap has two parts. On the upper semicircle, the two angle coordinates agree: $$s=t.$$ Hence $$ds=dt.$$
->>	6. On the lower semicircle, the coordinates differ by a constant: $$s=t+2\pi.$$ Hence $$ds=d(t+2\pi)dt+d(2\pi)=dt+2\pi d(0)=dt$$ esto todo vale por que la derivada exterior es lineal (en este caso como esta aplicado $0$-forma es la diferencial de siempe, pero ambas son lineales) 
->>	7. Therefore, on all of $U\cap V$ we have $$ds=dt.$$
->>	8. Digamos puedo definir $$\theta_{p}=\begin{cases}(ds)_{p} & p\in U \\ (dt)_{p} & p\in V \end{cases}$$ y esta bien definida
->>	9. Finally, smoothness is local. Since $\theta=ds$ on $U$ and $\theta=dt$ on $V$, and both $ds$ and $dt$ are smooth local $1$-forms, we conclude that $$\theta\in\Omega^1(S^1)$$ is a smooth $1$-form. (Sus coeficientes en esas cartas o en la interseccion son constantemente $1$) 
+>>	5. Vamos a tomar $s$ como carta de $U\cap V$ que anda bien por que es restriccion de carta. Entonces tenemos $\{ \frac{\partial}{\partial s} \}$ como base del plano tangente $TS$
+>>	6. Sea primero $p$ un punto de la componente superior de la superposición. En un entorno de $p$ las coordenadas satisfacen $$t=s.$$
+>>	7. Entonces $$ds\!\left(\frac{\partial}{\partial s}\right)=\frac{\partial}{\partial s}s=\frac{\partial}{\partial r}s\circ s^{-1}=1 \quad \text{ analogamente } \quad \  dt\!\left(\frac{\partial}{\partial s}\right)=\frac{\partial}{\partial s}(t)=\frac{\partial}{\partial s}(s)=1.$$
+>>	8. Por lo tanto, $$dt\!\left(\frac{\partial}{\partial s}\right)=ds\!\left(\frac{\partial}{\partial s}\right).$$
+>>	9. Como $T_pS^1$ tiene dimensión $1$, concluimos que $dt=ds$.
+>>	10. Sea ahora $p$ un punto de la componente inferior de la superposición. Seguimos con la misma carta pero aca $$t=s-2\pi.$$
+>>	11. Entonces $$ds\!\left(\frac{\partial}{\partial s}\right)=1.$$
+>>	12. Pero esta vez (usando linealidad de vector tangente) $$dt\!\left(\frac{\partial}{\partial s}\right)=\frac{\partial}{\partial s}(t)=\frac{\partial}{\partial s}(s-2\pi)=1.$$
+>>	13. Por lo tanto, $$dt\!\left(\frac{\partial}{\partial s}\right)=ds\!\left(\frac{\partial}{\partial s}\right).$$
+>>	14. Como $T_pS^1$ tiene dimensión $1$, concluimos que $dt=ds$.
+>>	15. Therefore, on all of $U\cap V$ we have $$ds=dt.$$
+>>	16. Digamos puedo definir $$\theta_{p}=\begin{cases}(ds)_{p} & p\in U \\ (dt)_{p} & p\in V \end{cases}$$ y esta bien definida
+>>	17. Finally, smoothness is local. Since $\theta=ds$ on $U$ and $\theta=dt$ on $V$, and both $ds$ and $dt$ are smooth local $1$-forms, we conclude that $$\theta\in\Omega^1(S^1)$$ is a smooth $1$-form. (Sus coeficientes en esas cartas o en la interseccion son constantemente $1$) 
 >>- No global exacta
 >>	1. Seguimos con la misma carta coordenada $s:U\subseteq M\rightarrow \mathbb{R}$ que es obviamente una $0$-forma por ser suave  
 >>	2. Entonces sus derivdad exterior es claramente una $1$-forma $$ds\in\Omega^1(U).$$
