@@ -210,7 +210,7 @@
 >>3. Ahora tenemos el conjunto $$\{W_p\}_{p\in A}\cup\{M\setminus A\}$$que es un cubrimiento abierto de $M$.
 >>4. Por [[GS - Teo8#^eafe2b]] existe una partición de la unidad $$\{\rho_p\}_{p\in A}\cup\{\rho_0\}$$subordinada estrictamente a este cubrimiento, con $$\operatorname{supp}\rho_p\subseteq W_p, \qquad \operatorname{supp}\rho_0\subseteq M\setminus A$$
 >>5. Como hicimos en el ejemplo anterior, definimos $$\widetilde F=\sum_{p\in A}\rho_p\,\widetilde F_p$$donde estamos abusando de notación y entendemos el producto $$(\rho_p\widetilde{F}_p)(q)=\begin{cases}\rho_p(q)\,\widetilde{F}_p(q)&\text{si }q\in W_p,\\0&\text{si }q\notin W_p.\end{cases}$$
->>6. Nuevamente, no olvidar que esta función resulta suave sobre todo $M$, pues $\operatorname{supp}\rho_p\subseteq W_p$ implica identidad local $\rho_p\widetilde{F}_p=\widetilde{F}_p$.
+>>6. Nuevamente, no olvidar que cada término $\rho_p\tilde F_p$ resulta suave sobre todo $M$, pues $\operatorname{supp}\rho_p\subset W_p$ permite extender $\rho_p\tilde F_p$ por $0$ fuera de $W_p$.
 >>7. Tenemos $\widetilde{F}$ es suave pues del hecho que $\{\operatorname{supp}\rho_p\}$ sea localmente finita hace que la suma sea una suma finita de funciones suaves en un entorno de cada punto de $M$.
 >>8. Ahora, si $q\in A$, $$\widetilde{F}(q)=\sum_{p\in A}\rho_p(q)\widetilde{F}_p(q)=\sum_{p\in A}\rho_p(q)F(q)$$ porque $\widetilde{F}_p$ coincide con $F$ en $W_p\cap A$,
 >>9. Y seguimos $$\sum_{p\in A}\rho_p(q)F(q)=\left(\sum_{p\in A}\rho_p(q)\right)F(q)=\left(1-\rho_0(q)\right)F(q)$$ donde el segundo igual vale por que $\sum_{p\in A}\rho_{p}+\rho_{0}=1$ 
@@ -219,6 +219,7 @@
 >>12. Esto implica que debe haber un $j$ tal que $q\in\operatorname{supp}\rho_{p_j}$, pues en otro caso, existirían abiertos $W_1,\ldots,W_k$ de $q$ donde $\rho_{p_1},\ldots,\rho_{p_k}$ se anulan, y así $$W_0\cap W_1\cap\cdots\cap W_k$$es un abierto de $q$ donde $\widetilde{F}$ vale cero que es absurdo
 >>
 
+^b5794a
 
 ## Métrica riemanniana
 

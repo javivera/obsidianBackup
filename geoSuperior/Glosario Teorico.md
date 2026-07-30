@@ -1,3 +1,19 @@
+## Indice de teoricos
+
+### Teoricos 15-25
+
+- [[GS - Teo15]]: campos vectoriales suaves, campos coordenados, extension de vectores tangentes, campos en subvariedades, curvas integrales y teorema fundamental de EDO autonomas.
+- [[GS - Teo16]]: existencia y unicidad de curvas integrales, flujo maximal, flujo global, campos completos y mapas de tiempo.
+- [[GS - Teo17]]: propiedades del flujo, generador infinitesimal, uniformidad global del tiempo, campos con soporte compacto y lema del escape.
+- [[GS - Teo18]]: variedades paralelizables, extension local de campos, aplicaciones del flujo y teorema de enderezamiento.
+- [[GS - Teo19]]: subgrupos monoparametricos, corchete de Lie, campos relacionados, derivada de Lie, conmutacion de flujos y rectificacion simultanea.
+- [[GS - Teo20]]: algebra multilineal, tensores covariantes, tensores alternantes, alternador, producto exterior y algebra exterior.
+- [[GS - Teo21]]: fibrado de formas alternantes, suavidad de formas, producto cuña, algebra de formas y diferencial exterior.
+- [[GS - Teo22]]: complejo de de Rham, formas cerradas y exactas, pullback de formas.
+- [[GS - Teo23]]: distribuciones suaves, distribuciones integrables, involutividad y teorema de Frobenius local.
+- [[GS - Teo24]]: orientacion de espacios vectoriales, orientacion de variedades, cartas orientadas, orientabilidad de hipersuperficies y orientacion inducida en el borde.
+- [[GS - Teo25]]: medida nula, dominios de integracion, integrales de formas en abiertos y variedades, orientacion de formas, difeomorfismos que preservan orientacion e integracion sobre parametrizaciones.
+
 ## Teorico 18
 
 >[!Lemma] Otra forma de hacerlo (creo) 
@@ -117,4 +133,3 @@
 >>7. Para $j=k+1,\ldots,n$, si solo variamos $r_j$, todos los parámetros de los flujos son cero. Por tanto, $$\sigma(0,\ldots,0,r_{k+1},\ldots,r_n)=\eta(r_{k+1},\ldots,r_n).$$ De aquí, $$d\sigma_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)=d\eta_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)=\left.\frac{\partial}{\partial y^j}\right|_p.$$
 >>8. Por los pasos anteriores, $d\sigma_0$ transforma la base canónica de $T_0\mathbb R^n$ en $$X_1(p),\ldots,X_k(p),\left.\frac{\partial}{\partial y^{k+1}}\right|_p,\ldots,\left.\frac{\partial}{\partial y^n}\right|_p.$$ Esta es una base de $T_pM$. Por tanto, $$d\sigma_0:T_0\mathbb R^n\longrightarrow T_pM$$ es un isomorfismo. Por el teorema de la función inversa, después de restringir $A$, existen un entorno $A_0\subseteq\mathbb R^n$ de $0$ y un entorno $U\subseteq M$ de $p$ tales que $$\sigma:A_0\longrightarrow U$$ es un difeomorfismo. Definimos la carta $$\varphi=\sigma^{-1}:U\longrightarrow A_0,\qquad \varphi=(x^1,\ldots,x^n).$$
 >>9. Falta probar que, en estas coordenadas, $$X_i=\frac{\partial}{\partial x^i},\qquad i=1,\ldots,k.$$ Sea $$r=(r_1,\ldots,r_n)\in A_0$$ y sea $q=\sigma(r)$. Para $t$ suficientemente pequeño, usando que los flujos conmutan, $$\begin{aligned}\sigma(r_1,\ldots,r_i+t,\ldots,r_n)&=\theta_{r_1}^1\circ\cdots\circ\theta_{r_i+t}^i\circ\cdots\circ\theta_{r_k}^k\bigl(\eta(r_{k+1},\ldots,r_n)\bigr)\\&=\theta_t^i\left(\theta_{r_1}^1\circ\cdots\circ\theta_{r_i}^i\circ\cdots\circ\theta_{r_k}^k\bigl(\eta(r_{k+1},\ldots,r_n)\bigr)\right)\\&=\theta_t^i(\sigma(r)).\end{aligned}$$ Definimos $$\gamma(t)=r+te_i.$$ Entonces $$\gamma(0)=r$$ y $$\gamma'(0)=\left.\frac{\partial}{\partial r_i}\right|_r.$$ Por tanto, $$\begin{aligned}d\sigma_r\left(\left.\frac{\partial}{\partial r_i}\right|_r\right)&=d\sigma_r(\gamma'(0))\\&=(\sigma\circ\gamma)'(0)\\&=\left.\frac{d}{dt}\right|_{t=0}\theta_t^i(\sigma(r))\\&=X_i(\sigma(r)).\end{aligned}$$ Por definición del campo coordenado asociado a la carta $\varphi=\sigma^{-1}$, $$\left.\frac{\partial}{\partial x^i}\right|_{\sigma(r)}=d\sigma_r\left(\left.\frac{\partial}{\partial r_i}\right|_r\right).$$ Luego $$\left.\frac{\partial}{\partial x^i}\right|_{\sigma(r)}=X_i(\sigma(r)).$$ Como todo punto de $U$ es de la forma $\sigma(r)$, concluimos que $$X_i|_U=\frac{\partial}{\partial x^i},\qquad i=1,\ldots,k.$$ Esto completa la demostración.
-

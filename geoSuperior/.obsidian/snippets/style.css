@@ -130,6 +130,7 @@
 .markdown-preview-view {
     padding: 0.25em;
 }
+
 /* ===============================
    Minimalist Theorem Callout Styling
    Compatible with Light & Dark Mode
@@ -262,3 +263,38 @@
     padding: 0.25em;
 }
 
+/* A Proof nested in an Exercise shares its rule and aligns with Exercise content. */
+.callout[data-callout="exercise"]
+    .callout-content
+    .callout[data-callout="proof"] {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: -1.5em;
+}
+
+.callout[data-callout="exercise"]
+    .callout[data-callout="proof"] > .callout-title,
+.callout[data-callout="exercise"]
+    .callout[data-callout="proof"] > .callout-content {
+    padding-left: 1em;
+}
+
+/* Keep the same alignment and trim the tail when the Proof is collapsed. */
+.callout[data-callout="exercise"]
+    .callout-content
+    .callout[data-callout="proof"].is-collapsible.is-collapsed {
+    border-left: 0;
+    padding: 0;
+    margin: 0.25em 0 0 -1.5em;
+}
+
+.callout[data-callout="exercise"]
+    .callout[data-callout="proof"].is-collapsed > .callout-title {
+    padding-bottom: 0;
+}
+
+.callout[data-callout="exercise"]:has(
+    .callout[data-callout="proof"].is-collapsed
+) > .callout-content {
+    padding-bottom: 0;
+}

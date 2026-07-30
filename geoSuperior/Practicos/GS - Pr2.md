@@ -41,21 +41,21 @@
 ### Ejercicio 2
 
 >[!Exercise]
->Sea $\pi$ la proyección canónica de $S^2$ al proyectivo $\mathbb{RP}^2$. Mostrar que la función $f:\mathbb{RP}^2\to\mathbb R$ está bien definida por $f(\pi(x,y,z))=x^6yz$ y es diferenciable. Probar que $v(f)=0$ para todo $v\in T_{\pi(1,0,0)}\mathbb{RP}^2$.
+>Sea $\pi$ la proyección canónica de $S^2$ al proyectivo $\mathbb{RP}^2$. Mostrar que la función $$f:\mathbb{RP}^2\to\mathbb R$$ está bien definida por $f(\pi(x,y,z))=x^6yz$ y es diferenciable. Probar que $v(f)=0$ para todo $v\in T_{\pi(1,0,0)}\mathbb{RP}^2$.
 >>[!Proof]-
->>1. $f(x,y,z)=x^6yz=(-x)^6(-y)(-z)=f([(x,y,z)])$ entonces si $\pi_1\sim\pi_2$, $f(\pi_1)=f(\pi_2)$. Con lo cual $f$ está bien definida 
->>2. $\tilde f:\mathbb{R}^3\to\mathbb{R}$  $f(x,y,z)=x^6yz$ es suave por ser producto de suaves $\tilde f|_{S^2}:S^2\to\mathbb{R}$ es suave.
+>>1. Si tomamos $v=(x,y,z)$ y $w$ tal que $v\sim w$ entonces $w=(-x,-y,-z)$ $$f(x,y,z)=x^6yz=(-x)^6(-y)(-z)=f(-x,-y,-z)$$ con lo cual dos elementos relacioandos tienen la misma imagen, osea $f$ está bien definida 
+>>2. Tenemos que $$\tilde f:\mathbb{R}^3\to\mathbb{R}\qquad\text{dada por}\qquad \widetilde{f}(x,y,z)=x^6yz$$ es suave por ser producto de suaves $\tilde f|_{S^2}:S^2\to\mathbb{R}$ es suave.
 >>3. Como $\pi:S^2\to\mathbb{RP}^2$ es difeomorfismo local afirmo $f$ es suave
 >>4. Vemoslo, primero notamos $\tilde f|_{S^2}=f\circ\pi$. Luego sea $q\in\mathbb{RP}^2$ tenemos $p=\pi^{-1}(q)$
 >>5. Como $\pi$ difeo local $\exists U$ abierto de $p$ tal que $\pi|_U:U\to\pi(U)$ difeomorfismo entonces $\pi|_U^{-1}:\pi(U)\to U$ es difeomorfismo, en particular es suave
 >>6. Luego $$f|_{\pi(U)}=\tilde f\circ \pi|_U^{-1}$$ es composición de suaves por lo tanto es suave
 >>7. Notar $\pi(U)$ es abierto de $\mathbb{R}\mathbb{P}^{2}$ (porque $\pi|_U$ es homeo y $U$ es abierto) que contiene a $q$.
 >>8. Luego esto vale alrededor de cualquier punto de $\mathbb{R}\mathbb{P}^{2}$ por lo tanto $f$ es suave 
->>9. Calculemos $v\in T_{\pi(1,0,0)}\mathbb{RP}^2$. Usamos el atlas $\{(U_i,\varphi_i)\}$ con $\varphi_1([x_1,x_2,x_3])=(x_2/x_1,x_3/x_1)$.
->>10. En este caso $p=\pi(1,0,0)$ luego $(U_1,\varphi_1)$ es carta de $p$ por que recordemos $U_1=\{[x_1,x_2,x_3]\in\mathbb{RP}^2:x_1\neq0\}$ 
->>11. Ahora podemos calcular $$\frac{\partial}{\partial x_i}\Big|_p f=\frac{\partial}{\partial u_i}\Big|_{\varphi_1(p)}(f\circ\varphi_{1}^{-1})$$ con $\varphi_{1}(\pi(0,0,0))=\varphi_1([1,0,0])=(0,0)$   
->>12. Notemos primero $(f\circ\varphi_1^{-1})(u_1,u_2)=f([1,u_1,u_2])=u_1^6u_2$ entonces $$\frac{\partial}{\partial u_1}(f\circ\varphi_1^{-1})=6u_1^5u_2\quad\text{y }\quad\frac{\partial}{\partial u_2}(f\circ\varphi_1^{-1})=u_1^6$$evaluando en $(0,0)$: $$\frac{\partial}{\partial u_1}\Big|_{(0,0)}(f\circ\varphi ^{-1})=0,\qquad \frac{\partial}{\partial u_2}\Big|_{(0,0)}(f\circ\varphi ^{-1})=0$$
->>13. Como $v\in T_{\pi(1,0,0)}\mathbb{RP}^2$ (y sabemos que $\frac{\partial}{\partial x_{i}}\big|_{\pi(0,0,0)}$ es base) y recordando $(v+h)(f)=v(f)+h(f)$ $$\begin{align}v(f)&=\left(c_{1}\frac{\partial}{\partial x_{1}}\Big|_{\pi(0,0,0)}+c_{2}\frac{\partial}{\partial x_{2}}\Big|_{\pi(0,0,0)}\right)(f)\\&=c_{1}\frac{\partial}{\partial x_{1}}\Big|_{\pi(0,0,0)}f+c_{2}\frac{\partial}{\partial x_{1}}\Big|_{\pi(0,0,0)}f\\&=c_1\frac{\partial}{\partial u_1}\Big|_{(0,0)}(f\circ\varphi ^{-1})+c_2\frac{\partial}{\partial u_2}\Big|_{(0,0)}(f\circ\varphi ^{-1})\\&=0\end{align}$$
+>>9. Sea $p=\pi(1,0,0)$ y sea $v\in T_p\mathbb{RP}^2$. Como $\pi:S^2\to\mathbb{RP}^2$ es un difeomorfismo local, $$d\pi_{(1,0,0)}:T_{(1,0,0)}S^2\to T_p\mathbb{RP}^2$$ es un isomorfismo. Por lo tanto, existe $w\in T_{(1,0,0)}S^2$ tal que $v=d\pi_{(1,0,0)}(w)$.
+>>10. Como $(f\circ\pi)(x,y,z)=x^6yz$, por la regla de la cadena se tiene $$v(f)=df_p(v)=df_p(d\pi_{(1,0,0)}(w))=d(f\circ\pi)_{(1,0,0)}(w)$$
+>>11. Sea $F:\mathbb R^3\to\mathbb R$ dada por $F(x,y,z)=x^6yz$. La matriz jacobiana de $F$ es $dF_{(x,y,z)}=\begin{pmatrix}6x^5yz&x^6z&x^6y\end{pmatrix}$.
+>>12. Evaluando en $(1,0,0)$ obtenemos $dF_{(1,0,0)}=\begin{pmatrix}0&0&0\end{pmatrix}$. Como $f\circ\pi=F|_{S^2}$, se sigue que $d(f\circ\pi)_{(1,0,0)}(w)=dF_{(1,0,0)}(w)=0$.
+>>13. En consecuencia, $v(f)=0$ para todo $v\in T_{\pi(1,0,0)}\mathbb{RP}^2$.
 
 ### Ejercicio 3
 

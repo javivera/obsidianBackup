@@ -225,46 +225,26 @@
 
 ### Ejercicio 10
 
->[!Exercise] Extensión de campos de subvariedades
->Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que hay un campo suave $Y$ sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ sobre $S$. Mostrar que tal campo $Y$ extiende a sobre todo $M$ si y solo si $S$ es un subconjunto cerrado de $M$.
+>[!Exercise] Ejercicio 10 — Extensión de campos de subvariedades
+>Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que existe un campo suave $Y$ definido sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ a $S$.
 >>[!Proof]-
->>- **Existe dicho campo**
->>	1. Estoy asumiendo $\dim M=m$ y $\dim S=n$  
->>	2. Primero notamos que por [[GS - Teo13#^8f3892]] tenemos cartas $(U,\tilde\varphi)$ con $p\in U$ y $(V,\psi)$ tal que $$\iota(U)=\iota(S)\cap V$$ y es la rebanada cero de $(V,\psi=x_{1},\ldots,x_{n},x_{n+1},\ldots,x_{m})$
->>	3. Esto es lo mismo que decir que $U=S\cap V\subseteq S$ es la rebanada $0$ de $(V,\psi=(x_{1},\ldots,x_{n},x_{n+1},\ldots x_{m}))$ osea $$U=\{ q\in V:x_{n+1}(q)=\ldots=x_{m}(q)=0 \}$$
->>	4. Entonces podemos mirar $$(U,\varphi=(x_{1},\ldots x_{n}))$$ como carta de $S$
->>	5. Veamos que es carta. Tenemos que $\iota$ es homeomorfismo. Con lo cual como $S=\iota (S)$ ambas tienen la misma topologia. Y la topologia en $\iota(S)$ es la heredada de $M$ 
->>	6. Entonces $U=S\cap V$ es abierto relativo de $S$ por que es $V$ es abierto de $M$   
->>	7. Y ademas $$\varphi=\pi\circ\psi|_{U}$$ con $\pi(x_{1},\ldots,x_{m})=(x_{1},\ldots,x_{n})$. Como ambas son homeomorfismo $\varphi$ es homeomorfismo. Probando que es carta de $S$  
->>	8. Luego puedo escribir a $X|_{U}\in \mathfrak{X}(U)$ como $$X=\sum^{n}_{i=1} X^{i} \frac{\partial}{\partial x_{i}}$$ con $X^{i}:U\rightarrow\mathbb{R}$ funciones suaves
->>	9. Ahora si miramos notamos que $\pi\circ\psi:V\rightarrow\mathbb{R}^{n}$ entonces podemos mirar $$W=(\pi\circ\psi)^{-1}(\varphi(U))$$ que es **un abierto de $M$** (por que $\psi$ y $\pi$ son continuas y $\varphi(U)$ es abierto) y ademas sucede que $S\cap W=U$ **importante** (Tambien podria haber hecho algo asi [[Glosario#^fd9e9b]] algun dia reescribir esta parte usandolo) 
->>	10. Luego definimos $$\widetilde{X }^{i}=(X^{i} \circ\varphi ^{-1})\circ\pi\circ\psi|_{W}:W\rightarrow \mathbb{R}$$ que es suave por ser composicion de suaves
->>	11. Ahora notamos que $(W,\psi|_{W})$ es carta de $M$ entonces podemos definir $\widetilde{X}|_{W}\in \mathfrak{X}(W)$ como $$\widetilde{X}=\sum^{n}_{i=1} \widetilde{X}^{i}\frac{\partial}{\partial x_{i}}+\sum^{m}_{j=n+1} 0.\frac{\partial}{\partial x_{j}} $$
->>	12. Veamos que extiende a $X$ si $q\in U$ entonces $(\pi\circ\psi)(q)=\varphi(q)$ luego $$\widetilde{X}^{i}(q)=(X^{i} \circ\varphi ^{-1})\circ(\pi\circ\psi|_{W})(q)=(X^{i}\circ\varphi ^{-1})(\varphi(q)) =X^{i}(q) $$
->>	13. Entonces $$\widetilde X_q =\sum_{i=1}^n X^i(q)\frac{\partial}{\partial x^i}\Big|_q$$ osea $\widetilde{X}_{q}=(d\iota)_{q}(X_{q})$ digamos que es como ver a $X_{q}$ dentro de $T_{q}M$
->>	14. Con lo cual $$\widetilde X|_{U}=X$$
->>	15. Osea recapitulando tomamos un abierto $p\in U$ miramos $X$ localmente en ese abierto y nos extendimos a otro abierto $W$. Y notamos que $p\in W$ con lo cual lo podiamos llamar $W_{p}$ 
->>	16. Y esto lo podemos hacer para cada $p\in S$ entonces podemos armar $\{ W_{p} \}_{p\in S}$ que cubre a $S$ y luego definir $$W=\bigcup_{p\in S}W_{p}$$ entonces $W$ es un cubrimiento de $S$ por abiertos de $M$
->>	17. Tomamos la particion de la unidad $\{ \rho_{\alpha } \}_{\alpha \in \Lambda}$ sobre $W$ subordinada al cubrimiento $\{ W_{\alpha } \}_{\alpha \in \Lambda}$ es decir $$\operatorname{supp}(\rho_{\alpha })\subseteq W_{\alpha }\qquad0\leq \rho_{\alpha }\leq 1\qquad\sum_{\alpha }\rho_{\alpha }=1 $$
->>	18. Luego para cada $\alpha$ tenemos un campo local $\rho_{\alpha }\widetilde{X}_{\alpha }:=_{\text{def}}\rho_{\alpha }\widetilde{X}|_{W_{\alpha} }\in \mathfrak{X}(W_{\alpha })$ que puede ser extendido a $\mathfrak{X}(W)$ [[Glosario#^c3dcb6]]
->>	19. Luego usando estos campos extendidos $$Z_\alpha=\rho_\alpha\widetilde X_\alpha$$ definimos $$Y=\sum_{\alpha\in\Lambda}Z_\alpha.$$
->>	20. La suma es localmente finita, porque $\{\rho_\alpha\}$ es una partición de la unidad. Por tanto, localmente $Y$ es una suma finita de campos suaves. Luego $$Y\in\mathfrak X(W).$$
->>	21. Ahora veamos que $Y$ restringe a $X$ sobre $S$. Sea $q\in S$. Entonces $$Y_q=\sum_{\alpha\in\Lambda}(Z_\alpha)_q=\sum_{\alpha\in\Lambda}\rho_\alpha(q)(\widetilde X_\alpha)_q.$$  
->>	22. Si $\rho_\alpha(q)\neq 0$, entonces $q\in\operatorname{supp}(\rho_\alpha)\subseteq W_\alpha$, luego $q\in S\cap W_\alpha=U_{\alpha }$. Por construcción, $$(\widetilde X_\alpha)_q=di_q(X_q).$$  
->>	23. Por lo tanto,  $$Y_q=\sum_{\alpha\in\Lambda}\rho_\alpha(q)di_q(X_q).$$  
->>	24. Como la suma es localmente finita y $\sum_{\alpha\in\Lambda}\rho_\alpha(q)=1$, obtenemos $$Y_q=\left(\sum_{\alpha\in\Lambda}\rho_\alpha(q)\right)di_q(X_q)=di_q(X_q).$$  
->>	25. Así, $$Y_q=di_q(X_q)$$ para todo $q\in S$. 
->>	26. Finalmente identificando $T_qS$ con su imagen $di_q(T_qS)\subseteq T_qM$, escribimos $$Y|_S=X.$$
->>- **$S$ cerrado**
->>	1. Por [[GS - Teo8#^cf02ec]] existe $f:M\rightarrow\mathbb{R}$ tal que $f|_{S}\equiv 1$ y tal que $\operatorname{supp}(f)\subseteq W$. (Una funcion de corte)
->>	2. Definimos $$\widetilde{Y}:M\rightarrow TM$$ dada por $$\widetilde{Y}_{q}=\begin{cases}f(q)Y_{q} \quad&q\in W\\ 0_{q}&q\not\in W\end{cases}$$
->>	3. Esta bien definida por que $\operatorname{supp}(f)\subseteq W$. Luego tenemos $\widetilde{Y}\in \mathfrak{X}(M)$ 
->>	4. Finalmente si $q\in S$ entonces $f(q)=1$ por lo tanto $\widetilde{Y}_{q}=Y_{q}=d\iota_{q}(X_{q})$  
->>	5. Osea usando la identificacion de antes $\widetilde{Y}|_{S}=X$ 
->>- **Tengo campo que extiende a todo $M$**
->>	1. No es cierto por ejemplo si tengo el campo $X\in \mathfrak{X}(S)$ constantemente nulo por mas que $S$ sea abierto lo puedo extender a todo $M$    
+>>1. Sea $i:S\hookrightarrow M$ la inclusión. Como $S$ es una subvariedad incrustada de $M$, la aplicación $i$ es una inmersión.
+>>2. Por el teorema de extensión local de campos, para cada $p\in S$ existen un abierto $U_p\subseteq S$ con $p\in U_p$, un abierto $V_p\subseteq M$ con $p\in V_p$ y un campo suave $Y^{(p)}\in\mathfrak X(V_p)$ tales que $$Y^{(p)}_q=(di)_qX_q,\qquad q\in U_p.$$
+>>3. Como $i$ es la inclusión, $(di)_q:T_qS\to T_qM$ es también la inclusión natural. Por lo tanto, identificando $T_qS$ con su imagen en $T_qM$, se tiene $$Y^{(p)}_q=X_q,\qquad q\in U_p.$$
+>>4. El conjunto $\{V_p\}_{p\in S}$ es un cubrimiento abierto de $W$. Tomamos una partición de la unidad suave $\{\rho_\alpha\}_{\alpha\in A}$ subordinada a este cubrimiento. Para cada $\alpha\in A$, existe $p_\alpha\in S$ tal que $$\operatorname{supp}(\rho_\alpha)\subseteq V_{p_\alpha}.$$
+>>5. Definimos sobre $W$ el campo $$Y:=\sum_{\alpha\in A}\rho_\alpha Y^{(p_\alpha)}.$$
+>>6. Esta suma está bien definida y define un campo suave porque la familia $\{\rho_\alpha\}$ es localmente finita. En efecto, para cada $q\in W$ existe un entorno $O_q$ en el cual solo una cantidad finita de funciones $\rho_\alpha$ es no nula. Por lo tanto, sobre $O_q$, el campo $Y$ es una suma finita de campos suaves.
+>>7. El problema que tenemos es que podria suceder que $Y_{p}\neq X_{p}$ para algun $q\in S$. Por ejemplo si $q\in S$ y $q\in V_{p_{1}}$ y $q\in U_{p_{1}}$ pero $q\in V_{p_{2}}$ pero $q\not\in U_{p_{2}}$ entonces podriamos afirmar $Y_{q} ^{(p_{1})}=X_{q}$ pero no necesariamente $Y_{q}^{(p_{2})}=X_{q}$ entonces en esa parte la suma (solo a modo de ejemplo supongamos que son $q$ esta solamente en esos dos conjuntos)  $$Y_{q}=\rho_{1}(q)Y_{q}^{(p_{1})}+\rho_{2}(q)Y_{q}^{(p_{2})}=\frac{1}{2}X_{q}+\frac{1}{2} K$$ que podria ser distinta que $X_{q}$ 
+>>8. Para solucionar esto podemos achicar cada $V_p$ (conservando la notacion por comodidad) , si es necesario, de modo que $$V_p\cap S\subseteq U_p.$$ osea que $V_{p}$ extienda a $U_{p}$ pero por fuera de $S$, dentro de $S$ coincide con $U_{p}$
+>>9. En efecto esto se puede hacer porque como $U_p$ es abierto en $S$ y $S=i(S)$ tiene la topologia heredada de $M$, existe un abierto $O_p\subseteq M$ tal que $U_p=O_p\cap S$, y podemos reemplazar $V_p$ por $V_p\cap O_p$. Con lo cual $$V_{p}\cap O_{p}\cap S=V_{p}\cap U_{p}\subseteq U_{p}$$ como queriamos
+>>10. Ahora si, sea $$W:=\bigcup_{p\in S}V_p.$$ Entonces $W$ es un abierto de $M$ que contiene a $S$, es decir, una vecindad abierta de $S$.
+>>11. Veamos que $Y$ restringido a $S$ coincide con $X$. Sea $q\in S$. Si $\rho_\alpha(q)\neq 0$, entonces $$q\in\operatorname{supp}(\rho_\alpha)\subseteq V_{p_\alpha}.$$ Como además $q\in S$, resulta $$q\in V_{p_\alpha}\cap S\subseteq U_{p_\alpha}.$$ Por lo tanto, $$Y^{(p_\alpha)}_q=X_q.$$
+>>12. En consecuencia, usando que $\{\rho_\alpha\}$ es una partición de la unidad, $$Y_q=\sum_{\alpha\in A}\rho_\alpha(q)Y^{(p_\alpha)}_q=\sum_{\alpha\in A}\rho_\alpha(q)X_q=\left(\sum_{\alpha\in A}\rho_\alpha(q)\right)X_q=X_q.$$
+>>13. Así, $Y\in\mathfrak X(W)$ es un campo suave definido sobre una vecindad $W$ de $S$ y satisface $$Y|_S=X.$$
  
 ^7d5d0b
+
+
 
 ### Ejercicio 11
 
@@ -663,6 +643,8 @@
 >>9. Por lo tanto $\phi_{t}\circ\theta_{s}$ esta bien definida en $V_{\theta}$ para todo $t\in I_{3}$ y para todo $s\in  I_{4}$ 
 >>10. Luego si definimos $W=U_{\phi}\cap V_{\theta}$ e $I=I_{1}\cap I_{2}\cap I_{3} \cap I_{4}$. Tenemos que ambas $\theta_s\circ\phi_t$ y $\phi_t\circ\theta_s$ están definidos en $W$ para todo $t,s\in I$. 
 >>11. Como $I$ es un intervalo sin perdida de generalidades lo podemos asumir de la pinta $(-\delta ,\delta )$.
+
+^f4fbe0
 
 ### Ejercicio 25
 

@@ -59,13 +59,13 @@
 ## Orientacion de variedades
 
 >[!Definition] Variedad orientable y atlas orientado
->Una variedad suave conexa $M$ de dimension $m$ se dice orientable si existe un atlas suave $\mathcal A$ tal que para cualquier par de cartas suaves $$(U,\varphi=(x_1,\ldots,x_m)),\qquad (V,\psi=(y_1,\ldots,y_m))$$en $\mathcal A$, con $U\cap V\ne\varnothing$, se cumple $$\det\left(\frac{\partial y_j}{\partial x_i}\right)>0\qquad \text{sobre }U\cap V.$$
+>Una variedad suave conexa $M$ de dimension $m$ se dice orientable si existe un atlas suave $\mathcal A$ tal que para cualquier par de cartas suaves $$(U,\varphi=(x_1,\ldots,x_m)),\qquad (V,\psi=(y_1,\ldots,y_m))$$en $\mathcal A$, con $U\cap V\ne\varnothing$, se cumple $$\det\left(\frac{\partial y_j}{\partial x_i}\bigg|_{p}\right)>0\qquad \forall p\in U\cap V.$$
 >Un atlas con esta propiedad se llama **atlas orientado**.
 
 >[!Remark]
 >Dicho **atlas orientado** induce una orientacion en cada $T_{p}M$ con $p\in M$ dada por la clase de equivalencia de $$\left\{ \frac{\partial}{\partial x_{1}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{m}}\bigg|_{p}\right \}$$ para cualquier carta $(U,\varphi=(x_{1},\ldots,x_{m}))\in \mathcal{A}$   
->Esto es por que notamos que como el **atlas orientado** tenemos que $$0<\det\left(\frac{\partial y_j}{\partial x_i}\right)_{ij}=\det(J(\psi\circ\varphi ^{-1}))\circ\varphi \qquad\text{sobre}\quad U\cap V$$
->En particular si la otra carta que tomamos $(V,\psi=y_{1},\ldots y_{m})\in \mathcal A$ cumple $p\in V$ entonces por definicion de **atlas orientado** tenemos que   $$\det \big[ J(\psi\circ\varphi ^{-1})(\varphi(p))\big]>0$$ pero esta es la matriz de cambio de base entre $$\left\{\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_m}\bigg|_p\right\}\qquad\text{y}\qquad \left\{\frac{\partial}{\partial y_1}\bigg|_p,\ldots,\frac{\partial}{\partial y_m}\bigg|_p\right\}.$$ con lo cual en el espacio vectorial de $T_{p}M$ estas bases pertenecen a la misma clase de equivalencia.
+>Esto es por que notamos que como el **atlas orientado** si tomamos cualquier otra carta $(V,\psi=y_{1},\ldots y_{m})\in \mathcal A$ tenemos que $$0<\det\left(\frac{\partial y_j}{\partial x_i}\bigg|_{p}\right)_{ij}=\det(J(\psi\circ\varphi ^{-1}))\circ\varphi (p) \qquad\forall p\in U\cap V$$
+>Pero $J(\psi\circ\varphi ^{-1})(\varphi(p))$ es la matriz de cambio de base entre $$\left\{\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_m}\bigg|_p\right\}\qquad\text{y}\qquad \left\{\frac{\partial}{\partial y_1}\bigg|_p,\ldots,\frac{\partial}{\partial y_m}\bigg|_p\right\}.$$ con lo cual en el espacio vectorial de $T_{p}M$ estas bases pertenecen a la misma clase de equivalencia.
 
 >[!Example]
 >1. $\mathbb R^n$ es orientable.
@@ -103,7 +103,7 @@
 >>7. Como las funciones $$\frac{\partial y_i}{\partial x_j}:U\cap V\to\mathbb R$$ son $C^\infty$, en particular son continuas, tenemos que $f$ es continua.
 >>8. Y dado que $f(p)>0$, entonces $f>0$ en un abierto $W$ de $p$ de $U\cap V$, el cual también es abierto de $M$.
 >>9. Esto quiere decir que para todo $q\in W$, la base $$\left\{\frac{\partial}{\partial x_1}\bigg|_q,\ldots,\frac{\partial}{\partial x_n}\bigg|_q\right\}$$ está positivamente orientada.
->>10. Por lo tanto $p\in W\subseteq U_{+}$. Luego $U_{+}$ es abierto.
+>>10. Por lo tanto $p\in W\subseteq U_{+}$ con $W$ abierto. Luego $U_{+}$ es abierto.
 >>11. Análogamente, $U_{-}$ es un abierto de $M$.
 >>12. Como $U_{+}$ y $U_{-}$ son disjuntos, y $M$ es conexo, entonces $M=U_{+}$ o $M=U_{-}$, que es lo que queríamos probar.
 

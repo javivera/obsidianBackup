@@ -14,7 +14,7 @@
 >$$\omega=f\,dx_1\wedge\cdots\wedge dx_n,$$
 >donde $f$ es suave sobre $A$.
 >
->Recordemos que, por aplicacion de particiones de la unidad, $f$ es suave sobre $A$ si existe $\widetilde f\in C^\infty(U)$, donde $A\subseteq U$, y $\widetilde f=f$ sobre $A$.
+>Recordemos que, por aplicacion de particiones de la unidad [[GS - Teo8#^b5794a]], si $f$ es suave sobre $A$ cerrado entonces existe $\widetilde f\in C^\infty(\mathbb{R}^{n})$, donde $A\subseteq U$, y $\widetilde f=f$ sobre $A$.
 
 >[!Definition] Integral sobre un dominio de integracion
 >Sea $D$ un dominio de integracion y sea $\omega$ una $n$-forma suave sobre $\overline D$, digamos
@@ -54,7 +54,7 @@
 ## Integracion sobre variedades
 
 >[!Definition] Integracion sobre variedades
->Sea $M$ variedad suave orientable y sea $\omega\in\Omega^n(M)$ una $n$-forma suave arbitraria. Estudiemos primero el caso en que $\operatorname{sop}\omega$ es compacto y esta contenido en $U$, donde $U$ es el dominio de una carta $(U,\varphi=(x_1,\ldots,x_n))$ positivamente orientada.
+>Sea $M$ variedad suave orientada y sea $\omega\in\Omega^n(M)$ una $n$-forma suave arbitraria. Estudiemos primero el caso en que $\operatorname{sop}\omega$ es compacto y esta contenido en $U$, donde $U$ es el dominio de una carta $(U,\varphi=(x_1,\ldots,x_n))$ positivamente orientada.
 >
 >Tenemos $$\omega|_U=f\,dx_1\wedge\cdots\wedge dx_n$$y $\operatorname{sop}(\omega)=\operatorname{sop}(f)\subseteq U$. 
 >Como $\varphi$ es un homeomorfismo, tenemos $$\widetilde f=f\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb R^n\to\mathbb R.$$ tiene soporte compacto y es integrable sobre el abierto $\varphi(U)$. 
@@ -84,6 +84,8 @@
 >>11. Entonces tenemos esta igualdad $$\int_{\varphi(U\cap V)}f\circ\varphi^{-1}\,dr_1\cdots dr_n =\int_{F(D)}f\circ\varphi^{-1}\,dr_1\cdots dr_n=\int_D(f\circ\varphi^{-1}\circ F)\det(\operatorname{Jac}F)\,ds_1\cdots ds_n.$$ donde usamos el [[GS - Teo25#^d9fdaa]]. Ademas notar que no pusimos el modulo porque $\varphi,\psi$ son cartas positivamente orientadas entonces $|\det(\operatorname{Jac} F)|=\det(\operatorname{Jac} F)=\det(\operatorname{Jac} \psi\circ\varphi ^{-1})>0$  
 >>12. Finalmente tenemos que $$\int_D(f\circ\varphi^{-1}\circ F)\det(\operatorname{Jac}F)\,ds_1\cdots ds_n =\int_Dg\circ\psi^{-1}\,ds_1\cdots ds_n=\int_{\psi(U\cap V)}g\circ\psi^{-1}\,ds_1\cdots ds_n$$Osea $I_{\varphi }=I_{\psi}$ 
 
+^4bb08e
+
 >[!Definition] Integral sobre todo $M$
 >Sea $(M,A)$ una variedad orientada de dimension $n$ y sea $\omega$ una $n$-forma suave con soporte compacto.
 >
@@ -93,11 +95,16 @@
 
 >[!Proposition]
 >$\int_M\omega$ esta bien definida: no depende del cubrimiento abierto ni de la particion de la unidad.
->>[!Proof]
->>1. Sea $\{(\widetilde U_k,\widetilde\varphi_k)\}$ otro conjunto de cartas positivamente orientadas que cubren $\operatorname{sop}\omega$ y sea $\{\widetilde\rho_k\}$ una particion de la unidad subordinada a $\{\widetilde U_k\}$. 
->>2. Tenemos $$\int_M\rho_i\omega=\int_M\left(\sum_k\widetilde\rho_k\right)\rho_i\omega=\sum_k\int_M\widetilde\rho_k\rho_i\omega.$$
->>3. Sumando sobre $i$, $$\sum_i\int_M\rho_i\omega=\sum_i\sum_k\int_M\widetilde\rho_k\rho_i\omega=\sum_k\int_M\widetilde\rho_k\omega.$$ en ambos casos usamos que la suma de $\rho_{i}$ da $1$
->>4. Notar que la integral $$\int_M\widetilde\rho_k\rho_i\omega$$ tiene soporte compacto tanto en $\widetilde U_k$ como en $U_i$, esto es por que $\operatorname{supp}(\widetilde{\rho}_{k}\rho_{i}\omega)\subseteq \operatorname{supp}(\rho_{i})\cap \operatorname{supp}(\widetilde{\rho_{k}})\cap \operatorname{supp}(\omega)$ y por definicion de particion de la unidad subordinada tenemos que $\operatorname{sup}\rho_{i}\subseteq U_{i}$ y $\operatorname{supp}\widetilde{\rho}_{k}\subseteq \widetilde{U}_{k}$. Ademas ya vimos que esta integral esta bien definida y no depende de la carta orientada que usemos para calcularla.
+>>[!Proof]-
+>>1. Sea $\{(\widetilde U_k,\widetilde\varphi_k)\}$ otro cubrimiento por cartas positivamente orientadas de $\operatorname{supp}(\omega)$ y sea $\{\widetilde\rho_k\}$ una partición de la unidad subordinada a $\{\widetilde U_k\}$.
+>>2. Por definición, usando el primer cubrimiento, tenemos $$\int_M\omega=\sum_i\int_{U_i}\rho_i\omega$$
+>>3. Para cada $i$, como $\sum_k\widetilde\rho_k=1$ sobre $\operatorname{supp}(\rho_i\omega)$, se tiene $$\int_{U_i}\rho_i\omega=\int_{U_i}\left(\sum_k\widetilde\rho_k\right)\rho_i\omega=\sum_k\int_{U_i}\widetilde\rho_k\rho_i\omega$$
+>>4. Para cada par $(i,k)$, $\operatorname{supp}(\widetilde\rho_k\rho_i\omega)\subseteq\operatorname{supp}(\rho_i)\cap\operatorname{supp}(\widetilde\rho_k)\cap\operatorname{supp}(\omega)\subset U_i\cap\widetilde U_k$.
+>>5. Entonces $\widetilde\rho_k\rho_i\omega$ tiene soporte compacto contenido tanto en $U_i$ como en $\widetilde U_k$. Por independencia de la carta orientada [[GS - Teo25#^4bb08e]] tenemos $$\int_{U_i}\widetilde\rho_k\rho_i\omega=\int_{\widetilde U_k}\widetilde\rho_k\rho_i\omega$$
+>>6. Sustituyendo en la suma, $$\sum_i\int_{U_i}\rho_i\omega=\sum_i\sum_k\int_{\widetilde U_k}\widetilde\rho_k\rho_i\omega=\sum_k\sum_i\int_{\widetilde U_k}\widetilde\rho_k\rho_i\omega$$
+>>7. Como $\sum_i\rho_i=1$ sobre $\operatorname{supp}(\widetilde\rho_k\omega)$, obtenemos $$\sum_k\sum_i\int_{\widetilde U_k}\widetilde\rho_k\rho_i\omega=\sum_k\int_{\widetilde U_k}\widetilde\rho_k\omega$$
+>>8. Mostrando que $$\sum_i\int_{U_i}\rho_i\omega=\sum_k\int_{\widetilde U_k}\widetilde\rho_k\omega$$
+>>9. Luego ambos procedimientos dan el mismo valor, es decir, $\int_M\omega$ no depende del cubrimiento ni de la partición de la unidad.
 
 >[!Definition] Orden opuesto
 >Sea $(M,A)$ una variedad orientada, con
@@ -106,8 +113,8 @@
 >$$-A=\{(U_\alpha,\widehat\varphi_\alpha=(-x_1^\alpha,x_2^\alpha,\ldots,x_n^\alpha))\}.$$
 >Es facil ver que $-A$ es un atlas de orientacion sobre $M$, y se llama la orientacion opuesta sobre $M$. Denotamos por $-M$ a $(M,-A)$.
 
->[!Definition] $n$-forma positivamente orientada
->Sea $(M,A)$ una variedad orientable y $\omega\in\Omega^n(M)$ nunca nula. Se dice que $\omega$ esta positivamente orientada si
+>[!Definition] $n$-forma de volumen (positivamente orientada)
+>Sea $(M,A)$ una variedad orientada y $\omega\in\Omega^n(M)$ nunca nula. Se dice que $\omega$ esta positivamente orientada si
 >$$\omega_p\left(\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_n}\bigg|_p\right)>0$$
 >para todo $p\in M$ y toda carta $(U,\varphi=(x_1,\ldots,x_n))$ en $A$.
 
@@ -116,27 +123,19 @@
 
 >[!Proposition] Propiedades de integrales de formas
 >Sean $M$ y $N$ variedades orientadas de dimension $n$, y sean $\omega$ y $\eta$ $n$-formas con soporte compacto sobre $M$.
->
->1. Linealidad: si $a,b\in\mathbb R$, entonces
->$$\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta.$$
->2. Orientacion opuesta:
->$$\int_{-M}\omega=-\int_M\omega.$$
->3. Positividad: sea $M$ compacta. Si $\omega$ es una $n$-forma positivamente orientada, entonces
->$$\int_M\omega>0.$$
->4. Invariancia por difeomorfismos: si $F:N\to M$ preserva la orientacion o reversa la orientacion, entonces
->$$\int_M\omega=
->\begin{cases}
->\int_NF^*\omega,&\text{si }F\text{ preserva},\\
->-\int_NF^*\omega,&\text{si }F\text{ reversa}.
->\end{cases}$$
+>- (i) Linealidad: si $a,b\in\mathbb R$, entonces $$\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta.$$
+>- (ii) Orientacion opuesta: $$\int_{-M}\omega=-\int_M\omega.$$
+>- (iii) Positividad: sea $M$ compacta. Si $\omega$ es una $n$-forma positivamente orientada, entonces $$\int_M\omega>0.$$
+>- (iv) Invariancia por difeomorfismos: si $F:N\to M$ preserva la orientacion o reversa la orientacion, entonces $$\int_M\omega=\begin{cases}\int_NF^*\omega,&\text{si }F\text{ preserva},\\-\int_NF^*\omega,&\text{si }F\text{ reversa}.\end{cases}$$
 >>[!Proof]
 >>- (i) 
->>	1. Como $$\operatorname{sop}(a\omega+b\eta)\subseteq\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta),$$y $\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta)$ es compacto, tomamos un cubrimiento abierto $\{U_i\}$ de este compacto por dominios de cartas positivamente orientadas.
->>	2. Este mismo sirve para $\operatorname{sop}(a\omega+b\eta)$. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Por independencia de la integral respecto del cubrimiento y de la particion, $$\begin{align} \int_Ma\omega+b\eta& =\sum_i\int_{U_i}\rho_i(a\omega+b\eta)\\&=\sum_i\left(a\int_{U_i}\rho_i\omega+b\int_{U_i}\rho_i\eta\right)\\&=a\int_M\omega+b\int_M\eta\end{align}$$
+>>	1. Como $$\operatorname{sop}(a\omega+b\eta)\subseteq\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta),$$y $\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta)$ es compacto, tomamos un cubrimiento abierto $\{U_i\}$ de este compacto por dominios de cartas positivamente orientadas. Este cubrimiento existe, por que las cartas cubren todo $M$ en particular cubren dichos soportes que son subconjuntos de $M$  
+>>	2. Este mismo sirve para $\operatorname{sop}(a\omega+b\eta)$. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Por independencia de la integral respecto del cubrimiento y de la particion, $$\begin{align*}\int_M(a\omega+b\eta)&=\sum_i\int_{U_i}\rho_i(a\omega+b\eta)\\&=\sum_i\int_{\varphi_i(U_i)}\bigl((a\rho_i f+b\rho_i g)\circ\varphi_i^{-1}\bigr)\\&=\sum_i\int_{\varphi_i(U_i)}\left(a(\rho_i f\circ\varphi_i^{-1})+b(\rho_i g\circ\varphi_i^{-1})\right)\\&=\sum_i\left(a\int_{\varphi_i(U_i)}(\rho_i f)\circ\varphi_i^{-1}+b\int_{\varphi_i(U_i)}(\rho_i g)\circ\varphi_i^{-1}\right)\\&=a\sum_i\int_{U_i}\rho_i\omega+b\sum_i\int_{U_i}\rho_i\eta\\&=a\int_M\omega+b\int_M\eta.\end{align*}$$
 >>- (ii) 
 >>	1. Primero vemos el caso en que $\operatorname{sop}\omega$ cae en el dominio de una carta positivamente orientada $(U,\varphi=(x_1,\ldots,x_n))$. Entonces $(U,\widetilde\varphi=(-x_1,x_2,\ldots,x_n))$ es una carta de $-M$ y $\widetilde\varphi=T\circ\varphi$, con $T(y_1,\ldots,y_n)=(-y_1,y_2,\ldots,y_n)$.
->>	2. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n=-f\,d(-x_1)\wedge dx_2\wedge\cdots\wedge dx_n,$$entonces, tomando $D$ dominio de integracion abierto que contiene el soporte, $$\int_{-U}\omega=\int_D(-f\circ\widetilde\varphi^{-1})\,ds_1\cdots ds_n =-\int_{\varphi(U)}f\circ\varphi^{-1}\,dx_1\cdots dx_n=-\int_U\omega.$$
->>	3. El caso general se obtiene cubriendo $\operatorname{sop}\omega$ por dominios de cartas positivamente orientadas $\{U_i\}$, usando las cartas negativamente orientadas $(U_i,T\circ\varphi_i)$ y una particion de la unidad.
+>>	2. Ahora si llamamos $-x_{1}:=y_{1}$ y $x_{i}=y_{i}$ para $i>1$, tenemos que $(U,\widetilde\varphi=(-x_1,x_2,\ldots,x_n))=(U,\widetilde\varphi=(y_1,y_2,\ldots,y_n))$ es una carta positivamente orientada con respecto al atlas inverso $-U$    
+>>	3. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n=-f\,d(-x_1)\wedge dx_2\wedge\cdots\wedge dx_n=-fdy_{1}\wedge\ldots\wedge dy_{n}$$entonces, considerando que $\det D T=-1$ (y usando modulo), por teorema de cambio de variables tenemos: $$\int_{-U}\omega=\int_{\widetilde{\varphi}(U)}(-f\circ\widetilde\varphi^{-1})\,dy_1\cdots dy_n =-\int_{\varphi(U)}f\circ\varphi^{-1}|\det DT|dx_1\cdots dx_n=-\int_U\omega.$$
+>>	4. El caso general se obtiene cubriendo $\operatorname{sop}\omega$ por dominios de cartas positivamente orientadas $\{U_i\}$, usando las cartas negativamente orientadas $(U_i,T\circ\varphi_i)$ y una particion de la unidad.
 >>- (iii) 
 >>	1. Como $\omega$ es positivamente orientada, si $(U,\varphi=(x_1,\ldots,x_n))$ es una carta positivamente orientada, entonces $$\omega|_U=f\,dx_1\wedge\cdots\wedge dx_n,\qquad f(p)>0\quad\forall p\in U.$$
 >>	2. Como $M$ es compacta, podemos cubrirla con una familia finita de abiertos $\{U_i\}$ que son dominios de cartas positivamente orientadas. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Tenemos $$\int_M\omega=\sum_i\int_{U_i}\rho_i\omega.$$
@@ -145,32 +144,28 @@
 >>- (iv)
 >>	1. Supongamos primero el caso donde $\operatorname{sop}\omega$ esta contenido en el dominio de una carta positivamente orientada $(U,\varphi)$. Como $F:N\to M$ es difeomorfismo y preserva la orientacion o reversa la orientacion, entonces $(F^{-1}(U),\varphi\circ F)$ es una carta positivamente orientada de $N$ o negativamente orientada, respectivamente, que contiene al soporte de $F^*\omega$.
 >>	2. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n\quad\text{sobre }U,$$entonces $$F^*\omega=(f\circ F)\,d(x_1\circ F)\wedge\cdots\wedge d(x_n\circ F).$$
->>	3. Si $F$ preserva orientacion, usando la carta $(F^{-1}(U),\varphi\circ F)$, $$\int_NF^*\omega=\int_{F^{-1}(U)}F^*\omega=\int_{\varphi(U)}(f\circ F)\circ(\varphi\circ F)^{-1}\,dx_1\cdots dx_n=\int_M\omega.$$
->>	4. Si $F$ invierte la orientacion, se usa la carta positiva respecto de $N$ obtenida al cambiar el signo de la primera coordenada, y queda $$\int_NF^*\omega=-\int_M\omega.$$
->>	5. El caso general es directo usando el caso anterior y la definicion de integral por cubrimiento de dominios de cartas positivamente orientadas.
-t 
+>>	3. Si $F$ preserva orientacion, usando la carta $(F^{-1}(U),\varphi\circ F)$, $$\int_NF^*\omega=\int_{F^{-1}(U)}F^*\omega=\int_{\varphi(U)}(f\circ F)\circ(\varphi\circ F)^{-1}\,dr_1\cdots dr_n=\int_M\omega.$$
+>>	4. Si $F$ invierte la orientacion entonces podemos considerar $$F:M\rightarrow -N$$ osea la misma funcion pero cambiando la orientacion en el codominio. 
+>>	5. Entonces ahora $F$ preserva orientacion luego por lo que hicimos recien se cumple $$\int_{-N}F^*\omega=\int_M\omega.$$
+>>	6. Y por (ii) sabemos $$\int_{-N}F^*\omega=-\int_NF^{*} \omega.$$  
+ 
 >[!Proposition] Integracion sobre parametrizaciones
 >Sea $M$ variedad orientada de dimension $n$ y sea $\omega$ una $n$-forma de soporte compacto. Supongamos que hay $D_1,\ldots,D_k$ dominios de integracion abiertos de $\mathbb R^n$ y funciones suaves $F_i:\overline{D_i}\to M$ que satisfacen:
+>- (a) $F_i:D_i\subseteq\mathbb R^n\to W_i$ es un difeomorfismo sobre $W_i$ abierto de $M$.
+>- (b) $W_i\cap W_j=\varnothing$ cuando $i\neq j$.
+>- (c) $\operatorname{sop}\omega\subseteq\overline{W_1}\cup\cdots\cup\overline{W_k}$.
 >
->1. $F_i:D_i\subseteq\mathbb R^n\to W_i$ es un difeomorfismo sobre $W_i$ abierto de $M$.
->2. $W_i\cap W_j=\varnothing$ cuando $i\neq j$.
->3. $\operatorname{sop}\omega\subseteq\overline{W_1}\cup\cdots\cup\overline{W_k}$.
->
->Entonces:
->$$\int_M\omega=\sum_{i=1}^k\int_{D_i}F_i^*\omega.$$
->>[!Note]
->>Para la prueba, se necesita usar propiedades de las integrales.
->>
->>>[!Proposition] Propiedades de integrales
->>>Sea $D\subseteq\mathbb R^n$ un dominio de integracion y sean $f,g:D\to\mathbb R$ continuas y acotadas.
->>>
->>>1. Para $a,b\in\mathbb R$,
->>>$$\int_D(af+bg)\,dV=a\int_Df\,dV+b\int_Dg\,dV.$$
->>>2. Si $D$ tiene medida cero, entonces $\int_Df\,dV=0$.
->>>3. Si $D_1,\ldots,D_k$ son dominios de integracion cuya union es $D$ y cuyas intersecciones dos a dos tienen medida cero, entonces
->>>$$\int_Df\,dV=\int_{D_1}f\,dV+\cdots+\int_{D_k}f\,dV.$$
->>>4. Si $f\ge0$ en $D$, entonces $\int_Df\,dV\ge0$, con igualdad si y solo si $f\equiv0$ en $\operatorname{int}D$.
->>>5. $$(\inf_Df)\operatorname{Vol}(D)\le\int_Df\,dV\le(\sup_Df)\operatorname{Vol}(D).$$
->>>6. $$\left|\int_Df\,dV\right|\le\int_D|f|\,dV.$$
->>
->>Justificacion: deber!
+>Entonces: $$\int_M\omega=\sum_{i=1}^k\int_{D_i}F_i^*\omega.$$
+>>[!Proof]
+>>7. No la hizo
+
+>[!Remark]
+>Para la prueba, se necesita usar propiedades de las integrales.
+>Sea $D\subseteq\mathbb R^n$ un dominio de integracion y sean $f,g:D\to\mathbb R$ continuas y acotadas.
+>3. Para $a,b\in\mathbb R$,$$\int_D(af+bg)\,dV=a\int_Df\,dV+b\int_Dg\,dV.$$
+>4. Si $D$ tiene medida cero, entonces $\int_Df\,dV=0$.
+>5. Si $D_1,\ldots,D_k$ son dominios de integracion cuya union es $D$ y cuyas intersecciones dos a dos tienen medida cero, entonces
+>6. $$\int_Df\,dV=\int_{D_1}f\,dV+\cdots+\int_{D_k}f\,dV.$$
+>7. Si $f\ge0$ en $D$, entonces $\int_Df\,dV\ge0$, con igualdad si y solo si $f\equiv0$ en $\operatorname{int}D$.
+>8. $$(\inf_Df)\operatorname{Vol}(D)\le\int_Df\,dV\le(\sup_Df)\operatorname{Vol}(D).$$
+>9. $$\left|\int_Df\,dV\right|\le\int_D|f|\,dV.$$

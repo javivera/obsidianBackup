@@ -23,6 +23,7 @@
 >[!Exercise]
 >- Simplificar las siguientes expresiones: $$(e^2\wedge e^3+e^3\wedge e^1)\wedge(5e^1-e^2),\qquad e^1\wedge e^5\wedge e^4\wedge(e^1\wedge e^4+e^4\wedge e^2)$$ donde $e^{j}$ es el $j$-esimo covector de la base dual de $V^{*}$  
 >- Mostrar que si $\omega,\lambda,\varphi\in\Lambda^1(V^*)$, entonces $$(\omega-\lambda)\wedge(\lambda-\varphi)=\omega\wedge\lambda+\varphi\wedge\omega+\lambda\wedge\varphi.$$
+>
 >>[!Proof]-
 >>1. Para $$(e^2\wedge e^3+e^3\wedge e^1)\wedge(5e^1-e^2)$$
 >>2. $$\begin{align*}(e^2\wedge e^3+e^3\wedge e^1)\wedge(5e^1-e^2)&=e^2\wedge e^3\wedge(5e^1-e^2)+e^3\wedge e^1\wedge(5e^1-e^2) \quad & \text{Distributiva}\\&=e^2\wedge e^3\wedge 5e^1-e^2\wedge e^3\wedge e^2+e^3\wedge e^1\wedge 5e^1-e^3\wedge e^1\wedge e^2\quad& \text{Distributiva}\\&=5(e^2\wedge e^3\wedge e^1)-e^2\wedge e^3\wedge e^2+5(e^3\wedge e^1\wedge e^1)-e^3\wedge e^1\wedge e^2\quad& \text{Sacar constantes}\\&=5(e^2\wedge e^3\wedge e^1)-e^3\wedge e^1\wedge e^2\quad&\text{7. de Prop 18 Teo20}\\&=5(e^1\wedge e^2\wedge e^3)-e^1\wedge e^2\wedge e^3\quad&\text{Permutar }\\&=4e^1\wedge e^2\wedge e^3.\end{align*}$$para ser bien formales varias veces hay que usar asociatividad
@@ -153,6 +154,7 @@
 >- (a) Probar que $T^*$ es lineal y que $T_{k+l}^*(\sigma\wedge\tau)=T^*\sigma\wedge T^*\tau$, con $\sigma\in\Lambda^k(W^*)$ y $\tau\in\Lambda^\ell(W^*)$.
 >- (b) Sean $\lambda_1,\ldots,\lambda_k\in\Lambda^1(W^*)$. Mostrar que $T^*(\lambda_1\wedge\cdots\wedge\lambda_k)(v_1,\ldots,v_k)$ es igual a $\det(\lambda_i(Tv_j))$.
 >- (c) Si $W=V$ y $n$ es la dimension de $V$, verificar que $T^*$ es igual a $(\det T)\operatorname{Id}_{\Lambda^n(V^*)}$.
+>
 >>[!Proof]-
 >>- **Linealidad**
 >>	1. Aprovechando el hecho que sabemos que $\Lambda^{k}(V^{*})$ es espacio vectorial vemos $$\begin{align}T^{*}(\alpha +c\beta)(v_{1},\ldots,v_{k})&=(\alpha +c\beta)(Tv_{1},\ldots,Tv_{k})\\&=\alpha (Tv_{1},\ldots Tv_{k})+c\beta(Tv_{1},\ldots,v_{k})\\&=T^{*}(\alpha)(v_{1},\ldots,v_{k})+cT^{*}(\beta)(v_{1},\ldots,v_{k})\end{align}$$
@@ -582,4 +584,3 @@
 >>\alpha=f\,dg
 >>$$
 >>para alguna funcion suave $f$, que no se anula.
-

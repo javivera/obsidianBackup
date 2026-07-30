@@ -30,18 +30,25 @@
 
 >[!Proposition]
 >Sea $F:M\to N$ suave.
->
->1. Si $\omega\in\Omega^k(N)$, entonces $F^*\omega\in\Omega^k(M)$, y $F^*:\Omega^k(N)\to\Omega^k(M)$ es transf. lineal.
->2. $F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta)$.
->3. $F^*(d_N\omega)=d_MF^*\omega$.
+>- (a) Si $\omega\in\Omega^k(N)$, entonces $F^*\omega\in\Omega^k(M)$, y $F^*:\Omega^k(N)\to\Omega^k(M)$ es transf. lineal.
+>- (b) $F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta)$.
+>- (c) $F^*(d_N\omega)=d_MF^*\omega$.
 >>[!Proof]- Ejercicio
->>Hay que probar una por una.
->>
->>Para ver que $F^*\omega$ es suave, podemos usar algun criterio de suavidad; por ejemplo, usando cartas.
->>
->>(ii) Es el ejercicio 7, practico 5.
->>
->>(iii) Por linealidad de $F^*$ y de la derivada exterior, entonces es suficiente con verificar en formas de un abierto $U$:
+>>- (a)
+>>	1. Veamos primero que, para cada $p\in M$, $(F^*\omega)_p$ es un $k$-tensor covariante. Sean $a,b\in\mathbb R$ y $v_1,w_1,v_2,\ldots,v_k\in T_pM$.
+>>	2. Entonces $$\begin{aligned}(F^*\omega)_p(av_1+bw_1,v_2,\ldots,v_k)&=\omega_{F(p)}\bigl(dF_p(av_1+bw_1),dF_p(v_2),\ldots,dF_p(v_k)\bigr)\\&=\omega_{F(p)}\bigl(a\,dF_p(v_1)+b\,dF_p(w_1),dF_p(v_2),\ldots,dF_p(v_k)\bigr)\\&=a\,\omega_{F(p)}\bigl(dF_p(v_1),dF_p(v_2),\ldots,dF_p(v_k)\bigr)\\&\quad+b\,\omega_{F(p)}\bigl(dF_p(w_1),dF_p(v_2),\ldots,dF_p(v_k)\bigr)\\&=a(F^*\omega)_p(v_1,v_2,\ldots,v_k)+b(F^*\omega)_p(w_1,v_2,\ldots,v_k).\end{aligned}$$
+>>	3. El mismo argumento vale en cada entrada, luego $(F^*\omega)_p$ es $k$-lineal.
+>>	4. Veamos que $(F^*\omega)_p$ es alternado. Sean $1\leq i<j\leq k$. Como $\omega_{F(p)}$ es alternada, $$\begin{aligned}(F^*\omega)_p(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)&=\omega_{F(p)}\bigl(dF_p(v_1),\ldots,dF_p(v_i),\ldots,dF_p(v_j),\ldots,dF_p(v_k)\bigr)\\&=-\omega_{F(p)}\bigl(dF_p(v_1),\ldots,dF_p(v_j),\ldots,dF_p(v_i),\ldots,dF_p(v_k)\bigr)\\&=-(F^*\omega)_p(v_1,\ldots,v_j,\ldots,v_i,\ldots,v_k).\end{aligned}$$ Por lo tanto, $(F^*\omega)_p\in\Lambda^k(T_p^*M)$.
+>>	5. Probemos ahora que la sección $p\mapsto(F^*\omega)_p$ es suave. Fijemos $p\in M$ y tomemos cartas $(U,x)$ de $M$ alrededor de $p$ y $(V,y)$ de $N$ alrededor de $F(p)$, achicando $U$ de modo que $F(U)\subseteq V$. En $V$ escribimos $$\omega=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}$$donde cada $a_I$ es suave. Afirmamos que sobre $U$ se cumple $$F^*\omega=\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)$$
+>>	6. Para verificar esta igualdad, sean $q\in U$ y $v_1,\ldots,v_k\in T_qM$. Por definición del pullback, $$\begin{aligned}(F^*\omega)_q(v_1,\ldots,v_k)&=\omega_{F(q)}\bigl(dF_q(v_1),\ldots,dF_q(v_k)\bigr)\\&=\sum_I a_I(F(q))(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}\bigl(dF_q(v_1),\ldots,dF_q(v_k)\bigr).\end{aligned}$$
+>>	7. Por definición del producto wedge de $1$-formas, $$(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}\bigl(dF_q(v_1),\ldots,dF_q(v_k)\bigr)=\det\left(dy^{i_r}_{F(q)}\bigl(dF_q(v_s)\bigr)\right)_{r,s}.$$
+>>	8. Por la regla de la cadena, $dy^{i_r}_{F(q)}\circ dF_q=d(y^{i_r}\circ F)_q$. Por tanto, $$\begin{aligned}\det\left(dy^{i_r}_{F(q)}\bigl(dF_q(v_s)\bigr)\right)_{r,s}&=\det\left(d(y^{i_r}\circ F)_q(v_s)\right)_{r,s}\\&=\bigl(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\bigr)_q(v_1,\ldots,v_k).\end{aligned}$$
+>>	9. Sustituyendo, obtenemos $$\begin{aligned}(F^*\omega)_q(v_1,\ldots,v_k)&=\sum_I(a_I\circ F)(q)\bigl(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\bigr)_q(v_1,\ldots,v_k)\\&=\left(\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right)_q(v_1,\ldots,v_k).\end{aligned}$$
+>>	10. Como esto vale para todo $q\in U$ y todos $v_1,\ldots,v_k\in T_qM$, concluimos que $$F^*\omega=\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)$$ sobre $U$.
+>>	11. Cada función $a_I\circ F$ es suave y cada $d(y^{i_r}\circ F)$ es una $1$-forma suave. Por lo tanto, el lado derecho es una $k$-forma suave sobre $U$. Como $p$ era arbitrario, $F^*\omega\in\Omega^k(M)$.
+>>	12. Finalmente, sean $\omega,\eta\in\Omega^k(N)$ y $a,b\in\mathbb R$. Para todo $p\in M$ y $v_1,\ldots,v_k\in T_pM$, $$\begin{aligned}\bigl(F^*(a\omega+b\eta)\bigr)_p(v_1,\ldots,v_k)&=(a\omega+b\eta)_{F(p)}\bigl(dF_p(v_1),\ldots,dF_p(v_k)\bigr)\\&=a\,\omega_{F(p)}\bigl(dF_p(v_1),\ldots,dF_p(v_k)\bigr)\\&\quad+b\,\eta_{F(p)}\bigl(dF_p(v_1),\ldots,dF_p(v_k)\bigr)\\&=\bigl(aF^*\omega+bF^*\eta\bigr)_p(v_1,\ldots,v_k).\end{aligned}$$luego $F^*(a\omega+b\eta)=aF^*\omega+bF^*\eta$, por lo que $F^*$ es lineal.
+>>- (ii) Es el ejercicio 7, practico 5.
+>>- (iii) Por linealidad de $F^*$ y de la derivada exterior, entonces es suficiente con verificar en formas de un abierto $U$:
 >>$$F^*(f)=f\circ F.$$
 >>Asi pues, dado $p\in M$ y $v\in T_pM$,
 >>$$(F^*(d_Nf))_pv=(d_Nf)_{F(p)}((dF)_pv)=d(f\circ F)_pv=(d_M(F^*f))_pv.$$
@@ -57,4 +64,5 @@
 >>$$=\left(d_M\left(\sum_I(F^*a_I)\wedge F^*(dx_I)\right)\right)_p$$
 >>$$=\left(d_M\left(\sum_{i_1<\cdots<i_k}(a_I\circ F)\wedge d(x_{i_1}\circ F)\wedge\cdots\wedge d(x_{i_k}\circ F)\right)\right)_p.$$
 >>Como $d_Md_M=0$, queda la misma expresion.
+
 

@@ -83,25 +83,24 @@
 >Ademas, si $f \in C^\infty(U)$, definimos $$Xf:U \to \mathbb R$$ por $$(Xf)(p)=X_p f$$
 
 >[!Proposition] Caracterizaciones de suavidad
-> Sea $X:M \to TM$ un campo vectorial. Son equivalentes:
->
-> 1. $X$ es suave.
-> 2. Para toda carta suave $(U,\varphi=(x_1,\ldots,x_n))$ de $M$, las funciones $a_i:U \to \mathbb R$ dadas por $$X_p=\sum_{i=1}^n a_i(p)\frac{\partial}{\partial x_i}|_p$$ son suaves.
-> 3. Para todo abierto $V$ de $M$ y toda funcion $f \in C^\infty(V)$, la funcion $Xf:V \to \mathbb R$, $(Xf)(q)=X_q f$, es suave.
-> 4. Para toda funcion $f \in C^\infty(M)$, se cumple $Xf \in C^\infty(M)$.
+>Sea $X:M \to TM$ un campo vectorial. Son equivalentes:
+>- (a) $X$ es suave.
+>- (b) Para toda carta suave $(U,\varphi=(x_1,\ldots,x_n))$ de $M$, las funciones $a_i:U \to \mathbb R$ dadas por $$X_p=\sum_{i=1}^n a_i(p)\frac{\partial}{\partial x_i}|_p$$son suaves.
+>- (c) Para todo abierto $V$ de $M$ y toda funcion $f \in C^\infty(V)$, la funcion $Xf:V \to \mathbb R$, $(Xf)(q)=X_q f$, es suave.
+>- (d) Para toda funcion $f \in C^\infty(M)$, se cumple $Xf \in C^\infty(M)$.
 >
 >>[!Proof]-
->>- $1 \Rightarrow 2$. 
->>	1. Tenemos la carta $(U,\varphi=(x_{1},\ldots,x_{n}))$ la cual induce $(\widetilde{U}=\pi ^{-1}(U),\widetilde{\varphi})$ dada por $$\widetilde\varphi=(x_1 \circ \pi,\ldots,x_n \circ \pi,v_1,\ldots,v_n)$$donde $(x_{1}\circ\pi,\ldots,x_{n}\circ\pi)=\varphi(p)$ y $v_i$ son las coordenadas del vector en la base $\{ \frac{\partial}{\partial x_{1}}|_{p},\ldots,\frac{\partial}{\partial x_{n}}|_{p} \}$  
+>>- $(a) \Rightarrow (b)$. 
+>>	1. Tenemos la carta $(U,\varphi=(x_{1},\ldots,x_{n}))$ la cual induce $(\widetilde{U}=\pi ^{-1}(U),\widetilde{\varphi})$ dada por $$\widetilde\varphi(p,v) =(x_1(p),\ldots,x_n(p),v_1,\ldots,v_n)$$ con $v_i$ son las coordenadas del vector $v$ en la base $\{ \frac{\partial}{\partial x_{1}}|_{p},\ldots,\frac{\partial}{\partial x_{n}}|_{p} \}$  
 >>	2. Como $X$ es suave, $$\widetilde\varphi \circ X|_U:U \to \mathbb R^{2n}$$ es suave. 
->>	3. Pero $$\widetilde\varphi \circ X|_U(p)=\widetilde{\varphi}(p,X_{p})=(x_1(q),\ldots,x_n(q),a_1(p),\ldots,a_n(p))$$ entonces cada funcion coordenadas es suave. Por lo tanto las $a_i$ son suaves.
->>- $2 \Rightarrow 3$. 
+>>	3. Pero por $(b)$ tenemos que $X_p=\sum_{i=1}^n a_i(p)\frac{\partial}{\partial x_i}|_p$ osea las coordenadas de $X_{p}$ son $a_{i}(p)$ por lo tanto     $$\widetilde\varphi \circ X|_U(p)=\widetilde{\varphi}(p,X_{p})=(x_1(p),\ldots,x_n(p),a_1(p),\ldots,a_n(p))$$ entonces cada funcion coordenadas es suave. Por lo tanto las $a_i$ son suaves.
+>>- $(b) \Rightarrow (c)$. 
 >>	1. Sea $V$ abierto de $M$ y sea $f \in C^\infty(V)$. Quiero ver $Xf:V\rightarrow\mathbb{R}$ es suave para esto alcanza con chequear suavidad con cartas suaves de $V$
 >>	2. Tomemos una carta $(U,\varphi=(x_1,\ldots,x_n))$ de $V$. Entonces para todo $p\in U$ tenemos $$X_p=\sum_{i=1}^n a_i(p)\frac{\partial}{\partial x_i}|_p$$, con $a_i$ suaves. 
 >>	3. Tenemos $Xf:U \to \mathbb R$ con $$(Xf)(p)=X_p f=\sum_{i=1}^n a_i(p)\frac{\partial }{\partial x_i}\bigg|_{p}f$$ 
 >>	4. Como las funciones coordenadas $a_{i}(p)$ son suaves basta ver que $$\frac{\partial}{\partial x_{i}} f:U\subseteq M\rightarrow \mathbb{R}\quad\text{ dada por }\quad \frac{\partial}{\partial x_{i}}f(p)=\frac{\partial}{\partial x_{i}}\bigg|_{p}f$$ son suaves (como funciones que reciben $p\in U$) 
 >>	5. Pero lo son , por que $$\left(\frac{\partial}{\partial x_{i}}f\right)(p)=\frac{\partial}{\partial x_{i}}\bigg|_{p}f=\frac{\partial}{\partial r_{i}}\bigg|_{\varphi(p)}f\circ\varphi ^{-1}=\frac{\partial}{\partial r_{i}} f\circ\varphi ^{-1}(\varphi(p))$$ osea $$\frac{\partial}{\partial x_{i}}f =\left(\frac{\partial}{\partial r_{i}}f\circ\varphi ^{-1}\right)\circ\varphi$$ pero como $f\circ\varphi ^{-1}$ es suave entonces $\frac{\partial}{\partial r_{i}}f\circ\varphi ^{-1}$ es suave y como $\varphi$ es suave entonces $\frac{\partial}{\partial x_{i}}f$ es suave  
->>- $3 \Rightarrow 1$. 
+>>- $(c) \Rightarrow (a)$. 
 >>	1. Supongamos que para todo abierto $V\subseteq M$ y para toda función $f\in C^\infty(V)$, se tiene $Xf\in C^\infty(V)$. Queremos ver que $X:M\to TM$ es suave.  
 >>	2. Para esto tomamos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ de $M$. Esta induce una carta suave del fibrado tangente $$(\widetilde U=\pi^{-1}(U),\widetilde\varphi)$$dada por $$\widetilde\varphi=(x_1\circ\pi,\ldots,x_n\circ\pi,v_1,\ldots,v_n).$$
 >>	3. Entonces basta ver que $$\widetilde\varphi\circ X|_U:U\to\mathbb R^{2n}$$es suave. (Esto es por que $p\in U$ y es directo ver que $X|_{U}(U)\subseteq \tilde{U}$ osea que despue es componer a derecha con $\varphi ^{-1}$ que es suave)  
@@ -114,8 +113,8 @@
 >>	10. Pero $x_i\in C^\infty(U)$, entonces por hipótesis $Xx_i\in C^\infty(U)$. Luego $v_i\circ X$ es suave para cada $i$.  
 >>	11. Así, todas las funciones componentes de $\widetilde\varphi\circ X|_U$ son suaves. Por lo tanto $\widetilde\varphi\circ X|_U$ es suave.  
 >>	12. Como esto vale para cualquier punto $p$ del fibrado tangente, concluimos que $X:M\to TM$ es suave.
->>- $3 \Rightarrow 4$ es inmediato tomando $V=M$.
->>- $4 \Rightarrow 3$. 
+>>- $(c) \Rightarrow (d)$ es inmediato tomando $V=M$.
+>>- $(d) \Rightarrow (c)$. 
 >>	1. Queremos probar que si $V\subseteq M$ es abierto y $f\in C^\infty(V)$, entonces $Xf\in C^\infty(V)$.
 >>	2. Lo único que sabemos por hipótesis es que si $g\in C^\infty(M)$, entonces $Xg\in C^\infty(M)$.
 >>	3. Sea $p\in V$ arbitrario. Como $V$ es abierto, por [[GS - Teo5#^405b16]] existe un abierto $U\subseteq M$ tal que $$p\in U \qquad \text{y} \qquad \overline{U}\subseteq V.$$ y una funcion $\widetilde f\in C^\infty(M)$ tal que $\widetilde f|_{ U}=\left.f\right|_{ U}$
