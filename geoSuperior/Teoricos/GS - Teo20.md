@@ -51,6 +51,7 @@
 >Entonces
 >$$B=\left\{\varepsilon^1_{i_1}\otimes\cdots\otimes\varepsilon^k_{i_k}:1\le i_j\le n_j,\ 1\le j\le k\right\}$$
 >es una base para $L(V_1,\ldots,V_k;\mathbb R)$, el cual es un espacio vectorial real de dimension $n_1n_2\cdots n_k$.
+>
 >>[!Proof]- hecha por chat
 >>1. Para cada multiíndice $(i_1,\ldots,i_k)$, definimos $$E_{i_1,\ldots,i_k}:=\varepsilon^1_{i_1}\otimes\cdots\otimes\varepsilon^k_{i_k}.$$  
 >>2. Por definición del producto tensorial, para $v_j\in V_j$, se tiene $$E_{i_1,\ldots,i_k}(v_1,\ldots,v_k)=\varepsilon^1_{i_1}(v_1)\cdots\varepsilon^k_{i_k}(v_k).$$  
@@ -93,6 +94,7 @@
 >tal que $A=\hat A\circ\pi$, con
 >$$\pi:V_1^*\times\cdots\times V_k^*\to V_1^*\otimes\cdots\otimes V_k^*,$$
 >$$\pi(\alpha_1,\ldots,\alpha_k)=\alpha_1\otimes\cdots\otimes\alpha_k.$$
+>
 >>[!Proof]-
 >>1. Fijar base $\{\varepsilon^i_1,\ldots,\varepsilon^i_{n_i}\}$ base dual de $V_i^*$.
 >>2. La multilinealidad de $A$ nos dice que $A$ va estar determinada por lo que haga en la $k$-upla $$(\varepsilon^1_{i_1},\ldots,\varepsilon^k_{i_k}).$$
@@ -117,6 +119,7 @@
 >Mostrar que $\alpha\in\Lambda^k(V^*)$ sii
 >$$\alpha(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)=-\alpha(v_1,\ldots,v_j,\ldots,v_i,\ldots,v_k)$$
 >para todo $i,j$ con $1\le i<j\le k$.
+>
 >>[!Proof]-  
 >>1. Supongamos primero que $\alpha\in\Lambda^k(V^*)$.  
 >>2. Por definición, para toda permutación $\sigma\in S_k$ se cumple $$\alpha(v_{\sigma(1)},\dots,v_{\sigma(k)})=\operatorname{sg}(\sigma)\alpha(v_1,\dots,v_k).$$  
@@ -148,6 +151,7 @@
 >- Para todo $\theta\in T^k(V^*)$, se tiene $\operatorname{Alt}(\theta)\in\Lambda^k(V^*)$, lo cual define una transformacion lineal
 >$$\operatorname{Alt}:T^k(V^*)\to\Lambda^k(V^*).$$
 >- Si $\theta\in\Lambda^k(V^*)$, entonces $\operatorname{Alt}(\theta)=\theta$.
+>
 >>[!Proof]-  
 >>- $\operatorname{Alt}(\theta)\in\Lambda^k(V^*)$
 >>	1. Recordemos que, para $\theta\in T^k(V^*)$, se define $$\operatorname{Alt}(\theta)(v_1,\dots,v_k):=\frac{1}{k!}\sum_{\sigma\in S_k}\operatorname{sg}(\sigma)\theta(v_{\sigma(1)},\dots,v_{\sigma(k)}).$$  
@@ -194,6 +198,7 @@
 >En particular, si $\alpha\in V^*$, entonces $\alpha\wedge\alpha=0$.
 >8. Leer Tu seccion 3.9.
 >9. Leer Tu, prop. 3.27.
+>
 >>[!Proof]- Ayuda para (5)
 >>Sean $\omega\in\Lambda^k(V^*)$, $\theta\in\Lambda^l(V^*)$. Se define $\mu\in S_{k+l}$ por
 >>$$\mu=(1,\ldots,l,l+1,\ldots,l+k;\ k+1,\ldots,k+l,1,\ldots,k).$$
@@ -230,6 +235,7 @@
 >$$\dim\Lambda^k(V^*)=\binom nk.$$
 >
 >Si $k>n$, entonces $\Lambda^k(V^*)=\{0\}$.
+>
 >>[!Proof]-
 >>Veamos primero que $\mathcal B$ es un conjunto L.I. Si
 >>$$0=\sum_{1\le i_1<\cdots<i_k\le n}c_{i_1,\ldots,i_k}e^*_{i_1}\wedge\cdots\wedge e^*_{i_k},$$

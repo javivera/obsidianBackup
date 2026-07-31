@@ -33,6 +33,7 @@
 >- (a) Si $\omega\in\Omega^k(N)$, entonces $F^*\omega\in\Omega^k(M)$, y $F^*:\Omega^k(N)\to\Omega^k(M)$ es transf. lineal.
 >- (b) $F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta)$.
 >- (c) $F^*(d_N\omega)=d_MF^*\omega$.
+>
 >>[!Proof]- Ejercicio
 >>- (a)
 >>	1. Veamos primero que, para cada $p\in M$, $(F^*\omega)_p$ es un $k$-tensor covariante. Sean $a,b\in\mathbb R$ y $v_1,w_1,v_2,\ldots,v_k\in T_pM$.

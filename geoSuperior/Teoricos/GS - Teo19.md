@@ -21,6 +21,7 @@
 >Sea $\theta=\{\theta_t\}_{t\in\mathbb R}$ un subgrupo monoparamétrico suave de difeomorfismos de $M$. Entonces el campo
 >$$X_p(f)=\left.\frac{d}{dt}\right|_{t=0}f(\theta_t(p))$$
 >es un campo suave.
+>
 >>[!Proof]-
 >>1. Tomemos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$.
 >>2. Queremos ver que las funciones coordenadas de $X$ en esta carta son suaves.
@@ -48,6 +49,7 @@
 
 >[!Proposition]
 >El corchete de Lie está bien definido, es decir, $[X,Y]_p\in T_pM$ y ademas $[X,Y]$ es un campo suave.
+>
 >>[!Proof]-
 >>1. Necesitamos ver que $[X,Y]_p$ es vector tangente.
 >>2. **Linealidad** Sea $f,g\in C^\infty(M)$. Entonces $$[X,Y]_p(f+g)=X_p(Y(f+g))-Y_p(X(f+g))=[X,Y]_pf+[X,Y]_pg,$$ por linealidad de $X_p$ e $Y_p$. (Dado que son vectores tangentes) 
@@ -73,6 +75,7 @@
 >- **(iii)** $[X,gY]=g[X,Y]+X(g)Y$.
 >- **(iv)** $[fX,gY]=fg[X,Y]+fX(g)Y-gY(f)X$.
 >- **(v)** Identidad de Jacobi: $$[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0.$$
+>
 >>[!Proof]-
 >>- **(i)** 
 >>	1. Sale directo: $$-[Y,X]f=-Y(Xf)+X(Yf)=[X,Y]f.$$
@@ -110,6 +113,7 @@
 >Sea $\alpha:(-\epsilon,\epsilon)\to TM$ una curva suave. Entonces, para toda $f\in C^\infty(M)$, se cumple
 >$$\alpha'(0)(f)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)f.$$
 >donde identificamos $T_{\alpha(0)}(TM)$ con $T_pM$.
+>
 >>[!Proof]-
 >>1. Fijemos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ en $p$.
 >>2. Luego $$\alpha(t)=\sum_{i=1}^n b^i(t)\frac{\partial}{\partial x_i}\bigg|_p,$$con $b^i:(-\epsilon,\epsilon)\to\mathbb R$ suaves.
@@ -122,11 +126,13 @@
 
 >[!Exercise] Ejercicio 23 del practico
 >Sean $M$ una variedad diferenciable, $X,Y\in\mathfrak X(M)$ y sea $p\in M$. Probar que $$t\mapsto(d\theta_{-t})_{\theta_t(p)}(Y_{\theta_t(p)})$$define una curva $C^\infty$ en $T_pM$, donde $\theta_t$ es el flujo local asociado a $X$.
+>
 >>[!Proof]-
 >>[[GS - Pr4#^d6291e]]
 
 >[!Theorem] Derivada de Lie NO FINAL
 >Para todo $X,Y\in\mathfrak X(M)$ y para todo $p\in M$, se cumple $$[X,Y]_p=(\mathcal L_XY)_p=\lim_{t\to0}\frac{(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}-Y_p}{t},$$ donde $\theta$ es el flujo de $X$.
+>
 >>[!Proof]-
 >>9. Se calculan ambos lados y se prueba que son iguales.
 >>10. Supongamos primero que $X_p\neq0$.
@@ -171,6 +177,7 @@
 
 >[!Lemma] Uniformidad conjunta para dos flujos
 >Sean $X$ e $Y$ dos campos en una variedad $M$, y sean $\theta$ y $\phi$ sus respectivos flujos. Para todo $p\in M$ existen un entorno abierto $U$ en $M$ de $p$ y $\delta>0$ tal que $\theta_s\circ\phi_t$ y $\phi_t\circ\theta_s$ están definidos en $U$ para $|s|<\delta$ y $|t|<\delta$.
+>
 >>[!Proof]-
 >>1. Usemos uniformidad para cada uno de $X$ e $Y$.
 >>2. Existen abiertos $V_0$ y $W_0$ de $M$ en $p$, y $\varepsilon_1,\varepsilon_2>0$, tales que
@@ -198,6 +205,7 @@
 >Sean $X,Y\in\mathfrak X(M)$ tales que $[X,Y]=0$ y sean $\theta,\phi$ los flujos respectivos. Dado $p\in M$, sean $U$ y $\delta$ los del [[GS - Teo19#^39cc9a]]. Entonces:
 >- **(i)** $(d\theta_s)_qY_q=Y_{\theta_s(q)}$ con $q\in U$ para $s\in(-\delta,\delta)$.
 >- **(ii)** $\theta_t\circ\phi_s=\phi_s\circ\theta_t$ en $U$ para $t,s\in(-\delta,\delta)$.
+>
 >>[!Proof]-
 >>- (i)
 >>	1. Recordemos la fórmula $$[X,Y](p)=\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(p)}\big(Y_{\theta_t(p)}\big),\qquad p\in M.$$
@@ -233,6 +241,7 @@
 
 >[!Proposition] (Hulet 9.16) 
 >Sean $X,Y\in\mathfrak{X}(M)$, cuyos flujos conmutan. Entonces $$[X,Y]=0.$$
+>
 >>[!Proof]-
 >>1. Sean $\theta$ y $\phi$ los flujos de $X$ e $Y$, respectivamente. Fijemos $p\in M$. Por el lema de uniformidad conjunta de los flujos, existen un abierto $U$ que contiene a $p$ y $\delta>0$ tales que, para $|s|,|t|<\delta$, las composiciones $\theta_t\circ\phi_s$ y $\phi_s\circ\theta_t$ están definidas en $U$.
 >>2. Como los flujos conmutan, para $|s|,|t|<\delta$ se cumple $$\theta_t(\phi_s(p))=\phi_s(\theta_t(p)).$$
@@ -251,6 +260,7 @@
 >Sean $X_1,\ldots,X_k\in\mathfrak X(M)$ linealmente independientes en un abierto de $M$ en $p$ tales que $$[X_{i},X_{j}]=0\quad 1\leq i,j\leq k$$
 >Entonces existe un sistema coordenado $(U,\varphi=(x_1,\ldots,x_n))$ centrado en $p$ tal que
 >$$X_1|_U=\frac{\partial}{\partial x_1},\ldots,\qquad X_k|_U=\frac{\partial}{\partial x_k}$$
+>
 >>[!Proof]-
 >>8. Por [[GS - Teo19#^39cc9a]]. Existe $\varepsilon>0$ y un abierto $V$ de $p$ tal que la composición
 >>$$\theta^{1}_{t_1}\circ\cdots\circ\theta^k_{t_k}$$

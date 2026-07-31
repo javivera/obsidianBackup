@@ -26,6 +26,7 @@
 >[!Lemma] Tecnico
 >Sea $U\subseteq\mathbb R^n$ un subconjunto abierto y sea $K\subseteq U$ un subconjunto compacto. Entonces existe un dominio de integracion abierto $D$ tal que
 >$$K\subseteq D\subseteq\overline D\subseteq U.$$
+>
 >>[!Proof]-
 >>1. Como $U$ es abierto, para $p\in K$ existe una bola abierta $B_p$ de $p$ tal que $B_p\subseteq U$, la cual ademas podemos tomar tal que $\overline{B_p}\subseteq U$ achicando el radio si hace falta.
 >>2. Como $K$ es compacto, nos podemos quedar con finitas de estas bolas $$K\subseteq D:=B_{p_1}\cup\cdots\cup B_{p_k}\subseteq U,$$donde $D$ es claramente un dominio de integracion de $\mathbb R^n$, pues cada bola tiene medida cero y union finita de conjuntos de medida cero tiene medida cero.
@@ -42,6 +43,7 @@
 
 >[!Proposition] Buena definicion de integral de $n$-forma sobre un abierto
 >La anterior definicion esta bien definida, es decir, no depende de la eleccion del dominio de integracion.
+>
 >>[!Proof]-
 >>1. Sean $D_1$ y $D_2$ dos dominios de integracion de $\mathbb R^n$ tales que $\operatorname{sop}\omega\subseteq D_i\subseteq U$.
 >>2. Tenemos $$\int_{D_1}f\,dx_1\cdots dx_n=\int_{D_1\cap D_2}f\,dx_1\cdots dx_n+\int_{D_1\setminus D_2}f\,dx_1\cdots dx_n.$$ donde usamos propiedades de la integral de Riemann para separar la suma notando que $D_1\cap D_2$ y $D_1\setminus D_2$ son dominios de integracion por que $\partial(D_1\cap D_2),\partial(D_1\setminus D_2)\subseteq\partial D_1\cup\partial D_2$, que tiene medida cero por que $D_{1}$ y $D_{2}$ son dominios de integracion por ende su frontera tiene medida $0$ . Ademas $\operatorname{int}(D_1\cap D_2)\cap\operatorname{int}(D_1\setminus D_2)=\varnothing$.
@@ -70,6 +72,7 @@
 
 >[!Proposition]
 >La anterior integral sobre variedades esta bien definida: no depende de la carta positivamente orientada.
+>
 >>[!Proof]-
 >>1. Para hacer la demostracion, necesitamos recordar el teorema del cambio de variables de Analisis III [[GS - Teo25#^d9fdaa]]
 >>2. Supongamos que $(V,\psi=(y_1,\ldots,y_n))$ es otra carta positivamente orientada tal que $\operatorname{sop}\omega\subseteq V$. Entonces tenemos $$\omega|_V=g\,dy_1\wedge\cdots\wedge dy_n.$$
@@ -95,6 +98,7 @@
 
 >[!Proposition]
 >$\int_M\omega$ esta bien definida: no depende del cubrimiento abierto ni de la particion de la unidad.
+>
 >>[!Proof]-
 >>1. Sea $\{(\widetilde U_k,\widetilde\varphi_k)\}$ otro cubrimiento por cartas positivamente orientadas de $\operatorname{supp}(\omega)$ y sea $\{\widetilde\rho_k\}$ una partición de la unidad subordinada a $\{\widetilde U_k\}$.
 >>2. Por definición, usando el primer cubrimiento, tenemos $$\int_M\omega=\sum_i\int_{U_i}\rho_i\omega$$
@@ -127,6 +131,7 @@
 >- (ii) Orientacion opuesta: $$\int_{-M}\omega=-\int_M\omega.$$
 >- (iii) Positividad: sea $M$ compacta. Si $\omega$ es una $n$-forma positivamente orientada, entonces $$\int_M\omega>0.$$
 >- (iv) Invariancia por difeomorfismos: si $F:N\to M$ preserva la orientacion o reversa la orientacion, entonces $$\int_M\omega=\begin{cases}\int_NF^*\omega,&\text{si }F\text{ preserva},\\-\int_NF^*\omega,&\text{si }F\text{ reversa}.\end{cases}$$
+>
 >>[!Proof]
 >>- (i) 
 >>	1. Como $$\operatorname{sop}(a\omega+b\eta)\subseteq\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta),$$y $\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta)$ es compacto, tomamos un cubrimiento abierto $\{U_i\}$ de este compacto por dominios de cartas positivamente orientadas. Este cubrimiento existe, por que las cartas cubren todo $M$ en particular cubren dichos soportes que son subconjuntos de $M$  
@@ -156,6 +161,7 @@
 >- (c) $\operatorname{sop}\omega\subseteq\overline{W_1}\cup\cdots\cup\overline{W_k}$.
 >
 >Entonces: $$\int_M\omega=\sum_{i=1}^k\int_{D_i}F_i^*\omega.$$
+>
 >>[!Proof]
 >>7. No la hizo
 

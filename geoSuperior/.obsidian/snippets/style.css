@@ -263,8 +263,8 @@
     padding: 0.25em;
 }
 
-/* A Proof nested in an Exercise shares its rule and aligns with Exercise content. */
-.callout[data-callout="exercise"]
+/* A nested Proof shares the vertical rule of its parent callout. */
+.callout[data-callout]
     .callout-content
     .callout[data-callout="proof"] {
     border-left: 0;
@@ -272,15 +272,18 @@
     margin-left: -1.5em;
 }
 
-.callout[data-callout="exercise"]
-    .callout[data-callout="proof"] > .callout-title,
-.callout[data-callout="exercise"]
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-title {
+    padding-left: 1.5em;
+}
+
+.callout[data-callout]
     .callout[data-callout="proof"] > .callout-content {
     padding-left: 1em;
 }
 
 /* Keep the same alignment and trim the tail when the Proof is collapsed. */
-.callout[data-callout="exercise"]
+.callout[data-callout]
     .callout-content
     .callout[data-callout="proof"].is-collapsible.is-collapsed {
     border-left: 0;
@@ -288,13 +291,86 @@
     margin: 0.25em 0 0 -1.5em;
 }
 
-.callout[data-callout="exercise"]
+.callout[data-callout]
     .callout[data-callout="proof"].is-collapsed > .callout-title {
     padding-bottom: 0;
 }
 
-.callout[data-callout="exercise"]:has(
+.callout[data-callout]:has(
     .callout[data-callout="proof"].is-collapsed
 ) > .callout-content {
+    padding-bottom: 0.25em;
+}
+
+/* Remove the empty tail below an expanded Proof. */
+.callout[data-callout]
+    .callout[data-callout="proof"]:not(.is-collapsed) {
     padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"]:not(.is-collapsed) > .callout-content {
+    padding-bottom: 0;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-content > :last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.callout[data-callout]:has(
+    .callout[data-callout="proof"]
+) > .callout-content {
+    padding-bottom: 0;
+}
+
+/* ===============================
+   Compact Border Theme Workspace
+   =============================== */
+
+/* Border reserves 16 px on both sides and 24 px below the workspace. */
+body:not(.is-mobile) .workspace {
+    margin-right: 8px !important;
+}
+
+body:not(.is-mobile):not(.show-ribbon) .workspace {
+    margin-left: 8px !important;
+}
+
+body:not(.is-mobile).is-popout-window .workspace {
+    margin-right: 8px !important;
+    margin-left: 8px !important;
+}
+
+body:not(.is-mobile) .horizontal-main-container,
+body:not(.is-mobile).is-popout-window .horizontal-main-container {
+    padding-bottom: 8px !important;
+}
+
+/* Hide the entire status bar; its plugins remain enabled. */
+body:not(.is-mobile) .status-bar {
+    display: none !important;
+}
+
+/* Let link previews shrink to their actual content instead of keeping an
+   empty fixed-height area below short notes or block references. */
+body:not(.is-mobile) .popover.hover-popover {
+    height: fit-content !important;
+    min-height: 0 !important;
+    max-height: min(400px, calc(100vh - 32px)) !important;
+    overflow: hidden;
+}
+
+body:not(.is-mobile) .popover.hover-popover > .markdown-embed,
+body:not(.is-mobile) .popover.hover-popover > .markdown-embed > .markdown-embed-content,
+body:not(.is-mobile) .popover.hover-popover .markdown-preview-view {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover > .markdown-embed > .markdown-embed-content {
+    max-height: min(400px, calc(100vh - 32px)) !important;
+    overflow-y: auto;
 }

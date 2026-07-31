@@ -4,6 +4,7 @@
 
 >[!Example] 
 >$\mathbb{R}^{n}$ es paralelizable
+>
 >>[!Proof]-  
 >>34. Consideremos la carta global estándar $\operatorname{Id}_{\mathbb R^n}:\mathbb R^n\to\mathbb R^n$.  
 >>35. Definimos, para cada $i=1,\dots,n$, el campo vectorial $E_i=\frac{\partial}{\partial x_{i}}$.  
@@ -16,13 +17,14 @@
 
 >[!Example] 
 >$S^{1}$ es paralelizable
+>
 >>[!Proof]-  
 >>42. Pensamos $S^1$ como la subvariedad de $\mathbb R^2$ dada por $S^1=\{(x,y)\in\mathbb R^2:x^2+y^2=1\}$.  
 >>43. Obviamente en $\mathbb{R}^{2}$ tenemos la carta canonica y la base del $T_{p}\mathbb{R}^{2}$ dada por esa carta $$\left\{ \frac{\partial}{\partial x}\bigg|_{p},\frac{\partial}{\partial y}\bigg|_{p} \right\}$$     
 >>44. Como $\dim S^1=1$, alcanza construir un campo vectorial suave global que nunca se anule.  
 >>45. Definimos $E:S^1\to TS^1$ por $E_{(x,y)}=(-y,x)$. (Osea $E(x,y)=((x,y),(-y,x))$ que esta en el fibrado tangente y luego lo identificamos como $E_{(x,y)}=(-y,x)$ [[GS - Teo15#^4e6c26]]) 
 >>46. Notemos ademas que aca $(-y,x)$ son las coordenadas en la base del $T_{(x,y)}\mathbb{R}^{2}$  
->>47. Primero veamos que **$E_{(x,y)}$ es tangente a $S^1$**. Si $p=(x,y)\in S^1$, entonces $$T_pS^1=\{v\in\mathbb R^2:\langle v,p\rangle=0\}$$ esto es basicamente [[Parcial 1 - soluciones#^483e02]]   
+>>47. Primero veamos que **$E_{(x,y)}$ es tangente a $S^1$**. Si $p=(x,y)\in S^1$, entonces $$T_pS^1=\{v\in\mathbb R^2:\langle v,p\rangle=0\}$$ esto es basicamente [[GS - 1er Parcial#^483e02]]   
 >>48. Calculamos $\langle (-y,x),(x,y)\rangle=-yx+xy=0$.  
 >>49. Por lo tanto, $E_p\in T_pS^1$ para todo $p\in S^1$.  
 >>50. Ahora veamos que $E$ nunca se anula. Si $E_{(x,y)}=(-y,x)=(0,0)$, entonces $x=0$ e $y=0$.  
@@ -46,6 +48,7 @@
 >$$\widetilde X_{f(q)}=(df)_qX_q,\qquad q\in U.$$
 >
 >Se dice que $\widetilde X$ es una extensión local de $df(X)$.
+>
 >>[!Proof]-
 >>1. Recordemos que, por la forma local de una inmersión, existen cartas cúbicas $(U,\varphi=(x_1,\ldots,x_m))$ centrada en $p$ y $(V,\psi=(y_1,\ldots,y_n))$ centrada en $f(p)$ tales que $$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$
 >>2. Escribimos el campo $X$ en la carta de $M$ como $$X|_U=\sum_{k=1}^m a_k\frac{\partial}{\partial x_k},\qquad a_k\in C^\infty(U).$$
@@ -59,6 +62,7 @@
 
 >[!Lemma]
 >Sea $M$ una variedad suave de dimensión $n$ y sea $p\in M$. Si $\{v_1,\ldots,v_k\}\subset T_pM$ es un conjunto linealmente independiente, entonces existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial x_i}\right|_p=v_i,\qquad i=1,\ldots,k.$$
+>
 >>[!Proof]-
 >>1. Completamos $\{v_1,\ldots,v_k\}$ a una base $\{v_1,\ldots,v_n\}$ de $T_pM$.
 >>2. Tomemos una carta suave $\psi=(y_1,\ldots,y_n)$ centrada en $p$.
@@ -86,6 +90,7 @@
 >$$X|_U=\frac{\partial}{\partial x_1}.$$
 >
 >Es decir, en una carta adecuada, el campo se ve como un campo constante.
+>
 >>[!Proof]-
 >>1. Por el lema anterior, tomamos una carta $(V,\psi=(y_1,\ldots,y_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial y_1}\right|_p=X_p.$$
 >>2. Por otro lado por [[GS - Teo16#^3b18e6]] existe $\widetilde{V}$ abierto de $M$ en $p$ y $\epsilon>0$ tal que el flujo $\Theta$ de $X$ esta definido en $(-\epsilon,\epsilon)\times \widetilde{V}$

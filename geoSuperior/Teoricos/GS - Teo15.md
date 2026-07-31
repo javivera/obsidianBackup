@@ -1,5 +1,6 @@
 >[!Proposition] Suavidad de un campo en una carta
 > Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave de $M$ y sea $X:U \to TU$ un campo vectorial. Entonces $X$ es suave si y solo si las coordenadas de $X$ en el marco $\{\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_n}\}$ son funciones suaves.
+>
 >>[!Proof]-
 >>- $(\Rightarrow)$ Caso particular de [[GS - Teo14#^3accf8]] 
 >>- $(\Leftarrow)$ 
@@ -12,6 +13,7 @@
 
 >[!Corollary] Campos coordenados
 >Los campos coordenados $\frac{\partial}{\partial x_i}$ son campos suaves en $\mathfrak X(U)$. Recordamos que aca aca estamos pensando $$\frac{\partial}{\partial x_{i}}:U\rightarrow  TU\qquad \text{dada por }\qquad \frac{\partial}{\partial x_{i}}(q)=\left(q,\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$$ por eso es que son campos. Pero tambien los puedo pensar como que $$\left(\frac{\partial}{\partial x_{i}}\right)_{p}=\frac{\partial}{\partial x_{i}}\bigg|_{p}\in T_{p}U$$ 
+>
 >>[!Proof]-
 >>1. En el marco coordenado de la carta tenemos $$\frac{\partial}{\partial x_{i}}\bigg|_{p}=\sum^{n}_{i=1}a_{i}(p)\frac{\partial}{\partial x_{i}}\bigg|_{p}$$
 >>2. Por lo tanto $a_{j}(t)\equiv 0$ si $i=j$ y $a_{i}(t)\equiv 1$ 
@@ -60,6 +62,7 @@
 >Sea $M$ una variedad suave y sea $S \subset M$ una subvariedad incrustada. Dado $X \in \mathfrak X(S)$, existe un campo suave $Y$ sobre una vecindad de $S$ en $M$ tal que $X$ es la restriccion de $Y$ sobre $S$.
 >
 >Ademas, tal campo $Y$ se extiende sobre todo $M$ si y solo si $S$ es un subconjunto cerrado de $M$.
+>
 >>[!Proof]-
 >>[[GS - Pr4#^7d5d0b]]
 

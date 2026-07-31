@@ -20,6 +20,7 @@
 
 >[!Exercise] Criterio para Hausdorff
 >Sea $\pi:X\to Y$ una función sobreyectiva y abierta. Sea $Y$ con la topología cociente. Entonces $Y$ es Hausdorff si y solo si $$R:=\{(p,q)\in X\times X:\pi(p)=\pi(q)\}$$es cerrado en $X\times X$.
+>
 >>[!Proof]
 >>Hacerla
 
@@ -27,6 +28,7 @@
 
 >[!Remark] Funcion no abierta
 >Sea $\pi:X\to Y$ una función sobreyectiva y sea $Y$ con la topología cociente. Dar un ejemplo donde $\pi$ no sea abierta.
+>
 >>[!Proof]
 >>Tomemos $X=[0,1]$ con la topología usual y consideremos la relación de equivalencia que identifica solo los extremos:
 >>$$
@@ -63,6 +65,7 @@
 
 >[!Definition] Presentación de $\mathbb{RP}^n$ como cociente de la esfera
 >Veamos que $\mathbb{R}\mathbb{P}^{n}$ es variedad topologica de dimension $n$ 
+>
 >>[!Proof]-
 >>- Definimos $\mathbb{R}\mathbb{P}^{n}$
 >>	1. En $S^n$ consideramos la relación de equivalencia $$ p\sim q\iff q=\pm p.$$es decir, identificamos puntos antipodales.
@@ -88,6 +91,7 @@
 
 >[!Definition] Otra presentación de $\mathbb{RP}^n$
 >Veamos que $\mathbb{R}\mathbb{P}^{n}$ es variedad topologica de otra manera
+>
 >>[!Proof]-
 >>- Definimos la rel de equivalencia
 >>	1. En $\mathbb{R}^{n+1}\setminus\{0\}$ consideramos la relación de equivalencia $$ p\sim q \iff \exists \lambda\in \mathbb{R}\setminus\{0\}\text{ tal que }q=\lambda p. $$
@@ -127,6 +131,7 @@
 >\pi:\mathbb{R}^n\longrightarrow \mathbb{T}^n,\qquad x\longmapsto [x].
 >$$
 >Ver que $\mathbb{T}^n$ es una variedad topológica de dimensión $n$.
+>
 >>[!Proof]-
 >>- Definimos la relación de equivalencia
 >>	1. Para $x,y\in \mathbb{R}^n$, tenemos $$x\sim y \iff x-y\in \mathbb{Z}^n.$$

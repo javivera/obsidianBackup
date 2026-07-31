@@ -2,6 +2,7 @@
 
 >[!Exercise] 
 >Sea $\phi:(-\pi/4,\pi/2)\to\mathbb R^2$ dada por $\phi(t)=\sin(2t)(\cos t,\sin t)$. Graficar la imagen y probar que $( (-\pi/4,\pi/2),\phi)$ es una subvariedad que no es incrustada.
+>
 >>[!Proof]-
 >>- **$\phi$ es inyectiva**
 >>	1. Sea $t_1,t_2\in(-\pi/4,\pi/2)$ tales que $\phi(t_1)=\phi(t_2)$.  
@@ -35,6 +36,7 @@
 >[!Exercise] 
 >Sea $M\subset N$ una subvariedad. Sea $\phi:(a,b)\to N$ una curva diferenciable tal que $\phi((a,b))\subset M$. Mostrar que no es necesariamente cierto que $\dot\phi(t)\in(d\iota)_{\phi(t)}(T_{\phi(t)}M)$ para todo $t$, donde $\iota:M\to N$ es la inclusión.
 >[[GS - Pr3#^800b80]]
+>
 >>[!Proof]-
 >>3. Suponemos que $N=\mathbb{R}^{2}$ 
 >>4. Tomemos la subvariedad $((0,2\pi),\phi)$ con $$\phi(t)=\left(\frac{\sin(2t)}{2},\sin t\right)$$
@@ -53,6 +55,7 @@
 
 >[!Exercise]
 >Sea $(M,\psi)$ una subvariedad de $N$. Mostrar que si $M$ es compacta, entonces es incrustada.
+>
 >>[!Proof]-
 >>1. Por definición, $\psi:M\to N$ es una inmersión inyectiva. 
 >>2. Como $M$ es compacta y $N$ es Hausdorff (por ser variedad), la restricción $$\psi:M\to\psi(M)$$ es una aplicación continua (por que antes de corestringir era suave por lo tanto continua y restriccion de continua es continua) biyectiva.
@@ -65,6 +68,7 @@
 
 >[!Exercise]
 >Mostrar que $k$ funcionales lineales $\lambda_1,\dots,\lambda_k$ en $\mathbb R^m$ son linealmente independientes si y sólo si $\dim\bigl(\bigcap_{i=1}^k\ker(\lambda_i)\bigr)=m-k$.
+>
 >>[!Proof]-
 >>1. Consideremos la aplicación lineal $$T:\mathbb R^m\to\mathbb R^k,\qquad T(x)=(\lambda_1(x),\dots,\lambda_k(x)).$$
 >>2. Luego $$\ker T=\bigcap_{i=1}^{k}\ker(\lambda_{i})$$ 
@@ -79,6 +83,7 @@
 >
 >- (a) Si $y_1,\dots,y_n$ con $n<m$ son funciones independientes en $p$, mostrar que forman parte de un sistema coordenado en un entorno de $p$.
 >- (b) Si $f:M\to N$ es suave y $(df)_p$ es sobreyectiva, y $(x_1,\dots,x_n)$ es un sistema coordenado cerca de $f(p)$, mostrar que $x_1\circ f,\dots,x_n\circ f$ forman parte de un sistema coordenado cerca de $p$.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Como $(dy_1)_p,\dots,(dy_n)_p$ son linealmente independientes (sobre $O$ )  en $T_p^*M$, se pueden completar a una base de $T_p^*M$ con covectores $\eta_{n+1},\dots,\eta_m$. 
@@ -98,6 +103,7 @@
 >Una función diferenciable $\pi:M\to N$ se dice una **submersión** si $$d\pi_p:T_pM\to T_{\pi(p)}N$$ es suryectiva para todo $p\in M$.
 >- (a) **Forma local de una submersión.** Probar que si $\pi:M^m\to N^n$ es una submersión, entonces dado $p\in M$ existen sistemas coordenados $(U,\varphi)$ alrededor de $p$ en $M$ y $(V,\psi)$ alrededor de $\pi(p)$ en $N$ tales que $$\psi\circ\pi\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_n)$$ es la proyección sobre las primeras $n$ coordenadas.
 >- Probar que toda submersión es abierta.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Como $\operatorname{rango}(d\pi)_p=n$ para todo $p$, el teorema del rango constante da cartas $(U,\varphi)$ en $M$ alrededor de $p$ y $(V,\psi)$ en $N$ alrededor de $\pi(p)$ tales que $$\psi\circ\pi\circ\varphi^{-1}(x_1,\dots,x_m)=(x_1,\dots,x_n).$$
@@ -112,11 +118,11 @@
 
 ^466288
 
- 
 ### Ejercicio 7
 
 >[!Exercise]
 >Probar que no existe una inmersión de una variedad compacta $M$ de dimensión $n$ en $\mathbb R^n$.
+>
 >>[!Proof]-
 >>1. Si $F:M\to\mathbb R^n$ fuera una inmersión, entonces $(dF)_p$ sería un isomorfismo para todo $p$. Por que inyeccion nos dice que $dim\ker (dF)_{p}=0$ entonces $\dim im (dF)_{p}=\dim T_{p}M=\dim M=n$ por lo tanto $(dF)_{p}$ es sobreyectiva osea es isomorfismo  
 >>2. Por el teorema de la función inversa, $F$ es un difeomorfismo local; 
@@ -130,6 +136,7 @@
 
 >[!Exercise]
 >Sean $M,N,P$ variedades y $\pi:M\to N$ una submersión. Probar las propiedades pedidas.
+>
 >>[!Proof]-
 >>Todas se deducen de la forma local de una submersión.
 >>
@@ -152,6 +159,7 @@
 
 >[!Exercise] 
 >Probar que si $F:M\to N$ es una biyección diferenciable y $(dF)_{p}$ no singular en todo punto, entonces $F$ es un difeomorfismo.
+>
 >>[!Proof]-
 >>1. Queremos probar que $F^{-1}:N\to M$ es suave.
 >>2. Como la suavidad es local, basta probar que $F^{-1}$ es suave en un entorno de cada punto de $N$.
@@ -168,6 +176,7 @@
 >[!Exercise]
 >- (a) Dar una estructura diferenciable a $T^*M$.
 >- (b) Probar que las proyecciones canónicas $\pi:TM\to M$ y $\pi^*:T^*M\to M$ son submersiones.
+>
 >>[!Proof]-
 >>- (a) 
 >>	1. Si $(U,x_1,\dots,x_m)$ es una carta de $M$ (de dimension $m$) , toda covector $\alpha_p\in T_p^*M$ se escribe de manera única como $$\alpha_p=\sum_{i=1}^m \xi_i\,(dx_i)_p.$$
@@ -189,6 +198,7 @@
 
 >[!Exercise] 
 >Sean $\pi:M\to N$ una submersión, $S$ una variedad y $f:S\to M$ una aplicación suave tal que $\pi\circ f:S\to N$ es un difeomorfismo. Probar que $(S,f)$ es una subvariedad incrustada de $M$.
+>
 >>[!Proof]-
 >>1. Sea $h=\pi\circ f$ entonces $r=h^{-1}\circ \pi:M\rightarrow S$ es suave por ser composicion de suaves (como $h$ difeo el dominio de $h^{-1}$ es todo $N$ entonces no estoy cambiando el codominio de $\pi$)
 >>2. Ademas $$r\circ f=h^{-1}\circ\pi\circ f=h^{-1}\circ h=Id_{S}$$
@@ -206,6 +216,7 @@
 
 >[!Exercise]
 >Sea $(M,\phi)$ una subvariedad incrustada de $N$ con $\dim M<\dim N$. Probar que $\phi(M)$ no es densa en $N$.
+>
 >>[!Proof]-
 >>1. Sea $p\in \phi(M)$ y sean $m=\dim M<n=\dim N$.
 >>2. Como $(M,\phi)$ es una subvariedad incrustada de $N$, existe una carta adaptada $(V,\psi=(y_1,\ldots,y_n))$ de $N$ alrededor de $p$ tal que $$V\cap \phi(M)=R(0,\ldots,0).$$
@@ -230,6 +241,7 @@
 >- Pruebe que todo subgrupo de $(\mathbb R,+)$ cíclico y generado por un $a>0$ o es un subconjunto denso de $\mathbb R$.  
 >- Sea $\alpha$ un número irracional y considere el conjunto $$\{(x,y)\in\mathbb R^2:x=t+n,\ y=\alpha t+m\text{ con }t\in\mathbb R\text{ y }m,n\in\mathbb Z\}$$ es un subconjunto denso de $\mathbb R^2$.  
 >- Sean $S^1$ la circunferencia unitaria en $\mathbb C$ y $\mathbb T^2$ el toro $S^1\times S^1$. Se define la función $\varphi:\mathbb R\to\mathbb T^2$ por $$\varphi(t)=\left(e^{2\pi it},e^{2\pi i\alpha t}\right),$$ donde $\alpha$ es un número irracional. Mostrar que $(\mathbb R,\varphi)$ es una subvariedad densa de $\mathbb T^2$ que no es una incrustación. Verificar que $\varphi$ es un homomorfismo de grupos.
+>
 >>[!Proof]-  
 >>1. Sea $H\leq(\mathbb R,+)$. Si $H=\{0\}$, entonces $H$ es cíclico. Supongamos ahora que $H\neq\{0\}$. Entonces $H\cap\mathbb R_{>0}\neq\varnothing$, porque si $h\in H$ y $h\neq 0$, entonces $|h|\in H\cap\mathbb R_{>0}$.  
 >>2. Definimos $$a=\inf(H\cap\mathbb R_{>0}).$$  
@@ -262,6 +274,7 @@
 
 >[!Exercise]
 >Si $F:M\to N$ es una inmersión y $g$ es una métrica Riemanniana en $N$, probar que $F^*g$ es una métrica Riemanniana en $M$.
+>
 >>[!Proof]-
 >>Definimos
 >>$$ (F^*g)_p(u,v)=g_{F(p)}\bigl((dF)_pu,(dF)_pv\bigr).$$
@@ -280,6 +293,7 @@
 >>Sea $(M,\psi)$ una subvariedad de $N$. Si $M$ es incrustada y $\psi(M)$ es cerrado en $N$, entonces para toda $g\in C^\infty(M)$ existe $f\in C^\infty(N)$ tal que $f\circ \psi=g$.  
 >
 >Probar que la proposición no es verdadera si quitamos la hipótesis que $\psi$ es una incrustación o la hipótesis que $\psi(M)$ es cerrado en $N$.
+>
 >>[!Proof]-
 >>- **Si quitamos la hipótesis de incrustación.** Tomemos la inmersión densa del ejercicio 13,
 >>$$\varphi:\mathbb R\to T^2.$$
@@ -293,6 +307,7 @@
 
 >[!Exercise]
 >Mostrar que la esfera sin los polos y el hiperboloide de revolución de una hoja son subvariedades de $\mathbb R^3$ y además difeomorfas.
+>
 >>[!Proof]-
 >>1. La esfera sin polos es $$S^2\setminus\{(0,0,\pm 1)\}=\{(x,y,z):x^2+y^2+z^2=1,\ z\neq\pm 1\},$$y es subvariedad porque es un abierto de la esfera, que es el nivel regular de $$F(x,y,z)=x^2+y^2+z^2$$
 >>2. El hiperboloide de una hoja es $$H=\{(u,v,w):u^2+v^2-w^2=1\},$$que es una subvariedad porque $1$ es valor regular de $G(u,v,w)=u^2+v^2-w^2$.
@@ -311,6 +326,7 @@
 >- Mostrar que $f^{-1}(\{4\})$ no es subvariedad pero es unión de dos subvariedades disjuntas, 
 >- Mostrar que $f^{-1}(\{r^4-5r^2+4\})$ y $f^{-1}(\{4\})-\{0\}$ son subvariedades incrustadas.
 >- ¿En qué casos se puede aplicar el teorema de la función implícita a la función $f$?
+>
 >>[!Proof]-
 >>- **Existencia de $r$**
 >>	1. Llamamos $r=\|x\|$, entonces $$f(x)=r^4-5r^2+4.$$
@@ -337,6 +353,7 @@
 
 >[!Exercise]
 >El grupo lineal especial $SL(n,\mathbb R)$ consiste de las matrices $A$ de tamaño $n\times n$ tales que $\det(A)=1$. Usando la fórmula para $d\det$, probar que $SL(n,\mathbb R)$ es una subvariedad embebida de $GL(n,\mathbb R)$ de dimensión $n^2-1$.
+>
 >>[!Proof]-
 >>Consideramos
 >>$$\det:GL(n,\mathbb R)\to\mathbb R^\times.$$
@@ -356,7 +373,8 @@
 >[!Exercise]
 >- (a) Sea $O(3)=\{A\in M(3,\mathbb R):AA^t=I\}$ el conjunto de matrices ortogonales $3\times 3$. Mostrar que $O(3)$ es una subvariedad incrustada de $M(3,\mathbb R)$. ¿Lo es de $GL(3,\mathbb R):=\{A\in M(3,\mathbb R):\det(A)\neq 0\}$? 
 >- (b) ¿Qué puede decir de $SO(3)$, el grupo de rotaciones de $\mathbb R^3$?
->- (c) ¿Es diferenciable la función $\gamma:\mathbb R\to O(3)$ definida por $\gamma(t)=\operatorname{diag}\left(\begin{pmatrix}\cos t&-\sin t\\ \sin t&\cos t\end{pmatrix},1\right)$?
+>- (c) Decidir si es diferenciable la función $\gamma:\mathbb R\to O(3)$ definida por $$\gamma(t)=\operatorname{diag}\left(\begin{pmatrix}\cos t&-\sin t\\ \sin t&\cos t\end{pmatrix},1\right)$$
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Definimos $$F:M_3(\mathbb R)\to S_3(\mathbb R),\qquad F(A)=AA^T.$$ ambos son espacios vectoriales reales de dimension finita por lo tanto variedades suaves
@@ -392,6 +410,7 @@
 >
 >- (a) Mostrar que $T_pM\simeq (d\iota)_p(T_pM)=\ker(df)_p$.
 >- (b) Mostrar que si $p\in S^n\subset\mathbb R^{n+1}$, entonces $T_pS^n\simeq p^\perp$.
+>
 >>[!Proof]-
 >>- (a) 
 >>	1. Como $f\circ\iota$ es constante, se tiene $df_p\circ d\iota_p=0$ de donde $$ (d\iota)_p(T_pM)\subset\ker(df)_p.$$
@@ -411,6 +430,7 @@
 
 >[!Exercise]
 >Sea $f:M\to N$ suave y sea $$U=\{p\in M:\operatorname{rango}(df)_p \geq \operatorname{rango}(df)_{q}\quad\forall q\in M\}$$Mostrar que $U$ es abierto.
+>
 >>[!Proof]-
 >>1. Sea $p\in U$. Queremos probar que existe un abierto $W\subseteq M$ tal que $p\in W\subseteq U$.  
 >>2. Definimos $$r=\operatorname{rank}(df)_p.$$  
@@ -437,6 +457,7 @@
 
 >[!Exercise]
 >Sea $S_n(\mathbb R)=\{A\in M_n(\mathbb R):A=A^T\}$.
+>
 >>[!Proof]-
 >>- El conjunto $S_n(\mathbb R)$ es el núcleo de la aplicación lineal
 >>$$L(A)=A-A^T,$$
@@ -462,6 +483,7 @@
 >Sea $V=\{X\in S_3(\mathbb R):\operatorname{tr}(X)=0\}$. Mostrar que
 >$$M=\{X\in V:X\text{ singular y }X\neq 0\}$$
 >es una subvariedad incrustada de $V$.
+>
 >>[!Proof]-
 >>En $V$ consideramos la restricción
 >>$$g=\det|_V:V\to\mathbb R.$$
@@ -488,6 +510,7 @@
 >Sea $M^m\subset\mathbb R^n$ una subvariedad incrustada. Probar que su fibrado tangente unitario
 >$$UM=\{(p,v)\in T\mathbb R^n:p\in M,\ v\in T_pM,\ \|v\|=1\}$$
 >es una subvariedad incrustada de dimensión $2m-1$.
+>
 >>[!Proof]-
 >>Tomemos $p\in M$. Como $M$ es incrustada, existen coordenadas locales en $\mathbb R^n$ donde cerca de $p$
 >>$$M=\mathbb R^m\times\{0\}\subset\mathbb R^m\times\mathbb R^{n-m}.$$
@@ -503,6 +526,7 @@
 
 >[!Exercise]
 >Encontrar una incrustación de $\mathbb{RP}^2$ en $\mathbb R^6$ y luego en $\mathbb R^5$.
+>
 >>[!Proof]-
 >>Representemos $[p]\in\mathbb{RP}^2$ por un vector unitario $p\in S^2$. La proyección ortogonal sobre el plano tangente $T_pS^2=p^\perp$ es
 >>$$P_p=I-pp^T.$$
@@ -520,6 +544,7 @@
 
 >[!Exercise]
 >Mostrar que la aplicación de Veronese $f:\mathbb{RP}^2\to\mathbb R^4$, $[x:y:z]\mapsto(x^2-y^2,xy,xz,yz)$ es una incrustación, y que la superficie de Steiner $[x:y:z]\mapsto(xy,yz,zx)$ es una inmersión salvo en los puntos especiales.
+>
 >>[!Proof]-
 >>- **Veronese.** La aplicación está bien definida porque sus componentes son homogéneas de grado $2$, luego no cambian al reemplazar $(x,y,z)$ por $-(x,y,z)$. En las cartas afines $z=1$, $y=1$, $x=1$ las expresiones son polinómicas, así que es suave.
 >>
@@ -544,6 +569,7 @@
 
 >[!Lemma] Lema previo
 >Sea $A\subset X$ denso en $X$. Si $U\subset X$ es abierto no vacío, entonces $U\cap A$ es denso en $U$.
+>
 >>[!Proof]-
 >>2. Queremos probar que $U\cap A$ es denso en $U$.
 >>3. Primero veamos por qué, si $A$ es denso en $X$, entonces todo abierto no vacío de $X$ corta a $A$.
@@ -565,6 +591,7 @@
 >Sean $(A,i_A)$ y $(B,i_B)$ subvariedades incrustadas de $\mathbb R^m$ y $\mathbb R^n$, respectivamente. Sea $F:A\to B$ una función.
 >Supongamos que existe un abierto $U\subseteq \mathbb R^m$ con $i_A(A)\subseteq U$ y una función suave $$\widetilde F:U\to \mathbb R^n$$ tal que $$\widetilde F\circ i_A=i_B\circ F.$$
 >Entonces $$F:A\to B$$ es suave.
+>
 >>[!Proof]-
 >>1. Como $i_A:A\to \mathbb R^m$ es suave y $\widetilde F:U\to\mathbb R^n$ es suave, la composición $$\widetilde F\circ i_A:A\to\mathbb R^n$$ es suave.
 >>2. Por hipótesis, $$\widetilde F\circ i_A=i_B\circ F.$$
@@ -577,6 +604,7 @@
 
 >[!Lemma]
 >Sea $S\subseteq M$ una subvariedad incrustada de dimensión $k$ y sea $U\subseteq M$ abierto. Entonces $S\cap U$ es subvariedad incrustada de $U$.
+>
 >>[!Proof]-
 >>1. Sea $p\in S\cap U$.
 >>2. Como $S$ es subvariedad incrustada de $M$, existe una carta suave $(V,\varphi)$ de $M$ alrededor de $p$ tal que $$\varphi(V\cap S)=\varphi(V)\cap(\mathbb R^k\times\{0\}).$$
@@ -591,21 +619,22 @@
 
 >[!Lemma]
 >Sea $M$ una variedad suave de dimensión $n$ y sea $U\subseteq M$ abierto. Entonces $U$ es una subvariedad incrustada de $M$ de dimensión $n$.
+>
 >>[!Proof]-
->>1. Sea $p\in U$.
->>2. Como $M$ es una variedad suave, existe una carta suave $(V,\varphi)$ de $M$ tal que $p\in V$.
->>3. Como $U$ es abierto en $M$, el conjunto $V\cap U$ es abierto en $M$.
->>4. Luego $(V\cap U,\varphi|_{V\cap U})$ es una carta suave de $M$ alrededor de $p$.
->>5. Además, $$(V\cap U)\cap U=V\cap U.$$
->>6. Aplicando la carta restringida, se obtiene $$\varphi((V\cap U)\cap U)=\varphi(V\cap U).$$
->>7. Como $\varphi(V\cap U)$ es un abierto de $\mathbb R^n$, localmente $U$ se ve como todo el espacio coordenado $\mathbb R^n$.
->>8. Equivalentemente, en esta carta adaptada, $$\varphi((V\cap U)\cap U)=\varphi(V\cap U)\cap\mathbb R^n.$$
->>9. Por lo tanto $U$ es una subvariedad incrustada de $M$ de dimensión $n$.
+>>1. Primero dotamos a $U$ de la estructura suave heredada de $M$. Para cada $p\in U$, elegimos una carta $(V,\varphi)$ de $M$ con $p\in V$. Como $U$ es abierto en $M$, el conjunto $V\cap U$ es un abierto de $U$ que contiene a $p$, y $$\varphi(V\cap U)$$ es abierto en $\mathbb R^n$. Por lo tanto $$(V\cap U,\varphi|_{V\cap U})$$ es una carta de $U$ alrededor de $p$. Al hacer esto para cada $p\in U$, obtenemos un atlas que cubre todo $U$; en consecuencia, $U$ es una variedad suave de dimensión $n$.
+>>2. Consideremos la aplicación inclusión $$\iota:U\longrightarrow M,\qquad \iota(p)=p.$$
+>>3. La aplicación $\iota$ es inyectiva. Además es suave: usando en $U$ la carta restringida $(V\cap U,\varphi|_{V\cap U})$ y en $M$ la carta $(V,\varphi)$, su expresión en coordenadas es $$\varphi\circ\iota\circ(\varphi|_{V\cap U})^{-1}=\operatorname{id}_{\varphi(V\cap U)},$$ que es suave.
+>>4. Sea $p\in U$. En las cartas anteriores, la diferencial $d\iota_p:T_pU\to T_pM$ está representada por la matriz identidad $I_n$.
+>>5. Por lo tanto $d\iota_p$ es inyectiva para todo $p\in U$, y $\iota$ es una inmersión. (Esto es usando que $d\varphi ^{-1}$ y $d\varphi|_{V\cap U}$ son isomorfismos) 
+>>6. La imagen de $\iota$ es $\iota(U)=U$. Como $U$ posee la topología relativa heredada de $M$, la aplicación $$\iota:U\longrightarrow\iota(U)$$ es la identidad entre dos espacios con la misma topología. Por consiguiente, es un homeomorfismo sobre su imagen.
+>>7. Así, $\iota$ es suave, inyectiva, tiene diferencial inyectiva en todo punto y es un homeomorfismo sobre su imagen. Por definición, $\iota$ es una incrustación suave.
+>>8. Concluimos que $U$ es una subvariedad incrustada de $M$ de dimensión $n$.
 
 ^772b8b
 
 >[!Lemma] Transitividad de incrustaciones
 >Sean $P,S,M$ variedades suaves. Si $j:P\hookrightarrow S$ es una incrustación y $i:S\hookrightarrow M$ es una incrustación, entonces $i\circ j:P\hookrightarrow M$ es una incrustación.
+>
 >>[!Proof]-
 >>1. Como $i$ y $j$ son incrustaciones, en particular son aplicaciones suaves. Entonces $i\circ j$ es suave.
 >>2. Además, como $i$ y $j$ son inyectivas, la composición $i\circ j$ también es inyectiva.

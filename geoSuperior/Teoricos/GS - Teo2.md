@@ -21,6 +21,7 @@
 
 >[!Exercise]
 >Sea $\gamma:I\subseteq \mathbb{R}\to \mathbb{R}^n$ tal que el vector velocidad $\gamma'(t_0)$ existe. Mostrar que $\gamma$ es diferenciable en $t_0$, es decir, existe la transformación lineal $$(d\gamma)_{t_0}:\mathbb{R}\to \mathbb{R}^n$$dada por $(d\gamma)_{t_0}(h)=h\,\gamma'(t_0)$.
+>
 >>[!Proof]-
 >>Definimos
 >>$$
@@ -91,6 +92,7 @@
 
 >[!Example] La esfera $S^n$
 >La esfera $S^{n}$ es una [[GS - Teo2#^5bf2ca]] de dimension $n$ 
+>
 >>[!Proof]-
 >>1. Consideremos $$S^n:=\left\{(x_1,\dots,x_{n+1})\in \mathbb{R}^{n+1}:x_1^2+\cdots+x_{n+1}^2=1\right\}.$$La dotamos de la topología relativa inducida por $\mathbb{R}^{n+1}$. Por lo tanto es Hausdorff y es $N_{2}$ por que $\mathbb{R}^{n+1}$ lo es  
 >>2. Veamos que es localmente euclídea. Sea $$p=(x_1,\dots,x_{n+1})\in S^n.$$entonces existe algún índice $i$ tal que $x_i\neq 0$. Sin pérdida de generalidad, supongamos $x_i>0$.

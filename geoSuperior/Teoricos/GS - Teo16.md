@@ -6,6 +6,7 @@
 >- (c) Maximalidad: si $\sigma:(c,d)\subset\mathbb R\to M$ es curva suave que cumple 1 y 2, entonces $(c,d)\subset(a(p),b(p))$ y $\sigma(t)=\gamma_p(t)$ para todo $t\in(c,d)$.
 >
 >En consecuencia, $\gamma_p$ es la unica curva integral que satisface 1, 2 y 3, y es llamada curva integral maximal de $X$ que comienza en $p$.
+>
 >>[!Proof]-
 >>1. Proponemos $(a(p),b(p))$ como la union de todos los intervalos abiertos que contienen al instante $0$ y que son dominios de curvas integrales de $X$ que en el instante $0$ pasan por $p$ (osea que los dominios de estas curvas son intervalos)  
 >>2. Para ver que $(a(p),b(p))$ es no vacio, basta exhibir una curva integral que en $t=0$ pasa por $p$ y que este definida en algun intervalo chiquito de $t=0$.

@@ -5,6 +5,7 @@
 >[!Proposition] Localidad de los vectores tangentes
 >Sea $M$ una variedad suave, $p\in M$ y $v\in T_pM$. Si $f,g\in C^\infty(M)$ coinciden en un abierto de $p$, entonces
 >$$v(f)=v(g).$$
+>
 >>[!Proof]- Demostracion
 >>1. Es equivalente demostrar que si $f-g=h\in C^\infty(M)$ se anula en un abierto $U$ de $p$, entonces $v(h)=0$.
 >>2. Se toma una función campana $\beta$ con $\beta\equiv 1$ en un abierto $V\subseteq U$ de $p$ y soporte contenido en $U$.
@@ -18,24 +19,26 @@
 >El conjunto de vectores coordenados
 >$$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\}$$
 >es linealmente independiente en $T_pM$.
+>
 >>[!Proof]- Demostracion
->>1. Las funciones coordenadas $x_i$ están definidas solo en $U$, ósea están en $C^{\infty}(U)$ 
->>2. Pero $\left.\frac{\partial}{\partial x_n}\right|_p$ esta en $C^{\infty}(M)$ así que primero se extienden a funciones suaves globales $\widetilde{x}_i\in C^\infty(M)$ que coinciden con $x_i$ en un abierto $V$ de $p$ usando [[GS - Teo5#^405b16|Extensión de funciones suaves]] (obtenemos múltiples abiertos y tomamos la intersección no vacía por que esta $p$) 
->>3. Ahora notamos que $$\left.\frac{\partial}{\partial x_i}\right|_{p}\widetilde{x}_{j}=\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}$$ porque $\widetilde{x}_{j}$ y $x_j$ coinciden en $V$ un abierto de $p$, por [[GS - Teo5#^b713ca|Localidad de los vectores tangentes]]. Luego aplicando la definición del vector coordenado, $$\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(x_{j}\circ\varphi^{-1}).$$
->>4. Y recordemos la notacion $(U,\varphi=(x_{1},\ldots,x_{n}))$ osea que $x_{j}\circ\varphi ^{-1}(q_{1},\ldots,q_{n})=x_{j}(p)=q_{j}$ otra manera de decir que $x_{j}\circ\varphi ^{-1}=\pi_{j}$ la proyeccion    
->>5. Y es directo ver que $$\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}\pi_{j}=\delta_{ij}$$ 
->>6. Entonces tenemos
+>>6. Las funciones coordenadas $x_i$ están definidas solo en $U$, ósea están en $C^{\infty}(U)$ 
+>>7. Pero $\left.\frac{\partial}{\partial x_n}\right|_p$ esta en $C^{\infty}(M)$ así que primero se extienden a funciones suaves globales $\widetilde{x}_i\in C^\infty(M)$ que coinciden con $x_i$ en un abierto $V$ de $p$ usando [[GS - Teo5#^405b16|Extensión de funciones suaves]] (obtenemos múltiples abiertos y tomamos la intersección no vacía por que esta $p$) 
+>>8. Ahora notamos que $$\left.\frac{\partial}{\partial x_i}\right|_{p}\widetilde{x}_{j}=\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}$$ porque $\widetilde{x}_{j}$ y $x_j$ coinciden en $V$ un abierto de $p$, por [[GS - Teo5#^b713ca|Localidad de los vectores tangentes]]. Luego aplicando la definición del vector coordenado, $$\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(x_{j}\circ\varphi^{-1}).$$
+>>9. Y recordemos la notacion $(U,\varphi=(x_{1},\ldots,x_{n}))$ osea que $x_{j}\circ\varphi ^{-1}(q_{1},\ldots,q_{n})=x_{j}(p)=q_{j}$ otra manera de decir que $x_{j}\circ\varphi ^{-1}=\pi_{j}$ la proyeccion    
+>>10. Y es directo ver que $$\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}\pi_{j}=\delta_{ij}$$ 
+>>11. Entonces tenemos
 >>   $$t_1\left.\frac{\partial}{\partial x_1}\right|_p+\cdots+t_n\left.\frac{\partial}{\partial x_n}\right|_p=0$$
 >>   aplicando $\widetilde{x}_j$ a esta combinación lineal se obtiene
 >>   $$0=t_1\delta_{1j}+\cdots+t_n\delta_{nj}=t_j$$
 >>   y por lo tanto todos los coeficientes son cero.
->>7. Mostrando la independencia lineal.
+>>12. Mostrando la independencia lineal.
 
 ## El espacio tangente de una carta
 
 >[!Proposition] Regla de la cadena
 >Si $F:M\to N$ y $G:N\to P$ son suaves, entonces
 >$$d(G\circ F)_p=(dG)_{F(p)}\circ dF_p.$$
+>
 >>[!Proof]- Demostracion
 >>1. Sea $v\in T_pM$ y $h\in C^\infty(P)$. Entonces como la composición es asociativa 
 >>$$\bigl(d(G\circ F)_p(v)\bigr)(h)=v(h\circ (G\circ F))=v(h\circ G\circ F)$$
@@ -49,6 +52,7 @@
 >[!Corollary] Función que vale 1 sobre un cerrado
 >Sea $U$ un abierto de $M$ y $A$ un cerrado de $M$ con $$A\subseteq U$$
 >Entonces existe una función suave $$f:M\to\mathbb R$$tal que $$0\le f\le 1,\qquad f|_A\equiv 1,\qquad \operatorname{supp}f\subseteq U$$
+>
 >>[!Proof]- Demostracion
 >>1. Como $A$ es cerrado. Considerar al cubrimiento de $M$ dado por $$\{U,M\setminus A\}$$
 >>2. Por [[GS - Teo8#^eafe2b|Existencia de particiones de la unidad]] existe una particion de la unidad $\{\rho,\sigma\}$ subordinada a $\{U,M\setminus A\}$ con $$\operatorname{supp}\rho\subseteq U,\qquad \operatorname{supp}\sigma\subseteq M\setminus A$$
@@ -61,6 +65,7 @@
 >$$\widetilde F|_A=F,
 >\qquad
 >\operatorname{supp}\widetilde F\subseteq U.$$
+>
 >>[!Proof]- Demostracion
 >>1. Por [[GS - Teo8#^cf02ec|Función suave sobre un subconjunto arbitrario]], para cada $p\in A$ elegimos un abierto $W_p\subseteq U$ y una extensión suave local $$\widetilde F_p:W_p\to\mathbb R^k$$que coincide con $F$ en $W_{p}\cap A$ 
 >>2. Sin perdida de generalidades podemos suponer $W_{p}\subseteq U$ (En otro caso, cambiamos $W_{p}$ por el abierto $W_{p}\cap U$)   
@@ -80,6 +85,7 @@
 
 >[!Proposition] Funciones suaves e independientes forman carta
 >Sea $M$ una variedad suave de dimensión $m$. Sea $U$ un abierto de $M$ y $p\in U$. Si $\{y_1,\ldots,y_m\}$ es un conjunto de funciones suaves sobre $U$ [[GS - Teo10#^conjunto-funciones-independientes|independientes en p]] entonces existe un abierto $V$ de $M$ en $p$, con $V\subseteq U$, tal que $$(V,\psi=(y_1,\ldots,y_m))$$es una carta en $p$.
+>
 >>[!Proof]- Demostracion
 >>1. Se define $$\psi:U \subseteq M \to \mathbb R^m,\qquad q \mapsto (y_1(q),\ldots,y_m(q)).$$ La cual resulta suave.
 >>2. Queremos ver que $(d\psi)_p$ es un isomorfismo.
@@ -93,6 +99,7 @@
 >[!Corollary]
 >Sean $M$ y $N$ variedades suaves de dimensión $m$ y $n$, respectivamente. Sea $$F:M\to N$$ suave y supongamos que $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, y por tanto $m\le n$. (Osea $F$ es inmersion) 
 >Si $(V,\varphi=(x_1,\ldots,x_n))$ es una carta suave de $N$ en $F(p)$, entonces existen $$i_1,\ldots,i_m\in\{1,\ldots,n\}$$ tales que $$\psi=(x_{i_1}\circ F,\ldots,x_{i_m}\circ F)$$ define una carta suave de $M$ en cierto abierto de $p$.
+>
 >>[!Proof]- Demostracion
 >>1. Para usar el [[GS - Teo11#^existencia-cartas-dado-diferenciales|resultado anterior]], alcanza con ver que $$\{d(x_1\circ F)_p,\ldots,d(x_n\circ F)_p\}$$ genera $T_p^\ast M$.
 >>2. Como $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, entonces $$(dF)^\ast_{F(p)}:T_{F(p)}^\ast N\to T_p^\ast M$$ es sobreyectiva por [[GS - Teo10#^dual-inyectiva-sobreyectiva|dual de una transformacion inyectiva]].
@@ -104,6 +111,7 @@
 >Ademas sea $\widehat{F}:M\rightarrow P$ la funcion $\widehat{F}(x)=y$ si $F(x)=g(y)$ la cual es la unica funcion de $M$ en $P$ que hace conmutar el diagrama
 >![[Pasted image 20260429160319.png]]
 >Entonces si $\widehat{F}$ es continua es suave
+>
 >>[!Proof]- Demostracion
 >>1. Sea $p\in M$ y veamos que $\widehat F$ es suave en un entorno de $p$.
 >>2. Sea $q=\widehat F(p)$, es decir, $q$ es el único elemento de $P$ tal que $$F(p)=g(q).$$
@@ -118,16 +126,17 @@
 >[!Proposition] Unicidad de subvariedad via inclusion
 >Sea $N$ variedad suave y sea $A\subseteq N$. Supongamos que $A$ tiene una topología $\tau$ no necesariamente la topología relativa.
 >Entonces existe a lo sumo una estructura de variedad diferenciable sobre $A$ compatible con $\tau$ tal que $$(A,i)$$ es subvariedad, donde $$i:A\to N$$ es la inclusión. (De hecho podria no haber ninguna)
+>
 >>[!Proof]- Demostracion
->>1. Sean $\mathcal F_1,\mathcal F_2$ dos estructuras de variedad diferenciable sobre $A$ compatibles con la topología $\tau$.
->>2. Para ver que son iguales, alcanza con ver que $$\operatorname{Id}:(A,\mathcal F_1)\to (A,\mathcal F_2)$$ $$\operatorname{Id}:(A,\mathcal F_2)\to (A,\mathcal F_1)$$ es difeomorfismo.
->>3. Usemos el lema de factorizacion
+>>10. Sean $\mathcal F_1,\mathcal F_2$ dos estructuras de variedad diferenciable sobre $A$ compatibles con la topología $\tau$.
+>>11. Para ver que son iguales, alcanza con ver que $$\operatorname{Id}:(A,\mathcal F_1)\to (A,\mathcal F_2)$$ $$\operatorname{Id}:(A,\mathcal F_2)\to (A,\mathcal F_1)$$ es difeomorfismo.
+>>12. Usemos el lema de factorizacion
 >>![[Pasted image 20260429215527.png]]
->>4. Como $F=i$, es claro que la (unica) $\widehat{F}$ que cumple [[GS - Teo11#^1258d0|Lema de factorizacion]] es $$\widehat F=\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$$  
->>5. Como la topología que tienen $(A,\mathcal F_1)$ y $(A,\mathcal F_2)$ es la misma, tenemos que $\widehat F=\operatorname{Id}$ es continua, y por tanto $\widehat F$ es suave.  
->>6. Cambiando los roles, también tenemos que $\operatorname{Id}:(A,\mathcal F_2)\to(A,\mathcal F_1)$ es suave.
->>7. Por tanto, $\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$ es un difeomorfismo, y entonces $\mathcal F_1=\mathcal F_2$
->>8. Se necesita que sea difeomorfismo para comparar cartas de ambas estructuras: si $(U,\varphi)\in\mathcal F_1$ y $(V,\psi)\in\mathcal F_2$, entonces en la intersección el cambio de coordenadas se puede escribir usando la identidad como $$\psi\circ\varphi^{-1}=\psi\circ\operatorname{Id}\circ\varphi^{-1}.$$ Como $\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$ es suave, esta composición es suave. Cambiando los roles se obtiene la suavidad de $\varphi\circ\psi^{-1}$, y por eso las cartas son compatibles.
+>>13. Como $F=i$, es claro que la (unica) $\widehat{F}$ que cumple [[GS - Teo11#^1258d0|Lema de factorizacion]] es $$\widehat F=\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$$  
+>>14. Como la topología que tienen $(A,\mathcal F_1)$ y $(A,\mathcal F_2)$ es la misma, tenemos que $\widehat F=\operatorname{Id}$ es continua, y por tanto $\widehat F$ es suave.  
+>>15. Cambiando los roles, también tenemos que $\operatorname{Id}:(A,\mathcal F_2)\to(A,\mathcal F_1)$ es suave.
+>>16. Por tanto, $\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$ es un difeomorfismo, y entonces $\mathcal F_1=\mathcal F_2$
+>>17. Se necesita que sea difeomorfismo para comparar cartas de ambas estructuras: si $(U,\varphi)\in\mathcal F_1$ y $(V,\psi)\in\mathcal F_2$, entonces en la intersección el cambio de coordenadas se puede escribir usando la identidad como $$\psi\circ\varphi^{-1}=\psi\circ\operatorname{Id}\circ\varphi^{-1}.$$ Como $\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$ es suave, esta composición es suave. Cambiando los roles se obtiene la suavidad de $\varphi\circ\psi^{-1}$, y por eso las cartas son compatibles.
 
 ## Extension de funciones suaves
 
@@ -135,6 +144,7 @@
 >Sea $(M,i)$ una inmersion en $N$ y sea $p\in M$ y sea $g:M\to\mathbb R$ funcion suave. 
 >Entonces, existen un abierto $U$ de $M$ en $p$, un abierto $V$ de $N$ en $i(p)$ con $i(U)\subseteq V$ (cuidado, $M$ no necesariamente tiene topologia heredada) y una funcion $$\widetilde g:V\subseteq N\to\mathbb R$$ suave que extiende a $g$, es decir, $\widetilde g\circ i=g$ para todo $q\in U$.
 >![[Pasted image 20260505230207.png]]
+>
 >>[!Proof]- Demostracion
 >>1. Sea $m=\dim M$ y $n=\dim N$ si $m=n$ sale gratis (por que?) 
 >>2. Como $(M,i)$ es una inmersion, sabemos por la formula local de una inmersion que existen cartas $(U,\varphi)$ y $(V,\psi)$ centradas en $p$ e $i(p)$ tales que $$\psi\circ i\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0)$$
@@ -153,6 +163,7 @@
 >2. Para toda carta suave $(U,\varphi=(x_1,\ldots,x_n))$ de $M$, las funciones $a_i:U \to \mathbb R$ dadas por $$X_p=\sum_{i=1}^n a_i(p)\frac{\partial}{\partial x_i}|_p$$ son suaves.
 >3. Para todo abierto $V$ de $M$ y toda funcion $f \in C^\infty(V)$, la funcion $Xf:V \to \mathbb R$, $(Xf)(q)=X_q f$, es suave.
 >4. Para toda funcion $f \in C^\infty(M)$, se cumple $Xf \in C^\infty(M)$.
+>
 >>[!Proof]- Demostracion
 >>- $1 \Rightarrow 2$. 
 >>1. Tenemos la carta $(U,\varphi=(x_{1},\ldots,x_{n}))$ la cual induce $(\widetilde{U}=\pi ^{-1}(U),\widetilde{\varphi})$ dada por $$\widetilde\varphi(p,v)=(x_1(p),\ldots,x_n(p),v_1,\ldots,v_n)$$ donde $v_i$ son las coordenadas del vector $v$ en la base $\{ \frac{\partial}{\partial x_{1}}|_{p},\ldots,\frac{\partial}{\partial x_{n}}|_{p} \}$  
@@ -192,6 +203,7 @@
 
 >[!Proposition] Suavidad de un campo en una carta
 >Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave de $M$ y sea $X:U \to TU$ un campo vectorial. Entonces $X$ es suave si y solo si las coordenadas de $X$ en el marco $\{\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_n}\}$ son funciones suaves.
+>
 >>[!Proof]- Demostracion
 >>- $(\Rightarrow)$ Caso particular de [[GS - Teo14#^3accf8|Caracterizaciones de suavidad]] 
 >>- $(\Leftarrow)$ 
@@ -210,6 +222,7 @@
 >- (c) Maximalidad: si $\sigma:(c,d)\subset\mathbb R\to M$ es curva suave que cumple 1 y 2, entonces $(c,d)\subset(a(p),b(p))$ y $\sigma(t)=\gamma_p(t)$ para todo $t\in(c,d)$.
 >
 >En consecuencia, $\gamma_p$ es la unica curva integral que satisface 1, 2 y 3, y es llamada curva integral maximal de $X$ que comienza en $p$.
+>
 >>[!Proof]- Demostracion
 >>1. Proponemos $(a(p),b(p))$ como la union de todos los intervalos abiertos que contienen al instante $0$ y que son dominios de curvas integrales de $X$ que en el instante $0$ pasan por $p$ (osea que los dominios de estas curvas son intervalos)  
 >>2. Para ver que $(a(p),b(p))$ es no vacio, basta exhibir una curva integral que en $t=0$ pasa por $p$ y que este definida en algun intervalo chiquito de $t=0$.
@@ -258,40 +271,41 @@
 >$$\gamma_q(t)=\gamma_p(t+t_0),$$
 >y su intervalo maximal es
 >$$(a(q),b(q))=(a(p)-t_0,b(p)-t_0).$$
+>
 >>[!Proof]- Demostración
->>1. Sea
+>>38. Sea
 >>$$I_p=(a(p),b(p))$$
 >>y consideremos el intervalo trasladado
 >>$$J=I_p-t_0=(a(p)-t_0,b(p)-t_0).$$
 >>
->>2. Definimos
+>>39. Definimos
 >>$$\beta:J\longrightarrow M,\qquad \beta(t)=\gamma_p(t+t_0).$$
 >>
->>3. En primer lugar,
+>>40. En primer lugar,
 >>$$\beta(0)=\gamma_p(t_0)=q.$$
 >>
->>4. Además, como $\gamma_p$ es una curva integral de $X$,
+>>41. Además, como $\gamma_p$ es una curva integral de $X$,
 >>$$\beta'(t)=\frac{d}{dt}\gamma_p(t+t_0)=X_{\gamma_p(t+t_0)}=X_{\beta(t)}.$$
 >>Por lo tanto, $\beta$ es una curva integral de $X$ que comienza en $q$.
 >>
->>5. Veamos que $\beta$ es maximal. Supongamos que admite una extensión integral
+>>42. Veamos que $\beta$ es maximal. Supongamos que admite una extensión integral
 >>$$\widetilde{\beta}:\widetilde{J}\longrightarrow M,\qquad J\subsetneq\widetilde{J}.$$
 >>
->>6. Definimos entonces
+>>43. Definimos entonces
 >>$$\widetilde{\gamma}(s)=\widetilde{\beta}(s-t_0),\qquad s\in\widetilde{J}+t_0.$$
 >>Esta es una curva integral de $X$.
 >>
->>7. Para todo $s\in I_p$,
+>>44. Para todo $s\in I_p$,
 >>$$\widetilde{\gamma}(s)=\widetilde{\beta}(s-t_0)=\beta(s-t_0)=\gamma_p(s).$$
 >>
->>8. Así, $\widetilde{\gamma}$ extiende a $\gamma_p$, pues
+>>45. Así, $\widetilde{\gamma}$ extiende a $\gamma_p$, pues
 >>$$I_p=J+t_0\subsetneq\widetilde{J}+t_0,$$
 >>lo cual contradice la maximalidad de $\gamma_p$.
 >>
->>9. Por consiguiente, $\beta$ es la curva integral maximal que comienza en $q$. Por unicidad,
+>>46. Por consiguiente, $\beta$ es la curva integral maximal que comienza en $q$. Por unicidad,
 >>$$\gamma_q=\beta.$$
 >>
->>10. En conclusión,
+>>47. En conclusión,
 >>$$\gamma_q(t)=\gamma_p(t+t_0)$$
 >>y
 >>$$(a(q),b(q))=(a(p)-t_0,b(p)-t_0).$$
@@ -308,6 +322,7 @@
 >- **(iii)** Para todo $p\in\operatorname{Dom}(\theta_s\circ\theta_t)$ se cumple $$\theta_s\circ\theta_t(p)=\theta_{s+t}(p).$$
 >
 >- **(iv)** La función $$\theta_t:D_t\to D_{-t}$$ es un difeomorfismo, con inversa $\theta_{-t}$.
+>
 >>[!Proof]- Demostracion
 >>- **(i)** 
 >>1. Dado $p\in M$ arbitrario, por [[GS - Teo16#^3ff110|Existencia y unicidad de las curvas integrales]] sabemos que existe una curva integral que comienza en $p$ definida en algún intervalo maximal $(a(p),b(p))$.  
@@ -359,6 +374,7 @@
 >Sea $X$ un campo suave sobre una variedad $M$ y sea $\Theta$ su flujo. Supongamos que existe un número positivo $\varepsilon>0$ tal que, para todo $p\in M$, el dominio de $\gamma_p$ contiene a $(-\varepsilon,\varepsilon)$.
 >
 >Entonces $X$ es un campo completo.
+>
 >>[!Proof]- Demostracion
 >>1. La idea es que, cuando se intenta acabar una curva integral maximal que comienza en $p$, la estiramos antes de que termine usando el intervalo uniforme $(-\varepsilon,\varepsilon)$, que sirve para todo punto.
 >>2. Razonemos por el absurdo. Supongamos que existe $p\in M$ tal que $b(p)<+\infty$. Osea estamos suponiendo que $X$ no es campo completo. (El caso $a(p)>-\infty$ es análogo)
@@ -388,23 +404,24 @@
 >
 >Recordemos que
 >$$\operatorname{Sop}X=\operatorname{Cl}_M\{q\in M:X_q\neq0\}$$
+>
 >>[!Proof]- Demostracion
->>1. Sea $K=\operatorname{Sop}X$.
->>2. Notemos primero que si $p\notin K$, entonces existe un abierto $V_p$ de $M$ con $p\in V_p$ donde el campo vale cero.
->>3. Es decir, para todo $q\in V_p$,
+>>20. Sea $K=\operatorname{Sop}X$.
+>>21. Notemos primero que si $p\notin K$, entonces existe un abierto $V_p$ de $M$ con $p\in V_p$ donde el campo vale cero.
+>>22. Es decir, para todo $q\in V_p$,
 >>$$X_q=0$$
->>4. Entonces, para todo $q\in V_p$, la curva constante $$\gamma_q:\mathbb R\to M,\qquad \gamma_q(t)=q$$es curva integral maximal de $X$.
->>5. Por lo tanto, los puntos fuera de $K$ no generan ningún problema: sus curvas integrales están definidas para todo tiempo mientras permanezcan fuera del soporte, y en particular tienen tiempo local uniforme.
->>6. Falta ver qué pasa en $K$.
->>7. Por [[GS - Teo16#^3b18e6|Uniformidad local del tiempo]], para todo $p\in K$ existe $\varepsilon_p>0$ y existe un abierto $V_p$ de $M$ con $p\in V_p$ tal que, para todo $q\in V_p$, la curva integral que comienza en $q$ está definida en $(-\varepsilon_p,\varepsilon_p)$. Osea $(-\epsilon_{p},\epsilon_{p})\subseteq (a(q),b(q))$ para todo $q\in V_{p}$  
->>8. Con los abiertos $V_p$ podemos cubrir a $K$.
->>9. Como $K$ es compacto, existen $p_1,\ldots,p_s\in K$ tales que
+>>23. Entonces, para todo $q\in V_p$, la curva constante $$\gamma_q:\mathbb R\to M,\qquad \gamma_q(t)=q$$es curva integral maximal de $X$.
+>>24. Por lo tanto, los puntos fuera de $K$ no generan ningún problema: sus curvas integrales están definidas para todo tiempo mientras permanezcan fuera del soporte, y en particular tienen tiempo local uniforme.
+>>25. Falta ver qué pasa en $K$.
+>>26. Por [[GS - Teo16#^3b18e6|Uniformidad local del tiempo]], para todo $p\in K$ existe $\varepsilon_p>0$ y existe un abierto $V_p$ de $M$ con $p\in V_p$ tal que, para todo $q\in V_p$, la curva integral que comienza en $q$ está definida en $(-\varepsilon_p,\varepsilon_p)$. Osea $(-\epsilon_{p},\epsilon_{p})\subseteq (a(q),b(q))$ para todo $q\in V_{p}$  
+>>27. Con los abiertos $V_p$ podemos cubrir a $K$.
+>>28. Como $K$ es compacto, existen $p_1,\ldots,p_s\in K$ tales que
 >>$$K\subseteq V_{p_1}\cup\cdots\cup V_{p_s}$$
->>10. Tomamos
+>>29. Tomamos
 >>$$\varepsilon=\min\{\varepsilon_{p_1},\ldots,\varepsilon_{p_s}\}$$
->>11. Entonces, para todo $q\in K$, la curva integral que comienza en $q$ está definida al menos en $(-\varepsilon,\varepsilon)$.
->>12. Por lo tanto, para todo $q\in M$, el dominio de $\gamma_q$ contiene a $(-\varepsilon,\varepsilon)$.
->>13. Por el lema de uniformidad global del tiempo, $X$ es completo.
+>>30. Entonces, para todo $q\in K$, la curva integral que comienza en $q$ está definida al menos en $(-\varepsilon,\varepsilon)$.
+>>31. Por lo tanto, para todo $q\in M$, el dominio de $\gamma_q$ contiene a $(-\varepsilon,\varepsilon)$.
+>>32. Por el lema de uniformidad global del tiempo, $X$ es completo.
 
 ## Extensión local de campos
 
@@ -413,10 +430,11 @@
 >$$\widetilde X_{f(q)}=(df)_qX_q,\qquad q\in U.$$
 >
 >Se dice que $\widetilde X$ es una extensión local de $df(X)$.
+>
 >>[!Proof]- Demostracion
 >>1. Recordemos que, por la forma local de una inmersión, existen cartas cúbicas $(U,\varphi=(x_1,\ldots,x_m))$ centrada en $p$ y $(V,\psi=(y_1,\ldots,y_n))$ centrada en $f(p)$ tales que $$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$
 >>2. Escribimos el campo $X$ en la carta de $M$ como $$X|_U=\sum_{k=1}^m a_k\frac{\partial}{\partial x_k},\qquad a_k\in C^\infty(U).$$
->>3. Si $q\in U$, entonces (ya lo probamos usando forma local [[Pr4#^b71da3|Ejercicio]]) $$(df)_q\left(\left.\frac{\partial}{\partial x_k}\right|_q\right)=\left.\frac{\partial}{\partial y_k}\right|_{f(q)},\qquad 1\le k\le m.$$
+>>3. Si $q\in U$, entonces (ya lo probamos usando forma local [[GS - Pr4#^b71da3]]) $$(df)_q\left(\left.\frac{\partial}{\partial x_k}\right|_q\right)=\left.\frac{\partial}{\partial y_k}\right|_{f(q)},\qquad 1\le k\le m.$$
 >>4. Por lo tanto, $$(df)_qX_q=\sum_{k=1}^m a_k(q)\left.\frac{\partial}{\partial y_k}\right|_{f(q)}$$
 >>5. $$A_k=\begin{cases}a_k\circ\varphi^{-1}\circ\pi\circ\psi,&1\le k\le m,\\0,&m<k\le n,\end{cases}$$
 >>Esta esta bien definido por que $\psi$ y $\varphi$ son cubicas.
@@ -428,26 +446,28 @@
 >$$X|_U=\frac{\partial}{\partial x_1}.$$
 >
 >Es decir, en una carta adecuada, el campo se ve como un campo constante.
+>
 >>[!Proof]- Demostracion
->>1. Por el lema anterior, tomamos una carta $(V,\psi=(y_1,\ldots,y_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial y_1}\right|_p=X_p.$$
->>2. Por otro lado por [[GS - Teo16#^3b18e6|Uniformidad local del tiempo]] existe $\widetilde{V}$ abierto de $M$ en $p$ y $\epsilon>0$ tal que el flujo $\Theta$ de $X$ esta definido en $(-\epsilon,\epsilon)\times \widetilde{V}$
->>3. Achicando si hace falta podes suponer que $\widetilde{V}=V$ y que $(V,\psi)$ es una carta cubica centrada en $p$ osea $$\psi(V)=C_{\epsilon}^{n} (0)=(-\epsilon,\epsilon)^{n}$$
->>4. Ahora nos vamos a enfocar en una cierta rebanada de $\psi(V)$ dada por $$\{ (r_{1},\ldots,r_{n})\in \psi(V):r_{1}=0 \}$$  que en este caso es igual a $(-\epsilon,\epsilon)^{n-1}$ por ser $\psi$ carta cubica 
->>5. Proponemos $$\sigma:(-\epsilon,\epsilon)\times C_{\epsilon}^{n-1}(0)\rightarrow M\qquad (r_{1},(0,r_{2},\ldots r_{n}))\mapsto \Theta_{r_{1}}(\psi ^{-1}(0,r_{2},\ldots,r_{n}))=\Theta_{r_{1}}\circ\psi ^{-1}(0,r_{2},\ldots,r_{n})$$
->>6. Ahora vamos a notar que $\sigma$ nos va a ayudar a armar una carta, para esto veamos que $(d\sigma)_{0}$ es invertible. Por que si sucediera entonces es isomorfismo luego por [[GS - Teo10#^b664ba|Teorema de la funcion inversa en variedades]] tendremos un abierto $U$ abierto del $0$ tal que $$\sigma|_{U}^{-1}:W\subseteq M\rightarrow U$$ sera difeo (osea carta)
->>7. Luego tenemos si definimos la curva $\alpha (t)=(t,0,\ldots,0)$  $$\begin{align}(d\sigma)_0\left(\frac{\partial}{\partial r_1}\bigg|_0\right)&=(\sigma\circ\alpha )'(0)\\&=\frac{d}{dt}\bigg|_0\sigma(t,0,\dots,0)\\&=\frac{d}{dt}\bigg|_0\theta_t(\psi^{-1}(0,\dots,0))\\&=\frac{d}{dt}\bigg|_0\theta_t(p)\\&=\frac{d}{dt}\bigg|_0\gamma_{p}(t)\\&=\gamma'_{p}(0)\\&=X_{p}\\&=\left.\frac{\partial}{\partial y_1}\right|_p\end{align}$$ en el primer paso usamos ^99bdaa 
->>8. Por otro lado para $k>1$ $$\begin{align}(d\sigma)_0\frac{\partial}{\partial r_k}\bigg|_0 &=\frac{d}{dt}\bigg|_0\sigma(0,\ldots,t,\ldots,0)\\ &=\frac{d}{dt}\bigg|_0\Theta_{0}\left(\psi^{-1}(0,\ldots,t,\ldots,0)\right)\\ &=\frac{d}{dt}\bigg|_0\psi^{-1}(0,\ldots,t,\ldots,0)\\ &=(d\psi^{-1})_0\frac{\partial}{\partial r_k}\bigg|_0\\ &=\left.\frac{\partial}{\partial y_k}\right|_p. \end{align}$$ el primer igual sale como en ^99bdaa cambiando la curva $\alpha(t)=te_{k}$. El ultimo igual vale porque $\psi$ es difeomorfismo de carta, entonces $(d\psi^{-1})_0$ es isomorfismo. 
->>9. Entonces $d\sigma$ es isomorfismo. Por tanto, por el teorema de la función inversa existe $U$ abierto de $M$ en $p$ y $W$ abierto de $\mathbb R^n$ en $(0,\dots,0)$ tal que $\sigma:W\to U$ es un difeomorfismo.
->>10. Ahora nuestra candidata es la carta suave $(U,\phi=\sigma^{-1}|_U=(x_1,\dots,x_n)).$
->>11. Veamos que $$X|_U=\frac{\partial}{\partial x_1}.$$
->>12. Tomamos $q=\sigma(r_1,\ldots,r_n)=\Theta_{r_1}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right).$ Como $\phi=\sigma^{-1}$, osea $\phi(q)=(r_{1},\ldots,r_{n})$ por lo tanto $x_{i}(q)=r_{i}$. Entonces $$\begin{align}\frac{\partial}{\partial x_1}\bigg|_q&=(d\phi ^{-1})_{\phi(q)}\left(\frac{\partial}{\partial r_{1}}\bigg|_{\phi(q)}\right)\\&=(d\sigma)_{(r_1,\ldots,r_n)}\left(\frac{\partial}{\partial r_1}\bigg|_{(r_1,\ldots,r_n)}\right)\\&=\frac{d}{ds}\bigg|_{s=0}\sigma(r_1+s,r_2,\ldots,r_n)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_{r_1+s}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_s\left(\Theta_{r_1}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right)\right)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_s(q)\\&=\frac{d}{ds}\bigg|_{s=0}\gamma_q(s)\\&=\gamma_q'(0)\\&=X_{\gamma_q(0)}\\&=X_q.\end{align}$$
->>13. Por lo tanto, para todo $q\in U$, se cumple $$\frac{\partial}{\partial x_1}\bigg|_q=X_q.$$
->>14. Luego $$X|_U=\frac{\partial}{\partial x_1}.$$
+>>8. Por el lema anterior, tomamos una carta $(V,\psi=(y_1,\ldots,y_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial y_1}\right|_p=X_p.$$
+>>9. Por otro lado por [[GS - Teo16#^3b18e6|Uniformidad local del tiempo]] existe $\widetilde{V}$ abierto de $M$ en $p$ y $\epsilon>0$ tal que el flujo $\Theta$ de $X$ esta definido en $(-\epsilon,\epsilon)\times \widetilde{V}$
+>>10. Achicando si hace falta podes suponer que $\widetilde{V}=V$ y que $(V,\psi)$ es una carta cubica centrada en $p$ osea $$\psi(V)=C_{\epsilon}^{n} (0)=(-\epsilon,\epsilon)^{n}$$
+>>11. Ahora nos vamos a enfocar en una cierta rebanada de $\psi(V)$ dada por $$\{ (r_{1},\ldots,r_{n})\in \psi(V):r_{1}=0 \}$$  que en este caso es igual a $(-\epsilon,\epsilon)^{n-1}$ por ser $\psi$ carta cubica 
+>>12. Proponemos $$\sigma:(-\epsilon,\epsilon)\times C_{\epsilon}^{n-1}(0)\rightarrow M\qquad (r_{1},(0,r_{2},\ldots r_{n}))\mapsto \Theta_{r_{1}}(\psi ^{-1}(0,r_{2},\ldots,r_{n}))=\Theta_{r_{1}}\circ\psi ^{-1}(0,r_{2},\ldots,r_{n})$$
+>>13. Ahora vamos a notar que $\sigma$ nos va a ayudar a armar una carta, para esto veamos que $(d\sigma)_{0}$ es invertible. Por que si sucediera entonces es isomorfismo luego por [[GS - Teo10#^b664ba|Teorema de la funcion inversa en variedades]] tendremos un abierto $U$ abierto del $0$ tal que $$\sigma|_{U}^{-1}:W\subseteq M\rightarrow U$$ sera difeo (osea carta)
+>>14. Luego tenemos si definimos la curva $\alpha (t)=(t,0,\ldots,0)$  $$\begin{align}(d\sigma)_0\left(\frac{\partial}{\partial r_1}\bigg|_0\right)&=(\sigma\circ\alpha )'(0)\\&=\frac{d}{dt}\bigg|_0\sigma(t,0,\dots,0)\\&=\frac{d}{dt}\bigg|_0\theta_t(\psi^{-1}(0,\dots,0))\\&=\frac{d}{dt}\bigg|_0\theta_t(p)\\&=\frac{d}{dt}\bigg|_0\gamma_{p}(t)\\&=\gamma'_{p}(0)\\&=X_{p}\\&=\left.\frac{\partial}{\partial y_1}\right|_p\end{align}$$ en el primer paso usamos ^99bdaa 
+>>15. Por otro lado para $k>1$ $$\begin{align}(d\sigma)_0\frac{\partial}{\partial r_k}\bigg|_0 &=\frac{d}{dt}\bigg|_0\sigma(0,\ldots,t,\ldots,0)\\ &=\frac{d}{dt}\bigg|_0\Theta_{0}\left(\psi^{-1}(0,\ldots,t,\ldots,0)\right)\\ &=\frac{d}{dt}\bigg|_0\psi^{-1}(0,\ldots,t,\ldots,0)\\ &=(d\psi^{-1})_0\frac{\partial}{\partial r_k}\bigg|_0\\ &=\left.\frac{\partial}{\partial y_k}\right|_p. \end{align}$$ el primer igual sale como en ^99bdaa cambiando la curva $\alpha(t)=te_{k}$. El ultimo igual vale porque $\psi$ es difeomorfismo de carta, entonces $(d\psi^{-1})_0$ es isomorfismo. 
+>>16. Entonces $d\sigma$ es isomorfismo. Por tanto, por el teorema de la función inversa existe $U$ abierto de $M$ en $p$ y $W$ abierto de $\mathbb R^n$ en $(0,\dots,0)$ tal que $\sigma:W\to U$ es un difeomorfismo.
+>>17. Ahora nuestra candidata es la carta suave $(U,\phi=\sigma^{-1}|_U=(x_1,\dots,x_n)).$
+>>18. Veamos que $$X|_U=\frac{\partial}{\partial x_1}.$$
+>>19. Tomamos $q=\sigma(r_1,\ldots,r_n)=\Theta_{r_1}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right).$ Como $\phi=\sigma^{-1}$, osea $\phi(q)=(r_{1},\ldots,r_{n})$ por lo tanto $x_{i}(q)=r_{i}$. Entonces $$\begin{align}\frac{\partial}{\partial x_1}\bigg|_q&=(d\phi ^{-1})_{\phi(q)}\left(\frac{\partial}{\partial r_{1}}\bigg|_{\phi(q)}\right)\\&=(d\sigma)_{(r_1,\ldots,r_n)}\left(\frac{\partial}{\partial r_1}\bigg|_{(r_1,\ldots,r_n)}\right)\\&=\frac{d}{ds}\bigg|_{s=0}\sigma(r_1+s,r_2,\ldots,r_n)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_{r_1+s}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_s\left(\Theta_{r_1}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right)\right)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_s(q)\\&=\frac{d}{ds}\bigg|_{s=0}\gamma_q(s)\\&=\gamma_q'(0)\\&=X_{\gamma_q(0)}\\&=X_q.\end{align}$$
+>>20. Por lo tanto, para todo $q\in U$, se cumple $$\frac{\partial}{\partial x_1}\bigg|_q=X_q.$$
+>>21. Luego $$X|_U=\frac{\partial}{\partial x_1}.$$
 
 ## Corchete de Lie
 
 >[!Proposition] Buena definicion corchete de Lie
 >El corchete de Lie está bien definido, es decir, $[X,Y]_p\in T_pM$ y ademas $[X,Y]$ es un campo suave.
+>
 >>[!Proof]- Demostracion
 >>1. Necesitamos ver que $[X,Y]_p$ es vector tangente.
 >>2. **Linealidad** Sea $f,g\in C^\infty(M)$. Entonces $$[X,Y]_p(f+g)=X_p(Y(f+g))-Y_p(X(f+g))=[X,Y]_pf+[X,Y]_pg,$$ por linealidad de $X_p$ e $Y_p$. Para ver la igualdad intermedia, por ejemplo, $$(Y(f+g))(q)=Y_q(f+g)=Y_qf+Y_qg=(Yf)(q)+(Yg)(q),$$ y por lo tanto $Y(f+g)=Yf+Yg$ como funciones. Análogo con $X(f+g)$. 
@@ -473,6 +493,7 @@
 >- **(iii)** $[X,gY]=g[X,Y]+X(g)Y$.
 >- **(iv)** $[fX,gY]=fg[X,Y]+fX(g)Y-gY(f)X$.
 >- **(v)** Identidad de Jacobi: $$[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0.$$
+>
 >>[!Proof]- Demostracion
 >>- **(i)** 
 >>1. Sale directo: $$-[Y,X]f=-Y(Xf)+X(Yf)=[X,Y]f.$$
@@ -492,51 +513,54 @@
 
 >[!Proposition] Naturalidad del corchete
 >Sean $F:M\to N$ suave, $X,Y\in\mathfrak X(M)$ y $\widetilde X,\widetilde Y\in\mathfrak X(N)$ tales que $X,Y$ estan $F$-relacionados con $\widetilde{X},\widetilde Y$ respectivamente entonces $[X,Y]$ está $F$-relacionado con $[\widetilde X,\widetilde Y]$.
+>
 >>[!Proof]- Demostracion
->>1. Primero notamos $$(dF)_{p}[X,Y]_{p}f=[X,Y]_{p}(f\circ F)=X_{p}(Y(f\circ F))-Y_{p}(X(f\circ F))$$ 
->>2. Tenemos que $(dF)_{p}(X_{p})=\widetilde{X}_{F(p)}$ entonces $$\widetilde X_{F(p)}(f)=(\widetilde Xf)(F(p)).$$ Por lo tanto $$X_p(f\circ F)=((\widetilde Xf)\circ F)(p).$$ Como esto vale para todo $p\in M$, se obtiene la igualdad de funciones $$X(f\circ F)=(\widetilde Xf)\circ F.$$ Analogo con $Y(f\circ F)$. 
->>3. Por lo tanto $$\begin{align}(dF)_{p}[X,Y]_{p}h=[X,Y]_{p}(h\circ F)&=X_{p}((\widetilde Y f)\circ F)-Y_{p}((\widetilde X f)\circ F)\\&=(dF)_{p}(X_{p})(\widetilde{Y}f)-(dF)_{p}(Y_{p})(\widetilde{X}f)\\&=\widetilde{X}_{F(p)}(\widetilde{Y}f)-\widetilde{Y}_{F(p)}(\widetilde{X}f)\\&=[\widetilde{X},\widetilde{Y}]_{F(p)}f\end{align}$$ mostrando que $[X,Y]$ y $[\widetilde{X},\widetilde{Y}]$ estan $F$-relacionados
+>>2. Primero notamos $$(dF)_{p}[X,Y]_{p}f=[X,Y]_{p}(f\circ F)=X_{p}(Y(f\circ F))-Y_{p}(X(f\circ F))$$ 
+>>3. Tenemos que $(dF)_{p}(X_{p})=\widetilde{X}_{F(p)}$ entonces $$\widetilde X_{F(p)}(f)=(\widetilde Xf)(F(p)).$$ Por lo tanto $$X_p(f\circ F)=((\widetilde Xf)\circ F)(p).$$ Como esto vale para todo $p\in M$, se obtiene la igualdad de funciones $$X(f\circ F)=(\widetilde Xf)\circ F.$$ Analogo con $Y(f\circ F)$. 
+>>4. Por lo tanto $$\begin{align}(dF)_{p}[X,Y]_{p}h=[X,Y]_{p}(h\circ F)&=X_{p}((\widetilde Y f)\circ F)-Y_{p}((\widetilde X f)\circ F)\\&=(dF)_{p}(X_{p})(\widetilde{Y}f)-(dF)_{p}(Y_{p})(\widetilde{X}f)\\&=\widetilde{X}_{F(p)}(\widetilde{Y}f)-\widetilde{Y}_{F(p)}(\widetilde{X}f)\\&=[\widetilde{X},\widetilde{Y}]_{F(p)}f\end{align}$$ mostrando que $[X,Y]$ y $[\widetilde{X},\widetilde{Y}]$ estan $F$-relacionados
 
 >[!Theorem] Derivada de Lie NO FINAL
 >Para todo $X,Y\in\mathfrak X(M)$ y para todo $p\in M$, se cumple $$[X,Y]_p=(\mathcal L_XY)_p=\lim_{t\to0}\frac{(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}-Y_p}{t},$$ donde $\theta$ es el flujo de $X$.
+>
 >>[!Proof]- Demostracion
->>9. Se calculan ambos lados y se prueba que son iguales.
->>10. Supongamos primero que $X_p\neq0$.
->>11. Por el teorema de rectificación de campos, existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que $$X=\frac{\partial}{\partial x_1}.$$
->>12. Escribimos $$Y=\sum_{j=1}^n a_j\frac{\partial}{\partial x_j},$$ con $a_1,\ldots,a_n$ funciones suaves sobre $U$.
->>13. Entonces $$[X,Y]=\left[\frac{\partial}{\partial x_1},\sum_{j=1}^n a_j\frac{\partial}{\partial x_j}\right]=\sum_{j=1}^n a_j\left[\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_j}\right]+\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}\frac{\partial}{\partial x_j}.$$
->>14. Como los campos coordenados conmutan, $$\left[\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_j}\right]=0.$$
->>15. Por lo tanto, $$[X,Y]_p=\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}(p)\frac{\partial}{\partial x_j}\bigg|_p.$$
->>16. Por otro lado, consideremos la curva suave $$\alpha(t)=(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\in T_pM.$$
->>17. Queremos calcular $$\alpha'(0)\in T_{\alpha(0)}(T_pM)\simeq T_pM.$$
->>18. Entonces $$\alpha'(0)=\sum_{j=1}^n c_j\frac{\partial}{\partial x_j}\bigg|_p,$$ donde $$c_j=\alpha'(0)(x_j).$$
->>19. Por el lema previo, $$\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)(x_j).$$
->>20. Luego $$\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}\left((d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\right)(x_j).$$
->>21. Por definición de diferencial, $$\left((d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\right)(x_j)=Y_{\theta_t(p)}(x_j\circ\theta_{-t}).$$
->>22. Como $$Y_{\theta_t(p)}=\sum_{i=1}^n a_i(\theta_t(p))\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)},$$ tenemos $$Y_{\theta_t(p)}(x_j\circ\theta_{-t})=\sum_{i=1}^n a_i(\theta_t(p))\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)}(x_j\circ\theta_{-t}).$$
->>23. En estas coordenadas, como $X=\frac{\partial}{\partial x_1}$, el flujo satisface $$x_j\circ\theta_{-t}=x_j-t\delta_{1j}.$$
->>24. Por lo tanto, $$\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)}(x_j\circ\theta_{-t})=\delta_{ij}.$$
->>25. Así, $$Y_{\theta_t(p)}(x_j\circ\theta_{-t})=a_j(\theta_t(p)).$$
->>26. Entonces $$\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}a_j(\theta_t(p))=X_pa_j=\frac{\partial a_j}{\partial x_1}(p).$$
->>27. El igual del medio se justifica así: si $v\in T_pM$ y $\gamma$ es una curva con $\gamma(0)=p$ y $\gamma'(0)=v$, entonces $$v(f)=\frac{d}{dt}\bigg|_{t=0}f(\gamma(t)).$$
->>28. Por lo tanto, $$\alpha'(0)=\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}(p)\frac{\partial}{\partial x_j}\bigg|_p=[X,Y]_p.$$
->>29. Ahora supongamos que $X_p=0$.
->>30. En este caso, la curva integral de $X$ que parte de $p$ es constante, luego $$\theta_t(p)=p.$$
->>31. Entonces la curva queda $$\alpha(t)=(d\theta_{-t})_pY_p.$$
->>32. Para toda $f\in C^\infty(M)$, $$\alpha'(0)(f)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)(f)=\frac{d}{dt}\bigg|_{t=0}Y_p(f\circ\theta_{-t}).$$
->>33. Como $Y_p$ es una derivación fija, $$\alpha'(0)(f)=Y_p\left(\frac{d}{dt}\bigg|_{t=0}f\circ\theta_{-t}\right).$$
->>34. Pero $$\frac{d}{dt}\bigg|_{t=0}f(\theta_{-t}(q))=-X_qf.$$
->>35. Es decir, $$\frac{d}{dt}\bigg|_{t=0}f\circ\theta_{-t}=-Xf.$$
->>36. Por lo tanto, $$\alpha'(0)(f)=-Y_p(Xf).$$
->>37. Como $X_p=0$, también $$[X,Y]_pf=X_p(Yf)-Y_p(Xf)=-Y_p(Xf).$$
->>38. Así, $$\alpha'(0)(f)=[X,Y]_pf.$$
->>39. Como esto vale para toda $f\in C^\infty(M)$, concluimos que $$\alpha'(0)=[X,Y]_p.$$
->>40. Por lo tanto, $$(\mathcal L_XY)_p=[X,Y]_p.$$
+>>5. Se calculan ambos lados y se prueba que son iguales.
+>>6. Supongamos primero que $X_p\neq0$.
+>>7. Por el teorema de rectificación de campos, existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que $$X=\frac{\partial}{\partial x_1}.$$
+>>8. Escribimos $$Y=\sum_{j=1}^n a_j\frac{\partial}{\partial x_j},$$ con $a_1,\ldots,a_n$ funciones suaves sobre $U$.
+>>9. Entonces $$[X,Y]=\left[\frac{\partial}{\partial x_1},\sum_{j=1}^n a_j\frac{\partial}{\partial x_j}\right]=\sum_{j=1}^n a_j\left[\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_j}\right]+\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}\frac{\partial}{\partial x_j}.$$
+>>10. Como los campos coordenados conmutan, $$\left[\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_j}\right]=0.$$
+>>11. Por lo tanto, $$[X,Y]_p=\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}(p)\frac{\partial}{\partial x_j}\bigg|_p.$$
+>>12. Por otro lado, consideremos la curva suave $$\alpha(t)=(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\in T_pM.$$
+>>13. Queremos calcular $$\alpha'(0)\in T_{\alpha(0)}(T_pM)\simeq T_pM.$$
+>>14. Entonces $$\alpha'(0)=\sum_{j=1}^n c_j\frac{\partial}{\partial x_j}\bigg|_p,$$ donde $$c_j=\alpha'(0)(x_j).$$
+>>15. Por el lema previo, $$\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)(x_j).$$
+>>16. Luego $$\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}\left((d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\right)(x_j).$$
+>>17. Por definición de diferencial, $$\left((d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\right)(x_j)=Y_{\theta_t(p)}(x_j\circ\theta_{-t}).$$
+>>18. Como $$Y_{\theta_t(p)}=\sum_{i=1}^n a_i(\theta_t(p))\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)},$$ tenemos $$Y_{\theta_t(p)}(x_j\circ\theta_{-t})=\sum_{i=1}^n a_i(\theta_t(p))\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)}(x_j\circ\theta_{-t}).$$
+>>19. En estas coordenadas, como $X=\frac{\partial}{\partial x_1}$, el flujo satisface $$x_j\circ\theta_{-t}=x_j-t\delta_{1j}.$$
+>>20. Por lo tanto, $$\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)}(x_j\circ\theta_{-t})=\delta_{ij}.$$
+>>21. Así, $$Y_{\theta_t(p)}(x_j\circ\theta_{-t})=a_j(\theta_t(p)).$$
+>>22. Entonces $$\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}a_j(\theta_t(p))=X_pa_j=\frac{\partial a_j}{\partial x_1}(p).$$
+>>23. El igual del medio se justifica así: si $v\in T_pM$ y $\gamma$ es una curva con $\gamma(0)=p$ y $\gamma'(0)=v$, entonces $$v(f)=\frac{d}{dt}\bigg|_{t=0}f(\gamma(t)).$$
+>>24. Por lo tanto, $$\alpha'(0)=\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}(p)\frac{\partial}{\partial x_j}\bigg|_p=[X,Y]_p.$$
+>>25. Ahora supongamos que $X_p=0$.
+>>26. En este caso, la curva integral de $X$ que parte de $p$ es constante, luego $$\theta_t(p)=p.$$
+>>27. Entonces la curva queda $$\alpha(t)=(d\theta_{-t})_pY_p.$$
+>>28. Para toda $f\in C^\infty(M)$, $$\alpha'(0)(f)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)(f)=\frac{d}{dt}\bigg|_{t=0}Y_p(f\circ\theta_{-t}).$$
+>>29. Como $Y_p$ es una derivación fija, $$\alpha'(0)(f)=Y_p\left(\frac{d}{dt}\bigg|_{t=0}f\circ\theta_{-t}\right).$$
+>>30. Pero $$\frac{d}{dt}\bigg|_{t=0}f(\theta_{-t}(q))=-X_qf.$$
+>>31. Es decir, $$\frac{d}{dt}\bigg|_{t=0}f\circ\theta_{-t}=-Xf.$$
+>>32. Por lo tanto, $$\alpha'(0)(f)=-Y_p(Xf).$$
+>>33. Como $X_p=0$, también $$[X,Y]_pf=X_p(Yf)-Y_p(Xf)=-Y_p(Xf).$$
+>>34. Así, $$\alpha'(0)(f)=[X,Y]_pf.$$
+>>35. Como esto vale para toda $f\in C^\infty(M)$, concluimos que $$\alpha'(0)=[X,Y]_p.$$
+>>36. Por lo tanto, $$(\mathcal L_XY)_p=[X,Y]_p.$$
 
 >[!Proposition] Criterio de conmutación de flujos (Hulet 9.15)
 >Sean $X,Y\in\mathfrak X(M)$ tales que $[X,Y]=0$ y sean $\theta,\phi$ los flujos respectivos. Dado $p\in M$, sean $U$ y $\delta$ los del [[GS - Teo19#^39cc9a|Uniformidad conjunta para dos flujos]]. Entonces:
 >- **(i)** $(d\theta_s)_qY_q=Y_{\theta_s(q)}$ con $q\in U$ para $s\in(-\delta,\delta)$.
 >- **(ii)** $\theta_t\circ\phi_s=\phi_s\circ\theta_t$ en $U$ para $t,s\in(-\delta,\delta)$.
+>
 >>[!Proof]- Demostracion
 >>- (i)
 >>1. Recordemos la fórmula $$[X,Y](p)=\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(p)}\big(Y_{\theta_t(p)}\big),\qquad p\in M.$$
@@ -570,6 +594,7 @@
 
 >[!Proposition] (Hulet 9.16)
 >Sean $X,Y\in\mathfrak{X}(M)$, cuyos flujos conmutan. Entonces $$[X,Y]=0.$$
+>
 >>[!Proof]- Demostracion
 >>1. Sean $\theta$ y $\phi$ los flujos de $X$ e $Y$, respectivamente. Fijemos $p\in M$. Por el lema de uniformidad conjunta de los flujos, existen un abierto $U$ que contiene a $p$ y $\delta>0$ tales que, para $|s|,|t|<\delta$, las composiciones $\theta_t\circ\phi_s$ y $\phi_s\circ\theta_t$ están definidas en $U$.
 >>2. Como los flujos conmutan, para $|s|,|t|<\delta$ se cumple $$\theta_t(\phi_s(p))=\phi_s(\theta_t(p)).$$
@@ -583,24 +608,25 @@
 >Sean $X_1,\ldots,X_k\in\mathfrak X(M)$ linealmente independientes en un abierto de $M$ en $p$ tales que $$[X_{i},X_{j}]=0\quad 1\leq i,j\leq k$$
 >Entonces existe un sistema coordenado $(U,\varphi=(x_1,\ldots,x_n))$ centrado en $p$ tal que
 >$$X_1|_U=\frac{\partial}{\partial x_1},\ldots,\qquad X_k|_U=\frac{\partial}{\partial x_k}$$
+>
 >>[!Proof]- Demostracion
->>1. Por [[GS - Teo19#^39cc9a|Uniformidad conjunta para dos flujos]]. Existe $\varepsilon>0$ y un abierto $V$ de $p$ tal que la composición
+>>8. Por [[GS - Teo19#^39cc9a|Uniformidad conjunta para dos flujos]]. Existe $\varepsilon>0$ y un abierto $V$ de $p$ tal que la composición
 >>$$\theta^{1}_{t_1}\circ\cdots\circ\theta^k_{t_k}$$
 >>está bien definida sobre $V$ para todos $t_1,\ldots,t_k\in(-\varepsilon,\varepsilon)$.
->>2. Como los campos son linealmente independientes. Achicando $V$ si hace falta, tomamos una carta cúbica centrada en $p$, $$(V,\psi=(x_1,\ldots,x_n)),$$tal que $$\left.\frac{\partial}{\partial x_i}\right|_p=X_i|_p,\qquad i=1,\ldots,k.$$ por [[GS - Teo18#^047506|Lema]]
->>3. Nos enfocamos en la rebanada $$R=\{(r_1,\ldots,r_n)\in C_{\epsilon}^{n} (0):r_1=\cdots=r_k=0\}\simeq C_{\epsilon}^{n-k} (0)\subseteq \psi(V)$$que tiene dimensión $n-k$.
->>4. Armamos el mapa $$\sigma:(-\varepsilon,\varepsilon)^k\times C_{\epsilon}^{n-k}\subseteq \mathbb{R}^{n}  \to M$$por $$\sigma(t_1,\ldots,t_k,r^{k+1},\ldots,r^{n}  )=\theta^1_{t_1}\circ\cdots\circ\theta^k_{t_k}(\psi^{-1}(0,\ldots 0,r^{k+1},\ldots,r^{n}  )).$$ Notar que esto este bien definido por que al ser carta cubica $\psi ^{-1}(0,\ldots,0,r^{k+1},\ldots r^{n})$ cae en $V$ 
->>5. Como en la vez anterior, vamos a ver que $\sigma$ es un difeomorfismo entre un abierto de $\mathbb{R}^n$ y un abierto de $M$ que contiene a $p$, mostrando que $$(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)=\begin{cases} X_i|_p, & i=1,\ldots,k,\\[4pt] \left.\dfrac{\partial}{\partial x^i}\right|_p, & i>k.\end{cases}$$
->>6. En efecto, si $i\leq k$, $$\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial t^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1}_{0}\circ\cdots\circ\theta^{i}_{s}\circ\cdots\circ\theta^{k}_{0}\right)\left(\psi^{-1}(0,\ldots,0)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i}_{s}(p)\\&=X_i|_p\end{aligned}$$
->>7. Si $i>k$, $$\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}(\theta^{1}_{0}\circ\cdots\circ\theta^{k}_{0})(\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)\\&=\left.\frac{\partial}{\partial x^i}\right|_p\end{aligned}$$ este ultimo igual sale rapido escribiendo a $(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)$ en coordenadas del $T_{\phi ^{-1}(0)}M$ 
->>8. Ahora notamos que por paso 2. $$\left\{ X_{1}|_{p},\ldots,X_{k}|_{p},\frac{\partial}{\partial x^{k+1}}\bigg|_{p},\ldots, \frac{\partial}{\partial x^{n}}|_{p}\right\}=\left\{ \frac{\partial}{\partial x^{n}}\bigg|_{p},\ldots, \frac{\partial}{\partial x^{k}}\bigg|_{p} , \frac{\partial}{\partial x^{k+1}}|_{p}\ldots\frac{\partial}{\partial x^{n}}\bigg|_{p} \right\}$$
->>9. Entonces $(d\sigma)_{0}$ es isomorfismo lineal por que manda base $\{ \frac{\partial}{\partial r_{i}} \}_{i<n}$ (notar aca llamo $t_{i}:=r^{i}$ es solo notacion para cordenadas en $\mathbb{R}$) en una base $\{ \frac{\partial}{\partial x^{n}}|_{p},\ldots, \frac{\partial}{\partial x^{k}}|_{p} , \frac{\partial}{\partial x^{k+1}}|_{p}\ldots\frac{\partial}{\partial x^{n}}|_{p} \}$ 
->>10. Estamos entonces en condiciones de aplicar el Teorema de la Función Inversa. Existe un abierto $\widetilde U\subseteq\mathbb{R}^n$ que contiene a $0$ y un abierto $U\subseteq M$ que contiene a $p$ tales que $$\sigma|_{\widetilde U}:\widetilde U\longrightarrow U$$es un difeomorfismo.
->>11. Como $\sigma$ es un difeomorfismo entre $\widetilde U$ y $U$, llamamos $\sigma^{-1}=\varphi$, de modo que $(U,\varphi=y^{1},\ldots,y^{i})$ es una carta coordenada.
->>12. Recordamos nuestro objetivo es probar que $$X_i|_U=\frac{\partial}{\partial y^i},\qquad i=1,\ldots,k.$$
->>13. Equivalentemente, queremos ver que para todo $(r^1,\ldots,r^n)\in\widetilde U$, e $1\leq i\leq k$  $$(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(X_i)_{\sigma(r^1,\ldots,r^n)}.$$ por que si esto es cierto usamos que $$(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(d\varphi ^{-1})_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=\frac{\partial}{\partial y^{i} }\bigg|_{\varphi ^{-1}(r)=\sigma(r)}$$
->>14. Primero notemos que, como $$[X_i,X_j]=0$$los flujos conmutan localmente por [[GS - Teo19#^26db5d|Criterio de conmutación de flujos (Hulet 9.15)]]
->>15. Fijemos $1\leq i\leq k$. Entonces $$\begin{aligned}(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(r^1,\ldots,r^i+s,\ldots,r^n)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i+s}\circ\cdots\circ\theta_{k,r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i}\circ\theta^{i} _{s}\circ\cdots\circ\theta^{k} _{r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i} _{s}\left(\sigma(r^1,\ldots,r^n)\right)\\&=(X_i)_{\sigma(r^1,\ldots,r^n)}.\end{aligned}$$ donde usamos que los flujos conmutan
+>>9. Como los campos son linealmente independientes. Achicando $V$ si hace falta, tomamos una carta cúbica centrada en $p$, $$(V,\psi=(x_1,\ldots,x_n)),$$tal que $$\left.\frac{\partial}{\partial x_i}\right|_p=X_i|_p,\qquad i=1,\ldots,k.$$ por [[GS - Teo18#^047506|Lema]]
+>>10. Nos enfocamos en la rebanada $$R=\{(r_1,\ldots,r_n)\in C_{\epsilon}^{n} (0):r_1=\cdots=r_k=0\}\simeq C_{\epsilon}^{n-k} (0)\subseteq \psi(V)$$que tiene dimensión $n-k$.
+>>11. Armamos el mapa $$\sigma:(-\varepsilon,\varepsilon)^k\times C_{\epsilon}^{n-k}\subseteq \mathbb{R}^{n}  \to M$$por $$\sigma(t_1,\ldots,t_k,r^{k+1},\ldots,r^{n}  )=\theta^1_{t_1}\circ\cdots\circ\theta^k_{t_k}(\psi^{-1}(0,\ldots 0,r^{k+1},\ldots,r^{n}  )).$$ Notar que esto este bien definido por que al ser carta cubica $\psi ^{-1}(0,\ldots,0,r^{k+1},\ldots r^{n})$ cae en $V$ 
+>>12. Como en la vez anterior, vamos a ver que $\sigma$ es un difeomorfismo entre un abierto de $\mathbb{R}^n$ y un abierto de $M$ que contiene a $p$, mostrando que $$(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)=\begin{cases} X_i|_p, & i=1,\ldots,k,\\[4pt] \left.\dfrac{\partial}{\partial x^i}\right|_p, & i>k.\end{cases}$$
+>>13. En efecto, si $i\leq k$, $$\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial t^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1}_{0}\circ\cdots\circ\theta^{i}_{s}\circ\cdots\circ\theta^{k}_{0}\right)\left(\psi^{-1}(0,\ldots,0)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i}_{s}(p)\\&=X_i|_p\end{aligned}$$
+>>14. Si $i>k$, $$\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}(\theta^{1}_{0}\circ\cdots\circ\theta^{k}_{0})(\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)\\&=\left.\frac{\partial}{\partial x^i}\right|_p\end{aligned}$$ este ultimo igual sale rapido escribiendo a $(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)$ en coordenadas del $T_{\phi ^{-1}(0)}M$ 
+>>15. Ahora notamos que por paso 2. $$\left\{ X_{1}|_{p},\ldots,X_{k}|_{p},\frac{\partial}{\partial x^{k+1}}\bigg|_{p},\ldots, \frac{\partial}{\partial x^{n}}|_{p}\right\}=\left\{ \frac{\partial}{\partial x^{n}}\bigg|_{p},\ldots, \frac{\partial}{\partial x^{k}}\bigg|_{p} , \frac{\partial}{\partial x^{k+1}}|_{p}\ldots\frac{\partial}{\partial x^{n}}\bigg|_{p} \right\}$$
+>>16. Entonces $(d\sigma)_{0}$ es isomorfismo lineal por que manda base $\{ \frac{\partial}{\partial r_{i}} \}_{i<n}$ (notar aca llamo $t_{i}:=r^{i}$ es solo notacion para cordenadas en $\mathbb{R}$) en una base $\{ \frac{\partial}{\partial x^{n}}|_{p},\ldots, \frac{\partial}{\partial x^{k}}|_{p} , \frac{\partial}{\partial x^{k+1}}|_{p}\ldots\frac{\partial}{\partial x^{n}}|_{p} \}$ 
+>>17. Estamos entonces en condiciones de aplicar el Teorema de la Función Inversa. Existe un abierto $\widetilde U\subseteq\mathbb{R}^n$ que contiene a $0$ y un abierto $U\subseteq M$ que contiene a $p$ tales que $$\sigma|_{\widetilde U}:\widetilde U\longrightarrow U$$es un difeomorfismo.
+>>18. Como $\sigma$ es un difeomorfismo entre $\widetilde U$ y $U$, llamamos $\sigma^{-1}=\varphi$, de modo que $(U,\varphi=y^{1},\ldots,y^{i})$ es una carta coordenada.
+>>19. Recordamos nuestro objetivo es probar que $$X_i|_U=\frac{\partial}{\partial y^i},\qquad i=1,\ldots,k.$$
+>>20. Equivalentemente, queremos ver que para todo $(r^1,\ldots,r^n)\in\widetilde U$, e $1\leq i\leq k$  $$(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(X_i)_{\sigma(r^1,\ldots,r^n)}.$$ por que si esto es cierto usamos que $$(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(d\varphi ^{-1})_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=\frac{\partial}{\partial y^{i} }\bigg|_{\varphi ^{-1}(r)=\sigma(r)}$$
+>>21. Primero notemos que, como $$[X_i,X_j]=0$$los flujos conmutan localmente por [[GS - Teo19#^26db5d|Criterio de conmutación de flujos (Hulet 9.15)]]
+>>22. Fijemos $1\leq i\leq k$. Entonces $$\begin{aligned}(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(r^1,\ldots,r^i+s,\ldots,r^n)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i+s}\circ\cdots\circ\theta_{k,r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i}\circ\theta^{i} _{s}\circ\cdots\circ\theta^{k} _{r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i} _{s}\left(\sigma(r^1,\ldots,r^n)\right)\\&=(X_i)_{\sigma(r^1,\ldots,r^n)}.\end{aligned}$$ donde usamos que los flujos conmutan
 
 ## Conjunto de formas diferenciales
 
@@ -610,42 +636,44 @@
 >- (a) $\omega$ es suave.
 >- (b) Para toda carta $(U,\varphi=(x_1,\ldots,x_n))$, las coordenadas de $\omega$ con respecto al marco coordenado $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}_{1\le i_1<\cdots<i_k\le n}$ son funciones suaves.
 >- (c) Para cualquier $k$ campos suaves $X_1,\ldots,X_k\in\mathfrak X(M)$, la funcion $\omega(X_1,\ldots,X_k)\in C^\infty(M)$.
->>[!Proof]- Demostracion
+>
+>>[!Proof]-
 >>- $(a\Rightarrow b)$.
->>1. Supongamos que $\omega:M\to\Lambda^k(T^*M)$ es suave.
->>2. Sea $(U,\varphi=(x^1,\ldots,x^n))$ una carta de $M$.
->>3. Esta carta induce una carta $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$, donde $\widetilde U=\pi^{-1}(U)$. Usamos la notación de multiíndices $I=(i_1,\ldots,i_k)$, con $i_1<\cdots<i_k$, y escribimos $dx^I=dx^{i_1}\wedge\cdots\wedge dx^{i_k}$. La carta inducida está dada por $$\widetilde\varphi\left(\sum_I C_I\,dx^I|_p\right)=\left(x^1(p),\ldots,x^n(p),(C_I)_I\right).$$
->>4. Como $\omega$ es suave, su restricción $\omega|_U:U\to\widetilde U$ es suave. Por lo tanto, como $\widetilde\varphi$ es suave, la composición $$\widetilde\varphi\circ\omega|_U:U\to\mathbb R^{n+\binom nk}$$es suave.
->>5. Escribimos, para cada $p\in U$, $$\omega_p=\sum_I C_I(p)\,dx^I|_p.$$
->>6. Entonces $$(\widetilde\varphi\circ\omega|_U)(p)=\left(x^1(p),\ldots,x^n(p),(C_I(p))_I\right).$$
->>7. Como $\widetilde\varphi\circ\omega|_U$ es suave, todas sus funciones coordenadas son suaves. En particular, para cada multiíndice $I=(i_1,\ldots,i_k)$ con $1\le i_1<\cdots<i_k\le n$, la función $C_I:U\to\mathbb R$ es suave.
->>8. Como la carta $(U,\varphi)$ era arbitraria, las coordenadas $C_I$ de $\omega$ respecto de todo marco coordenado $\{dx^I\}_I$ son funciones suaves.
+>>	1. Supongamos que $\omega:M\to\Lambda^k(T^*M)$ es suave.
+>>	2. Sea $(U,\varphi=(x^1,\ldots,x^n))$ una carta de $M$.
+>>	3. Esta carta induce una carta $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$, donde $\widetilde U=\pi^{-1}(U)$. Usamos la notación de multiíndices $I=(i_1,\ldots,i_k)$, con $i_1<\cdots<i_k$, y escribimos $dx^I=dx^{i_1}\wedge\cdots\wedge dx^{i_k}$. La carta inducida está dada por $$\widetilde\varphi\left(\sum_I C_I\,dx^I|_p\right)=\left(x^1(p),\ldots,x^n(p),(C_I)_I\right).$$
+>>	4. Como $\omega$ es suave, su restricción $\omega|_U:U\to\widetilde U$ es suave. Por lo tanto, como $\widetilde\varphi$ es suave, la composición $$\widetilde\varphi\circ\omega|_U:U\to\mathbb R^{n+\binom nk}$$es suave.
+>>	5. Escribimos, para cada $p\in U$, $$\omega_p=\sum_I C_I(p)\,dx^I|_p.$$
+>>	6. Entonces $$(\widetilde\varphi\circ\omega|_U)(p)=\left(x^1(p),\ldots,x^n(p),(C_I(p))_I\right).$$
+>>	7. Como $\widetilde\varphi\circ\omega|_U$ es suave, todas sus funciones coordenadas son suaves. En particular, para cada multiíndice $I=(i_1,\ldots,i_k)$ con $1\le i_1<\cdots<i_k\le n$, la función $C_I:U\to\mathbb R$ es suave.
+>>	8. Como la carta $(U,\varphi)$ era arbitraria, las coordenadas $C_I$ de $\omega$ respecto de todo marco coordenado $\{dx^I\}_I$ son funciones suaves.
 >>- $(b\Rightarrow a)$.
->>1. Supongamos que, para toda carta $(U,\varphi=(x^1,\ldots,x^n))$, las coordenadas $C_I:U\to\mathbb R$ de $\omega$ son funciones suaves.
->>2. Fijemos una de estas cartas y consideremos la carta inducida $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$, con $\widetilde U=\pi^{-1}(U)$.
->>3. Para cada $p\in U$, escribimos $$\omega_p=\sum_I C_I(p)\,dx^I|_p.$$
->>4. Por la definición de la carta inducida, $$(\widetilde\varphi\circ\omega|_U)(p)=\left(x^1(p),\ldots,x^n(p),(C_I(p))_I\right).$$
->>5. Las funciones $x^1,\ldots,x^n$ son suaves y, por hipótesis, todas las funciones $C_I$ son suaves. Por lo tanto, $\widetilde\varphi\circ\omega|_U$ es suave.
->>6. Como $\widetilde\varphi$ es una carta, concluimos que $\omega|_U:U\to\widetilde U$ es suave.
->>7. Como esto vale para toda carta $(U,\varphi)$ de $M$, concluimos que $\omega:M\to\Lambda^k(T^*M)$ es suave.
->>- $(b\Rightarrow c)$ 
->>1. Tomamos un $p\in M$ ahora tenemos $(U,\phi=x_{1},\ldots,x_{n})$ carta entonces por (b) $$\omega|_U=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\cdots i_k}\in C^\infty(U)$$
->>2. Ademas $$X_{i}=\sum^{n}_{j=1}a_{ij}\frac{\partial}{\partial x_{j}}$$ 
->>3. Luego $$\omega|_{U}(X_{1},\ldots X_{k})=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)$$
->>4. Ahora notamos que $$\begin{align} dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)&=\det\left( dx_{i_{r}}\left( \sum^{n}_{j=1}a_{sj}\frac{\partial}{\partial x_{j}} \right) \right)_{r,s=1}^{k} \\ & =\det\left( \sum^{n}_{j=1} a_{sj}dx_{i_{r}}\left(\frac{\partial}{\partial x_{j}}\right) \right)_{r,s=1}^{k}\\&=\det(a_{s i_{r}})_{r,s=1}^{k} \end{align}$$
->>5. Pero entonces $$\omega|_{U}(X_{1},\ldots,X_{k})(p)=(\omega|_{U})_{p}(X_{1},\ldots,X_{k})=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(p)\det(a_{s i_{r}}(p))$$ 
->>6. Pero $C_{i_{1}\ldots i_{k}}$ es suave como funcion de $p$ por hipotesis, lo mismo para $\det(a_{s i_{r}})_{r,s=1}^{k}$ como funcion de $p$ por que $X_{i}$ son campos suaves. Y $\det$ es un polinomio de sus entradas.
->>7. Entonces $\omega|_{U}(X_{1},\ldots,X_{k})(p)$ es suave y obviamente como esto lo podemos hacer para cualquier $p$ tenemosq ue $$\omega(X_{1},\ldots,X_{k})(p)$$ es suave
+>>	1. Supongamos que, para toda carta $(U,\varphi=(x^1,\ldots,x^n))$, las coordenadas $C_I:U\to\mathbb R$ de $\omega$ son funciones suaves.
+>>	2. Fijemos una de estas cartas y consideremos la carta inducida $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$, con $\widetilde U=\pi^{-1}(U)$.
+>>	3. Para cada $p\in U$, escribimos $$\omega_p=\sum_I C_I(p)\,dx^I|_p.$$
+>>	4. Por la definición de la carta inducida, $$(\widetilde\varphi\circ\omega|_U)(p)=\left(x^1(p),\ldots,x^n(p),(C_I(p))_I\right).$$
+>>	5. Las funciones $x^1,\ldots,x^n$ son suaves y, por hipótesis, todas las funciones $C_I$ son suaves. Por lo tanto, $\widetilde\varphi\circ\omega|_U$ es suave.
+>>	6. Como $\widetilde\varphi$ es una carta, concluimos que $\omega|_U:U\to\widetilde U$ es suave.
+>>	7. Como esto vale para toda carta $(U,\varphi)$ de $M$, concluimos que $\omega:M\to\Lambda^k(T^*M)$ es suave.
+>>	- $(b\Rightarrow c)$ 
+>>	1. Tomamos un $p\in M$ ahora tenemos $(U,\phi=x_{1},\ldots,x_{n})$ carta entonces por (b) $$\omega|_U=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\cdots i_k}\in C^\infty(U)$$
+>>	2. Ademas $$X_{i}=\sum^{n}_{j=1}a_{ij}\frac{\partial}{\partial x_{j}}$$ 
+>>	3. Luego $$\omega|_{U}(X_{1},\ldots X_{k})=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)$$
+>>	4. Ahora notamos que $$\begin{align} dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)&=\det\left( dx_{i_{r}}\left( \sum^{n}_{j=1}a_{sj}\frac{\partial}{\partial x_{j}} \right) \right)_{r,s=1}^{k} \\ & =\det\left( \sum^{n}_{j=1} a_{sj}dx_{i_{r}}\left(\frac{\partial}{\partial x_{j}}\right) \right)_{r,s=1}^{k}\\&=\det(a_{s i_{r}})_{r,s=1}^{k} \end{align}$$
+>>	5. Pero entonces $$\omega|_{U}(X_{1},\ldots,X_{k})(p)=(\omega|_{U})_{p}(X_{1},\ldots,X_{k})=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(p)\det(a_{s i_{r}}(p))$$ 
+>>	6. Pero $C_{i_{1}\ldots i_{k}}$ es suave como funcion de $p$ por hipotesis, lo mismo para $\det(a_{s i_{r}})_{r,s=1}^{k}$ como funcion de $p$ por que $X_{i}$ son campos suaves. Y $\det$ es un polinomio de sus entradas.
+>>	7. Entonces $\omega|_{U}(X_{1},\ldots,X_{k})(p)$ es suave y obviamente como esto lo podemos hacer para cualquier $p$ tenemosq ue $$\omega(X_{1},\ldots,X_{k})(p)$$ es suave
 >>- $(c\Rightarrow b)$ 
->>1. Tomamos una carta $(U,x_{1},\ldots,x_{n})$ como $B_k=\{dx_{i_1}|_p\wedge\cdots\wedge dx_{i_k}|_p:1\le i_1<\cdots<i_k\le n\}$ es base de $\Lambda^{k}(T_{p}^{*}M)$ tenemos $$\omega|_{U}=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}\ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}$$ con $C_{i_{1}\ldots i_{k}}:U \rightarrow\mathbb{R}$. Bastaria mostrar que son suaves
->>2. Ahora tenemos que $$\begin{align}\omega|_{U}\left(\frac{\partial}{\partial x_{j_{1}}},\ldots, \frac{\partial}{\partial x_{j_{k}}}\right)(p)& =\omega_{p}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=\sum^{\infty}_{i_{1}<\ldots<i_{k}}C_{i_{1}\ldots i_{k}}(p) \ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=C_{I}(p)\end{align}$$ con $I=J$ osea el unico caso donde el determinante no es $0$ que es cuando coinciden los multi indices, $j_{1}=i_{1}\ldots j_{k}=i_{k}$    
->>3. Ahora lo unico que tenemos que corregir es que $\frac{\partial}{\partial x_{i}}$ son campos suaves sobre $U$  y para usar la hipotesis las necesito suaves sobre $M$ 
->>4. Tomamos $q\in U$ y ahora tenemos $V_{q}\subseteq U$ abierto de $q$ y $f\in C^{\infty}(M)$ tal que $f|_{\overline{V_{q}}}\equiv 1$ y $\operatorname{supp}f\subseteq U$ y defino $$X_{i}(p)=\begin{cases} f(p)\frac{\partial}{\partial x_{i}}\bigg|_{p} & p\in U \\0 & x\not\in U \end{cases}$$ que sabemos es un campo suave sobre todo $M$ y cerca de $p$ (osea en algun abierto dentro de $\overline{V_{q}}$, por ejemplo $V_{q}$ ) vale exactamente $\frac{\partial}{\partial x_{i}}\bigg|_{q}$ 
->>5. Luego haciendo la misma cuenta que en 2. pero con $X_{i}$ tenemos que $$\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(q)$$ es suave para todo $q\in V_{p}$ 
->>6. Y como esto lo podemos hacer para cualquier $q\in U$ es suave en todo $U$ como queriamos
+>>	1. Tomamos una carta $(U,x_{1},\ldots,x_{n})$ como $B_k=\{dx_{i_1}|_p\wedge\cdots\wedge dx_{i_k}|_p:1\le i_1<\cdots<i_k\le n\}$ es base de $\Lambda^{k}(T_{p}^{*}M)$ tenemos $$\omega|_{U}=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}\ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}$$ con $C_{i_{1}\ldots i_{k}}:U \rightarrow\mathbb{R}$. Bastaria mostrar que son suaves
+>>	2. Ahora tenemos que $$\begin{align}\omega|_{U}\left(\frac{\partial}{\partial x_{j_{1}}},\ldots, \frac{\partial}{\partial x_{j_{k}}}\right)(p)& =\omega_{p}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=\sum^{\infty}_{i_{1}<\ldots<i_{k}}C_{i_{1}\ldots i_{k}}(p) \ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=C_{I}(p)\end{align}$$ con $I=J$ osea el unico caso donde el determinante no es $0$ que es cuando coinciden los multi indices, $j_{1}=i_{1}\ldots j_{k}=i_{k}$    
+>>	3. Ahora lo unico que tenemos que corregir es que $\frac{\partial}{\partial x_{i}}$ son campos suaves sobre $U$  y para usar la hipotesis las necesito suaves sobre $M$ 
+>>	4. Tomamos $q\in U$ y ahora tenemos $V_{q}\subseteq U$ abierto de $q$ y $f\in C^{\infty}(M)$ tal que $f|_{\overline{V_{q}}}\equiv 1$ y $\operatorname{supp}f\subseteq U$ y defino $$X_{i}(p)=\begin{cases} f(p)\frac{\partial}{\partial x_{i}}\bigg|_{p} & p\in U \\0 & x\not\in U \end{cases}$$ que sabemos es un campo suave sobre todo $M$ y cerca de $p$ (osea en algun abierto dentro de $\overline{V_{q}}$, por ejemplo $V_{q}$ ) vale exactamente $\frac{\partial}{\partial x_{i}}\bigg|_{q}$ 
+>>	5. Luego haciendo la misma cuenta que en 2. pero con $X_{i}$ tenemos que $$\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(q)$$ es suave para todo $q\in V_{p}$ 
+>>	6. Y como esto lo podemos hacer para cualquier $q\in U$ es suave en todo $U$ como queriamos
 
 >[!Proposition] Ejercicio del practico
 >Probar que si $\omega\in\Omega^k(M)$ y $\eta\in\Omega^\ell(M)$, entonces $\omega\wedge\eta\in\Omega^{k+\ell}(M)$.
+>
 >>[!Proof]- Demostracion
 >>1. En coordenadas, escribimos $$\omega=\sum_I a_I\,dx^I,\qquad \eta=\sum_J b_J\,dx^J,$$ con $a_I,b_J$ funciones suaves.
 >>2. Entonces $$\omega\wedge\eta=\sum_{I,J}a_Ib_J\,dx^I\wedge dx^J.$$
@@ -655,6 +683,7 @@
 >[!Lemma] La diferencial exterior es local, lema previo
 >Sea $d:\Omega^*(M)\to\Omega^*(M)$ satisfaciendo (i)-(iv). Sean $\omega_1,\omega_2\in\Omega^*(M)$ tales que coinciden en un abierto $U$ de $M$. Entonces
 >$$(d\omega_1)|_U=(d\omega_2)|_U.$$
+>
 >>[!Proof]- Demostracion
 >>1. Como $d$ es transformacion lineal, podemos mirar $\omega=\omega_1-\omega_2$ y asi es suficiente con ver que si $\omega|_U=0$ (Osea $\omega_{1}$ y $\omega_{2}$ coinciden en $U$ abierto), entonces $(d\omega)|_U=0$. Con lo cual se cumpliria la igualdad pedida
 >>2. Aca hacemos un truco clasico de tensores y es volver todo cero usando una funcion de levantamiento.
@@ -675,6 +704,7 @@
 >3. Si $\omega\in\Omega^k(M)$ y $\theta\in\Omega(M)$, entonces
 >$$d(\omega\wedge\theta)=(d\omega)\wedge\theta+(-1)^k\omega\wedge d\theta.$$
 >4. $d^2=0$.
+>
 >>[!Proof]- Demostracion
 >>- **Unicidad**
 >>1. La idea de la prueba es construir $d$ de forma local, usando las condiciones que debemos satisfacer: (ii)-(iv). Hacemos ingenieria inversa para saber como deberia ser $d$, localmente. Primero, notemos:
@@ -722,72 +752,71 @@
 >- (a) Si $\omega\in\Omega^k(N)$, entonces $F^*\omega\in\Omega^k(M)$, y $F^*:\Omega^k(N)\to\Omega^k(M)$ es transf. lineal.
 >- (b) $F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta)$.
 >- (c) $F^*(d_N\omega)=d_MF^*\omega$.
+>
 >>[!Proof]- Ejercicio
 >>- $(a)$
->>1. Probemos que la sección $p\mapsto(F^*\omega)_p$ es suave. Fijemos $p\in M$ y tomemos cartas $(U,x)$ de $M$ alrededor de $p$ y $(V,y)$ de $N$ alrededor de $F(p)$, achicando $U$ de modo que $F(U)\subseteq V$. En $V$ escribimos $$\omega=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k},$$ donde cada $a_I$ es suave. Afirmamos que sobre $U$ se cumple $$F^*\omega=\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).$$
->>
->>2. Para verificar esta igualdad, sean $q\in U$ y $v_1,\ldots,v_k\in T_qM$. Por definición del pullback, $$\begin{aligned}(F^*\omega)_q(v_1,\ldots,v_k)&=\omega_{F(q)}\bigl((dF)_q(v_1),\ldots,(dF)_q(v_k)\bigr)\\&=\sum_I a_I(F(q))(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}\bigl((dF)_q(v_1),\ldots,(dF)_q(v_k)\bigr).\end{aligned}$$
->>
->>3. Por definición del producto wedge de $1$-formas, $$(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}\bigl((dF)_q(v_1),\ldots,(dF)_q(v_k)\bigr)=\det\left(dy^{i_r}_{F(q)}\bigl((dF)_q(v_s)\bigr)\right)_{r,s}.$$
->>
->>4. Por la regla de la cadena, $dy^{i_r}_{F(q)}\circ(dF)_q=d(y^{i_r}\circ F)_q$. Por tanto, $$\begin{aligned}\det\left(dy^{i_r}_{F(q)}\bigl((dF)_q(v_s)\bigr)\right)_{r,s}&=\det\left(d(y^{i_r}\circ F)_q(v_s)\right)_{r,s}\\&=\bigl(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\bigr)_q(v_1,\ldots,v_k).\end{aligned}$$
->>
->>5. Sustituyendo, obtenemos $$\begin{aligned}(F^*\omega)_q(v_1,\ldots,v_k)&=\sum_I(a_I\circ F)(q)\bigl(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\bigr)_q(v_1,\ldots,v_k)\\&=\left(\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right)_q(v_1,\ldots,v_k).\end{aligned}$$
->>
->>6. Como esto vale para todo $q\in U$ y todos $v_1,\ldots,v_k\in T_qM$, concluimos que $$F^*\omega=\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)$$ sobre $U$.
->>
->>7. Cada función $a_I\circ F$ es suave y cada $d(y^{i_r}\circ F)$ es una $1$-forma suave. Por lo tanto, el lado derecho es una $k$-forma suave sobre $U$. Como $p$ era arbitrario, $F^*\omega\in\Omega^k(M)$.
->>
->>8. Finalmente, sean $\omega,\eta\in\Omega^k(N)$ y $a,b\in\mathbb R$. Para todo $p\in M$ y $v_1,\ldots,v_k\in T_pM$, $$\begin{aligned}\bigl(F^*(a\omega+b\eta)\bigr)_p(v_1,\ldots,v_k)&=(a\omega+b\eta)_{F(p)}\bigl((dF)_p(v_1),\ldots,(dF)_p(v_k)\bigr)\\&=a\,\omega_{F(p)}\bigl((dF)_p(v_1),\ldots,(dF)_p(v_k)\bigr)\\&\quad+b\,\eta_{F(p)}\bigl((dF)_p(v_1),\ldots,(dF)_p(v_k)\bigr)\\&=\bigl(aF^*\omega+bF^*\eta\bigr)_p(v_1,\ldots,v_k).\end{aligned}$$ Luego $F^*(a\omega+b\eta)=aF^*\omega+bF^*\eta$, por lo que $F^*$ es lineal.
+>>	1. Probemos que la sección $p\mapsto(F^*\omega)_p$ es suave. Fijemos $p\in M$ y tomemos cartas $(U,x)$ de $M$ alrededor de $p$ y $(V,y)$ de $N$ alrededor de $F(p)$, achicando $U$ de modo que $F(U)\subseteq V$. En $V$ escribimos $$\omega=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k},$$ donde cada $a_I$ es suave. Afirmamos que sobre $U$ se cumple $$F^*\omega=\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).$$
+>>	
+>>	2. Para verificar esta igualdad, sean $q\in U$ y $v_1,\ldots,v_k\in T_qM$. Por definición del pullback, $$\begin{aligned}(F^*\omega)_q(v_1,\ldots,v_k)&=\omega_{F(q)}\bigl((dF)_q(v_1),\ldots,(dF)_q(v_k)\bigr)\\&=\sum_I a_I(F(q))(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}\bigl((dF)_q(v_1),\ldots,(dF)_q(v_k)\bigr).\end{aligned}$$
+>>	
+>>	3. Por definición del producto wedge de $1$-formas, $$(dy^{i_1}\wedge\cdots\wedge dy^{i_k})_{F(q)}\bigl((dF)_q(v_1),\ldots,(dF)_q(v_k)\bigr)=\det\left(dy^{i_r}_{F(q)}\bigl((dF)_q(v_s)\bigr)\right)_{r,s}.$$
+>>	
+>>	4. Por la regla de la cadena, $dy^{i_r}_{F(q)}\circ(dF)_q=d(y^{i_r}\circ F)_q$. Por tanto, $$\begin{aligned}\det\left(dy^{i_r}_{F(q)}\bigl((dF)_q(v_s)\bigr)\right)_{r,s}&=\det\left(d(y^{i_r}\circ F)_q(v_s)\right)_{r,s}\\&=\bigl(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\bigr)_q(v_1,\ldots,v_k).\end{aligned}$$
+>>	
+>>	5. Sustituyendo, obtenemos $$\begin{aligned}(F^*\omega)_q(v_1,\ldots,v_k)&=\sum_I(a_I\circ F)(q)\bigl(d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\bigr)_q(v_1,\ldots,v_k)\\&=\left(\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right)_q(v_1,\ldots,v_k).\end{aligned}$$
+>>	
+>>	6. Como esto vale para todo $q\in U$ y todos $v_1,\ldots,v_k\in T_qM$, concluimos que $$F^*\omega=\sum_I(a_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)$$ sobre $U$.
+>>	
+>>	7. Cada función $a_I\circ F$ es suave y cada $d(y^{i_r}\circ F)$ es una $1$-forma suave. Por lo tanto, el lado derecho es una $k$-forma suave sobre $U$. Como $p$ era arbitrario, $F^*\omega\in\Omega^k(M)$.
+>>	
+>>	8. Finalmente, sean $\omega,\eta\in\Omega^k(N)$ y $a,b\in\mathbb R$. Para todo $p\in M$ y $v_1,\ldots,v_k\in T_pM$, $$\begin{aligned}\bigl(F^*(a\omega+b\eta)\bigr)_p(v_1,\ldots,v_k)&=(a\omega+b\eta)_{F(p)}\bigl((dF)_p(v_1),\ldots,(dF)_p(v_k)\bigr)\\&=a\,\omega_{F(p)}\bigl((dF)_p(v_1),\ldots,(dF)_p(v_k)\bigr)\\&\quad+b\,\eta_{F(p)}\bigl((dF)_p(v_1),\ldots,(dF)_p(v_k)\bigr)\\&=\bigl(aF^*\omega+bF^*\eta\bigr)_p(v_1,\ldots,v_k).\end{aligned}$$ Luego $F^*(a\omega+b\eta)=aF^*\omega+bF^*\eta$, por lo que $F^*$ es lineal.
 >>
 >>- $(b)$
->>1. Para probar que $F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta)$, evaluamos ambos lados en $p\in M$ y en vectores $v_1,\ldots,v_{k+\ell}\in T_pM$.
->>
->>2. Por definición de pullback,
->>$$(F^*(\omega\wedge\theta))_p(v_1,\ldots,v_{k+\ell})=(\omega\wedge\theta)_{F(p)}((dF)_pv_1,\ldots,(dF)_pv_{k+\ell}).$$
->>
->>3. Usando la definición de producto cuña,
->>$$(\omega\wedge\theta)_{F(p)}((dF)_pv_1,\ldots,(dF)_pv_{k+\ell})=\frac{1}{k!\ell!}\sum_{\pi\in S_{k+\ell}}\operatorname{sgn}(\pi)\,\omega_{F(p)}((dF)_pv_{\pi(1)},\ldots,(dF)_pv_{\pi(k)})\,\theta_{F(p)}((dF)_pv_{\pi(k+1)},\ldots,(dF)_pv_{\pi(k+\ell)}).$$
->>
->>4. Pero, otra vez por definición de pullback,
->>$$\omega_{F(p)}((dF)_pv_{\pi(1)},\ldots,(dF)_pv_{\pi(k)})=(F^*\omega)_p(v_{\pi(1)},\ldots,v_{\pi(k)}),$$
->>y
->>$$\theta_{F(p)}((dF)_pv_{\pi(k+1)},\ldots,(dF)_pv_{\pi(k+\ell)})=(F^*\theta)_p(v_{\pi(k+1)},\ldots,v_{\pi(k+\ell)}).$$
->>
->>5. Entonces
->>$$(F^*(\omega\wedge\theta))_p(v_1,\ldots,v_{k+\ell})=((F^*\omega)\wedge(F^*\theta))_p(v_1,\ldots,v_{k+\ell}).$$
->>Como esto vale para todo $p$ y todo $v_1,\ldots,v_{k+\ell}$, queda
->>$$F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta).$$
+>>	1. Para probar que $F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta)$, evaluamos ambos lados en $p\in M$ y en vectores $v_1,\ldots,v_{k+\ell}\in T_pM$.
+>>	
+>>	2. Por definición de pullback,
+>>	$$(F^*(\omega\wedge\theta))_p(v_1,\ldots,v_{k+\ell})=(\omega\wedge\theta)_{F(p)}((dF)_pv_1,\ldots,(dF)_pv_{k+\ell}).$$
+>>	
+>>	3. Usando la definición de producto cuña,
+>>	$$(\omega\wedge\theta)_{F(p)}((dF)_pv_1,\ldots,(dF)_pv_{k+\ell})=\frac{1}{k!\ell!}\sum_{\pi\in S_{k+\ell}}\operatorname{sgn}(\pi)\,\omega_{F(p)}((dF)_pv_{\pi(1)},\ldots,(dF)_pv_{\pi(k)})\,\theta_{F(p)}((dF)_pv_{\pi(k+1)},\ldots,(dF)_pv_{\pi(k+\ell)}).$$
+>>	
+>>	4. Pero, otra vez por definición de pullback,
+>>	$$\omega_{F(p)}((dF)_pv_{\pi(1)},\ldots,(dF)_pv_{\pi(k)})=(F^*\omega)_p(v_{\pi(1)},\ldots,v_{\pi(k)}),$$
+>>	y
+>>	$$\theta_{F(p)}((dF)_pv_{\pi(k+1)},\ldots,(dF)_pv_{\pi(k+\ell)})=(F^*\theta)_p(v_{\pi(k+1)},\ldots,v_{\pi(k+\ell)}).$$
+>>	
+>>	5. Entonces
+>>	$$(F^*(\omega\wedge\theta))_p(v_1,\ldots,v_{k+\ell})=((F^*\omega)\wedge(F^*\theta))_p(v_1,\ldots,v_{k+\ell}).$$
+>>	Como esto vale para todo $p$ y todo $v_1,\ldots,v_{k+\ell}$, queda $$F^*(\omega\wedge\theta)=(F^*\omega)\wedge(F^*\theta).$$
 >>
 >>- $(c)$
->>1. Por linealidad de $F^*$ y de la derivada exterior, es suficiente con verificar la igualdad en formas expresadas sobre un abierto coordenado $U$.
->>
->>2. Recordemos que por definición de pullback de $0$-formas,
->>
->>3. $$F^*(f)=f\circ F.$$
->>
->>4. Así pues, dado $p\in M$ y $v\in T_pM$,
->>$$(F^*(df))_pv=(df)_{F(p)}((dF)_pv)=d(f\circ F)_pv.$$
->>
->>5. Si $\theta$ es una $k$-forma, como la definición de la derivada exterior es local y no depende de la carta, fijemos un $p\in M$ y una carta $(U,\varphi=(x_1,\ldots,x_n))$ de $F(p)$:
->>$$\theta|_U=\sum_{i_1<\cdots<i_k}a_{i_1\ldots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}=\sum_Ia_I\,dx_I.$$
->>
->>6. Entonces
->>$$(d_N\theta)|_U=\sum_I(da_I)\wedge dx_I.$$
->>
->>7. Por tanto
->>$$\begin{align}(F^*(d_N\theta))_p&=\left(F^*\left(\sum_I(da_I)\wedge dx_I\right)\right)_p\\&=\sum_I(F^*(da_I))_p\wedge(F^*(dx_I))_p\\&=\sum_{i_1<\cdots<i_k}d(a_I\circ F)_p\wedge d(x_{i_1}\circ F)_p\wedge\cdots\wedge d(x_{i_k}\circ F)_p.\end{align}$$
->>En la última igualdad usamos el paso 3.
->>
->>8. Por otro lado
->>$$\begin{align}(d_M(F^*\theta))_p&=\left(d_M\left(F^*\left(\sum_Ia_I\,dx_I\right)\right)\right)_p\\&=\left(d_M\left(\sum_I(F^*a_I)\wedge F^*(dx_I)\right)\right)_p\\&=\left(d_M\left(\sum_{i_1<\cdots<i_k}(a_I\circ F)\,d(x_{i_1}\circ F)\wedge\cdots\wedge d(x_{i_k}\circ F)\right)\right)_p\\&=\sum_{i_1<\cdots<i_k}d(a_I\circ F)_p\wedge d(x_{i_1}\circ F)_p\wedge\cdots\wedge d(x_{i_k}\circ F)_p.\end{align}$$
->>
->>9. En la última igualdad usamos que $d_Md_M=0$. Comparando con la expresión anterior, concluimos que $$(F^*(d_N\theta))_p=(d_M(F^*\theta))_p.$$
+>>	1. Por linealidad de $F^*$ y de la derivada exterior, es suficiente con verificar la igualdad en formas expresadas sobre un abierto coordenado $U$.
+>>	
+>>	2. Recordemos que por definición de pullback de $0$-formas,
+>>	
+>>	3. $$F^*(f)=f\circ F.$$
+>>	
+>>	4. Así pues, dado $p\in M$ y $v\in T_pM$,
+>>	$$(F^*(df))_pv=(df)_{F(p)}((dF)_pv)=d(f\circ F)_pv.$$
+>>	
+>>	5. Si $\theta$ es una $k$-forma, como la definición de la derivada exterior es local y no depende de la carta, fijemos un $p\in M$ y una carta $(U,\varphi=(x_1,\ldots,x_n))$ de $F(p)$:
+>>	$$\theta|_U=\sum_{i_1<\cdots<i_k}a_{i_1\ldots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}=\sum_Ia_I\,dx_I.$$
+>>	
+>>	6. Entonces
+>>	$$(d_N\theta)|_U=\sum_I(da_I)\wedge dx_I.$$
+>>	
+>>	7. Por tanto
+>>	$$\begin{align}(F^*(d_N\theta))_p&=\left(F^*\left(\sum_I(da_I)\wedge dx_I\right)\right)_p\\&=\sum_I(F^*(da_I))_p\wedge(F^*(dx_I))_p\\&=\sum_{i_1<\cdots<i_k}d(a_I\circ F)_p\wedge d(x_{i_1}\circ F)_p\wedge\cdots\wedge d(x_{i_k}\circ F)_p.\end{align}$$
+>>	En la última igualdad usamos el paso 3.
+>>	
+>>	8. Por otro lado $$\begin{align} d_M(F^*\theta))_p&=\left(d_M\left(F^*\left(\sum_Ia_I\,dx_I\right)\right)\right)_p\\&=\left(d_M\left(\sum_I(F^*a_I)\wedge F^*(dx_I)\right)\right)_p\\&=\left(d_M\left(\sum_{i_1<\cdots<i_k}(a_I\circ F)\,d(x_{i_1}\circ F)\wedge\cdots\wedge d(x_{i_k}\circ F)\right)\right)_p\\&=\sum_{i_1<\cdots<i_k}d(a_I\circ F)_p\wedge d(x_{i_1}\circ F)_p\wedge\cdots\wedge d(x_{i_k}\circ F)_p.\end{align}$$
+>>	9. En la última igualdad usamos que $d_Md_M=0$. Comparando con la expresión anterior, concluimos que $$(F^*(d_N\theta))_p=(d_M(F^*\theta))_p.$$
 
 ## Distribuciones
 
 >[!Proposition] D integrable implica involutiva
 >Sea $\mathcal D$ una distribucion suave de dimension $k$. Si $\mathcal D$ es integrable, entonces es involutiva.
+>
 >>[!Proof]- Demostracion
 >>Sean $X,Y$ campos en $\mathcal D$. Queremos que $[X,Y]$ esta en $\mathcal D$.
 >>
@@ -813,6 +842,7 @@
 >son subvariedades integrales de $\mathcal D$.
 >
 >Ademas, si $N\subset M$ es una subvariedad integral conexa de $\mathcal D$ tal que $N\subset U$, entonces $N$ debe estar contenida en una de estas rebanadas.
+>
 >>[!Proof]- Demostracion
 >>Sea $\mathcal D$ una distribucion de dimension $k$. Nos paramos en $p$, y tenemos $\mathcal D_p=\operatorname{span}\{v_1,\ldots,v_k\}$.
 >>
@@ -878,6 +908,7 @@
 >- (a) $M$ es orientable.
 >- (b) Existe una $n$-forma continua nunca nula sobre $M$.
 >- (c) Existe una $n$-forma suave nunca nula sobre $M$.
+>
 >>[!Proof]- Demostracion
 >>- **$(c)\Rightarrow(b)$** es inmediato.
 >>- **$(b)\Rightarrow(a)$**. 

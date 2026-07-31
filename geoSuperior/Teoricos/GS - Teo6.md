@@ -38,6 +38,7 @@
 >$$
 >d(G\circ F)_p=(dG)_{F(p)}\circ dF_p.
 >$$
+>
 >>[!Proof]-
 >>1. Sea $v\in T_pM$ y $h\in C^\infty(P)$. Entonces como la composición es asociativa 
 >>$$
@@ -60,6 +61,7 @@
 >$$
 >\bigl((dF)_p\bigr)^{-1}=(dF^{-1})_{F(p)}.
 >$$
+>
 >>[!Proof]-
 >>Como $\operatorname{Id}_M=F^{-1}\circ F$, por la regla de la cadena se obtiene
 >>$$
@@ -81,6 +83,7 @@
 >(di)_p:T_pU\to T_pM
 >$$
 >es un isomorfismo.
+>
 >>[!Proof]-
 >>1. Como $\dim T_pU=\dim T_pM=\dim M$, basta ver que $(di)_p$ es inyectiva.
 >>2. Sea $v\in T_pU$ tal que $(di)_p(v)=0$. Queremos probar que $v=0$.
@@ -114,6 +117,7 @@ envía cada vector coordenado de $T_pU$ en el vector coordenado correspondiente 
 >dos cartas suaves alrededor de $p$.
 >
 >Las bases coordenadas $$\mathcal B_1=\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\},\qquad\mathcal B_2=\left\{\left.\frac{\partial}{\partial y_1}\right|_p,\dots,\left.\frac{\partial}{\partial y_n}\right|_p\right\}$$Entonces la matriz $C$ cambio de base es $$\bigl[C\bigr]_{\mathcal B_2}^{\mathcal B_1}=J(\varphi\circ\psi^{-1})(\psi(p))$$
+>
 >>[!Proof]-
 >>1. Escribimos $$\left.\frac{\partial}{\partial y_j}\right|_p=\sum_{i=1}^n a_{ij}\left.\frac{\partial}{\partial x_i}\right|_p$$
 >>2. Para hallar los coeficientes, aplicamos ambos lados a la función coordenada $x_i$: $$a_{ij}=\left.\frac{\partial}{\partial y_j}\right|_p(x_i)$$

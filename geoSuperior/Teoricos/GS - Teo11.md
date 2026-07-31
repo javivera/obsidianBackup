@@ -2,6 +2,7 @@
 
 >[!Proposition] Existencia de cartas dado diferenciales
 >Sea $M$ variedad suave de dimensión $m$ y sea $k\ge m$. Si $$\{y_1,\ldots,y_k\}$$ es un conjunto de funciones suaves definidas en un abierto $U$ de $M$ en $p$ tal que $$\{(dy_1)_p,\ldots,(dy_k)_p\}$$ generan $T_p^\ast M$, entonces existe un subconjunto $$\{i_1,\ldots,i_m\}\subseteq\{1,\ldots,k\}$$ tal que $$\psi=(y_{i_1},\ldots,y_{i_m})$$ define una carta suave en algún abierto de $p$.
+>
 >>[!Proof]-
 >>1. Como $\{(dy_j)_p:j\in\{1,\ldots,k\}\}$ genera $T_p^\ast M$, entonces contiene una base $$\{(dy_{i_1})_p,\ldots,(dy_{i_m})_p\}$$ de $T_p^\ast M$.
 >>2. Por [[GS - Teo10#^2b23b2]], la aplicación $$\psi=(y_{i_1},\ldots,y_{i_m})$$ define una carta suave en cierto abierto de $p$.
@@ -11,6 +12,7 @@
 >[!Corollary]
 >Sean $M$ y $N$ variedades suaves de dimensión $m$ y $n$, respectivamente. Sea $$F:M\to N$$ suave y supongamos que $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, y por tanto $m\le n$. (Osea $F$ es inmersion) 
 >Si $(V,\varphi=(x_1,\ldots,x_n))$ es una carta suave de $N$ en $F(p)$, entonces existen $$i_1,\ldots,i_m\in\{1,\ldots,n\}$$ tales que $$\psi=(x_{i_1}\circ F,\ldots,x_{i_m}\circ F)$$ define una carta suave de $M$ en cierto abierto de $p$.
+>
 >>[!Proof]-
 >>1. Para usar el corolario anterior, alcanza con ver que $$\{d(x_1\circ F)_p,\ldots,d(x_n\circ F)_p\}$$ genera $T_p^\ast M$.
 >>2. Como $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, entonces $$(dF)_p^\ast:T_{F(p)}^\ast N\to T_p^\ast M$$ es sobreyectiva.
@@ -44,6 +46,7 @@
 >Ademas sea $\widehat{F}:M\rightarrow P$ la funcion $\widehat{F}(x)=y$ si $F(x)=g(y)$ la cual es la unica funcion de $M$ en $P$ que hace conmutar el diagrama
 > ![[Pasted image 20260429160319.png]]
 >Entonces si $\widehat{F}$ es continua es suave 
+>
 >>[!Proof]-
 >>1. Sea $p\in M$ y veamos que $\widehat F$ es suave en un entorno de $p$.
 >>2. Sea $q=\widehat F(p)$, es decir, $q$ es el único elemento de $P$ tal que $$F(p)=g(q).$$
@@ -64,6 +67,7 @@
 
 >[!Proposition] Corestringir a un subespacio con topología heredada preserva continuidad
 >Sea $F:M\to N$ continua y sea $A\subseteq N$ con la topología heredada de $N$. Si $F(M)\subseteq A$, entonces la corestricción $$F_A:M\to A,\qquad F_A(x)=F(x)$$ es continua.
+>
 >>[!Proof]-
 >>10. Sea $W\subseteq A$ abierto.
 >>11. Como $A$ tiene la topología heredada de $N$, existe un abierto $V\subseteq N$ tal que $$W=A\cap V.$$
@@ -82,6 +86,7 @@
 >Sea $F:M\to N$ suave tal que $F(M)\subseteq g(P)$. Entonces la única función $\widehat F:M\to P$ que hace conmutar el diagrama
 >![[Pasted image 20260429171650.png]]
 >es continua (por lo tanto) y es suave.
+>
 >>[!Proof]-
 >>1. Como $F(M)\subseteq g(P)$, para cada $x\in M$ existe un único $y\in P$ tal que $$F(x)=g(y).$$
 >>2. Definimos $$\widehat F:M\to P,\qquad \widehat F(x)=y \iff F(x)=g(y).$$
@@ -112,6 +117,7 @@
 >[!Proposition]
 >Sea $N$ variedad suave y sea $A\subseteq N$. Supongamos que $A$ tiene una topología $\tau$ no necesariamente la topología relativa.
 >Entonces existe a lo sumo una estructura de variedad diferenciable sobre $A$ compatible con $\tau$ tal que $$(A,i)$$ es subvariedad, donde $$i:A\to N$$ es la inclusión. (De hecho podria no haber ninguna) 
+>
 >>[!Proof]-
 >>1. Sean $\mathcal F_1,\mathcal F_2$ dos estructuras de variedad diferenciable sobre $A$ compatibles con la topología $\tau$.
 >>2. Para ver que son iguales, alcanza con ver que $$\operatorname{Id}:(A,\mathcal F_1)\to (A,\mathcal F_2)$$ $$\operatorname{Id}:(A,\mathcal F_2)\to (A,\mathcal F_1)$$ es difeomorfismo.

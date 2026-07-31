@@ -7,6 +7,7 @@
 >- Probar que $\gamma'(t)=(d\gamma)_t\left(\frac{\partial}{\partial s}\big|_t\right)\in T_{\gamma(t)}M$.
 >- Mostrar que si $(U,\varphi=(x_1,\dots,x_n))$ es un sistema coordenado de $M$ alrededor de $\gamma(0)$ y $(\varphi\circ\gamma)(t)=(r_1(t),\dots,r_n(t))$ para $t$ próximos a $0$, entonces $$\gamma'(0)=\sum_{i=1}^n r_i'(0)\frac{\partial}{\partial x_i}\Big|_{\gamma(0)}.$$
 >- Mostrar que para todo $p\in M$ y todo $v\in T_pM$ se cumple que $v=\sigma'(0)$ para alguna curva diferenciable $\sigma$ en $M$ con $\sigma(0)=p$.
+>
 >>[!Proof]-
 >>- **(a)**
 >>	1. Sea $f,g\in C^\infty(M)$.
@@ -42,6 +43,7 @@
 
 >[!Exercise]
 >Sea $\pi$ la proyección canónica de $S^2$ al proyectivo $\mathbb{RP}^2$. Mostrar que la función $$f:\mathbb{RP}^2\to\mathbb R$$ está bien definida por $f(\pi(x,y,z))=x^6yz$ y es diferenciable. Probar que $v(f)=0$ para todo $v\in T_{\pi(1,0,0)}\mathbb{RP}^2$.
+>
 >>[!Proof]-
 >>1. Si tomamos $v=(x,y,z)$ y $w$ tal que $v\sim w$ entonces $w=(-x,-y,-z)$ $$f(x,y,z)=x^6yz=(-x)^6(-y)(-z)=f(-x,-y,-z)$$ con lo cual dos elementos relacioandos tienen la misma imagen, osea $f$ está bien definida 
 >>2. Tenemos que $$\tilde f:\mathbb{R}^3\to\mathbb{R}\qquad\text{dada por}\qquad \widetilde{f}(x,y,z)=x^6yz$$ es suave por ser producto de suaves $\tilde f|_{S^2}:S^2\to\mathbb{R}$ es suave.
@@ -68,6 +70,7 @@
 >y $G:T_{(p,q)}(M\times N)\to T_pM\times T_qN$ por
 >$$G(v)=((d\pi_1)_{(p,q)}v,(d\pi_2)_{(p,q)}v).$$
 >Mostrar que el conjunto de llegada de $F$ es de hecho $T_{(p,q)}(M\times N)$. Probar que $G\circ F=\operatorname{id}$ y deducir de allí que $F$ y $G$ son isomorfismos.
+>
 >>[!Proof]-
 >>- **(a)**
 >>	1. Sea $f:Q\to M\times N$ suave.
@@ -134,6 +137,7 @@
 >[!Exercise]
 >Sea $(\mathbb R^3,\operatorname{id}=(\tilde{\alpha },\tilde{\beta},\tilde{\gamma}))$ el sistema coordenado canónico de $\mathbb R^3$. Encontrar otro sistema coordenado $(\mathbb R^3,\varphi=(\alpha ,\beta,\gamma))$ con $x=\alpha$ pero tal que
 >$$\frac{\partial^{\operatorname{id}}}{\partial \tilde{\alpha }}\Big|_0\neq \frac{\partial^\varphi}{\partial \alpha}\Big|_0.$$
+>
 >>[!Proof]-
 >>1. Sea $(\mathbb R^3,\operatorname{Id}=(\widetilde\alpha,\widetilde\beta,\widetilde\gamma))$ y $(\mathbb R^3,\varphi=(\alpha,\beta,\gamma))$.
 >>2. Como $x=\alpha$, tenemos $\widetilde\alpha=\alpha$.
@@ -159,6 +163,7 @@
 
 >[!Exercise]
 >Sea $F:U\subseteq\mathbb R^n\to\mathbb R^n$ una función suave y sea $p\in U$ tal que la matriz Jacobiana de $F$ en $p$, $J F(p)$, es la identidad. ¿Qué puede decir de la transformación lineal $(dF)_p:T_p\mathbb R^n\to T_{F(p)}\mathbb R^n$? ¿Cuál es la imagen de $\frac{\partial^{\operatorname{id}}}{\partial x_i}\big|_p$ bajo $(dF)_p$?
+>
 >>[!Proof]-
 >>1. Asumimos $(\mathbb R^n,\operatorname{Id}=(x_1,\dots,x_n))$.
 >>2. Escribimos
@@ -181,6 +186,7 @@
 >[!Exercise]
 >Sea $M$ una variedad diferenciable, y sean $v\in T_pM$ y $f\in C^\infty(M)$. Mostrar que
 >$$(df)_p(v)=(vf)\,\frac{\partial^{\operatorname{id}}}{\partial t}\Big|_{f(p)}.$$
+>
 >>[!Proof]-
 >>1. Consideramos $(\mathbb R,\operatorname{Id}=t)$.
 >>2. Como $(df)_p(v)\in T_{f(p)}\mathbb R$, existe $z\in\mathbb R$ tal que
@@ -200,6 +206,7 @@
 >[!Exercise]
 >- Sean $M$, $N$ variedades suaves y $F:M\to N$ una función suave, con $M$ conexa. Probar que $(dF)_p:T_pM\to T_{F(p)}N$ es la transformación nula para todo $p\in M$ si y solo si $F$ es constante.
 >- Sea $M$ variedad suave y $f\in C^\infty(M)$. Probar que un máximo local de $f$ es un punto crítico de $f$; es decir, $(df)_p$ es la transformación nula.
+>
 >>[!Proof]-
 >>- **(a)**
 >>1. Supongamos primero que $F$ es constante.
@@ -254,6 +261,7 @@
 
 >[!Exercise]-
 >Sea $M$ una variedad diferenciable. Sea $f\in C^\infty(M)$ y $p\in M$ un punto crítico de $f$. El Hessiano de $f$ en $p$ es la función $H_p:T_pM\to\mathbb R$ definida por $H_p(v)=(f\circ\alpha)''(0)$, donde $\alpha:(-\varepsilon,\varepsilon)\to M$ es cualquier curva suave tal que $\alpha(0)=p$ y $\alpha'(0)=v$. Mostrar la buena definición del Hessiano.
+>
 >>[!Proof]-
 >>1. Tomemos una carta $(U,x_1,\dots,x_n)$ alrededor de $p$ con $x(p)=0$, y escribamos $\tilde f=f\circ x^{-1}$.
 >>2. Si $\alpha$ es una curva con $\alpha(0)=p$ y $\alpha'(0)=v$, sea $\beta=x\circ\alpha$. Entonces $\beta(0)=0$ y $\beta'(0)=a$, donde
@@ -273,6 +281,7 @@
 >Sea $V$ un espacio vectorial de dimensión finita. Mostrar que
 >$$F:V\to T_pV,\qquad F(v)(f)=\frac{d}{dt}\Big|_0 f(p+tv)$$
 >para $f\in C^\infty(V)$, es un isomorfismo de espacios vectoriales. En particular, $V$ y $T_pV$ son naturalmente isomorfos.
+>
 >>[!Proof]-
 >>1. Para cada $v\in V$, la aplicación
 >>$$F(v):C^\infty(V)\to\mathbb{R},\qquad F(v)(f)=\frac{d}{dt}\Big|_0 f(p+tv)$$
@@ -313,6 +322,7 @@
 >- $X|_p=x\,\frac{\partial}{\partial x}\big|_p+y\,\frac{\partial}{\partial y}\big|_p$
 >- $Y|_p=x\,\frac{\partial}{\partial y}\big|_p-y\,\frac{\partial}{\partial x}\big|_p$
 >- $Z|_p=(x^2+y^2)\,\frac{\partial}{\partial x}\big|_p$
+>
 >>[!Proof]-
 >>1. Trabajamos en el semiplano derecho
 >>$$U=\{(x,y)\in\mathbb{R}^{2}:x>0\},$$
@@ -366,6 +376,7 @@
 
 >[!Exercise]
 >Sea $M=\{(x,y)\in\mathbb R^2:y>0\}$ con coordenadas canónicas $(x,y)$ y sea $\psi:M\to(0,\infty)\times(0,\pi)$ el sistema coordenado tal que $\psi^{-1}(r,\theta)=(r\cos\theta,r\sin\theta)$. Escribir el vector tangente $r\,\frac{\partial}{\partial r}$ en la base canónica $\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y}\right)$.
+>
 >>[!Proof]-
 >>1. Igual que en el ejercicio anterior,
 >>$$\frac{\partial}{\partial r}=\cos\theta\,\frac{\partial}{\partial x}+\sin\theta\,\frac{\partial}{\partial y}.$$
@@ -378,6 +389,7 @@
 
 >[!Exercise]
 >Mostrar que la inclusión $\iota:S^2\to\mathbb R^3$ es suave. Dado $p\in S^2$ con segunda coordenada negativa, hallar la matriz de $(d\iota)_p$ con respecto a las bases $\left(\frac{\partial}{\partial u},\frac{\partial}{\partial v}\right)$ y la base canónica de $\mathbb R^3$, donde $\varphi_2^-=(u,v)$.
+>
 >>[!Proof]-
 >>1. La inclusión $\iota$ es la restricción a $S^2$ de la identidad de $\mathbb R^3$, luego es continua.
 >>2. En cualquier carta $\varphi_i^\pm$ de casquete, la expresión coordenada de $\iota$ es simplemente la parametrización inversa del casquete correspondiente, que es suave.
@@ -400,6 +412,7 @@
 
 >[!Exercise]
 >Sea $S^3$ vista como la esfera unidad de $\mathbb C^2$ y sea $S^2$ vista como la esfera de Riemann. Considerar la fibración de Hopf $\pi:S^3\to S^2$ dada por $\pi(z_1,z_2)=z_2/z_1$. Probar que $\pi$ es diferenciable y calcular la diferencial en los puntos $(1,0)$, $(i,0)$, $(0,1)$ y $(0,i)$.
+>
 >>[!Proof]-
 >>1. Sobre el abierto $\{z_1\neq 0\}\subset S^3$, la aplicación $\pi$ toma valores en la carta afín $\mathbb C\subset S^2$ y viene dada por el cociente complejo $z_2/z_1$, que es suave.
 >>2. Sobre el abierto $\{z_2\neq 0\}$, usando la carta en torno a $\infty$ dada por $\psi(w)=1/w$, se tiene
@@ -433,6 +446,7 @@
 >Tomar la presentación de $\mathbb{RP}^2$ como el conjunto de subespacios de $\mathbb R^3$ de dimensión $1$, $(\mathbb R^3\setminus\{0\})/\sim$. Sean $U_x:=\{[x,y,z]\in\mathbb{RP}^2:x\neq 0\}$ y $\phi_x:U_x\to\mathbb R^2$ definida por $[x,y,z]\mapsto (u_1,v_1)=\left(\frac yx,\frac zx\right)$, y análogamente $(U_y,\phi_y)$ con $\phi_y([x,y,z])=(u_2,v_2)=\left(\frac xy,\frac zy\right)$. Dado $p$ en $U_x$, sea
 >$$X_p=\frac yx\,\frac{\partial}{\partial u_1}\Big|_p-\frac zx\,\frac{\partial}{\partial v_1}\Big|_p.$$
 >Si $q\in U_x\cap U_y$, escribir $X_q$ en las coordenadas dadas por $(U_y,\phi_y)$.
+>
 >>[!Proof]-
 >>1. En $U_x\cap U_y$ tenemos $x\neq 0$ e $y\neq 0$, así que el cambio de coordenadas es
 >>$$u_2=\frac{x}{y}=\frac{1}{u_1},\qquad v_2=\frac{z}{y}=\frac{v_1}{u_1}.$$
@@ -456,6 +470,7 @@
 >[!Exercise]
 >- Dar explícitamente una partición de la unidad subordinada al cubrimiento $\{S^1-\{(1,0)\},S^1-\{(-1,0)\}\}$ de $S^1$.
 >- Sea $\{U_\alpha\}$ un cubrimiento abierto de una variedad diferenciable. Mostrar que existe un refinamiento localmente finito $\{V_\alpha\}$ tal que $\overline{V_\alpha}\subset U_\alpha$ para todo $\alpha$.
+>
 >>[!Proof]-
 >>- **15.a**
 >>1. Sea $$U_1=S^1-\{(1,0)\},\qquad U_2=S^1-\{(-1,0)\}.$$
@@ -526,6 +541,7 @@
 >\end{cases}
 >$$
 >es de clase $C^\infty$, pero no coincide con su serie de Taylor en ningún intervalo abierto que contiene a cero.
+>
 >>[!Proof]-
 >>1. En $(0,\infty)$ la función es composición de funciones suaves, luego es $C^\infty$. En $(-\infty,0]$ es identicamente nula, luego también es $C^\infty$ allí.
 >>2. El único punto delicado es $0$.
@@ -551,6 +567,7 @@
 
 >[!Exercise]-
 >Sea $M$ una variedad diferenciable. Mostrar que $M$ admite una estructura riemanniana, es decir, que existe una asignación suave de productos internos en los espacios tangentes. ¿Cómo se definiría la longitud de una curva diferenciable $\alpha:[0,1]\to M$?
+>
 >>[!Proof]-
 >>1. Tomemos un atlas $\{(U_\alpha,\varphi_\alpha)\}$ de $M$.
 >>2. En cada $U_\alpha$, transportamos el producto interno euclídeo usual de $\mathbb R^n$ por la carta, obteniendo un producto interno suave $g^\alpha$ sobre $TU_\alpha$.
@@ -571,6 +588,7 @@
 
 >[!Exercise]-
 >Sean $M_1$ y $M_2$ variedades diferenciables, y sean $\{(U_\alpha,\phi_\alpha)\}$ y $\{(V_\beta,\psi_\beta)\}$ sistemas de coordenadas para $M_1$ y $M_2$ respectivamente. Sean $\{\varphi_\alpha\}$ y $\{\rho_\beta\}$ particiones de la unidad subordinadas a $\{U_\alpha\}$ y $\{V_\beta\}$ respectivamente. Dar una partición de la unidad de $M_1\times M_2$ subordinada al cubrimiento $\{U_\alpha\times V_\beta\}$.
+>
 >>[!Proof]-
 >>1. Para cada par $(\alpha,\beta)$ definimos
 >>$$\sigma_{\alpha\beta}(p,q)=\varphi_\alpha(p)\rho_\beta(q).$$
@@ -589,6 +607,7 @@
 
 >[!Exercise]
 >Mostrar que si $f:M\to N$ es una función diferenciable, entonces $df:TM\to TN$ es diferenciable.
+>
 >>[!Proof]-
 >>1. Lo que queremos ver es que $$df:TM\rightarrow TN$$ es suave
 >>2. Entonces tomamos un $(p,v)\in TM$ y tomamos una carta $(U,\varphi=(x_1,\dots,x_m))$ de $M$ alrededor de $p$ y una carta $(V,\psi=(y_1,\dots,y_n))$ de $N$ alrededor de $f(p)$ tales que $f(U)\subset V$.
@@ -622,6 +641,7 @@
 >[!Exercise]
 >- Probar que $TS^1$ es difeomorfo a $S^1\times\mathbb R$.
 >- Dar estructura de variedad diferenciable al conjunto de rectas orientadas en el espacio euclídeo $\mathbb R^n$. Comparar con el respectivo ejercicio del práctico 1.
+>
 >>[!Proof]-
 >>- **20.a**
 >>1. Si $p=(x,y)\in S^1$, el espacio tangente $T_pS^1$ es la recta generada por

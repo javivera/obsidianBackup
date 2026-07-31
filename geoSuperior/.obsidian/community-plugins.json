@@ -1,12 +1,12 @@
 [
   "obsidian-linter",
-  "quick-preview",
   "obsidian-git",
   "copilot",
   "obsidian-latex-suite",
   "mathlinks",
   "math-booster",
-  "terminal",
   "math-in-callout",
-  "omnisearch"
+  "persistent-live-preview-focus",
+  "tabbar-view-actions",
+  "random-statement"
 ]

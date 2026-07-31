@@ -6,6 +6,7 @@
 >Si se consideran las bases coordenadas del $T_{p}M$ y $T_{q}N$ respectivamente $$\mathcal B_M=\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_m}\right|_p\right\},\qquad\mathcal B_N=\left\{\left.\frac{\partial}{\partial y_1}\right|_q,\dots,\left.\frac{\partial}{\partial y_n}\right|_q\right\}$$
 >entonces la matriz de $dF_p:T_pM\to T_qN$ respecto de estas bases es la jacobiana de $$\widehat F:=\psi\circ F\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb R^m\to\mathbb R^n$$
 >evaluada en $\varphi(p)$: $$[dF_p]_{\mathcal B_M}^{\mathcal B_N}=J\widehat F(\varphi(p))$$
+>
 >>[!Proof]-
 >>1. Escribimos $$dF_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\sum_{i=1}^n c_{ij}\left.\frac{\partial}{\partial y_i}\right|_q$$
 >>2. Aplicando ambos lados a la función coordenada $y_i$ se obtiene $$c_{ij}=dF_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)(y_i) = \left.\frac{\partial}{\partial x_j}\right|_p(y_i\circ F)$$
@@ -59,6 +60,7 @@
 >\alpha(0)=p,\qquad \alpha'(0)=v,
 >$$
 >y definimos $$\beta:=F\circ\alpha$$entonces $$(dF)_p(v)=\beta'(0)$$
+>
 >>[!Proof]-
 >>1. Por la regla de la cadena $$d(F\circ\alpha)_0=dF)_p\circ(d\alpha)_0$$
 >>2. Aplicando ambos lados al vector $\left.\frac{\partial}{\partial s}\right|_0\in T_0\mathbb R$ y usando la definicion [[GS - Teo7#^0106aa]] se obtiene $$\beta'(0)=d(F\circ\alpha)_0\left(\left.\frac{\partial}{\partial s}\right|_0\right)=(dF)_p\left(d\alpha_0\left(\left.\frac{\partial}{\partial s}\right|_0\right)\right)=(dF)_p(v)$$
@@ -90,6 +92,7 @@
 >\pi:TM\to M
 >$$
 >es suave.
+>
 >>[!Proof]-
 >>1. Primero demos cartas que definan la estructura sobre $TM$ 
 >>2. Sea $(U,\varphi=(x_1,\dots,x_n))$ una carta suave de $M$ y sea $$\widetilde U:=\pi^{-1}(U)\subseteq TM$$
@@ -170,6 +173,7 @@
 >dF:TM\to TN
 >$$
 >también es suave.
+>
 >>[!Proof]
 >>Se ve en el practico
 

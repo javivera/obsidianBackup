@@ -48,6 +48,7 @@
 
 >[!Proposition]
 >Sea $\mathcal D$ una distribucion suave de dimension $k$. Si $\mathcal D$ es integrable, entonces es involutiva.
+>
 >>[!Proof]-
 >>Sean $X,Y$ campos en $\mathcal D$. Queremos que $[X,Y]$ esta en $\mathcal D$.
 >>
@@ -76,6 +77,7 @@
 >son subvariedades integrales de $\mathcal D$.
 >
 >Ademas, si $N\subset M$ es una subvariedad integral conexa de $\mathcal D$ tal que $N\subset U$, entonces $N$ debe estar contenida en una de estas rebanadas.
+>
 >>[!Proof]-
 >>1. Sea $\mathcal D$ una distribucion de dimension $k$. Nos paramos en $p$, y tenemos $\mathcal D_p=\operatorname{span}\{v_1,\ldots,v_k\}$.
 >>2. Sabemos por una proposicion probada en el capitulo de Campos que existe una carta $(V,\psi=(y_1,\ldots,y_n))$, centrada en $p$, tal que $$v_j=\frac{\partial}{\partial y_j}\bigg|_p,\qquad j=1,\ldots,k.$$

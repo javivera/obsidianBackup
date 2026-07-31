@@ -5,6 +5,7 @@
 
 >[!Remark]
 >Como sucedió con el fibrado tangente, es similar ver que $\Lambda^kT^*M$ es una variedad suave de dimension $\dim M+\binom{\dim M}{k}$.
+>
 >>[!Proof]-
 >>1. La idea es imitar lo que se hizo con el fibrado tangente. Si $n=\dim M$, para una carta $(U,\varphi=(x_1,\ldots,x_n))$, la carta inducida es $$(\widetilde U,\widetilde\varphi=(x_1,\ldots,x_n,(v_{i_1\ldots i_k})_{1\le i_1<\cdots<i_k\le n})),$$donde $\widetilde U=\pi^{-1}(U)$ y, si $(p,\omega)\in\widetilde U$,$$v_{i_1\ldots i_k}(\omega)=\omega\left(\frac{\partial}{\partial x_{i_1}}\bigg|_p,\ldots,\frac{\partial}{\partial x_{i_k}}\bigg|_p\right).$$veamos por que esto ultimo vale.
 >>2. Como $\left\{\frac{\partial}{\partial x_1}\big|_p,\ldots,\frac{\partial}{\partial x_n}\big|_p\right\}$ es base de $T_pM$, sabemos que $\{dx_1|_p,\ldots,dx_n|_p\}$ es base de $T_p^*M$.
@@ -71,12 +72,14 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >1. $\omega$ es suave.
 >2. Para toda carta $(U,\varphi=(x_1,\ldots,x_n))$, las coordenadas de $\omega$ con respecto al marco coordenado $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}_{1\le i_1<\cdots<i_k\le n}$ son funciones suaves.
 >3. Para cualquier $k$ campos suaves $X_1,\ldots,X_k\in\mathfrak X(M)$, la funcion $\omega(X_1,\ldots,X_k)\in C^\infty(M)$.
+>
 >>[!Proof]-
 >>1. $(2\iff 3)$ [[GS - Pr5#^174f5d]]
 >>2. $(1\iff 2)$ estimo que es trivial usando que suavidad se ve localmente
 
 >[!Proposition] Suavidad con una sola carta (analogo a campos) 
 >Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave y sea $\omega$ una $k$-forma sobre $U$, $$\omega:U\to\Lambda^k(T^*M)$$entonces $\omega$ es suave si y solo si las coordenadas de $\omega$ con respecto al marco $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}_{1\le i_1<\cdots<i_k\le n}$ son funciones suaves.
+>
 >>[!Proof]-
 >>3. Dada la carta $(U,\varphi)$ tenemos la carta inducida $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$ que es un difeomorfismo entre $\widetilde U$ y $U\times\mathbb R^{\binom nk}$ $$\widetilde\varphi:\widetilde U\subset\Lambda^k(T^*M)\to \varphi(U)\times\mathbb R^{\binom nk}\subseteq \mathbb{R}^{n} \times\mathbb R^{\binom nk}$$
 >>4. Y justo $\widetilde\varphi$ se encarga de dar las coordenadas de $\omega$ en el marco $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}$. Por tanto, la composicion $$\widetilde\varphi\circ\omega: U\rightarrow \varphi(U)\times\mathbb R^{\binom nk}\qquad p\mapsto(\varphi(p),C_{i_{1}\ldots i_{k}}(p))$$ (Notar que abuse notacion por que deberian ser todas las coordenadas, osea los subindices $i_{k}$ deberian moverse por todas las posibilidades, siempre ordenados de menor a mayor) 
@@ -91,6 +94,7 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 
 >[!Proposition] Ejercicio del practico
 >Probar que si $\omega\in\Omega^k(M)$ y $\eta\in\Omega^\ell(M)$, entonces $\omega\wedge\eta\in\Omega^{k+\ell}(M)$.
+>
 >>[!Proof]-
 >>[[GS - Pr5#^5374b2]]
 
@@ -122,6 +126,7 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >[!Lemma] La diferencial exterior es local, lema previo
 >Sea $d:\Omega^*(M)\to\Omega^*(M)$ satisfaciendo (i)-(iv). Sean $\omega_1,\omega_2\in\Omega^*(M)$ tales que coinciden en un abierto $U$ de $M$. Entonces
 >$$(d\omega_1)|_U=(d\omega_2)|_U.$$
+>
 >>[!Proof]-
 >>1. Como $d$ es transformacion lineal, podemos mirar $\omega=\omega_1-\omega_2$ y asi es suficiente con ver que si $\omega|_U=0$ (Osea $\omega_{1}$ y $\omega_{2}$ coinciden en $U$ abierto), entonces $(d\omega)|_U=0$. Con lo cual se cumpliria la igualdad pedida
 >>2. Aca hacemos un truco clasico de tensores y es volver todo cero usando una funcion de levantamiento.
@@ -144,6 +149,7 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >3. Si $\omega\in\Omega^k(M)$ y $\theta\in\Omega(M)$, entonces
 >$$d(\omega\wedge\theta)=(d\omega)\wedge\theta+(-1)^k\omega\wedge d\theta.$$
 >4. $d^2=0$.
+>
 >>[!Proof]-
 >>- **Unicidad**
 >>	1. La idea de la prueba es construir $d$ de forma local, usando las condiciones que debemos satisfacer: (ii)-(iv). Hacemos ingenieria inversa para saber como deberia ser $d$, localmente. Primero, notemos:

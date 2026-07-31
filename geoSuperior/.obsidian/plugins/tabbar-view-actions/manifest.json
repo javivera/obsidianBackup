@@ -1,0 +1,9 @@
+{
+  "id": "tabbar-view-actions",
+  "name": "Tab Bar View Actions",
+  "version": "0.1.0",
+  "minAppVersion": "1.8.0",
+  "description": "Moves the active view navigation and actions into each main tab bar.",
+  "author": "Local",
+  "isDesktopOnly": true
+}

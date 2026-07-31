@@ -12,6 +12,7 @@
 
 >[!Lemma] Función de corte en $\mathbb R$
 >Dados $\gamma_1,\gamma_2\in\mathbb R$ con $\gamma_1<\gamma_2$, existe una función suave $$h:\mathbb R\to\mathbb R$$ tal que $$h(t)=\begin{cases} 1 & \text{if } t \le \gamma_1,\\ 0<h(t)<1 & \text{if } \gamma_1 < t < \gamma_2,\\ 0 & \text{if } t \ge \gamma_2 \end{cases}$$ ![[Pasted image 20260414194706.png]]
+>
 >>[!Proof]-
 >>1. Considerar [[GS - Teo8#^54d8a6]] y definir $$h(t)= \frac{f(\gamma_{2}-t)}{f(\gamma_{2}-t)+f(t-\gamma_{1})}$$  
 
@@ -19,6 +20,7 @@
 
 >[!Lemma] Función campana en $\mathbb R^n$
 >Dados $0<\gamma_1<\gamma_2$, existe una función suave $$\mu:\mathbb R^n\to\mathbb R$$tal que $$\mu(x)= \begin{cases}  1 & \text{if } x\in \overline{B(0,\gamma_1)},\\ 0<\mu(x)<1 & \text{if } \gamma_1<\|x\|<\gamma_2,\\ 0 & \text{if } x\in B(0,\gamma_2)^c \end{cases}$$ ![[Pasted image 20260414195214.png]]
+>
 >>[!Proof]-
 >>2. Se toma la función del lema anterior y se compone con la norma: $$\mu(x)=h(\|x\|).$$
 >>3. La única sutileza es el punto $x=0$, pero cerca de $0$ la función es constante igual a $1$, así que es suave.
@@ -28,6 +30,7 @@
 >[!Exercise]  
 >Sea $X$ un espacio topológico Hausdorff, $U\subset X$ con la topología subespacio, y $A\subset U$. Si existe un conjunto compacto $K$ tal que $A\subset K\subset U$ entonces $$\text{Clausura}_{U} A=\text{Clausura}_{X} A$$
 >No olvidar que en general $\operatorname{Clausura}_{U}A \subseteq \operatorname{Clausura}_{X}A$ pero no tienen por que ser iguales ejemplo $U=A=(0,1)$ y $X=\mathbb{R}$ 
+>
 >>[!Proof]-  
 >>1. Como $K\subset U\subset X$ y $K$ es compacto en $U$, entonces también es compacto en $X$.  
 >>2. Como $X$ es Hausdorff, los compactos son cerrados. Luego, $K$ es cerrado en $X$
@@ -39,6 +42,7 @@
 
 >[!Lemma]- Funciones campana o de levantamiento en variedades suaves
 >Sea $M$ una variedad suave, $p\in M$ y $U$ un abierto de $M$ con $p\in U$. Entonces existen un abierto $V$ de $p$ y una función suave $$\beta:M\to\mathbb R$$tales que $$\overline V\subseteq U,\qquad 0\le \beta\le 1,\qquad \beta|_{\overline V}\equiv 1,\qquad \operatorname{supp}\beta\subseteq U.$$ notar que aca la clausura es con respecto a $M$ 
+>
 >>[!Proof]-
 >>6. Sea $p\in M$ y $U$ abierto de $p$. Sea $(W,\psi)$ una carta suave de $p$ tal que, sin pérdida de generalidad, podemos asumir que:  
 >>	- $W\subset U$  
@@ -70,6 +74,7 @@
 
 >[!Lemma]- Extensión local de funciones suaves
 >Sea $M$ una variedad suave, $p\in M$ y $U$ un abierto de $p$. Para toda $$f\in C^\infty(U)$$existen un abierto $V$ de $p$ con $\overline V\subseteq U$ y una función $$\widetilde f\in C^\infty(M)$$tal que $$\widetilde f=f\quad\text{sobre }V$$
+>
 >>[!Proof]-
 >>7. Tomamos una función campana $\beta$ como en el lema anterior, con $\beta\equiv 1$ sobre $\overline V$ y $\operatorname{supp}\beta\subseteq U$. 
 >>8. Definimos $$\widetilde f(q)=\begin{cases}\beta(q)f(q),& q\in U,\\0,& q\notin U\end{cases}$$
@@ -185,6 +190,7 @@
 >[!Corollary] Función que vale $1$ sobre un cerrado
 >Sea $U$ un abierto de $M$ y $A$ un cerrado de $M$ con $$A\subseteq U$$
 >Entonces existe una función suave $$f:M\to\mathbb R$$tal que $$0\le f\le 1,\qquad f|_A\equiv 1,\qquad \operatorname{supp}f\subseteq U$$
+>
 >>[!Proof]-
 >>1. Como $A$ es cerrado. Considerar al cubrimiento de $M$ dado por $$\{U,M\setminus A\}$$
 >>2. Por [[GS - Teo8#^eafe2b]] existe una particion de la unidad $\{\rho,\sigma\}$ subordinada a $\{U,M\setminus A\}$ con $$\operatorname{supp}\rho\subseteq U,\qquad \operatorname{supp}\sigma\subseteq M\setminus A$$
@@ -204,6 +210,7 @@
 >\qquad
 >\operatorname{supp}\widetilde F\subseteq U.
 >$$
+>
 >>[!Proof]-
 >>1. Por definicion de $F$ suave para cada $p\in A$ elegimos un abierto $W_p\subseteq U$ y una extensión suave local $$\widetilde F_p:W_p\to\mathbb R^k$$que coincide con $F$ en $W_{p}\cap A$ 
 >>2. Sin perdida de generalidades podemos suponer $W_{p}\subseteq U$ (En otro caso, cambiamos $W_{p}$ por el abierto $W_{p}\cap U$)   

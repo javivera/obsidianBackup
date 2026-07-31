@@ -2,6 +2,7 @@
 
 >[!Lemma] Unicidad de curvas integrales con tiempo arbitrario
 >Sea $X\in\mathfrak X(M)$. Sean $\gamma:I\to M$ y $\sigma:J\to M$ curvas integrales de $X$, donde $I,J\subseteq\mathbb R$ son intervalos abiertos. Si existe $t_0\in I\cap J$ tal que $\gamma(t_0)=\sigma(t_0)$, entonces $\gamma(t)=\sigma(t)$ para todo $t\in I\cap J$.
+>
 >>[!Proof]-
 >>1. Sea $p=\gamma(t_0)=\sigma(t_0)$.
 >>2. Definimos los intervalos trasladados $I_0=I-t_0=\{s\in\mathbb R:t_0+s\in I\}$ y $J_0=J-t_0=\{s\in\mathbb R:t_0+s\in J\}$.
@@ -24,6 +25,7 @@
 
 >[!Lemma] Unicidad de curvas integrales salvo traslación temporal no se si se usa
 >Sea $X\in\mathfrak X(M)$. Sean $\gamma:I\to M$ y $\sigma:J\to M$ curvas integrales de $X$. Si existen $t_0\in I$ y $s_0\in J$ tales que $\gamma(t_0)=\sigma(s_0)$, entonces $\gamma(t)=\sigma(t-t_0+s_0)$ para todo $t\in I$ tal que $t-t_0+s_0\in J$.
+>
 >>[!Proof]-
 >>1. Sea $p=\gamma(t_0)=\sigma(s_0)$.
 >>2. Definimos $\widetilde\sigma:I'\to M$ por $\widetilde\sigma(t)=\sigma(t-t_0+s_0)$, donde $I'=\{t\in I:t-t_0+s_0\in J\}$.
@@ -103,6 +105,7 @@
 
 >[!Corollary]
 >Sea $M$ una variedad conexa y sea $S\subseteq M$ una subvariedad inmersa  y $S$ cerrado de $M$ . Si $$\dim S=\dim M,$$ entonces $$S=\varnothing \qquad \text{o}\qquad S=M.$$
+>
 >>[!Proof]-
 >>9. Por el corolario anterior, $S$ es abierto y cerrado en $M$.
 >>10. Como $M$ es conexa, los únicos subconjuntos de $M$ que son abiertos y cerrados son
@@ -155,6 +158,7 @@
 
 >[!Proposition] Corrección de los abiertos en cartas cúbicas
 >Sea $f:M\to N$ una inmersión. Supongamos que existen cartas cúbicas centradas $(U,\varphi)$ en $p$ y $(V,\psi)$ en $f(p)$ tales que $$\varphi(U)=(-\varepsilon,\varepsilon)^m,\qquad \psi(V)=(-\delta,\delta)^n,$$ y $$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$ Entonces existen abiertos más pequeños $U_\rho\subseteq U$ y $V_\rho\subseteq V$ tales que $p\in U_\rho$, $f(p)\in V_\rho$, $f(U_\rho)\subseteq V_\rho$, y para todo $r\in V_\rho$ la composición $$a_k\circ\varphi^{-1}\circ\pi\circ\psi(r)$$ está bien definida, donde $\pi:\mathbb R^n\to\mathbb R^m$ está dada por $$\pi(y_1,\ldots,y_n)=(y_1,\ldots,y_m).$$
+>
 >>[!Proof]-
 >>1. El problema es que, si definimos $$A_k=a_k\circ\varphi^{-1}\circ\pi\circ\psi,$$ esta función solo tiene sentido en los puntos $r\in V$ tales que $$\pi(\psi(r))\in\varphi(U).$$
 >>2. Como $$\varphi(U)=(-\varepsilon,\varepsilon)^m,\qquad \psi(V)=(-\delta,\delta)^n,$$ elegimos $$0<\rho<\min\{\varepsilon,\delta\}.$$
@@ -179,6 +183,7 @@
 >[!Proposition]
 >Si $w$ es multi lineal y alternada entonces si $v_{i}=v_{j}$ $$w(v_{1},\ldots,v_{i},\ldots,v_{j},\ldots,v_{n})=0$$
 >Osea si repetimos dos coordenadas en la entrada nos da $0$.
+>
 >>[!Proof]-
 >>1. Por ser alternada $w(v_{1},\ldots,v_{i},\ldots,v_{j},\ldots,v_{n})=-w(v_{1},\ldots,v_{j},\ldots,v_{i},\ldots,v_{n})$ 
 >>2. Pero $-w(v_{1},\ldots,v_{j},\ldots,v_{i},\ldots,v_{n})=-w(v_{1},\ldots,v_{i},\ldots,v_{j},\ldots,v_{n})$ por que $v_{i}=v_{j}$
@@ -190,6 +195,7 @@
 >[!Proposition]
 >Si $X,Y\in\mathfrak X(M)$ y en una carta local $(U,x^1,\ldots,x^n)$ escribimos $X=\sum_j X^j\frac{\partial}{\partial x^j}$ y $Y=\sum_j Y^j\frac{\partial}{\partial x^j}$, entonces
 > $$[X,Y]=\sum_i\left(\sum_j X^j\frac{\partial Y^i}{\partial x^j}-\sum_j Y^j\frac{\partial X^i}{\partial x^j}\right)\frac{\partial}{\partial x^i}.$$
+>
 >>[!Proof]-
 >>1. Por definición del corchete de Lie, para toda función suave $f\in C^\infty(U)$ se tiene $$[X,Y](f)=X(Y(f))-Y(X(f)).$$
 >> 2. Como $[X,Y]$ es un campo vectorial, en coordenadas se puede escribir $$[X,Y]=\sum_i [X,Y]^i\frac{\partial}{\partial x^i}.$$
@@ -220,6 +226,7 @@
 
 >[!Proposition] $dg=0$ implica $g$ localmente constante 
 >Let $M$ be a smooth manifold, let $U\subset M$ be open, and let $g\in C^\infty(U)$. If $$dg=0,$$ then $g$ is locally constant.
+>
 >>[!Proof]-
 >>1. Fix an arbitrary point $p\in U$.
 >>2. Choose a smooth coordinate chart around $p$, say $$(W,r),$$ with $p\in W\subset U$ and $W$ connected.

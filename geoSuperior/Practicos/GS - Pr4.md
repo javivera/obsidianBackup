@@ -2,6 +2,7 @@
 
 >[!Exercise]
 >Sea $\gamma$ una curva integral de un campo vectorial $X$ en una variedad $M$, tal que $\dot\gamma(t)=0$ para algún $t$. Mostrar que $\gamma$ es constante.
+>
 >>[!Proof]-
 >>1. Como $\gamma$ es curva integral de $X$, para todo $t\in I$ se cumple $\gamma'(t)=X_{\gamma(t)}$.
 >>2. En particular, evaluando en $t_0$, tenemos $\gamma'(t_0)=X_{\gamma(t_0)}$.
@@ -22,8 +23,9 @@
 
 >[!Exercise]
 >Probar que no todo campo en $\mathbb R$ es completo. Encontrar el intervalo maximal de definición de una curva integral del campo contraejemplo elegido.
+>
 >>[!Proof]-
->>1. Consideremos el campo vectorial suave en $\mathbb R$ dado por $$X(x)=x^2\frac{d}{dx}$$ es suave porque su función coeficiente $x\mapsto x^2$ es suave en $\mathbb R$.
+>>1. Consideremos el campo vectorial suave en $\mathbb R$ dado por $$X(x)=x^2\frac{d}{dx}$$es suave porque su función coeficiente $x\mapsto x^2$ es suave en $\mathbb R$.
 >>2. Sea $\gamma$ una curva integral de $X$ con condición inicial $\gamma(0)=1$. Entonces debe satisfacer $\gamma'(t)=\gamma(t)^2$ y $\gamma(0)=1$. (recordemos que $\gamma'\in T_{\gamma(t)}\mathbb{R}$ entonces $\gamma'(t)=a\frac{\partial}{\partial x}\big|_{\gamma(t)}$ pero tambien por ser curva integral es igual a $X(\gamma(t))=\gamma(t)^{2}\frac{\partial}{\partial x}\big|_{\gamma(t)}$ por eso identificamos $\gamma'(t)=\gamma(t)^{2}$ ) 
 >>3. Como $\gamma(0)=1$, por continuidad existe un intervalo alrededor de $0$ donde $\gamma(t)\neq 0$.
 >>4. En ese intervalo definimos $h(t)=\frac{1}{\gamma(t)}$.
@@ -41,6 +43,7 @@
 
 >[!Exercise]
 >En $\mathbb C\setminus\{0\}$ se define el campo $V(z)=1/\overline z$. Dibujarlo y mostrar que no es completo. Hallar $\phi_t(A)$ para $t>0$, donde $\phi_t$ es el flujo de $V$ y $A$ es el anillo $1<|z|<2$.
+>
 >>[!Proof]-
 >>1. Supongamos que $z(t)$ es curva integral con condicion $z(0)=z_{0}$. Entonces $z'(t)=V(z(t))$  
 >>2. Escribimos $z(t)=r(t)e^{i\theta(t)}$. Entonces $$V(z(t))=\frac1{\overline z}=\frac1{re^{-i\theta}}=\frac{e^{i\theta}}r.$$
@@ -64,6 +67,7 @@
 
 >[!Exercise]
 >Probar que todo campo vectorial en una variedad compacta es completo.
+>
 >>[!Proof]-
 >>1. Sea $X\in\mathfrak X(M)$ y sea $\gamma:J\to M$ una curva integral maximal. Queremos probar que $J=\mathbb R$.
 >>
@@ -82,6 +86,7 @@
 
 >[!Exercise]
 >Sea $M=\{(x,y)\in\mathbb R^2:x<0\}$ y sea $X$ el campo vectorial definido por $X(z)=\left.\frac{\partial}{\partial x}\right|_z$. Mostrar que no existe un intervalo de tiempo uniforme alrededor de cero donde están definidas todas las curvas integrales de $X$.
+>
 >>[!Proof]-
 >>1. Usando coordenadas como en [[Glosario#^da6e6d]] y asumiendo carta canonica $(\mathbb{R}^{2},Id)$ tenemos que, la curva integral $\gamma(t)=Id\circ\gamma(t)=(x(t),y(t))$ que parte de $(x_0,y_0)\in M$ satisface $$x'(t)=1,\qquad y'(t)=0.$$
 >>2. Luego, integrando, se obtiene $$\gamma(t)=(x_0+t,y_0).$$
@@ -103,6 +108,7 @@
 >- $X=e^{-x}\frac{\partial}{\partial x}$,
 >- $Y=x\frac{\partial}{\partial x}$,
 >- $Z=y\frac{\partial}{\partial x}-x\frac{\partial}{\partial y}$.
+>
 >>[!Proof]-
 >>- **Caso $X=e^{-x}\frac{\partial}{\partial x}$**  
 >>	1. Para $X$, el sistema es $$x'(t)=e^{-x(t)},\qquad y'(t)=0.$$
@@ -131,6 +137,7 @@
 >- Mostrar que $\varphi_t$ es un grupo monoparamétrico de transformaciones de $\mathbb R^2$.
 >- Calcular el campo $X\in\mathfrak X(\mathbb R^2)$ asociado a $\varphi_t$ (el generador infinitesimal).
 >- Describir las curvas integrales de $X$.
+>
 >>[!Proof]-
 >>- **$\varphi_{t}$ es monoparametrico**
 >>	1. La matriz asociada a $\varphi_t$ es $$R_t=\begin{pmatrix}\cos t & \sin t\\-\sin t & \cos t\end{pmatrix}$$
@@ -155,6 +162,7 @@
 >[!Exercise]
 >- (a) Sea $(M,\phi)$ una subvariedad de una variedad diferenciable $N$. Sea $Y$ un campo suave en $N$ tal que $Y_{\phi(p)}$ pertenece a la imagen de $d\phi_p$ para todo $p\in M$. Para cada $p\in M$, sea $X_p$ el único vector tangente a $M$ en $p$ tal que $d\phi_p(X_p)=Y_{\phi(p)}$. Mostrar que $X$ define un campo suave en $M$.
 >- (b) En $\mathbb R^{2n}$ se define el campo $$Y(x_1,y_1,\dots,x_n,y_n)=\sum_{i=1}^n\left(-y_i\frac{\partial}{\partial x_i}+x_i\frac{\partial}{\partial y_i}\right)\simeq(-y_1,x_1,\dots,-y_n,x_n).$$Mostrar que existe un campo $X$ en la esfera $S^{2n-1}$ tal que $(d\iota)\circ X=Y\circ\iota$, donde $\iota:S^{2n-1}\to\mathbb R^{2n}$ es la inclusión. Verificar que $t\mapsto\phi_t(p)$ describe un círculo máximo para todo $p\in S^{2n-1}$, donde $\phi_t$ es el flujo de $X$.
+>
 >>[!Proof]-
 >>- **(a)**
 >>	1. Primero notamos que como $\phi$ es inmersion tiene rango constante por que es inyectiva para todo $p\in M$ entonces $\dim Im(d\phi_{p})=\dim T_{p}M$ para todo $p\in M$
@@ -169,7 +177,7 @@
 >>	10. Como esto lo puedo hacer para cualqueir $p\in M$ entonces $X$ es suave
 >>- **(b)**
 >>	1. Primero queremos ver que $Y_{\iota(p)}=Y_{p}\in \operatorname{Im}(d\iota_{p})$ 
->>	2. Recordamos de [[Parcial 1 - soluciones#^483e02]] que $$\operatorname{Im} ((d\iota)_{p})=(d\iota)_p(T_pS^n)=\left\{\sum_{j=1}^{n+1}a_j\frac{\partial}{\partial r_j}\bigg|_p:\sum_{j=1}^{n+1}a_jp_j=0,\ a_j\in\mathbb R\right\}.$$
+>>	2. Recordamos de [[GS - 1er Parcial#^483e02]] que $$\operatorname{Im} ((d\iota)_{p})=(d\iota)_p(T_pS^n)=\left\{\sum_{j=1}^{n+1}a_j\frac{\partial}{\partial r_j}\bigg|_p:\sum_{j=1}^{n+1}a_jp_j=0,\ a_j\in\mathbb R\right\}.$$
 >>	3. Sea $p=(x_1,y_1,\dots,x_n,y_n)\in S^{2n-1}.$ entonces $Y_{p}=(-y_{1},x_{1},\ldots,-y_{n},x_{n})$ (mirado en coordenadas) y obviamente cumple $\langle p,Y_{p}\rangle =0$ entonces $Y_{p}$ esta en la imagen como queriamos
 >>	4. Entonces por (a) existe un campo $X$ que esta dado por $(d\iota)_{p}(X_{p})=Y_{p}$ 
 >>	5. Entonces ahora podemos ver el flujo de $Y_{p}$. Busquemos las curvas integrales de este flujo osea $\gamma'(t)=Y_{\gamma(t)}$ y $\gamma(0)=p\in S^{2n-1}$ 
@@ -193,6 +201,7 @@
 >- (a) Mostrar que para toda curva integral $\gamma$ de $V$ tal que $\gamma(t_0)\in S$, debe existir $\varepsilon>0$ tal que $\gamma((t_0-\varepsilon,t_0+\varepsilon))\subseteq S$.
 >- (b) Suponer que $S$ es un conjunto cerrado de $M$. Mostrar que todas las curvas integrales de $V$ que cortan a $S$ están contenidas en $S$.
 >- (c) Dar un contraejemplo al anterior inciso si $S$ no es cerrado.
+>
 >>[!Proof]-
 >>- **(a)**
 >>	1. Que $V$ sea tangente a $S$ significa $V_{q}\in (d\iota)_{q}(T_{q}S)$ para todo $q\in S$
@@ -227,6 +236,7 @@
 
 >[!Exercise] Ejercicio 10 — Extensión de campos de subvariedades
 >Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que existe un campo suave $Y$ definido sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ a $S$.
+>
 >>[!Proof]-
 >>1. Sea $i:S\hookrightarrow M$ la inclusión. Como $S$ es una subvariedad incrustada de $M$, la aplicación $i$ es una inmersión.
 >>2. Por el teorema de extensión local de campos, para cada $p\in S$ existen un abierto $U_p\subseteq S$ con $p\in U_p$, un abierto $V_p\subseteq M$ con $p\in V_p$ y un campo suave $Y^{(p)}\in\mathfrak X(V_p)$ tales que $$Y^{(p)}_q=(di)_qX_q,\qquad q\in U_p.$$
@@ -250,6 +260,7 @@
 
 >[!Exercise]
 >Sea $M$ una variedad diferenciable compacta y conexa, sea $X\in\mathfrak X(M)$ y sea $f\in C^\infty(M)$ no idénticamente cero. Probar que si un $c\in\mathbb R$ satisface $X(f)=cf$, entonces $c$ debe ser cero.
+>
 >>[!Proof]-
 >>1. Sea $\gamma_p(t)=\phi_t(p)$. Como $\gamma_p$ es la curva integral de $X$ que parte de $p$, se tiene $$\gamma_p'(t)=X_{\gamma_p(t)}=X_{\phi_t(p)}.$$
 >>2.  Ahora, por definición de velocidad de una curva en una variedad, para toda $h\in C^\infty(M)$ vale $$\gamma_p'(t)(h)=(d\gamma_{p})_{t}\left(\frac{d}{ds}\bigg|_{s=t}\right)(h)=\frac{d}{ds}\bigg|_{s=t}h(\gamma_p(s))=\frac{d}{dt}h(\gamma_{p}(t))$$ este ultimo igual por que si $F(s)=h(\gamma_{p}(s))$ entonces $F'(t)=\frac{d}{ds}|_{s=t}h(\gamma_{p}(s))$ pero  $F'(t)=\frac{d}{dt}F(t)=\frac{d}{dt}h(\gamma_{p}(t))$  
@@ -272,6 +283,7 @@
 >- **(a)** Calcular $[fX,gY]$.
 >- **(b)** Si $\varphi=(x_1,\dots,x_n)$ es un sistema coordenado, mostrar que $\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0$ para todo $i,j$.
 >- **(c)** En $\mathbb R^2$ se definen los campos $V$ y $W$ por $V(x,y)=e_1$ y $W(x,y)=e^x e_2$. Mostrar que no existe un sistema coordenado $\psi=(u,v)$ tal que $\frac{\partial}{\partial u}=V$ y $\frac{\partial}{\partial v}=W$.
+>
 >>[!Proof]-
 >>- **(a)** 
 >>	1. [[GS - Teo19#^411d32]] (iv) 
@@ -286,6 +298,7 @@
 
 >[!Exercise]
 >(Opcional) Sean $v$ y $w$ dos vectores fijos de $\mathbb R^{n+1}$ y considerar los campos $X$ e $Y$ de $\mathbb R^{n+1}$ definidos por $X(p)=v-\langle v,p\rangle p$ e $Y(p)=w-\langle w,p\rangle p$. Mostrar que existen campos $\widetilde X$ e $\widetilde Y$ en $\mathfrak X(S^n)$ tales que $(d\iota)\circ\widetilde X=X\circ\iota$ y $(d\iota)\circ\widetilde Y=Y\circ\iota$, y calcular el campo $[\widetilde X,\widetilde Y]$.
+>
 >>[!Proof]-
 >>1. Si $p\in S^n$, entonces $\langle p,p\rangle=1$. Calculamos:
 >>$$
@@ -321,6 +334,7 @@
 
 >[!Exercise]
 >(Opcional) Sean $v\in\mathbb R^n$ y $A\in\mathbb R^{n\times n}$, y considerar los campos $X$ e $Y$ de $\mathbb R^n$ definidos por $X(p)=v$ e $Y(p)=A\cdot p$ (donde se ha identificado $T_p\mathbb R^n$ con $\mathbb R^n$ de manera usual). Calcular el flujo $\phi_t$ y $\psi_t$ asociados a $X$ e $Y$ respectivamente, y el corchete $[X,Y]$.
+>
 >>[!Proof]-
 >>1. Para $X$, la ecuación es
 >>$$p'(t)=v,$$
@@ -341,6 +355,7 @@
 
 >[!Exercise]
 >(Opcional) Sea $F:\mathbb R^2\to\mathbb RP^2$ la función $F(x,y)=[x:y:1]$, y sea $X\in\mathfrak X(\mathbb R^2)$ el campo $X=x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}$. Probar que hay un campo $Y\in\mathfrak X(\mathbb RP^2)$ que está $F$-relacionado con $X$, y fijar cartas de $\mathbb RP^2$ para encontrar la representación en coordenadas de $Y$.
+>
 >>[!Proof]-
 >>1. Consideremos en $\mathbb R^3$ la matriz
 >>$$
@@ -411,6 +426,7 @@
 
 >[!Exercise]
 >(Opcional) Construir un campo suave de $S^2$ que se anule exactamente en un solo punto. ^[Un resultado de topología algebraica, llamado el Teorema de la bola peluda, garantiza que todo campo continuo sobre una esfera de dimensión par se anula en por lo menos un punto.]
+>
 >>[!Proof]-
 >>1. Sea $N=(0,0,1)$ y consideremos la proyección estereográfica inversa desde $N$:
 >>$$\sigma:\mathbb R^2\to S^2\setminus\{N\},$$
@@ -446,6 +462,7 @@
 
 >[!Exercise]
 >(Opcional) Sea $X$ un campo diferenciable en $M$ y sea $\phi$ su flujo. Mostrar que si $\lim_{t\to\infty}\phi_t(p)$ existe y es $q\in M$, entonces $X(q)=0$.
+>
 >>[!Proof]-
 >>1. Fijemos $s$ pequeño. Por continuidad del flujo,
 >>$$
@@ -464,6 +481,7 @@
 
 >[!Exercise]
 >(Opcional) [Lema del escape] Sean $M$ una variedad suave, $V\in\mathfrak X(M)$ y sea $\gamma:J\subseteq\mathbb R\to M$ una curva integral maximal de $V$ tal que existe el supremo de $J$, digamos $b$. Mostrar que para todo $t_0\in J$, $\gamma([t_0,b))$ no puede estar contenido en cualquier subconjunto compacto de $M$.
+>
 >>[!Proof]-
 >>1. Supongamos, por contradicción, que para algún $t_0\in J$ existe un compacto $K\subseteq M$ tal que
 >>$$\gamma([t_0,b))\subseteq K.$$
@@ -483,6 +501,7 @@
 
 >[!Exercise]
 >(Opcional) Sea $X\in\mathfrak X(\mathbb R)$ el campo definido por $X(s)=s^2\sin^2(s)\left.\frac{\partial}{\partial t}\right|_s$. Mostrar que $X$ es un campo completo.
+>
 >>[!Proof]-
 >>1. En el enunciado aparece $\partial/\partial t|_s$; lo corregimos por $\partial/\partial s|_s$, que es el campo coordenado natural en $\mathbb R$.
 >>
@@ -503,6 +522,7 @@
 
 >[!Exercise]
 >(Opcional) ¿Es la suma de campos completos un campo completo? ¿Es el corchete de campos completos un campo completo?
+>
 >>[!Proof]-
 >>1. **Solución 1.**
 >>2. En $\mathbb R^2$, consideremos
@@ -553,6 +573,7 @@
 >
 >- (a) Sea $V$ el campo en $M$ definido por $V_z=z^2$ (se ha identificado $T_zM$ con $\mathbb C$). Encontrar la curva integral $\gamma$ con $\gamma(0)=1$.
 >- (b) Mostrar que ningún campo diferenciable en $M/\sim$ está $\pi$-relacionado con $V$.
+>
 >>[!Proof]-
 >>- **(a)**
 >>		1. La ecuación es $$z'(t)=z(t)^2,\qquad z(0)=1.$$
@@ -578,6 +599,7 @@
 >=(JV)_{\phi_u(p)}(J\phi_u)_p.
 >$$
 >donde $(JF)_p$ es la matriz Jacobiana de una función $F$ en el punto $p$.
+>
 >>[!Proof]-
 >>1. El flujo satisface
 >>$$\frac{\partial}{\partial t}\phi_t(p)=V(\phi_t(p)).$$
@@ -601,6 +623,7 @@
 
 >[!Exercise]
 >Sean $M$ una variedad diferenciable, $X,Y\in\mathfrak X(M)$ y sea $p\in M$. Probar que $\alpha(t)$ dada por $$t\longmapsto (d\theta_{-t})_{\theta_t(p)}(Y_{\theta_t(p)})$$define una curva $C^\infty$ en $T_pM$, donde $\theta_t$ es el flujo local asociado a $X$. (Recordar de la teoría que derivando esta curva en $t=0$, obtenemos el corchete $[X,Y]_p$, con las identificaciones usuales.)
+>
 >>[!Proof]-
 >>- **Buena definicion**
 >>	1. Para $t$ suficientemente pequeño, $\theta_t(p)$ está definido y $\theta_{-t}$ lleva $\theta_t(p)$ nuevamente a $p$. 
@@ -631,6 +654,7 @@
 
 >[!Exercise]
 >[Uniformidad conjunta para dos flujos] Sean $X$ e $Y$ dos campos en una variedad $M$ y sea $\theta$ y $\phi$ sus respectivos flujos. Mostrar que para todo $p\in M$ existen un entorno abierto $U$ en $M$ de $p$ y $\delta>0$ tal que $\theta_s\circ\phi_t$ y $\phi_t\circ\theta_s$ están definidos en $U$ para $|s|<\delta$ y $|t|<\delta$.
+>
 >>[!Proof]-
 >>1. La idea es usar que los dominios de los flujos locales son abiertos y que los flujos dependen suavemente, luego continuamente, de las condiciones iniciales y del tiempo.
 >>2. Primero notamos que dado $p\in M$ sabemos que $\theta_{s}$ esta bien definida en $U_{\theta}$ y para todo $s\in I_{1}$   
@@ -650,6 +674,7 @@
 
 >[!Exercise]
 >Sea $G=\mathbb R\times\mathbb C$ con el producto $(\alpha,z_1)*(\beta,z_2)=(\alpha+\beta,e^{i\alpha}z_2+z_1)$. Considerar la carta global de $G$ dada por $(G,\varphi)$ con $\varphi=(\theta,x,y)$ dada por $\theta(\alpha,z)=\alpha$, $x(\alpha,z)=\operatorname{Re}(z)$ y $y(\alpha,z)=\operatorname{Im}(z)$. Mostrar que $G$ es un grupo de Lie y que los campos $\frac{\partial}{\partial\theta}$, $\cos\theta\frac{\partial}{\partial x}+\sin\theta\frac{\partial}{\partial y}$, $-\sin\theta\frac{\partial}{\partial x}+\cos\theta\frac{\partial}{\partial y}$ forman una base de la álgebra de Lie de $G$. Calcular los corchetes de Lie entre los campos dados.
+>
 >>[!Proof]-
 >>1. **Solución 1.**
 >>2. Identificando $z=x+iy$, el producto queda

@@ -1,6 +1,7 @@
 
 >[!Proposition] Inmersiones son localmente incrustaciones
 >Sea $F:M\to N$ una inmersion y sea $p\in M$. Entonces existe una carta suave cubica $(V,\psi)$ centrada en $F(p)$, y un entorno $U$ de $p$ tal que $F|_U$ es inyectiva y $F(U)=R(0,\ldots,0)$, la rebanada cero de $(V,\psi)$. En particular, $(U,F|_U)$ se vuelve una subvariedad incrustada de $N$.
+>
 >>[!Proof]-
 >>1. Sea $m=\dim M$ y $n=\dim N$. Luego $m\le n$.
 >>2. Usamos la forma local de una inmersion: existen cartas $(\widetilde U,\widetilde\varphi)$ centrada en $p$ y $(\widetilde V,\psi)$ centrada en $F(p)$ t.q. $F(\widetilde U)\subset\widetilde V$ y $$\psi\circ F\circ\widetilde\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0)$$
@@ -74,6 +75,7 @@
 
 >[!Theorem] Conjuntos de nivel de funciones de rango constante
 >Sean $M$ y $N$ variedades suaves, y sea $F:M\to N$ una funcion suave de rango constante $r$. Si el conjunto de nivel $P=F^{-1}(c)$ es no vacio, entonces dotando a $P$ de la topologia heredada de $M$, este tiene una estructura de variedad diferenciable que lo vuelve subvariedad incrustada de $M$ y de dimension $\dim(M)-r$.
+>
 >>[!Proof]-
 >>1. Sea $m=\dim M$ y sea $k=m-r$.
 >>2. El conjunto $P$ con la topologia del subespacio es $T_2$ y $N_2$. Para ver que es localmente Euclideo, construyamos un atlas.
@@ -106,6 +108,7 @@
 
 >[!Example]- Ejemplo de aplicacion, esfera
 >La esfera es subvariedad incrustada de $\mathbb{R}^{n+1}\setminus\{ 0 \}$ 
+>
 >>[!Proof]
 >>1. Sea $$F:\mathbb R^{n+1}\setminus\{0\}\to\mathbb R$$dada por $$(s_1,\ldots,s_{n+1})\mapsto\|s\|^2-1=s_1^2+\cdots+s_{n+1}^2-1$$luego tenemos $S^n=F^{-1}(0)$. 
 >>2. Notemos que $F$ es de rango constante e igual a $1$ por que dado $p\in\mathbb R^{n+1}\setminus\{0\}$. $$(dF)_p v=\langle(\nabla F)(p),v\rangle=\langle(2p_1,\ldots,2p_{n+1}),v\rangle$$
@@ -123,6 +126,7 @@
 >Como $M(n,\mathbb{R})$ es variedad suave (por ser esp. vectorial) y $GL(n,\mathbb{R})$ es un abierto de $M(n,\mathbb{R})$, recordemos entonces que $GL(n,\mathbb{R})$ es variedad, que resulta grupo de Lie.
 >Consideremos $$F=\det:GL(n,R)\to\mathbb R$$ y sea $SL(n,R)=\{X\in GL(n,R):\det X=1\}$, llamado el grupo especial lineal.
 >Tenemos $SL(n,R)=F^{-1}(1)$. Veamos que es subvariedad incrustada de $GL(n,R)$. 
+>
 >>[!Proof]-
 >>1. Por [[GS - Teo13#^234f1c]] y notando que $GL(n,\mathbb{R})\subseteq M(n,\mathbb{R})$ es abierto. Entonces puedo identificar $T_{X}GL(n,\mathbb{R})\cong T_{X}M(n,\mathbb{R})$ y por ser espacio vectorial $T_{X}M(n,\mathbb{R})\cong M(n,\mathbb{R})$  
 >>2. Vimos en el practico que $$(d\det)_X Y=\langle(\nabla\det)_X,Y\rangle=\det(X)\operatorname{tr}(X^{-1}Y)$$ por definicion $X\in GL(n,\mathbb{R})$ e $Y\in T_{X}GL(n,\mathbb{R})$  
@@ -136,6 +140,7 @@
 >[!Remark] Estructura de grupo de Lie de $SL(n,R)$ DUDA
 >Claramente $SL(n,R)$ es un grupo. Solo falta ver que $$SL(n,R)\times SL(n,R)\to SL(n,R) \qquad (g,h)\mapsto gh$$$$\operatorname{inv}:SL(n,R)\to SL(n,R)\qquad g\mapsto g^{-1}$$son suaves.
 >Vemos mas adelante que solo necesitamos ver que son suaves como funciones en el ambiente; asi nos sirve muchisimo el lema de factorizacion.
+>
 >>[!Proof]-
 >>1. Consideremos $$\tilde{i}=i\times i:SL(n,\mathbb{R})\times SL(n,\mathbb{R})\to GL(n,\mathbb{R})\times GL(n,\mathbb{R})\qquad (g,h)\mapsto(g,h)$$, que resulta suave, pues $SL(n,\mathbb{R})$ es subvariedad.
 >>2. Como $GL(n,\mathbb{R})$ es grupo de Lie entonces $$m:GL(n,\mathbb{R})\times GL(n,\mathbb{R})\to GL(n,\mathbb{R})\qquad (g,h)\mapsto m(g,h)=g.h$$es suave. (Por que no cambiamos ningun codominio) 
@@ -161,6 +166,7 @@
 
 >[!Corollary] Conjunto de nivel con puntos regulares
 >Sea $F:M\to N$ suave y $c\in\operatorname{Im}F$ tal que todo punto en el conjunto de nivel $F^{-1}(c)$ es un punto regular. Entonces $F^{-1}(c)$ es una subvariedad incrustada de $M$ de dimension $\dim M-\dim N$.
+>
 >>[!Proof]-  
 >>1. Sea $p\in F^{-1}(c)$ como $c$ es valor regular de $F$, tenemos que $$(dF)_p:T_pM\to T_cN$$ es sobreyectiva.  
 >>2. Por [[GS - Teo13#^1aee60]], existe un abierto $U_p\subseteq M$ con $p\in U_p$ tal que $$F|_{U_p}:U_p\to N$$ es una submersión.  

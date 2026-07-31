@@ -2,6 +2,7 @@
 
 >[!Exercise]
 >Sea $V$ un espacio vectorial de dimension $n$. Mostrar que si $k>n$, entonces $\Lambda^k(V^*)=\{0\}$.
+>
 >>[!Proof]-
 >>1. Supongamos tenemos $w\in \Lambda^{k}(V^{*})$ entonces $w_{p}:V\times\ldots\times V\rightarrow\mathbb{R}$ es una funcion multilineal y alternada
 >>2. Ahora veamos que $w_{p}(v_{1},\ldots,v_{k})=0$ para cualquier $v_{1},\ldots,v_{k}$
@@ -13,6 +14,7 @@
 
 >[!Exercise]
 >Sea $V$ un espacio vectorial de dimension $n$ y sean $\lambda\in\Lambda^k(V^*)$ y $\mu\in\Lambda^\ell(V^*)$, donde $1\le k,\ell\le n$. Mostrar que $\lambda\wedge\mu\in\Lambda^{k+\ell}(V^*)$.
+>
 >>[!Proof]-
 >>1. Si $\lambda\in\Lambda^k(V^*)$ y $\mu\in\Lambda^\ell(V^*)$, por definicion $$\lambda\wedge\mu=\frac{(k+l)!}{k!l!}\operatorname{Alt}(\lambda\otimes\mu)$$
 >>2. Recordamos que si $w\in \Lambda^{j}(V^{*})$ sucede que $$w:\underbrace{V\times\cdots\times V}_{j\text{-veces}}\to\mathbb R$$ 
@@ -38,6 +40,7 @@
 >- Mostrar que $B_1$ es un subconjunto linealmente independiente de $V^*$ si y solo si $\theta_1\wedge\cdots\wedge\theta_r\ne0$.
 >- Mostrar que $2e^1+3e^2-e^3$, $e^1+2e^2$, $e^1-2e^3$ son linealmente dependientes.
 >- Suponer que tanto $B_1$ como $B_2$ son subconjuntos linealmente independientes de $V^*$. Probar que $B_1$ y $B_2$ son bases del mismo subespacio $r$-dimensional de $V^*$ si y solo si $$\theta_1\wedge\cdots\wedge\theta_r=c\,\xi_1\wedge\cdots\wedge\xi_r$$para algun $c\ne0$; y en tal caso, si $M$ es la matriz de cambio de base de $B_1$ a la base $B_2$, $c=\det(M)$.
+>
 >>[!Proof]-
 >>- (a) 
 >>	1. $(\Rightarrow)$ Suponemos $\theta_{1}\ldots\theta_{r}$ son l.i ahora tomamos sus correspondientes vectores en la base predual $v_{1},\ldots v_{r}$ 
@@ -78,6 +81,7 @@
 >  $$
 >  Probar que es un isomorfismo de espacios vectoriales.
 >- Mostrar que si $k=1,n-1$ o $n$, entonces toda $\alpha\in\Lambda^k(V^*)$ es descomponible.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Si $\alpha=\theta_1\wedge\cdots\wedge\theta_k$, entonces $$\alpha\wedge\alpha=\theta_1\wedge\cdots\wedge\theta_k\wedge\theta_1\wedge\cdots\wedge\theta_k=0$$porque aparecen factores repetidos. Y por que $\theta_{j}\in V^{*}$  Esto prueba directamente el caso $k$ impar; para $k$ par, el mismo argumento con factores repetidos tambien da $0$.
@@ -128,6 +132,7 @@
 >  \iota_v(\omega\wedge\eta)=\iota_v(\omega)\wedge\eta+(-1)^k\omega\wedge\iota_v(\eta)
 >  $$
 >  para todas $\omega\in\Lambda^k(V^*)$, $\eta\in\Lambda^\ell(V^*)$.
+>
 >>[!Proof]-
 >>Para $a_1,\ldots,a_k\in\Lambda^1(V^*)$,
 >>$$
@@ -182,6 +187,7 @@
 
 >[!Exercise]
 >(Opcional) Un par $(V,\omega)$ se dice espacio vectorial simplectico si $V$ es un espacio vectorial real y $\omega\in\Lambda^2(V^*)$ es una forma bilineal antisimetrica no degenerada; la cual es llamada una forma simplectica sobre $V$. Mostrar que la existencia de una tal $\omega$ implica que la dimension de $V$ debe ser par, y reciprocamente, mostrar que todo espacio vectorial de dimension par admite una forma simplectica.
+>
 >>[!Proof]-
 >>Si $\omega$ es simplectica, la aplicacion
 >>$$
@@ -203,6 +209,7 @@
 
 >[!Exercise]
 >(Opcional) Sea $V$ espacio vectorial real y sea $\xi\in\Lambda^2(V^*)$. Probar que existe una base de $V$, $u_1,\ldots,u_r,v_1,\ldots,v_s,w_1,\ldots,w_s$, tal que $\xi(u_k,\cdot)=0$ para $k=1,\ldots,r$, $\xi(v_i,v_j)=0=\xi(w_i,w_j)$ y $\xi(v_i,w_j)=\delta(i,j)$, para todo $1\le i,j\le s$.
+>
 >>[!Proof]-
 >>Sea $\varepsilon\in\Lambda^2(V^*)$. Si $\varepsilon=0$, cualquier base sirve con $s=0$. Si no, elija $v_1,w_1$ con $\varepsilon(v_1,w_1)\ne0$ y reescale para que valga $1$. El subespacio $P_1=\langle v_1,w_1\rangle$ tiene complemento ortogonal
 >>$$
@@ -226,6 +233,7 @@
 >\omega^n=\underbrace{\omega\wedge\cdots\wedge\omega}_{n\text{ veces}}
 >$$
 >es no nulo.
+>
 >>[!Proof]-
 >>Sea $\dim V=2n$. Si $\omega$ es no degenerada, por el ejercicio anterior existe una base simplectica en la cual
 >>$$
@@ -246,6 +254,7 @@
 
 >[!Exercise]
 >Sea $M$ una variedad diferenciable de dimension $m$. Mostrar que la nocion de que una $k$-forma en $M$ sea suave no depende de la eleccion de sistema coordenado (considerar solo el caso $k=2$).
+>
 >>[!Proof]-
 >>1. Basta hacerlo para $2$-formas. En coordenadas $x=(x_1,\ldots,x_{m})$ $$\omega=\sum_{i<j}a_{ij}\,dx_{i}\wedge dx_{j}$$ esto por [[GS - Teo21#^70585b]]
 >>2. Si $y=(y^1,\ldots,y^m)$ es otro sistema, entonces tenemos otra base del $T_{p}^{*}M$ por lo tanto $$dx_{i}=\sum_j^{m} \frac{\partial x_{i}}{\partial y_{j}}\,dy_{j}$$ las coordenadas salen evaluando en $\frac{\partial}{\partial y_{j}}$ 
@@ -264,6 +273,7 @@
 >
 >- (a) Para $X_1,\ldots,X_k\in\mathfrak X(M)$ arbitrarios, se tiene que $\omega(X_1,\ldots,X_k)\in C^\infty(M)$, donde $\omega(X_1,\ldots,X_k)$ es la funcion dada por $$\omega(X_1,\ldots,X_k)(p)=\omega_p(X_1|_p,\ldots,X_k|_p),\qquad p\in M$$
 >- (b) Para todo entorno coordenado $(U,(x^1,\ldots,x^n))$ de $M$, se tiene $$\omega|_U=\sum_{i_1<\cdots<i_k}a_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad a_{i_1\cdots i_k}\in C^\infty(U)$$
+>
 >>[!Proof]-
 >>- $(b\Rightarrow a)$ 
 >>	1. Tomamos un $p\in M$ ahora tenemos $(U,\phi=x_{1},\ldots,x_{n})$ carta entonces por (b) $$\omega|_U=\sum_{i_1<\cdots<i_k}a_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad a_{i_1\cdots i_k}\in C^\infty(U)$$
@@ -288,6 +298,7 @@
 
 >[!Exercise]
 >Probar que si $\omega\in\Omega^k(M)$ y $\eta\in\Omega^\ell(M)$, entonces $\omega\wedge\eta\in\Omega^{k+\ell}(M)$.
+>
 >>[!Proof]-
 >>1. En coordenadas, si $$\omega=\sum_I a_I\,dx^I,\qquad \eta=\sum_J b_J\,dx^J$$
 >>2.  entonces $$\omega\wedge\eta=\sum_{I,J}a_Ib_J\,dx^I\wedge dx^J$$ 
@@ -299,6 +310,7 @@
 
 >[!Exercise]
 >Sea $M$ una variedad diferenciable de dimension $m$. Dadas $\omega\in\Omega^k(M)$ y $\theta\in\Omega^\ell(M)$, mostrar que $$d_{k+\ell}(\omega\wedge\theta)=(d_k\omega)\wedge\theta+(-1)^k\omega\wedge(d^\ell\theta)$$
+>
 >>[!Proof]-
 >>1. En un entorno coordenado escribimos $$\omega=\sum_I a_I\,dx^I,\qquad \theta=\sum_J b_J\,dx^J$$
 >>2. Como $d(dx^i)=0$ al aplicar la regla 3. De [[GS - Teo21#^f7b034]] el segundo término es $0$ entonces $$\begin{align}d(a_Ib_J\,dx^I\wedge dx^J)&=d(a_Ib_J)\wedge dx^I\wedge dx^J\\& =(da_I)b_J\wedge dx^I\wedge dx^J +a_I(db_J)\wedge dx^I\wedge dx^J\end{align}$$ para el segundo igual recordamos que las $0$-formas son funciones y por ende usamos la regla de derivar producto
@@ -310,8 +322,9 @@
 ### Ejercicio 15
 
 >[!Exercise]
->- (a) Encontrar la diferencial exterior de $\varphi$ y $\eta$ en $\Omega^2(\mathbb R^3)$ dadas por $\varphi=\cos(xy^2)\,dx\wedge dz$ y $\omega=x\,dy\wedge dz+y\,dz\wedge dx+z\,dx\wedge dy$.
->- (b) Encontrar una $(n-1)$-forma $\epsilon$ tal que $d^{n-1}\epsilon=dx_1\wedge\cdots\wedge dx_n\in\Omega^n(\mathbb R^n)$.
+>- (a) Encontrar la diferencial exterior de $\varphi$ y $\omega$ en $\Omega^2(\mathbb R^3)$ dadas por $\varphi=\cos(xy^2)\,dx\wedge dz$ y $\omega=x\,dy\wedge dz+y\,dz\wedge dx+z\,dx\wedge dy$.
+>- (b) Encontrar una $(n-1)$-forma $\epsilon$ tal que $d\epsilon=dx_1\wedge\cdots\wedge dx_n\in\Omega^n(\mathbb R^n)$.
+>
 >>[!Proof]-
 >>- (a) 
 >>	1. Podemos pensar a $$\cos(xy^{2})=\cos\circ f(x,y,x)=h(x,y,z):\mathbb{R}^{3}\rightarrow \mathbb{R}$$ donde $f(x,y,z)=xy^{2}$
@@ -322,12 +335,13 @@
 >>	6. Entonces $$d\varphi=(d\cos(xy^{2}))=-2xy\sin(xy^{2})dy\wedge dx\wedge dz=2xy\sin(xy^{2})dx\wedge dy\wedge dz$$ 
 >>	7. Haciendo algo analogo al paso 2. nos queda que $$d\omega=dx\wedge dy\wedge dz+ dy\wedge dz\wedge dx+ dz\wedge dx\wedge dy=3dx\wedge dy \wedge dz$$ 
 >>- (b) 
->>	1. La mas simple es: $$\omega=x_{1}dx_{2}\wedge\ldots\wedge dx_{n}$$ 
+>>	1. La más simple es $$\epsilon=x_1\,dx_2\wedge\cdots\wedge dx_n.$$ En efecto, $$d\epsilon=dx_1\wedge dx_2\wedge\cdots\wedge dx_n,$$ pues $d(dx_i)=0$ para todo $i$.
 
 ### Ejercicio 16
 
 >[!Exercise]
 >Sea $\omega\in\Omega^1(M)$ y sean $X,Y\in\mathfrak{X}(M)$. Probar que $$d\omega(X,Y)=X(\omega(Y))-Y(\omega(X))-\omega([X,Y]).$$
+>
 >>[!Proof]-
 >>1. Sea $(U,(x^1,\ldots,x^n))$ una carta suave y escribamos $$\omega=\sum_i c_i\,dx^i.$$
 >>2. Como $$d\omega=\sum_i dc_i\wedge dx^i,$$ tenemos $$d\omega(X,Y)=\sum_i\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\right).$$ donde usamos que $(dc_{i})X=X(c_{i})$ etc 
@@ -342,6 +356,7 @@
 
 >[!Exercise]
 >Sea $F:M\to N$ una función suave y sea $\theta\in\Omega^k(N)$. Mostrar que $F^*\theta\in\Omega^k(M)$ y que $d^k(F^*\theta)=F^*(d^k\theta)$
+>
 >>[!Proof]-
 >>- $F^{*}\theta\in \Omega^{k}(M)$  
 >>	1. Primero probamos que $F^*\theta\in\Omega^k(M)$. Sea $\theta=\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}$.
@@ -373,6 +388,7 @@
 >- (a) Mostrar que toda forma exacta es cerrada y que toda $n$-forma en una variedad de dimension $n$ es cerrada.
 >- (b) Mostrar que el producto exterior de dos formas cerradas es una forma cerrada y que el producto exterior de una forma cerrada con una exacta es una forma exacta.
 >- (c) Mostrar que la $1$-forma $\theta=x\,dy$ en $\mathbb R^2$ no es exacta. Mas aun, en ningun abierto $U$ esta definida una funcion $f$ tal que $df=\theta$ en $U$.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Si $\alpha=d\beta$, entonces $d\alpha=d^2\beta=0$. Toda $n$-forma en una variedad de dimension $n$ es cerrada porque su diferencial seria una $(n+1)$-forma, y $\Omega^{n+1}(M)=0$.
@@ -388,6 +404,7 @@
 
 >[!Exercise]
 >Considerar en la circunferencia $S^1$ los sistemas coordenados canonicos $s=\phi^{-1}$ y $t=\psi^{-1}$ con imagenes los intervalos $(0,2\pi)$ y $(-\pi,\pi)$, respectivamente. Mostrar que $ds$, $dt$ definen bien una $1$-forma suave $\theta$ en $S^1$. Probar que $\theta$ es localmente exacta, pero no exacta.
+>
 >>[!Proof]-
 >>- 1era parte
 >>	1. Define the two open sets $$U=S^1\setminus\{(1,0)\},\qquad V=S^1\setminus\{(-1,0)\}.$$
@@ -429,6 +446,7 @@
 >- (a) Para cada $j=1,2,3$, mostrar que $F_j$ es un isomorfismo de $C^\infty(U)$-modulos.
 >- (b) Probar que el diagrama es conmutativo y deducir que $\operatorname{div}\operatorname{rot}=0$ y $\operatorname{rot}\operatorname{grad}=0$.
 >- (c) Decidir si el campo vectorial $u(x,y,z)=(x,0,0)$ puede ser el rotor de algun campo vectorial en $\mathbb R^3$.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Recordamos que un campo vectorial suave en $U\subset\mathbb R^3$ se escribe como $$u=a\frac{\partial}{\partial x}+b\frac{\partial}{\partial y}+c\frac{\partial}{\partial z},$$ con $a,b,c\in C^\infty(U)$.  
@@ -456,6 +474,7 @@
 >$$
 >\operatorname{div}_p(u)=\left.\frac d{dt}\right|_0\det(d\phi_t)_p.
 >$$
+>
 >>[!Proof]-
 >>Sea $\phi_t$ el flujo de $u$. La derivada de $d\phi_t$ satisface
 >>$$
@@ -489,6 +508,7 @@
 >  $$
 >  \int_C f(z)\,dz=\operatorname{Circ}(V,C)+i\operatorname{Flujo}(V,C).
 >  $$
+>
 >>[!Proof]-
 >>Sea $f=u-iv$. Las ecuaciones de Cauchy-Riemann para $f$ son
 >>$$
@@ -522,6 +542,7 @@
 >g(x_1,\ldots,x_n)=\int_0^{x_1}f_1(t,x_2,x_3,\ldots,x_n)\,dt+\int_0^{x_2}f_2(0,t,x_3,\ldots,x_n)\,dt+\cdots+\int_0^{x_n}f_n(0,0,0,\ldots,t)\,dt.
 >$$
 >¿Que relacion hay entre $dg$ y $\alpha$?
+>
 >>[!Proof]-
 >>La funcion $g$ se obtiene integrando la $1$-forma cerrada $\alpha=\sum_i f_i\,dx_i$ sobre el camino poligonal que va de $0$ a $x$ moviendo una coordenada por vez. Como $\alpha$ es cerrada en $\mathbb R^n$, el lema de Poincare en el dominio estrella $\mathbb R^n$ da independencia del camino. Por tanto
 >>$$
@@ -537,6 +558,7 @@
 >g=\frac1{p+1}\sum_{i=1}^n x_i f_i(x_1,\ldots,x_n).
 >$$
 >Mostrar que $dg=\alpha$.
+>
 >>[!Proof]-
 >>Sea
 >>$$
@@ -564,6 +586,7 @@
 
 >[!Exercise]
 >(Opcional) Sea $\alpha$ una $1$-forma nunca nula sobre una variedad suave de dimension $2$. Mostrar que $\alpha$ puede escribirse localmente como $f\,dg$ con $f$ y $g$ funciones suaves.
+>
 >>[!Proof]-
 >>Sea $\alpha$ una $1$-forma nunca nula en una superficie. Cerca de cualquier punto se puede elegir una coordenada $x$ tal que el coeficiente de $dx$ en $\alpha$ no se anule. Escribamos
 >>$$

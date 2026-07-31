@@ -27,13 +27,14 @@
 >$$\psi\circ F\circ \varphi^{-1}(s_1,\ldots,s_m)=(s_1,\ldots,s_n),$$
 >y si $F$ es una inmersion suave, entonces $(r=m)$ y
 >$$\psi\circ F\circ \varphi^{-1}(s_1,\ldots,s_m)=(s_1,\ldots,s_m,0,\ldots,0).$$
+>
 >>[!Proof]- Revisar
 >>1. Sea $p\in M$. Tomamos cartas suaves $(U,\varphi)$ de $M$ centrada en $p$ y $(V,\psi)$ de $N$ centrada en $F(p)$ tales que $F(U)\subseteq V$.
 >>2. Consideramos $$\widetilde F=\psi\circ F\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb R^m\to\psi(V)\subseteq\mathbb R^n.$$
->>3. Como $\widetilde F$ tiene rango $r$, achicando si hace falta, podemos suponer que una submatriz $r\times r$ de la matriz jacobiana es no singular en $(0,0)$. Reordenando coordenadas, tomamos $$\left(\frac{\partial \widetilde F_i}{\partial x_j}(0,0)\right)_{1\le i,j\le r}.$$
+>>3. Como $\widetilde F$ tiene rango $r$ (es por que $F$ tiene rango $r$ y las cartas son homeomorfismos entonces su diferencial es isomorfismo con lo cual no cambia el rango), achicando si hace falta, podemos suponer que una submatriz $r\times r$ de la matriz jacobiana es no singular en $(0,0)$. Reordenando coordenadas, tomamos $$\left(\frac{\partial \widetilde F_i}{\partial x_j}(0,0)\right)_{1\le i,j\le r}.$$
 >>4. Escribimos coordenadas en $\mathbb R^m$ como $$s=(x,y),\qquad x=(x_1,\ldots,x_r),\qquad y=(y_1,\ldots,y_{m-r}).$$
 >>5. Definimos $$Q:\widetilde U\subseteq\mathbb R^m\to\mathbb R^m,$$ $$Q(x,y)=\big(\widetilde F_1(x,y),\ldots,\widetilde F_r(x,y),y\big).$$
->>6. Afirmacion: $$dQ(0,0)=\begin{pmatrix}\dfrac{\partial Q_i}{\partial x_j} & \dfrac{\partial Q_i}{\partial y_j}\\0 & I_{m-r}\end{pmatrix}_{(0,0)}$$ es no singular. Como el bloque $$\left(\frac{\partial Q_i}{\partial x_j}(0,0)\right)$$ es no singular, $dQ(0,0)$ es no singular.
+>>6. Afirmacion: $$dQ(0,0)=\begin{pmatrix}\dfrac{\partial Q_i}{\partial x_j} & \dfrac{\partial Q_i}{\partial y_j}\\0 & I_{m-r}\end{pmatrix}_{(0,0)}$$ es no singular. Como el bloque $$\left(\frac{\partial Q_i}{\partial x_j}(0,0)\right)$$ es no singular por el paso 3. entonces $dQ(0,0)$ es no singular.
 >>7. Por el teorema de la funcion inversa, existen abiertos $\widetilde U_0$ de $\mathbb R^m$ en $(0,0)$ y $\widehat U$ de $(0,0)$ tales que $$Q|_{\widetilde U_0}:\widetilde U_0\to \widehat U$$es un difeomorfismo.
 >>8. Como las cajas abiertas son una base de la topologia de $\mathbb R^m$, podemos suponer que $\widehat U$ es una caja: $$C_\varepsilon^m(0,0)=\{(s_1,\ldots,s_m)\in\mathbb R^m:\ |s_i|<\varepsilon\}.$$
 >>9. Sea $$\varphi^{-1}:C_\varepsilon^m(0,0)\subseteq\mathbb R^m\to \widetilde U_0\subseteq\mathbb R^m,$$$$(x,y)\mapsto (A(x,y),B(x,y)).$$
@@ -60,6 +61,7 @@
 >	- (a)  Si $F$ es sobreyectiva, entonces $F$ es submersion.
 >	- (b)  Si $F$ es inyectiva, entonces $F$ es inmersion.
 >	- (c)  Si $F$ es biyectiva, entonces $F$ es difeomorfismo.
+>
 >>[!Proof]- Revisar
 >>- (a)
 >>	1. Razonemos por absurdo. Si $F$ es sobreyectiva y no es submersion, entonces el rango constante $r$ satisface $r<n$.
@@ -94,6 +96,7 @@
 
 >[!Proposition] Ejercicio
 >Sea $M$ variedad y $(U,\varphi)$ carta. Toda rebanada $R=R(c_{m+1},\ldots,c_n)$ con la topologia relativa de $M$ tiene una estructura diferenciable tal que $(R,i)$ es subvariedad de $U$ y a su vez de $M$, de dimension $m$. (Supongo $m<n$ por como definimos rebanada) 
+>
 >>[!Proof]-
 >>1. Consideremos la funcion $$\pi_m:\mathbb R^n\to\mathbb R^m$$$$(y_1,\ldots,y_n)\mapsto(y_1,\ldots,y_m)$$que proyecta a $(y_1,\ldots,y_n)$ en sus primeras $m$ coordenadas.
 >>2. Supongamos como carta de $R$: $$(R,\widetilde\varphi=\pi_m\circ\varphi|_R)$$y la estructura dif. sobre $R$ seria el atlas maximal generado por $\{(R,\widetilde\varphi)\}$.

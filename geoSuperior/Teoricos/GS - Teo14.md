@@ -14,6 +14,7 @@
 >Sea $(M,i)$ una inmersion en $N$ y sea $p\in M$ y sea $g:M\to\mathbb R$ funcion suave. 
 >Entonces, existen un abierto $U$ de $M$ en $p$, un abierto $V$ de $N$ en $i(p)$ con $i(U)\subseteq V$ (cuidado, $M$ no necesariamente tiene topologia heredada) y una funcion $$\widetilde g:V\subseteq N\to\mathbb R$$ suave que extiende a $g$, es decir, $\widetilde g\circ i=g$ para todo $q\in U$.
 >![[Pasted image 20260505230207.png]]
+>
 >>[!Proof]-
 >>1. Sea $m=\dim M$ y $n=\dim N$ si $m=n$ sale gratis (por que?) 
 >>2. Como $(M,i)$ es una inmersion, sabemos por la formula local de una inmersion que existen cartas $(U,\varphi)$ y $(V,\psi)$ centradas en $p$ e $i(p)$ tales que $$\psi\circ i\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0)$$
@@ -42,6 +43,7 @@
 
 >[!Proposition] Extension Global
 > Sea $(M,i)$ una incrustacion de $N$, donde $i$ es inclusion y $M$ es un subconjunto cerrado de $N$. Dada $g \in C^\infty(M)$, existe $\widetilde g \in C^\infty(N)$ que extiende a $g$, es decir $\widetilde g \circ i=g$.
+>
 >>[!Proof]-
 >>1. Vamos a usar [[GS - Teo14#^81237c]]
 >>2. Para aplicarlo hay que ver que $g \in C^\infty(M)$ implica que $g$ es suave sobre $M$ al verla como subconjunto de $N$.

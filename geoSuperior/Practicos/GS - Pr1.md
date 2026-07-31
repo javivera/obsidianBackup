@@ -3,6 +3,7 @@
 >[!Exercise]
 >- Mostrar que $$\{(x,y)\in\mathbb R^2:xy=0\}$$ no es un espacio topológico localmente euclídeo.
 >- Sea $X$ el cociente $$(\mathbb R\times\{0,1\})/{\sim}$$ de dos copias de $\mathbb R$, donde $(x,0)\sim(x,1)$ para $x\neq 0$. Mostrar que $X$ es un espacio topológico tal que todo punto tiene un entorno abierto homeomorfo a un abierto de $\mathbb R$, pero no es Hausdorff.
+>
 >>[!Proof]-
 >>- **1.a** 
 >>1. Sea $X=\{(x,y)\in\mathbb R^2:xy=0\},$ la unión de los dos ejes coordenados. En el origen, cualquier entorno abierto $U\subset X$ cumple que $U\setminus\{(0,0)\}$ tiene cuatro componentes conexas.
@@ -22,6 +23,7 @@
 
 >[!Exercise]
 >Mostrar que para todo punto $p$ de una variedad diferenciable de dimensión $n$ existe un sistema coordenado $(U,\varphi)$ tal que $\varphi(p)=0$ y $\varphi(U)=\mathbb R^n$.
+>
 >>[!Proof]-
 >>1. Sea $p\in M$, donde $M$ es una variedad de dimensión $n$. Tomamos una carta $(U,\varphi)$ con $p\in U$. Como $\varphi(U)\subset\mathbb R^n$ es abierto y contiene $\varphi(p)$, existe $r>0$ tal que $$B_r(\varphi(p))\subset\varphi(U).$$
 >>2. Reemplazando $U$ por $U\cap \varphi^{-1}(B_r(\varphi(p)))$, podemos suponer $\varphi(U)=B_r(\varphi(p))$.
@@ -42,6 +44,7 @@
 >Sea $V$ un espacio vectorial real de dimensión finita con la única topología $\tau$ que hace de $(V,\tau)$ un espacio vectorial topológico Hausdorff.
 >- Sean $B_1=\{v_1,\dots,v_n\}$ y $B_2=\{u_1,\dots,u_n\}$ bases de $V$, y sean $\varphi_{B_1},\psi_{B_2}:V\to\mathbb R^n$ las funciones coordenadas asociadas. Mostrar que tanto $\varphi_{B_1}$ como $\psi_{B_2}$ son homeomorfismos de $(V,\tau)$ con $\mathbb R^n$.
 >- Mostrar que $\{(V,\varphi_{B_1})\}$ y $\{(V,\psi_{B_2})\}$ son atlas sobre $V$ y determinan la misma estructura diferenciable.
+>
 >>[!Proof]-
 >>**3.a** Fijemos la base $B_1$ y definamos $$\widetilde{\tau}:=\{\varphi_{B_1}^{-1}(O):O\subseteq\mathbb R^n\text{ abierto}\}.$$ Es fácil ver que $\widetilde{\tau}$ es una topología sobre $V$. Por construcción, $$\varphi_{B_1}:(V,\widetilde{\tau})\to\mathbb R^n$$ es un homeomorfismo, luego $(V,\widetilde{\tau})$ es un espacio vectorial topológico Hausdorff. Por la unicidad de la topología Hausdorff compatible con la estructura de espacio vectorial en dimensión finita, se sigue que $$\widetilde{\tau}=\tau.$$
 >>En particular, por definición de $\widetilde{\tau}$, la aplicación $$\varphi_{B_1}:(V,\tau)\to\mathbb R^n$$ es continua. Veamos ahora que $$\varphi_{B_1}^{-1}:\mathbb R^n\to(V,\tau)$$ también es continua. Sea $U\subseteq V$ abierto. Como $\tau=\widetilde{\tau}$, existe un abierto $O\subseteq\mathbb R^n$ tal que $$U=\varphi_{B_1}^{-1}(O).$$ Entonces $$(\varphi_{B_1}^{-1})^{-1}(U)=\varphi_{B_1}(U)=\varphi_{B_1}(\varphi_{B_1}^{-1}(O))=O,$$ que es abierto. Como además $\varphi_{B_1}$ es biyectiva, concluimos que $\varphi_{B_1}$ es un homeomorfismo.
@@ -61,6 +64,7 @@
 
 >[!Exercise]
 >Sea $U$ un abierto de $\mathbb R^n$ y $f:U\to\mathbb R^m$ una función $C^\infty$. Dotar el gráfico de $f$, $$\Gamma(f)=\{(x,f(x)):x\in U\}\subset\mathbb R^{n+m},$$ con una estructura de variedad diferenciable.
+>
 >>[!Proof]-
 >>La proyección sobre la primera coordenada $$\pi:\Gamma(f)\to U,\qquad \pi(x,f(x))=x$$ es biyectiva y continua. Su inversa es $$\pi^{-1}(x)=(x,f(x)),$$ que es suave porque $f$ es suave. Entonces $\pi$ es un difeomorfismo $$\Gamma(f)\cong U.$$ Como $U$ es abierto de $\mathbb R^n$, esto dota a $\Gamma(f)$ de estructura de variedad diferenciable de dimensión $n$. Un atlas posible es la sola carta $(\Gamma(f),\pi)$.
 
@@ -68,6 +72,7 @@
 
 >[!Exercise]
 >Sean $\{(U_\alpha,\varphi_\alpha)\}$ y $\{(V_\beta,\psi_\beta)\}$ atlas $C^\infty$ de variedades diferenciables $M$ y $N$, respectivamente. Mostrar que la familia $$\{(U_\alpha\times V_\beta,(\varphi_\alpha,\psi_\beta))\}$$ es un atlas de $M\times N$, y por lo tanto $M\times N$ es una variedad diferenciable llamada variedad producto.
+>
 >>[!Proof]-
 >>Si $(U_\alpha,\varphi_\alpha)$ es una carta de $M$ y $(V_\beta,\psi_\beta)$ una carta de $N$, entonces $$(\varphi_\alpha,\psi_\beta):U_\alpha\times V_\beta\to \varphi_\alpha(U_\alpha)\times \psi_\beta(V_\beta)$$ es un homeomorfismo sobre un abierto de $\mathbb R^{m+n}$. Las funciones de cambio de cartas son $$(\varphi_{\alpha'},\psi_{\beta'})\circ(\varphi_\alpha,\psi_\beta)^{-1}=\bigl(\varphi_{\alpha'}\circ\varphi_\alpha^{-1},\,\psi_{\beta'}\circ\psi_\beta^{-1}\bigr),$$ que son $C^\infty$. Por lo tanto $$\{(U_\alpha\times V_\beta,(\varphi_\alpha,\psi_\beta))\}$$ es un atlas suave sobre $M\times N$.
 
@@ -75,6 +80,7 @@
 
 >[!Exercise]
 >Identificando $\mathbb R^2$ con los números complejos $\mathbb C$, se puede pensar al círculo unidad $S^1$ como un subconjunto del plano complejo. Una función ángulo sobre un subconjunto $A\subseteq S^1$ es una función continua $$\theta:A\to\mathbb R$$ tal que $$e^{i\theta(z)}=z$$ para todo $z\in A$. Sea $U\subseteq S^1$ un conjunto abierto. Mostrar que existe una función ángulo sobre $U$ si y solo si $U\neq S^1$, y mostrar también que si $\theta:U\to\mathbb R$ es una función ángulo, entonces $(U,\theta)$ es una carta suave para $S^1$ con su estructura suave estándar.
+>
 >>[!Proof]-
 >>Si $U\subset S^1$ es abierto y $U\ne S^1$, elijo $a\in S^1\setminus U$. Entonces $S^1\setminus\{a\}$ es homeomorfo a un intervalo abierto, y por composición con ese homeomorfismo existe una función ángulo continua $$\theta:U\to\mathbb R.$$
 >>En cambio, si $U=S^1$, no puede existir una función ángulo global continua: sería un levantamiento continuo de la identidad $S^1\to S^1$ por la exponencial $t\mapsto e^{it}$, lo cual contradice el número de vueltas del círculo.
@@ -85,6 +91,7 @@
 >[!Exercise]
 >- Sea $$S^n=\{x\in\mathbb R^{n+1}:\|x\|=1\}.$$ Mostrar que las estructuras diferenciables que contienen las cartas de casquetes y las cartas estereográficas coinciden.
 >- Mostrar que $S^2$ con la estructura diferenciable dada en el punto anterior es difeomorfa a $(M,\mathcal F)$, donde $M$ es la compactificación de $\mathbb C$ por el punto $\infty$, y $\mathcal F$ contiene las cartas $(U,\varphi)$ y $(V,\psi)$ dadas por $$U=\mathbb C,\qquad \varphi=\operatorname{id},\qquad V=(\mathbb C\setminus\{0\})\cup\{\infty\},\qquad \psi(z)=1/z,\qquad \psi(\infty)=0.$$
+>
 >>[!Proof]-
 >>- **7.a**
 >>	1. Definimos dos atlas sobre $S^n$:
@@ -120,6 +127,7 @@
 
 >[!Exercise]
 >Sea $M$ el cilindro infinito; $M:=\{(x,y,z)\in\mathbb{R}^3:x^2+y^2=1\}$. Cubrir a $M$ con una sola carta.
+>
 >>[!Proof]-
 >>1. Vamos a ver:
 >>$$M\cong S^1\times\mathbb{R}\cong S^1\times(0,\infty)\cong\mathbb{R}^2\setminus\{0\}$$
@@ -139,6 +147,7 @@
 
 >[!Exercise] Ejercicio 9
 >Sea $M$ una variedad compacta y conexa. ¿Puede ser $M$ cubierta por una sola carta?
+>
 >>[!Proof]-
 >>1. Suponer que existe una carta $(M,\varphi)$ que cubre toda $M$, con
 >>$$\varphi:M\xrightarrow{\;\sim\;}\varphi(M)\subseteq\mathbb{R}^n$$
@@ -155,6 +164,7 @@
 >[!Exercise]
 >Considerar el cociente $$\mathbb{RP}^2=S^2/{\sim}$$ dado por la relación de equivalencia $\sim$ sobre $S^2$ definida por $x\sim x$ o $x\sim -x$. 
 >Mostrar que existe una única estructura diferenciable en $\mathbb{RP}^2$ tal que la proyección canónica es un difeomorfismo local.
+>
 >>[!Proof]-
 >>1. la proyeccion canonica es $$\pi:S^2\to \mathbb{RP}^2$$ $(\mathbb{RP}^2=S^2/\sim)$  
 >>2. Asumimos una estructura diferenciable estandar $\mathcal{F}_1$ para $S^2$
@@ -197,6 +207,7 @@
 
 >[!Exercise]
 >Sea $\sim$ la relación de equivalencia en $\mathbb R^2$ dada por $x\sim y$ si y solo si $x-y\in\mathbb Z^2$. Considerar en el cociente $$T^2=\mathbb R^2/{\sim}$$ la única estructura diferenciable tal que la proyección es un difeomorfismo local. Mostrar que $T^2$ es difeomorfo a $S^1\times S^1$ provisto de la estructura diferenciable producto.
+>
 >>[!Proof]-
 >>- **Damos una estructura a $\mathbb{T}^{2}$**
 >>	1. Notar que $$\pi:\mathbb{R}^2\to \mathbb{R}^2/\mathbb{Z}^2=\mathbb{T}^2$$ no es inyectiva, pero dado $p\in\mathbb{R}^2$ $\exists U$ abierto tal que $$\pi|_U:U\to \pi(U)$$ es inyectiva (y trivialmente homeomorfismo); dicho $U$ cumple $$(U+k)\cap U=\varnothing\quad \forall k\in\mathbb{Z}^2\setminus\{0\}\quad(1)$$
@@ -237,6 +248,7 @@
 
 >[!Exercise]
 >Considerar en $\mathbb R$ las estructuras diferenciables $\mathcal F$ y $\mathcal F'$ que contienen respectivamente los sistemas coordenados $(\mathbb R,\operatorname{id})$ y $(\mathbb R,t\mapsto t^3)$. Mostrar que son difeomorfas pero $\mathcal F\neq\mathcal F'$.
+>
 >>[!Proof]-
 >>1. Sea
 >>$$h:(\mathbb R,\mathcal F)\to(\mathbb R,\mathcal F'),\qquad h(x)=x^{1/3}.$$
@@ -255,6 +267,7 @@
 
 >[!Exercise]
 >Denotemos por $M(m\times n,\mathbb R)$ el espacio vectorial de las matrices de tamaño $m\times n$ con coeficientes reales, y por $M_k(m\times n,\mathbb R)$ el subconjunto formado por las matrices de rango $k$. Considerar sobre $$M_1(2\times 2,\mathbb R)$$ la topología heredada de $M(2\times 2,\mathbb R)$. Para $i=1,2$, definir $$U_i=\{X\in M_1(2\times 2,\mathbb R):\text{la fila }i\text{ de }X\text{ es no nula}\}$$ y $$\phi_i(X)=\bigl(\text{fila }i\text{ de }X,\langle\text{fila }1\text{ de }X,\text{fila }2\text{ de }X\rangle\bigr).$$ Mostrar que cada $U_i$ es un abierto de $M_1(2\times 2,\mathbb R)$, que cada $\phi_i$ es un homeomorfismo entre $U_i$ y un abierto de $\mathbb R^3$, y comprobar que $$\{(U_i,\phi_i)\}_{i=1,2}$$ es un atlas sobre $M_1(2\times 2,\mathbb R)$.
+>
 >>[!Proof]-
 >>En $$M_1(2\times 2,\mathbb R),$$ el conjunto $$U_i=\{X:\text{la fila }i\text{ es no nula}\}$$ es abierto relativo, porque su complemento dentro de $$M_1(2\times 2,\mathbb R)$$ está dado por la anulación de dos coordenadas.
 >>Si $$X=\begin{pmatrix}a\\ b\end{pmatrix}\in U_1,$$ con $$a\in\mathbb R^2\setminus\{0\},$$ entonces $$\operatorname{rg}(X)=1$$ implica que $$b=\lambda a$$ para algún $$\lambda\in\mathbb R.$$ Además $$\langle a,b\rangle=\lambda\|a\|^2.$$ Entonces $$\lambda=\langle a,b\rangle/\|a\|^2,$$ y $X$ queda determinado por $$\phi_1(X)=\bigl(a,\langle a,b\rangle\bigr)\in(\mathbb R^2\setminus\{0\})\times\mathbb R.$$ La inversa es $$\phi_1^{-1}(a,c)=\begin{pmatrix}a\\ \frac{c}{\|a\|^2}a\end{pmatrix}.$$ Luego $$\phi_1$$ es homeomorfismo sobre el abierto $$(\mathbb R^2\setminus\{0\})\times\mathbb R\subset\mathbb R^3.$$ Análogamente para $$i=2.$$ Las transiciones son suaves porque están dadas por cocientes por $$\|a\|^2$$ o $$\|b\|^2,$$ nunca nulos en el dominio correspondiente.
@@ -263,6 +276,7 @@
 
 >[!Exercise]
 >Sean $m,n\in\mathbb N$, con $m<n$, y sea $$M_m(m\times n,\mathbb R)$$ el subconjunto de las matrices de rango igual a $m$. Dar a $$M_m(m\times n,\mathbb R)$$ una estructura de variedad diferenciable.
+>
 >>[!Proof]-
 >>Si $$m<n,$$ el conjunto $$M_m(m\times n,\mathbb R)$$ de matrices de rango $m$ es el conjunto de matrices de rango máximo. Esto equivale a que algún menor $$m\times m$$ sea no nulo. Por lo tanto es un abierto de $$\mathbb R^{mn}\simeq M(m\times n,\mathbb R).$$ En consecuencia hereda de $$\mathbb R^{mn}$$ una estructura de variedad diferenciable de dimensión $$mn=m(m+n-m).$$
 
@@ -270,6 +284,7 @@
 
 >[!Exercise]
 >Considerar en $\mathbb C$ la relación de equivalencia $$x\sim e^{i2k\pi/3}x,\qquad k=0,1,2.$$ Mostrar que $$\mathbb C/{\sim}$$ es localmente euclídeo de dimensión $2$, que admite estructura diferenciable, pero que no admite ninguna estructura diferenciable tal que la proyección sea un difeomorfismo local.
+>
 >>[!Proof]-
 >>1. Sea $F(x)=x^3$. Entonces $F$ pasa al cociente, porque si $x\sim y$, entonces $y=xe^{i2k\pi/3}$ para algún $k=0,1,2$, y por lo tanto
 >>$$F(y)=y^3=x^3e^{i2k\pi}=x^3=F(x).$$
@@ -294,6 +309,7 @@
 
 >[!Exercise]
 >Sea $M_1=\mathbb{S}^1\times\mathbb R$ con la estructura diferenciable producto, y sea $M_2$ la variedad diferenciable del ejercicio del cilindro infinito. ¿Puede probar que $M_1$ y $M_2$ son difeomorfas?
+>
 >>[!Proof]-
 >>1. Sea $\mathcal F$ el atlas de $S^1$ dado por las estereográficas. Entonces
 >>$$\{(U_i\times \mathbb R,\ \varphi_i\times \mathrm{Id})\}$$
@@ -320,6 +336,7 @@
 >	- la variedad producto $S^1\times\mathbb R,$
 >	- $\mathbb R^2\setminus\{0\}$
 >	- la superficie de $\mathbb R^3$ cuya construcción es análoga a la de la banda de Moebius a partir de una cinta, pero dando una vuelta entera antes de pegar.
+>
 >>[!Proof]-
 >>- **Demosle estructura a $C$**
 >>	1. Miramos $\pi:\mathbb{R}^{2}\rightarrow C$ dada por $\pi(x,y)=[x,y]$ 
@@ -372,6 +389,7 @@
 >- el conjunto de todos los prismas en $\mathbb R^3$ de lados paralelos a los ejes y con volumen unitario,
 >- el conjunto de todos los planos punteados orientados en $\mathbb R^3$,
 >- el conjunto de todas las rectas orientadas en el plano.
+>
 >>[!Proof]-
 >>- **(a)**
 >>	1. Sea $$M=\{(v,w)\in\mathbb R^2\times\mathbb R^2:\|v\|=1,\ \|w\|=1,\ \langle v,w\rangle=0\}.$$

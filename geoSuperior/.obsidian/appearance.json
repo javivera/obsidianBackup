@@ -1,7 +1,8 @@
 {
   "cssTheme": "Border",
   "enabledCssSnippets": [
-    "style"
+    "style",
+    "floating-left-sidebar"
   ],
   "textFontFamily": "Fira Code",
   "interfaceFontFamily": "CMU Sans Serif",

@@ -2,6 +2,7 @@
 
 >[!Exercise]
 >Let $M$ be a connected smooth manifold. Prove that any two points of $M$ can be joined by a piecewise smooth curve.
+>
 >>[!Proof]-
 >>1. Fix $p\in M$ and define $$A=\{q\in M:\text{ there exists a piecewise smooth curve from }p\text{ to }q\}.$$
 >>2. Since the constant curve at $p$ is smooth, we have $p\in A$, so $A\neq\varnothing$.
@@ -28,6 +29,7 @@
 
 > [!Exercise]
 > Hallar la subvariedad integral conexa maximal que contiene a $(0,0)$ para la distribución $D$ en $\mathbb{R}^2$ definida por $D=\operatorname{span}\{e_1\}$.
+>
 >>[!Proof]-
 >>1. Notar que implicitamente estamos tomando $(\mathbb{R}^{2},Id=(x,y))$ como carta de $\mathbb{R}^{2}$ por eso considerando que $D_{p}\in T_{p}\mathbb{R}^{2}\simeq \mathbb{R}^{2}$ (es una distribucion de $\mathbb{R}^{2}$) y podemos identificar $e_{1}|_{p}=\frac{\partial}{\partial x}|_{p}$    
 >>2. Ahora consideremos $$N=\mathbb{R}\times\{0\}\subset \mathbb{R}^2.$$
@@ -65,6 +67,7 @@
 
 >[!Exercise]
 >Let $\mathcal{D}$ be a smooth $1$-dimensional distribution on $M$. Prove that $\mathcal{D}$ is involutive.
+>
 >>[!Proof]-
 >>1. Let $U\subseteq M$ be open, and let $X,Y\in\mathfrak{X}(U)$ be smooth vector fields such that $$X_q,Y_q\in\mathcal{D}_q\quad\text{for every }q\in U.$$
 >>2. We must prove that $$[X,Y]_q\in\mathcal{D}_q\quad\text{for every }q\in U.$$
@@ -91,6 +94,7 @@
 >
 >- Probar que ellos generan una distribución involutiva.
 >- Encontrar las superficies integrales.
+>
 >>[!Proof]-
 >>1. Estamos en el abierto
 >>   $$O=\{(x,y,z):x>0,\ y>0,\ z>0\}.$$
@@ -130,6 +134,7 @@
 >- Dibujar los campos $V$ y $W$ para todos los puntos del plano $z=0$.
 >- Mostrar que la distribución $D(p)=\operatorname{span}\{V(p),W(p)\}$ no es integrable.
 >- Dado un punto cualquiera $p$ de $\mathbb R^3$, mostrar que existe una curva diferenciable a trozos $\gamma:[0,a]\to\mathbb R^3$ tal que $\gamma(0)=0$, $\gamma(a)=p$ y $\gamma'(t)\in D(\gamma(t))$ para todo $t$ donde $\gamma'(t)$ existe. ¿Podría suceder esto si la distribución fuera integrable?
+>
 >>[!Proof]-
 >>- (a)
 >>	1. En el plano $z=0$, el campo $V$ es siempre horizontal en dirección del eje $x$: $$V=(1,0,0).$$
@@ -164,6 +169,7 @@
 >- (b) Mostrar que un movimiento $\gamma$ es admisible si y solo si $\gamma'(t)\in\mathcal D_{\gamma(t)}$ para todo $t$, donde $\mathcal D$ es la distribución de dimensión $2$ en $\mathbb R^3$ definida por $\mathcal D_{(x,y,\theta)}=\operatorname{span}\{(\cos\theta,\sin\theta,0),(0,0,1)\}$.
 >- (c) Representar gráficamente la distribución $\mathcal D$ y verificar que no es integrable.
 >- (d) Encontrar una curva admisible a trozos que una los puntos $(0,0,0)$ y $(0,1,0)$.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. En un uniciclo ideal no hay deslizamiento lateral.
@@ -200,6 +206,7 @@
 
 >[!Exercise]
 >¿Es la subvariedad de $\mathbb R^2$ que conocemos por “el ocho” una subvariedad integral para alguna distribución involutiva sobre $\mathbb R^2$?
+>
 >>[!Proof]-
 >>1. Sea $\phi:(0,2\pi)\to\mathbb R^2$ dada por $$\phi(t)=\left(\frac{\sin(2t)}{2},\sin t\right)$$y sea $E=\phi((0,2\pi))$.
 >>2. Le damos a $E$ la estructura suave transportada por $\phi$. Entonces la carta de $E$ es $\psi:E\to(0,2\pi)$ dada por $\psi=\phi^{-1}$.
@@ -229,6 +236,7 @@
 >[!Exercise]
 >- (a) Probar que la recta densa en el toro $\phi:\mathbb R\to T^2$ es una subvariedad integral de alguna distribución en $T^2$. 
 >- (b) Sea $M$ una variedad diferenciable y sea $f:M\to T^2$ una función diferenciable tal que $f(M)\subset\phi(\mathbb R)$. Mostrar que $\phi^{-1}\circ f:M\to\mathbb R$ es diferenciable.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Escribimos $T^2=\mathbb R^2/\mathbb Z^2$ y denotamos por $\pi:\mathbb R^2\to T^2$ la proyección canónica.
@@ -266,6 +274,7 @@
 
 >[!Exercise]
 >Sea $(M,\phi)$ una subvariedad integral conexa de una distribución involutiva $\mathcal D$ en una variedad $N$. Probar que si $\phi(M)$ es cerrada en $N$, entonces $M$ es conexa maximal.
+>
 >>[!Proof]-
 >>1. Queremos probar que $(M,\phi)$ es conexa maximal. Sea entonces $(L,\psi)$ una subvariedad integral conexa de $\mathcal D$ tal que $\psi(L)\cap\phi(M)\neq\varnothing$. Debemos probar que $\psi(L)\subseteq\phi(M)$.
 >>2. Definimos $A:=\{q\in L:\psi(q)\in\phi(M)\}=\psi^{-1}(\phi(M))$. Como $\psi(L)\cap\phi(M)\neq\varnothing$, tenemos $A\neq\varnothing$.
@@ -290,6 +299,7 @@
 >[!Exercise]
 >Sea $M=\mathbb R^3$ sin el eje $z$ y sea $\mathcal D$ la distribución generada por los campos $$X(x,y,z)=-y\frac{\partial}{\partial x}\big|_{(x,y,z)}+x\frac{\partial}{\partial y}\big|_{(x,y,z)} \qquad Z(p)=\frac{\partial}{\partial z}\big|_{(x,y,z)}$$
 >Demostrar que $C=\{(x,y,z)\in\mathbb R^3:x^2+y^2=1\}$, con la estructura diferenciable usual, es una subvariedad integral conexa maximal de $\mathcal D$.
+>
 >>[!Proof]-
 >>1. Sea $f:M\to\mathbb R$ dada por $f(x,y,z)=x^2+y^2$. Entonces $C=f^{-1}(1)$.
 >>2. Tenemos $$df=2x\,dx+2y\,dy$$ esto se ve directo planteando la $1$-forma $df=\sum^{3}_{i=1} a_{i}dx_{i}$ y calculando coeficientes (obviamente $x_{1}=x,x_{2}=y,x_{3}=z$). Ademas si $p=(p_1,p_2,p_3)\in C$, entonces $df_p=2p_1(dx)_p+2p_2(dy)_p$.
@@ -318,6 +328,7 @@
 >
 >- Mostrar que $D$ es una distribución involutiva.
 >- Hallar una subvariedad integral $\phi:\mathbb R^2\to\mathbb R^3$ de $D$ tal que $\phi(0,0)=(0,0,0)$.
+>
 >>[!Proof]-
 >>1. Denotemos $$X=e_1+f'(x)\sin(y)e_3,\qquad Y=e_2+f(x)\cos(y)e_3.$$
 >>2. En coordenadas $$X=\frac{\partial}{\partial x}+f'(x)\sin(y)\frac{\partial}{\partial z},\qquad Y=\frac{\partial}{\partial y}+f(x)\cos(y)\frac{\partial}{\partial z}.$$

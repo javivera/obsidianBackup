@@ -11,11 +11,13 @@
 
 >[!Exercise]
 >Verificar que la anterior relacion es una relacion de equivalencia en el conjunto de bases ordenadas.
+>
 >>[!Proof]
 >>1.
 
 >[!Proposition]
 >La relacion de equivalencia en el conjunto de bases ordenadas de $V$ tiene solo dos clases de equivalencia.
+>
 >>[!Proof]-
 >>1. **Hay al menos dos clases:** Sea $\mathcal B=\{v_1,\ldots,v_n\}$ una base de $V$. Entonces $$\widetilde{\mathcal B}=\{-v_1,v_2,\ldots,v_n\}$$tambien es base de $V$, y la matriz de cambio de base tiene determinante $$\det\begin{pmatrix}-1& &0\\&\ddots&\\0& &1\end{pmatrix}=-1<0.$$
 >>2. Por lo tanto $\mathcal B$ y $\widetilde{\mathcal B}$ no estan en la misma clase.
@@ -37,6 +39,7 @@
 >Sea $\omega\in\Lambda^n(V^*)$ y sea $\mathcal B=\{e_1,\ldots,e_n\}$ una base de $V$. Entonces, dados $v_1,\ldots,v_n\in V$ arbitrarios, se cumple que
 >$$\omega(v_1,\ldots,v_n)=\det A\ \omega(e_1,\ldots,e_n),$$
 >donde $A$ es la matriz cuya columna $j$ son las coordenadas de $v_j$ en la base $\mathcal B$.
+>
 >>[!Proof]-
 >>1. Sea $\mathcal B^*=\{e_1^*,\ldots,e_n^*\}$ la base dual de $V^*$. Sabemos que $$e_1^*\wedge\cdots\wedge e_n^*$$es base de $\Lambda^n(V^*)$. 
 >>2. Por lo tanto existe $\lambda\in\mathbb R$ tal que $$\omega=\lambda e_1^*\wedge\cdots\wedge e_n^*.$$
@@ -49,6 +52,7 @@
 >Sea $V$ un espacio vectorial real de dimension $n$. Cada elemento no nulo $\omega\in\Lambda^n(V^*)$ determina una orientacion $\mathcal O$ de $V$ de la siguiente manera:
 >$$\mathcal O=\{(E_1,\ldots,E_n)\text{ base ordenadas}:\omega(E_1,\ldots,E_n)>0\}.$$
 >Dos $n$-tensores alternantes no nulos determinan la misma orientacion si y solo si uno es multiplo positivo del otro.
+>
 >>[!Proof]-
 >>1. Sea $\mathcal B=\{e_1,\ldots,e_n\}$ una base ordenada y sea $\omega\in\Lambda^n(V^*)$ no nula. Vamos a ver que la clase de equivalencia de esta base está dada por las bases ordenadas $\{v_1,\ldots,v_n\}$ tales que $\omega(v_1,\ldots,v_n)$ tiene el mismo signo que $\omega(e_1,\ldots,e_n)$ 
 >>2. Supongamos tenemos otra base ordenada $\{ v_{1},\ldots,v_{n} \}$ entonces: $$\begin{align}\{ v_{1},\ldots v_{n} \}\in [\{ e_{1},\ldots e_{n} \}]& \iff \det(M_{\widetilde{B}}^{B} )>0\\& \iff \frac{\omega(v_{1},\ldots,v_{n})}{\omega(e_{1},\ldots,e_{n})}=\det(M_{\widetilde{\mathcal B}}^{B} )>0\\&\iff \omega(v_{1},\ldots,v_{n})\ \land \ \omega(e_{1},\ldots,e_{n})\ \text{tienen el mismo signo}\end{align}$$ el primer paso por definicion el segundo por [[GS - Teo24#^543d91]] 
@@ -73,6 +77,7 @@
 
 >[!Proposition]
 >En general, cualquier variedad que pueda cubrirse con dos cartas suaves tal que $U\cap V$ sea conexo 
+>
 >>[!Proof]-
 >>1. Sea $M$ una variedad que puede cubrirse con dos cartas suaves $(U,\varphi=(x^1,\ldots,x^m))$ y $(V,\psi=(y^1,\ldots,y^m))$ tales que $U\cap V$ sea conexo.
 >>2. Tenemos la función $$f:U\cap V\to\mathbb R \qquad q\mapsto\det\!\left(\frac{\partial y^j}{\partial x^i}(q)\right)$$  
@@ -93,6 +98,7 @@
 
 >[!Proposition]
 >Sea $(M,\mathcal A)$ una variedad orientada y sea $(U,\varphi=(x_1,\ldots,x_m))$ una carta suave de $M$ con $U$ conexo. Entonces $(U,\varphi)$ es positivamente orientada o negativamente orientada.
+>
 >>[!Proof]-
 >>1. Consideremos los subconjuntos de $U$ $$U_+=\left\{p\in U:\left\{\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_m}\bigg|_p\right\}\text{ es positivamente orientada con respecto a } \mathcal A\right\},$$$$U_-=\left\{p\in U:\left\{\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_m}\bigg|_p\right\}\text{ es negativamente orientada con respecto a }\mathcal A\right\}.$$ notar que en estos conjuntos hablamos de orientacion como espacios vectoriales
 >>2. Vale la pena recalcar que $U_{+}$ y $U_{-}$ están bien definidas pues $\mathcal A$ define una orientación en cada $T_pM$, con $p\in M$, que no depende de la carta que se elija en $\mathcal A$.
@@ -118,6 +124,7 @@
 >- (a) $M$ es orientable.
 >- (b) Existe una $n$-forma continua nunca nula sobre $M$.
 >- (c) Existe una $n$-forma suave nunca nula sobre $M$.
+>
 >>[!Proof]-
 >>- **$(c)\Rightarrow(b)$** es inmediato.
 >>- **$(b)\Rightarrow(a)$**. 
@@ -169,6 +176,7 @@
 >Sea $M$ una subvariedad de dimension $n$ en $\mathbb R^{n+1}$. Probar que $M$ es orientable si y solo si $M$ admite un campo normal diferenciable nunca nulo; es decir, una funcion diferenciable
 >$$\xi:M\to\mathbb R^{n+1}$$
 >tal que $\xi(p)\perp T_pM$ para todo $p\in M$.
+>
 >>[!Proof]-
 >>**$(\Leftarrow)$** Supongamos que existe $\xi:M\to\mathbb R^{n+1}$ suave y nunca nula tal que $\xi(p)\perp T_pM$ para todo $p\in M$.
 >>

@@ -35,6 +35,7 @@
 
 >[!Theorem] Teorema fundamental sobre atlas maximales
 >Sea $M$ una variedad topológica y sea $\mathcal{A}_0$ un atlas de $M$. Entonces existe un único atlas maximal, llamado la **estructura diferenciable generada por $\mathcal{A}_0$**, que contiene a $\mathcal{A}_0$.
+>
 >>[!Proof]
 >>1. Se define $\mathcal{F}$ como el conjunto de todas las cartas de $M$ que son suavemente compatibles con las cartas de $\mathcal{A}_0$. Por definición, $\mathcal{A}_0\subseteq\mathcal{F}$.
 >>2. Los dominios de las cartas en $\mathcal{F}$ cubren $M$, porque ya lo hacen las cartas de $\mathcal{A}_0$.
@@ -54,6 +55,7 @@
 
 >[!Example] Atlas suave de $S^n$
 >La familia de las **cartas casquetes** define un atlas sobre $S^n$.n 
+>
 >>[!Proof]-
 >>1. Se consideran los abiertos $$U_i^\varepsilon=\{x=(x_1,\dots,x_{n+1})\in S^n : \varepsilon x_i>0\},\qquad \varepsilon\in\{+,-\}$$y las cartas $$\varphi_i^\varepsilon:U_i^\varepsilon\to B^n,\qquad\varphi_i^\varepsilon(x_1,\dots,x_{n+1})=x_1,\dots,\widehat{x_i},\dots,x_{n+1})$$
 >>2. La inversa inserta la coordenada faltante como $$\left(\varphi_i^\varepsilon\right)^{-1}(z_1,\dots,z_n)=(z_1,\dots,z_{i-1},\varepsilon\sqrt{1-z_1^2-\cdots-z_n^2},z_i,\dots,z_n)$$
@@ -71,6 +73,7 @@
 >$$U_i=\pi(\widehat{U}_i),\qquad \widehat{U}_i=\ x\in\mathbb{R}^{n+1}\setminus\{0\}:x_i\neq 0\}.$$
 >La carta correspondiente es $$\varphi_i:U_i\to\mathbb{R}^n,\qquad[x_1,\cdots,x_{n+1}]\mapsto\left(\frac{x_1}{x_i},\dots,\widehat{\frac{x_i}{x_i}},\dots,\frac{x_{n+1}}{x_i}\right).$$
 >Veamos que $\{ (U_{i},\varphi_{i}) \}$ es atlas
+>
 >>[!Proof]-
 >>1. Queremos ver que $\varphi_j \circ \varphi_i^{-1}$ es suave sobre $\varphi_i(U_i \cap U_j)$
 >>2. Supongamos que $i < j$ (el caso $i > j$ es similar y $i=j$ es trivial). Notar que $$\varphi_i(U_i \cap U_j) = \{ (z_1, \dots, z_n) \in \mathbb{R}^n : z_{j-1} \neq 0 \}$$
@@ -85,6 +88,7 @@
 
 >[!Exercise] Criterio usando un atlas
 >Sea $M$ una variedad diferenciable y $\mathcal{A}\subseteq\mathcal{F}$ un atlas de $M$. Sea $F:M\to\mathbb{R}^k$. Probar que $F$ es suave si para toda carta $(U,\varphi)\in\mathcal{A}$ se cumple que $F\circ\varphi^{-1}$ es suave sobre el abierto $\varphi(U)$.
+>
 >>[!Proof]-
 >>- **($\Rightarrow$)** 
 >>	1. Si $F$ es suave, por definición $F\circ\varphi^{-1}$ es suave para toda carta del atlas maximal $\mathcal{F}$. Como $\mathcal{A}\subseteq\mathcal{F}$, vale en particular para toda carta de $\mathcal{A}$.
@@ -109,6 +113,7 @@
 >Sea $M$ una variedad suave. Mostrar que $C^\infty(M)$ es una $\mathbb{R}$-álgebra asociativa y conmutativa con las operaciones usuales.
 >
 >Para $\lambda\in\mathbb{R}$ y $f,g\in C^\infty(M)$: $$(\lambda f)(x)=\lambda\,f(x), \qquad (f+g)(x)=f(x)+g(x), \qquad (fg)(x)=f(x)\,g(x).$$
+>
 >>[!Proof]-
 >>- **Cierre bajo las operaciones.**
 >>	1. Sea $(U,\varphi)$ una carta suave arbitraria de $M$. Si $f,g\in C^\infty(M)$, entonces $f\circ\varphi^{-1}$ y $g\circ\varphi^{-1}$ son $C^\infty$ sobre $\varphi(U)$.
@@ -122,6 +127,7 @@
 
 >[!Exercise] Cocientes de polinomios homogéneos
 >Sean $P,Q\in\mathbb{R}[x_1,\dots,x_{n+1}]$ dos polinomios homogéneos de grado $k$, es decir, $$P(tx)=t^kP(x),\qquad Q(tx)=t^kQ(x).$$ Suponer además que $$Q(x)=0 \iff x=(0,\dots,0).$$ Por ejemplo, $$Q(x_1,\dots,x_{n+1})=x_1^2+\cdots+x_{n+1}^2.$$ Probar que la función $$f:\mathbb{RP}^n\to\mathbb{R},\qquad [x]\mapsto \frac{P(x)}{Q(x)}$$ está bien definida, no depende del representante, y es suave.
+>
 >>[!Proof]-
 >>**Buena definición.**
 >>2. Si $[x]=[y]$, entonces $y=tx$ para algún $t\neq 0$. Como $P$ y $Q$ son homogéneos de grado $k$: $$\frac{P(y)}{Q(y)}=\frac{P(tx)}{Q(tx)}=\frac{t^kP(x)}{t^kQ(x)}=\frac{P(x)}{Q(x)}.$$
@@ -152,6 +158,7 @@
 
 >[!Proposition] Toda función suave es continua
 >Toda funcion suave es continua
+>
 >>[!Proof]
 >>1. Sea $F:M\to N$ suave. Fijado $p\in M$, existen cartas $(U,\varphi)$ alrededor de $p$ y $(V,\psi)$ alrededor de $F(p)$ tales que $F(U)\subseteq V$ y $\psi\circ F\circ\varphi^{-1}$ es suave, luego continua.
 >>2. Como $\varphi$ y $\psi$ son homeomorfismos sobre sus imágenes, también son continuas con inversas continuas.
@@ -170,11 +177,13 @@
 >4. Si $I\subseteq M$ es un abierto, entonces la inclusión $i:I\hookrightarrow M$ es suave.
 >
 >5. Si $F:M\to N$ y $G:N\to P$ son suaves, entonces $G\circ F:M\to P$ es suave.
+>
 >>[!Proof] Idea para el punto 1
 >>1. Si $\widetilde{U}\cap F^{-1}(\widetilde{V})=\varnothing$, no hay nada que probar.
 >>2. Si $p\in \widetilde{U}\cap F^{-1}(\widetilde{V})$, se toman cartas $(U,\varphi)$ de $M$ y $(V,\psi)$ de $N$ dadas por la definición de suavidad de $F$, con $p\in U$ y $F(p)\in V$.
 >>3. Entonces, localmente, $$\widetilde{\psi}\circ F\circ\widetilde{\varphi}^{-1}=(\widetilde{\psi}\circ\psi^{-1})\circ(\psi\circ F\circ\varphi^{-1})\circ(\varphi\circ\widetilde{\varphi}^{-1}),$$ y cada factor es suave.
 >>4. Por eso la composición también lo es.
+>
 >>[!Proof] Idea para el punto 5
 >>5. Si $p\in M$, se toma primero una carta de $P$ alrededor de $G(F(p))$ y una carta de $N$ alrededor de $F(p)$ que haga suave a $G$.
 >>6. Como $F$ es continua, la preimagen del abierto de esa carta en $N$ es abierto en $M$.

@@ -28,6 +28,7 @@
 >Supongamos que $m<n$ y definimos
 >$$c:\mathbb R^m\to\mathbb R^n,\qquad c(x^1,\dots,x^m)=(x^1,\dots,x^m,0,\dots,0).$$
 >Queremos ver que $c$ es una incrustación suave de $\mathbb R^m$ en $\mathbb R^n$.
+>
 >>[!Proof]-
 >>- **$c$ es suave**
 >>	1. Cada función coordenada de $c$ es suave: $$c^i(x)=x^i\quad\text{si }1\le i\le m,$$y $$c^i(x)=0\quad\text{si }m+1\le i\le n.$$
@@ -57,6 +58,7 @@
 >Sea
 >$$f:\mathbb R\to\mathbb R^3,\qquad f(t)=(\cos t,\sin t,t).$$
 >Queremos ver que $f$ es una incrustación suave de $\mathbb R$ en $\mathbb R^3$.
+>
 >>[!Proof]-
 >>- **$f$ es suave**
 >>	1. Usando la carta de identidad de ambos lados con $\mathbb{R}$ y $\mathbb{R}^{3}$ respectivamente
@@ -92,6 +94,7 @@
 
 >[!Exercise]
 >En general, si $$f:I\subseteq\mathbb R\to M$$ es suave, entonces $f$ es inmersión si y solo si $$f'(t)\neq 0$$ para todo $t\in I$.
+>
 >>[!Proof]-
 >>1. Para cada $t\in I$, el espacio tangente $T_tI$ es $1$-dimensional y tiene base
 >>$$
@@ -131,6 +134,7 @@
 >[!Example] Esfera es subvariedad incrustada
 >Sea $S^2$ la esfera con su estructura de variedad suave usual, y pensemos en $$i:S^2\to\mathbb R^3$$ la inclusión, $$p\mapsto i(p)=p.$$
 >Veamos que $(S^2,i)$ es una subvariedad incrustada.
+>
 >>[!Proof]-
 >>- **$i$ es suave** 
 >>	1. Tomamos la carta identidad en $\mathbb{R}^{3}$ y la proyeccion estereografica $\varphi$ (o cualquiera otra) y se reduce a ver que dado $p\in S^{2}$ $i\circ\varphi ^{-1}$ es suave 
@@ -158,6 +162,7 @@
 >[!Example] El ocho no es subvariedad incrustada
 >Considérese $$f:\mathbb{R}\to\mathbb R^2, \qquad f(t)=\sin t\left(\cos t,1\right)=\left(\frac{\sin 2t}{2},\sin t\right)$$
 >Su imagen es la curva con forma de ocho. Entonces $((0,2\pi),f)$ es una subvariedad de $\mathbb{R}^{2}$ pero no incrustada
+>
 >>[!Proof]-
 >>2. $g$ es claramente suave e inyectiva
 >>3. Devuelta usando cartas identidad y bases tangentes podemos calcular el jacobiano (gradiente en este caso). $$[dg_{t}]=\begin{pmatrix}\cos^{2}t-\sin^{2}t\\\cos t\end{pmatrix}=\begin{pmatrix}\cos2t\\ \cos t\end{pmatrix}$$
@@ -203,6 +208,7 @@
 
 >[!Proposition] Representante incrustado único
 >Sea $M$ una variedad suave. Toda clase de equivalencia $[(N,f)]$ de subvariedades de $M$ contiene un único representante de la forma $$(\widehat N,i)$$donde $\widehat N\subseteq M$ es un subconjunto e $$i:\widehat N\hookrightarrow M$$es la inclusión.
+>
 >>[!Proof]-
 >>1. Como $(N,f)$ una subvariedad de $M$. Como $f$ es inyectiva, induce una biyección $$\widehat f:N\to \widehat N:=f(N)$$ notar que como cambia el conjunto de llegada cambia la funcion
 >>2. Transportamos la topología y la estructura suave de $N$ a $\widehat N$ mediante $\widehat f$. Con esa estructura, $\widehat f$ es un difeomorfismo.

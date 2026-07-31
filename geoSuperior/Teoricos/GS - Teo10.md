@@ -11,6 +11,7 @@
 >
 >- $F(U)$ es abierto de $F(p)$ en $N$.
 >- La restriccion $$F|_U:U \subseteq M \to F(U) \subseteq N$$ es un difeomorfismo.
+>
 >>[!Proof]-
 >>1. Llevamos el problema a $\mathbb{R}^{n}$ 
 >>2. Como $(dF)_{p}$ es isomorfismo entonces $$\dim M=\dim T_{p}M=\dim T_{F(p)}N=\dim N$$
@@ -38,6 +39,7 @@
 >[!Proposition] Espacio cotangente
 >Sea $M$ una variedad suave y sea $$f:M \to \mathbb R$$ en $C^{\infty}(M)$, entonces $$(df)_p:T_pM \to T_{f(p)}\mathbb R \simeq \mathbb R$$ puede verse como un funcional en $T_p^*M:=(T_{p}M)^{*}$.
 >Mas precisamente, para $v \in T_pM$, $$(df)_p(v)=v(f)\in \mathbb{R}$$ para todo $v\in T_{p}M$
+>
 >>[!Proof]-
 >>1. Sabemos, $$(df)_p:T_pM\to T_{f(p)}\mathbb R,$$
 >>2. Luego si $v\in T_pM$, entonces $(df)_p(v)\in T_{f(p)}\mathbb R$. Como $$T_{f(p)}\mathbb R=\operatorname{span}\left\{\frac{d}{dt}\bigg|_{f(p)}\right\},$$existe $\lambda\in\mathbb R$ tal que $$(df)_p(v)=\lambda\frac{d}{dt}\bigg|_{f(p)}.$$
@@ -50,6 +52,7 @@
 
 >[!Proposition]
 >Si $(U,\varphi=(x_1,\ldots,x_m))$ es una carta suave, las funciones $x_{i}:U\subseteq M\rightarrow\mathbb{R}$ definen funcionales lineales en $(T_{p}M)^{*}$ dadas por $(dx_{i})_{p}$ y el conjunto $$\{(dx_1)_p,\ldots,(dx_m)_p\}$$ es la base dual de $$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\ldots,\left.\frac{\partial}{\partial x_m}\right|_p\right\}$$
+>
 >>[!Proof]-
 >>1. Por [[GS - Teo10#^14f1f6]] sabemos que $(dx_{i})_{p}\in (T_pM)^{*}$ 
 >>2. Para ver que son base dual alcanza ver que $$(dx_i)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\delta_{ij}.$$
@@ -82,6 +85,7 @@
 >Si $e_1,\ldots,e_n$ es base de $V$, entonces $Te_1,\ldots,Te_n$ extiende a base de $W$, digamos $$\{Te_1,\ldots,Te_n,u_1,\ldots,u_s\},$$ y tenemos base dual $$\{(Te_1)^*,\ldots,(Te_n)^*,u_1^*,\ldots,u_s^*\}.$$
 >Notar que $$T^*((Te_i)^*)=e_i^*.$$
 >Para la vuelta, si $v \in V$ y $Tv=0$, como $v \ne 0$, existe $\alpha \in V^*$ con $\alpha(v)\ne 0$. Como $T^*$ es sobre, dado $\alpha \in V^*$ existe $\beta \in W^*$ tal que $\alpha=T^*\beta$, y entonces $$\alpha(v)=(T^*\beta)(v)=\beta(Tv)=0,$$ contradiccion.
+>
 >>[!Proof]- Revisar
 >>1. Probemos primero que si $T$ es inyectiva, entonces $T^*$ es sobreyectiva. Sea $\alpha \in V^*$. Tomamos una base $\{e_1,\ldots,e_n\}$ de $V$. Como $T$ es inyectiva, $\{Te_1,\ldots,Te_n\}$ es linealmente independiente en $W$, luego se puede extender a una base de $W$:
 >>$$\{Te_1,\ldots,Te_n,u_1,\ldots,u_s\}.$$
@@ -115,6 +119,7 @@
 
 >[!Proposition]
 >Sea $M$ una variedad suave de dimensión $m$. Sea $U$ un abierto de $M$ y $p\in U$. Si $\{y_1,\ldots,y_m\}$ es un conjunto de funciones suaves sobre $U$ independientes en $p$ entonces existe un abierto $V$ de $M$ en $p$, con $V\subseteq U$, tal que $$(V,\psi=(y_1,\ldots,y_m))$$es una carta en $p$.
+>
 >>[!Proof]-
 >>1. Se define $$\psi:U \subseteq M \to \mathbb R^m,\qquad q \mapsto (y_1(q),\ldots,y_m(q)).$$ La cual resulta suave.
 >>2. Queremos ver que $(d\psi)_p$ es un isomorfismo.

@@ -40,6 +40,7 @@
 >$$
 >(v+w)(f)=v(f)+w(f),\qquad (\lambda v)(f)=\lambda\,v(f).
 >$$
+>
 >>[!Proof]-
 >>1. Para ver que $T_pM$ es un espacio vectorial real, basta ver que es subespacio de $\mathrm{Lin}(C^\infty(M),\mathbb{R})$. 
 >>2. Por como estan definidas las operaciones es evidente que $v+w$ y $\lambda v$ estan en $\mathrm{Lin}(C^\infty(M),\mathbb{R})$ con lo cual solo habria que ver Leibniz en ambos casos
@@ -57,6 +58,7 @@
 >$$\begin{align} & (I)\quad0\leq \beta(x)\leq 1\qquad\forall x\in M \\ & (II) \quad\beta|_{\overline{V}}\equiv 1\\&(III)\quad\operatorname{supp}(\beta)\subseteq U\end{align}$$
 >Recordar el soporte es $\operatorname{supp}(\beta)=\{ q\in M:\beta(q)\neq0 \}$ 
 >Este es el lema de funciones campana o de levantamiento en variedades suaves.
+>
 >>[!Proof]-
 >>6. Sea $p\in M$ y $U$ abierto de $p$. Sea $(W,\psi)$ una carta suave de $p$ tal que, sin pérdida de generalidad, podemos asumir que:  
 >>	- $W\subset U$  
@@ -95,6 +97,7 @@
 >$$
 >\widetilde{f}=f\qquad\text{sobre }V.
 >$$
+>
 >>[!Proof]-
 >>1. La idea es usar la función $\beta$ del lema técnico, pues $\beta$ vale cero fuera de $U$. Definimos $$\tilde f(q)=\begin{cases}\beta (q)\,f(q) & \text{si } q\in U\\0 & \text{si } q\notin U\end{cases}$$
 >>2. El papel de la función $\beta$ es mantener el valor de $f$ sobre $\overline V$ (pues $\beta|_{\overline V}=1$) e ir haciendo cero a $f$ mientras no se está más en $U$.
@@ -117,6 +120,7 @@
 >[!Proposition] Localidad de los vectores tangentes
 >Sea $M$ una variedad suave, $p\in M$ y $v\in T_pM$. Si $f,g\in C^\infty(M)$ coinciden en un abierto de $p$, entonces
 >$$v(f)=v(g).$$
+>
 >>[!Proof]-
 >>1. Es equivalente demostrar que si $f-g=h\in C^\infty(M)$ se anula en un abierto $U$ de $p$, entonces $v(h)=0$.
 >>2. Se toma una función campana $\beta$ con $\beta\equiv 1$ en un abierto $V\subseteq U$ de $p$ y soporte contenido en $U$.
@@ -143,6 +147,7 @@
 
 >[!Exercise] Vectores coordenados
 >Mostrar que cada función $\left.\frac{\partial}{\partial x_i}\right|_p$ es un vector tangente de $M$ en $p$.
+>
 >>[!Proof]-
 >>Fijemos $i$ y escribamos $a=\varphi(p)\in\mathbb{R}^n$. Debemos ver que
 >>$$
@@ -192,6 +197,7 @@
 
 >[!Proposition] Independencia lineal de los vectores coordenados
 >El conjunto de vectores coordenados $$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\}$$es linealmente independiente en $T_pM$.
+>
 >>[!Proof]-
 >>1. Las funciones coordenadas $x_i$ están definidas solo en $U$, ósea están en $C^{\infty}(U)$ 
 >>2. Pero $\left.\frac{\partial}{\partial x_n}\right|_p$ esta en $C^{\infty}(M)$ así que primero se extienden a funciones suaves globales $\widetilde{x}_i\in C^\infty(M)$ que coinciden con $x_i$ en un abierto $V$ de $p$ usando [[GS - Teo5#^405b16]] (obtenemos múltiples abiertos y tomamos la intersección no vacía por que esta $p$) 
@@ -208,6 +214,7 @@
 >$$
 >v(c)=0.
 >$$
+>
 >>[!Proof]-
 >>1. Primero se aplica Leibniz a la función constante $1$:
 >>$$v(1)=v(1\cdot 1)=1\cdot v(1)+1\cdot v(1)=2v(1),$$  de donde $v(1)=0$.
@@ -221,6 +228,7 @@
 >\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p
 >$$
 >generan $T_pM$ y por lo tanto forman una base
+>
 >>[!Proof]-
 >>1. Sea $(U,\varphi=(x_1,\dots,x_n))$ una carta de $p$. Queremos mostrar que para todo $v\in T_pM$,$$v=\sum_{i=1}^n t_{i}\left.\frac{\partial}{\partial x_i}\right|_p$$
 >>2. Pero evaluando en $\tilde{x_{i}}$ esto es análogo a ver

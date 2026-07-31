@@ -4,6 +4,7 @@
 >- (a) Probar que $F$ es una submersión y que $H=F^{-1}(1,0)$ es una subvariedad incrustada de $\mathbb R^4$.
 >- (b) Sean $(x,y,z,w)$ las coordenadas usuales de $\mathbb R^4$ y sea $$Y=-z\frac{\partial}{\partial x}-w\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}+y\frac{\partial}{\partial w}.$$ Mostrar que existe un campo $X$ en $H$ tal que $(di)\circ X=Y\circ i$, donde $i:H\to\mathbb R^4$ es la inclusión.
 >- (c) Encontrar las curvas integrales de $X$. ¿Es $X$ completo?
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Para $p=(a,b,c,d)\in\mathbb R^4\setminus\{0\}$, $$dF_p=\begin{pmatrix}2a&-2b&2c&-2d\\2b&2a&2d&2c\end{pmatrix}.$$
@@ -44,6 +45,7 @@
 >Probar que si $M$ es conexa y $f:M\to\mathbb R$ es una función $C^\infty$ que satisface
 >$$[X,fY]=f[X,Y]$$
 >para todo par de campos $X,Y\in\mathfrak X(M)$, entonces $f$ es constante.
+>
 >>[!Proof]-
 >>1. Usamos la identidad $$[X,fY]=X(f)Y+f[X,Y].$$
 >>2. Por hipótesis, para todo $X,Y\in\mathfrak X(M)$ se cumple $$X(f)Y+f[X,Y]=f[X,Y].$$
@@ -68,6 +70,7 @@
 
 >[!Exercise]
 >Probar que no existe una función suave e inyectiva $F:\mathbb R^2\to\mathbb R$.
+>
 >>[!Proof]-
 >>1. Supongamos, por absurdo, que existe una función suave e inyectiva $F:\mathbb R^2\to\mathbb R$.
 >>2. Para cada $p\in\mathbb R^2$, la aplicación lineal $dF_p:\mathbb R^2\to\mathbb R$ tiene rango $0$ o $1$.
@@ -90,6 +93,7 @@
 >- (a) Probar que $X$ e $Y$ generan una distribución suave $\mathcal D$ en $\mathbb R^3$.
 >- (b) Probar que la distribución $\mathcal D$ es integrable.
 >- (c) Determinar la subvariedad integral conexa maximal de $\mathcal D$ que pasa por $p=(0,0,0)$.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Para cada $p=(p_1,p_2,p_3)\in\mathbb R^3$, definimos $$\mathcal D_p=\operatorname{span}\{X_p,Y_p\}\subset T_p\mathbb R^3.$$
@@ -137,6 +141,7 @@
 >Una variedad $M$ de dimensión $n$ se dice paralelizable si existen $n$ campos $X_1,\ldots,X_n\in\mathfrak X(M)$ tales que $\{(X_1)_p,\ldots,(X_n)_p\}$ es una base de $T_pM$ para cada $p\in M$.
 >- (a) Probar que si $M$ es paralelizable, entonces el fibrado tangente $TM$ es difeomorfo a $M\times\mathbb R^n$.
 >- (b) Probar que si $M$ es paralelizable, entonces $M$ es orientable.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Para cada $p\in M$, denotamos $$B_2^p=\{(X_1)_p,\ldots,(X_n)_p\}.$$ Como $B_2^p$ es una base de $T_pM$, para todo $v_p\in T_pM$ existen únicos $c_1,\ldots,c_n\in\mathbb R$ tales que $$v_p=\sum_{i=1}^n c_i(X_i)_p.$$
@@ -171,6 +176,7 @@
 >Determinar si las siguientes afirmaciones son verdaderas o falsas. Justificar.
 >- **(a)** Si $M$ es una variedad diferenciable y $f:M\to M\times M$ está dada por $f(x)=(x,x)$, entonces $(M,f)$ es una subvariedad incrustada de $M\times M$ con la estructura diferenciable producto.
 >- **(b)** Si $\alpha\in\Omega^1(M)$ y $\alpha_p\neq 0$ para algún $p\in M$, entonces existe un entorno coordenado $(U,(x^1,\ldots,x^n))$ alrededor de $p$ tal que $\alpha|_U=dx^1$.
+>
 >>[!Proof]-
 >>- **(a) Verdadera.**
 >>	1. Primero probamos que $f$ es suave. Sea $x\in M$ y sea $(U,\varphi)$ una carta alrededor de $x$. Entonces $(U\times U,\varphi\times\varphi)$ es una carta producto alrededor de $(x,x)$.
@@ -198,6 +204,7 @@
 >- (b) Si $$f:S=(-\pi,2\pi)\longrightarrow C,\qquad f(t)=(1+t^2)(\cos t,\sin t,1),$$probar que $(S,f)$ es una subvariedad de $C$ y que no es incrustada.
 >- (c) Si $W$ es el campo en $\mathbb R^3$ definido por $$W=-y\frac{\partial}{\partial x}+x\frac{\partial}{\partial y},$$probar que $W$ induce por restricción un campo suave $V$ en $C$.
 >- (d) Determinar la curva integral de $V$ por $(1,0,1)$.
+>
 >>[!Proof]-
 >>- **(a)**
 >>	1. Consideramos el abierto
@@ -282,6 +289,7 @@
 >Sea $f:\mathbb R\to\mathbb R$ una función diferenciable. Se define en $\mathbb R^3$ la distribución $\mathcal D$ por $$\mathcal D_{(x,y,z)}=\operatorname{span}\left\{e_1+f'(x)\sin(y)e_3,\ e_2+f(x)\cos(y)e_3\right\}.$$ Identificamos $T_p\mathbb R^3$ con $\mathbb R^3$ para cada $p\in\mathbb R^3$ de la manera usual.
 >- (a) Mostrar que $\mathcal D$ es involutiva.
 >- (b) Hallar una subvariedad integral $\phi:\mathbb R^2\to\mathbb R^3$ para $\mathcal D$ tal que $\phi(0,0)=(0,0,0)$. Sugerencia: considerar $\phi(x,y)=(x,y,h(x,y))$ para cierta función $h$.
+>
 >>[!Proof]-
 >>1. Definimos los campos vectoriales $$X=\frac{\partial}{\partial x}+f'(x)\sin(y)\frac{\partial}{\partial z},\qquad Y=\frac{\partial}{\partial y}+f(x)\cos(y)\frac{\partial}{\partial z}.$$ Entonces, para todo $p\in\mathbb R^3$, $$\mathcal D_p=\operatorname{span}\{X_p,Y_p\}.$$ Como las primeras dos coordenadas de $X_p$ e $Y_p$ son $(1,0)$ y $(0,1)$, respectivamente, los campos son linealmente independientes en todo punto. Por lo tanto, $\mathcal D$ es una distribución suave de rango $2$.
 >>2. Calculamos el corchete de Lie. Las componentes en las direcciones $\frac{\partial}{\partial x}$ y $\frac{\partial}{\partial y}$ son nulas, mientras que la componente en la dirección $\frac{\partial}{\partial z}$ es $$[X,Y]^z=X\big(f(x)\cos(y)\big)-Y\big(f'(x)\sin(y)\big).$$ Como ambas funciones no dependen de $z$, obtenemos $$X\big(f(x)\cos(y)\big)=\frac{\partial}{\partial x}\big(f(x)\cos(y)\big)=f'(x)\cos(y)$$ y $$Y\big(f'(x)\sin(y)\big)=\frac{\partial}{\partial y}\big(f'(x)\sin(y)\big)=f'(x)\cos(y).$$ Por lo tanto, $$[X,Y]=0.$$ Así, $[X,Y]\in\mathcal D$, y concluimos que $\mathcal D$ es involutiva.
@@ -289,11 +297,12 @@
 >>4. Buscamos el flujo de $X$. Una curva integral $\gamma(t)=(x(t),y(t),z(t))$ satisface $$x'(t)=1,\qquad y'(t)=0,\qquad z'(t)=f'(x(t))\sin(y(t)).$$ Con la condición inicial $\gamma(0)=(x_0,y_0,z_0)$, obtenemos $$x(t)=x_0+t,\qquad y(t)=y_0,$$ y $$z'(t)=f'(x_0+t)\sin(y_0).$$ Integrando, $$z(t)=z_0+\big(f(x_0+t)-f(x_0)\big)\sin(y_0).$$ Por lo tanto, el flujo de $X$ es $$\Phi_t^X(x_0,y_0,z_0)=\left(x_0+t,y_0,z_0+\big(f(x_0+t)-f(x_0)\big)\sin(y_0)\right).$$
 >>5. Buscamos el flujo de $Y$. Una curva integral $\gamma(s)=(x(s),y(s),z(s))$ satisface $$x'(s)=0,\qquad y'(s)=1,\qquad z'(s)=f(x(s))\cos(y(s)).$$ Con la condición inicial $\gamma(0)=(x_0,y_0,z_0)$, obtenemos $$x(s)=x_0,\qquad y(s)=y_0+s,$$ y $$z'(s)=f(x_0)\cos(y_0+s).$$ Integrando, $$z(s)=z_0+f(x_0)\big(\sin(y_0+s)-\sin(y_0)\big).$$ Por lo tanto, el flujo de $Y$ es $$\Phi_s^Y(x_0,y_0,z_0)=\left(x_0,y_0+s,z_0+f(x_0)\big(\sin(y_0+s)-\sin(y_0)\big)\right).$$
 >>6. Aplicamos primero el flujo de $X$ al origen: $$\Phi_t^X(0,0,0)=(t,0,0).$$ Luego aplicamos el flujo de $Y$: $$\Phi_s^Y\left(\Phi_t^X(0,0,0)\right)=\Phi_s^Y(t,0,0)=\left(t,s,f(t)\sin(s)\right).$$
->>7. Definimos entonces $$F:\mathbb R^2\longrightarrow\mathbb R^3,\qquad F(t,s)=\left(t,s,f(t)\sin(s)\right).$$ Su imagen es $$S=F(\mathbb R^2)=\left\{(x,y,z)\in\mathbb R^3:z=f(x)\sin(y)\right\}.$$
->>8. Para verificar que $S$ es una subvariedad integral, calculamos $$dF_q=\begin{pmatrix}1&0\\0&1\\f'(q_1)\sin(q_2)&f(q_1)\cos(q_2)\end{pmatrix},\qquad q=(q_1,q_2).$$ Por lo tanto, $$dF_q(T_q\mathbb R^2)=\operatorname{span}\left\{\left(1,0,f'(q_1)\sin(q_2)\right),\left(0,1,f(q_1)\cos(q_2)\right)\right\}=\mathcal D_{F(q)}.$$ Además, $$F(0,0)=(0,0,0).$$ Luego $F$ parametriza una subvariedad integral de $\mathcal D$ que pasa por el origen.
+>>7. Definimos $$F:\mathbb R^2\longrightarrow\mathbb R^3,\qquad F(t,s)=\left(t,s,f(t)\sin(s)\right).$$ Su imagen es $$S=F(\mathbb R^2)=\left\{(x,y,z)\in\mathbb R^3:z=f(x)\sin(y)\right\}.$$ Como $S$ es el gráfico de la función suave $h(x,y)=f(x)\sin(y)$, es una subvariedad incrustada de $\mathbb R^3$. Sea $$i:S\hookrightarrow\mathbb R^3$$ la inclusión y definamos $$\widetilde F:\mathbb R^2\longrightarrow S,\qquad \widetilde F(t,s)=\left(t,s,f(t)\sin(s)\right).$$ Entonces $$F=i\circ\widetilde F,$$ y $\widetilde F$ es un difeomorfismo entre $\mathbb R^2$ y $S$.
+>>8. Sea $q=(q_1,q_2)\in\mathbb R^2$ y sea $p=\widetilde F(q)\in S$. Como $\widetilde F$ es un difeomorfismo, $$d\widetilde F_q(T_q\mathbb R^2)=T_pS.$$ Aplicando el diferencial de la inclusión y usando la regla de la cadena, obtenemos $$di_p(T_pS)=di_p\left(d\widetilde F_q(T_q\mathbb R^2)\right)=d(i\circ\widetilde F)_q(T_q\mathbb R^2)=dF_q(T_q\mathbb R^2).$$ Además, $$dF_q\left(\left.\frac{\partial}{\partial t}\right|_q\right)=\left(1,0,f'(q_1)\sin(q_2)\right)=X_{F(q)}$$ y $$dF_q\left(\left.\frac{\partial}{\partial s}\right|_q\right)=\left(0,1,f(q_1)\cos(q_2)\right)=Y_{F(q)}.$$ Por lo tanto, $$di_p(T_pS)=dF_q(T_q\mathbb R^2)=\operatorname{span}\left\{X_p,Y_p\right\}=\mathcal D_p.$$ Además, $$\widetilde F(0,0)=(0,0,0).$$ Luego $(S,i)$ es una subvariedad integral de $\mathcal D$ que pasa por el origen.
 
 >[!Exercise]
 >Extensión local de $1$-formas. Sea $f:M\to N$ una inmersión y sea $\alpha$ una $1$-forma en $M$. Probar que para todo $p\in M$ existen abiertos $U$ y $V$ alrededor de $p$ y $f(p)$, respectivamente, y una $1$-forma $\beta$ en $V$ tales que $$\alpha|_U=(f|_U)^*\beta.$$
+>
 >>[!Proof]-
 >>1. Sean $m=\dim M$ y $n=\dim N$. Como $f$ es una inmersión, por la forma local de una inmersión existen cartas $(U,\varphi=(x_1,\ldots,x_m))$ alrededor de $p$ y $(V,\psi=(y_1,\ldots,y_n))$ alrededor de $f(p)$ tales que $$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$
 >>2. En particular, para $1\leq i\leq m$ se tiene $y_i\circ f=x_i$ en $U$, y por lo tanto $$(f|_U)^*(dy_i)=d(y_i\circ f)=dx_i.$$
@@ -309,6 +318,7 @@
 >- (a) Show that $\mathcal D$ is not involutive.
 >- (b) Find an integral submanifold of $\mathcal D$.
 >- (c) Determine whether there exists a coordinate system $(x_1,x_2,x_3)$ on a neighborhood of $(0,0,1)$ such that $$U=\frac{\partial}{\partial x_1},\qquad V=\frac{\partial}{\partial x_2}.$$
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Since $U=\frac{\partial}{\partial y}$ and $V=\frac{\partial}{\partial x}+yz\frac{\partial}{\partial z}$, their Lie bracket is $$[U,V]=\left[\frac{\partial}{\partial y},\frac{\partial}{\partial x}+yz\frac{\partial}{\partial z}\right]=\frac{\partial(yz)}{\partial y}\frac{\partial}{\partial z}=z\frac{\partial}{\partial z}.$$
@@ -336,6 +346,7 @@
 >a) Probar que $SL(n,\mathbb R)$ es una subvariedad incrustada de $\mathbb R^{n\times n}$ e indicar su dimensión.
 >
 >b) Mostrar que la curva $$\alpha:(0,\infty)\to SL(3,\mathbb R),\qquad \alpha(t)=\operatorname{diag}(t,t,1/t^2),$$ es diferenciable.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Consideremos la función suave $$\det:M(n,\mathbb R)\to\mathbb R.$$ Como $M(n,\mathbb R)$ se identifica canónicamente con $\mathbb R^{n^2}$ y el determinante es un polinomio en las entradas de la matriz, esta función es suave.
@@ -352,74 +363,179 @@
 >>	4. Todas sus funciones coordenadas son suaves en $(0,\infty)$, luego $\widetilde\alpha=i\circ\alpha$ es suave.
 >>	5. Como $SL(3,\mathbb R)$ es una subvariedad incrustada de $M(3,\mathbb R)$ y $\widetilde\alpha((0,\infty))\subseteq SL(3,\mathbb R)$, por el lema de factorización se concluye que $\alpha:(0,\infty)\to SL(3,\mathbb R)$ es suave.
 
-### 3
-Sea $\sim$ la relación de equivalencia en $\mathbb R^2$ dada por
-$$
-(x,y)\sim(x+k,y)\qquad\text{para todo }k\in\mathbb Z,
-$$
-y considerar en el cilindro $M=\mathbb R^2/\sim$ la única estructura diferenciable tal que la proyección canónica $\pi:\mathbb R^2\to M$ sea un difeomorfismo local. Sea $X$ el campo en $\mathbb R^2$ definido por
-$$
-X(x,y)=(1,y).
-$$
-Probar que $X$ induce un campo diferenciable en $M$ y hallar sus curvas integrales. ¿Existe alguna periódica?
+>[!Exercise]
+>Sea $\sim$ la relación de equivalencia en $\mathbb R^2$ dada por $$(x,y)\sim(x+k,y)\qquad\text{para todo }k\in\mathbb Z,$$ y considerar en el cilindro $M=\mathbb R^2/\sim$ la única estructura diferenciable tal que la proyección canónica $\pi:\mathbb R^2\to M$ sea un difeomorfismo local. Sea $X$ el campo en $\mathbb R^2$ definido por $$X(x,y)=(1,y).$$ Probar que $Y(\pi(q))=d\pi_q(X_q)$ define bien un campo suave en $M$ y hallar sus curvas integrales. ¿Existe alguna periódica?
+>>[!Proof]-
+>>6. Para cada $k\in\mathbb Z$, definimos la traslación $T_k:\mathbb R^2\to\mathbb R^2$ por $T_k(x,y)=(x+k,y)$. Como $\pi\circ T_k=\pi$, por la regla de la cadena se tiene $$d\pi_{(x,y)}=d\pi_{(x+k,y)}\circ d(T_k)_{(x,y)}.$$
+>>7. Además, como $d(T_k)_{(x,y)}$ es la identidad, $$d(T_k)_{(x,y)}(X_{(x,y)})=d(T_k)_{(x,y)}(1,y)=(1,y)=X_{(x+k,y)}.$$
+>>8. Por lo tanto, si $(x,y)\sim(x+k,y)$, entonces $$d\pi_{(x,y)}(X_{(x,y)})=d\pi_{(x+k,y)}\bigl(d(T_k)_{(x,y)}X_{(x,y)}\bigr)=d\pi_{(x+k,y)}(X_{(x+k,y)}),$$ de modo que $Y(\pi(q))=d\pi_q(X_q)$ no depende del representante $q$ y define bien un campo en $M$.
+>>9. Para probar que $Y$ es suave, sea $p\in M$. Como $\pi$ es un difeomorfismo local, existe un abierto $U\subseteq\mathbb R^2$ tal que $\pi|_U:U\to V:=\pi(U)$ es un difeomorfismo. Sobre $U$ se tiene $$(Y\circ\pi)|_U=(d\pi\circ X)|_U.$$
+>>10. Como $X:\mathbb R^2\to T\mathbb R^2$ es suave y $d\pi:T\mathbb R^2\to TM$ es suave, la aplicación $d\pi\circ X$ es suave. Entonces, sobre $V$, $$Y|_V=(d\pi\circ X)|_U\circ(\pi|_U)^{-1},$$ y por lo tanto $Y|_V$ es suave. Como esto vale alrededor de todo $p\in M$, $Y$ es un campo suave.
+>>11. Sea $\widetilde\gamma(t)=(x(t),y(t))$ una curva integral de $X$ con condición inicial $\widetilde\gamma(0)=(x_0,y_0)$. La ecuación $\widetilde\gamma'(t)=X_{\widetilde\gamma(t)}$ equivale al sistema $$x'(t)=1,\qquad y'(t)=y(t).$$
+>>12. Resolviendo el sistema se obtiene $$x(t)=x_0+t,\qquad y(t)=y_0e^t,$$ y por lo tanto $$\widetilde\gamma(t)=(x_0+t,y_0e^t).$$
+>>13. Definimos $$\gamma(t)=\pi(\widetilde\gamma(t))=\pi(x_0+t,y_0e^t).$$ Entonces $$\gamma'(t)=d\pi_{\widetilde\gamma(t)}(\widetilde\gamma'(t))=d\pi_{\widetilde\gamma(t)}(X_{\widetilde\gamma(t)})=Y_{\gamma(t)},$$ de modo que las curvas integrales de $Y$ son $$\gamma(t)=\pi(x_0+t,y_0e^t).$$
+>>14. Una curva integral es periódica si existe $T>0$ tal que $\gamma(t+T)=\gamma(t)$ para todo $t$. Esto equivale a que $$x_0+t+T=x_0+t+k,\qquad y_0e^{t+T}=y_0e^t$$ para algún $k\in\mathbb Z$.
+>>15. La primera igualdad implica $T=k\in\mathbb Z$, mientras que la segunda implica $y_0(e^T-1)=0$. Como $T>0$, se tiene $e^T\neq1$, luego necesariamente $y_0=0$.
+>>16. Por consiguiente, las únicas curvas integrales periódicas son $$\gamma(t)=\pi(x_0+t,0),$$ y su período fundamental es $1$.
 
-### 4
-Sea $V$ un espacio vectorial y sea $\varphi\in V^*\setminus\{0\}$, $u\in\Lambda^{n-1}V^*$. Probar la afirmación indicada sobre la descomposición de $u$ respecto de $\varphi$.
+>[!Exercise]
+>Sea $V$ un espacio vectorial real de dimensión finita y sean $\beta\in V^*\setminus\{0\}$ y $\omega\in\Lambda^kV^*$. Probar que, si $\beta\wedge\omega=0$, entonces existe $\tau\in\Lambda^{k-1}V^*$ tal que $\omega=\beta\wedge\tau$.
+>>[!Proof]-
+>>17. Como $\beta\neq0$, existe $u\in V$ tal que $\beta(u)\neq0$. Definimos $v_1=\dfrac{u}{\beta(u)}$, de modo que $\beta(v_1)=1$.
+>>18. Como $\beta$ es una forma lineal no nula, $\ker\beta$ tiene dimensión $\dim V-1$. Elegimos una base $\{v_2,\ldots,v_n\}$ de $\ker\beta$.
+>>19. El conjunto $B=\{v_1,v_2,\ldots,v_n\}$ es linealmente independiente. En efecto, si $a_1v_1+\cdots+a_nv_n=0$, al aplicar $\beta$ obtenemos $$a_1\beta(v_1)+\sum_{j=2}^na_j\beta(v_j)=a_1=0.$$ Luego $\sum_{j=2}^na_jv_j=0$, y como $\{v_2,\ldots,v_n\}$ es linealmente independiente, resulta $a_2=\cdots=a_n=0$.
+>>20. Como $B$ contiene $n=\dim V$ vectores linealmente independientes, es una base de $V$. Sea $B^*=\{v^1,\ldots,v^n\}$ su base dual.
+>>21. Para esta base se tiene $\beta(v_1)=1$ y $\beta(v_j)=0$ para $j\ge2$. Como $v^1$ toma los mismos valores sobre los elementos de $B$, se concluye que $$\beta=v^1.$$
+>>22. Escribimos $\omega$ en la base inducida de $\Lambda^kV^*$ como $$\omega=\sum_{1\le i_1<\cdots<i_k\le n}a_{i_1\cdots i_k}\,v^{i_1}\wedge\cdots\wedge v^{i_k}.$$
+>>23. La hipótesis $\beta\wedge\omega=0$ se convierte en $$0=v^1\wedge\omega=\sum_{1\le i_1<\cdots<i_k\le n}a_{i_1\cdots i_k}\,v^1\wedge v^{i_1}\wedge\cdots\wedge v^{i_k}.$$
+>>24. Los términos de $\omega$ que contienen a $v^1$ se anulan al multiplicarlos exteriormente por $v^1$. Los términos que no contienen a $v^1$ producen elementos distintos de la base de $\Lambda^{k+1}V^*$, por lo que sus coeficientes deben ser cero.
+>>25. Por lo tanto, todos los términos no nulos de $\omega$ contienen el factor $v^1$. Como los índices están ordenados, podemos escribir $$\omega=\sum_{1<i_2<\cdots<i_k\le n}a_{1i_2\cdots i_k}\,v^1\wedge v^{i_2}\wedge\cdots\wedge v^{i_k}.$$
+>>26. Definimos $$\tau=\sum_{1<i_2<\cdots<i_k\le n}a_{1i_2\cdots i_k}\,v^{i_2}\wedge\cdots\wedge v^{i_k}\in\Lambda^{k-1}V^*.$$
+>>27. Como $\beta=v^1$, obtenemos $$\beta\wedge\tau=v^1\wedge\tau=\omega.$$ Por lo tanto, existe $\tau\in\Lambda^{k-1}V^*$ tal que $\omega=\beta\wedge\tau$.
+
+>[!Exercise]
+>Indicar en cada caso si la afirmación es verdadera o falsa. Justificar.
+>
+>- (a) Sea $f:M\to N$ una función diferenciable. Entonces $f$ es una inmersión si y solo si para toda curva regular $\gamma:I\to M$ se cumple que $f\circ\gamma:I\to N$ es una curva regular.
+>- (b) La $2$-forma $$\omega=(x^3-y)\,dx\wedge dz-x(dx\wedge dt+dy\wedge dz)$$ es cerrada.
+>
+>>[!Proof]-
+>>- (a)
+>>	1. La afirmación es verdadera.
+>>	2. Supongamos primero que $f$ es una inmersión y sea $\gamma:I\to M$ una curva regular. Para todo $t\in I$, por la regla de la cadena, $$(f\circ\gamma)'(t)=(df)_{\gamma(t)}\bigl(\gamma'(t)\bigr).$$
+>>	3. Como $\gamma$ es regular, $\gamma'(t)\ne0$, y como $f$ es una inmersión, $(df)_{\gamma(t)}$ es inyectivo. Por lo tanto, $$(f\circ\gamma)'(t)\ne0.$$
+>>	4. En consecuencia, $f\circ\gamma$ es una curva regular.
+>>	5. Recíprocamente, supongamos que $f\circ\gamma$ es regular para toda curva regular $\gamma:I\to M$.
+>>	6. Fijemos $p\in M$ y tomemos $v\in T_pM$ con $v\ne0$. Existe una curva regular $\gamma:I\to M$ tal que $$\gamma(0)=p,\qquad \gamma'(0)=v.$$
+>>	7. Por hipótesis, $f\circ\gamma$ es regular, de modo que $$(f\circ\gamma)'(0)\ne0.$$
+>>	8. Aplicando la regla de la cadena obtenemos $$(df)_p(v)=(f\circ\gamma)'(0)\ne0.$$
+>>	9. Por lo tanto, $v\ne0$ implica $(df)_p(v)\ne0$, de donde $\ker(df)_p=\{0\}$ y $(df)_p$ es inyectivo.
+>>	10. Como esto vale para todo $p\in M$, $f$ es una inmersión.
+>>- (b)
+>>	1. La afirmación es verdadera.
+>>	2. Distribuyendo el último término, escribimos $$\omega=(x^3-y)\,dx\wedge dz-x\,dx\wedge dt-x\,dy\wedge dz.$$
+>>	3. Como $d(dx)=d(dy)=d(dz)=d(dt)=0$, aplicando la regla de Leibniz obtenemos $$d\omega=d(x^3-y)\wedge dx\wedge dz-dx\wedge dx\wedge dt-dx\wedge dy\wedge dz.$$
+>>	4. Como $$d(x^3-y)=3x^2\,dx-dy,$$ resulta $$d\omega=(3x^2\,dx-dy)\wedge dx\wedge dz-dx\wedge dx\wedge dt-dx\wedge dy\wedge dz.$$
+>>	5. Desarrollando, $$d\omega=3x^2\,dx\wedge dx\wedge dz-dy\wedge dx\wedge dz-dx\wedge dx\wedge dt-dx\wedge dy\wedge dz.$$
+>>	6. Los términos que contienen $dx\wedge dx$ son nulos, por lo que $$d\omega=-dy\wedge dx\wedge dz-dx\wedge dy\wedge dz.$$
+>>	7. Como $dy\wedge dx=-dx\wedge dy$, tenemos $$-dy\wedge dx\wedge dz=dx\wedge dy\wedge dz.$$
+>>	8. En consecuencia, $$d\omega=dx\wedge dy\wedge dz-dx\wedge dy\wedge dz=0.$$
+>>	9. Por lo tanto, $\omega$ es cerrada.
+
+>[!Exercise]
+>Sea $\phi:\mathbb{R}\times\mathbb{R}^2\to\mathbb{R}^2$ definida por $$\phi(t,(x,y))=(e^{2t}x,e^{3t}y).$$ Encontrar un campo $V$ en $\mathbb{R}^2$ tal que $\phi$ sea el grupo monoparamétrico de difeomorfismos de $\mathbb{R}^2$ asociado a $V$.
+>>[!Proof]-
+>>10. Para cada $t\in\mathbb{R}$, definimos $\phi_t:\mathbb{R}^2\to\mathbb{R}^2$ mediante $$\phi_t(x,y)=\phi(t,(x,y))=(e^{2t}x,e^{3t}y).$$
+>>11. El campo asociado al flujo se obtiene derivando respecto del parámetro temporal en $t=0$. Por lo tanto, para cada $(x,y)\in\mathbb{R}^2$, $$V_{(x,y)}=\left.\frac{d}{dt}\right|_{t=0}\phi_t(x,y).$$
+>>12. Calculamos $$\frac{d}{dt}\phi_t(x,y)=\frac{d}{dt}(e^{2t}x,e^{3t}y)=(2e^{2t}x,3e^{3t}y).$$
+>>13. Evaluando en $t=0$, obtenemos $$V_{(x,y)}=(2x,3y).$$
+>>14. En términos de la base coordenada de $T_{(x,y)}\mathbb{R}^2$, el campo es $$V=2x\frac{\partial}{\partial x}+3y\frac{\partial}{\partial y}.$$
+>>15. Para verificar que $\phi$ es el flujo de $V$, fijamos $p=(x,y)\in\mathbb{R}^2$ y consideramos la curva $$\gamma_p(t)=\phi_t(p)=(e^{2t}x,e^{3t}y).$$
+>>16. Su derivada es $$\gamma_p'(t)=(2e^{2t}x,3e^{3t}y).$$
+>>17. Por otro lado, evaluando el campo en $\gamma_p(t)$, obtenemos $$V_{\gamma_p(t)}=V_{(e^{2t}x,e^{3t}y)}=(2e^{2t}x,3e^{3t}y).$$
+>>18. Por lo tanto, $$\gamma_p'(t)=V_{\gamma_p(t)}$$ y además $\gamma_p(0)=p$.
+>>19. Así, para cada $p\in\mathbb{R}^2$, la curva $t\mapsto\phi_t(p)$ es la curva integral de $V$ que comienza en $p$. En consecuencia, $\phi$ es el grupo monoparamétrico de difeomorfismos asociado al campo $$V=2x\frac{\partial}{\partial x}+3y\frac{\partial}{\partial y}.$$
+
+>[!Exercise]
+>Decidir si las siguientes afirmaciones son verdaderas o falsas.
+>
+>- (a) El campo $V(x,y)=x^2\frac{\partial}{\partial x}$ en $\mathbb R^2$ es completo.
+>- (b) Sea $X$ un campo completo en $M$ con $X(p)\neq 0$ y sea $\gamma:\mathbb R\to M$ la curva integral de $X$ por $p$. Entonces $\gamma$ es una inmersión.
+>
+>>[!Proof]-
+>>- (a)
+>>	1. La afirmación es falsa. Sea $\gamma_{(x_0,y_0)}(t)=(x(t),y(t))$ la curva integral de $V$ que parte de $(x_0,y_0)$. Entonces debe satisfacer $$x'(t)=x(t)^2,\qquad y'(t)=0,\qquad x(0)=x_0,\qquad y(0)=y_0.$$
+>>	2. De $y'(t)=0$ se obtiene $y(t)=y_0$.
+>>	3. Si $x_0\neq 0$, resolviendo $x'(t)=x(t)^2$ se obtiene $$x(t)=-\frac{1}{t-c}.$$ Como $x(0)=x_0$, resulta $c=\frac{1}{x_0}$, y por tanto $$x(t)=-\frac{1}{t-\frac{1}{x_0}}$$
+>>	4. Esta solución no está definida en $t=\frac{1}{x_0}$. Por ejemplo, para $(x_0,y_0)=(1,0)$, la curva integral es $$\gamma_{(1,0)}(t)=\left(\frac{1}{1-t},0\right),\qquad t\in(-\infty,1).$$
+>>	5. Como existe una curva integral maximal cuyo dominio no es todo $\mathbb R$, el campo $V$ no es completo.
+>>- (b)
+>>	1. La afirmación es verdadera. Como $X$ es completo, la curva integral por $p$ está definida en todo $\mathbb R$ y satisface $$\gamma(0)=p,\qquad \gamma'(t)=X(\gamma(t)).$$
+>>	2. Para cada $t\in\mathbb R$, el diferencial de $\gamma$ es la aplicación lineal $$d\gamma_t:T_t\mathbb R\longrightarrow T_{\gamma(t)}M,$$ y se cumple $$d\gamma_t\left(\left.\frac{\partial}{\partial t}\right|_t\right)=\gamma'(t)=X(\gamma(t)).$$
+>>	3. Primero probamos que $X(\gamma(t))\neq 0$ para todo $t\in\mathbb R$
+>>	4. Supongamos que existe $t_0\in\mathbb R$ tal que $X(\gamma(t_0))=0$.
+>>	5. En ese caso, la curva constante $c:\mathbb R\to M$ dada por $c(t)=\gamma(t_0)$ es una curva integral de $X$, pues $$c'(t)=0=X(\gamma(t_0))=X(c(t)).$$
+>>	6. Como $c(t_0)=\gamma(t_0)$, la unicidad de curvas integrales implica que $c=\gamma$. Por tanto, $\gamma$ sería constante y tendríamos $$X(p)=\gamma'(0)=0,$$ contradiciendo la hipótesis $X(p)\neq 0$.
+>>	7. En consecuencia, para todo $t\in\mathbb R$, $$d\gamma_t\left(\left.\frac{\partial}{\partial t}\right|_t\right)=X(\gamma(t))\neq 0.$$
+>>	8. Como $T_t\mathbb R$ tiene dimensión $1$, toda aplicación lineal no nula definida sobre $T_t\mathbb R$ es inyectiva. Por tanto, $d\gamma_t$ es inyectiva para todo $t\in\mathbb R$.
+>>	9. Luego $\gamma:\mathbb R\to M$ es una inmersión.
+
+### Ejercicio 4
+
+>[!Exercise]
+>Sea $V$ un espacio vectorial de dimensión $n$, sean $\theta_1,\ldots,\theta_{k-1}\in V^*$ tales que
+>$$\omega=\theta_1\wedge\cdots\wedge\theta_{k-1}\neq0,$$
+>y sea
+>$$N=\{v\in V:\iota_v\omega=0\}.$$
+>Mostrar que $N$ es un subespacio de $V$ de dimensión mayor o igual que $n-k+1$.
+>
+>>[!Proof]-
+>>1. Como $$\omega=\theta_1\wedge\cdots\wedge\theta_{k-1}\neq0,$$ las formas lineales $\theta_1,\ldots,\theta_{k-1}$ son linealmente independientes.
+>>2. Para $v\in V$, la contracción de $\omega$ por $v$ es la $(k-2)$-forma
+>>$$\iota_v\omega=\sum_{j=1}^{k-1}(-1)^{j-1}\theta_j(v)\,\theta_1\wedge\cdots\wedge\widehat{\theta_j}\wedge\cdots\wedge\theta_{k-1},$$
+>>donde el sombrero indica que se omite ese factor.
+>>3. Como las $\theta_j$ son linealmente independientes, podemos completarlas hasta obtener una base de $V^*$. En la base inducida de $\Lambda^{k-2}V^*$, las formas
+>>$$\theta_1\wedge\cdots\wedge\widehat{\theta_j}\wedge\cdots\wedge\theta_{k-1},\qquad 1\leq j\leq k-1,$$
+>>son elementos distintos y, por lo tanto, linealmente independientes.
+>>4. En consecuencia,
+>>$$\iota_v\omega=0\quad\Longleftrightarrow\quad\theta_1(v)=\cdots=\theta_{k-1}(v)=0.$$
+>>Así,
+>>$$N=\bigcap_{j=1}^{k-1}\ker\theta_j.$$
+>>En particular, $N$ es un subespacio vectorial de $V$.
+>>5. Consideremos la aplicación lineal
+>>$$T:V\longrightarrow\mathbb R^{k-1},\qquad T(v)=\bigl(\theta_1(v),\ldots,\theta_{k-1}(v)\bigr).$$
+>>Por el paso anterior, $\ker T=N$.
+>>6. La independencia lineal de $\theta_1,\ldots,\theta_{k-1}$ implica que $\operatorname{rg}T=k-1$. Por el teorema rango-nulidad,
+>>$$n=\dim V=\dim(\ker T)+\operatorname{rg}T=\dim N+k-1.$$
+>>7. Por lo tanto,
+>>$$\dim N=n-k+1.$$
+>>En particular, $\dim N\geq n-k+1$, como se quería demostrar.
 
 ### 5
-Indicar en cada caso si la afirmación es verdadera o falsa. Justificar.
-
-a) Sea $f:M\to N$ una función diferenciable. Entonces $(M,f)$ es una inmersión si y sólo si para toda curva regular $\gamma:I\to M$ se cumple que $f\circ\gamma:I\to N$ es una curva regular.
-
-b) La 2-forma indicada en el enunciado es cerrada.
-
----
-
-## Página 4
-
-### 2
-Sea
-$$
-\phi:\mathbb R\times\mathbb R^2\to\mathbb R^2
-$$
-definida por la fórmula indicada en el enunciado. Encontrar un campo $V$ en $\mathbb R^2$ tal que $\phi$ sea el grupo monoparamétrico de difeomorfismos de $\mathbb R^2$ asociado a $V$.
-
-### 3
-Indicar en cada caso si la afirmación es verdadera o falsa. Justificar.
-
-a) El campo
-$$
-V(x,y)=x^2\frac{\partial}{\partial x}
-$$
-en $\mathbb R^2$ es completo.
-
-b) Sea $X$ un campo completo en $M$ con $X(p)\neq0$ y sea $\gamma:\mathbb R\to M$ la curva integral de $X$ por $p$. Entonces $\gamma$ es una inmersión.
-
-### 4
-Sea $V$ un espacio vectorial de dimensión $n$, sean $\theta_1,\ldots,\theta_{k-1}\in V^*$ tales que
-$$
-\omega=\theta_1\wedge\cdots\wedge\theta_{k-1}\neq0,
-$$
-y sea
-$$
-N=\{v\in V:\iota_v\omega=0\}.
-$$
-Mostrar que $N$ es un subespacio de $V$ de dimensión mayor o igual que $n-k+1$.
-
-### 5
-Sea $\alpha$ la 1-forma diferenciable en $\mathbb R^3$ definida por
-$$
-\alpha=dz-x\,dy.
-$$
-
-a) Probar que $\alpha\wedge d\alpha$ es una 3-forma nunca nula en $\mathbb R^3$.
-
-b) Sea
-$$
-D=\ker\alpha,
-\qquad D_p=\ker\alpha_p
-$$
-para todo $p\in\mathbb R^3$. Probar que $D$ es una distribución diferenciable en $\mathbb R^3$, no involutiva.
+>[!Exercise]
+>Sea $\alpha$ la 1-forma diferenciable en $\mathbb R^3$ definida por
+>$$\alpha=dz-x\,dy.$$
+>
+>**(a)** Probar que $\alpha\wedge d\alpha$ es una 3-forma nunca nula en $\mathbb R^3$.
+>
+>**(b)** Sea
+>$$D=\ker\alpha,\qquad D_p=\ker\alpha_p$$
+>para todo $p\in\mathbb R^3$. Probar que $D$ es una distribución diferenciable en $\mathbb R^3$, no involutiva.
+>
+>>[!Proof]-
+>>- **(a)**
+>>	1. Como $d(dz)=0$ y $d(dy)=0$, por la regla de Leibniz para la diferencial exterior obtenemos
+>>	$$d\alpha=d(dz)-d(x\,dy)=-dx\wedge dy.$$
+>>	2. Por lo tanto,
+>>	$$\begin{aligned}\alpha\wedge d\alpha&=(dz-x\,dy)\wedge(-dx\wedge dy)\\&=-dz\wedge dx\wedge dy+x\,dy\wedge dx\wedge dy.\end{aligned}$$
+>>	3. El segundo término se anula porque contiene dos veces el factor $dy$:
+>>	$$dy\wedge dx\wedge dy=0.$$
+>>	4. Además, la permutación que lleva $(dz,dx,dy)$ a $(dx,dy,dz)$ es par. En consecuencia,
+>>	$$\alpha\wedge d\alpha=-dx\wedge dy\wedge dz.$$
+>>	5. Esta 3-forma no se anula en ningún punto, pues para todo $p\in\mathbb R^3$ se cumple
+>>	$$\left(\alpha\wedge d\alpha\right)_p\left(\left.\frac{\partial}{\partial x}\right|_p,\left.\frac{\partial}{\partial y}\right|_p,\left.\frac{\partial}{\partial z}\right|_p\right)=-1\neq0.$$
+>>- **(b)**
+>>	1. La notación $D=\ker\alpha$ se entiende fibra a fibra. En efecto, una 1-forma diferencial es una sección
+>>	$$\alpha:\mathbb R^3\longrightarrow T^*\mathbb R^3,\qquad p\longmapsto\alpha_p,$$
+>>	no una única transformación lineal. Para cada $p$, en cambio,
+>>	$$\alpha_p:T_p\mathbb R^3\longrightarrow\mathbb R$$
+>>	sí es lineal y tiene un núcleo bien definido. Así, la expresión $D=\ker\alpha$ es una abreviatura para
+>>	$$D=\coprod_{p\in\mathbb R^3}\ker\alpha_p=\left\{(p,v)\in T\mathbb R^3:\alpha_p(v)=0\right\}.$$
+>>	2. Sea $p=(x,y,z)$ y escribamos
+>>	$$v=a\left.\frac{\partial}{\partial x}\right|_p+b\left.\frac{\partial}{\partial y}\right|_p+c\left.\frac{\partial}{\partial z}\right|_p\in T_p\mathbb R^3.$$
+>>	Entonces
+>>	$$\alpha_p(v)=(dz-x\,dy)_p(v)=c-xb.$$
+>>	3. Por lo tanto,
+>>	$$\begin{aligned}D_p=\ker\alpha_p&=\left\{a\left.\frac{\partial}{\partial x}\right|_p+b\left.\frac{\partial}{\partial y}\right|_p+c\left.\frac{\partial}{\partial z}\right|_p:c=xb\right\}\\&=\operatorname{span}\left\{\left.\frac{\partial}{\partial x}\right|_p,\left.\left(\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}\right)\right|_p\right\}.\end{aligned}$$
+>>	4. Definimos los campos suaves globales
+>>	$$X=\frac{\partial}{\partial x},\qquad Y=\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}.$$
+>>	Para todo $p\in\mathbb R^3$, los vectores $X_p$ e $Y_p$ son linealmente independientes y generan $D_p$. Luego $D$ es una distribución diferenciable de rango $2$.
+>>	5. Calculamos el corchete de los campos generadores:
+>>	$$[X,Y]=\left[\frac{\partial}{\partial x},\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}\right]=\frac{\partial}{\partial z}.$$
+>>	6. Sin embargo,
+>>	$$\alpha\left([X,Y]\right)=(dz-x\,dy)\left(\frac{\partial}{\partial z}\right)=1.$$
+>>	Por lo tanto, $[X,Y]_p\notin D_p$ para todo $p\in\mathbb R^3$. En consecuencia,
+>>	$$D\text{ no es involutiva.}$$
 
 ### 6
 Mostrar que $M\times M$ es orientable si $M$ lo es.

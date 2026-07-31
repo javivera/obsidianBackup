@@ -9,6 +9,7 @@
 >- **(iii)** Para todo $p\in\operatorname{Dom}(\theta_s\circ\theta_t)$ se cumple $$\theta_s\circ\theta_t(p)=\theta_{s+t}(p).$$
 >
 >- **(iv)** La función $$\theta_t:D_t\to D_{-t}$$ es un difeomorfismo, con inversa $\theta_{-t}$.
+>
 >>[!Proof]-
 >>- **(i)** 
 >>	1. Dado $p\in M$ arbitrario, por [[GS - Teo16#^3ff110]] sabemos que existe una curva integral que comienza en $p$ definida en algún intervalo maximal $(a(p),b(p))$.  
@@ -93,6 +94,7 @@
 >Let $\Theta:\mathbb R\times M\to M$ be a smooth global flow on a smooth manifold $M$. The infinitesimal generator $V$ of $\Theta$ is a smooth vector field on $M$, and each curve $\Theta^{(p)}$ is an integral curve of $V$.
 >
 >En español: si $\Theta$ es un flujo global suave, entonces su generador infinitesimal es un campo vectorial suave, y cada curva $t\mapsto\Theta_t(p)$ es una curva integral de ese campo.
+>
 >>[!Proof]-
 >>1. Hacemos ingeniería inversa. Queremos que la curva
 >>$$\gamma_p(t)=\Theta_t(p)$$
@@ -130,6 +132,7 @@
 >Sea $X$ un campo suave sobre una variedad $M$ y sea $\Theta$ su flujo. Supongamos que existe un número positivo $\varepsilon>0$ tal que, para todo $p\in M$, el dominio de $\gamma_p$ contiene a $(-\varepsilon,\varepsilon)$.
 >
 >Entonces $X$ es un campo completo.
+>
 >>[!Proof]-
 >>1. La idea es que, cuando se intenta acabar una curva integral maximal que comienza en $p$, la estiramos antes de que termine usando el intervalo uniforme $(-\varepsilon,\varepsilon)$, que sirve para todo punto.
 >>2. Razonemos por el absurdo. Supongamos que existe $p\in M$ tal que $b(p)<+\infty$. Osea estamos suponiendo que $X$ no es campo completo. (El caso $a(p)>-\infty$ es análogo)
@@ -163,6 +166,7 @@
 >
 >Recordemos que
 >$$\operatorname{Sop}X=\operatorname{Cl}_M\{q\in M:X_q\neq0\}$$
+>
 >>[!Proof]-
 >>1. Sea $K=\operatorname{Sop}X$.
 >>2. Notemos primero que si $p\notin K$, entonces existe un abierto $V_p$ de $M$ con $p\in V_p$ donde el campo vale cero.
@@ -189,6 +193,7 @@
 >Entonces, para todo $t_0\in(a(p),b(p))$, el tramo
 >$$\gamma_p([t_0,b(p)))$$
 >no puede estar contenido en ningún compacto de $M$.
+>
 >>[!Proof]-
 >>14. Razonemos por el absurdo.
 >>15. Supongamos que existe $t_0\in(a(p),b(p))$ y existe un compacto $K\subseteq M$ tal que

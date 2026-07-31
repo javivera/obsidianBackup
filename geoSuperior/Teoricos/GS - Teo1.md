@@ -22,6 +22,7 @@
 >[!Proposition] Matriz Diferencial
 >Sea $F \colon I \subseteq V \to W$ diferenciable en $p$ y sea $T \colon V \to W$ una transformación lineal tal que $$ \lim_{v \to 0} \frac{\|F(p+v)-F(p)-Tv\|}{\|v\|} = 0.$$
 >Entonces, para todo $v \in V$, $$Tv = \lim_{t \to 0} \frac{F(p+tv)-F(p)}{t}.$$
+>
 >>[!Proof]-
 >>Si $v=0$, la igualdad es inmediata porque $T0=0$. Supongamos $v \neq 0$. Como $I$ es abierto y $p \in I$, existe $\varepsilon>0$ tal que $p+tv \in I$ para todo $t \in (-\varepsilon,\varepsilon)$. Entonces
 >>$$
@@ -46,6 +47,7 @@
 > $$
 > (\mathrm{d}F)_p \colon V \to W.
 > $$
+>
 >>[!Proof]-
 >>La proposición anterior muestra que cualquier transformación lineal que satisfaga la definición debe verificar
 >>$$
@@ -67,6 +69,7 @@
 > \|Tv\|\le \mu \|v\|
 > \qquad \text{para todo } v \in V.
 > $$
+>
 >>[!Proof]-
 >>1. Sea $$S=\{v\in V:\|v\|=1\}$$
 >>2. La función $G \colon S \to \mathbb{R}$, $G(v)=\|Tv\|$, es continua. 
@@ -77,6 +80,7 @@
 
 > [!Theorem] Teorema
 > Si $F \colon I \subseteq V \to W$ es diferenciable en $p$, entonces $F$ es continua en $p$.
+>
 >>[!Proof]-
 >>Sea $T=(\mathrm{d}F)_p$. Entonces
 >>$$
@@ -129,6 +133,7 @@
 > =
 > \mathrm{d} G_{F(p)} \circ \mathrm{d} F_p.
 > $$
+>
 >>[!Proof]-
 >>Escribamos
 >>$$
@@ -252,6 +257,7 @@
 > [!Exercise]
 >Sea $F:\mathbb{R}^2\to \mathbb{R}$ dada por $$ f(x,y)= \begin{cases} \dfrac{x^2y}{x^4+y^2}, & (x,y)\neq (0,0),\\[0.6em] 0, & (x,y)=(0,0). \end{cases} $$
 >Mostrar que todas las derivadas direccionales existen en $p=(0,0)$, pero $F$ no es continua en $(0,0)$. ¿Qué puede decir de la función?
+>
 >>[!Proof]-
 >>1. Sea $v=(a,b)\in \mathbb{R}^2$. La derivada direccional de $f$ en $(0,0)$ en dirección $v$ es $$D_vf(0,0)=\lim_{t\to 0}\frac{f(ta,tb)-f(0,0)}{t}.$$
 >>2. Como $f(0,0)=0$, para $t\neq 0$ tenemos $$f(ta,tb)=\frac{(ta)^2(tb)}{(ta)^4+(tb)^2}=\frac{t^3a^2b}{t^4a^4+t^2b^2}=\frac{ta^2b}{t^2a^4+b^2}.$$
@@ -266,6 +272,7 @@
 
 >[!Theorem] Diferenciabilidad en $C^1$
 >Sea $U\subseteq \mathbb{R}^n$ un abierto. Si $F:U\subseteq \mathbb{R}^n\to \mathbb{R}^m$ es de clase $C^1$ sobre $U$ (esto es, las funciones $\dfrac{\partial F_j}{\partial x_i}:U\subseteq \mathbb{R}^n\to \mathbb{R}$ existen y son continuas), entonces $F$ es diferenciable sobre todo $U$.
+>
 >>[!Proof]
 >>Repasarlo. Cualquier libro clásico de análisis (Rudin, Spivak, Apostol, ...).
 
@@ -311,6 +318,7 @@
 
 >[!Corollary] Corolario
 >Si $F:U\subseteq \mathbb{R}^n\to \mathbb{R}^m$ es suave, entonces las derivadas parciales mixtas de $F$ de cualquier orden son independientes del orden de diferenciación.
+>
 >>[!Proof]
 >>Repasarlo. Cualquier libro clásico de análisis (Rudin, Spivak, Apostol, ...).
 

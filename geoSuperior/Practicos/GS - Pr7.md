@@ -7,7 +7,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 >>[!Proof]-
 >>- $(\Rightarrow)$ 
 >>	1. Supongamos que $M$ es orientable. Tomamos un atlas orientado $\mathcal A$ de $M$. Queremos construir un campo normal suave $\xi:M\to\mathbb R^{n+1}$ tal que $\xi_p\neq 0$ y $\xi_p\perp d\iota_p(T_pM)$ para todo $p\in M$.
->>	2. Sea $(U,\varphi=(x_1,\ldots,x_n))\in\mathcal A$ una carta orientada con $U$ conexo. Por la forma local de las inmersiones, alrededor de cada punto podemos tomar una carta $(V,\psi=(y_1,\ldots,y_{n+1}))$ de $\mathbb R^{n+1}$ tal que $\iota(U)\subseteq V$ y $\psi\circ\iota\circ\varphi^{-1}(t_1,\ldots,t_n)=(t_1,\ldots,t_n,0)$.
+>>	2. Sea $(U,\varphi=(x_1,\ldots,x_n))\in\mathcal A$ una carta orientada con $U$ conexo. Por la forma local de las inmersiones, alrededor de cada punto podemos tomar una carta $(V,\psi=(y_1,\ldots,y_{n+1}))$ de $\mathbb R^{n+1}$ tal que $\iota(U)\subseteq V$ y $$\psi\circ\iota\circ\varphi^{-1}(t_1,\ldots,t_n)=(t_1,\ldots,t_n,0)$$
 >>	3. Entonces, para todo $p\in U$, se cumple $$d\iota_p(\frac{\partial}{\partial x_i}|_p)=\frac{\partial}{\partial y_i}|_{\iota(p)}$$ para $i=1,\ldots,n$. Por lo tanto $$d\iota_p(T_pM)=\operatorname{span}\left\{\frac{\partial}{\partial y_1}\bigg|_{\iota(p)},\ldots,\frac{\partial}{\partial y_n}\bigg|_{\iota(p)}\right\}$$
 >>	4. El vector $\frac{\partial}{\partial y_{n+1}}|_{\iota(p)}$ no tiene por qué ser ortogonal a $d\iota_p(T_pM)$ respecto del producto interno euclídeo. Aplicamos Gram-Schmidt a la familia $\frac{\partial}{\partial y_1},\ldots,\frac{\partial}{\partial y_n},\frac{\partial}{\partial y_{n+1}}$ y tomamos el último vector normalizado. Obtenemos así un campo suave unitario $X^U:U\to\mathbb R^{n+1}$ tal que $X^U_p\perp d\iota_p(T_pM)$ para todo $p\in U$.
 >>	5. Además elegimos el signo de $X^U$ de modo que $$\det(d\iota_p(\frac{\partial}{\partial x_1}|_p),\ldots,d\iota_p(\frac{\partial}{\partial x_n}|_p),X^U_p)>0$$ para todo $p\in U$. Esto se puede hacer porque cambiar $X^U$ por $-X^U$ cambia el signo del determinante, y como el determinante es una función suave no nula en $U$, su signo es constante.
@@ -35,6 +35,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Sea $U$ un abierto en $\mathbb{R}^n$ y sea 0 un valor regular de la función suave $f:U\to\mathbb{R}$. Probar que la subvariedad $f^{-1}(\{0\})$ es orientable.
+>
 >>[!Proof]-
 >>1. Como 0 es valor regular de $f$, $M=f^{-1}(\{0\})$ es subvariedad embebida de codimensión $n-1$ 
 >>2. Identificamos $T_pM$ con su imagen $di_p(T_pM)=\ker(df_p)\subset T_p\mathbb{R}^n$. La base coordenada de una carta $\varphi=(x^i)$ da, vía $di_p$, vectores concretos $\partial/\partial x^i$ dentro del espacio ambiente que forman base de $di_p(T_pM)$. 
@@ -47,6 +48,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Let $M$ be a smooth manifold. Prove that $TM$ is orientable.
+>
 >>[!Proof]-
 >>9. Sea $M$ una variedad suave de dimensión $n$. Para cada carta $(U,\varphi)$ de $M$, con $\varphi=(x_1,\ldots,x_n)$, consideramos la carta inducida en $TM$ dada por $\widetilde\varphi:\pi^{-1}(U)\to \varphi(U)\times\mathbb R^n$, donde si $v\in T_pM$ y $$v=\sum_{i=1}^n v_i\frac{\partial}{\partial x_i}\big|_p$$entonces $$\widetilde\varphi(p,v)=(x_1(p),\ldots,x_n(p),v_1,\ldots,v_n)$$
 >>10. Queremos probar que el atlas inducido $$\mathcal A_{TM}=\{(\pi^{-1}(U),\widetilde\varphi):(U,\varphi)\text{ carta de }M\}$$ es un atlas orientado de $TM$. Para eso alcanza probar que todo cambio de coordenadas entre cartas inducidas tiene determinante positivo.
@@ -63,6 +65,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Sea $M$ una variedad orientada y sea $(U,\varphi)$ una carta de $M$, con $U$ conexo. Probar que $(U,\varphi)$ está positivamente orientada en todo $U$ o negativamente orientada en todo $U$.
+>
 >>[!Proof]-
 >>1. Sea $\omega\in\Omega^n(M)$ una forma positiva que representa la orientación de $M$. Que sabemos que existe y es suave y nunca nula porque $M$ es orientada.
 >>2. Escribimos la carta como $\varphi=(x^1,\dots,x^n)$. Esta induce en cada $p\in U$ la base coordenada $\left(\left.\frac{\partial}{\partial x^1}\right|_p,\dots,\left.\frac{\partial}{\partial x^n}\right|_p\right)$ de $T_pM$.
@@ -76,6 +79,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 >[!Exercise]
 >- (a) Let $M$ una variedad cubierta por dos sistemas coordenados $(U,\varphi)$ y $(V,\psi)$ where $U$ and $V$ are connected coordinate neighborhoods. Suppose that $U\cap V$ has two connected components $C_1$ and $C_2$, and suppose that the determinant of the change of basis from the coordinate basis of $U$ to the coordinate basis of $V$ is positive on $C_1$ and negative on $C_2$. Prove that $M$ is not orientable.
 >- (b) Let $M=(\mathbb R\times(-1,1))/\sim$, where $(s,t)\sim(s+n,(-1)^nt)$ for every $n\in\mathbb Z$. Prove that $M$ is not orientable.
+>
 >>[!Proof]-
 >>- (a)
 >>	1. Supongamos, por contradicción, que $M$ es orientable. Entonces existe una forma de orientación $\omega\in\Omega^n(M)$, es decir, una $n$-forma suave que nunca se anula.
@@ -126,6 +130,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 >- (a) $F$ preserva la orientación.
 >- (b) Con respecto a cualquier par de cartas orientadas de $M$ y $N$, la matriz Jacobiana de $F$ tiene determinante positivo.
 >- (c) Para cualquier forma de orientación de $N$ que esté orientada positivamente, su pullback es una forma orientada positivamente sobre $M$.
+>
 >>[!Proof]-
 >>- $(a)\Rightarrow (b)$
 >>	1. Tenemos dos cartas orientadas cualquiera $\varphi=(x_{1},\ldots,x_{n})$ y $\psi=(y_{1},\ldots y_{n})$   
@@ -162,6 +167,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Sea $F:\mathbb R\to\mathbb R$ un difeomorfismo que invierte la orientación. Probar que $F$ tiene un punto fijo.
+>
 >>[!Proof]-
 >>8. Como $F$ invierte la orientación y estamos en dimensión $1$, se tiene $F'(x)<0$ para todo $x\in\mathbb R$.
 >>9. Definimos $g:\mathbb R\to\mathbb R$ por $g(x)=F(x)-x$. Entonces $g$ es continua y suave, y además $g(x)=0$ si y solo si $F(x)=x$.
@@ -176,6 +182,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Sea $\Omega=dx_1\wedge\cdots\wedge dx_n$ la forma de volumen usual en $\mathbb R^n$. Probar que $\Omega$ es invariante por movimientos rígidos que preservan la orientación, es decir, si $f=T\circ O$, donde $T$ es una traslación y $O\in SO(n)$, entonces $f^*\Omega=\Omega$.
+>
 >>[!Proof]-
 >>18. Sea $f=T\circ O:\mathbb R^n\to\mathbb R^n$ un movimiento rígido con $T(x)=x+a$, $O\in SO(n)$ y sea $\Omega=dx_1\wedge\cdots\wedge dx_n$.
 >>19. Queremos probar que $f^*\Omega=\Omega$. Por definición, basta probar que para todo $p\in\mathbb R^n$ y todo $v_1,\ldots,v_n\in T_p\mathbb R^n$ se cumple $$(f^*\Omega)_p(v_1,\ldots,v_n)=\Omega_p(v_1,\ldots,v_n).$$
@@ -194,11 +201,13 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Sean $M$ y $N$ variedades orientadas y sea $F:M\to N$ un difeomorfismo que preserva orientación. Si $(V,\varphi)$ es un entorno coordenado positivo en $N$, probar que $(F^{-1}(V),\varphi\circ F)$ es un entorno coordenado positivo en $M$.
+>
 >>[!Proof]-
 >>
 
 >[!Exercise]
 >Sean $M$ y $N$ variedades orientadas y sea $F:M\to N$ un difeomorfismo que preserva orientación. Si $(V,\varphi)$ es un entorno coordenado positivo en $N$, probar que $(F^{-1}(V),\varphi\circ F)$ es un entorno coordenado positivo en $M$.
+>
 >>[!Proof]-
 >>- Primera forma de hacerlo
 >>	1. Como $F$ es un difeomorfismo y $(V,\varphi)$ es una carta de $N$, la aplicación $\varphi\circ F:F^{-1}(V)\to\varphi(V)$ es un difeomorfismo, luego $(F^{-1}(V),\varphi\circ F)$ es un entorno coordenado de $M$.
@@ -228,6 +237,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Sea $\pi:M\to N$ un difeomorfismo local. Si $N$ es orientable, entonces $M$ es orientable y $\pi$ preserva orientación.
+>
 >>[!Proof]-
 >>- Primera Forma
 >>	1. Como $N$ es orientable, existe una $n$-forma suave $\omega\in\Omega^n(N)$ que no es la funcion nula para ningun $p\in N$ .  
@@ -283,6 +293,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 >\int_NF^*\omega,&\text{si }F\text{ preserva},\\
 >-\int_NF^*\omega,&\text{si }F\text{ reversa}.
 >\end{cases}$$
+>
 >>[!Proof]-
 >>- (i) 
 >>	1. Como $$\operatorname{sop}(a\omega+b\eta)\subseteq\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta),$$y $\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta)$ es compacto, tomamos un cubrimiento abierto $\{U_i\}$ de este compacto por dominios de cartas positivamente orientadas. Este cubrimiento existe, por que las cartas cubren todo $M$ en particular cubren dichos soportes que son subconjuntos de $M$  
@@ -307,6 +318,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise]
 >Usando la definición de integral, calcular $\int_{S^1}\theta$, donde $\theta$ es la $1$-forma sobre $S^1$ definida por $\theta|_U=ds$ y $\theta|_V=dt$, con $U=S^1\setminus\{(1,0)\}$, $V=S^1\setminus\{(-1,0)\}$ y cartas $s:U\to(0,2\pi)$, $t:V\to(-\pi,\pi)$.
+>
 >>[!Proof]-
 >>7. En las dos componentes de $U\cap V$ se cumple $$(s\circ t^{-1})(r)=\begin{cases}r,&r\in(0,\pi),\\r+2\pi,&r\in(-\pi,0).\end{cases}$$ En ambos casos, $\dfrac{d}{dr}(s\circ t^{-1})(r)=1>0$, por lo que las cartas $(U,s)$ y $(V,t)$ pertenecen a la misma orientación. Notando que $\dfrac{d}{dr}(s\circ t^{-1})(r)=1>0$ es el unico coeficiente en la matriz cambio de base entre $\frac{d}{dt}$ y $\frac{d}{ds}$    
 >>8. Sea $\{\rho_U,\rho_V\}$ una partición de la unidad subordinada al cubrimiento $\{U,V\}$. Entonces $\rho_U+\rho_V=1$ en $S^1$. Por definición de integral sobre una variedad, $$\int_{S^1}\theta=\int_U\rho_U\theta+\int_V\rho_V\theta.$$
@@ -319,6 +331,7 @@ en el ej 19 hay que usar el ultimo resultado que dio edison que no se demostro
 
 >[!Exercise] Ejercicio 18
 >Sea $M_i$ una variedad diferenciable de dimensión $n_i$, para $i=1,2$. Sea $\omega_i$ una $n_i$-forma nunca nula en $M_i$ y sea $p_i:M_1\times M_2\to M_i$ la proyección canónica. Demostrar que $\omega=(p_1^*\omega_1)\wedge(p_2^*\omega_2)$ es una $(n_1+n_2)$-forma nunca nula en $M_1\times M_2$. ¿Es $M_1\times M_2$ orientable?
+>
 >>[!Proof]-
 >>15. Como $p_1^*\omega_1\in\Omega^{n_1}(M_1\times M_2)$ y $p_2^*\omega_2\in\Omega^{n_2}(M_1\times M_2)$, se tiene $$\omega=(p_1^*\omega_1)\wedge(p_2^*\omega_2)\in\Omega^{n_1+n_2}(M_1\times M_2).$$
 >>16. Fijemos un punto arbitrario $(p,q)\in M_1\times M_2$. Tomemos una carta $(U,x=(x^1,\ldots,x^{n_1}))$ de $M_1$ alrededor de $p$ y una carta $(V,y=(y^1,\ldots,y^{n_2}))$ de $M_2$ alrededor de $q$.

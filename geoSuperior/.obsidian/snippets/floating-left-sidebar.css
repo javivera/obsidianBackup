@@ -1,0 +1,176 @@
+/* Compact only the main tab bar; leave view headers and sidebar controls alone. */
+body:not(.is-mobile) {
+    --compact-main-tab-height: 32px;
+    --divider-width: 2px;
+}
+
+/* Strengthen the rule below the inline file title. */
+body:not(.is-mobile):not(.inline-title-divider-remove)
+    .workspace-split.mod-root
+    .inline-title:not(.mk-inline-title) {
+    position: relative;
+    border-bottom: 0;
+}
+
+body:not(.is-mobile):not(.inline-title-divider-remove)
+    .workspace-split.mod-root
+    .inline-title:not(.mk-inline-title)::after {
+    content: "";
+    position: absolute;
+    inset-inline: calc(-1 * var(--size-4-8));
+    inset-block-end: 0;
+    height: 2px;
+    background: var(--divider-color);
+    pointer-events: none;
+}
+
+/* Border adds a gap below the tab row that looks like unused tab-bar space. */
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top {
+    gap: 0;
+}
+
+/* The useful controls live in the tab row now; hide the Markdown title/path bar. */
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-leaf-content[data-type="markdown"]
+    > .view-header {
+    display: none;
+}
+
+/* View controls moved into the tab row by the local companion plugin. */
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    :is(.tabbar-view-nav, .tabbar-view-actions) {
+    height: var(--compact-main-tab-height);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+/* Remove bookmark and the three-dot menu, but keep the edit/reading toggle. */
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    :is(.tabbar-view-nav, .tabbar-view-actions)
+    :is(
+        [aria-label*="bookmark" i],
+        [aria-label*="marcador" i],
+        [aria-label*="more options" i],
+        [aria-label*="opciones" i],
+        [data-tooltip*="bookmark" i],
+        [data-tooltip*="marcador" i],
+        [data-tooltip*="more options" i],
+        [data-tooltip*="opciones" i],
+        [data-icon="bookmark"],
+        [data-icon="more-horizontal"],
+        [data-icon="ellipsis"],
+        .view-action:has(svg.lucide-bookmark),
+        .view-action:has(svg.lucide-more-horizontal),
+        .view-action:has(svg.lucide-more-vertical),
+        .view-action:has(svg.lucide-ellipsis)
+    ) {
+    display: none;
+}
+
+/* Hide the tab-list dropdown in the main panel tab bars. */
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top
+    > .workspace-tab-header-container
+    > .workspace-tab-header-tab-list {
+    display: none;
+}
+
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top
+    > .workspace-tab-header-container {
+    height: var(--compact-main-tab-height) !important;
+    min-height: var(--compact-main-tab-height);
+    max-height: var(--compact-main-tab-height);
+    box-sizing: border-box;
+    align-items: center;
+}
+
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top
+    > .workspace-tab-header-container
+    > .workspace-tab-header-container-inner {
+    height: 100% !important;
+    min-height: 0;
+    box-sizing: border-box;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    align-items: center;
+}
+
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top
+    > .workspace-tab-header-container
+    .workspace-tab-header {
+    align-self: center;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+body:not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top
+    > .workspace-tab-header-container
+    .workspace-tab-header-inner {
+    height: 26px;
+    min-height: 26px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+/* Float the desktop left sidebar above the workspace instead of resizing it. */
+body:not(.is-mobile) .workspace-split.mod-left-split {
+    position: absolute;
+    inset-block-start: var(--compact-main-tab-height);
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    z-index: 20;
+    height: auto;
+    background: var(--background-secondary) !important;
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Hide the file explorer action row (new note/folder, sort and collapse). */
+body:not(.is-mobile)
+    .workspace-split.mod-left-split
+    .workspace-leaf-content[data-type="file-explorer"]
+    .nav-header {
+    display: none;
+}
+
+/* Keep the resize edge accessible while the sidebar is floating. */
+body:not(.is-mobile) .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
+    z-index: 21;
+}
+
+/* The native toggle changes containers when the sidebar opens and shifts tabs. */
+body:not(.is-mobile) .sidebar-toggle-button.mod-left {
+    display: none;
+}
+
+/* Hide the native right-sidebar toggle as well. */
+body:not(.is-mobile) .sidebar-toggle-button.mod-right {
+    display: none;
+}
+
+/* Keep the first tab clear of the macOS controls in every sidebar state. */
+body.mod-macos.is-hidden-frameless:not(.is-fullscreen):not(.is-mobile)
+    .workspace-split.mod-root
+    .workspace-tabs.mod-top:not(.workspace-tabs.mod-top ~ .workspace-tabs.mod-top)
+    > .workspace-tab-header-container {
+    padding-left: calc(var(--frame-left-space) + 12px) !important;
+}
