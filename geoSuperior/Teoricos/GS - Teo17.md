@@ -1,4 +1,3 @@
-
 >[!Theorem]
 >Sea $X\in\mathfrak X(M)$ y sea $\theta:\mathcal D\subseteq\mathbb R\times M\to M$ su flujo. Entonces:
 >
@@ -11,51 +10,51 @@
 >- **(iv)** La función $$\theta_t:D_t\to D_{-t}$$ es un difeomorfismo, con inversa $\theta_{-t}$.
 >
 >>[!Proof]-
->>- **(i)** 
->>	1. Dado $p\in M$ arbitrario, por [[GS - Teo16#^3ff110]] sabemos que existe una curva integral que comienza en $p$ definida en algún intervalo maximal $(a(p),b(p))$.  
->>	2. Como dicho intervalo contiene al $0$. Tomamos algun $t\in(0,\epsilon)\subseteq (a(p),b(p))$. Entonces $p\in D_t$
->>	3. Como $p$ era arbitrario, se concluye que todo punto de $M$ pertenece a algún $D_t$ con $t>0$. $$\bigcup_{t>0}D_t=M$$ (Notar que claramente $D_{t}\subseteq M$ para cualquier $t$ por eso vale trivialmente la otra inclusion) 
->>- **(ii)** 
->>	1. Sea $p\in\operatorname{Dom}(\theta_t\circ\theta_s)$. Esto significa que $p\in D_s$
->>	2. Luego esta bien definida $\theta_{s}(p)$ y ademas $q=\theta_s(p)\in D_t$. 
->>	3. Luego por definicion $q=\gamma_p(s)$
->>	4. Por la observación sobre traslación de curvas integrales maximales, la curva integral maximal que comienza en $q$ satisface $$(a(q),b(q))=(a(p)-s,b(p)-s)$$
->>	5. Como $q\in D_t$, se tiene $t\in(a(q),b(q))$.
->>	6. Usando la igualdad de intervalos, esto equivale a $$t+s\in(a(p),b(p))$$
->>	7. Por lo tanto $p\in D_{t+s}$, y se obtiene $$\operatorname{Dom}(\theta_t\circ\theta_s)\subseteq D_{t+s}$$
->>	8. Ahora supongamos que $s,t>0$ y sea $p\in D_{s+t}$.
->>	9. Entonces $s+t\in(a(p),b(p))$ y, como $0<s<s+t$, también $s\in(a(p),b(p))$. $$p\in D_s$$
->>	10. Si $q=\theta_s(p)=\gamma_p(s)$, entonces la curva integral maximal que comienza en $q$ tiene dominio $$(a(q),b(q))=(a(p)-s,b(p)-s)$$
->>	11. Como $s+t\in(a(p),b(p))$, se obtiene $t\in(a(q),b(q))$. $$q\in D_t$$
->>	12. Luego $p\in\operatorname{Dom}(\Theta_t\circ\Theta_s)$.
->>	13. Por lo tanto, si $s,t>0$, se cumple $$\operatorname{Dom}(\theta_t\circ\theta_s)=D_{t+s}$$
->>	14. El caso $s,t<0$ se prueba de manera análoga, usando que $s+t<s<0$ y la misma traslación del dominio maximal.
->>- **(iii)** 
->>	1. Sea $p\in\operatorname{Dom}(\theta_s\circ\theta_t)$ y sea $q=\theta_t(p)$.
->>	2. Entonces $q=\gamma_p(t)$, y por la descripción de la curva maximal que comienza en $q$, $$\gamma_q(s)=\gamma_p(t+s)$$
->>	3. Por lo tanto, $$\theta_s(\theta_t(p))=\theta_s(q)=\gamma_q(s)=\gamma_p(t+s)=\theta_{s+t}(p)$$
->>	4. Concluimos que $$\theta_s\circ\theta_t(p)=\theta_{s+t}(p)$$
->>- **(iv)** 
->>	1. Veamos primero que $\theta_t(D_t)\subseteq D_{-t}$.
->>	2. Sea $p\in D_t$ y sea $q=\theta_t(p)=\gamma_p(t)$.
->>	3. Nuevamente, $$(a(q),b(q))=(a(p)-t,b(p)-t)$$
->>	4. Como $0\in(a(p),b(p))$, se tiene $-t\in(a(q),b(q))$. $$q\in D_{-t}$$
->>	5. Entonces $\theta_t:D_t\to D_{-t}$ está bien definida.
->>	6. Además, usando la parte **(iii)**, $$\theta_{-t}(\theta_t(p))=\theta_0(p)=\gamma_{p}(0)=p$$
->>	7. Análogamente, para $q\in D_{-t}$, $$\theta_t(\theta_{-t}(q))=\theta_0(q)=\gamma_{q}(0)=q$$
->>	8. Así, $\theta_{-t}$ es la inversa de $\theta_t$.
->>	9. Veamos que **$\Theta_{t}$ es suave** 
->>	10. Fijemos $t\in\mathbb R$. Recordemos que el flujo es una aplicación suave $$\Theta:\mathcal D\subseteq\mathbb R\times M\to M$$
->>	11. Por definición, $$D_t=\{p\in M:(t,p)\in\mathcal D\}$$ y $\Theta_t:D_t\to M$ está dada por $\Theta_t(p)=\Theta(t,p)$
->>	12. Primero observemos que $D_t$ es abierto en $M$. En efecto, si definimos $$\iota_t:M\to\mathbb R\times M$$ por $\iota_t(p)=(t,p)$, entonces $\iota_t$ es continua y $D_t=\iota_t^{-1}(\mathcal D)$. 
->>	13. Como $\mathcal D$ es abierto, se sigue que $D_t$ es abierto. Con lo cual es subvariedad de $M$ 
->>	14. Ahora consideramos la restricción $$\iota_t|_{D_t}:D_t\to\mathcal D$$dada por $\iota_t|_{D_t}(p)=(t,p)$. Esta aplicación es suave, porque en coordenadas solo agrega la coordenada constante $t$.
->>	15. Para todo $p\in D_t$, tenemos $$\Theta_t(p)=\Theta(t,p)=\Theta\big(\iota_t|_{D_t}(p)\big).$$
->>	16. Por lo tanto, $$\Theta_t=\Theta\circ \iota_t|_{D_t}.$$
->>	17. Como $\iota_t|_{D_t}$ es suave y $\Theta$ es suave, se concluye que $\Theta_t:D_t\to M$ es suave.
->>	18. Además, ya se probó que $\Theta_t(D_t)\subseteq D_{-t}$. Como $D_{-t}$ es un abierto de $M$, la misma aplicación puede verse como $$\Theta_t:D_t\to D_{-t}.$$
->>	19. Esta aplicación también es suave como aplicación con codominio $D_{-t}$, porque la suavidad hacia un abierto de $M$ se verifica componiendo con la inclusión $D_{-t}\hookrightarrow M$. Y usando continuidad de $\Theta_{t}$ 
->>	20. Por lo tanto, $\Theta_t:D_t\to D_{-t}$ es un difeomorfismo con inversa $\Theta_{-t}$.
+>>- **(i)**
+>>1. Dado $p\in M$ arbitrario, por [[GS - Teo16#^3ff110|Existencia y unicidad de las curvas integrales]] sabemos que existe una curva integral que comienza en $p$ definida en algún intervalo maximal $(a(p),b(p))$.
+>>2. Como dicho intervalo contiene al $0$. Tomamos algun $t\in(0,\epsilon)\subseteq (a(p),b(p))$. Entonces $p\in D_t$
+>>3. Como $p$ era arbitrario, se concluye que todo punto de $M$ pertenece a algún $D_t$ con $t>0$. $$\bigcup_{t>0}D_t=M$$ (Notar que claramente $D_{t}\subseteq M$ para cualquier $t$ por eso vale trivialmente la otra inclusion)
+>>- **(ii)**
+>>1. Sea $p\in\operatorname{Dom}(\theta_t\circ\theta_s)$. Esto significa que $p\in D_s$
+>>2. Luego esta bien definida $\theta_{s}(p)$ y ademas $q=\theta_s(p)\in D_t$.
+>>3. Luego por definicion $q=\gamma_p(s)$
+>>4. Por la observación sobre traslación de curvas integrales maximales, la curva integral maximal que comienza en $q$ satisface $$(a(q),b(q))=(a(p)-s,b(p)-s)$$
+>>5. Como $q\in D_t$, se tiene $t\in(a(q),b(q))$.
+>>6. Usando la igualdad de intervalos, esto equivale a $$t+s\in(a(p),b(p))$$
+>>7. Por lo tanto $p\in D_{t+s}$, y se obtiene $$\operatorname{Dom}(\theta_t\circ\theta_s)\subseteq D_{t+s}$$
+>>8. Ahora supongamos que $s,t>0$ y sea $p\in D_{s+t}$.
+>>9. Entonces $s+t\in(a(p),b(p))$ y, como $0<s<s+t$, también $s\in(a(p),b(p))$. $$p\in D_s$$
+>>10. Si $q=\theta_s(p)=\gamma_p(s)$, entonces la curva integral maximal que comienza en $q$ tiene dominio $$(a(q),b(q))=(a(p)-s,b(p)-s)$$
+>>11. Como $s+t\in(a(p),b(p))$, se obtiene $t\in(a(q),b(q))$. $$q\in D_t$$
+>>12. Luego $p\in\operatorname{Dom}(\Theta_t\circ\Theta_s)$.
+>>13. Por lo tanto, si $s,t>0$, se cumple $$\operatorname{Dom}(\theta_t\circ\theta_s)=D_{t+s}$$
+>>14. El caso $s,t<0$ se prueba de manera análoga, usando que $s+t<s<0$ y la misma traslación del dominio maximal.
+>>- **(iii)**
+>>1. Sea $p\in\operatorname{Dom}(\theta_s\circ\theta_t)$ y sea $q=\theta_t(p)$.
+>>2. Entonces $q=\gamma_p(t)$, y por la descripción de la curva maximal que comienza en $q$, $$\gamma_q(s)=\gamma_p(t+s)$$
+>>3. Por lo tanto, $$\theta_s(\theta_t(p))=\theta_s(q)=\gamma_q(s)=\gamma_p(t+s)=\theta_{s+t}(p)$$
+>>4. Concluimos que $$\theta_s\circ\theta_t(p)=\theta_{s+t}(p)$$
+>>- **(iv)**
+>>1. Veamos primero que $\theta_t(D_t)\subseteq D_{-t}$.
+>>2. Sea $p\in D_t$ y sea $q=\theta_t(p)=\gamma_p(t)$.
+>>3. Nuevamente, $$(a(q),b(q))=(a(p)-t,b(p)-t)$$
+>>4. Como $0\in(a(p),b(p))$, se tiene $-t\in(a(q),b(q))$. $$q\in D_{-t}$$
+>>5. Entonces $\theta_t:D_t\to D_{-t}$ está bien definida.
+>>6. Además, usando la parte **(iii)**, $$\theta_{-t}(\theta_t(p))=\theta_0(p)=\gamma_{p}(0)=p$$
+>>7. Análogamente, para $q\in D_{-t}$, $$\theta_t(\theta_{-t}(q))=\theta_0(q)=\gamma_{q}(0)=q$$
+>>8. Así, $\theta_{-t}$ es la inversa de $\theta_t$.
+>>9. Veamos que **$\Theta_{t}$ es suave**
+>>10. Fijemos $t\in\mathbb R$. Recordemos que el flujo es una aplicación suave $$\Theta:\mathcal D\subseteq\mathbb R\times M\to M$$
+>>11. Por definición, $$D_t=\{p\in M:(t,p)\in\mathcal D\}$$ y $\Theta_t:D_t\to M$ está dada por $\Theta_t(p)=\Theta(t,p)$
+>>12. Primero observemos que $D_t$ es abierto en $M$. En efecto, si definimos $$\iota_t:M\to\mathbb R\times M$$ por $\iota_t(p)=(t,p)$, entonces $\iota_t$ es continua y $D_t=\iota_t^{-1}(\mathcal D)$.
+>>13. Como $\mathcal D$ es abierto, se sigue que $D_t$ es abierto. Con lo cual es subvariedad de $M$
+>>14. Ahora consideramos la restricción $$\iota_t|_{D_t}:D_t\to\mathcal D$$dada por $\iota_t|_{D_t}(p)=(t,p)$. Esta aplicación es suave porque es la restricción de una aplicación suave a un abierto dentro de la variedad.
+>>15. Para todo $p\in D_t$, tenemos $$\Theta_t(p)=\Theta(t,p)=\Theta\big(\iota_t|_{D_t}(p)\big).$$
+>>16. Por lo tanto, $$\Theta_t=\Theta\circ \iota_t|_{D_t}.$$
+>>17. Como $\iota_t|_{D_t}$ es suave y $\Theta$ es suave, se concluye que $\Theta_t:D_t\to M$ es suave.
+>>18. Además, ya se probó que $\Theta_t(D_t)\subseteq D_{-t}$. Como $D_{-t}$ es un abierto de $M$, la misma aplicación puede verse como $$\Theta_t:D_t\to D_{-t}.$$
+>>19. Esta aplicación también es suave como aplicación con codominio $D_{-t}$, porque la suavidad hacia un abierto de $M$ se verifica componiendo con la inclusión $D_{-t}\hookrightarrow M$. Y usando continuidad de $\Theta_{t}$. Además, $D_{-t}$ es una subvariedad incrustada de $M$ por ser un abierto de $M$.
+>>20. Por lo tanto, $\Theta_t:D_t\to D_{-t}$ es un difeomorfismo con inversa $\Theta_{-t}$.
 
 ^8d50da
 
@@ -143,9 +142,9 @@
 >>6. Definimos una curva $\alpha$ pegando $\gamma_p$ con la curva que empieza en $q$:
 >>$$\alpha(t)=\begin{cases}\gamma_p(t),&a(p)<t<b(p),\\\gamma_q(t-t_0),&-\varepsilon<t-t_0<\varepsilon.\end{cases}$$
 >>7. Primero veamos que está bien definida donde se solapan las dos definiciones.
->>8. Notar que $(a(p),b(p))\cap(t_0-\varepsilon,t_0+\varepsilon)=(t_0-\varepsilon,b(p))$. 
->>9. En efecto, como $a(p)<b(p)-\varepsilon$, podemos elegir $t_0$ de modo que $a(p)<t_0-\varepsilon$. Entonces $a(p)<t_0-\varepsilon<b(p)$.  
->>10. Por otro lado, como $b(p)-\varepsilon<t_0$, se sigue que $b(p)<t_0+\varepsilon$. 
+>>8. Notar que $(a(p),b(p))\cap(t_0-\varepsilon,t_0+\varepsilon)=(t_0-\varepsilon,b(p))$.
+>>9. En efecto, como $a(p)<b(p)-\varepsilon$, podemos elegir $t_0$ de modo que $a(p)<t_0-\varepsilon$. Entonces $a(p)<t_0-\varepsilon<b(p)$.
+>>10. Por otro lado, como $b(p)-\varepsilon<t_0$, se sigue que $b(p)<t_0+\varepsilon$.
 >>11. Por lo tanto, $(a(p),b(p))\cap(t_0-\varepsilon,t_0+\varepsilon)=(t_0-\varepsilon,b(p))$.
 >>12. Entonces n el solapamiento osea si $t\in(t_0-\varepsilon,b(p))$, tenemos que $$\gamma_q(t-t_0)=\Theta_{t-t_0}(q)=\Theta_{t-t_0}(\Theta_{t_0}(p))=\Theta_t(p)=\gamma_p(t)$$ por lo tanto, las dos expresiones coinciden en el solapamiento.
 >>13. Además, $\alpha$ es curva integral de $X$ y en $t=0$ pasa por $p$.
@@ -221,4 +220,8 @@
 >>31. Entonces $\alpha$ está definida más allá de $b(p)$.
 >>32. Esto contradice la maximalidad de $\gamma_p$.
 >>33. Por lo tanto, ningún tramo final $\gamma_p([t_0,b(p)))$ puede estar contenido en un compacto de $M$.
+
+^f386fd
+
+
 

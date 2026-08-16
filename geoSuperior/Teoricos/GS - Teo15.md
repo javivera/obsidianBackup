@@ -1,13 +1,14 @@
 >[!Proposition] Suavidad de un campo en una carta
-> Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave de $M$ y sea $X:U \to TU$ un campo vectorial. Entonces $X$ es suave si y solo si las coordenadas de $X$ en el marco $\{\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_n}\}$ son funciones suaves.
+>Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave de $M$ y sea $X:U \to TU$ un campo vectorial. Entonces $X$ es suave si y solo si las coordenadas de $X$ en el marco $\{\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_n}\}$ son funciones suaves.
 >
 >>[!Proof]-
->>- $(\Rightarrow)$ Caso particular de [[GS - Teo14#^3accf8]] 
->>- $(\Leftarrow)$ 
->>	1. Tenemos la carta asociada a la carta $\varphi$ $$\bigg(\widetilde U=\pi^{-1}(U),\tilde\varphi=\left(x_1\circ\pi,\ldots,x_n\circ\pi,v_1,\ldots,v_n\right)\bigg)$$ que en este caso es un difeo entre $TU$ y $\varphi(U)\times\mathbb{R}^n$.  
->>	2. Por tanto, $X$ es suave si $\widetilde\varphi\circ X$ es suave (por que si esto es suave componer a derecha con $\varphi ^{-1}:\varphi(U)\rightarrow U$ sigue siendo suave, por que $\varphi ^{-1}$ es homeo, osea que al componer no cambiamos codominio) 
->>	3. Como $$\widetilde\varphi\circ X:U\subseteq M\longrightarrow\mathbb{R}^{2n}\quad\text{esta dada por}\quad p\longmapsto \left(x_1(p),\ldots,x_n(p),a_1(p),\ldots,a_n(p)\right)$$ donde $a_i:U\to\mathbb{R}$ son las coordenadas de $X_{p}$ con respecto al marco $$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\ldots,\left.\frac{\partial}{\partial x_n}\right|_p\right\},$$
->>	4. Y por hipotesis son suaves las coordenadas $a_{i}$ son suaves (obviemente $x_{i}(p)$ son suaves por ser carta), se sigue que $\widetilde\varphi\circ X$ es suave
+>>- $(\Rightarrow)$ Caso particular de [[GS - Teo14#^3accf8|Caracterizaciones de suavidad]]
+>>- $(\Leftarrow)$
+>>1. Tenemos la carta asociada a la carta $\varphi$ $$\bigg(\widetilde U=\pi^{-1}(U),\tilde\varphi=\left(x_1\circ\pi,\ldots,x_n\circ\pi,v_1,\ldots,v_n\right)\bigg)$$ que en este caso es un difeo entre $TU$ y $\varphi(U)\times\mathbb{R}^n$.
+>>2. Por tanto, $X$ es suave si $\widetilde\varphi\circ X$ es suave (por que si esto es suave componer a derecha con $\varphi ^{-1}:\varphi(U)\rightarrow U$ sigue siendo suave, por que $\varphi ^{-1}$ es homeo, osea que al componer no cambiamos codominio)
+>>3. Como $$\widetilde\varphi\circ X:U\subseteq M\longrightarrow\mathbb{R}^{2n}\quad\text{esta dada por}\quad p\longmapsto \left(x_1(p),\ldots,x_n(p),a_1(p),\ldots,a_n(p)\right)$$ donde $a_i:U\to\mathbb{R}$ son las coordenadas de $X_{p}$ con respecto al marco $$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\ldots,\left.\frac{\partial}{\partial x_n}\right|_p\right\},$$
+>>4. Y por hipotesis son suaves las coordenadas $a_{i}$ son suaves (obviemente $x_{i}(p)$ son suaves por ser carta), se sigue que $\widetilde\varphi\circ X$ es suave
+>>5. Entonces, para cualquier punto $p$ podemos encontrar cartas que cumplen la definicion, por [[GS - Teo4#^funcion-suave-entre-variedades|localidad de la suavidad]].
 
 ^f23a3b
 
@@ -64,7 +65,7 @@
 >Ademas, tal campo $Y$ se extiende sobre todo $M$ si y solo si $S$ es un subconjunto cerrado de $M$.
 >
 >>[!Proof]-
->>[[GS - Pr4#^7d5d0b]]
+>>[[GS - Pr4#^7d5d0b|Extensión de campos de subvariedades]]
 
 ## Curvas integrales y flujos
 
@@ -93,4 +94,6 @@
 >3. **Smoothness.** Let $J_0$ and $U_0$ be as in 1. Let $\theta:J_0\times U_0\to U$ be the map defined by $\theta(t,x)=y(t)$, where $y:J_0\to U$ is the unique solution with initial condition $y(t_0)=x$. Then $\theta$ is smooth.
 
 ^81ef7e
+
+
 

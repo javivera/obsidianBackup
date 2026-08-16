@@ -1,0 +1,125 @@
+% Book typography and theorem environments.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\IfFileExists{newpxtext.sty}{
+  \usepackage{newpxtext}
+  \usepackage{newpxmath}
+}{
+  \usepackage{lmodern}
+}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{inner=31mm,outer=25mm,top=28mm,bottom=30mm,headheight=15pt}
+
+% newpxmath defines \Bbbk itself; clear it before amssymb defines the AMS glyph.
+\let\Bbbk\relax
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+\usepackage[normalem]{ulem}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev,spanish]{cleveref}
+
+\definecolor{BookNavy}{HTML}{17324D}
+\definecolor{BookBlue}{HTML}{2C6E9B}
+\definecolor{BookTeal}{HTML}{287D78}
+\definecolor{BookGreen}{HTML}{447A55}
+\definecolor{BookGold}{HTML}{A56A16}
+\definecolor{BookRed}{HTML}{9A4A46}
+\definecolor{BookPurple}{HTML}{71558D}
+\definecolor{BookGray}{HTML}{66707A}
+\definecolor{BookPaper}{HTML}{FBFAF7}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=BookNavy,
+  urlcolor=BookBlue,
+  citecolor=BookTeal,
+  pdftitle={Geometría Superior},
+  pdfauthor={Apuntes teóricos},
+  bookmarksnumbered=true
+}
+
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.25em}
+\setlist{nosep,leftmargin=2.15em}
+\setlist[enumerate,1]{label=\arabic*.,ref=\arabic*}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\color{BookNavy}}
+  {\filleft\Large\chaptertitlename\ \thechapter}
+  {1ex}
+  {\titlerule\vspace{1.4ex}\Huge\filright}
+\titlespacing*{\chapter}{0pt}{-10pt}{38pt}
+\titleformat{\section}{\Large\bfseries\color{BookNavy}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{BookBlue}}{\thesubsection}{0.7em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\thepage\quad\textsc{Geometría Superior}}
+\fancyhead[RO]{\small\textsc{\nouppercase{\leftmark}}\quad\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+\tcbset{
+  book box/.style 2 args={
+    enhanced,
+    breakable,
+    colback=#1!4!BookPaper,
+    colframe=#1,
+    coltitle=white,
+    fonttitle=\bfseries,
+    boxrule=0.7pt,
+    leftrule=2.5pt,
+    arc=1.2mm,
+    before skip=10pt plus 2pt,
+    after skip=10pt plus 2pt,
+    left=8pt,right=8pt,top=7pt,bottom=7pt,
+    title={#2}
+  }
+}
+
+\newcounter{bookstatement}[chapter]
+\renewcommand{\thebookstatement}{\thechapter.\arabic{bookstatement}}
+\newenvironment{bookstatement}[3]{%
+  \refstepcounter{bookstatement}%
+  \begin{tcolorbox}[book box={#1}{#2~\thebookstatement\if\relax\detokenize{#3}\relax\else: #3\fi}]%
+}{\end{tcolorbox}}
+
+\newenvironment{bookdefinition}[1]{\begin{bookstatement}{BookBlue}{Definición}{#1}}{\end{bookstatement}}
+\newenvironment{booktheorem}[1]{\begin{bookstatement}{BookNavy}{Teorema}{#1}}{\end{bookstatement}}
+\newenvironment{booklemma}[1]{\begin{bookstatement}{BookTeal}{Lema}{#1}}{\end{bookstatement}}
+\newenvironment{bookproposition}[1]{\begin{bookstatement}{BookGreen}{Proposición}{#1}}{\end{bookstatement}}
+\newenvironment{bookcorollary}[1]{\begin{bookstatement}{BookPurple}{Corolario}{#1}}{\end{bookstatement}}
+\newenvironment{bookremark}[1]{\begin{bookstatement}{BookGray}{Observación}{#1}}{\end{bookstatement}}
+\newenvironment{bookexample}[1]{\begin{bookstatement}{BookGold}{Ejemplo}{#1}}{\end{bookstatement}}
+\newenvironment{bookexercise}[1]{\begin{bookstatement}{BookRed}{Ejercicio}{#1}}{\end{bookstatement}}
+
+\newenvironment{bookproof}[1]{%
+  \begin{tcolorbox}[enhanced,breakable,colback=black!1,colframe=black!35,
+    boxrule=0.4pt,leftrule=1.4pt,arc=0.8mm,title={Demostración\if\relax\detokenize{#1}\relax\else: #1\fi},
+    coltitle=black,fonttitle=\itshape,before skip=5pt,after skip=12pt]
+}{\end{tcolorbox}}
+\newcommand{\bookqed}{\par\nobreak\hfill$\square$}
+
+\newcommand{\bookimage}[2]{%
+  \begin{center}
+    \includegraphics[width=.86\linewidth,height=.42\textheight,keepaspectratio]{#1}
+    \par\smallskip{\small\color{BookGray}#2}
+  \end{center}
+}
+
+\allowdisplaybreaks[2]
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+\raggedbottom

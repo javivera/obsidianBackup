@@ -1,0 +1,129 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Acerca de esta edición}{\es@scroman {iii}}{chapter*.1}%
+\contentsline {part}{I\hspace {1em}Fundamentos y variedades suaves}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Diferenciabilidad y regla de la cadena}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Diferenciabilidad en espacios normados}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Diferenciabilidad en conjuntos y regla de la cadena}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Derivadas parciales}{8}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Curvas y variedades topológicas}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Curvas y diferenciabilidad}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Variedades diferenciables}{14}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Topología cociente}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Topología cociente}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}El espacio proyectivo real}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}El toro}{23}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Atlas y estructuras suaves}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Atlas}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Atlas maximal}{25}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Variedad suave}{26}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Teorema fundamental sobre atlas maximales}{26}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Ejemplos de estructuras suaves}{27}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Funciones diferenciables con dominio variedad}{28}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Notación}{29}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Funciones suaves entre variedades}{31}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Proposición}{31}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Difeomorfismos}{32}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Difeomorfismo local}{33}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Grupos de Lie}{33}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Homomorfismos de grupos de Lie}{34}{section.4.13}%
+\contentsline {chapter}{\numberline {5}Vectores tangentes}{35}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Vectores tangentes}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Definición de vector tangente}{35}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Estructura de espacio vectorial}{36}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Lema técnico: funciones campana}{36}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Lema técnico: extensión de funciones suaves}{38}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Los vectores tangentes actúan de forma local}{39}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Vectores coordenados}{39}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Independencia lineal de los vectores coordenados}{40}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Un lema sobre funciones constantes}{41}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Teorema sobre base del espacio tangente}{42}{section.5.10}%
+\contentsline {chapter}{\numberline {6}El espacio tangente y la diferencial}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}El espacio tangente de una carta}{45}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Diferencial de una función suave}{45}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Regla de la cadena}{46}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Diferencial de un difeomorfismo}{46}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Identificación entre $T_pU$ y $T_pM$}{47}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Ejercicio}{48}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Cambio de coordenadas}{48}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Fibrado tangente y diferencial global}{51}{chapter.7}%
+\contentsline {section}{\numberline {7.1}La diferencial de una función en coordenadas}{51}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Vectores tangentes como velocidades de curvas}{52}{section.7.2}%
+\contentsline {section}{\numberline {7.3}El fibrado tangente}{53}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Diferencial global}{56}{section.7.4}%
+\contentsline {part}{II\hspace {1em}Subvariedades y teoremas de rango}{59}{part.2}%
+\contentsline {chapter}{\numberline {8}Particiones de la unidad}{61}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Particiones de la Unidad}{61}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Funciones de corte y funciones campana}{61}{section.8.2}%
+\contentsline {section}{\numberline {8.3}No se por que aparecen devuelta si ya estaban antes}{64}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Familias localmente finitas}{66}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Particiones de la unidad}{66}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Ejemplo (Aplicaciones)}{67}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Espacios paracompactos}{68}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Consecuencias de las particiones de la unidad}{69}{section.8.8}%
+\contentsline {section}{\numberline {8.9}Métrica riemanniana}{71}{section.8.9}%
+\contentsline {chapter}{\numberline {9}Subvariedades}{73}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Subvariedades}{73}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Ejemplos}{73}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Equivalencia de subvariedades}{81}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Consecuencia práctica}{84}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Ejemplo final}{84}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Teorema de la función inversa}{87}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Teorema de la funcion inversa en variedades}{87}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Repaso de algebra lineal}{88}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Espacio cotangente}{89}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Pullback}{91}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Funciones independientes}{93}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Factorización y subvariedades incrustadas}{95}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Subvariedades: factorización e incrustadas}{95}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Lema de factorización MUY IMPORTANTE}{96}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Unicidad de subvariedad dada topologia}{102}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Unicidad de estructura tal que es incrustada}{104}{section.11.4}%
+\contentsline {chapter}{\numberline {12}Rango constante y rebanadas}{105}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Teorema del rango constante}{105}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Cubo abierto y rebanadas}{109}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Teorema de la subvariedad implícita}{113}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Teorema de la Subvariedad implicita}{117}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Ejemplos de aplicacion}{119}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Punto regular y valor regular}{121}{section.13.3}%
+\contentsline {chapter}{\numberline {14}Extensión y caracterizaciones de suavidad}{123}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Extension de funciones suaves}{123}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Campos vectoriales}{125}{section.14.2}%
+\contentsline {part}{III\hspace {1em}Campos vectoriales y flujos}{131}{part.3}%
+\contentsline {chapter}{\numberline {15}Campos vectoriales suaves}{133}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Campos suaves y subvariedades}{136}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Curvas integrales y flujos}{136}{section.15.2}%
+\contentsline {chapter}{\numberline {16}Curvas integrales y flujos}{139}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Propiedades de los flujos}{145}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Groundwork de generador infinitesimal}{147}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Generador infinitesimal}{148}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Uniformidad global del tiempo}{149}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Campo con soporte compacto es completo}{150}{section.17.4}%
+\contentsline {chapter}{\numberline {18}Enderezamiento de campos}{153}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Extensión local de campos}{154}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Primera aplicación del flujo de un campo}{155}{section.18.2}%
+\contentsline {chapter}{\numberline {19}Corchete de Lie}{161}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Corchete de Lie}{162}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Derivada de Lie}{165}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Lema de uniformidad conjunta para dos flujos}{169}{section.19.3}%
+\contentsline {part}{IV\hspace {1em}Formas diferenciales, orientación e integración}{177}{part.4}%
+\contentsline {chapter}{\numberline {20}Álgebra multilineal y formas alternantes}{179}{chapter.20}%
+\contentsline {subsection}{\numberline {20.0.1}Un poco de algebra multilineal}{179}{subsection.20.0.1}%
+\contentsline {section}{\numberline {20.1}Tensores covariantes}{183}{section.20.1}%
+\contentsline {chapter}{\numberline {21}Formas diferenciales}{191}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Conjunto de formas diferenciales}{193}{section.21.1}%
+\contentsline {section}{\numberline {21.2}Suavidad de $k$-formas}{194}{section.21.2}%
+\contentsline {section}{\numberline {21.3}La diferencial exterior}{199}{section.21.3}%
+\contentsline {section}{\numberline {21.4}Glosario}{203}{section.21.4}%
+\contentsline {chapter}{\numberline {22}Complejo de de Rham y pullbacks}{205}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Complejo de de Rham}{205}{section.22.1}%
+\contentsline {section}{\numberline {22.2}Pullback de formas}{206}{section.22.2}%
+\contentsline {chapter}{\numberline {23}Distribuciones y teorema de Frobenius}{209}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Distribuciones}{209}{section.23.1}%
+\contentsline {chapter}{\numberline {24}Orientación}{215}{chapter.24}%
+\contentsline {section}{\numberline {24.1}Orientacion de espacios vectoriales}{215}{section.24.1}%
+\contentsline {section}{\numberline {24.2}Orientacion de variedades}{217}{section.24.2}%
+\contentsline {section}{\numberline {24.3}Esto no lo dio en clase}{224}{section.24.3}%
+\contentsline {subsection}{\numberline {24.3.1}Orientacion inducida en el borde}{225}{subsection.24.3.1}%
+\contentsline {chapter}{\numberline {25}Integración sobre variedades}{227}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Integracion sobre variedades}{229}{section.25.1}%
+\contentsline {chapter}{Nota sobre las fuentes}{237}{chapter*.89}%

@@ -7,7 +7,7 @@
   "textFontFamily": "Fira Code",
   "interfaceFontFamily": "CMU Sans Serif",
   "monospaceFontFamily": "CMU Sans Serif",
-  "baseFontSize": 26,
+  "baseFontSize": 24,
   "baseFontSizeAction": true,
   "translucency": false,
   "showRibbon": false,

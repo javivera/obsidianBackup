@@ -1,0 +1,142 @@
+## Indice de teoricos
+
+### Teoricos 15-25
+
+- [[GS - Teo15]]: campos vectoriales suaves, campos coordenados, extension de vectores tangentes, campos en subvariedades, curvas integrales y teorema fundamental de EDO autonomas.
+- [[GS - Teo16]]: existencia y unicidad de curvas integrales, flujo maximal, flujo global, campos completos y mapas de tiempo.
+- [[GS - Teo17]]: propiedades del flujo, generador infinitesimal, uniformidad global del tiempo, campos con soporte compacto y lema del escape.
+- [[GS - Teo18]]: variedades paralelizables, extension local de campos, aplicaciones del flujo y teorema de enderezamiento.
+- [[GS - Teo19]]: subgrupos monoparametricos, corchete de Lie, campos relacionados, derivada de Lie, conmutacion de flujos y rectificacion simultanea.
+- [[GS - Teo20]]: algebra multilineal, tensores covariantes, tensores alternantes, alternador, producto exterior y algebra exterior.
+- [[GS - Teo21]]: fibrado de formas alternantes, suavidad de formas, producto cuña, algebra de formas y diferencial exterior.
+- [[GS - Teo22]]: complejo de de Rham, formas cerradas y exactas, pullback de formas.
+- [[GS - Teo23]]: distribuciones suaves, distribuciones integrables, involutividad y teorema de Frobenius local.
+- [[GS - Teo24]]: orientacion de espacios vectoriales, orientacion de variedades, cartas orientadas, orientabilidad de hipersuperficies y orientacion inducida en el borde.
+- [[GS - Teo25]]: medida nula, dominios de integracion, integrales de formas en abiertos y variedades, orientacion de formas, difeomorfismos que preservan orientacion e integracion sobre parametrizaciones.
+
+## Teorico 18
+
+>[!Lemma] Otra forma de hacerlo (creo) 
+>Sea $M$ una variedad suave de dimensión $n$ y sea $p\in M$. Si $\{v_1,\ldots,v_k\}\subset T_pM$ es linealmente independiente, entonces existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial x_j}\right|_p=v_j,\qquad j=1,\ldots,k.$$
+>
+>>[!Proof]-
+>>1. Completamos $\{v_1,\ldots,v_k\}$ a una base $\{v_1,\ldots,v_n\}$ de $T_pM$.
+>>2. Tomemos una carta suave $(U,\psi=(y_1,\ldots,y_n))$ centrada en $p$, es decir, $\psi(p)=0$.
+>>3. Como $(d\psi)_p:T_pM\to T_0\mathbb R^n$ es un isomorfismo, los vectores $$w_j:=(d\psi)_p(v_j),\qquad j=1,\ldots,n,$$ forman una base de $T_0\mathbb R^n$.
+>>4. Identificamos canónicamente $T_0\mathbb R^n$ con $\mathbb R^n$ mediante $$\sum_{i=1}^n a_i\left.\frac{\partial}{\partial r_i}\right|_0\longleftrightarrow (a_1,\ldots,a_n).$$ Denotemos por $\widetilde w_j\in\mathbb R^n$ al vector correspondiente a $w_j$ bajo esta identificación.
+>>5. Como $\{w_1,\ldots,w_n\}$ es base de $T_0\mathbb R^n$, entonces $\{\widetilde w_1,\ldots,\widetilde w_n\}$ es base de $\mathbb R^n$.
+>>6. Definimos $T:\mathbb R^n\to\mathbb R^n$ como la única transformación lineal tal que $$T(\widetilde w_j)=e_j,\qquad j=1,\ldots,n,$$ donde $\{e_1,\ldots,e_n\}$ es la base estándar de $\mathbb R^n$.
+>>7. Como $T$ manda una base en una base, $T$ es invertible. Por lo tanto $T$ es un difeomorfismo lineal de $\mathbb R^n$ en $\mathbb R^n$.
+>>8. Definimos ahora $$\varphi=T\circ\psi.$$ Como $\psi$ es carta suave y $T$ es un difeomorfismo lineal, $\varphi$ es una carta suave.
+>>9. Además, como $\psi(p)=0$ y $T$ es lineal, tenemos $$\varphi(p)=T(\psi(p))=T(0)=0.$$ Luego $\varphi$ está centrada en $p$.
+>>10. Veamos qué hace su diferencial sobre los $v_j$. Por regla de la cadena, $$(d\varphi)_p(v_j)=(dT)_{\psi(p)}((d\psi)_p(v_j))=(dT)_0(w_j).$$
+>>11. Como $T$ es lineal, $(dT)_0$ actúa sobre los vectores tangentes usando la misma transformación lineal $T$ sobre sus coordenadas. Como $T(\widetilde w_j)=e_j$, se obtiene $$(dT)_0(w_j)=\left.\frac{\partial}{\partial r_j}\right|_0.$$
+>>12. Por lo tanto, $$(d\varphi)_p(v_j)=\left.\frac{\partial}{\partial r_j}\right|_0.$$
+>>13. Por otro lado, si $\varphi=(x_1,\ldots,x_n)$, entonces por definición del vector coordenado asociado a la carta $\varphi$, $$(d\varphi)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\left.\frac{\partial}{\partial r_j}\right|_{\varphi(p)}.$$
+>>14. Como $\varphi(p)=0$, esto queda $$(d\varphi)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\left.\frac{\partial}{\partial r_j}\right|_0.$$
+>>15. Comparando con el paso 12, obtenemos $$(d\varphi)_p(v_j)=(d\varphi)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right).$$
+>>16. Como $(d\varphi)_p:T_pM\to T_0\mathbb R^n$ es un isomorfismo, concluimos que $$v_j=\left.\frac{\partial}{\partial x_j}\right|_p,\qquad j=1,\ldots,n.$$
+>>17. En particular, esto vale para $j=1,\ldots,k$, que era lo que queríamos probar.
+
+^3071e3
+
+>[!Proposition]
+>Sea $\sigma:U\subseteq\mathbb R^k\to M$ una aplicación suave, con $0\in U$, y sea $\alpha:\mathbb R\to U$ la curva dada por $\alpha(s)=se_1=(s,0,\ldots,0)$. Entonces $$(\sigma\circ\alpha)'(0)=(d\sigma)_0\left(\frac{\partial}{\partial r^1}\big|_0\right).$$
+>
+>>[!Proof]-
+>>1. Por definición de velocidad de una curva, tenemos $$\alpha'(0)=(d\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)\in T_0\mathbb R^k$$
+>>2. Queremos probar que $$\alpha'(0)=\frac{\partial}{\partial r^1}\big|_0$$
+>>3. Para eso basta probar que ambos vectores tangentes actúan igual sobre toda función $g\in C^\infty(\mathbb R^k)$.
+>>4. Por definición de diferencial, $$\alpha'(0)(g)=(d\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)(g)=\frac{\partial}{\partial s}\big|_0(g\circ\alpha)$$
+>>5. Como $\alpha(s)=(s,0,\ldots,0)$, se tiene $$\frac{\partial}{\partial s}\big|_0(g\circ\alpha)=\frac{d}{ds}\big|_{s=0}g(s,0,\ldots,0)$$
+>>6. Pero esto es exactamente la derivada parcial de $g$ respecto de la primera coordenada en $0$, es decir, $$\frac{d}{ds}\big|_{s=0}g(s,0,\ldots,0)=\frac{\partial g}{\partial r^1}(0)$$
+>>7. Por definición del vector coordenado, $$\frac{\partial}{\partial r^1}\bigg|_0(g)=\frac{\partial g}{\partial r^1}(0)$$
+>>8. Luego, para toda $g\in C^\infty(\mathbb R^k)$, se cumple $$\alpha'(0)(g)=\frac{\partial}{\partial r^1}\big|_0(g)$$
+>>9. Por lo tanto, $$\alpha'(0)=\frac{\partial}{\partial r^1}\big|_0$$
+>>10. En consecuencia, si $\sigma:U\subseteq\mathbb R^k\to M$ es suave y $0\in U$, entonces $$(\sigma\circ\alpha)'(0)=d(\sigma\circ\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)=(d\sigma)_0\left((d\alpha)_0\left(\frac{\partial}{\partial s}\big|_0\right)\right)=(d\sigma)_0\left(\frac{\partial}{\partial r^1}\big|_0\right)$$
+
+^99bdaa
+
+## Teo 21
+
+>[!Remark]
+>Sea $f\in C^{\infty}(M)$ y $v\in T_{p}M$ vector tangente entonces $$(df)_{p}(v)=v(f)$$
+>
+>>[!Proof]-
+>>1. Como $f:M\rightarrow\mathbb{R}$ entonces $(df)_{p}:T_{p}M\rightarrow T_{f(p)}\mathbb{R}$  
+>>2. Luego $$(df)_{p}(v)=c(p)\frac{\partial}{\partial t}|_{f(p)}$$
+>>3. Entonces $c(p)=(df)_{p}(v)(t)=v(t\circ f)=v(f)$ 
+>>4. Luego $$(df)_{p}(v)=v(f)\frac{\partial}{\partial t}|_{f(p)}\simeq v(f)$$ donde use la identificacion $T_{f(p)}\mathbb{R}\simeq \mathbb{R}$ 
+>>5. Por lo tanto $df(v)=v(f)$ 
+
+>[!Remark]
+>Sea $f\in C^{\infty}(M)$ y sea $v\in T_pM$. Entonces, bajo la identificación $T_{f(p)}\mathbb R\simeq \mathbb R$, se tiene $$(df)_p(v)=v(f).$$
+>
+>>[!Proof]-
+>>1. Como $f:M\rightarrow\mathbb{R}$, entonces $$(df)_p:T_pM\rightarrow T_{f(p)}\mathbb{R}.$$
+>>2. Luego existe $c\in\mathbb R$ tal que $$(df)_p(v)=c\frac{\partial}{\partial t}\bigg|_{f(p)}.$$
+>>3. Entonces $$c=(df)_p(v)(t)=v(t\circ f)=v(f),$$ porque $t:\mathbb R\to\mathbb R$ es la coordenada identidad.
+>>4. Luego $$(df)_p(v)=v(f)\frac{\partial}{\partial t}\bigg|_{f(p)}\simeq v(f),$$ donde usamos la identificación $T_{f(p)}\mathbb{R}\simeq \mathbb{R}$ dada por $$a\frac{\partial}{\partial t}\bigg|_{f(p)}\mapsto a.$$
+>>5. Por lo tanto, bajo esta identificación, $$(df)_p(v)=v(f).$$
+
+^311f86
+
+>[!Proposition] Hulet 9.15
+>Sean $X,Y\in\mathfrak{X}(M)$ tales que $[X,Y]=0$, y sean $\theta,\phi$ los flujos de $X$ e $Y$, respectivamente. Dado $p\in M$, sean $U,\delta$ dados por el lema de uniformidad conjunta. Entonces:
+>1. $d\theta_t\circ Y=Y\circ\theta_t$, en $U$, para todo $|t|<\delta$.
+>2. $\theta_t\circ\phi_s=\phi_s\circ\theta_t$, en $U$, para todos $s,t$ con $|s|,|t|<\delta$.
+>
+>>[!Proof]-
+>>Recordemos la fórmula $$[X,Y](p)=\frac{d}{dt}\bigg|_{t=0}(d\theta_{-t})_{\theta_{t}(p)}\left(Y_{\theta_t(p)}\right),\qquad p\in M.$$
+>>- (1) 
+>>	1. Probar $d\theta_t\circ Y=Y\circ\theta_t$ equivale a probar que $$Y_p=d\theta_{-t}\left(Y_{\theta_t(p)}\right),\qquad \forall t,\forall p.$$
+>>	2. En efecto, la igualdad $$d\theta_t\circ Y=Y\circ\theta_t$$ significa que para todo $p$ se tiene $$(d\theta_t)_p(Y_p)=Y_{\theta_t(p)}.$$ Como $\theta_{-t}$ es la inversa de $\theta_t$, aplicando $(d\theta_{-t})_{\theta_t(p)}$ a ambos lados obtenemos $$Y_p=(d\theta_{-t})_{\theta_t(p)}(Y_{\theta_t(p)}).$$ (Notar que $(d\theta_{t})_{p}:T_{p}M\rightarrow T_{\theta_{t}(p)}M$ por eso tomo $(d\theta_{-t})_{\theta_t(p)}$ para que quede bien definida la composicion de la izquierda y obviaemnte $\theta_{-t}\circ\theta_{t}=Id$ y el diferencial de la identidad sigue siendo la identidad) 
+>>	3. Recíprocamente, si vale esta última igualdad, aplicando $(d\theta_t)_p$ a ambos lados se recupera $$(d\theta_t)_p(Y_p)=Y_{\theta_t(p)}.$$ Por lo tanto ambas igualdades son equivalentes.
+>>	4. En otras palabras, para probar la primera parte, basta ver que para cada $p$, la curva $$z(t)=(d\theta_{-t})_{\theta_{t}(p)}\left(Y_{\theta_t(p)}\right)$$ es constantemente igual a $Y_p$.
+>>	5. Calculamos $z'(s)$. Primero, usando el cambio $t\mapsto t+s$, $$z'(s)=\frac{d}{dt}\bigg|_{t=0}z(t+s)=\frac{d}{dt}\bigg|_{t=0}(d\theta_{-t-s})_{\theta_{t+s}(p)}\left(Y_{\theta_{t+s}(p)}\right).$$
+>>	6. Como $\theta_{t+s}(p)=\theta_t(\theta_s(p))$ y $\theta_{-t-s}=\theta_{-s}\circ\theta_{-t}$, tenemos $$z'(s)=\frac{d}{dt}\bigg|_{t=0}(d\theta_{-s})_{\theta_s(p)}\left((d\theta_{-t})_{\theta_{t}(\theta_{s}(p))}\left(Y_{\theta_t(\theta_s(p))}\right)\right).$$
+>>	7. Como $(d\theta_{-s})_{\theta_s(p)}$ no depende de $t$, podemos sacarlo fuera de la derivada: $$z'(s)=(d\theta_{-s})_{\theta_s(p)}\left(\frac{d}{dt}\bigg|_{t=0}(d\theta_{-t})_{\theta_{t}(\theta_{s}(p))}\left(Y_{\theta_t(\theta_s(p))}\right)\right).$$
+>>	8. Por la fórmula del corchete aplicada en el punto $\theta_s(p)$, se obtiene $$z'(s)=(d\theta_{-s})_{\theta_s(p)}\left([X,Y]_{\theta_s(p)}\right).$$
+>>	9. Como $[X,Y]=0$, resulta $$z'(s)=0,\qquad \forall s.$$
+>>	10. Luego $z$ es constante. Y considerando $\theta_{0}=Id_{M}$ entonces $(d\theta_{0})_{p}=Id_{T_{p}M}$ tenemos $$z(0)=(d\theta_0)_{\theta_{0}(p)}(Y_{\theta_0(p)})=Y_p,$$ concluimos que $$z(s)=Y_p,\qquad \forall s.$$
+>>	11. Por lo tanto $$d\theta_{-s}\left(Y_{\theta_s(p)}\right)=Y_p\quad\forall t,\forall p$$ como queriamos
+>>- (2) 
+>>	1. Ahora probamos la segunda parte. Fijado $p\in U$, debemos probar que $$\phi_s(p)=\theta_{-t}\circ\phi_s\circ\theta_t(p),\qquad \forall s.$$
+>>	2. Es suficiente ver que el lado derecho es una curva integral de $Y$ que para $s=0$ pasa por $p$.
+>>	3. Definimos $$\sigma(s)=\theta_{-t}\circ\phi_s\circ\theta_t(p).$$
+>>	4. Entonces $$\sigma(0)=\theta_{-t}\circ\phi_0\circ\theta_t(p)=\theta_{-t}\circ\theta_t(p)=p.$$
+>>	5. Además, aplicando la regla de la cadena tenemos $$\sigma'(s)=(d\theta_{-t})_{\phi_s(\theta_t(p))}\left(\frac{d}{du}\bigg|_{u=s}\phi_u(\theta_t(p))\right).$$
+>>	6. Como $\phi$ es el flujo de $Y$, para cada punto fijo $q\in M$ la curva $$\gamma(u)=\phi_u(q)$$ es curva integral de $Y$. Tomando $$q=\theta_t(p),$$ tenemos $$\gamma(u)=\phi_u(\theta_t(p)).$$ Entonces $$\gamma'(s):= (d\gamma)_s\left(\frac{d}{du}\bigg|_s\right)=Y_{\gamma(s)}=Y_{\phi_s(\theta_t(p))}.$$ Es decir, $$\frac{d}{du}\bigg|_{u=s}\phi_u(\theta_t(p)):=\gamma'(s)=Y_{\phi_s(\theta_t(p))}.$$
+>>	7. Por lo tanto $$\sigma'(s)=(d\theta_{-t})_{\phi_s(\theta_t(p))}\left(Y_{\phi_s(\theta_t(p))}\right).$$
+>>	8. Usando la primera parte con tiempo $-t$, obtenemos $$\sigma'(s)=Y_{\theta_{-t}(\phi_s(\theta_t(p)))}=Y_{\sigma(s)}.$$
+>>	9. Así, $\sigma$ es una curva integral de $Y$ que empieza en $p$.
+>>	10. Por unicidad de curvas integrales, $$\sigma(s)=\phi_s(p).$$
+>>	11. Luego $$\phi_s(p)=\theta_{-t}\circ\phi_s\circ\theta_t(p).$$
+>>	12. Componiendo a la izquierda con $\theta_t$, se obtiene $$\theta_t\circ\phi_s(p)=\phi_s\circ\theta_t(p).$$
+>>	13. Como esto vale para todo $p\in U$, concluimos que $$\theta_t\circ\phi_s=\phi_s\circ\theta_t$$ en $U$, para todos $s,t$ con $|s|,|t|<\delta$.
+
+>[!Proposition] Hulet 9.16
+>Sean $X,Y\in\mathfrak{X}(M)$, cuyos flujos conmutan. Entonces $$[X,Y]=0.$$
+>
+>>[!Proof]-
+>>1. Sean $\theta$ y $\phi$ los flujos de $X$ e $Y$, respectivamente. Fijemos $p\in M$. Por el lema de uniformidad conjunta de los flujos, existen un abierto $U$ que contiene a $p$ y $\delta>0$ tales que, para $|s|,|t|<\delta$, las composiciones $\theta_t\circ\phi_s$ y $\phi_s\circ\theta_t$ están definidas en $U$.
+>>2. Como los flujos conmutan, para $|s|,|t|<\delta$ se cumple $$\theta_t(\phi_s(p))=\phi_s(\theta_t(p)).$$
+>>3. Derivando respecto de $s$ en $s=0$, obtenemos $$d\theta_{t}(Y_{p})=d\theta_t\left(\frac{d}{ds}\bigg|_{s=0}\phi_s(p)\right)=\frac{d}{ds}\bigg|_{s=0}\phi_s(\theta_t(p))=Y_{\theta_{t}(p)}$$
+>>4. Aplicamos $(d\theta_{-t})_{\theta_t(p)}$ a ambos lados. Entonces $$\begin{aligned}(d\theta_{-t})_{\theta_t(p)}\left((d\theta_t)_p(Y_p)\right)&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right),\\d(\theta_{-t}\circ\theta_t)_p(Y_p)&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right),\\Y_p&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right).\end{aligned}$$
+>>5. Por lo tanto, la curva $$t\mapsto(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right)$$ es constante para $|t|<\delta$.
+>>6. Usando la fórmula del corchete en términos del flujo de $X$, $$[X,Y]_p=\frac{d}{dt}\bigg|_{t=0}(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right)=0.$$
+>>7. Como $p\in M$ era arbitrario, concluimos que $$[X,Y]=0.$$
+
+>[!Theorem]
+>Sean $X_1,\ldots,X_k\in\mathfrak X(M)$ campos linealmente independientes en un entorno de $p\in M$, y supongamos que $$[X_i,X_j]=0,\qquad 1\leq i,j\leq k.$$ Entonces existe una carta $$(U,\varphi=(x^1,\ldots,x^n))$$ alrededor de $p$ tal que $$X_i|_U=\frac{\partial}{\partial x^i},\qquad i=1,\ldots,k.$$
+>
+>>[!Proof]-
+>>1. Sea $n=\dim M$. Como $$X_1(p),\ldots,X_k(p)$$ son linealmente independientes, podemos completarlos hasta una base de $T_pM$: $$X_1(p),\ldots,X_k(p),v_{k+1},\ldots,v_n.$$ Tomamos una carta centrada en $p$, $$(V,y=(y^1,\ldots,y^n)),\qquad y(p)=0,$$ tal que $$\left.\frac{\partial}{\partial y^i}\right|_p=X_i(p),\qquad i=1,\ldots,k.$$ Esto se obtiene realizando un cambio lineal de coordenadas en una carta cualquiera centrada en $p$.
+>>2. Consideramos el subconjunto $$S=\{q\in V:y^1(q)=\cdots=y^k(q)=0\}.$$ Definimos $$W=\{(r_{k+1},\ldots,r_n)\in\mathbb R^{n-k}:(0,\ldots,0,r_{k+1},\ldots,r_n)\in y(V)\}.$$ Entonces la aplicación $$\eta:W\longrightarrow S\subseteq M$$ dada por $$\eta(r_{k+1},\ldots,r_n)=y^{-1}(0,\ldots,0,r_{k+1},\ldots,r_n)$$ es una parametrización local de $S$. En particular, $$\eta(0)=p,$$ porque $y(p)=0$.
+>>3. Para $j\in\{k+1,\ldots,n\}$ probemos que $$d\eta_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)=\left.\frac{\partial}{\partial y^j}\right|_p.$$ Sea $$v=d\eta_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)\in T_pM.$$ Escribimos $v$ en la base coordenada: $$v=\sum_{\ell=1}^n a^\ell\left.\frac{\partial}{\partial y^\ell}\right|_p.$$ Evaluando ambos lados en la función coordenada $y^m$, obtenemos $$v(y^m)=\sum_{\ell=1}^n a^\ell\left.\frac{\partial}{\partial y^\ell}\right|_p(y^m)=\sum_{\ell=1}^n a^\ell\delta_\ell^m=a^m.$$ Por otro lado, por definición del diferencial, $$v(y^m)=d\eta_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)(y^m)=\left.\frac{\partial}{\partial r_j}\right|_0(y^m\circ\eta).$$ Como $$y\circ\eta(r_{k+1},\ldots,r_n)=(0,\ldots,0,r_{k+1},\ldots,r_n),$$ se tiene $$y^m\circ\eta=\begin{cases}0,&1\leq m\leq k,\\r_m,&k+1\leq m\leq n.\end{cases}$$ Por tanto, $$a^m=\left.\frac{\partial}{\partial r_j}\right|_0(y^m\circ\eta)=\delta_j^m.$$ Luego todos los coeficientes son cero salvo $a^j=1$, y así $$d\eta_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)=\left.\frac{\partial}{\partial y^j}\right|_p.$$
+>>4. Sea $\theta^i$ el flujo local de $X_i$. Como $$[X_i,X_j]=0,$$ los flujos locales conmutan: $$\theta_s^i\circ\theta_t^j=\theta_t^j\circ\theta_s^i$$ siempre que ambas composiciones estén definidas. Restringiendo los parámetros a un entorno suficientemente pequeño $A\subseteq\mathbb R^n$ de $0$, definimos $$\sigma:A\longrightarrow M$$ por $$\sigma(r_1,\ldots,r_n)=\theta_{r_1}^1\circ\cdots\circ\theta_{r_k}^k\bigl(\eta(r_{k+1},\ldots,r_n)\bigr).$$ Además, $$\sigma(0)=p,$$ porque $\theta_0^i=\operatorname{Id}_M$ para todo $i$.
+>>5. Para $1\leq i\leq k$, definimos la curva $$c_i:\mathbb R\longrightarrow\mathbb R^n,\qquad c_i(t)=(0,\ldots,0,t,0,\ldots,0),$$ donde $t$ ocupa la posición $i$. Su vector velocidad en $0$ es $$c_i'(0)=(dc_i)_0\left(\left.\frac{\partial}{\partial t}\right|_0\right).$$ Probemos que $$c_i'(0)=\left.\frac{\partial}{\partial r_i}\right|_0.$$ Escribimos $$c_i'(0)=\sum_{\ell=1}^n b^\ell\left.\frac{\partial}{\partial r_\ell}\right|_0.$$ Evaluando en la función coordenada $r_m$, obtenemos $$b^m=c_i'(0)(r_m).$$ Por definición de velocidad, $$c_i'(0)(r_m)=(dc_i)_0\left(\left.\frac{\partial}{\partial t}\right|_0\right)(r_m)=\left.\frac{\partial}{\partial t}\right|_0(r_m\circ c_i)=\left.\frac{d}{dt}\right|_{t=0}(r_m\circ c_i)(t).$$ Pero $$(r_m\circ c_i)(t)=\begin{cases}t,&m=i,\\0,&m\neq i.\end{cases}$$ Por tanto, $$b^m=\delta_i^m,$$ y así $$c_i'(0)=\left.\frac{\partial}{\partial r_i}\right|_0.$$
+>>6. Aplicando la propiedad del diferencial respecto de velocidades, $$d\sigma_0(c_i'(0))=(\sigma\circ c_i)'(0).$$ Como $$c_i'(0)=\left.\frac{\partial}{\partial r_i}\right|_0,$$ obtenemos $$d\sigma_0\left(\left.\frac{\partial}{\partial r_i}\right|_0\right)=(\sigma\circ c_i)'(0).$$ Ahora, $$\sigma(c_i(t))=\sigma(0,\ldots,t,\ldots,0)=\theta_t^i(p).$$ Por consiguiente, $$d\sigma_0\left(\left.\frac{\partial}{\partial r_i}\right|_0\right)=\left.\frac{d}{dt}\right|_{t=0}\theta_t^i(p).$$ Como $t\mapsto\theta_t^i(p)$ es la curva integral de $X_i$ que parte de $p$, $$\frac{d}{dt}\theta_t^i(p)=X_i(\theta_t^i(p)).$$ Evaluando en $t=0$, $$\left.\frac{d}{dt}\right|_{t=0}\theta_t^i(p)=X_i(\theta_0^i(p))=X_i(p).$$ Luego $$d\sigma_0\left(\left.\frac{\partial}{\partial r_i}\right|_0\right)=X_i(p),\qquad i=1,\ldots,k.$$
+>>7. Para $j=k+1,\ldots,n$, si solo variamos $r_j$, todos los parámetros de los flujos son cero. Por tanto, $$\sigma(0,\ldots,0,r_{k+1},\ldots,r_n)=\eta(r_{k+1},\ldots,r_n).$$ De aquí, $$d\sigma_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)=d\eta_0\left(\left.\frac{\partial}{\partial r_j}\right|_0\right)=\left.\frac{\partial}{\partial y^j}\right|_p.$$
+>>8. Por los pasos anteriores, $d\sigma_0$ transforma la base canónica de $T_0\mathbb R^n$ en $$X_1(p),\ldots,X_k(p),\left.\frac{\partial}{\partial y^{k+1}}\right|_p,\ldots,\left.\frac{\partial}{\partial y^n}\right|_p.$$ Esta es una base de $T_pM$. Por tanto, $$d\sigma_0:T_0\mathbb R^n\longrightarrow T_pM$$ es un isomorfismo. Por el teorema de la función inversa, después de restringir $A$, existen un entorno $A_0\subseteq\mathbb R^n$ de $0$ y un entorno $U\subseteq M$ de $p$ tales que $$\sigma:A_0\longrightarrow U$$ es un difeomorfismo. Definimos la carta $$\varphi=\sigma^{-1}:U\longrightarrow A_0,\qquad \varphi=(x^1,\ldots,x^n).$$
+>>9. Falta probar que, en estas coordenadas, $$X_i=\frac{\partial}{\partial x^i},\qquad i=1,\ldots,k.$$ Sea $$r=(r_1,\ldots,r_n)\in A_0$$ y sea $q=\sigma(r)$. Para $t$ suficientemente pequeño, usando que los flujos conmutan, $$\begin{aligned}\sigma(r_1,\ldots,r_i+t,\ldots,r_n)&=\theta_{r_1}^1\circ\cdots\circ\theta_{r_i+t}^i\circ\cdots\circ\theta_{r_k}^k\bigl(\eta(r_{k+1},\ldots,r_n)\bigr)\\&=\theta_t^i\left(\theta_{r_1}^1\circ\cdots\circ\theta_{r_i}^i\circ\cdots\circ\theta_{r_k}^k\bigl(\eta(r_{k+1},\ldots,r_n)\bigr)\right)\\&=\theta_t^i(\sigma(r)).\end{aligned}$$ Definimos $$\gamma(t)=r+te_i.$$ Entonces $$\gamma(0)=r$$ y $$\gamma'(0)=\left.\frac{\partial}{\partial r_i}\right|_r.$$ Por tanto, $$\begin{aligned}d\sigma_r\left(\left.\frac{\partial}{\partial r_i}\right|_r\right)&=d\sigma_r(\gamma'(0))\\&=(\sigma\circ\gamma)'(0)\\&=\left.\frac{d}{dt}\right|_{t=0}\theta_t^i(\sigma(r))\\&=X_i(\sigma(r)).\end{aligned}$$ Por definición del campo coordenado asociado a la carta $\varphi=\sigma^{-1}$, $$\left.\frac{\partial}{\partial x^i}\right|_{\sigma(r)}=d\sigma_r\left(\left.\frac{\partial}{\partial r_i}\right|_r\right).$$ Luego $$\left.\frac{\partial}{\partial x^i}\right|_{\sigma(r)}=X_i(\sigma(r)).$$ Como todo punto de $U$ es de la forma $\sigma(r)$, concluimos que $$X_i|_U=\frac{\partial}{\partial x^i},\qquad i=1,\ldots,k.$$ Esto completa la demostración.

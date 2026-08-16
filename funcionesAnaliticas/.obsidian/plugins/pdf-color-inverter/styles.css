@@ -1,0 +1,23 @@
+/* Only the rendered page is filtered; Obsidian's controls remain unchanged. */
+body.pdf-color-inverter-enabled .pdf-viewer .page canvas,
+body.pdf-color-inverter-enabled .pdf-viewer .pdf-page canvas,
+body.pdf-color-inverter-enabled .pdfViewer .page canvas,
+body.pdf-color-inverter-enabled .pdf-container .page canvas,
+body.pdf-color-inverter-enabled .pdf-container .pdf-page canvas,
+body.pdf-color-inverter-enabled .workspace-leaf-content[data-type="pdf"] canvas,
+body.pdf-color-inverter-enabled .internal-embed.pdf-embed canvas {
+  filter: invert(1) hue-rotate(var(--pdf-color-inverter-hue, 180deg));
+}
+
+body.pdf-color-inverter-enabled .pdf-viewer .page,
+body.pdf-color-inverter-enabled .pdf-viewer .pdf-page,
+body.pdf-color-inverter-enabled .pdfViewer .page,
+body.pdf-color-inverter-enabled .pdf-container .page,
+body.pdf-color-inverter-enabled .pdf-container .pdf-page {
+  background: #111;
+}
+
+.pdf-color-inverter-action.is-active {
+  color: var(--interactive-accent);
+  background: var(--background-modifier-hover);
+}

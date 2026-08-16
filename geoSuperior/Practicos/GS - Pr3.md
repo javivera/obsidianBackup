@@ -33,23 +33,25 @@
 
 ### Ejercicio 2
 
->[!Exercise] 
+>[!Exercise]
 >Sea $M\subset N$ una subvariedad. Sea $\phi:(a,b)\to N$ una curva diferenciable tal que $\phi((a,b))\subset M$. Mostrar que no es necesariamente cierto que $\dot\phi(t)\in(d\iota)_{\phi(t)}(T_{\phi(t)}M)$ para todo $t$, donde $\iota:M\to N$ es la inclusión.
->[[GS - Pr3#^800b80]]
+>[[GS - Pr3#^800b80|Sobre ejercicio 2]]
 >
 >>[!Proof]-
->>3. Suponemos que $N=\mathbb{R}^{2}$ 
+>>3. Suponemos que $N=\mathbb{R}^{2}$
 >>4. Tomemos la subvariedad $((0,2\pi),\phi)$ con $$\phi(t)=\left(\frac{\sin(2t)}{2},\sin t\right)$$
->>5. En $\phi(0,2\pi)=M$ tomamos como topologia la heredada de $\phi$. Asi es directo que $M$ es variedad topologica, con $((0,2\pi),\phi)$ como carta que nos da una estructura suave para el ocho (aca implicitamente estoy usando que $\iota$ no es incrustacion, si no $M$ tendria que tener la topologia relativa a $\mathbb{R}^{2}$) 
+>>5. En $\phi(0,2\pi)=M$ tomamos como topologia la heredada de $\phi$. Asi es directo que $M$ es variedad topologica, con $((0,2\pi),\phi)$ como carta que nos da una estructura suave para el ocho (aca implicitamente estoy usando que $\iota$ no es incrustacion, si no $M$ tendria que tener la topologia relativa a $\mathbb{R}^{2}$)
 >>6. Primero notamos $$d\phi_{\pi}:T_{\pi}\left( 0, 2\pi\right)\rightarrow T_{p}M$$ (con $p=\phi(\pi)=(0,0)$) es un isomorfismo lineal por que $\phi$ es un difeomorfismo (por que tomamos la estructura transportada, con la topologia heredada de $\mathbb{R}^{2}$ esta claro que no es homeo, si no seria incrustacion, notar que al tratar de usar las sucesiones para ver que no es homeo, no tenemos el mismo ejemplo con la topologia transportada, por que $p_{n}=\phi\left( \frac{1}{n} \right)$ no converge a $(0,0)$ por que hay abiertos del $(0,0)$ que no contienen a $p_{n}$ con esta nueva topologia)
->>7. Como es isomorfismo $d\phi_{0}\left( \frac{d}{dt}|_{0} \right)$ nos da una base del $T_{p}M$ 
->>8. Luego por regla de la cadena $$(di)_{p}\left( d\phi_{\pi}\left( \frac{d}{dt}|_{0} \right) \right)=d(i\circ\phi)_{\pi}\left( \frac{d}{dt}|_{0} \right)=d\phi_{\pi}\left( \frac{d}{dt}|_{0} \right)=\phi'(\pi)=(1,-1)$$ 
->>9. Por lo tanto $$ (d\iota)_p(T_pM)=\mathbb R(1,-1),$$
->>10. Osea que de alguna manera una vez que definimos la estrucutra diferencaible para $M$ nos queda univocamente definido $(d\iota)_{p}(T_{p}M)$  
->>11. Ahora si tomamos $\tilde{\phi}(t):(-\pi,\pi)\rightarrow \mathbb{R}^{2}$ dada por $\tilde{\phi}(t)=\left(\frac{\sin(2t)}{2},\sin t\right)$ es claro que $\widetilde{\phi}(-\pi,\pi)\subseteq M$ 
+>>7. Como es isomorfismo $d\phi_{0}\left( \frac{d}{dt}|_{0} \right)$ nos da una base del $T_{p}M$
+>>8. Luego por regla de la cadena $$(di)_{p}\left( d\phi_{\pi}\left( \frac{d}{dt}|_{0} \right) \right)=d(i\circ\phi)_{\pi}\left( \frac{d}{dt}|_{0} \right)=d\phi_{\pi}\left( \frac{d}{dt}|_{0} \right)=\phi'(\pi)=(1,-1)$$
+>>9. Por lo tanto $$(d\iota)_p(T_pM)=\mathbb R(1,-1),$$
+>>10. Osea que de alguna manera una vez que definimos la estrucutra diferencaible para $M$ nos queda univocamente definido $(d\iota)_{p}(T_{p}M)$
+>>11. Ahora si tomamos $\tilde{\phi}(t):(-\pi,\pi)\rightarrow \mathbb{R}^{2}$ dada por $\tilde{\phi}(t)=\left(\frac{\sin(2t)}{2},\sin t\right)$ es claro que $\widetilde{\phi}(-\pi,\pi)\subseteq M$
 >>12. Sin embargo notemos que $\tilde{\phi}(0)=(0,0)=\phi(\pi)$ pero $$\tilde{\phi}'(0)=(1,1)\not\in\mathbb{R}(1,-1)=(d\iota)_{p}(T_{p}M)$$
->>13. Esto muestra que, si $M$ no es incrustada, una curva diferenciable en el ambiente cuya imagen cae en el subconjunto $M$ no necesariamente tiene velocidad perteneciente a la imagen del espacio tangente de $M$ por la inclusión.  
+>>13. Esto muestra que, si $M$ no es incrustada, una curva diferenciable en el ambiente cuya imagen cae en el subconjunto $M$ no necesariamente tiene velocidad perteneciente a la imagen del espacio tangente de $M$ por la inclusión.
 >>14. La moraleja es que, si $\iota$ no es incrustacion, la topología y la estructura diferenciable de $M$ no tienen por qué coincidir con las de $M$ como subconjunto de $N$.
+
+^165150
 
 ### Ejercicio 3
 
@@ -157,7 +159,7 @@
 
 ### Ejercicio 9
 
->[!Exercise] 
+>[!Exercise]
 >Probar que si $F:M\to N$ es una biyección diferenciable y $(dF)_{p}$ no singular en todo punto, entonces $F$ es un difeomorfismo.
 >
 >>[!Proof]-
@@ -178,21 +180,21 @@
 >- (b) Probar que las proyecciones canónicas $\pi:TM\to M$ y $\pi^*:T^*M\to M$ son submersiones.
 >
 >>[!Proof]-
->>- (a) 
->>	1. Si $(U,x_1,\dots,x_m)$ es una carta de $M$ (de dimension $m$) , toda covector $\alpha_p\in T_p^*M$ se escribe de manera única como $$\alpha_p=\sum_{i=1}^m \xi_i\,(dx_i)_p.$$
->>	2. Definimos entonces la carta inducida $(\widetilde{U},\widetilde{\varphi})$ en $T^*M$ (donde $\tilde{U}=(\pi^{*})^{-1}(U)$ con $(\pi^{*})$ la que manda $(p,v)\mapsto p$ con $v\in T^{*}M$, analogo a [[GS - Teo7#^4762ec]]) por $$\widetilde \varphi:\ (\pi^*)^{-1}(U)\to x(U)\times\mathbb R^m,\qquad \widetilde \varphi(p,\alpha_p)=\bigl(x_1(p),\dots,x_m(p),\xi_1,\dots,\xi_m\bigr).$$ 
->>	3. Esta aplicación es biyectiva, y su inversa es $$\widetilde\varphi^{-1}(r_1,\dots,r_n,t_1,\dots,t_n)=\left(\varphi^{-1}(r_1,\dots,r_n),\sum_{i=1}^m t_i(dx_{i})_{p}\right).$$
->>	4. Esta claro que estas cartas cubren todo $TM$. Veamos que son compatibles
->>	5. Sean $(\tilde{V},\tilde{\psi})$ y $(\tilde{U},\tilde{\varphi})$ dos cartas de $TM^{*}$ asociadas a $(V,\psi=(y_1,\dots,y_n))$ y $(U,\varphi=(x_{1},\ldots x_{n}))$ tales que $\tilde{V}\cap \tilde{U}\neq 0$, luego $V\cap U\neq0$
->>	6. Entonces $$\tilde{\psi}\circ \tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2m}\longrightarrow\tilde{\psi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2m}$$ que es: $$\begin{align}(r_{1},\ldots r_{n},t_{1},...,t_{n})&\longmapsto^{\tilde{\varphi}^{-1}} \left(\tilde{\varphi}^{-1}(r),\sum_{i=1}^m t_i(dx_{i})_{p}\right)\\&\longmapsto^{\tilde{\psi}}\left(y_{1}(\tilde{\varphi}^{-1}(r)),\ldots,y_{n}(\tilde{\varphi}^{-1}(r)),\sum_{i=1}^m t_i(dx_{i})_{p}\left(\frac{\partial}{\partial y_1}\right),\ldots,\sum_{i=1}^m t_i(dx_{i})_{p}\left(\frac{\partial}{\partial y_n}\right)\right)\\&=\left((\psi\circ\varphi^{-1})(r),\sum^{m}_{i=1}t_{i}\left(\frac{\partial}{\partial y_1}\bigg|_{p}\right)x_{i},\ldots\sum^{m}_{i=1}t_{i}\left(\frac{\partial}{\partial y_n}\bigg|_{p}\right)x_{i} \right)\\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^m t_i\frac{\partial}{\partial r_i}(\varphi\circ\psi ^{-1})_{1}(r),\ldots,\sum_{i=1}^m t_i\frac{\partial}{\partial r_i}(\varphi\circ\psi ^{-1})_{n}(r)\bigg)\end{align}$$
->>	7. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que $\psi\circ\varphi ^{-1}$ es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves
->>	8. Y obviamente cambiando los roles obtenemos que la otra composicion es suave tambien
->>	9. Por lo tanto, las cartas $\{(\widetilde U,\widetilde\varphi)\}$ formarian un atlas suave sobre $(TM)^{*}$ de dimensión es $2m$. (Si $\tilde{U},\tilde{V}$ fueran abiertos).
->>	10. Ahora habria que ver toda la parte de abiertos igual que en fibrado tangente
+>>- (a)
+>>1. Si $(U,x_1,\dots,x_m)$ es una carta de $M$ (de dimension $m$) , toda covector $\alpha_p\in T_p^*M$ se escribe de manera única como $$\alpha_p=\sum_{i=1}^m \xi_i\,(dx_i)_p.$$
+>>2. Definimos entonces la carta inducida $(\widetilde{U},\widetilde{\varphi})$ en $T^*M$ (donde $\tilde{U}=(\pi^{*})^{-1}(U)$ con $(\pi^{*})$ la que manda $(p,v)\mapsto p$ con $v\in T^{*}M$, analogo a [[GS - Teo7#^4762ec|Fibrado tangente]]) por $$\widetilde \varphi:\ (\pi^*)^{-1}(U)\to x(U)\times\mathbb R^m,\qquad \widetilde \varphi(p,\alpha_p)=\bigl(x_1(p),\dots,x_m(p),\xi_1,\dots,\xi_m\bigr).$$
+>>3. Esta aplicación es biyectiva, y su inversa es $$\widetilde\varphi^{-1}(r_1,\dots,r_n,t_1,\dots,t_n)=\left(\varphi^{-1}(r_1,\dots,r_n),\sum_{i=1}^m t_i(dx_{i})_{p}\right).$$
+>>4. Esta claro que estas cartas cubren todo $TM$. Veamos que son compatibles
+>>5. Sean $(\tilde{V},\tilde{\psi})$ y $(\tilde{U},\tilde{\varphi})$ dos cartas de $TM^{*}$ asociadas a $(V,\psi=(y_1,\dots,y_n))$ y $(U,\varphi=(x_{1},\ldots x_{n}))$ tales que $\tilde{V}\cap \tilde{U}\neq 0$, luego $V\cap U\neq0$
+>>6. Entonces $$\tilde{\psi}\circ \tilde{\varphi}^{-1}:\tilde{\varphi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2m}\longrightarrow\tilde{\psi}(\tilde{U}\cap \tilde{V}) \subset \mathbb{R}^{2m}$$ que es: $$\begin{align}(r_{1},\ldots r_{n},t_{1},...,t_{n})&\longmapsto^{\tilde{\varphi}^{-1}} \left(\tilde{\varphi}^{-1}(r),\sum_{i=1}^m t_i(dx_{i})_{p}\right)\\&\longmapsto^{\tilde{\psi}}\left(y_{1}(\tilde{\varphi}^{-1}(r)),\ldots,y_{n}(\tilde{\varphi}^{-1}(r)),\sum_{i=1}^m t_i(dx_{i})_{p}\left(\frac{\partial}{\partial y_1}\right),\ldots,\sum_{i=1}^m t_i(dx_{i})_{p}\left(\frac{\partial}{\partial y_n}\right)\right)\\&=\left((\psi\circ\varphi^{-1})(r),\sum^{m}_{i=1}t_{i}\left(\frac{\partial}{\partial y_1}\bigg|_{p}\right)x_{i},\ldots\sum^{m}_{i=1}t_{i}\left(\frac{\partial}{\partial y_n}\bigg|_{p}\right)x_{i} \right)\\&=\bigg((\psi\circ\varphi ^{-1})(r),\sum_{i=1}^m t_i\frac{\partial}{\partial r_i}(\varphi\circ\psi ^{-1})_{1}(r),\ldots,\sum_{i=1}^m t_i\frac{\partial}{\partial r_i}(\varphi\circ\psi ^{-1})_{n}(r)\bigg)\end{align}$$
+>>7. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que $\psi\circ\varphi ^{-1}$ es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves
+>>8. Y obviamente cambiando los roles obtenemos que la otra composicion es suave tambien
+>>9. Por lo tanto, las cartas $\{(\widetilde U,\widetilde\varphi)\}$ formarian un atlas suave sobre $(TM)^{*}$ de dimensión es $2m$. (Si $\tilde{U},\tilde{V}$ fueran abiertos).
+>>10. Ahora habria que ver toda la parte de abiertos igual que en fibrado tangente
 >>- (b)
->>	1. Miremos $$f=\varphi\circ\pi\circ \widetilde{\varphi}^{-1}:\varphi(U)\times\mathbb{R}^{n} \rightarrow \varphi(U)$$ donde $(U,\varphi)$ es carta y $(\widetilde{U},\widetilde \varphi)$ es la carta inducida. y es directo ver que $$f(x_{1}(p),\ldots,x_{m}(p),v_{1},\ldots,v_{m})=(x_{1}(p),\ldots,x_{m}(p))$$ osea es una proyeccion que sabemos que su diferencial es sobreyectiva. Por que te queda la identidad de tamaño $m$ con ceros. Y eso tiene rango $m$ que es la misma dimension que la imagen que esta en $\mathbb{R}^{m}$ (por que la variedad es de dimension $m$)   
->>	2. Pero entonces como $df$ es sobre y $d\varphi,(d \widetilde{\varphi})^{-1}$ son isomorfimos (por ser cartas). Podemos concluir que $d\pi$ es sobreyectiva osea es submersion
->>	3. Analogo con $(d\pi)^{*}$ 
+>>1. Miremos $$f=\varphi\circ\pi\circ \widetilde{\varphi}^{-1}:\varphi(U)\times\mathbb{R}^{n} \rightarrow \varphi(U)$$ donde $(U,\varphi)$ es carta y $(\widetilde{U},\widetilde \varphi)$ es la carta inducida. y es directo ver que $$f(x_{1}(p),\ldots,x_{m}(p),v_{1},\ldots,v_{m})=(x_{1}(p),\ldots,x_{m}(p))$$ osea es una proyeccion que sabemos que su diferencial es sobreyectiva. Por que te queda la identidad de tamaño $m$ con ceros. Y eso tiene rango $m$ que es la misma dimension que la imagen que esta en $\mathbb{R}^{m}$ (por que la variedad es de dimension $m$)
+>>2. Pero entonces como $df$ es sobre y $d\varphi,(d \widetilde{\varphi})^{-1}$ son isomorfimos (por ser cartas). Podemos concluir que $d\pi$ es sobreyectiva osea es submersion
+>>3. Analogo con $(d\pi)^{*}$
 
 ### Ejercicio 11
 
@@ -288,9 +290,9 @@
 
 ### Ejercicio 15
 
->[!Exercise] Ejercicio 15 
->De la teoría se conoce la siguiente proposición:  
->>Sea $(M,\psi)$ una subvariedad de $N$. Si $M$ es incrustada y $\psi(M)$ es cerrado en $N$, entonces para toda $g\in C^\infty(M)$ existe $f\in C^\infty(N)$ tal que $f\circ \psi=g$.  
+>[!Exercise] Ejercicio 15
+>De la teoría se conoce la siguiente proposición:
+>Sea $(M,\psi)$ una subvariedad de $N$. Si $M$ es incrustada y $\psi(M)$ es cerrado en $N$, entonces para toda $g\in C^\infty(M)$ existe $f\in C^\infty(N)$ tal que $f\circ \psi=g$.
 >
 >Probar que la proposición no es verdadera si quitamos la hipótesis que $\psi$ es una incrustación o la hipótesis que $\psi(M)$ es cerrado en $N$.
 >
@@ -301,7 +303,7 @@
 >>
 >>- **Si quitamos que la imagen sea cerrada.** Tomemos la incrustación abierta
 >>$$\psi:(0,1)\hookrightarrow \mathbb R.$$
->>Sea $g(x)=1/x$, suave en $(0,1)$. Si existiera $f\in C^\infty(\mathbb R)$ tal que $f|_{(0,1)}=g$ por continuidad si $x_{n}\rightarrow 0^{+}$ tendriamos que $f(x_{n})\rightarrow f(0)$ pero $f(x_{n})=\frac{1}{x_{n}}$ (a partir de algun momento la sucesion esta dentro del $(0,1)$) entonces $f(x_{n})\rightarrow \infty$ osea tendriamos $f(0)=\infty$ que es absurdo  
+>>Sea $g(x)=1/x$, suave en $(0,1)$. Si existiera $f\in C^\infty(\mathbb R)$ tal que $f|_{(0,1)}=g$ por continuidad si $x_{n}\rightarrow 0^{+}$ tendriamos que $f(x_{n})\rightarrow f(0)$ pero $f(x_{n})=\frac{1}{x_{n}}$ (a partir de algun momento la sucesion esta dentro del $(0,1)$) entonces $f(x_{n})\rightarrow \infty$ osea tendriamos $f(0)=\infty$ que es absurdo
 
 ### Ejercicio 16
 
@@ -371,37 +373,37 @@
 ### Ejercicio 19
 
 >[!Exercise]
->- (a) Sea $O(3)=\{A\in M(3,\mathbb R):AA^t=I\}$ el conjunto de matrices ortogonales $3\times 3$. Mostrar que $O(3)$ es una subvariedad incrustada de $M(3,\mathbb R)$. ¿Lo es de $GL(3,\mathbb R):=\{A\in M(3,\mathbb R):\det(A)\neq 0\}$? 
+>- (a) Sea $O(3)=\{A\in M(3,\mathbb R):AA^t=I\}$ el conjunto de matrices ortogonales $3\times 3$. Mostrar que $O(3)$ es una subvariedad incrustada de $M(3,\mathbb R)$. ¿Lo es de $GL(3,\mathbb R):=\{A\in M(3,\mathbb R):\det(A)\neq 0\}$?
 >- (b) ¿Qué puede decir de $SO(3)$, el grupo de rotaciones de $\mathbb R^3$?
->- (c) Decidir si es diferenciable la función $\gamma:\mathbb R\to O(3)$ definida por $$\gamma(t)=\operatorname{diag}\left(\begin{pmatrix}\cos t&-\sin t\\ \sin t&\cos t\end{pmatrix},1\right)$$
+>- (c) ¿Es diferenciable la función $\gamma:\mathbb R\to O(3)$ definida por $\gamma(t)=\operatorname{diag}\left(\begin{pmatrix}\cos t&-\sin t\\ \sin t&\cos t\end{pmatrix},1\right)$?
 >
 >>[!Proof]-
 >>- (a)
->>	1. Definimos $$F:M_3(\mathbb R)\to S_3(\mathbb R),\qquad F(A)=AA^T.$$ ambos son espacios vectoriales reales de dimension finita por lo tanto variedades suaves
->>	2. Entonces $O(3)=F^{-1}(I).$
->>	3. La diferencial es $dF_A(H)=HA^T+AH^T$
->>	4. Si $A\in O(3)$ y $S=S^T$ es simétrica, tomando $H=\frac12 SA,$ se tiene $$dF_A(H)=\frac12 SAA^T+\frac12 A A^T S=S.$$ aca estamos identificando $T_{p}S_{3}(\mathbb{R})$  con $S_{3}(\mathbb{R})$ 
->>	5. Luego $dF_A$ es sobreyectiva sobre $S_3(\mathbb R)$ para cualquier $A\in  O(3)$ 
->>	6. Así que $I$ es valor regular. Por tanto $O(3)$ es subvariedad incrustada de $M(3,\mathbb R)$.
->>	7. Ademas $GL(3,\mathbb R)$ es abierto en $M(3,\mathbb R)$ por que tenemos $$\det|_{M(3,\mathbb{R})}:M(3,\mathbb{R})\rightarrow \mathbb{R}$$y notamos que $GL(3,\mathbb{R})=\det|_{M(3,\mathbb{R})}^{-1}(\mathbb{R}\setminus \{ 0 \})$ entonces por continuidad es abierto en $M(3,\mathbb{R})$ 
->>	8. Entonces como $O(3)\subset GL(3,\mathbb R)$, sucede que $O(3)$ también es subvariedad incrustada de $GL(3,\mathbb R)$ por [[GS - Pr3#^80e4a7]]
+>>1. Definimos $$F:M_3(\mathbb R)\to S_3(\mathbb R),\qquad F(A)=AA^T.$$ ambos son espacios vectoriales reales de dimension finita por lo tanto variedades suaves
+>>2. Entonces $O(3)=F^{-1}(I).$
+>>3. La diferencial es $dF_A(H)=HA^T+AH^T$
+>>4. Si $A\in O(3)$ y $S=S^T$ es simétrica, tomando $H=\frac12 SA,$ se tiene $$dF_A(H)=\frac12 SAA^T+\frac12 A A^T S=S.$$ aca estamos identificando $T_{p}S_{3}(\mathbb{R})$  con $S_{3}(\mathbb{R})$
+>>5. Luego $dF_A$ es sobreyectiva sobre $S_3(\mathbb R)$ para cualquier $A\in  O(3)$
+>>6. Así que $I$ es valor regular. Por tanto $O(3)$ es subvariedad incrustada de $M(3,\mathbb R)$.
+>>7. Ademas $GL(3,\mathbb R)$ es abierto en $M(3,\mathbb R)$ por que tenemos $$\det|_{M(3,\mathbb{R})}:M(3,\mathbb{R})\rightarrow \mathbb{R}$$y notamos que $GL(3,\mathbb{R})=\det|_{M(3,\mathbb{R})}^{-1}(\mathbb{R}\setminus \{ 0 \})$ entonces por continuidad es abierto en $M(3,\mathbb{R})$
+>>8. Entonces como $O(3)\subset GL(3,\mathbb R)$, sucede que $O(3)$ también es subvariedad incrustada de $GL(3,\mathbb R)$ por [[GS - Pr3#^80e4a7|Lema]]
 >>- (b)
->>	1. Tenemos $SO(3)=\{A\in O(3):\det A=1\}.$ 
->>	2. Notamos que la función determinante es $$\det|_{O(3)}:O(3)\rightarrow \{ -1,1 \}$$
->>	3. Luego $SO(3)=det|_{O(3)}^{-1}(-1)$ pero $-1$ es cerrado y abierto en $\{ -1,1 \}$ 
->>	4. Luego $SO(3)$ es abierto (y cerrado) de $O(3)$; 
->>	5. Entonces $SO(3)$ es subvariedad incrustada de $O(3)$ por [[GS - Pr3#^772b8b]]
->>	6. Por lo tanto es subvariedad incrustada de $M(3,\mathbb{R})$ y de $GL(3,\mathbb{R})$ por (a) y por [[GS - Pr3#^fb9b56]] 
->>- (c) 
->>	1. Primero miramos la misma fórmula como aplicación con codominio ambiente. Definimos $$\widetilde{\gamma}:\mathbb R\to M(3,\mathbb R),\qquad \widetilde{\gamma}(t)=\begin{pmatrix}\cos t & -\sin t & 0\\ \sin t & \cos t & 0\\ 0 & 0 & 1\end{pmatrix}.$$
->>	2. En $M(3,\mathbb R)$ usamos la estructura suave estándar de espacio vectorial real de dimensión $9$. Es decir, identificamos $$M(3,\mathbb R)\cong \mathbb R^9$$ mediante la carta global dada por las entradas: $$\Phi:M(3,\mathbb R)\to \mathbb R^9,$$$$\Phi\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}=(a_{11},a_{12},a_{13},a_{21},a_{22},a_{23},a_{31},a_{32},a_{33}).$$
->>	3. Entonces, para probar que $\widetilde{\gamma}$ es suave, alcanza mirar su representación coordenada: $$\Phi\circ \widetilde{\gamma}(t)=(\cos t,-\sin t,0,\sin t,\cos t,0,0,0,1).$$
->>	4. Cada componente es una función suave de $t$, por lo tanto $$\widetilde{\gamma}:\mathbb R\to M(3,\mathbb R)$$ es suave.  
->>	5. Ahora vemos que la imagen cae en $O(3)$. Sea $$R(t)=\begin{pmatrix}\cos t & -\sin t\\ \sin t & \cos t\end{pmatrix}.$$entonces $$R(t)R(t)^T=I_2.$$por lo tanto $$\widetilde{\gamma}(t)\widetilde{\gamma}(t)^T=\begin{pmatrix}R(t)R(t)^T & 0\\ 0 & 1\end{pmatrix}=I_3.$$así, $\widetilde{\gamma}(t)\in O(3)$ para todo $t\in\mathbb R$.  
->>	6. Entonces podemos considerar la aplicación $$\gamma:\mathbb R\to O(3)$$ dada por la misma fórmula. Si $$i:O(3)\hookrightarrow M(3,\mathbb R)$$ es la inclusión, entonces $$i\circ \gamma=\widetilde{\gamma}.$$
->>	7. Ya probamos que $\widetilde{\gamma}$ es suave como mapa hacia $M(3,\mathbb R)$. Como $O(3)$ es subvariedad incrustada de $M(3,\mathbb R)$, por el lema de factorización se concluye que $$\gamma:\mathbb R\to O(3)$$ es suave.  
->>	8. Además, $$\det(\gamma(t))=\det(R(t))\cdot 1=1,$$ entonces en realidad $$\gamma(\mathbb R)\subseteq SO(3).$$
->>	9. Por el mismo argumento, también es suave como mapa $$\gamma:\mathbb R\to SO(3).$$
+>>1. Tenemos $SO(3)=\{A\in O(3):\det A=1\}.$
+>>2. Notamos que la función determinante es $$\det|_{O(3)}:O(3)\rightarrow \{ -1,1 \}$$
+>>3. Luego $SO(3)=det|_{O(3)}^{-1}(-1)$ pero $-1$ es cerrado y abierto en $\{ -1,1 \}$
+>>4. Luego $SO(3)$ es abierto (y cerrado) de $O(3)$;
+>>5. Entonces $SO(3)$ es subvariedad incrustada de $O(3)$ por [[GS - Pr3#^772b8b|Lema]]
+>>6. Por lo tanto es subvariedad incrustada de $M(3,\mathbb{R})$ y de $GL(3,\mathbb{R})$ por (a) y por [[GS - Pr3#^fb9b56|Transitividad de incrustaciones]]
+>>- (c)
+>>1. Primero miramos la misma fórmula como aplicación con codominio ambiente. Definimos $$\widetilde{\gamma}:\mathbb R\to M(3,\mathbb R),\qquad \widetilde{\gamma}(t)=\begin{pmatrix}\cos t & -\sin t & 0\\ \sin t & \cos t & 0\\ 0 & 0 & 1\end{pmatrix}.$$
+>>2. En $M(3,\mathbb R)$ usamos la estructura suave estándar de espacio vectorial real de dimensión $9$. Es decir, identificamos $$M(3,\mathbb R)\cong \mathbb R^9$$ mediante la carta global dada por las entradas: $$\Phi:M(3,\mathbb R)\to \mathbb R^9,$$$$\Phi\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}=(a_{11},a_{12},a_{13},a_{21},a_{22},a_{23},a_{31},a_{32},a_{33}).$$
+>>3. Entonces, para probar que $\widetilde{\gamma}$ es suave, alcanza mirar su representación coordenada: $$\Phi\circ \widetilde{\gamma}(t)=(\cos t,-\sin t,0,\sin t,\cos t,0,0,0,1).$$
+>>4. Cada componente es una función suave de $t$, por lo tanto $$\widetilde{\gamma}:\mathbb R\to M(3,\mathbb R)$$ es suave.
+>>5. Ahora vemos que la imagen cae en $O(3)$. Sea $$R(t)=\begin{pmatrix}\cos t & -\sin t\\ \sin t & \cos t\end{pmatrix}.$$entonces $$R(t)R(t)^T=I_2.$$por lo tanto $$\widetilde{\gamma}(t)\widetilde{\gamma}(t)^T=\begin{pmatrix}R(t)R(t)^T & 0\\ 0 & 1\end{pmatrix}=I_3.$$así, $\widetilde{\gamma}(t)\in O(3)$ para todo $t\in\mathbb R$.
+>>6. Entonces podemos considerar la aplicación $$\gamma:\mathbb R\to O(3)$$ dada por la misma fórmula. Si $$i:O(3)\hookrightarrow M(3,\mathbb R)$$ es la inclusión, entonces $$i\circ \gamma=\widetilde{\gamma}.$$
+>>7. Ya probamos que $\widetilde{\gamma}$ es suave como mapa hacia $M(3,\mathbb R)$. Como $O(3)$ es subvariedad incrustada de $M(3,\mathbb R)$, por el lema de factorización se concluye que $$\gamma:\mathbb R\to O(3)$$ es suave.
+>>8. Además, $$\det(\gamma(t))=\det(R(t))\cdot 1=1,$$ entonces en realidad $$\gamma(\mathbb R)\subseteq SO(3).$$
+>>9. Por el mismo argumento, también es suave como mapa $$\gamma:\mathbb R\to SO(3).$$
 
 ### Ejercicio 20
 
@@ -621,14 +623,15 @@
 >Sea $M$ una variedad suave de dimensión $n$ y sea $U\subseteq M$ abierto. Entonces $U$ es una subvariedad incrustada de $M$ de dimensión $n$.
 >
 >>[!Proof]-
->>1. Primero dotamos a $U$ de la estructura suave heredada de $M$. Para cada $p\in U$, elegimos una carta $(V,\varphi)$ de $M$ con $p\in V$. Como $U$ es abierto en $M$, el conjunto $V\cap U$ es un abierto de $U$ que contiene a $p$, y $$\varphi(V\cap U)$$ es abierto en $\mathbb R^n$. Por lo tanto $$(V\cap U,\varphi|_{V\cap U})$$ es una carta de $U$ alrededor de $p$. Al hacer esto para cada $p\in U$, obtenemos un atlas que cubre todo $U$; en consecuencia, $U$ es una variedad suave de dimensión $n$.
->>2. Consideremos la aplicación inclusión $$\iota:U\longrightarrow M,\qquad \iota(p)=p.$$
->>3. La aplicación $\iota$ es inyectiva. Además es suave: usando en $U$ la carta restringida $(V\cap U,\varphi|_{V\cap U})$ y en $M$ la carta $(V,\varphi)$, su expresión en coordenadas es $$\varphi\circ\iota\circ(\varphi|_{V\cap U})^{-1}=\operatorname{id}_{\varphi(V\cap U)},$$ que es suave.
->>4. Sea $p\in U$. En las cartas anteriores, la diferencial $d\iota_p:T_pU\to T_pM$ está representada por la matriz identidad $I_n$.
->>5. Por lo tanto $d\iota_p$ es inyectiva para todo $p\in U$, y $\iota$ es una inmersión. (Esto es usando que $d\varphi ^{-1}$ y $d\varphi|_{V\cap U}$ son isomorfismos) 
->>6. La imagen de $\iota$ es $\iota(U)=U$. Como $U$ posee la topología relativa heredada de $M$, la aplicación $$\iota:U\longrightarrow\iota(U)$$ es la identidad entre dos espacios con la misma topología. Por consiguiente, es un homeomorfismo sobre su imagen.
->>7. Así, $\iota$ es suave, inyectiva, tiene diferencial inyectiva en todo punto y es un homeomorfismo sobre su imagen. Por definición, $\iota$ es una incrustación suave.
->>8. Concluimos que $U$ es una subvariedad incrustada de $M$ de dimensión $n$.
+>>1. Sea $p\in U$.
+>>2. Como $M$ es una variedad suave, existe una carta suave $(V,\varphi)$ de $M$ tal que $p\in V$.
+>>3. Como $U$ es abierto en $M$, el conjunto $V\cap U$ es abierto en $M$.
+>>4. Luego $(V\cap U,\varphi|_{V\cap U})$ es una carta suave de $M$ alrededor de $p$.
+>>5. Además, $$(V\cap U)\cap U=V\cap U.$$
+>>6. Aplicando la carta restringida, se obtiene $$\varphi((V\cap U)\cap U)=\varphi(V\cap U).$$
+>>7. Como $\varphi(V\cap U)$ es un abierto de $\mathbb R^n$, localmente $U$ se ve como todo el espacio coordenado $\mathbb R^n$.
+>>8. Equivalentemente, en esta carta adaptada, $$\varphi((V\cap U)\cap U)=\varphi(V\cap U)\cap\mathbb R^n.$$
+>>9. Por lo tanto $U$ es una subvariedad incrustada de $M$ de dimensión $n$.
 
 ^772b8b
 
@@ -657,3 +660,5 @@
 
 >[!Corollary]
 >Si $P\subseteq S\subseteq M$, $P$ es subvariedad incrustada de $S$ y $S$ es subvariedad incrustada de $M$, entonces $P$ es subvariedad incrustada de $M$.
+
+

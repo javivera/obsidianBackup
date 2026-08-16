@@ -1,0 +1,120 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Curvas y diferenciabilidad"
+description: "Teorico convertido desde GS - Teo2.md"
+chapter: "Teo 2"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Curvas y diferenciabilidad
+
+## Curvas y diferenciabilidad
+
+<BookBlock kind="remark">
+Sea <Math tex={"I\\subseteq \\mathbb{R}"} /> un intervalo abierto y <Math tex={"\\gamma:I\\subseteq \\mathbb{R}\\to \\mathbb{R}^n"} /> una función diferenciable en <Math tex={"t_0\\in I"} />. Esto quiere decir que tenemos una transformación lineal <Math display tex={"(d\\gamma)_{t_0}:\\mathbb{R}\\longrightarrow \\mathbb{R}^n"} />
+Como el dominio de <Math tex={"(d\\gamma)_{t_0}"} /> es <Math tex={"\\mathbb{R}"} />, que es un espacio vectorial real de dimensión <Math tex={"1"} />, la imagen de <Math tex={"(d\\gamma)_{t_0}"} /> está determinada por su valor en <Math tex={"1"} />.
+Luego <Math tex={"(d\\gamma)_{t_0}(1)"} /> es un vector en <Math tex={"\\mathbb{R}^n"} />, cuyas coordenadas sabemos calcular. Si <Math display tex={"(d\\gamma)_{t_0}(1)=\\sum_{j=1}^n a_j(t_0)e_j"} />entonces <Math display tex={"\\begin{align} a_j(t_0)&=\\left\\langle (d\\gamma)_{t_0}(1),e_j\\right\\rangle\\\\&=\\lim_{t\\to 0}\\left\\langle \\frac{\\gamma(t_0+t)-\\gamma(t_0)}{t},e_j\\right\\rangle\\\\&=\n\\lim_{t\\to 0}\\frac{\\gamma_j(t_0+t)-\\gamma_j(t_0)}{t}\\\\&=\\gamma_j'(t_0)\\end{align}"} />
+</BookBlock>
+
+<BookBlock kind="definition" title="Vector derivada">
+Sea <Math tex={"I\\subseteq \\mathbb{R}"} /> un intervalo. Una función del tipo <Math display tex={"\\gamma:I\\subseteq \\mathbb{R}\\longrightarrow \\mathbb{R}^n"} />se llama *curva*, y se define el *vector velocidad* en <Math tex={"t_0"} />, denotado por <Math tex={"\\gamma'(t_0)"} />, como el vector <Math display tex={"\\bigl(\\gamma_1'(t_0),\\dots,\\gamma_n'(t_0)\\bigr)"} />cuando cada una de las derivadas existe.
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+Usando esta notación de vector velocidad, si <Math tex={"\\gamma:I\\subseteq \\mathbb{R}\\to \\mathbb{R}^n"} /> es diferenciable en <Math tex={"t_0"} />, entonces
+<Math display tex={"(d\\gamma)_{t_0}(1)=\\gamma'(t_0),"} />
+y en general, si <Math tex={"h\\in \\mathbb{R}"} />,
+<Math display tex={"(d\\gamma)_{t_0}(h)=h\\,\\gamma'(t_0)."} />
+</BookBlock>
+
+<BookBlock kind="exercise">
+Sea <Math tex={"\\gamma:I\\subseteq \\mathbb{R}\\to \\mathbb{R}^n"} /> tal que el vector velocidad <Math tex={"\\gamma'(t_0)"} /> existe. Mostrar que <Math tex={"\\gamma"} /> es diferenciable en <Math tex={"t_0"} />, es decir, existe la transformación lineal <Math display tex={"(d\\gamma)_{t_0}:\\mathbb{R}\\to \\mathbb{R}^n"} />dada por <Math tex={"(d\\gamma)_{t_0}(h)=h\\,\\gamma'(t_0)"} />.
+<Proof title="Demostracion">
+Definimos
+<Math display tex={"T:\\mathbb{R}\\to \\mathbb{R}^n,\n\\qquad\nT(h):=h\\,\\gamma'(t_0)."} />
+Esta aplicación es lineal.
+
+Veamos que satisface la definición de diferenciabilidad en <Math tex={"t_0"} />. Para <Math tex={"h\\neq 0"} />,
+<Math display tex={"\\frac{\\|\\gamma(t_0+h)-\\gamma(t_0)-T(h)\\|}{|h|}\n=\n\\left\\|\\frac{\\gamma(t_0+h)-\\gamma(t_0)}{h}-\\gamma'(t_0)\\right\\|."} />
+Como el vector velocidad <Math tex={"\\gamma'(t_0)"} /> existe, por definición
+<Math display tex={"\\lim_{h\\to 0}\\frac{\\gamma(t_0+h)-\\gamma(t_0)}{h}\n=\n\\gamma'(t_0)."} />
+Luego
+<Math display tex={"\\lim_{h\\to 0}\\frac{\\|\\gamma(t_0+h)-\\gamma(t_0)-T(h)\\|}{|h|}=0."} />
+Por lo tanto, <Math tex={"\\gamma"} /> es diferenciable en <Math tex={"t_0"} /> y
+<Math display tex={"(d\\gamma)_{t_0}(h)=T(h)=h\\,\\gamma'(t_0)."} />
+</Proof>
+</BookBlock>
+
+## Variedades diferenciables
+
+<BookBlock kind="definition" title="Variedad topológica">
+Sea <Math tex={"M"} /> un espacio topológico. Se dice que <Math tex={"M"} /> es una variedad topológica de dimensión <Math tex={"n"} /> si tiene las siguientes propiedades:
+1. <Math tex={"M"} /> es Hausdorff (es <Math tex={"T_{2}"} />) : para todo par de puntos distintos <Math tex={"p\\neq q"} /> en <Math tex={"M"} />, existen abiertos disjuntos <Math tex={"U"} /> y <Math tex={"V"} /> de <Math tex={"M"} /> tales que <Math tex={"p\\in U"} /> y <Math tex={"q\\in V"} />.
+2. <Math tex={"M"} /> satisface el segundo axioma de numerabilidad (es <Math tex={"N_2"} />), esto es, tiene una base numerable para la topología de <Math tex={"M"} />.
+3. <Math tex={"M"} /> es localmente euclídeo de dimensión <Math tex={"n"} />: para cada <Math tex={"p\\in M"} />, existe un conjunto abierto <Math tex={"U"} /> de <Math tex={"M"} /> conteniendo a <Math tex={"p"} />, un conjunto abierto <Math tex={"\\widehat U"} /> de <Math tex={"\\mathbb{R}^n"} /> (con la topologia euclidea estandar), y un homeomorfismo <Math display tex={"\\varphi:U\\subseteq M\\longrightarrow \\widehat U\\subseteq \\mathbb{R}^n."} />
+</BookBlock>
+
+<span id="5bf2ca"></span>
+
+<BookBlock kind="remark">
+En el punto (ii), decir que <Math tex={"M"} /> tiene una base numerable significa que existe una familia numerable <Math tex={"\\mathcal{B}"} /> de abiertos de <Math tex={"M"} /> tal que todo abierto de <Math tex={"M"} /> es unión de miembros de <Math tex={"\\mathcal{B}"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Invarianza de la dimensión">
+Se prueba en topología algebraica que si <Math tex={"U\\subseteq \\mathbb{R}^n"} /> y <Math tex={"\\widetilde U\\subseteq \\mathbb{R}^m"} /> son abiertos y <Math display tex={"U \\cong \\widetilde U"} />entonces <Math tex={"n=m"} />. Esto garantiza que la dimensión de una variedad topológica está bien definida.
+</BookBlock>
+
+<BookBlock kind="definition" title="Carta">
+Sea <Math tex={"M"} /> una variedad topológica de dimensión <Math tex={"n"} />. Una *carta coordenada* (o simplemente, una *carta*) sobre <Math tex={"M"} /> es un par <Math tex={"(U,\\varphi(x_1,\\dots,x_n))"} />, donde <Math tex={"U"} /> es un abierto de <Math tex={"M"} /> y
+<Math display tex={"\\varphi:U\\subseteq M\\longrightarrow \\widehat U\\subseteq\\mathbb{R}^n"} />es un homeomorfismo, con <Math tex={"\\widehat U=\\varphi(U)"} />. (Y creo que aca hay que exigir que <Math tex={"\\widehat{U}"} /> sea abierto de <Math tex={"\\mathbb{R}^{n}"} /> con la topologia estandar)  
+</BookBlock>
+
+<BookBlock kind="definition" title="Carta centrada">
+Cuando se dice que <Math tex={"(U,\\varphi)"} /> es una carta de <Math tex={"p"} />, nos referimos a que <Math tex={"p\\in U"} />. Se dice que la carta está *centrada* en <Math tex={"p"} /> si <Math tex={"\\varphi(p)=0"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+Notar que en toda variedad topológica <Math tex={"M"} />, cualquier punto <Math tex={"p\\in M"} /> tiene una carta centrada en ese punto: se toma <Math tex={"(U,\\varphi)"} />, una carta de <Math tex={"p"} />, y se usa una traslación, restando <Math tex={"\\varphi(p)"} />.
+</BookBlock>
+
+<BookBlock kind="example">
+4. <Math tex={"\\mathbb{R}^n"} /> con su topología usual.
+5. Cualquier abierto <Math tex={"U"} /> de <Math tex={"\\mathbb{R}^n"} />.
+6. Cualquier espacio vectorial real de dimensión finita.
+
+</BookBlock>
+
+<BookBlock kind="lemma" title="Propiedad universal de la topologia inducida">
+Sea <Math tex={"X,Y"} /> espacios topologicos <Math tex={"F:X\\rightarrow Y"} /> funcion continua y <Math tex={"Z\\subseteq Y"} /> tal que <Math tex={"Im F\\subseteq Z"} /> 
+Luego sea <Math tex={"\\tilde{F}:X\\rightarrow Z"} /> dada por <Math tex={"p\\mapsto F(p)"} /> entonces si a <Math tex={"Z"} /> le damos la topologia inducida por <Math tex={"Y"} /> tenemos que <Math display tex={"\\tilde{F} \\text{ es continua }\\iff F \\text{ es continua}"} />       
+</BookBlock>
+
+<span id="4a5257"></span>
+
+<BookBlock kind="example">
+<Fragment slot="title">La esfera <Math tex={"S^n"} /></Fragment>
+La esfera <Math tex={"S^{n}"} /> es una <PreviewLink href="/chapters/teo-2#5bf2ca" label="Variedad topológica" title="Definicion: Variedad topológica" /> de dimension <Math tex={"n"} /> 
+<Proof title="Demostracion">
+1. Consideremos <Math display tex={"S^n:=\\left\\{(x_1,\\dots,x_{n+1})\\in \\mathbb{R}^{n+1}:x_1^2+\\cdots+x_{n+1}^2=1\\right\\}."} />La dotamos de la topología relativa inducida por <Math tex={"\\mathbb{R}^{n+1}"} />. Por lo tanto es Hausdorff y es <Math tex={"N_{2}"} /> por que <Math tex={"\\mathbb{R}^{n+1}"} /> lo es  
+2. Veamos que es localmente euclídea. Sea <Math display tex={"p=(x_1,\\dots,x_{n+1})\\in S^n."} />entonces existe algún índice <Math tex={"i"} /> tal que <Math tex={"x_i\\neq 0"} />. Sin pérdida de generalidad, supongamos <Math tex={"x_i>0"} />.
+3. Definimos <Math display tex={"\\widetilde U_i^+:=\\left\\{(y_1,\\dots,y_{n+1})\\in \\mathbb{R}^{n+1}:y_i>0\\right\\}."} /> Es un abierto de <Math tex={"\\mathbb{R}^{n+1}"} /> porque <Math display tex={"\\widetilde U_i^+=\\pi_i^{-1}\\bigl((0,\\infty)\\bigr),\\qquad \\pi_i(y_1,\\dots,y_{n+1})=y_i,"} /> y <Math tex={"\\pi_{i}:\\mathbb{R}^{n+1}\\to\\mathbb{R}"} /> es continua. 
+4. Luego <Math display tex={"U_i^+:=\\widetilde U_i^+\\cap S^n"} /> es un abierto de <Math tex={"S^n"} /> conteniendo a <Math tex={"p"} />.
+5. Consideramos la aplicación <Math display tex={"\\varphi_i^+:U_i^+\\longrightarrow \\mathbb{R}^n,\\qquad (y_1,\\dots,y_{n+1})\\longmapsto (y_1,\\dots,\\widehat{y_i},\\dots,y_{n+1})"} /> que es continua por ser restriccion de una continua
+6. Ahora notamos <Math tex={"\\varphi_{i}^{+}(y_{1},\\ldots,y_{n+1})\\in B^{n}"} /> donde <Math display tex={"B^n:=\\left\\{(z_1,\\dots,z_n)\\in \\mathbb{R}^n:z_1^2+\\cdots+z_n^2<1\\right\\}"} /> es la bola abierta unitaria de <Math tex={"\\mathbb{R}^n"} />.
+7. Si <Math tex={"(y_1,\\dots,y_{n+1})\\in U_i^+"} />, entonces <Math tex={"y_i>0"} /> y <Math display tex={"y_1^2+\\cdots+\\widehat{y_i^2}+\\cdots+y_{n+1}^2<1,"} />luego <Math tex={"\\varphi_i^+(U_i^+)\\subseteq B^n"} />.
+8. Luego podemos afirmar que <Math display tex={"\\varphi_{i}^{+}:U_{i}^{+}\\rightarrow B^{n}"} /> es continua por <PreviewLink href="/chapters/teo-2#4a5257" label="Propiedad universal de la topologia inducida" title="Lema: Propiedad universal de la topologia inducida" />
+9. Recíprocamente, si <Math tex={"(z_1,\\dots,z_n)\\in B^n"} />, entonces <Math display tex={"\\psi_i^+(z_1,\\dots,z_n):=\\left(z_1,\\dots,z_{i-1},\\sqrt{1-(z_1^2+\\cdots+z_n^2)},z_i,\\dots,z_n\\right)"} />define un punto de <Math tex={"U_i^+"} />, y <Math tex={"\\psi_i^+"} /> es la inversa de <Math tex={"\\varphi_i^+"} />
+10. Devuelta por la propiedad universal de la topología relativa, <Math display tex={"\\psi_i^+:B^{n}\\rightarrow U_{i}^{+}"} /> es continua. 
+11. Por lo tanto, <Math tex={"\\varphi_i^+"} /> es un homeomorfismo entre <Math tex={"U_i^+"} /> y <Math tex={"B^n"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="definition" title="Casquetes y cartas canónicas">
+Los abiertos de <Math tex={"S^n"} /> dados por <Math tex={"S^n\\cap \\widetilde U_i^\\pm"} /> se llaman **casquetes** de <Math tex={"S^n"} />, y las aplicaciones <Math display tex={"\\varphi_i^\\pm:S^n\\cap \\widetilde U_i^\\pm\\longrightarrow B^n"} />se llaman **cartas canónicas** de <Math tex={"S^n"} />.
+</BookBlock>
+
+

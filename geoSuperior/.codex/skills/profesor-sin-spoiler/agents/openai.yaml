@@ -1,0 +1,4 @@
+interface:
+  display_name: "Profesor sin spoiler"
+  short_description: "Tutor socrático estricto para ejercicios matemáticos"
+  default_prompt: "Usa $profesor-sin-spoiler para guiarme con este ejercicio sin revelar la solución."

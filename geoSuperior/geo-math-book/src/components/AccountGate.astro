@@ -1,0 +1,226 @@
+---
+type Props = {
+  contentId: string;
+};
+
+const { contentId } = Astro.props;
+---
+
+<section class="account-gate" data-account-gate data-content-id={contentId}>
+  <div class="account-card">
+    <p class="random-kicker">Cuenta personal</p>
+    <h1>Entra o crea tu usuario</h1>
+    <p>
+      Solo necesitas un usuario y una contraseña. Tus examenes y enunciados
+      personalizados quedaran guardados en tu cuenta.
+    </p>
+    <form class="account-form">
+      <label>
+        Usuario
+        <input name="username" type="text" minlength="2" maxlength="32" autocomplete="username" required />
+      </label>
+      <label>
+        Contraseña
+        <input name="password" type="password" minlength="4" autocomplete="current-password" required />
+      </label>
+      <div class="account-actions">
+        <button class="primary-button" type="submit" data-action="login">Entrar</button>
+        <button class="secondary-button" type="button" data-action="register">Crear cuenta</button>
+      </div>
+      <p class="random-status account-status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  const apiBase = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/api`;
+  const LOCAL_USERNAME_KEY = "geoSuperior.account.username";
+  const LOCAL_DATA_KEY = "geoSuperior.account.data";
+  const LOCAL_PENDING_KEY = "geoSuperior.account.pending";
+  let accountData = null;
+  let accountUsername = localStorage.getItem(LOCAL_USERNAME_KEY) || "";
+  let saveTimer = null;
+  let resolveReady;
+  const ready = new Promise((resolve) => {
+    resolveReady = resolve;
+  });
+
+  async function request(path, options = {}) {
+    const response = await fetch(`${apiBase}${path}`, {
+      credentials: "same-origin",
+      headers: { "content-type": "application/json", ...(options.headers || {}) },
+      ...options
+    });
+    const body = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(body.error || "No se pudo completar la solicitud.");
+    return body;
+  }
+
+  function readLocalData() {
+    try {
+      const data = JSON.parse(localStorage.getItem(LOCAL_DATA_KEY) || "null");
+      return data && typeof data === "object" && !Array.isArray(data) ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function persistLocal(pending) {
+    if (!accountData || !accountUsername) return;
+    localStorage.setItem(LOCAL_USERNAME_KEY, accountUsername);
+    localStorage.setItem(LOCAL_DATA_KEY, JSON.stringify(accountData));
+    localStorage.setItem(LOCAL_PENDING_KEY, pending ? "1" : "0");
+  }
+
+  async function loadData() {
+    const localData = readLocalData();
+    if (!navigator.onLine) {
+      if (!localData) throw new Error("Abre esta sección una vez con conexión para usarla sin conexión.");
+      accountData = localData;
+      return accountData;
+    }
+
+    if (localData && localStorage.getItem(LOCAL_PENDING_KEY) === "1") {
+      await request("/data", {
+        method: "PUT",
+        body: JSON.stringify({ data: localData })
+      });
+    }
+
+    const response = await request("/data");
+    accountData = response.data || {};
+    persistLocal(false);
+    return accountData;
+  }
+
+  async function saveNow() {
+    if (!accountData) return;
+    persistLocal(true);
+    if (!navigator.onLine) return;
+    try {
+      await request("/data", {
+        method: "PUT",
+        body: JSON.stringify({ data: accountData })
+      });
+      persistLocal(false);
+    } catch (error) {
+      persistLocal(true);
+      throw error;
+    }
+  }
+
+  window.geoAccount = {
+    ready,
+    get data() {
+      return accountData;
+    },
+    save() {
+      persistLocal(true);
+      window.clearTimeout(saveTimer);
+      saveTimer = window.setTimeout(() => {
+        saveNow().catch(console.error);
+      }, 250);
+    },
+    async logout() {
+      localStorage.removeItem(LOCAL_USERNAME_KEY);
+      localStorage.removeItem(LOCAL_DATA_KEY);
+      localStorage.removeItem(LOCAL_PENDING_KEY);
+      if (navigator.onLine) {
+        await request("/auth/logout", { method: "POST", body: "{}" });
+      }
+      window.location.reload();
+    }
+  };
+
+  document.querySelectorAll("[data-account-gate]").forEach((gate) => {
+    const form = gate.querySelector(".account-form");
+    const status = gate.querySelector(".account-status");
+    const content = document.getElementById(gate.dataset.contentId);
+
+    async function unlock(username, useLocalCopy = false) {
+      accountUsername = username;
+      if (useLocalCopy) {
+        accountData = readLocalData();
+        if (!accountData) throw new Error("No hay una copia local disponible.");
+      } else {
+        await loadData();
+      }
+      gate.hidden = true;
+      content.hidden = false;
+      content.querySelectorAll("[data-account-username]").forEach((node) => {
+        node.textContent = username;
+      });
+      content.querySelectorAll("[data-account-logout]").forEach((button) => {
+        button.addEventListener("click", () => window.geoAccount.logout());
+      });
+      if (useLocalCopy) {
+        const session = content.querySelector(".account-session");
+        if (session && !session.querySelector(".account-offline-badge")) {
+          const badge = document.createElement("span");
+          badge.className = "account-offline-badge";
+          badge.textContent = "Cambios guardados en este iPad";
+          session.append(badge);
+        }
+      }
+      resolveReady(window.geoAccount);
+    }
+
+    async function authenticate(action) {
+      const formData = new FormData(form);
+      const username = String(formData.get("username") || "").trim();
+      const password = String(formData.get("password") || "");
+      status.textContent = action === "register" ? "Creando cuenta..." : "Entrando...";
+      form.querySelectorAll("button, input").forEach((element) => {
+        element.disabled = true;
+      });
+      try {
+        const response = await request(`/auth/${action}`, {
+          method: "POST",
+          body: JSON.stringify({ username, password })
+        });
+        await unlock(response.username);
+      } catch (error) {
+        status.textContent = error.message;
+        form.querySelectorAll("button, input").forEach((element) => {
+          element.disabled = false;
+        });
+      }
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      authenticate("login");
+    });
+    gate.querySelector('[data-action="register"]').addEventListener("click", () => {
+      if (form.reportValidity()) authenticate("register");
+    });
+
+    request("/auth")
+      .then((session) => {
+        if (session.authenticated) return unlock(session.username);
+        status.textContent = "Crea una cuenta o entra con una existente.";
+      })
+      .catch(async () => {
+        const localData = readLocalData();
+        if (accountUsername && localData) {
+          accountData = localData;
+          try {
+            await unlock(accountUsername, true);
+            return;
+          } catch {
+            // Show the offline guidance below.
+          }
+        }
+        status.textContent = navigator.onLine
+          ? "No se pudo conectar con el servicio de cuentas."
+          : "Sin conexión. Abre esta sección una vez en línea para guardar una copia local.";
+      });
+  });
+
+  window.addEventListener("online", () => {
+    if (accountData && localStorage.getItem(LOCAL_PENDING_KEY) === "1") {
+      saveNow().catch(console.error);
+    }
+  });
+</script>

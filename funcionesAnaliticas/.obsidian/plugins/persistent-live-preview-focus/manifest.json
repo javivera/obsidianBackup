@@ -1,0 +1,9 @@
+{
+  "id": "persistent-live-preview-focus",
+  "name": "Persistent Live Preview Focus",
+  "version": "0.1.0",
+  "minAppVersion": "1.9.0",
+  "description": "Keeps inactive Live Preview panes visually expanded and preserves their scroll position.",
+  "author": "Local",
+  "isDesktopOnly": true
+}

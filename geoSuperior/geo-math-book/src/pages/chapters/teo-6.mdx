@@ -1,0 +1,128 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "El espacio tangente de una carta"
+description: "Teorico convertido desde GS - Teo6.md"
+chapter: "Teo 6"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# El espacio tangente de una carta
+
+## El espacio tangente de una carta
+
+<BookBlock kind="remark" title="El espacio tangente de una carta">
+Si <Math tex={"(U,\\varphi=(x_1,\\dots,x_n))"} /> es una carta suave de <Math tex={"p"} /> en <Math tex={"M"} />, entonces también tiene sentido considerar el espacio tangente <Math tex={"T_pU"} />, ya que <Math tex={"U"} /> es por sí mismo una variedad suave.
+
+En <Math tex={"T_pU"} /> aparece automáticamente la base
+<Math display tex={"\\left\\{\\left.\\frac{\\partial}{\\partial x_i}\\right|_p\\right\\}_{i=1}^n."} />
+
+No se puede decir literalmente que <Math tex={"T_pM"} /> y <Math tex={"T_pU"} /> sean el mismo conjunto, porque los elementos de <Math tex={"T_pM"} /> actúan sobre funciones en <Math tex={"C^\\infty(M)"} /> y los de <Math tex={"T_pU"} /> actúan sobre funciones en <Math tex={"C^\\infty(U)"} />.
+
+Sin embargo, son isomorfos de forma natural: al restringir funciones globales a <Math tex={"U"} /> y al extender funciones locales cerca de <Math tex={"p"} />, los mismos vectores coordenados describen ambos espacios.
+
+Una forma elegante de evitar este abuso es definir vector tangente como una derivación sobre el álgebra de gérmenes <Math tex={"C_p^\\infty(M)"} />.
+</BookBlock>
+
+## Diferencial de una función suave
+
+<BookBlock kind="definition" title="Diferencial de una función suave">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves y <Math tex={"F:M\\to N"} /> una función suave. Para cada <Math tex={"p\\in M"} /> se define la función
+<Math display tex={"dF_p:T_pM\\to T_{F(p)}N,"} />
+llamada **diferencial de <Math tex={"F"} /> en <Math tex={"p"} />**, por
+<Math display tex={"\\bigl(dF_p(v)\\bigr)(g)=v(g\\circ F),\\qquad g\\in C^\\infty(N)."} />
+
+Está bien definida porque si <Math tex={"g\\in C^\\infty(N)"} />, entonces <Math tex={"g\\circ F\\in C^\\infty(M)"} />.
+</BookBlock>
+
+<BookBlock kind="exercise">
+<Fragment slot="title">Observación sobre <Math tex={"dF_p"} /></Fragment>
+<Math tex={"dF_p"} /> es lineal y el vector tangente <Math tex={"dF_p(v)"} /> es lineal y vuelve a satisfacer la regla de Leibniz.
+</BookBlock>
+
+## Regla de la cadena
+
+<BookBlock kind="proposition" title="Regla de la cadena">
+Si <Math tex={"F:M\\to N"} /> y <Math tex={"G:N\\to P"} /> son suaves, entonces
+<Math display tex={"d(G\\circ F)_p=(dG)_{F(p)}\\circ dF_p."} />
+<Proof title="Demostracion">
+1. Sea <Math tex={"v\\in T_pM"} /> y <Math tex={"h\\in C^\\infty(P)"} />. Entonces como la composición es asociativa 
+<Math display tex={"\\bigl(d(G\\circ F)_p(v)\\bigr)(h)=v(h\\circ (G\\circ F))=v(h\\circ G\\circ F)"} />
+2. Por otro lado, mirando <Math tex={"dF_{p}(v)"} /> como un vector tangente y aplicandolo a <Math tex={"h\\circ G"} />  
+<Math display tex={"\\bigl(((dG)_{F(p)}\\circ dF_p)(v)\\bigr)(h)=((dG)_{F(p)}(dF_{p}(v)))(h)=(dF_p(v))(h\\circ G)=v((h\\circ G)\\circ F)=v(h\\circ G\\circ F)."} />
+3. Como ambas derivaciones actúan igual sobre toda función <Math tex={"h\\in C^\\infty(P)"} />, son iguales. 
+4. Y luego como ambas actuan sobre todo <Math tex={"v\\in T_{p}M"} /> son iguales
+</Proof>
+</BookBlock>
+
+## Diferencial de un difeomorfismo
+
+<BookBlock kind="corollary" title="El diferencial de un difeomorfismo es un isomorfismo">
+Si <Math tex={"F:M\\to N"} /> es un difeomorfismo, entonces
+<Math display tex={"(dF)_p:T_pM\\to T_{F(p)}N"} />
+es un isomorfismo, y su inversa es
+<Math display tex={"\\bigl((dF)_p\\bigr)^{-1}=(dF^{-1})_{F(p)}."} />
+<Proof title="Demostracion">
+Como <Math tex={"\\operatorname{Id}_M=F^{-1}\\circ F"} />, por la regla de la cadena se obtiene
+<Math display tex={"\\operatorname{Id}_{T_pM}=d(\\operatorname{Id}_M)_p=(dF^{-1})_{F(p)}\\circ(dF)_p."} />
+Análogamente, usando <Math tex={"\\operatorname{Id}_N=F\\circ F^{-1}"} />,
+<Math display tex={"\\operatorname{Id}_{T_{F(p)}N}=d(\\operatorname{Id}_N)_{F(p)}=(dF)_p\\circ(dF^{-1})_{F(p)}."} />
+Luego <Math tex={"(dF)_p"} /> es invertible y su inversa es <Math tex={"(dF^{-1})_{F(p)}"} />.
+</Proof>
+</BookBlock>
+
+<span id="3d3615"></span>
+
+## Identificación entre <Math tex={"T_pU"} /> y <Math tex={"T_pM"} />
+
+<BookBlock kind="proposition" title="La inclusión induce un isomorfismo">
+Sea <Math tex={"U\\subseteq M"} /> un abierto, <Math tex={"p\\in U"} /> e <Math tex={"i:U\\hookrightarrow M"} /> la inclusión (funcion suave). Entonces
+<Math display tex={"(di)_p:T_pU\\to T_pM"} />
+es un isomorfismo.
+<Proof title="Demostracion">
+1. Como <Math tex={"\\dim T_pU=\\dim T_pM=\\dim M"} />, basta ver que <Math tex={"(di)_p"} /> es inyectiva.
+2. Sea <Math tex={"v\\in T_pU"} /> tal que <Math tex={"(di)_p(v)=0"} />. Queremos probar que <Math tex={"v=0"} />.
+3. Tomemos <Math tex={"f\\in C^\\infty(U)"} /> arbitraria. Por el lema de extensión, existe una extensión suave <Math tex={"\\widetilde f\\in C^\\infty(M)"} /> definida en un abierto de <Math tex={"p"} /> y tal que <Math tex={"\\widetilde f=f"} /> cerca de <Math tex={"p"} />.
+4. Entonces <Math display tex={"0=((di)_p(v))( \\widetilde f )=v(\\widetilde f\\circ i)=v(f)"} />porque <Math tex={"\\widetilde f\\circ i=f"} /> en un entorno de <Math tex={"p"} />.
+5. Como esto vale para toda <Math tex={"f\\in C^\\infty(U)"} />, se concluye que <Math tex={"v=0"} />. Por lo tanto, <Math tex={"(di)_p"} /> es inyectiva y en consecuencia un isomorfismo.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark" title="Vectores coordenados y la inclusión">
+Si <Math tex={"(U,\\varphi=(x_1,\\dots,x_n))"} /> es una carta suave alrededor de <Math tex={"p"} />, el isomorfism <Math display tex={"(di)_p:T_pU\\to T_pM"} /> 
+envía cada vector coordenado de <Math tex={"T_pU"} /> en el vector coordenado correspondiente de <Math tex={"T_pM"} /><Math display tex={"(di)_p\\left(\\left.\\frac{\\partial}{\\partial x_i}\\right|_p\\right)=\\left.\\frac{\\partial}{\\partial x_i}\\right|_p"} />. Esto permite identificar sin ambigüedad <Math tex={"T_pU"} /> con <Math tex={"T_pM"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Comentario de Lee">
+Lee señala que esta identificación es canónica e independiente de elecciones: un vector tangente en <Math tex={"p"} /> actúa sólo sobre el germen local de las funciones cerca de <Math tex={"p"} />. Por eso no hay diferencia esencial entre pensarlo como derivación sobre funciones definidas en <Math tex={"U"} /> o sobre funciones definidas en todo <Math tex={"M"} />.
+</BookBlock>
+
+## Ejercicio
+
+<BookBlock kind="exercise" title="Diferencial nulo y funciones constantes">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves y sea <Math tex={"F:M\\to N"} /> una función suave, con <Math tex={"M"} /> conexa. Probar que
+<Math display tex={"(dF)_p:T_pM\\to T_{F(p)}N"} />
+es la transformación nula para todo <Math tex={"p\\in M"} /> si y sólo si <Math tex={"F"} /> es constante.
+</BookBlock>
+
+## Cambio de coordenadas
+
+<BookBlock kind="proposition" title="Matriz de cambio de base entre cartas">
+Sean
+<Math display tex={"(U,\\varphi=(x_1,\\dots,x_n)),\\qquad (V,\\psi=(y_1,\\dots,y_n))"} />
+dos cartas suaves alrededor de <Math tex={"p"} />.
+
+Las bases coordenadas <Math display tex={"\\mathcal B_1=\\left\\{\\left.\\frac{\\partial}{\\partial x_1}\\right|_p,\\dots,\\left.\\frac{\\partial}{\\partial x_n}\\right|_p\\right\\},\\qquad\\mathcal B_2=\\left\\{\\left.\\frac{\\partial}{\\partial y_1}\\right|_p,\\dots,\\left.\\frac{\\partial}{\\partial y_n}\\right|_p\\right\\}"} />Entonces la matriz <Math tex={"C"} /> cambio de base es <Math display tex={"\\bigl[C\\bigr]_{\\mathcal B_2}^{\\mathcal B_1}=J(\\varphi\\circ\\psi^{-1})(\\psi(p))"} />
+<Proof title="Demostracion">
+1. Escribimos <Math display tex={"\\left.\\frac{\\partial}{\\partial y_j}\\right|_p=\\sum_{i=1}^n a_{ij}\\left.\\frac{\\partial}{\\partial x_i}\\right|_p"} />
+2. Para hallar los coeficientes, aplicamos ambos lados a la función coordenada <Math tex={"x_i"} />: <Math display tex={"a_{ij}=\\left.\\frac{\\partial}{\\partial y_j}\\right|_p(x_i)"} />
+3. Por definición de vector coordenado, <Math display tex={"a_{ij}=\\left.\\frac{\\partial}{\\partial t_j}\\right|_{\\psi(p)}(x_i\\circ\\psi^{-1})"} />donde <Math tex={"(t_1,\\dots,t_n)"} /> son las coordenadas usuales en <Math tex={"\\mathbb{R}^n"} />.
+4. Pero <Math tex={"x_i=\\pi_i\\circ\\varphi"} />, donde <Math tex={"\\pi_i:\\mathbb{R}^n\\to\\mathbb{R}"} /> es la proyección sobre la <Math tex={"i"} />-ésima coordenada. Luego <Math display tex={"x_i\\circ\\psi^{-1}=\\pi_i\\circ\\varphi\\circ\\psi^{-1}"} />
+5. Por lo tanto <Math display tex={"a_{ij}=\\left.\\frac{\\partial}{\\partial t_j}\\right|_{\\psi(p)}\\bigl(\\pi_i\\circ\\varphi\\circ\\psi^{-1}\\bigr)"} />que es exactamente la entrada <Math tex={"(i,j)"} /> de la jacobiana de <Math tex={"\\varphi\\circ\\psi^{-1}"} /> en <Math tex={"\\psi(p)"} />.
+6. Así, la matriz de cambio de base es <Math display tex={"C(B_{2},B_{1})=J(\\varphi\\circ\\psi^{-1})(\\psi(p))"} />
+</Proof>
+</BookBlock>
+

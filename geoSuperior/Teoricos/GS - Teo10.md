@@ -58,6 +58,8 @@
 >>2. Para ver que son base dual alcanza ver que $$(dx_i)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\delta_{ij}.$$
 >>3. Y en efecto $$(dx_i)_p\left(\left.\frac{\partial}{\partial x_j}\right|_p\right)=\left.\frac{\partial}{\partial x_j}\right|_p(x_i)=\frac{\partial}{\partial x_j}(x_i)\Big|_p=\delta_{ij}.$$
 
+^base-dual-coordenadas
+
 >[!Remark]
 >Notar que $(V^*)^*$ es naturalmente isomorfo a $V$.
 >Hay un isomorfismo $$\mathcal L:V \to (V^*)^*,\qquad v \mapsto \mathcal L(v).$$ con $$\mathcal L(v):V^* \to \mathbb R,\qquad \lambda \mapsto \lambda(v).$$
@@ -112,21 +114,26 @@
 >>$$(T^*\beta)(v)=\beta(Tv)=0.$$
 >>Asi, $T^*\beta=0$ con $\beta \ne 0$, contradiciendo que $T^*$ es inyectiva. Luego $T$ es sobreyectiva.
 
+^dual-inyectiva-sobreyectiva
+
 ## Funciones independientes
 
->[!Proposition]
->Sea $M$ variedad suave de dimension $m$, sea $p \in M$.  Entonces un conjunto $$\{y_1,\ldots,y_m\}$$ de funciones suaves definidas en un abierto de $M$ en $p$ se dice independiente en $p$ si $$\{(dy_1)_p,\ldots,(dy_m)_p\}$$ es un conjunto linealmente independiente en $(T_{p}M)^{*}$ (y asi $n\leq m$)  
+>[!Proposition] Conjunto de funciones independientes
+>Sea $M$ variedad suave de dimension $m$, sea $p \in M$.  Entonces un conjunto $$\{y_1,\ldots,y_m\}$$ de funciones suaves definidas en un abierto de $M$ en $p$ se dice independiente en $p$ si $$\{(dy_1)_p,\ldots,(dy_m)_p\}$$ es un conjunto linealmente independiente en $(T_{p}M)^{*}$ (y asi $n\leq m$)
 
->[!Proposition]
->Sea $M$ una variedad suave de dimensión $m$. Sea $U$ un abierto de $M$ y $p\in U$. Si $\{y_1,\ldots,y_m\}$ es un conjunto de funciones suaves sobre $U$ independientes en $p$ entonces existe un abierto $V$ de $M$ en $p$, con $V\subseteq U$, tal que $$(V,\psi=(y_1,\ldots,y_m))$$es una carta en $p$.
+^conjunto-funciones-independientes
+
+>[!Proposition] Funciones suaves e independientes forman carta
+>Sea $M$ una variedad suave de dimensión $m$. Sea $U$ un abierto de $M$ y $p\in U$. Si $\{y_1,\ldots,y_m\}$ es un conjunto de funciones suaves sobre $U$ [[GS - Teo10#^conjunto-funciones-independientes|independientes en p]] entonces existe un abierto $V$ de $M$ en $p$, con $V\subseteq U$, tal que $$(V,\psi=(y_1,\ldots,y_m))$$es una carta en $p$.
 >
 >>[!Proof]-
 >>1. Se define $$\psi:U \subseteq M \to \mathbb R^m,\qquad q \mapsto (y_1(q),\ldots,y_m(q)).$$ La cual resulta suave.
 >>2. Queremos ver que $(d\psi)_p$ es un isomorfismo.
->>3. Como $\dim M=m$ y $\{(dy_1)_p,\ldots,(dy_m)_p\}$ es linealmente independiente, entonces $$\mathcal B^*=\{(dy_1)_p,\ldots,(dy_m)_p\}$$ es base de $T_p^*M$. 
+>>3. Como $\dim M=m$ y $\{(dy_1)_p,\ldots,(dy_m)_p\}$ es linealmente independiente, entonces $$\mathcal B^*=\{(dy_1)_p,\ldots,(dy_m)_p\}$$ es base de $T_p^*M$.
 >>4. Sea $$\mathcal B=\{v_1,\ldots,v_m\}$$ la respectiva base dual de $B^{*}$ en $T_pM$.
 >>5. Usamos $\mathcal B$ para calcular $(d\psi)_p$. $$\begin{align}(d\psi)_p(v_j)&=\sum_{i=1}^m a_{ij}\frac{\partial}{\partial r_i}\Big|_{\psi(p)}\\&=\sum_{i=1}^m (d\psi)_{p}(v_{j})(r_{i})\frac{\partial}{\partial r_i}\Big|_{\psi(p)}\\&=\sum_{i=1}^m (v_{j})(r_{i}\circ\psi)\frac{\partial}{\partial r_i}\Big|_{\psi(p)}\\&=\sum_{i=1}^m (v_{j})(y_{i})\frac{\partial}{\partial r_i}\Big|_{\psi(p)}\\&=\sum_{i=1}^m (dy_{i})_{p}(v_{j})\frac{\partial}{\partial r_i}\Big|_{\psi(p)}\\&=\frac{\partial}{\partial r_i}\Big|_{\psi(p)}\end{align}$$
 >>6. Luego, $(d\psi)_p$ manda base en base, por lo tanto es un isomorfismo y por el teorema de la funcion inversa existe un abierto $V$ de $p$ tal que $\psi(V)$ es abierto en $\mathbb{R}^{n}$ y $\psi|_{V}:V\rightarrow\psi(V)$ es un difeo
 
 ^2b23b2
+
 

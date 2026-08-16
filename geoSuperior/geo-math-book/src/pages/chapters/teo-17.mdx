@@ -1,0 +1,244 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Groundwork de generador infinitesimal"
+description: "Teorico convertido desde GS - Teo17.md"
+chapter: "Teo 17"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Groundwork de generador infinitesimal
+
+
+<BookBlock kind="theorem">
+Sea <Math tex={"X\\in\\mathfrak X(M)"} /> y sea <Math tex={"\\theta:\\mathcal D\\subseteq\\mathbb R\\times M\\to M"} /> su flujo. Entonces:
+
+- **(i)** <Math tex={"\\bigcup_{t>0}D_t=M"} />.
+
+- **(ii)** Dados <Math tex={"s,t\\in\\mathbb R"} />, entonces <Math tex={"\\operatorname{Dom}(\\theta_t\\circ\\theta_s)\\subseteq D_{t+s}"} />. Si <Math tex={"s"} /> y <Math tex={"t"} /> tienen el mismo signo, entonces <Math tex={"\\operatorname{Dom}(\\theta_t\\circ\\theta_s)=D_{t+s}"} />.
+
+- **(iii)** Para todo <Math tex={"p\\in\\operatorname{Dom}(\\theta_s\\circ\\theta_t)"} /> se cumple <Math display tex={"\\theta_s\\circ\\theta_t(p)=\\theta_{s+t}(p)."} />
+
+- **(iv)** La función <Math display tex={"\\theta_t:D_t\\to D_{-t}"} /> es un difeomorfismo, con inversa <Math tex={"\\theta_{-t}"} />.
+<Proof title="Demostracion">
+- **(i)** 
+1. Dado <Math tex={"p\\in M"} /> arbitrario, por <PreviewLink href="/chapters/teo-16#3ff110" label="Existencia y unicidad de las curvas integrales" title="Teorema: Existencia y unicidad de las curvas integrales" /> sabemos que existe una curva integral que comienza en <Math tex={"p"} /> definida en algún intervalo maximal <Math tex={"(a(p),b(p))"} />.  
+2. Como dicho intervalo contiene al <Math tex={"0"} />. Tomamos algun <Math tex={"t\\in(0,\\epsilon)\\subseteq (a(p),b(p))"} />. Entonces <Math tex={"p\\in D_t"} />
+3. Como <Math tex={"p"} /> era arbitrario, se concluye que todo punto de <Math tex={"M"} /> pertenece a algún <Math tex={"D_t"} /> con <Math tex={"t>0"} />. <Math display tex={"\\bigcup_{t>0}D_t=M"} /> (Notar que claramente <Math tex={"D_{t}\\subseteq M"} /> para cualquier <Math tex={"t"} /> por eso vale trivialmente la otra inclusion) 
+- **(ii)** 
+1. Sea <Math tex={"p\\in\\operatorname{Dom}(\\theta_t\\circ\\theta_s)"} />. Esto significa que <Math tex={"p\\in D_s"} />
+2. Luego esta bien definida <Math tex={"\\theta_{s}(p)"} /> y ademas <Math tex={"q=\\theta_s(p)\\in D_t"} />. 
+3. Luego por definicion <Math tex={"q=\\gamma_p(s)"} />
+4. Por la observación sobre traslación de curvas integrales maximales, la curva integral maximal que comienza en <Math tex={"q"} /> satisface <Math display tex={"(a(q),b(q))=(a(p)-s,b(p)-s)"} />
+5. Como <Math tex={"q\\in D_t"} />, se tiene <Math tex={"t\\in(a(q),b(q))"} />.
+6. Usando la igualdad de intervalos, esto equivale a <Math display tex={"t+s\\in(a(p),b(p))"} />
+7. Por lo tanto <Math tex={"p\\in D_{t+s}"} />, y se obtiene <Math display tex={"\\operatorname{Dom}(\\theta_t\\circ\\theta_s)\\subseteq D_{t+s}"} />
+8. Ahora supongamos que <Math tex={"s,t>0"} /> y sea <Math tex={"p\\in D_{s+t}"} />.
+9. Entonces <Math tex={"s+t\\in(a(p),b(p))"} /> y, como <Math tex={"0<s<s+t"} />, también <Math tex={"s\\in(a(p),b(p))"} />. <Math display tex={"p\\in D_s"} />
+10. Si <Math tex={"q=\\theta_s(p)=\\gamma_p(s)"} />, entonces la curva integral maximal que comienza en <Math tex={"q"} /> tiene dominio <Math display tex={"(a(q),b(q))=(a(p)-s,b(p)-s)"} />
+11. Como <Math tex={"s+t\\in(a(p),b(p))"} />, se obtiene <Math tex={"t\\in(a(q),b(q))"} />. <Math display tex={"q\\in D_t"} />
+12. Luego <Math tex={"p\\in\\operatorname{Dom}(\\Theta_t\\circ\\Theta_s)"} />.
+13. Por lo tanto, si <Math tex={"s,t>0"} />, se cumple <Math display tex={"\\operatorname{Dom}(\\theta_t\\circ\\theta_s)=D_{t+s}"} />
+14. El caso <Math tex={"s,t<0"} /> se prueba de manera análoga, usando que <Math tex={"s+t<s<0"} /> y la misma traslación del dominio maximal.
+- **(iii)** 
+1. Sea <Math tex={"p\\in\\operatorname{Dom}(\\theta_s\\circ\\theta_t)"} /> y sea <Math tex={"q=\\theta_t(p)"} />.
+2. Entonces <Math tex={"q=\\gamma_p(t)"} />, y por la descripción de la curva maximal que comienza en <Math tex={"q"} />, <Math display tex={"\\gamma_q(s)=\\gamma_p(t+s)"} />
+3. Por lo tanto, <Math display tex={"\\theta_s(\\theta_t(p))=\\theta_s(q)=\\gamma_q(s)=\\gamma_p(t+s)=\\theta_{s+t}(p)"} />
+4. Concluimos que <Math display tex={"\\theta_s\\circ\\theta_t(p)=\\theta_{s+t}(p)"} />
+- **(iv)** 
+1. Veamos primero que <Math tex={"\\theta_t(D_t)\\subseteq D_{-t}"} />.
+2. Sea <Math tex={"p\\in D_t"} /> y sea <Math tex={"q=\\theta_t(p)=\\gamma_p(t)"} />.
+3. Nuevamente, <Math display tex={"(a(q),b(q))=(a(p)-t,b(p)-t)"} />
+4. Como <Math tex={"0\\in(a(p),b(p))"} />, se tiene <Math tex={"-t\\in(a(q),b(q))"} />. <Math display tex={"q\\in D_{-t}"} />
+5. Entonces <Math tex={"\\theta_t:D_t\\to D_{-t}"} /> está bien definida.
+6. Además, usando la parte **(iii)**, <Math display tex={"\\theta_{-t}(\\theta_t(p))=\\theta_0(p)=\\gamma_{p}(0)=p"} />
+7. Análogamente, para <Math tex={"q\\in D_{-t}"} />, <Math display tex={"\\theta_t(\\theta_{-t}(q))=\\theta_0(q)=\\gamma_{q}(0)=q"} />
+8. Así, <Math tex={"\\theta_{-t}"} /> es la inversa de <Math tex={"\\theta_t"} />.
+9. Veamos que **<Math tex={"\\Theta_{t}"} /> es suave** 
+10. Fijemos <Math tex={"t\\in\\mathbb R"} />. Recordemos que el flujo es una aplicación suave <Math display tex={"\\Theta:\\mathcal D\\subseteq\\mathbb R\\times M\\to M"} />
+11. Por definición, <Math display tex={"D_t=\\{p\\in M:(t,p)\\in\\mathcal D\\}"} /> y <Math tex={"\\Theta_t:D_t\\to M"} /> está dada por <Math tex={"\\Theta_t(p)=\\Theta(t,p)"} />
+12. Primero observemos que <Math tex={"D_t"} /> es abierto en <Math tex={"M"} />. En efecto, si definimos <Math display tex={"\\iota_t:M\\to\\mathbb R\\times M"} /> por <Math tex={"\\iota_t(p)=(t,p)"} />, entonces <Math tex={"\\iota_t"} /> es continua y <Math tex={"D_t=\\iota_t^{-1}(\\mathcal D)"} />. 
+13. Como <Math tex={"\\mathcal D"} /> es abierto, se sigue que <Math tex={"D_t"} /> es abierto. Con lo cual es subvariedad de <Math tex={"M"} /> 
+14. Ahora consideramos la restricción <Math display tex={"\\iota_t|_{D_t}:D_t\\to\\mathcal D"} />dada por <Math tex={"\\iota_t|_{D_t}(p)=(t,p)"} />. Esta aplicación es suave porque es la restricción de una aplicación suave a un abierto dentro de la variedad.
+15. Para todo <Math tex={"p\\in D_t"} />, tenemos <Math display tex={"\\Theta_t(p)=\\Theta(t,p)=\\Theta\\big(\\iota_t|_{D_t}(p)\\big)."} />
+16. Por lo tanto, <Math display tex={"\\Theta_t=\\Theta\\circ \\iota_t|_{D_t}."} />
+17. Como <Math tex={"\\iota_t|_{D_t}"} /> es suave y <Math tex={"\\Theta"} /> es suave, se concluye que <Math tex={"\\Theta_t:D_t\\to M"} /> es suave.
+18. Además, ya se probó que <Math tex={"\\Theta_t(D_t)\\subseteq D_{-t}"} />. Como <Math tex={"D_{-t}"} /> es un abierto de <Math tex={"M"} />, la misma aplicación puede verse como <Math display tex={"\\Theta_t:D_t\\to D_{-t}."} />
+19. Esta aplicación también es suave como aplicación con codominio <Math tex={"D_{-t}"} />, porque la suavidad hacia un abierto de <Math tex={"M"} /> se verifica componiendo con la inclusión <Math tex={"D_{-t}\\hookrightarrow M"} />. Y usando continuidad de <Math tex={"\\Theta_{t}"} />. Además, <Math tex={"D_{-t}"} /> es una subvariedad incrustada de <Math tex={"M"} /> por ser un abierto de <Math tex={"M"} />.
+20. Por lo tanto, <Math tex={"\\Theta_t:D_t\\to D_{-t}"} /> es un difeomorfismo con inversa <Math tex={"\\Theta_{-t}"} />.
+</Proof>
+</BookBlock>
+
+<span id="8d50da"></span>
+
+## Groundwork de generador infinitesimal
+
+<BookBlock kind="remark" title="Observación muy importante">
+Cuando <Math tex={"X"} /> es un campo completo, tenemos <Math tex={"D_t=M"} /> para todo <Math tex={"t\\in\\mathbb R"} />.
+
+En este caso, <Math tex={"\\Theta_t:M\\to M"} /> es un difeomorfismo para todo <Math tex={"t\\in\\mathbb R"} /> <Math display tex={"\\Theta_0=\\operatorname{Id}_M, \\quad\\text{ y además }\\quad \\Theta_{s+t}=\\Theta_s\\circ\\Theta_t"} />
+
+Esto es lindo porque tenemos una acción del grupo aditivo <Math tex={"(\\mathbb R,+)"} /> sobre <Math tex={"M"} />.
+Dados <Math tex={"t\\in\\mathbb R"} /> y <Math tex={"p\\in M"} />, definimos
+<Math display tex={"t\\cdot p=\\gamma_p(t)=\\Theta_t(p)"} />
+
+Entonces <Math tex={"0"} /> actúa como la identidad:
+<Math display tex={"0\\cdot p=\\Theta_0(p)=p"} />
+
+Además,
+<Math display tex={"t\\cdot(s\\cdot p)=\\Theta_t(\\Theta_s(p))=\\Theta_{t+s}(p)=(t+s)\\cdot p"} />
+
+Por lo tanto, la aplicación
+<Math display tex={"\\rho:(\\mathbb R,+)\\to(\\operatorname{Diff}(M),\\circ),\\qquad t\\mapsto\\Theta_t"} />
+es un homomorfismo de grupos.
+</BookBlock>
+
+<BookBlock kind="remark">
+Podemos pensar en el camino contrario. Supongamos que tenemos <Math display tex={"\\Theta:\\mathbb R\\times M\\to M"} /> una acción suave de <Math tex={"(\\mathbb R,+)"} /> en <Math tex={"M"} />.
+
+Es decir, <Math tex={"\\Theta"} /> es suave y, si <Math tex={"\\Theta_t(p):=\\Theta(t,p)"} />, entonces <Math display tex={"0\\cdot p=\\Theta_0(p)=p"} />
+y <Math display tex={"t\\cdot (s\\cdot p)=\\Theta_t\\circ\\Theta_s(p)=\\Theta_{t+s}(p)=(t+s)\\cdot p"} />
+¿Será que existe <Math tex={"X\\in\\mathfrak X(M)"} /> cuyo flujo sea <Math tex={"\\Theta"} />?
+La respuesta es que sí, y <Math tex={"X"} /> es llamado el generador infinitesimal de <Math tex={"\\Theta"} />.
+</BookBlock>
+
+## Generador infinitesimal
+
+<BookBlock kind="proposition" title="Generador infinitesimal de un flujo global">
+Let <Math tex={"\\Theta:\\mathbb R\\times M\\to M"} /> be a smooth global flow on a smooth manifold <Math tex={"M"} />. The infinitesimal generator <Math tex={"V"} /> of <Math tex={"\\Theta"} /> is a smooth vector field on <Math tex={"M"} />, and each curve <Math tex={"\\Theta^{(p)}"} /> is an integral curve of <Math tex={"V"} />.
+
+En español: si <Math tex={"\\Theta"} /> es un flujo global suave, entonces su generador infinitesimal es un campo vectorial suave, y cada curva <Math tex={"t\\mapsto\\Theta_t(p)"} /> es una curva integral de ese campo.
+<Proof title="Demostracion">
+1. Hacemos ingeniería inversa. Queremos que la curva
+<Math display tex={"\\gamma_p(t)=\\Theta_t(p)"} />
+sea curva integral comenzando en <Math tex={"p"} />.
+2. Entonces el valor del campo en <Math tex={"p"} /> debería ser la velocidad de esta curva en <Math tex={"t=0"} />.
+<Math display tex={"V_p=\\left.\\frac{d}{dt}\\right|_{0}\\Theta_t(p)"} />
+3. Mas en general para cada <Math tex={"q\\in M"} />, definimos <Math tex={"\\Theta^{(q)}:\\mathbb R\\to M"} /> por <Math display tex={"\\Theta^{(q)}(t)=\\Theta(t,q)=\\Theta_t(q)"} />
+4. Definimos en general entonces <Math display tex={"V_q=\\left.\\frac{d}{dt}\\right|_{0}\\Theta^{(q)}(t)"} />
+5. Veamos que cada curva <Math tex={"\\Theta^{(p)}"} /> es una curva integral de <Math tex={"V"} />.
+6. Fijemos <Math tex={"t\\in\\mathbb R"} />. Usando la propiedad de flujo,
+<Math display tex={"\\Theta^{(p)}(t+h)=\\Theta_{t+h}(p)=\\Theta_h(\\Theta_t(p))"} />
+7. Por lo tanto,
+<Math display tex={"\\frac{d}{dh}\\bigg|_{0}\\Theta^{(p)}(t+h)=\\frac{d}{dh}\\bigg|_{0}\\Theta_h(\\Theta_t(p))=V_{\\Theta_t(p)}"} />
+8. Pero el lado izquierdo es exactamente <Math tex={"(\\Theta^{(p)})'(t)"} />.
+<Math display tex={"(\\Theta^{(p)})'(t)=V_{\\Theta_t(p)}"} />
+9. Como <Math tex={"\\Theta_t(p)=\\Theta^{(p)}(t)"} />, concluimos que
+<Math display tex={"(\\Theta^{(p)})'(t)=V_{\\Theta^{(p)}(t)}"} />
+10. Luego <Math tex={"\\Theta^{(p)}"} /> es una curva integral de <Math tex={"V"} />.
+11. Falta ver que <Math tex={"V"} /> es suave.
+12. En una carta <Math tex={"(U,\\varphi=(x_1,\\ldots,x_n))"} />, escribimos localmente
+<Math display tex={"V=\\sum_{i=1}^n V^i\\frac{\\partial}{\\partial x_i}"} />
+13. Las componentes de <Math tex={"V"} /> están dadas por derivar en <Math tex={"t=0"} /> las componentes coordenadas de <Math tex={"\\Theta_t(p)"} />.
+<Math display tex={"V^i(p)=\\left.\\frac{d}{dt}\\right|_0 x_i(\\Theta_t(p))"} />
+14. Como <Math tex={"\\Theta"} /> es suave, la función <Math tex={"(t,p)\\mapsto x_i(\\Theta_t(p))"} /> es suave.
+15. Al derivar una función suave respecto de <Math tex={"t"} />, evaluando en <Math tex={"t=0"} />, obtenemos una función suave de <Math tex={"p"} />.
+<Math display tex={"V^i\\in C^\\infty(U)"} />
+16. Entonces todas las componentes locales de <Math tex={"V"} /> son suaves.
+17. Por lo tanto, <Math tex={"V"} /> es un campo vectorial suave.
+</Proof>
+</BookBlock>
+
+<span id="906978"></span>
+
+## Uniformidad global del tiempo
+
+<BookBlock kind="lemma" title="Uniformidad global del tiempo">
+Sea <Math tex={"X"} /> un campo suave sobre una variedad <Math tex={"M"} /> y sea <Math tex={"\\Theta"} /> su flujo. Supongamos que existe un número positivo <Math tex={"\\varepsilon>0"} /> tal que, para todo <Math tex={"p\\in M"} />, el dominio de <Math tex={"\\gamma_p"} /> contiene a <Math tex={"(-\\varepsilon,\\varepsilon)"} />.
+
+Entonces <Math tex={"X"} /> es un campo completo.
+<Proof title="Demostracion">
+1. La idea es que, cuando se intenta acabar una curva integral maximal que comienza en <Math tex={"p"} />, la estiramos antes de que termine usando el intervalo uniforme <Math tex={"(-\\varepsilon,\\varepsilon)"} />, que sirve para todo punto.
+2. Razonemos por el absurdo. Supongamos que existe <Math tex={"p\\in M"} /> tal que <Math tex={"b(p)<+\\infty"} />. Osea estamos suponiendo que <Math tex={"X"} /> no es campo completo. (El caso <Math tex={"a(p)>-\\infty"} /> es análogo)
+3. Elegimos un punto del final de la curva, antes de que se acabe, faltando menos de <Math tex={"\\varepsilon"} /> segundos.
+4. Tomamos <Math tex={"t_0\\in(a(p),b(p))"} /> tal que
+<Math display tex={"b(p)-\\varepsilon<t_0<b(p)"} />
+5. Pensemos en la curva integral maximal de <Math tex={"q"} /> <Math display tex={"q=\\gamma_p(t_0)"} />por hipótesis, está definida al menos en <Math tex={"(-\\varepsilon,\\varepsilon)"} />.
+6. Definimos una curva <Math tex={"\\alpha"} /> pegando <Math tex={"\\gamma_p"} /> con la curva que empieza en <Math tex={"q"} />:
+<Math display tex={"\\alpha(t)=\\begin{cases}\\gamma_p(t),&a(p)<t<b(p),\\\\\\gamma_q(t-t_0),&-\\varepsilon<t-t_0<\\varepsilon.\\end{cases}"} />
+7. Primero veamos que está bien definida donde se solapan las dos definiciones.
+8. Notar que <Math tex={"(a(p),b(p))\\cap(t_0-\\varepsilon,t_0+\\varepsilon)=(t_0-\\varepsilon,b(p))"} />. 
+9. En efecto, como <Math tex={"a(p)<b(p)-\\varepsilon"} />, podemos elegir <Math tex={"t_0"} /> de modo que <Math tex={"a(p)<t_0-\\varepsilon"} />. Entonces <Math tex={"a(p)<t_0-\\varepsilon<b(p)"} />.  
+10. Por otro lado, como <Math tex={"b(p)-\\varepsilon<t_0"} />, se sigue que <Math tex={"b(p)<t_0+\\varepsilon"} />. 
+11. Por lo tanto, <Math tex={"(a(p),b(p))\\cap(t_0-\\varepsilon,t_0+\\varepsilon)=(t_0-\\varepsilon,b(p))"} />.
+12. Entonces n el solapamiento osea si <Math tex={"t\\in(t_0-\\varepsilon,b(p))"} />, tenemos que <Math display tex={"\\gamma_q(t-t_0)=\\Theta_{t-t_0}(q)=\\Theta_{t-t_0}(\\Theta_{t_0}(p))=\\Theta_t(p)=\\gamma_p(t)"} /> por lo tanto, las dos expresiones coinciden en el solapamiento.
+13. Además, <Math tex={"\\alpha"} /> es curva integral de <Math tex={"X"} /> y en <Math tex={"t=0"} /> pasa por <Math tex={"p"} />.
+14. Como <Math tex={"b(p)-\\varepsilon<t_0"} />, tenemos <Math tex={"b(p)<t_0+\\varepsilon"} />.
+15. Entonces <Math tex={"\\alpha"} /> está definida más allá de <Math tex={"b(p)"} />.
+16. Esto contradice la maximalidad de <Math tex={"\\gamma_p"} />.
+17. Luego no puede ocurrir que <Math tex={"b(p)<+\\infty"} />. (Análogamente, no puede ocurrir que <Math tex={"a(p)>-\\infty"} />)
+18. Por lo tanto, para todo <Math tex={"p\\in M"} /> se cumple
+<Math display tex={"(a(p),b(p))=\\mathbb R"} />
+19. Concluimos que <Math tex={"X"} /> es completo.
+</Proof>
+</BookBlock>
+
+<span id="17fba4"></span>
+
+## Campo con soporte compacto es completo
+
+<BookBlock kind="theorem" title="Campo con soporte compacto">
+Sea <Math tex={"X\\in\\mathfrak X(M)"} /> con soporte compacto. Entonces <Math tex={"X"} /> es completo.
+
+Recordemos que
+<Math display tex={"\\operatorname{Sop}X=\\operatorname{Cl}_M\\{q\\in M:X_q\\neq0\\}"} />
+<Proof title="Demostracion">
+1. Sea <Math tex={"K=\\operatorname{Sop}X"} />.
+2. Notemos primero que si <Math tex={"p\\notin K"} />, entonces existe un abierto <Math tex={"V_p"} /> de <Math tex={"M"} /> con <Math tex={"p\\in V_p"} /> donde el campo vale cero.
+3. Es decir, para todo <Math tex={"q\\in V_p"} />,
+<Math display tex={"X_q=0"} />
+4. Entonces, para todo <Math tex={"q\\in V_p"} />, la curva constante <Math display tex={"\\gamma_q:\\mathbb R\\to M,\\qquad \\gamma_q(t)=q"} />es curva integral maximal de <Math tex={"X"} />.
+5. Por lo tanto, los puntos fuera de <Math tex={"K"} /> no generan ningún problema: sus curvas integrales están definidas para todo tiempo mientras permanezcan fuera del soporte, y en particular tienen tiempo local uniforme.
+6. Falta ver qué pasa en <Math tex={"K"} />.
+7. Por <PreviewLink href="/chapters/teo-16#3b18e6" label="Uniformidad local del tiempo" title="Corolario: Uniformidad local del tiempo" />, para todo <Math tex={"p\\in K"} /> existe <Math tex={"\\varepsilon_p>0"} /> y existe un abierto <Math tex={"V_p"} /> de <Math tex={"M"} /> con <Math tex={"p\\in V_p"} /> tal que, para todo <Math tex={"q\\in V_p"} />, la curva integral que comienza en <Math tex={"q"} /> está definida en <Math tex={"(-\\varepsilon_p,\\varepsilon_p)"} />. Osea <Math tex={"(-\\epsilon_{p},\\epsilon_{p})\\subseteq (a(q),b(q))"} /> para todo <Math tex={"q\\in V_{p}"} />  
+8. Con los abiertos <Math tex={"V_p"} /> podemos cubrir a <Math tex={"K"} />.
+9. Como <Math tex={"K"} /> es compacto, existen <Math tex={"p_1,\\ldots,p_s\\in K"} /> tales que
+<Math display tex={"K\\subseteq V_{p_1}\\cup\\cdots\\cup V_{p_s}"} />
+10. Tomamos
+<Math display tex={"\\varepsilon=\\min\\{\\varepsilon_{p_1},\\ldots,\\varepsilon_{p_s}\\}"} />
+11. Entonces, para todo <Math tex={"q\\in K"} />, la curva integral que comienza en <Math tex={"q"} /> está definida al menos en <Math tex={"(-\\varepsilon,\\varepsilon)"} />.
+12. Por lo tanto, para todo <Math tex={"q\\in M"} />, el dominio de <Math tex={"\\gamma_q"} /> contiene a <Math tex={"(-\\varepsilon,\\varepsilon)"} />.
+13. Por el lema de uniformidad global del tiempo, <Math tex={"X"} /> es completo.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="lemma" title="Lema del escape">
+Sea <Math tex={"M"} /> una variedad suave y sea <Math tex={"X\\in\\mathfrak X(M)"} />. Sea <Math tex={"p\\in M"} /> tal que la curva integral maximal
+<Math display tex={"\\gamma_p:(a(p),b(p))\\to M"} />
+cumple <Math tex={"b(p)<+\\infty"} />.
+
+Entonces, para todo <Math tex={"t_0\\in(a(p),b(p))"} />, el tramo
+<Math display tex={"\\gamma_p([t_0,b(p)))"} />
+no puede estar contenido en ningún compacto de <Math tex={"M"} />.
+<Proof title="Demostracion">
+14. Razonemos por el absurdo.
+15. Supongamos que existe <Math tex={"t_0\\in(a(p),b(p))"} /> y existe un compacto <Math tex={"K\\subseteq M"} /> tal que
+<Math display tex={"\\gamma_p([t_0,b(p)))\\subseteq K"} />
+16. Repetimos el argumento del teorema anterior sobre el compacto <Math tex={"K"} />.
+17. Por uniformidad local del tiempo, para todo <Math tex={"r\\in K"} /> existe <Math tex={"\\varepsilon_r>0"} /> y existe un abierto <Math tex={"V_r"} /> de <Math tex={"M"} /> con <Math tex={"r\\in V_r"} /> tal que, para todo <Math tex={"q\\in V_r"} />, la curva integral que comienza en <Math tex={"q"} /> está definida en <Math tex={"(-\\varepsilon_r,\\varepsilon_r)"} />.
+18. Los abiertos <Math tex={"V_r"} /> cubren a <Math tex={"K"} />.
+19. Como <Math tex={"K"} /> es compacto, existen <Math tex={"r_1,\\ldots,r_s\\in K"} /> tales que
+<Math display tex={"K\\subseteq V_{r_1}\\cup\\cdots\\cup V_{r_s}"} />
+20. Tomamos
+<Math display tex={"\\varepsilon=\\min\\{\\varepsilon_{r_1},\\ldots,\\varepsilon_{r_s}\\}"} />
+21. Entonces, para todo <Math tex={"q\\in K"} />, la curva integral que comienza en <Math tex={"q"} /> está definida al menos en <Math tex={"(-\\varepsilon,\\varepsilon)"} />.
+22. Como <Math tex={"b(p)<+\\infty"} />, elegimos <Math tex={"t_1\\in[t_{0},b(p))"} /> suficientemente cerca de <Math tex={"b(p)"} />, con
+<Math display tex={"b(p)-\\varepsilon<t_1<b(p)"} />
+23. Como <Math tex={"t_1\\in[t_0,b(p))"} />, se tiene <Math tex={"q=\\gamma_p(t_1)\\in K"} />
+24. Por la uniformidad sobre <Math tex={"K"} />, la curva integral maximal que comienza en <Math tex={"q"} /> está definida en <Math tex={"(-\\varepsilon,\\varepsilon)"} />.
+25. Definimos
+<Math display tex={"\\alpha(t)=\\begin{cases}\\gamma_p(t),&a(p)<t<b(p),\\\\\\gamma_q(t-t_1),&-\\varepsilon<t-t_1<\\varepsilon.\\end{cases}"} />
+26. Veamos que las dos definiciones coinciden en el solapamiento.
+27. Si <Math tex={"t\\in(t_1-\\varepsilon,b(p))"} />, entonces
+<Math display tex={"\\gamma_q(t-t_1)=\\Theta_{t-t_1}(q)=\\Theta_{t-t_1}(\\Theta_{t_1}(p))=\\Theta_t(p)=\\gamma_p(t)"} />
+28. Por lo tanto, <Math tex={"\\alpha"} /> está bien definida.
+29. Además, <Math tex={"\\alpha"} /> es curva integral de <Math tex={"X"} /> y extiende a <Math tex={"\\gamma_p"} />.
+30. Como <Math tex={"b(p)-\\varepsilon<t_1"} />, se tiene <Math tex={"b(p)<t_1+\\varepsilon"} />.
+31. Entonces <Math tex={"\\alpha"} /> está definida más allá de <Math tex={"b(p)"} />.
+32. Esto contradice la maximalidad de <Math tex={"\\gamma_p"} />.
+33. Por lo tanto, ningún tramo final <Math tex={"\\gamma_p([t_0,b(p)))"} /> puede estar contenido en un compacto de <Math tex={"M"} />.
+</Proof>
+</BookBlock>

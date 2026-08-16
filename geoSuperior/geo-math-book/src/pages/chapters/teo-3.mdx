@@ -1,0 +1,170 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Topología cociente"
+description: "Teorico convertido desde GS - Teo3.md"
+chapter: "Teo 3"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Topología cociente
+
+## Topología cociente
+
+<BookBlock kind="definition" title="Topología cociente">
+Sean <Math tex={"X"} /> un espacio topológico, <Math tex={"Y"} /> un conjunto arbitrario y
+<Math display tex={"\\pi:X\\longrightarrow Y"} />
+una función sobreyectiva. La **topología cociente** sobre <Math tex={"Y"} /> determinada por <Math tex={"\\pi"} /> se define declarando que
+<Math display tex={"U\\subseteq Y \\text{ es abierto}\n\\iff\n\\pi^{-1}(U)\\subseteq X \\text{ es abierto}."} />
+</BookBlock>
+
+<BookBlock kind="definition" title="Función abierta y función cerrada">
+Sean <Math tex={"X"} /> e <Math tex={"Y"} /> espacios topológicos y <Math tex={"F:X\\to Y"} /> una función.
+Se dice que <Math tex={"F"} /> es:
+- **abierta** si lleva abiertos en abiertos,
+- **cerrada** si lleva cerrados en cerrados.
+</BookBlock>
+
+<BookBlock kind="exercise" title="Criterio para Hausdorff">
+Sea <Math tex={"\\pi:X\\to Y"} /> una función sobreyectiva y abierta. Sea <Math tex={"Y"} /> con la topología cociente. Entonces <Math tex={"Y"} /> es Hausdorff si y solo si <Math display tex={"R:=\\{(p,q)\\in X\\times X:\\pi(p)=\\pi(q)\\}"} />es cerrado en <Math tex={"X\\times X"} />.
+<Proof title="Demostracion" open>
+Hacerla
+</Proof>
+</BookBlock>
+
+<span id="d48425"></span>
+
+<BookBlock kind="remark" title="Funcion no abierta">
+Sea <Math tex={"\\pi:X\\to Y"} /> una función sobreyectiva y sea <Math tex={"Y"} /> con la topología cociente. Dar un ejemplo donde <Math tex={"\\pi"} /> no sea abierta.
+<Proof title="Demostracion" open>
+Tomemos <Math tex={"X=[0,1]"} /> con la topología usual y consideremos la relación de equivalencia que identifica solo los extremos:
+<Math display tex={"x\\sim y \\iff x=y \\text{ o bien } \\{x,y\\}=\\{0,1\\}."} />
+Sea
+<Math display tex={"Y:=X/{\\sim}"} />
+con la topología cociente, y sea
+<Math display tex={"\\pi:X\\to Y,\\qquad x\\mapsto [x]"} />
+la proyección natural. Por definición, <Math tex={"\\pi"} /> es sobreyectiva.
+
+Veamos que <Math tex={"\\pi"} /> no es abierta. Consideremos el abierto
+<Math display tex={"U=[0,1/2)\\subseteq [0,1]."} />
+Entonces <Math tex={"\\pi(U)\\subseteq Y"} /> contiene la clase <Math tex={"[0]=[1]"} />. Además,
+<Math display tex={"\\pi^{-1}(\\pi(U))=U\\cup\\{1\\}=[0,1/2)\\cup\\{1\\}."} />
+En efecto, todos los puntos de <Math tex={"U"} /> vuelven a caer en <Math tex={"\\pi(U)"} />, y también <Math tex={"1"} /> porque <Math tex={"\\pi(1)=\\pi(0)"} /> con <Math tex={"0\\in U"} />.
+
+Pero <Math tex={"[0,1/2)\\cup\\{1\\}"} /> no es abierto en <Math tex={"[0,1]"} />, ya que <Math tex={"1"} /> no es punto interior. Luego, por la definición de topología cociente, <Math tex={"\\pi(U)"} /> no es abierto en <Math tex={"Y"} />.
+
+Por lo tanto, <Math tex={"\\pi"} /> es una función sobreyectiva que define la topología cociente en <Math tex={"Y"} />, pero no es abierta.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise" title="Propiedad universal del cociente">
+Sean <Math tex={"X"} /> y <Math tex={"Z"} /> espacios topológicos, <Math tex={"\\pi:X\\to Y"} /> sobreyectiva, y consideremos en <Math tex={"Y"} /> la topología cociente.
+Si <Math tex={"F:Y\\to Z"} /> es una función, entonces <Math display tex={"F \\text{ es continua}\\iff F\\circ \\pi:X\\to Z \\text{ es continua}."} />
+</BookBlock>
+## El espacio proyectivo real
+
+<BookBlock kind="definition">
+<Fragment slot="title">Presentación de <Math tex={"\\mathbb{RP}^n"} /> como cociente de la esfera</Fragment>
+Veamos que <Math tex={"\\mathbb{R}\\mathbb{P}^{n}"} /> es variedad topologica de dimension <Math tex={"n"} /> 
+<Proof title="Demostracion">
+- Definimos <Math tex={"\\mathbb{R}\\mathbb{P}^{n}"} />
+1. En <Math tex={"S^n"} /> consideramos la relación de equivalencia <Math display tex={"p\\sim q\\iff q=\\pm p."} />es decir, identificamos puntos antipodales.
+2. Definimos <Math display tex={"\\mathbb{RP}^n:=S^n/{\\sim} = \\{[p]:p\\in S^n\\}."} />Sea <Math display tex={"\\pi:S^n\\longrightarrow \\mathbb{RP}^n, \\qquad p\\longmapsto [p]."} />
+3. Dotamos a <Math tex={"\\mathbb{RP}^n"} /> de la topología cociente inducida por <Math tex={"\\pi"} />.
+- Veamos que la proyección <Math tex={"\\pi"} /> es abierta.
+1. Para esto deberiamos ver que dado <Math tex={"U\\subseteq S^{n}"} /> abierto entonces <Math tex={"\\pi(U)"} /> es abierto, pero por definicion de topologia cociente es lo mismo que ver que <Math tex={"\\pi ^{-1}(\\pi(U))"} /> es abierto <Math display tex={"\\pi^{-1}(\\pi(U))=U\\cup (-U),"} />y el lado derecho es abierto en <Math tex={"S^n"} />.
+2. Por lo tanto <Math tex={"\\pi(U)"} /> es abierto y entonces <Math tex={"\\pi"} /> es abierta  
+- Veamos Segundo axioma de numerabilidad
+1. Como <Math tex={"\\pi"} /> es abierta y sobreyectiva, y <Math tex={"S^n"} /> satisface <Math tex={"N_2"} />, se obtiene que <Math tex={"\\mathbb{RP}^n"} /> también satisface <Math tex={"N_2"} />.
+- Hausdorff
+1. Como <Math tex={"\\pi"} /> es abierta, para probar que <Math tex={"\\mathbb{RP}^n"} /> es Hausdorff, usando el <PreviewLink href="/chapters/teo-3#d48425" label="Criterio para Hausdorff" title="Ejercicio: Criterio para Hausdorff" /> basta ver que <Math display tex={"R:=\\{(p,q)\\in S^n\\times S^n:\\pi(p)=\\pi(q)\\}"} />es cerrado. 
+2. Pero <Math display tex={"R=\\{(p,q)\\in S^n\\times S^n:p=q\\}\\cup \\{(p,q)\\in S^n\\times S^n:p=-q\\},"} />y ambos conjuntos son cerrados en <Math tex={"S^n\\times S^n"} />.
+- Localmente euclideo
+1. Tomamos <Math tex={"[p] \\in \\mathbb{R}\\mathbb{P}^{n}"} /> obviamente existe un <Math tex={"U_i^\\pm"} /> un casquete de <Math tex={"S^n"} /> tal que <Math tex={"p \\in \\pi(U_{i}^{\\pm})"} /> 
+2. Ademas notamos que la restricción <Math display tex={"\\pi|_{U_i^\\pm}:U_i^\\pm\\longrightarrow \\pi(U_i^\\pm)"} />es biyectiva. 
+3. Como <Math tex={"\\pi"} /> es abierta, luego <Math tex={"\\pi(U_i^\\pm)"} /> es abierto en <Math tex={"\\mathbb{RP}^n"} />.
+4. Ademas como <Math tex={"\\pi"} /> abierta y biyectiva entonces es homeomorfismo
+5. Notar que como restringimos el dominio, la inversa tengra restringido el codominio, osea que al volver no me da ambos representantes de la case (como lo haria <Math tex={"\\pi"} /> sin restringir) si no que me da un representante solo. Digamos <Math tex={"\\pi|_{U_{i}^{+}}"} /> es una especie de nueva funcion que al hacer inveras no devuelve dos elementos por cada clase de <Math tex={"\\mathbb{R}\\mathbb{P}^{n}"} /> si no que devuelve solo uno, el que esta en <Math tex={"U_{i}^{+}"} />   
+6. Por lo tanto <Math display tex={"\\varphi_i^\\pm\\circ (\\pi|_{U_i^\\pm})^{-1}:\\pi(U_i^\\pm)\\longrightarrow B^n"} />es un homeomorfismo.
+
+En consecuencia, <Math tex={"\\mathbb{RP}^n"} /> es una variedad topológica de dimensión <Math tex={"n"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="definition">
+<Fragment slot="title">Otra presentación de <Math tex={"\\mathbb{RP}^n"} /></Fragment>
+Veamos que <Math tex={"\\mathbb{R}\\mathbb{P}^{n}"} /> es variedad topologica de otra manera
+<Proof title="Demostracion">
+- Definimos la rel de equivalencia
+1. En <Math tex={"\\mathbb{R}^{n+1}\\setminus\\{0\\}"} /> consideramos la relación de equivalencia <Math display tex={"p\\sim q \\iff \\exists \\lambda\\in \\mathbb{R}\\setminus\\{0\\}\\text{ tal que }q=\\lambda p."} />
+2. Es decir, dos vectores son equivalentes si generan la misma recta que pasa por el origen.
+- Definimos el cociente
+1. Definimos <Math display tex={"\\mathbb{RP}^n:= (\\mathbb{R}^{n+1}\\setminus\\{0\\})/{\\sim}= \\{[p]:p\\in \\mathbb{R}^{n+1}\\setminus\\{0\\}\\}"} />con la topología cociente determinada por la proyección natural <Math display tex={"\\pi:\\mathbb{R}^{n+1}\\setminus\\{0\\}\\longrightarrow \\mathbb{RP}^n, \\qquad p\\longmapsto [p]."} />
+- Hausdorff
+1. Si <Math tex={"U\\subseteq \\mathbb{R}^{n+1}\\setminus\\{0\\}"} /> es abierto, entonces <Math display tex={"\\pi^{-1}(\\pi(U))= \\bigcup_{\\lambda\\in \\mathbb{R}\\setminus\\{0\\}} \\lambda U."} />
+2. Como la multiplicación por <Math tex={"\\lambda\\neq 0"} /> es un homeomorfismo de <Math tex={"\\mathbb{R}^{n+1}\\setminus\\{0\\}"} />, cada <Math tex={"\\lambda U"} /> es abierto
+3. Por lo tanto, <Math tex={"\\pi^{-1}(\\pi(U))"} /> es abierto y <Math tex={"\\pi(U)"} /> es abierto. Osea <Math tex={"\\pi"} /> es abierta 
+4. Luego consideremos <Math display tex={"R:=\\{(p,q)\\in (\\mathbb{R}^{n+1}\\setminus\\{0\\})^2:q=\\lambda p \\text{ para algún } \\lambda\\neq 0\\}."} /> osea el conjunto de los elementos ld
+5. Luego recordamos que dos elementos son ld si todas de su submatrices tienen determinante 0 
+6. Para <Math tex={"1\\le i<j\\le n+1"} />, definimos <Math display tex={"Q_{ij}:\\bigl(\\mathbb{R}^{n+1}\\setminus\\{0\\}\\bigr)^2\\longrightarrow \\mathbb{R},\\qquad Q_{ij}(x,y):= \\det\\begin{pmatrix}x_i & y_i\\\\ x_j & y_j\\end{pmatrix}."} />
+7. Entonces <Math display tex={"R=\\bigcap_{1\\le i<j\\le n+1} Q_{ij}^{-1}(\\{0\\}),"} />luego <Math tex={"R"} /> es cerrado. Por ser interseccion finita de cerrados (<Math tex={"Q_{ij}"} /> escontinua y <Math tex={"\\{ 0 \\}"} /> cerrado) 
+8. Por consiguiente, <Math tex={"\\mathbb{RP}^n"} /> es Hausdorff.
+- Localmente euclideo
+1. Sea <Math tex={"[p]\\in \\mathbb{RP}^n"} /> y tomemos un representante <Math display tex={"p=(x_1,\\dots,x_{n+1})"} />con alguna coordenada <Math tex={"x_i\\neq 0"} />.
+2. Definimos <Math display tex={"\\widetilde U_i:=\\{(y_1,\\dots,y_{n+1})\\in \\mathbb{R}^{n+1}\\setminus\\{0\\}:y_i\\neq 0\\}"} />que es abierto en <Math tex={"\\mathbb{R}^{n+1}\\setminus\\{0\\}"} />
+3. Luego <Math display tex={"U_i:=\\pi(\\widetilde U_i)"} />que es un abierto de <Math tex={"\\mathbb{RP}^n"} /> por que en este caso <Math tex={"\\pi ^{-1}(U_{i})=\\tilde{U}_{i}"} /> que es abierto (osea justo <Math tex={"\\tilde{U}_{i}"} /> es saturado) 
+4. La aplicación <Math display tex={"\\varphi_i:U_i\\longrightarrow \\mathbb{R}^n, \\qquad [(x_1,\\dots,x_{n+1})] \\longmapsto \\left( \\frac{x_1}{x_i},\\dots,\\widehat{\\frac{x_i}{x_i}},\\dots,\\frac{x_{n+1}}{x_i} \\right)"} />está bien definida y es un homeomorfismo.
+5. Una inversa explícita está dada por <Math display tex={"\\psi_i(u_1,\\dots,u_n) = [u_1,\\dots,u_{i-1},1,u_i,\\dots,u_n]."} />
+6. Por lo tanto, los abiertos <Math tex={"U_i"} /> dan una familia de cartas de <Math tex={"\\mathbb{RP}^n"} /> con imagen en <Math tex={"\\mathbb{R}^n"} />.
+</Proof>
+</BookBlock>
+
+## El toro
+
+<BookBlock kind="exercise" title="Una presentación del toro REVISAR">
+Ver a <Math tex={"\\mathbb{R}^n"} /> como grupo abeliano con la suma. Entonces <Math tex={"\\mathbb{Z}^n"} /> es subgrupo de <Math tex={"\\mathbb{R}^n"} />. Se denota por
+<Math display tex={"\\mathbb{T}^n:=\\mathbb{R}^n/\\mathbb{Z}^n"} />
+el conjunto de clases laterales a izquierda de <Math tex={"\\mathbb{Z}^n"} />. Equivalentemente,
+<Math display tex={"x\\sim y \\iff x-y\\in \\mathbb{Z}^n."} />
+Dotamos a <Math tex={"\\mathbb{T}^n"} /> de la topología cociente inducida por la proyección natural
+<Math display tex={"\\pi:\\mathbb{R}^n\\longrightarrow \\mathbb{T}^n,\\qquad x\\longmapsto [x]."} />
+Ver que <Math tex={"\\mathbb{T}^n"} /> es una variedad topológica de dimensión <Math tex={"n"} />.
+<Proof title="Demostracion">
+- Definimos la relación de equivalencia
+1. Para <Math tex={"x,y\\in \\mathbb{R}^n"} />, tenemos <Math display tex={"x\\sim y \\iff x-y\\in \\mathbb{Z}^n."} />
+2. Es decir, <Math tex={"x"} /> e <Math tex={"y"} /> son equivalentes si difieren en un vector con coordenadas enteras.
+- Veamos que la proyección <Math tex={"\\pi"} /> es abierta
+1. Sea <Math tex={"U\\subseteq \\mathbb{R}^n"} /> abierto. Entonces
+<Math display tex={"\\pi^{-1}(\\pi(U))=\\bigcup_{m\\in \\mathbb{Z}^n}(U+m)."} />
+2. Como para cada <Math tex={"m\\in \\mathbb{Z}^n"} /> la traslación <Math tex={"x\\mapsto x+m"} /> es un homeomorfismo de <Math tex={"\\mathbb{R}^n"} />, cada <Math tex={"U+m"} /> es abierto.
+3. Luego <Math tex={"\\pi^{-1}(\\pi(U))"} /> es abierto, y por definición de topología cociente <Math tex={"\\pi(U)"} /> es abierto.
+4. Por lo tanto, <Math tex={"\\pi"} /> es abierta.
+- Segundo axioma de numerabilidad
+1. Como <Math tex={"\\pi"} /> es abierta y sobreyectiva, y <Math tex={"\\mathbb{R}^n"} /> satisface <Math tex={"N_2"} />, se obtiene que <Math tex={"\\mathbb{T}^n"} /> también satisface <Math tex={"N_2"} />.
+- Hausdorff
+1. Como <Math tex={"\\pi"} /> es abierta, usando el <PreviewLink href="/chapters/teo-3#d48425" label="Criterio para Hausdorff" title="Ejercicio: Criterio para Hausdorff" /> basta ver que
+<Math display tex={"R:=\\{(x,y)\\in \\mathbb{R}^n\\times \\mathbb{R}^n:\\pi(x)=\\pi(y)\\}"} />
+es cerrado.
+2. Pero
+<Math display tex={"R=\\{(x,y)\\in \\mathbb{R}^n\\times \\mathbb{R}^n:x-y\\in \\mathbb{Z}^n\\}\n=\\bigcup_{m\\in \\mathbb{Z}^n}\\{(x,y)\\in \\mathbb{R}^n\\times \\mathbb{R}^n:y=x-m\\}."} />
+3. Cada conjunto
+<Math display tex={"G_m:=\\{(x,y)\\in \\mathbb{R}^n\\times \\mathbb{R}^n:y=x-m\\}"} />
+es cerrado, pues es el conjunto de ceros de la función continua <Math tex={"(x,y)\\mapsto y-x+m"} />.
+4. Además, la unión <Math tex={"\\bigcup_{m\\in \\mathbb{Z}^n}G_m"} /> es cerrada: si <Math tex={"(x_k,y_k)\\in R"} /> y <Math tex={"(x_k,y_k)\\to (x,y)"} />, entonces <Math tex={"y_k-x_k\\in \\mathbb{Z}^n"} /> para todo <Math tex={"k"} />, y como <Math tex={"y_k-x_k\\to y-x"} /> y <Math tex={"\\mathbb{Z}^n"} /> es cerrado en <Math tex={"\\mathbb{R}^n"} />, se sigue que <Math tex={"y-x\\in \\mathbb{Z}^n"} />.
+5. Luego <Math tex={"R"} /> es cerrado y por consiguiente <Math tex={"\\mathbb{T}^n"} /> es Hausdorff.
+- Localmente euclídeo
+1. Sea <Math tex={"[x]\\in \\mathbb{T}^n"} />. Tomamos <Math tex={"\\varepsilon<1/2"} /> y sea <Math tex={"B(x,\\varepsilon)\\subseteq \\mathbb{R}^n"} /> la bola abierta de centro <Math tex={"x"} /> y radio <Math tex={"\\varepsilon"} />.
+2. Si <Math tex={"m\\in \\mathbb{Z}^n\\setminus\\{0\\}"} />, entonces <Math tex={"\\|m\\|\\ge 1"} />. Por lo tanto, <Math tex={"B(x,\\varepsilon)\\cap (B(x,\\varepsilon)+m)=\\varnothing"} />.
+3. En consecuencia, la restricción
+<Math display tex={"\\pi|_{B(x,\\varepsilon)}:B(x,\\varepsilon)\\longrightarrow \\pi(B(x,\\varepsilon))"} />
+es biyectiva.
+4. Como <Math tex={"\\pi"} /> es abierta, <Math tex={"\\pi(B(x,\\varepsilon))"} /> es abierto en <Math tex={"\\mathbb{T}^n"} />. Entonces <Math tex={"\\pi|_{B(x,\\varepsilon)}"} /> es un homeomorfismo.
+5. Como <Math tex={"B(x,\\varepsilon)"} /> es homeomorfo a una bola abierta de <Math tex={"\\mathbb{R}^n"} />, resulta que cada punto de <Math tex={"\\mathbb{T}^n"} /> tiene un entorno abierto homeomorfo a un abierto de <Math tex={"\\mathbb{R}^n"} />.
+
+En consecuencia, <Math tex={"\\mathbb{T}^n"} /> es una variedad topológica de dimensión <Math tex={"n"} />.
+</Proof>
+</BookBlock>
+

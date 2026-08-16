@@ -141,7 +141,7 @@
 >$$
 >
 >Las funciones coordenadas $x_i:U\to\mathbb{R}$ son suaves. 
->Luego para $f\in C^\infty(M)$ se define $$\left.\frac{\partial}{\partial x_i}\right|_p:C^{\infty}\rightarrow \mathbb{R}\qquad\text{dada por}\qquad\left.\frac{\partial}{\partial x_i}\right|_p f=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(f\circ\varphi^{-1})$$
+>Luego para $f\in C^\infty(M)$ se define $$\left.\frac{\partial}{\partial x_i}\right|_p:C^{\infty}(M)\rightarrow \mathbb{R}\qquad\text{dada por}\qquad\left.\frac{\partial}{\partial x_i}\right|_p f=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(f\circ\varphi^{-1})$$
 >donde $(y_1,\dots,y_n)$ son las coordenadas usuales de $\mathbb{R}^n$.
 >Estas aplicaciones se llaman **vectores coordenados** en $p$ asociados a la carta $(U,\varphi)$.
 
@@ -150,62 +150,56 @@
 >
 >>[!Proof]-
 >>Fijemos $i$ y escribamos $a=\varphi(p)\in\mathbb{R}^n$. Debemos ver que
->>$$
->>\left.\frac{\partial}{\partial x_i}\right|_p:C^\infty(M)\to\mathbb{R},\qquad
->>f\mapsto \frac{\partial(f\circ\varphi^{-1})}{\partial y_i}(a)
->>$$
+>>$$\left.\frac{\partial}{\partial x_i}\right|_p:C^\infty(M)\to\mathbb{R},\qquad
+>>f\mapsto \frac{\partial(f\circ\varphi^{-1})}{\partial y_i}(a)$$
 >>es lineal y satisface Leibniz en $p$.
 >>
 >>1. **Linealidad.** Si $f,g\in C^\infty(M)$ y $\lambda\in\mathbb{R}$, entonces
->>$$
->>((f+\lambda g)\circ\varphi^{-1})=(f\circ\varphi^{-1})+\lambda(g\circ\varphi^{-1}),
->>$$
+>>$$((f+\lambda g)\circ\varphi^{-1})=(f\circ\varphi^{-1})+\lambda(g\circ\varphi^{-1}),$$
 >>y por linealidad de la derivada parcial en $\mathbb{R}^n$,
->>$$
->>\left.\frac{\partial}{\partial x_i}\right|_p(f+\lambda g)
+>>$$\left.\frac{\partial}{\partial x_i}\right|_p(f+\lambda g)
 >>=
 >>\left.\frac{\partial}{\partial x_i}\right|_p(f)
 >>+
->>\lambda\left.\frac{\partial}{\partial x_i}\right|_p(g).
->>$$
+>>\lambda\left.\frac{\partial}{\partial x_i}\right|_p(g).$$
 >>
 >>2. **Regla de Leibniz.** Como
->>$$
->>(fg)\circ\varphi^{-1}=(f\circ\varphi^{-1})(g\circ\varphi^{-1}),
->>$$
+>>$$(fg)\circ\varphi^{-1}=(f\circ\varphi^{-1})(g\circ\varphi^{-1}),$$
 >>aplicando la regla del producto en $\mathbb{R}^n$ se obtiene
->>$$
->>\begin{aligned}
+>>$$\begin{aligned}
 >>\left.\frac{\partial}{\partial x_i}\right|_p(fg)
 >>&=\frac{\partial\big((f\circ\varphi^{-1})(g\circ\varphi^{-1})\big)}{\partial y_i}(a)\\
 >>&=(f\circ\varphi^{-1})(a)\,\frac{\partial(g\circ\varphi^{-1})}{\partial y_i}(a)
 >>+(g\circ\varphi^{-1})(a)\,\frac{\partial(f\circ\varphi^{-1})}{\partial y_i}(a).
->>\end{aligned}
->>$$
+>>\end{aligned}$$
 >>Pero $(f\circ\varphi^{-1})(a)=f(p)$ y $(g\circ\varphi^{-1})(a)=g(p)$, luego
->>$$
->>\left.\frac{\partial}{\partial x_i}\right|_p(fg)
+>>$$\left.\frac{\partial}{\partial x_i}\right|_p(fg)
 >>=
 >>f(p)\left.\frac{\partial}{\partial x_i}\right|_p(g)
 >>+
->>g(p)\left.\frac{\partial}{\partial x_i}\right|_p(f).
->>$$
+>>g(p)\left.\frac{\partial}{\partial x_i}\right|_p(f).$$
 >>
 >>Por lo tanto, $\left.\frac{\partial}{\partial x_i}\right|_p$ es una derivación en $p$, es decir, un vector tangente de $M$ en $p$.
 
 ## Independencia lineal de los vectores coordenados
 
 >[!Proposition] Independencia lineal de los vectores coordenados
->El conjunto de vectores coordenados $$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\}$$es linealmente independiente en $T_pM$.
+>El conjunto de vectores coordenados
+>$$\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\}$$
+>es linealmente independiente en $T_pM$.
 >
 >>[!Proof]-
->>1. Las funciones coordenadas $x_i$ están definidas solo en $U$, ósea están en $C^{\infty}(U)$ 
->>2. Pero $\left.\frac{\partial}{\partial x_n}\right|_p$ esta en $C^{\infty}(M)$ así que primero se extienden a funciones suaves globales $\widetilde{x}_i\in C^\infty(M)$ que coinciden con $x_i$ en un abierto $V$ de $p$ usando [[GS - Teo5#^405b16]] (obtenemos múltiples abiertos y tomamos la intersección no vacía por que esta $p$) 
->>3. Ahora notamos que $$\left.\frac{\partial}{\partial x_i}\right|_{p}\tilde{x}_{j}=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(\tilde{x}_{j}\circ\varphi^{-1})=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(x_{j}\circ\varphi^{-1})$$ este ultimo igual sucede por que $\tilde{x}_{j}\circ\varphi ^{-1}$ y $x_{j}\circ\varphi ^{-1}$ coinciden sobre el abierto $\varphi(V)$ por [[GS - Teo5#^b713ca]]
->>4. Y recordemos la notacion $(U,\varphi=(x_{1},\ldots,x_{n}))$ osea que $x_{j}\circ\varphi ^{-1}(q_{1},\ldots,q_{n})=x_{j}(p)=q_{j}$ otra manera de decir que $x_{j}\circ\varphi ^{-1}=\pi_{j}$ la proyeccion    
->>5. Y es directo ver que $$\left.\frac{\partial}{\partial y_i}\right|_{p}\pi_{j}=\delta_{ij}$$ 
->>6. Entonces tenemos $$t_1\left.\frac{\partial}{\partial x_1}\right|_p+\cdots+t_n\left.\frac{\partial}{\partial x_n}\right|_p=0$$aplicando $\widetilde{x}_j$ a esta combinación lineal se obtiene $$0=t_1\delta_{1j}+\cdots+t_n\delta_{nj}=t_j$$y por lo tanto todos los coeficientes son cero.
->>7. Mostrando la independencia lineal
+>>1. Las funciones coordenadas $x_i$ están definidas solo en $U$, ósea están en $C^{\infty}(U)$
+>>2. Pero $\left.\frac{\partial}{\partial x_n}\right|_p$ esta en $C^{\infty}(M)$ así que primero se extienden a funciones suaves globales $\widetilde{x}_i\in C^\infty(M)$ que coinciden con $x_i$ en un abierto $V$ de $p$ usando [[GS - Teo5#^405b16|Extensión de funciones suaves]] (obtenemos múltiples abiertos y tomamos la intersección no vacía por que esta $p$)
+>>3. Ahora notamos que $$\left.\frac{\partial}{\partial x_i}\right|_{p}\widetilde{x}_{j}=\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}$$ porque $\widetilde{x}_{j}$ y $x_j$ coinciden en $V$ un abierto de $p$, por [[GS - Teo5#^b713ca|Localidad de los vectores tangentes]]. Luego aplicando la definición del vector coordenado, $$\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(x_{j}\circ\varphi^{-1}).$$
+>>4. Y recordemos la notacion $(U,\varphi=(x_{1},\ldots,x_{n}))$ osea que $x_{j}\circ\varphi ^{-1}(q_{1},\ldots,q_{n})=x_{j}(p)=q_{j}$ otra manera de decir que $x_{j}\circ\varphi ^{-1}=\pi_{j}$ la proyeccion
+>>5. Y es directo ver que $$\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}\pi_{j}=\delta_{ij}$$
+>>6. Entonces tenemos
+>>   $$t_1\left.\frac{\partial}{\partial x_1}\right|_p+\cdots+t_n\left.\frac{\partial}{\partial x_n}\right|_p=0$$
+>>   aplicando $\widetilde{x}_j$ a esta combinación lineal se obtiene
+>>   $$0=t_1\delta_{1j}+\cdots+t_n\delta_{nj}=t_j$$
+>>   y por lo tanto todos los coeficientes son cero.
+>>7. Mostrando la independencia lineal.
 
 ## Un lema sobre funciones constantes
 
@@ -248,4 +242,6 @@
 >>v=\sum_{i=1}^n v(\widetilde{x}_i)\left.\frac{\partial}{\partial x_i}\right|_p.
 >>$$
 >>13. Como ya se sabía que los vectores coordenados son linealmente independientes, forman una base de $T_pM$.
+
+
 

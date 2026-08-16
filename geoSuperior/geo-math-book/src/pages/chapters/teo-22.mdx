@@ -1,0 +1,119 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Complejo de de Rham"
+description: "Teorico convertido desde GS - Teo22.md"
+chapter: "Teo 22"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Complejo de de Rham
+
+## Complejo de de Rham
+
+<BookBlock kind="definition" title="Complejo de Rham">
+Es el complejo de cocadenas <Math display tex={"0\\xrightarrow{d}\\Omega^0(M)\\xrightarrow{d}\\Omega^1(M)\\xrightarrow{d}\\cdots\\xrightarrow{d}\\Omega^n(M)\\xrightarrow{d}0."} />
+Algunas veces se denota por <Math tex={"d_k=d|_{\\Omega^k(M)}"} />, y asi, la condicion <Math tex={"d\\circ d=0"} />, se lee como <Math tex={"\\operatorname{Im}d_k\\subset\\ker d_{k+1}"} />.
+Se define el <Math tex={"k"} />-esimo grupo de cohomologia de de Rham, denotado por <Math display tex={"H^k_{dR}(M):=\\ker d_k/\\operatorname{Im}d_{k-1},"} />donde <Math display tex={"Z^k(M)=\\ker d_k,"} /><Math display tex={"B^k(M)=\\operatorname{Im}d_{k-1}."} />
+</BookBlock>
+
+<BookBlock kind="example">
+Por ejemplo: <Math display tex={"H^0_{dR}(M)=\\ker d_0/\\operatorname{Im}d_{-1}=\\ker d_0=\\{f\\in C^\\infty(M):df=0\\}."} />
+<Math tex={"f"} /> es constante en cada componente conexa de <Math tex={"M"} />, entonces <Math tex={"H^0_{dR}(M)\\cong\\mathbb R^{\\#\\operatorname{comp}}"} />.
+Cuando <Math tex={"M"} /> es compacta, se puede probar que <Math tex={"\\dim H^k_{dR}(M)"} /> es finito y se llama el <Math tex={"k"} />-esimo numero de Betti.
+</BookBlock>
+
+<BookBlock kind="definition" title="Formas cerradas y exactas">
+Una forma diferencial <Math tex={"\\theta"} /> se dice cerrada si <Math tex={"d\\theta=0"} />, y se dice exacta si <Math tex={"\\theta=d\\omega"} />, para alguna forma diferenciable <Math tex={"\\omega"} />.
+</BookBlock>
+
+<BookBlock kind="example">
+Sea <Math tex={"B^n=\\{x\\in\\mathbb R^n:\\|x\\|<1\\}"} />. Se puede probar que <Math display tex={"H^k(B^n)=0,\\qquad k\\ge1,"} />y ya sabemos <Math tex={"H^0(B^n)=\\mathbb R"} />. (Se llama lema de Poincare)
+</BookBlock>
+
+<BookBlock kind="example">
+Se puede probar que si <Math tex={"M"} /> es simplemente conexa, entonces <Math tex={"H^1_{dR}(M)=0"} />.
+En general <Math display tex={"H^1_{dR}(M)\\cong \\operatorname{Hom}(\\pi_1(M),\\mathbb R)."} />
+<Math display tex={"\\pi_1(S^1)=\\mathbb Z,\\qquad \\operatorname{Hom}(\\pi_1(M),\\mathbb R)\\cong\\mathbb R."} />
+</BookBlock>
+
+## Pullback de formas
+
+<BookBlock kind="definition" title="Pullback de formas">
+Sea <Math tex={"F:M\\to N"} /> suave y <Math tex={"\\omega\\in\\Omega^k(N)"} />. Se define el pullback <Math tex={"F^*\\omega"} /> de <Math tex={"\\omega"} /> como la <Math tex={"k"} />-forma (se prueba en el siguiente enunciado que es suave) 
+<Math display tex={"(F^*\\omega)_p(v_1,\\ldots,v_k)=\\omega_{F(p)}((dF)_pv_1,\\ldots,(dF)_pv_k),"} />
+para todo <Math tex={"v_1,\\ldots,v_k\\in T_pM"} />.
+</BookBlock>
+
+<BookBlock kind="proposition" title="Propiedades del pullback">
+Sea <Math tex={"F:M\\to N"} /> suave.
+
+- (a) Si <Math tex={"\\omega\\in\\Omega^k(N)"} />, entonces <Math tex={"F^*\\omega\\in\\Omega^k(M)"} />, y <Math tex={"F^*:\\Omega^k(N)\\to\\Omega^k(M)"} /> es transf. lineal.
+- (b) <Math tex={"F^*(\\omega\\wedge\\theta)=(F^*\\omega)\\wedge(F^*\\theta)"} />.
+- (c) <Math tex={"F^*(d_N\\omega)=d_MF^*\\omega"} />.
+<Proof title="Ejercicio">
+- <Math tex={"(a)"} />
+1. Probemos que la sección <Math tex={"p\\mapsto(F^*\\omega)_p"} /> es suave. Fijemos <Math tex={"p\\in M"} /> y tomemos cartas <Math tex={"(U,x)"} /> de <Math tex={"M"} /> alrededor de <Math tex={"p"} /> y <Math tex={"(V,y)"} /> de <Math tex={"N"} /> alrededor de <Math tex={"F(p)"} />, achicando <Math tex={"U"} /> de modo que <Math tex={"F(U)\\subseteq V"} />. En <Math tex={"V"} /> escribimos <Math display tex={"\\omega=\\sum_I a_I\\,dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k},"} /> donde cada <Math tex={"a_I"} /> es suave. Afirmamos que sobre <Math tex={"U"} /> se cumple <Math display tex={"F^*\\omega=\\sum_I(a_I\\circ F)\\,d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)."} />
+
+2. Para verificar esta igualdad, sean <Math tex={"q\\in U"} /> y <Math tex={"v_1,\\ldots,v_k\\in T_qM"} />. Por definición del pullback, <Math display tex={"\\begin{aligned}(F^*\\omega)_q(v_1,\\ldots,v_k)&=\\omega_{F(q)}\\bigl((dF)_q(v_1),\\ldots,(dF)_q(v_k)\\bigr)\\\\&=\\sum_I a_I(F(q))(dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k})_{F(q)}\\bigl((dF)_q(v_1),\\ldots,(dF)_q(v_k)\\bigr).\\end{aligned}"} />
+
+3. Por definición del producto wedge de <Math tex={"1"} />-formas, <Math display tex={"(dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k})_{F(q)}\\bigl((dF)_q(v_1),\\ldots,(dF)_q(v_k)\\bigr)=\\det\\left(dy^{i_r}_{F(q)}\\bigl((dF)_q(v_s)\\bigr)\\right)_{r,s}."} />
+
+4. Por la regla de la cadena, <Math tex={"dy^{i_r}_{F(q)}\\circ(dF)_q=d(y^{i_r}\\circ F)_q"} />. Por tanto, <Math display tex={"\\begin{aligned}\\det\\left(dy^{i_r}_{F(q)}\\bigl((dF)_q(v_s)\\bigr)\\right)_{r,s}&=\\det\\left(d(y^{i_r}\\circ F)_q(v_s)\\right)_{r,s}\\\\&=\\bigl(d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)\\bigr)_q(v_1,\\ldots,v_k).\\end{aligned}"} />
+
+5. Sustituyendo, obtenemos <Math display tex={"\\begin{aligned}(F^*\\omega)_q(v_1,\\ldots,v_k)&=\\sum_I(a_I\\circ F)(q)\\bigl(d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)\\bigr)_q(v_1,\\ldots,v_k)\\\\&=\\left(\\sum_I(a_I\\circ F)\\,d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)\\right)_q(v_1,\\ldots,v_k).\\end{aligned}"} />
+
+6. Como esto vale para todo <Math tex={"q\\in U"} /> y todos <Math tex={"v_1,\\ldots,v_k\\in T_qM"} />, concluimos que <Math display tex={"F^*\\omega=\\sum_I(a_I\\circ F)\\,d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)"} /> sobre <Math tex={"U"} />.
+
+7. Cada función <Math tex={"a_I\\circ F"} /> es suave y cada <Math tex={"d(y^{i_r}\\circ F)"} /> es una <Math tex={"1"} />-forma suave. Por lo tanto, el lado derecho es una <Math tex={"k"} />-forma suave sobre <Math tex={"U"} />. Como <Math tex={"p"} /> era arbitrario, <Math tex={"F^*\\omega\\in\\Omega^k(M)"} />.
+
+8. Finalmente, sean <Math tex={"\\omega,\\eta\\in\\Omega^k(N)"} /> y <Math tex={"a,b\\in\\mathbb R"} />. Para todo <Math tex={"p\\in M"} /> y <Math tex={"v_1,\\ldots,v_k\\in T_pM"} />, <Math display tex={"\\begin{aligned}\\bigl(F^*(a\\omega+b\\eta)\\bigr)_p(v_1,\\ldots,v_k)&=(a\\omega+b\\eta)_{F(p)}\\bigl((dF)_p(v_1),\\ldots,(dF)_p(v_k)\\bigr)\\\\&=a\\,\\omega_{F(p)}\\bigl((dF)_p(v_1),\\ldots,(dF)_p(v_k)\\bigr)\\\\&\\quad+b\\,\\eta_{F(p)}\\bigl((dF)_p(v_1),\\ldots,(dF)_p(v_k)\\bigr)\\\\&=\\bigl(aF^*\\omega+bF^*\\eta\\bigr)_p(v_1,\\ldots,v_k).\\end{aligned}"} /> Luego <Math tex={"F^*(a\\omega+b\\eta)=aF^*\\omega+bF^*\\eta"} />, por lo que <Math tex={"F^*"} /> es lineal.
+
+- <Math tex={"(b)"} />
+1. Para probar que <Math tex={"F^*(\\omega\\wedge\\theta)=(F^*\\omega)\\wedge(F^*\\theta)"} />, evaluamos ambos lados en <Math tex={"p\\in M"} /> y en vectores <Math tex={"v_1,\\ldots,v_{k+\\ell}\\in T_pM"} />.
+
+2. Por definición de pullback,
+<Math display tex={"(F^*(\\omega\\wedge\\theta))_p(v_1,\\ldots,v_{k+\\ell})=(\\omega\\wedge\\theta)_{F(p)}((dF)_pv_1,\\ldots,(dF)_pv_{k+\\ell})."} />
+
+3. Usando la definición de producto cuña,
+<Math display tex={"(\\omega\\wedge\\theta)_{F(p)}((dF)_pv_1,\\ldots,(dF)_pv_{k+\\ell})=\\frac{1}{k!\\ell!}\\sum_{\\pi\\in S_{k+\\ell}}\\operatorname{sgn}(\\pi)\\,\\omega_{F(p)}((dF)_pv_{\\pi(1)},\\ldots,(dF)_pv_{\\pi(k)})\\,\\theta_{F(p)}((dF)_pv_{\\pi(k+1)},\\ldots,(dF)_pv_{\\pi(k+\\ell)})."} />
+
+4. Pero, otra vez por definición de pullback,
+<Math display tex={"\\omega_{F(p)}((dF)_pv_{\\pi(1)},\\ldots,(dF)_pv_{\\pi(k)})=(F^*\\omega)_p(v_{\\pi(1)},\\ldots,v_{\\pi(k)}),"} />
+y
+<Math display tex={"\\theta_{F(p)}((dF)_pv_{\\pi(k+1)},\\ldots,(dF)_pv_{\\pi(k+\\ell)})=(F^*\\theta)_p(v_{\\pi(k+1)},\\ldots,v_{\\pi(k+\\ell)})."} />
+
+5. Entonces
+<Math display tex={"(F^*(\\omega\\wedge\\theta))_p(v_1,\\ldots,v_{k+\\ell})=((F^*\\omega)\\wedge(F^*\\theta))_p(v_1,\\ldots,v_{k+\\ell})."} />
+Como esto vale para todo <Math tex={"p"} /> y todo <Math tex={"v_1,\\ldots,v_{k+\\ell}"} />, queda
+<Math display tex={"F^*(\\omega\\wedge\\theta)=(F^*\\omega)\\wedge(F^*\\theta)."} />
+
+- <Math tex={"(c)"} />
+1. Por linealidad de <Math tex={"F^*"} /> y de la derivada exterior, es suficiente con verificar la igualdad en formas expresadas sobre un abierto coordenado <Math tex={"U"} />.
+
+2. Recordemos que por definición de pullback de <Math tex={"0"} />-formas,
+
+3. <Math display tex={"F^*(f)=f\\circ F."} />
+
+4. Así pues, dado <Math tex={"p\\in M"} /> y <Math tex={"v\\in T_pM"} />,
+<Math display tex={"(F^*(df))_pv=(df)_{F(p)}((dF)_pv)=d(f\\circ F)_pv."} />
+
+5. Si <Math tex={"\\theta"} /> es una <Math tex={"k"} />-forma, como la definición de la derivada exterior es local y no depende de la carta, fijemos un <Math tex={"p\\in M"} /> y una carta <Math tex={"(U,\\varphi=(x_1,\\ldots,x_n))"} /> de <Math tex={"F(p)"} />:
+<Math display tex={"\\theta|_U=\\sum_{i_1<\\cdots<i_k}a_{i_1\\ldots i_k}\\,dx_{i_1}\\wedge\\cdots\\wedge dx_{i_k}=\\sum_Ia_I\\,dx_I."} />
+
+6. Entonces
+<Math display tex={"(d_N\\theta)|_U=\\sum_I(da_I)\\wedge dx_I."} />
+
+7. Por tanto
+<Math display tex={"\\begin{align}(F^*(d_N\\theta))_p&=\\left(F^*\\left(\\sum_I(da_I)\\wedge dx_I\\right)\\right)_p\\\\&=\\sum_I(F^*(da_I))_p\\wedge(F^*(dx_I))_p\\\\&=\\sum_{i_1<\\cdots<i_k}d(a_I\\circ F)_p\\wedge d(x_{i_1}\\circ F)_p\\wedge\\cdots\\wedge d(x_{i_k}\\circ F)_p.\\end{align}"} />
+En la última igualdad usamos el paso 3.
+
+8. Por otro lado
+<Math display tex={"\\begin{align}(d_M(F^*\\theta))_p&=\\left(d_M\\left(F^*\\left(\\sum_Ia_I\\,dx_I\\right)\\right)\\right)_p\\\\&=\\left(d_M\\left(\\sum_I(F^*a_I)\\wedge F^*(dx_I)\\right)\\right)_p\\\\&=\\left(d_M\\left(\\sum_{i_1<\\cdots<i_k}(a_I\\circ F)\\,d(x_{i_1}\\circ F)\\wedge\\cdots\\wedge d(x_{i_k}\\circ F)\\right)\\right)_p\\\\&=\\sum_{i_1<\\cdots<i_k}d(a_I\\circ F)_p\\wedge d(x_{i_1}\\circ F)_p\\wedge\\cdots\\wedge d(x_{i_k}\\circ F)_p.\\end{align}"} />
+
+9. En la última igualdad usamos que <Math tex={"d_Md_M=0"} />. Comparando con la expresión anterior, concluimos que <Math display tex={"(F^*(d_N\\theta))_p=(d_M(F^*\\theta))_p."} />
+</Proof>
+</BookBlock>

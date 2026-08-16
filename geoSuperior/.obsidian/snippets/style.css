@@ -314,6 +314,12 @@
     padding-bottom: 0;
 }
 
+/* Keep the first proof step close to the Proof heading. */
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-content > ol:first-child {
+    margin-top: 0.2em;
+}
+
 .callout[data-callout]
     .callout[data-callout="proof"] > .callout-content > :last-child {
     margin-bottom: 0;

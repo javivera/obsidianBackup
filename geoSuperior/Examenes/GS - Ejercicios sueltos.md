@@ -491,7 +491,6 @@
 >>$$\dim N=n-k+1.$$
 >>En particular, $\dim N\geq n-k+1$, como se quería demostrar.
 
-### 5
 >[!Exercise]
 >Sea $\alpha$ la 1-forma diferenciable en $\mathbb R^3$ definida por
 >$$\alpha=dz-x\,dy.$$
@@ -532,13 +531,43 @@
 >>	Para todo $p\in\mathbb R^3$, los vectores $X_p$ e $Y_p$ son linealmente independientes y generan $D_p$. Luego $D$ es una distribución diferenciable de rango $2$.
 >>	5. Calculamos el corchete de los campos generadores:
 >>	$$[X,Y]=\left[\frac{\partial}{\partial x},\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}\right]=\frac{\partial}{\partial z}.$$
->>	6. Sin embargo,
->>	$$\alpha\left([X,Y]\right)=(dz-x\,dy)\left(\frac{\partial}{\partial z}\right)=1.$$
->>	Por lo tanto, $[X,Y]_p\notin D_p$ para todo $p\in\mathbb R^3$. En consecuencia,
+>>	6. Para $p=(x,y,z)$, respecto de la base coordenada de $T_p\mathbb R^3$, los vectores $X_p$, $Y_p$ y $[X,Y]_p$ son las columnas de la matriz
+>>	$$\begin{pmatrix}1&0&0\\0&1&0\\0&x&1\end{pmatrix}.$$
+>>	7. El determinante de esta matriz es $1$, de modo que $X_p$, $Y_p$ y $[X,Y]_p$ son linealmente independientes. En particular,
+>>	$$[X,Y]_p\notin\operatorname{span}\{X_p,Y_p\}=D_p$$
+>>	para todo $p\in\mathbb R^3$. En consecuencia,
 >>	$$D\text{ no es involutiva.}$$
 
-### 6
-Mostrar que $M\times M$ es orientable si $M$ lo es.
+>[!Exercise]
+>Mostrar que $M\times M$ es orientable si $M$ lo es.
+>
+>>[!Proof]-
+>>8. Sea $\dim M=n$ y sea
+>>$$\mathcal A=\{(U_i,\varphi_i)\}_{i\in I}$$
+>>un atlas orientado de $M$.
+>>9. Consideramos en $M\times M$ la familia de cartas producto
+>>$$\mathcal A\times\mathcal A=\left\{\left(U_i\times U_j,\varphi_i\times\varphi_j\right)\right\}_{(i,j)\in I\times I},$$
+>>donde
+>>$$(\varphi_i\times\varphi_j)(p,q)=\bigl(\varphi_i(p),\varphi_j(q)\bigr).$$
+>>10. Los abiertos $U_i\times U_j$ cubren $M\times M$. Además, cada aplicación producto es un homeomorfismo sobre el abierto
+>>$$\varphi_i(U_i)\times\varphi_j(U_j)\subseteq\mathbb R^n\times\mathbb R^n\simeq\mathbb R^{2n},$$
+>>pues su inversa es
+>>$$(\varphi_i\times\varphi_j)^{-1}=\varphi_i^{-1}\times\varphi_j^{-1}.$$
+>>11. Consideremos dos cartas producto que se solapan, correspondientes a los índices $(i,j)$ y $(k,\ell)$. Su cambio de coordenadas es
+>>$$\begin{aligned}
+>>(\varphi_k\times\varphi_\ell)\circ(\varphi_i\times\varphi_j)^{-1}(x,y)
+>>&=\left((\varphi_k\circ\varphi_i^{-1})(x),(\varphi_\ell\circ\varphi_j^{-1})(y)\right).
+>>\end{aligned}$$
+>>12. Este cambio es suave porque cada uno de sus componentes es un cambio de coordenadas suave del atlas $\mathcal A$. Por lo tanto, $\mathcal A\times\mathcal A$ es un atlas suave de $M\times M$.
+>>13. El diferencial del cambio de coordenadas producto tiene matriz diagonal por bloques:
+>>$$\begin{pmatrix}
+>>D(\varphi_k\circ\varphi_i^{-1})_x&0\\
+>>0&D(\varphi_\ell\circ\varphi_j^{-1})_y
+>>\end{pmatrix}.$$
+>>14. Como $\mathcal A$ es un atlas orientado, los determinantes de ambos bloques son positivos. En consecuencia,
+>>$$\det D\left((\varphi_k\times\varphi_\ell)\circ(\varphi_i\times\varphi_j)^{-1}\right)_{(x,y)}=\det D(\varphi_k\circ\varphi_i^{-1})_x\,\det D(\varphi_\ell\circ\varphi_j^{-1})_y>0.$$
+>>15. Así, todos los cambios de coordenadas de $\mathcal A\times\mathcal A$ preservan la orientación. Por lo tanto, este es un atlas orientado y
+>>$$M\times M\text{ es orientable.}$$
 
 ---
 
@@ -562,19 +591,71 @@ U_2^+=\{x\in S^2:x_2>0\}
 $$
 y que $(U_2^+,F^{-1})$ es un sistema coordenado de $S^2$.
 
-### 2
-Sean $X$ e $Y$ los campos en $\mathbb R^3$ definidos por
-$$
-X=\frac{\partial}{\partial x}+y\frac{\partial}{\partial z},
-\qquad
-Y=\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}.
-$$
+### Ejercicio 2
 
-a) Probar que $X$ e $Y$ definen una distribución diferenciable $D$ en $\mathbb R^3$ de dimensión $2$.
-
-b) Probar que $D$ es involutiva.
-
-c) Probar que los conjuntos indicados en el enunciado son subvariedades integrales maximales conexas de $D$.
+>[!Exercise]
+>Sean $X$ e $Y$ los campos en $\mathbb R^3$ definidos por
+>$$X=\frac{\partial}{\partial x}+y\frac{\partial}{\partial z},\qquad Y=\frac{\partial}{\partial y}+x\frac{\partial}{\partial z}.$$
+>
+>**(a)** Probar que $X$ e $Y$ definen una distribución diferenciable $D$ en $\mathbb R^3$ de dimensión $2$.
+>
+>**(b)** Probar que $D$ es involutiva.
+>
+>**(c)** Probar que los conjuntos
+>$$S_a=\{(x,y,z)\in\mathbb R^3:z-xy=a\},\qquad a\in\mathbb R,$$
+>son subvariedades integrales maximales conexas de $D$.
+>
+>>[!Proof]-
+>>- **(a)**
+>>	1. Para cada $p=(p_1,p_2,p_3)\in\mathbb R^3$, definimos
+>>	$$D_p=\operatorname{span}\{X_p,Y_p\}\subset T_p\mathbb R^3.$$
+>>	2. Los campos $X$ e $Y$ son suaves porque sus funciones coordenadas respecto de la base coordenada son suaves.
+>>	3. Evaluando los campos en $p$, obtenemos
+>>	$$X_p=\left.\frac{\partial}{\partial x}\right|_p+p_2\left.\frac{\partial}{\partial z}\right|_p,\qquad Y_p=\left.\frac{\partial}{\partial y}\right|_p+p_1\left.\frac{\partial}{\partial z}\right|_p.$$
+>>	4. Por lo tanto, sus vectores de coordenadas respecto de la base
+>>	$$\left\{\left.\frac{\partial}{\partial x}\right|_p,\left.\frac{\partial}{\partial y}\right|_p,\left.\frac{\partial}{\partial z}\right|_p\right\}$$
+>>	son
+>>	$$[X_p]=(1,0,p_2),\qquad [Y_p]=(0,1,p_1).$$
+>>	5. La matriz que tiene estos vectores como columnas posee el menor formado por sus dos primeras filas
+>>	$$\det\begin{pmatrix}1&0\\0&1\end{pmatrix}=1\neq0.$$
+>>	6. Así, $X_p$ e $Y_p$ son linealmente independientes para todo $p\in\mathbb R^3$, y por tanto
+>>	$$\dim D_p=2.$$
+>>	7. Como $D$ está globalmente generada por los campos suaves $X$ e $Y$, concluimos que $D$ es una distribución diferenciable de dimensión $2$ sobre $\mathbb R^3$.
+>>- **(b)**
+>>	1. Usando las funciones coordenadas de los campos, calculamos
+>>	$$[X,Y]=\left(X(0)-Y(1)\right)\frac{\partial}{\partial x}+\left(X(1)-Y(0)\right)\frac{\partial}{\partial y}+\left(X(x)-Y(y)\right)\frac{\partial}{\partial z}.$$
+>>	2. Como $X(x)=1$ e $Y(y)=1$, resulta
+>>	$$[X,Y]=0.$$
+>>	3. En particular, $[X,Y]_p\in D_p$ para todo $p\in\mathbb R^3$. Como $X$ e $Y$ forman un marco global de $D$, esto prueba que $D$ es involutiva.
+>>- **(c)**
+>>	1. Fijamos $a\in\mathbb R$ y consideramos la función suave
+>>	$$f:\mathbb R^3\longrightarrow\mathbb R,\qquad f(x,y,z)=z-xy.$$
+>>	2. Entonces
+>>	$$S_a=f^{-1}(a).$$
+>>	3. Para $p=(p_1,p_2,p_3)\in\mathbb R^3$, el diferencial es la aplicación lineal intrínseca
+>>	$$df_p:T_p\mathbb R^3\longrightarrow T_{f(p)}\mathbb R.$$
+>>	4. Respecto de las bases coordenadas, $df_p$ está representado por
+>>	$$df_p=(-p_2,-p_1,1).$$
+>>	5. Como su tercera componente es $1$, $df_p$ es sobreyectivo en todo punto. Por lo tanto, $a$ es un valor regular de $f$ y $S_a$ es una subvariedad incrustada de dimensión $2$.
+>>	6. Sea $i_a:S_a\hookrightarrow\mathbb R^3$ la inclusión. Por el teorema del nivel regular,
+>>	$$d(i_a)_p(T_pS_a)=\ker(df_p)\subset T_p\mathbb R^3.$$
+>>	7. Si
+>>	$$v=u\left.\frac{\partial}{\partial x}\right|_p+v_2\left.\frac{\partial}{\partial y}\right|_p+w\left.\frac{\partial}{\partial z}\right|_p,$$
+>>	entonces $v\in\ker(df_p)$ si y solo si
+>>	$$-p_2u-p_1v_2+w=0,$$
+>>	es decir, si y solo si $w=p_2u+p_1v_2$.
+>>	8. En consecuencia,
+>>	$$\ker(df_p)=\operatorname{span}\left\{\left.\frac{\partial}{\partial x}\right|_p+p_2\left.\frac{\partial}{\partial z}\right|_p,\left.\frac{\partial}{\partial y}\right|_p+p_1\left.\frac{\partial}{\partial z}\right|_p\right\}=\operatorname{span}\{X_p,Y_p\}=D_p.$$
+>>	9. Por lo tanto,
+>>	$$d(i_a)_p(T_pS_a)=D_p$$
+>>	para todo $p\in S_a$, de modo que $(S_a,i_a)$ es una subvariedad integral de $D$.
+>>	10. Para probar que $S_a$ es conexa, definimos
+>>	$$\Phi_a:\mathbb R^2\longrightarrow\mathbb R^3,\qquad \Phi_a(x,y)=(x,y,xy+a).$$
+>>	11. La aplicación $\Phi_a$ es continua y su imagen es exactamente $S_a$. Como $\mathbb R^2$ es conexo y la imagen continua de un espacio conexo es conexa, concluimos que $S_a$ es conexa.
+>>	12. Además, $S_a=f^{-1}(\{a\})$ es cerrado en $\mathbb R^3$, porque $f$ es continua y $\{a\}$ es cerrado en $\mathbb R$.
+>>	13. Finalmente, $D$ es involutiva por **(b)**. Por el resultado que afirma que una subvariedad integral conexa de una distribución involutiva cuya imagen es cerrada en la variedad ambiente es conexa maximal, $(S_a,i_a)$ es una subvariedad integral conexa maximal de $D$.
+>>	14. Como $a\in\mathbb R$ era arbitrario, la conclusión vale para toda la familia:
+>>	$$S_a=\{(x,y,z)\in\mathbb R^3:z-xy=a\},\qquad a\in\mathbb R.$$
 
 ### 3
 Sea $M$ una variedad cubierta por dos sistemas coordenados $(U,\phi)$ y $(V,\psi)$, conexos, tales que $U\cap V$ tiene exactamente dos componentes conexas, con la propiedad de que el determinante de cambio de coordenadas es positivo en una componente conexa y negativo en la otra. Probar que $M$ no es orientable.

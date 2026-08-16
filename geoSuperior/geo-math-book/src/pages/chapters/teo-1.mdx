@@ -1,0 +1,250 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Diferenciabilidad en espacios normados"
+description: "Teorico convertido desde GS - Teo1.md"
+chapter: "Teo 1"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Diferenciabilidad en espacios normados
+
+## Diferenciabilidad en espacios normados
+
+<BookBlock kind="definition" title="Definición">
+Sean <Math tex={"V"} /> y <Math tex={"W"} /> espacios vectoriales reales de dimensión finita, normados. Sea <Math tex={"I \\subseteq V"} /> un abierto y <Math tex={"p \\in I"} />. Una función <Math tex={"F \\colon I \\to W"} /> se dice *diferenciable en <Math tex={"p"} />* si existe una transformación lineal <Math tex={"T \\colon V \\to W"} /> tal que
+<Math display tex={"\\lim_{v \\to 0} \\frac{\\|F(p+v)-F(p)-Tv\\|}{\\|v\\|} = 0."} />
+La norma del denominador es la de <Math tex={"V"} /> y la del numerador es la de <Math tex={"W"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Pregunta">
+¿Qué representa <Math tex={"Tv"} />?
+</BookBlock>
+
+<BookBlock kind="lemma">
+Sean <Math tex={"U"} />, <Math tex={"W"} /> y <Math tex={"X"} /> espacios vectoriales reales normados de dimensión finita. Sean
+<Math display tex={"g \\colon A \\subseteq U \\to W,\\qquad f \\colon B \\subseteq W \\to X"} />funciones con <Math tex={"\\operatorname{Im}(g)\\subseteq B"} />.
+Sean <Math tex={"x_0"} /> e <Math tex={"y_0"} /> puntos de acumulación de <Math tex={"A"} /> y <Math tex={"B"} />, respectivamente. Supongamos que <Math display tex={"\\lim_{x\\to x_0} g(x)=y_0, \\qquad \\lim_{y\\to y_0} f(y)=z."} />
+Si se cumple alguna de las siguientes condiciones:
+1. <Math tex={"f"} /> es continua en <Math tex={"y_0"} />.
+2. <Math tex={"g(x)\\neq y_0"} /> en una vecindad agujereada de <Math tex={"x_0"} />.
+Entonces <Math display tex={"\\lim_{x\\to x_0} f(g(x))=z."} />
+</BookBlock>
+
+<BookBlock kind="proposition" title="Matriz Diferencial">
+Sea <Math tex={"F \\colon I \\subseteq V \\to W"} /> diferenciable en <Math tex={"p"} /> y sea <Math tex={"T \\colon V \\to W"} /> una transformación lineal tal que <Math display tex={"\\lim_{v \\to 0} \\frac{\\|F(p+v)-F(p)-Tv\\|}{\\|v\\|} = 0."} />
+Entonces, para todo <Math tex={"v \\in V"} />, <Math display tex={"Tv = \\lim_{t \\to 0} \\frac{F(p+tv)-F(p)}{t}."} />
+<Proof title="Demostracion">
+Si <Math tex={"v=0"} />, la igualdad es inmediata porque <Math tex={"T0=0"} />. Supongamos <Math tex={"v \\neq 0"} />. Como <Math tex={"I"} /> es abierto y <Math tex={"p \\in I"} />, existe <Math tex={"\\varepsilon>0"} /> tal que <Math tex={"p+tv \\in I"} /> para todo <Math tex={"t \\in (-\\varepsilon,\\varepsilon)"} />. Entonces
+<Math display tex={"0\n= \\lim_{t \\to 0}\n\\frac{\\|F(p+tv)-F(p)-T(tv)\\|}{\\|tv\\|}\n= \\lim_{t \\to 0}\n\\frac{1}{\\|v\\|}\n\\left\\|\\frac{F(p+tv)-F(p)}{t}-Tv\\right\\|."} />
+Multiplicando por <Math tex={"\\|v\\|"} />, se obtiene
+<Math display tex={"\\lim_{t \\to 0}\\left\\|\\frac{F(p+tv)-F(p)}{t}-Tv\\right\\|=0,"} />
+de donde
+<Math display tex={"Tv = \\lim_{t \\to 0} \\frac{F(p+tv)-F(p)}{t}."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="corollary" title="Corolario">
+Si <Math tex={"F"} /> es diferenciable en <Math tex={"p"} />, existe una única transformación lineal que satisface la definición anterior. Se la llama *diferencial de <Math tex={"F"} /> en <Math tex={"p"} />* y se la denota por
+<Math display tex={"(\\mathrm{d}F)_p \\colon V \\to W."} />
+<Proof title="Demostracion">
+La proposición anterior muestra que cualquier transformación lineal que satisfaga la definición debe verificar
+<Math display tex={"Tv = \\lim_{t \\to 0} \\frac{F(p+tv)-F(p)}{t}\n\\qquad \\text{para todo } v \\in V,"} />
+y por lo tanto queda completamente determinada por <Math tex={"F"} /> y por <Math tex={"p"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="definition" title="Aproximacion afin">
+Sea <Math tex={"F \\colon I \\subseteq V \\to W"} /> es diferenciable en <Math tex={"p"} />. Podemos definir <Math display tex={"\\begin{align} R(v)&= F(p+v)-F(p)-Tv\\\\ & =  F(p+v)-F(p)-(dF)_{p}(v)\\\\&=F(p+v)-\\bigg(F(p)+(dF)_{p}(v)\\bigg)\\end{align}"} />
+Sustituyendo llegamos a que <Math display tex={"R(x-p)=F(x)-\\bigg(F(p)+(dF)_{p}(x-p)\\bigg)"} /> 
+El término <Math tex={"R(v)"} /> es el error al aproximar <Math tex={"F(p+v)"} /> por la *aproximación afín de <Math tex={"F"} /> en <Math tex={"p"} />* <Math display tex={"A_{p}(x)=F(p)+(\\mathrm{d}F)_p(x-p)."} />
+Osea podemos pensar <Math display tex={"F(x)\\approx A_{p}(x)"} />
+O podemos pensar <Math display tex={"F(x)=A_{p}(x)+R(x-p)"} /> donde <Math tex={"R(x-p)"} /> cumple <Math tex={"\\lim\\limits_{ x \\to p }\\lVert R(x-p) \\rVert=0"} />. Mas aún, lo hace mas rapido que lineal   <Math display tex={"\\lim_{x\\to p}\\frac{\\|R(x-p)\\|}{\\|x-p\\|}=0."} />
+</BookBlock>
+
+<BookBlock kind="lemma" title="Lema">
+Toda transformación lineal <Math tex={"T \\colon V \\to W"} /> entre espacios vectoriales reales normados de dimensión finita es acotada. Es decir, existe <Math tex={"\\mu \\ge 0"} /> tal que
+<Math display tex={"\\|Tv\\|\\le \\mu \\|v\\|\n\\qquad \\text{para todo } v \\in V."} />
+<Proof title="Demostracion">
+1. Sea <Math display tex={"S=\\{v\\in V:\\|v\\|=1\\}"} />
+2. La función <Math tex={"G \\colon S \\to \\mathbb{R}"} />, <Math tex={"G(v)=\\|Tv\\|"} />, es continua. 
+3. Como <Math tex={"S"} /> es cerrado y acotado en un espacio de dimensión finita, es compacto; por ende <Math tex={"G(S)"} /> alcanza un máximo, digamos <Math tex={"\\mu\\ge 0"} />. 
+4. Luego <Math display tex={"\\|Tv\\|\\le \\mu\\qquad \\text{para todo } v\\in S."} />
+5. Si <Math tex={"v\\neq 0"} />, entonces <Math tex={"v/\\|v\\|\\in S"} />, de modo que <Math display tex={"\\|Tv\\|=\\|v\\|\\,\\left\\|T\\!\\left(\\frac{v}{\\|v\\|}\\right)\\right\\|\\le\\mu \\|v\\|."} />
+6. El caso <Math tex={"v=0"} /> es trivial.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="theorem" title="Teorema">
+Si <Math tex={"F \\colon I \\subseteq V \\to W"} /> es diferenciable en <Math tex={"p"} />, entonces <Math tex={"F"} /> es continua en <Math tex={"p"} />.
+<Proof title="Demostracion">
+Sea <Math tex={"T=(\\mathrm{d}F)_p"} />. Entonces
+<Math display tex={"F(p+v)-F(p)=\\bigl(F(p+v)-F(p)-Tv\\bigr)+Tv."} />
+Tomando normas y usando el lema anterior,
+<Math display tex={"\\|F(p+v)-F(p)\\|\n\\le\n\\|F(p+v)-F(p)-Tv\\|+\\|Tv\\|\n\\le\n\\|v\\|\\,\\frac{\\|F(p+v)-F(p)-Tv\\|}{\\|v\\|}+\\mu \\|v\\|."} />
+Cuando <Math tex={"v\\to 0"} />, ambos sumandos tienden a <Math tex={"0"} />, luego
+<Math display tex={"\\lim_{v\\to 0} F(p+v)=F(p)."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise" title="Ejercicio">
+Rehacer la demostración del lema anterior usando continuidad de transformaciones lineales, o bien demostrar que toda transformación lineal entre espacios normados de dimensión finita es continua.
+</BookBlock>
+
+## Diferenciabilidad en conjuntos y regla de la cadena
+
+<BookBlock kind="definition" title="Definición">
+Sea <Math tex={"F \\colon I \\subseteq V \\to W"} /> con <Math tex={"I"} /> abierto. Se dice que <Math tex={"F"} /> es *diferenciable* si es diferenciable en cada punto de <Math tex={"I"} />.
+</BookBlock>
+
+<BookBlock kind="definition" title="Definición">
+Sea <Math tex={"A\\subseteq V"} /> arbitrario y sea <Math tex={"F \\colon A \\to W"} /> continua. Se dice que <Math tex={"F"} /> es *diferenciable en <Math tex={"p\\in A"} />* si existe un abierto <Math tex={"I_p\\subseteq V"} /> con <Math tex={"p\\in I_p"} /> y una función diferenciable
+<Math display tex={"F_p \\colon I_p \\to W"} />
+tal que <Math tex={"F_p"} /> extiende a <Math tex={"F"} /> en <Math tex={"A\\cap I_p"} />, es decir,
+<Math display tex={"F_p|_{A\\cap I_p}=F|_{A\\cap I_p}."} />
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+Más adelante se puede probar una caracterización equivalente: <Math tex={"F \\colon A \\to W"} /> es diferenciable si y solo si existe un abierto <Math tex={"I"} /> que contiene a <Math tex={"A"} /> y una función diferenciable <Math tex={"\\widetilde{F}\\colon I\\to W"} /> tal que <Math tex={"\\widetilde{F}|_A=F"} />.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Teorema (Regla de la cadena)">
+Sean <Math tex={"V"} />, <Math tex={"W"} /> y <Math tex={"X"} /> espacios vectoriales reales normados de dimensión finita. Sean <Math tex={"I\\subseteq V"} /> y <Math tex={"\\widetilde{I}\\subseteq W"} /> abiertos, y sean
+<Math display tex={"F \\colon I \\to \\widetilde{I},\n\\qquad\nG \\colon \\widetilde{I} \\to X."} />
+Si <Math tex={"F"} /> es diferenciable en <Math tex={"p\\in I"} /> y <Math tex={"G"} /> es diferenciable en <Math tex={"F(p)\\in \\widetilde{I}"} />, entonces <Math tex={"G\\circ F"} /> es diferenciable en <Math tex={"p"} /> y
+<Math display tex={"\\mathrm{d}(G\\circ F)_p\n=\n\\mathrm{d} G_{F(p)} \\circ \\mathrm{d} F_p."} />
+<Proof title="Demostracion">
+Escribamos
+<Math display tex={"q=F(p),\\qquad T=\\mathrm{d} F_p,\\qquad Q=\\mathrm{d} G_q."} />
+Queremos probar que
+<Math display tex={"\\lim_{v\\to 0}\n\\frac{\\|G(F(p+v))-G(F(p))-Q(Tv)\\|}{\\|v\\|}=0."} />
+Definimos
+<Math display tex={"w = F(p+v)-F(p)."} />
+Entonces <Math tex={"w\\to 0"} /> cuando <Math tex={"v\\to 0"} /> porque <Math tex={"F"} /> es continua en <Math tex={"p"} />. Además,
+<Math display tex={"G(F(p+v))-G(F(p))-Q(Tv)\n=\n\\bigl(G(q+w)-G(q)-Qw\\bigr)+Q(w-Tv)."} />
+Por el lema de acotación aplicado a <Math tex={"Q"} />, existe <Math tex={"\\mu\\ge 0"} /> tal que
+<Math display tex={"\\|Q(w-Tv)\\|\\le \\mu \\|w-Tv\\|."} />
+Por lo tanto,
+<Math display tex={"\\frac{\\|G(F(p+v))-G(F(p))-Q(Tv)\\|}{\\|v\\|}\n\\le\n\\frac{\\|G(q+w)-G(q)-Qw\\|}{\\|v\\|}\n+\n\\mu \\frac{\\|w-Tv\\|}{\\|v\\|}."} />
+Si <Math tex={"w=0"} />, el primer sumando es cero. Si <Math tex={"w\\neq 0"} />, escribimos
+<Math display tex={"\\frac{\\|G(q+w)-G(q)-Qw\\|}{\\|v\\|}\n=\n\\frac{\\|G(q+w)-G(q)-Qw\\|}{\\|w\\|}\n\\cdot\n\\frac{\\|w\\|}{\\|v\\|}."} />
+Además,
+<Math display tex={"\\frac{\\|w\\|}{\\|v\\|}\n\\le\n\\frac{\\|F(p+v)-F(p)-Tv\\|}{\\|v\\|}\n+\n\\frac{\\|Tv\\|}{\\|v\\|}\n\\le\n\\frac{\\|F(p+v)-F(p)-Tv\\|}{\\|v\\|}+\\lambda"} />
+para alguna constante <Math tex={"\\lambda\\ge 0"} />, nuevamente por acotación de <Math tex={"T"} />. El primer factor tiende a <Math tex={"0"} /> porque <Math tex={"G"} /> es diferenciable en <Math tex={"q"} />, y el segundo está acotado cerca de <Math tex={"v=0"} />. Por otro lado,
+<Math display tex={"\\mu \\frac{\\|w-Tv\\|}{\\|v\\|}\n=\n\\mu \\frac{\\|F(p+v)-F(p)-Tv\\|}{\\|v\\|}\n\\longrightarrow 0\n\\qquad (v\\to 0)"} />
+porque <Math tex={"F"} /> es diferenciable en <Math tex={"p"} />. Concluimos que el cociente completo tiende a <Math tex={"0"} />.
+</Proof>
+</BookBlock>
+
+## Derivadas parciales
+
+<BookBlock kind="remark">
+Nos enfocamos ahora en el caso <Math tex={"V=\\mathbb{R}^n"} /> y <Math tex={"W=\\mathbb{R}^m"} /> con sus normas usuales. Sea <Math display tex={"F \\colon U \\subseteq \\mathbb{R}^n \\to \\mathbb{R}^m"} />diferenciable en <Math tex={"p\\in U"} />. En <Math tex={"\\mathbb{R}^n"} /> consideramos la base canónica <Math display tex={"\\{e_1,\\dots,e_n\\},\\qquad e_i=(0,\\dots,0,1,0,\\dots,0)."} />
+La matriz de <Math tex={"(\\mathrm{d} F)_p"} /> respecto de las bases canónicas de <Math tex={"\\mathbb{R}^n"} /> y <Math tex={"\\mathbb{R}^m"} /> se llama *matriz jacobiana* de <Math tex={"F"} /> en <Math tex={"p"} /> y se denota por <Math display tex={"JF(p)=\\bigl((\\mathrm{d} F)_p e_1 \\ \\cdots \\ (\\mathrm{d} F)_p e_n\\bigr)."} />
+Cada columna es el vector <Math tex={"(\\mathrm{d} F)_p e_i"} />, y por la proposición inicial, <Math display tex={"(\\mathrm{d} F)_p e_i=\\lim_{t\\to 0}\\frac{F(p+t e_i)-F(p)}{t}."} />
+Por otro lado podemos escribir la imagen de <Math tex={"dF_{p}"} /> en base canonica tenemos <Math display tex={"(\\mathrm{d} F)_p e_i = \\sum_{j=1}^m t_j e_j,"} />entonces las coordenadas <Math tex={"t_j"} /> satisfacen <Math display tex={"t_j=\\left\\langle (\\mathrm{d} F)_p e_i,e_j\\right\\rangle=\\lim_{t\\to 0}\\left\\langle \\frac{F(p+t e_i)-F(p)}{t},e_j\\right\\rangle."} />
+Si <Math tex={"F=(F_1,\\dots,F_m)"} />, esto equivale a <Math display tex={"t_j=\\lim_{t\\to 0}\\frac{F_j(p+t e_i)-F_j(p)}{t}."} />
+</BookBlock>
+
+<BookBlock kind="definition" title="Derivada parcial escalar">
+Dada <Math tex={"f \\colon U \\subseteq \\mathbb{R}^n \\to \\mathbb{R}"} />, con <Math tex={"U"} /> abierto, la *<Math tex={"i"} />-ésima derivada parcial* de <Math tex={"f"} /> en <Math tex={"p\\in U"} /> se define por <Math display tex={"\\frac{\\partial f}{\\partial x_i}(p):= \\lim_{t\\to 0}\\frac{f(p+t e_i)-f(p)}{t},"} />cuando este límite existe.
+</BookBlock>
+
+<BookBlock kind="definition" title="Derivada parcial vectorial">
+Si
+<Math display tex={"F=(F_1,\\dots,F_m)\\colon U \\subseteq \\mathbb{R}^n \\to \\mathbb{R}^m,"} />
+definimos
+<Math display tex={"\\frac{\\partial F}{\\partial x_i}(p)\n:=\n\\begin{pmatrix}\n\\dfrac{\\partial F_1}{\\partial x_i}(p)\\\\[0.6em]\n\\vdots\\\\[0.2em]\n\\dfrac{\\partial F_m}{\\partial x_i}(p)\n\\end{pmatrix},"} />
+cuando cada una de esas derivadas parciales existe.
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+Si <Math tex={"F"} /> es diferenciable en <Math tex={"p"} />, entonces la matriz jacobiana está dada por
+<Math display tex={"JF(p)=\\bigl(a_{jk}\\bigr)\n=\n\\left(\\frac{\\partial F_j}{\\partial x_k}(p)\\right),"} />
+es decir, la <Math tex={"i"} />-ésima columna de <Math tex={"JF(p)"} /> es el vector
+<Math display tex={"\\frac{\\partial F}{\\partial x_i}(p)."} />
+</BookBlock>
+
+<BookBlock kind="definition">
+<Fragment slot="title">Función de clase <Math tex={"C^1"} /></Fragment>
+Sea <Math tex={"F \\colon U \\subseteq \\mathbb{R}^n \\to \\mathbb{R}^m"} />, con <Math tex={"U"} /> abierto. Si todas las derivadas parciales de las componentes de <Math tex={"F"} /> existen en todo punto de <Math tex={"U"} /> y las funciones
+<Math display tex={"\\frac{\\partial F_i}{\\partial x_j}\\colon U \\subseteq \\mathbb{R}^{n} \\to \\mathbb{R}"} />
+son continuas, entonces se dice que <Math tex={"F"} /> es una *función de clase <Math tex={"C^1"} />*, o bien que es *continuamente diferenciable* en <Math tex={"U"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+Si <Math tex={"F"} /> es diferenciable en <Math tex={"p"} />, entonces para todo <Math tex={"v\\in \\mathbb{R}^n"} /> existe la derivada direccional
+<Math display tex={"(\\mathrm{d} F)_p(v)\n=\n\\lim_{t\\to 0}\\frac{F(p+tv)-F(p)}{t}."} />
+En particular, existen todas las derivadas parciales y <Math tex={"F"} /> es continua en <Math tex={"p"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+La existencia de todas las derivadas direccionales en un punto no garantiza que <Math tex={"F"} /> sea diferenciable en ese punto.
+</BookBlock>
+
+<BookBlock kind="exercise">
+Sea <Math tex={"F:\\mathbb{R}^2\\to \\mathbb{R}"} /> dada por <Math display tex={"f(x,y)= \\begin{cases} \\dfrac{x^2y}{x^4+y^2}, & (x,y)\\neq (0,0),\\\\[0.6em] 0, & (x,y)=(0,0). \\end{cases}"} />
+Mostrar que todas las derivadas direccionales existen en <Math tex={"p=(0,0)"} />, pero <Math tex={"F"} /> no es continua en <Math tex={"(0,0)"} />. ¿Qué puede decir de la función?
+<Proof title="Demostracion">
+1. Sea <Math tex={"v=(a,b)\\in \\mathbb{R}^2"} />. La derivada direccional de <Math tex={"f"} /> en <Math tex={"(0,0)"} /> en dirección <Math tex={"v"} /> es <Math display tex={"D_vf(0,0)=\\lim_{t\\to 0}\\frac{f(ta,tb)-f(0,0)}{t}."} />
+2. Como <Math tex={"f(0,0)=0"} />, para <Math tex={"t\\neq 0"} /> tenemos <Math display tex={"f(ta,tb)=\\frac{(ta)^2(tb)}{(ta)^4+(tb)^2}=\\frac{t^3a^2b}{t^4a^4+t^2b^2}=\\frac{ta^2b}{t^2a^4+b^2}."} />
+3. Por lo tanto, <Math display tex={"\\frac{f(ta,tb)}{t}=\\frac{a^2b}{t^2a^4+b^2}."} />
+4. Si <Math tex={"b\\neq 0"} />, al pasar al límite resulta <Math display tex={"D_vf(0,0)=\\lim_{t\\to 0}\\frac{a^2b}{t^2a^4+b^2}=\\frac{a^2}{b}."} />
+5. Si <Math tex={"b=0"} />, entonces <Math tex={"f(ta,0)=0"} /> para todo <Math tex={"t"} />, y por ende <Math display tex={"D_{(a,0)}f(0,0)=0."} />
+6. Luego, todas las derivadas direccionales de <Math tex={"f"} /> en <Math tex={"(0,0)"} /> existen.
+7. Veamos ahora que <Math tex={"f"} /> no es continua en <Math tex={"(0,0)"} />. Si tomamos la curva <Math tex={"y=x^2"} />, para <Math tex={"x\\neq 0"} /> se obtiene <Math display tex={"f(x,x^2)=\\frac{x^2\\,x^2}{x^4+x^4}=\\frac{x^4}{2x^4}=\\frac{1}{2}."} />
+8. Así, <Math display tex={"\\lim_{x\\to 0}f(x,x^2)=\\frac{1}{2}\\neq 0=f(0,0)."} />
+9. En consecuencia, <Math tex={"f"} /> no es continua en <Math tex={"(0,0)"} />.
+10. Por lo tanto, <Math tex={"f"} /> no es diferenciable en <Math tex={"(0,0)"} />. Este ejemplo muestra que la existencia de todas las derivadas direccionales en un punto no implica ni continuidad ni diferenciabilidad en ese punto.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="theorem">
+<Fragment slot="title">Diferenciabilidad en <Math tex={"C^1"} /></Fragment>
+Sea <Math tex={"U\\subseteq \\mathbb{R}^n"} /> un abierto. Si <Math tex={"F:U\\subseteq \\mathbb{R}^n\\to \\mathbb{R}^m"} /> es de clase <Math tex={"C^1"} /> sobre <Math tex={"U"} /> (esto es, las funciones <Math tex={"\\dfrac{\\partial F_j}{\\partial x_i}:U\\subseteq \\mathbb{R}^n\\to \\mathbb{R}"} /> existen y son continuas), entonces <Math tex={"F"} /> es diferenciable sobre todo <Math tex={"U"} />.
+<Proof title="Demostracion" open>
+Repasarlo. Cualquier libro clásico de análisis (Rudin, Spivak, Apostol, ...).
+</Proof>
+</BookBlock>
+
+<BookBlock kind="definition" title="Derivadas parciales de orden superior">
+Sea <Math tex={"U"} /> un abierto de <Math tex={"\\mathbb{R}^n"} /> y
+<Math display tex={"F:U\\subseteq \\mathbb{R}^n \\longrightarrow \\mathbb{R}^m,\\qquad\nx\\longmapsto (F_1,\\dots,F_m),"} />
+una función tal que existen todas sus derivadas parciales sobre <Math tex={"U"} />.
+
+Es decir, podemos definir funciones
+<Math display tex={"\\frac{\\partial F_j}{\\partial x_i}:U\\subseteq \\mathbb{R}^n \\longrightarrow \\mathbb{R},\n\\qquad\np=(x_1,\\dots,x_n)\\longmapsto \\frac{\\partial F_j}{\\partial x_i}(p)."} />
+
+En este caso, podemos derivar estas funciones para obtener derivadas parciales de segundo orden:
+<Math display tex={"\\frac{\\partial^2 F_j}{\\partial x_k\\,\\partial x_i}\n:=\n\\frac{\\partial}{\\partial x_k}\\left(\\frac{\\partial F_j}{\\partial x_i}\\right),"} />
+cuando tales derivadas existan.
+
+Continuando de forma recursiva, se definen las derivadas parciales de orden superior. Las derivadas parciales de orden <Math tex={"k"} /> son las derivadas parciales de orden <Math tex={"k-1"} />, cuando estas existen.
+</BookBlock>
+
+<BookBlock kind="definition" title="Clases de diferenciabilidad">
+Sea <Math tex={"U\\subseteq \\mathbb{R}^n"} /> un abierto y <Math tex={"k\\in \\mathbb{N}\\cup\\{0\\}"} />. Una función <Math tex={"F:U\\subseteq \\mathbb{R}^n\\to \\mathbb{R}^m"} /> se dice de clase <Math tex={"C^k"} />, o diferenciable continuamente <Math tex={"k"} /> veces, si todas las derivadas parciales de <Math tex={"F"} /> de orden menor o igual a <Math tex={"k"} /> existen y son funciones continuas en <Math tex={"U"} />.
+
+Así, la clase <Math tex={"C^0"} /> son solo las funciones continuas sobre <Math tex={"U"} />.
+
+Una función que es de clase <Math tex={"C^k"} /> para todo <Math tex={"k\\in \\mathbb{N}\\cup\\{0\\}"} /> se dice de clase <Math tex={"C^\\infty"} />, o *suave*, o infinitamente diferenciable.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Schwarz-Clairaut de las derivadas cruzadas">
+Si <Math tex={"U"} /> es un abierto de <Math tex={"\\mathbb{R}^n"} /> y <Math tex={"F:U\\subseteq \\mathbb{R}^n\\to \\mathbb{R}^m"} /> es una función de clase <Math tex={"C^2"} /> sobre <Math tex={"U"} />, entonces las derivadas parciales mixtas de segundo orden no dependen del orden de diferenciación:
+<Math display tex={"\\frac{\\partial^2 F_j}{\\partial x_i\\,\\partial x_k}\n=\n\\frac{\\partial^2 F_j}{\\partial x_k\\,\\partial x_i}."} />
+</BookBlock>
+
+<BookBlock kind="corollary" title="Corolario">
+Si <Math tex={"F:U\\subseteq \\mathbb{R}^n\\to \\mathbb{R}^m"} /> es suave, entonces las derivadas parciales mixtas de <Math tex={"F"} /> de cualquier orden son independientes del orden de diferenciación.
+<Proof title="Demostracion" open>
+Repasarlo. Cualquier libro clásico de análisis (Rudin, Spivak, Apostol, ...).
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark" title="Observación">
+Desde el punto de vista de Teoría de Lie, puede entenderse este teorema como que ciertos grupos de transformaciones conmutan entre sí (en este caso, dos translaciones conmutan entre sí; las translaciones "generan" las derivadas parciales).
+</BookBlock>

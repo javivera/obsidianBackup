@@ -151,6 +151,8 @@
 >
 >La aplicación $\psi\circ F\circ\varphi^{-1}$ se llama **representación local** de $F$.
 
+^funcion-suave-entre-variedades
+
 >[!Remark] Localidad de la suavidad
 >El problema de la suavidad es local: si para cada $p\in M$ existe un abierto $U\ni p$ tal que $F|_U$ es suave, entonces $F$ es suave globalmente.
 

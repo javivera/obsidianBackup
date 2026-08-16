@@ -1,0 +1,15 @@
+---
+type Props = {
+  title?: string;
+  open?: boolean;
+};
+
+const { title = "Demostracion", open = false } = Astro.props;
+---
+
+<details class="proof" open={open}>
+  <summary>{title}</summary>
+  <div class="proof-body">
+    <slot />
+  </div>
+</details>

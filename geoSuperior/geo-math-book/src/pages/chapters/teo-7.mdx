@@ -1,0 +1,188 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "La diferencial de una función en coordenadas"
+description: "Teorico convertido desde GS - Teo7.md"
+chapter: "Teo 7"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# La diferencial de una función en coordenadas
+
+## La diferencial de una función en coordenadas
+
+<BookBlock kind="proposition" title="Matriz de la diferencial en coordenadas">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves de dimensiones <Math tex={"m"} /> y <Math tex={"n"} />, respectivamente, y sea <Math tex={"F:M\\to N"} /> suave. 
+Fijemos <Math tex={"p\\in M"} />, escribamos <Math tex={"q=F(p)"} /> y tomemos cartas suaves <Math tex={"(U,\\varphi=(x_1,\\dots,x_m))"} /> al rededor de <Math tex={"p"} /> y <Math tex={"(V,\\psi=(y_1,\\dots,y_n))"} /> al rededor de <Math tex={"q"} /> con <Math tex={"F(U)\\subseteq V"} />.
+Si se consideran las bases coordenadas del <Math tex={"T_{p}M"} /> y <Math tex={"T_{q}N"} /> respectivamente <Math display tex={"\\mathcal B_M=\\left\\{\\left.\\frac{\\partial}{\\partial x_1}\\right|_p,\\dots,\\left.\\frac{\\partial}{\\partial x_m}\\right|_p\\right\\},\\qquad\\mathcal B_N=\\left\\{\\left.\\frac{\\partial}{\\partial y_1}\\right|_q,\\dots,\\left.\\frac{\\partial}{\\partial y_n}\\right|_q\\right\\}"} />
+entonces la matriz de <Math tex={"dF_p:T_pM\\to T_qN"} /> respecto de estas bases es la jacobiana de <Math display tex={"\\widehat F:=\\psi\\circ F\\circ\\varphi^{-1}:\\varphi(U)\\subseteq\\mathbb R^m\\to\\mathbb R^n"} />
+evaluada en <Math tex={"\\varphi(p)"} />: <Math display tex={"[dF_p]_{\\mathcal B_M}^{\\mathcal B_N}=J\\widehat F(\\varphi(p))"} />
+<Proof title="Demostracion">
+1. Escribimos <Math display tex={"dF_p\\left(\\left.\\frac{\\partial}{\\partial x_j}\\right|_p\\right)=\\sum_{i=1}^n c_{ij}\\left.\\frac{\\partial}{\\partial y_i}\\right|_q"} />
+2. Aplicando ambos lados a la función coordenada <Math tex={"y_i"} /> se obtiene <Math display tex={"c_{ij}=dF_p\\left(\\left.\\frac{\\partial}{\\partial x_j}\\right|_p\\right)(y_i) = \\left.\\frac{\\partial}{\\partial x_j}\\right|_p(y_i\\circ F)"} />
+3. Como <Math tex={"y_i=\\pi_i\\circ\\psi"} /> resulta <Math display tex={"y_i\\circ F=\\pi_i\\circ\\psi\\circ F=\\pi_i\\circ\\widehat F\\circ\\varphi"} />y por definición de vector coordenado <Math display tex={"c_{ij}=\\left.\\frac{\\partial}{\\partial x_j}\\right|_{\\varphi(p)}(\\pi_i\\circ\\widehat F)=\\frac{\\partial \\widehat F_i}{\\partial x_j}(\\varphi(p))"} />
+4. Luego la matriz <Math tex={"(c_{ij})"} /> coincide exactamente con <Math tex={"J\\widehat F(\\varphi(p))"} />.
+</Proof>
+</BookBlock>
+
+<span id="bb7fdf"></span>
+
+## Vectores tangentes como velocidades de curvas
+
+<BookBlock kind="definition" title="Curva suave">
+Una función suave
+<Math display tex={"\\alpha:(a,b)\\subseteq\\mathbb R\\to M"} />
+se llama **curva suave** en <Math tex={"M"} />.
+</BookBlock>
+
+<BookBlock kind="definition" title="vector tangente a una curva">
+Sea <Math tex={"\\alpha:(a,b)\\to M"} /> una curva suave y sea <Math tex={"t\\in(a,b)"} />. El vector tangente a <Math tex={"\\alpha"} /> en el instante <Math tex={"t"} /> es
+<Math display tex={"\\alpha'(t):=d\\alpha_t\\left(\\left.\\frac{\\partial}{\\partial s}\\right|_t\\right)\\in T_{\\alpha(t)}M,"} />
+donde <Math tex={"(\\mathbb R,\\operatorname{id}=s)"} /> es la carta canónica de <Math tex={"\\mathbb R"} />.
+</BookBlock>
+
+<span id="0106aa"></span>
+
+<BookBlock kind="exercise" title="Curvas y vectores tangentes">
+Sea <Math tex={"M"} /> una variedad diferenciable, <Math tex={"I\\subseteq\\mathbb R"} /> un intervalo y <Math tex={"\\gamma:I\\to M"} /> una curva diferenciable.
+
+1. Mostrar que efectivamente <Math tex={"\\gamma'(t)\\in T_{\\gamma(t)}M"} />.
+2. Probar que
+<Math display tex={"\\gamma'(t)=(d\\gamma)_t\\left(\\left.\\frac{\\partial}{\\partial s}\\right|_t\\right)."} />
+3. Si <Math tex={"(U,\\varphi=(x_1,\\dots,x_n))"} /> es un sistema coordenado alrededor de <Math tex={"\\gamma(0)"} /> y
+<Math display tex={"(\\varphi\\circ\\gamma)(t)=(r_1(t),\\dots,r_n(t)),"} />
+mostrar que
+<Math display tex={"\\gamma'(0)=\\sum_{i=1}^n r_i'(0)\\left.\\frac{\\partial}{\\partial x_i}\\right|_{\\gamma(0)}."} />
+4. Mostrar que para todo <Math tex={"p\\in M"} /> y todo <Math tex={"v\\in T_pM"} /> existe una curva suave <Math tex={"\\sigma:(-\\varepsilon,\\varepsilon)\\to M"} /> tal que
+<Math display tex={"\\sigma(0)=p,\\qquad \\sigma'(0)=v."} />
+</BookBlock>
+
+<BookBlock kind="corollary" title="La diferencial lleva velocidades en velocidades">
+Sea <Math tex={"F:M\\to N"} /> una función suave, <Math tex={"p\\in M"} /> y <Math tex={"v\\in T_pM"} />. Si <Math tex={"\\alpha:(-\\varepsilon,\\varepsilon)\\to M"} /> es una curva suave con
+<Math display tex={"\\alpha(0)=p,\\qquad \\alpha'(0)=v,"} />
+y definimos <Math display tex={"\\beta:=F\\circ\\alpha"} />entonces <Math display tex={"(dF)_p(v)=\\beta'(0)"} />
+<Proof title="Demostracion">
+1. Por la regla de la cadena <Math display tex={"d(F\\circ\\alpha)_0=dF)_p\\circ(d\\alpha)_0"} />
+2. Aplicando ambos lados al vector <Math tex={"\\left.\\frac{\\partial}{\\partial s}\\right|_0\\in T_0\\mathbb R"} /> y usando la definicion <PreviewLink href="/chapters/teo-7#0106aa" label="vector tangente a una curva" title="Definicion: vector tangente a una curva" /> se obtiene <Math display tex={"\\beta'(0)=d(F\\circ\\alpha)_0\\left(\\left.\\frac{\\partial}{\\partial s}\\right|_0\\right)=(dF)_p\\left(d\\alpha_0\\left(\\left.\\frac{\\partial}{\\partial s}\\right|_0\\right)\\right)=(dF)_p(v)"} />
+</Proof>
+</BookBlock>
+
+## El fibrado tangente
+
+<BookBlock kind="definition" title="Fibrado tangente">
+Sea <Math tex={"M"} /> una variedad suave. Se define el **fibrado tangente** de <Math tex={"M"} />, denotado por <Math tex={"TM"} />, como la unión disjunta de todos los espacios tangentes:
+<Math display tex={"TM:=\\bigsqcup_{p\\in M}T_pM\n=\n\\bigcup_{p\\in M}\\{(p,v):v\\in T_pM\\}."} />
+
+La aplicación
+<Math display tex={"\\pi:TM\\to M,\\qquad (p,v)\\mapsto p"} />
+se llama **proyección natural**.
+</BookBlock>
+
+<span id="4762ec"></span>
+
+<BookBlock kind="remark" title="Notación">
+Dado un punto <Math tex={"(p,v)\\in TM"} />, suele escribirse simplemente <Math tex={"v"} /> en lugar de <Math tex={"(p,v)"} /> cuando el punto base <Math tex={"p"} /> está claro por el contexto. O si no <Math tex={"v_{p}"} /> 
+</BookBlock>
+
+<BookBlock kind="theorem">
+<Fragment slot="title"><Math tex={"TM"} /> es una variedad suave</Fragment>
+Si <Math tex={"M"} /> es una variedad suave de dimensión <Math tex={"n"} />, entonces <Math tex={"TM"} /> tiene una topología natural y una estructura suave que lo convierten en una variedad suave de dimensión <Math tex={"2n"} />. Además, la proyección natural
+<Math display tex={"\\pi:TM\\to M"} />
+es suave.
+<Proof title="Demostracion">
+1. Primero demos cartas que definan la estructura sobre <Math tex={"TM"} /> 
+2. Sea <Math tex={"(U,\\varphi=(x_1,\\dots,x_n))"} /> una carta suave de <Math tex={"M"} /> y sea <Math display tex={"\\widetilde U:=\\pi^{-1}(U)\\subseteq TM"} />
+3. Automaticamente tenemos base de <Math tex={"T_{p}M"} /> osea dado <Math tex={"v\\in T_pM"} /> con <Math tex={"p\\in U"} /> se escribe de manera única como <Math display tex={"v=\\sum_{i=1}^n v_i\\left.\\frac{\\partial}{\\partial x_i}\\right|_p"} />donde <Math tex={"v_i=v(x_i)"} />.
+4. Definimos <Math display tex={"\\widetilde\\varphi:\\widetilde U\\subseteq TM\\to\\varphi(U)\\times\\mathbb R^n\\subseteq\\mathbb R^{2n}"} />por <Math display tex={"\\widetilde\\varphi(p,v)=\\bigl(x_1(p),\\dots,x_n(p),v_1,\\dots,v_n\\bigr)"} /> llamada **carta inducida**
+5. Esta aplicación es biyectiva, y su inversa es <Math display tex={"\\widetilde\\varphi^{-1}(r_1,\\dots,r_n,t_1,\\dots,t_n)=\\left(\\varphi^{-1}(r_1,\\dots,r_n),\\sum_{i=1}^n t_i\\left.\\frac{\\partial}{\\partial x_i}\\right|_{\\varphi^{-1}(r_1,\\dots,r_n)}\\right)."} />
+6. Esta claro que estas cartas cubren todo <Math tex={"TM"} />. Veamos que son compatibles
+7. Sean <Math tex={"(\\tilde{V},\\tilde{\\psi})"} /> y <Math tex={"(\\tilde{U},\\tilde{\\varphi})"} /> dos cartas de <Math tex={"TM"} /> asociadas a <Math tex={"(V,\\psi=(y_1,\\dots,y_n))"} /> y <Math tex={"(U,\\varphi=(x_{1},\\ldots x_{n}))"} /> tales que <Math tex={"\\tilde{V}\\cap \\tilde{U}\\neq 0"} />, luego <Math tex={"V\\cap U\\neq0"} />
+8. Entonces <Math display tex={"\\tilde{\\psi}\\circ \\tilde{\\varphi}^{-1}:\\tilde{\\varphi}(\\tilde{U}\\cap \\tilde{V}) \\subset \\mathbb{R}^{2n}\\longrightarrow\\tilde{\\psi}(\\tilde{U}\\cap \\tilde{V}) \\subset \\mathbb{R}^{2n}"} /> que es: <Math display tex={"\\begin{align}(r_{1},\\ldots r_{n},t_{1},...,t_{n})&\\longmapsto^{\\tilde{\\varphi}^{-1}} \\left(\\tilde{\\varphi}^{-1}(r),\\sum_{i=1}^n t_i\\left.\\frac{\\partial}{\\partial x_i}\\right|_{\\varphi^{-1}(r)}\\right)\\\\&\\longmapsto^{\\tilde{\\psi}}(y_{1}(\\tilde{\\varphi}^{-1}(r)),\\ldots,y_{n}(\\tilde{\\varphi}^{-1}(r)),\\sum_{i=1}^n t_i\\left.\\frac{\\partial}{\\partial x_i}\\right|_{\\varphi^{-1}(r)}y_{1},\\ldots,\\sum_{i=1}^n t_i\\left.\\frac{\\partial}{\\partial x_i}\\right|_{\\varphi^{-1}(r)}y_{n}) \\\\&=\\bigg((\\psi\\circ\\varphi ^{-1})(r),\\sum_{i=1}^n t_i\\left.\\frac{\\partial}{\\partial r_i}\\right|_{r}(y_{1}\\circ\\varphi ^{-1}),\\ldots,\\sum_{i=1}^n t_i\\left.\\frac{\\partial}{\\partial r_i}\\right|_{r}(y_{n}\\circ\\varphi ^{-1})\\bigg)\\\\&=\\bigg((\\psi\\circ\\varphi ^{-1})(r),\\sum_{i=1}^n t_i\\frac{\\partial}{\\partial r_i}(\\psi\\circ\\varphi ^{-1})_{1}(r),\\ldots,\\sum_{i=1}^n t_i\\frac{\\partial}{\\partial r_i}(\\psi\\circ\\varphi ^{-1})_{n}(r)\\bigg)\\end{align}"} />    
+9. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que <Math tex={"\\psi\\circ\\varphi ^{-1}"} /> es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves
+10. Y obviamente cambiando los roles obtenemos que la otra composicion es suave tambien
+11. Por lo tanto, las cartas <Math tex={"\\{(\\widetilde U,\\widetilde\\varphi)\\}"} /> formarian un atlas suave sobre <Math tex={"TM"} /> de dimensión es <Math tex={"2n"} />. (Si <Math tex={"\\tilde{U},\\tilde{V}"} /> fueran abiertos) 
+12. Sea <Math display tex={"\\mathcal{B}=\\{\\tilde{\\varphi}^{-1}(W): W \\text{ es abierto de } \\mathbb{R}^{2n},\\ (U,\\varphi) \\text{ es carta suave de } M\\}"} />
+13. Veamos que <Math tex={"\\mathcal{B}"} /> cumple las condiciones para ser una base de una topología (para <Math tex={"TM"} />)
+14. <Math tex={"\\mathcal{B}"} /> cubre <Math tex={"TM"} />. Pues el conjunto de cartas suaves de <Math tex={"M"} /> cubre a <Math tex={"M"} />, y en <Math tex={"\\mathcal{B}"} /> están los <Math tex={"\\tilde{U}=\\pi^{-1}(U)"} />, con <Math tex={"U"} /> dominio de carta suave.
+15. Sean <Math tex={"\\tilde{\\varphi}_1^{-1}(W_1)"} /> y <Math tex={"\\tilde{\\varphi}_2^{-1}(W_2)"} /> en <Math tex={"\\mathcal{B}"} />, y sea <Math tex={"z \\in \\tilde{\\varphi}_1^{-1}(W_1)\\cap \\tilde{\\varphi}_2^{-1}(W_2)"} />. Queremos ver que existe un miembro de <Math tex={"\\mathcal{B}"} /> que contiene a <Math tex={"z"} /> y está contenido en la intersección. 
+16. Para ver esto, alcanza con ver que <Math tex={"\\tilde{\\varphi}_1^{-1}(W_1)\\cap \\tilde{\\varphi}_2^{-1}(W_2)\\in \\mathcal{B}"} />. Llamemos <Math tex={"\\tilde{U}_1=\\operatorname{dm}\\tilde{\\varphi}_1"} /> y <Math tex={"\\tilde{U}_2=\\operatorname{dm}\\tilde{\\varphi}_2"} />. Entonces <Math display tex={"\\tilde{\\varphi}_1^{-1}(W_1)\\cap \\tilde{\\varphi}_2^{-1}(W_2)=\\tilde{\\varphi}_1^{-1}(W_1)\\cap \\tilde{\\varphi}_{1}^{-1}\\circ\\tilde{\\varphi}_1\\circ \\tilde{\\varphi}_{2}^{-1}(W_{2}\\cap \\tilde{\\varphi}_2(\\tilde{U}_{1}\\cap \\tilde{U}_{2}))"} />
+17. Como las funciones biyectivas se llevan bien con las uniones e intersecciones <Math display tex={"\\tilde{\\varphi}_1^{-1}(W_1)\\cap \\tilde{\\varphi}_2^{-1}(W_2)=\\tilde{\\varphi}_1^{-1}(W_1\\cap \\tilde{\\varphi}_{1}\\circ \\tilde{\\varphi}_{2}^{-1}(W_{2}\\cap \\tilde{\\varphi}_2(\\tilde{U}_{1}\\cap \\tilde{U}_{2}))"} />
+18. Y <Math tex={"W_{1}\\cap \\tilde{\\varphi}_{1}\\circ \\tilde{\\varphi}_{2}^{-1}(W_{2}\\cap \\tilde{\\varphi}_{2}(\\tilde{U_{1}}\\cap \\tilde{U}_{2}))"} /> es abierto por que <Math tex={"W_{1}"} /> es abierto.
+19. Y ademas vimos en 8. y 9. que <Math tex={"\\tilde{\\varphi}_{1}\\circ\\tilde{\\varphi}_{2}^{-1}"} /> es difeo entre sus abiertos <Math tex={"\\tilde{\\varphi}_{1}(\\tilde{U_{1}}\\cap \\tilde{U_{2}})"} /> y <Math tex={"\\tilde{\\varphi}_{2}(\\tilde{U_{1}}\\cap \\tilde{U_{2}})"} /> por ende es homeomorfismo luego <Math tex={"W_{2}\\cap \\tilde{\\varphi_{2}}(\\tilde{U}_{1}\\cap \\tilde{U}_{2})"} /> es abierto de <Math tex={"\\mathbb{R}^{2n}"} /> por ser interseccion de abiertos
+20. Mostrando que <Math tex={"\\tilde{\\varphi}_1^{-1}(W_1)\\cap \\tilde{\\varphi}_2^{-1}(W_2)\\in \\mathcal{B}"} /> como queriamos
+21. Esta topología tiene una base numerable. Tomamos una base numerable de dominios de cartas de <Math tex={"M"} />, digamos <Math tex={"\\{U_i\\}"} />, y entonces <Math tex={"\\{\\tilde{U}_i=\\pi^{-1}(U_i)\\}"} /> es una base numerable para <Math tex={"TM"} />.
+22. ¿Por qué se puede hacer esto? Porque <Math tex={"M"} /> es <Math tex={"N2"} /> por definicion de variedad topologica luego existe una base numerable formada por dominios de cartas, y la proyección <Math tex={"\\pi:TM\\to M"} /> permite levantar esos abiertos.
+23. Chequeemos que <Math tex={"TM"} /> es Hausdorff. Sean <Math tex={"(p,v)\\neq(q,w)"} /> en <Math tex={"TM"} />. Tenemos dos casos:
+- Si <Math tex={"p\\neq q"} />
+	1. como <Math tex={"M"} /> es Hausdorff, existen abiertos disjuntos <Math tex={"U,V\\subset M"} /> tales que <Math tex={"p\\in U"} /> y <Math tex={"q\\in V"} />. Entonces <Math tex={"\\tilde{U}=\\pi^{-1}(U)"} /> y <Math tex={"\\tilde{V}=\\pi^{-1}(V)"} /> son abiertos disjuntos por <PreviewLink href="/chapters/teo-7#4762ec" label="Fibrado tangente" title="Definicion: Fibrado tangente" /> y que separan <Math tex={"(p,v)"} /> y <Math tex={"(q,w)"} />.
+- Si <Math tex={"p=q"} /> 
+	1. Entonces <Math tex={"v\\neq w"} />. Tenemos que <Math tex={"(p,v),(p,w)\\in \\tilde{U}"} /> con <Math tex={"(U,\\varphi=(x_{1},\\ldots x_{n}))"} /> cartas de <Math tex={"M"} /> en <Math tex={"p"} />. 
+	2. Escribimos <Math display tex={"v=\\sum t_i\\frac{\\partial}{\\partial x_{i}}\\big|_p \\qquad w=\\sum s_i\\frac{\\partial}{\\partial x_{i}}\\big|_p"} />
+	3. Como <Math tex={"v\\neq w"} />, se tiene <Math tex={"(t_1,\\dots,t_n)\\neq(s_1,\\dots,s_n)"} />.
+	4. Luego existen abiertos disjuntos <Math tex={"B_1,B_2\\subset \\mathbb{R}^n"} /> que separan estos puntos. 
+	5. Identificando <Math tex={"\\mathbb{R}^{2n}\\cong\\mathbb{R}^n\\times\\mathbb{R}^n"} />, Tenemos que <Math display tex={"W_{1}=\\varphi(U)\\times B_1 \\qquad \\varphi(U)\\times B_2=W_2"} /> son abiertos de <Math tex={"\\mathbb{R}^{2n}"} /> que contienen a <Math tex={"\\tilde{\\varphi}(p,v)"} /> y <Math tex={"\\tilde{\\varphi}(p,w)"} /> y los separan. 
+	6. Por lo tanto, <Math tex={"\\tilde{\\varphi}^{-1}(W_1)"} /> y <Math tex={"\\tilde{\\varphi}^{-1}(W_2)"} /> son abiertos de <Math tex={"\\mathcal{B}"} /> que separan a <Math tex={"(p,v)"} /> y <Math tex={"(p,w)"} />. 
+7. Por último, la proyección <Math tex={"\\pi:TM\\to M"} /> es suave. Esto se verifica usando las cartas inducidas <Math tex={"\\{(\\tilde{U},\\tilde{\\varphi})\\}"} /> asociadas a <Math tex={"\\{(U,\\varphi)\\}"} /> de <Math tex={"M"} /> . 
+8. En coordenadas se tiene <Math tex={"\\varphi\\circ\\pi\\circ\\tilde{\\varphi}^{-1}:\\tilde{\\varphi}(\\tilde{U})\\subset\\mathbb{R}^{2n}\\to\\mathbb{R}^n"} />, <Math tex={"(x,v)\\mapsto x"} />, que es claramente una aplicación suave.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark">
+<Fragment slot="title">Fórmula de los cambios de coordenadas en <Math tex={"TM"} /></Fragment>
+Si
+<Math display tex={"\\widetilde\\psi\\circ\\widetilde\\varphi^{-1}(r,t)=\\bigl(r',t'\\bigr),"} />
+entonces
+<Math display tex={"r'=\\psi\\circ\\varphi^{-1}(r),\n\\qquad\nt'=J(\\psi\\circ\\varphi^{-1})(r)\\,t."} />
+Es decir, las coordenadas de base cambian por la función de transición usual, y las coordenadas de la fibra cambian por su jacobiana.
+</BookBlock>
+
+<BookBlock kind="exercise" title="Caso de una sola carta">
+Si <Math tex={"M"} /> puede cubrirse con una sola carta suave, entonces
+<Math display tex={"TM\\cong M\\times\\mathbb R^n"} />
+como variedades suaves.
+</BookBlock>
+
+<BookBlock kind="example" title="Opcional">
+Sea <Math tex={"M"} /> una variedad que puede ser cubierta con una sola carta, entonces <Math tex={"TM"} /> es difeomorfa a <Math tex={"M\\times \\mathbb{R}^{n}"} />  
+</BookBlock>
+## Diferencial global
+
+<BookBlock kind="definition" title="Diferencial global">
+Sea <Math tex={"F:M\\to N"} /> una función suave. Se define la **diferencial global** de <Math tex={"F"} /> como la aplicación
+<Math display tex={"dF:TM\\to TN,"} />
+dada por
+<Math display tex={"dF(p,v)=\\bigl(F(p),(dF)_p(v)\\bigr)."} />
+
+Esta aplicación extiende lo que hace <Math tex={"(dF)_{q}"} /> con <Math tex={"q\\in M"} /> a toda la variedad.
+</BookBlock>
+
+<span id="fce8ee"></span>
+
+<BookBlock kind="remark" title="Suavidad de la diferencial global">
+Mostrar que si <Math tex={"F:M\\to N"} /> es suave, entonces
+<Math display tex={"dF:TM\\to TN"} />
+también es suave.
+<Proof title="Demostracion" open>
+Se ve en el practico
+</Proof>
+</BookBlock>
+
+<span id="a36c7a"></span>
+
+<BookBlock kind="remark" title="El funtor tangente Lee pagina 73">
+Si <Math tex={"\\mathbf{Diff}"} /> denota la categoría cuyas:
+
+- objetos son las variedades suaves,
+- morfismos son las funciones suaves,
+
+entonces la asignación
+<Math display tex={"(M,F)\\longmapsto (TM,dF)"} />
+define un **funtor covariante**
+<Math display tex={"T:\\mathbf{Diff}\\to\\mathbf{Diff},"} />
+llamado **funtor tangente**.
+</BookBlock>
+
+

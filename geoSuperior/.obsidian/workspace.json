@@ -6,86 +6,78 @@
       {
         "id": "a2d7a17f47f59dd9",
         "type": "tabs",
+        "dimension": 48.33782569631626,
         "children": [
           {
-            "id": "4dc1d1b6b6428c46",
+            "id": "6f3ea20dac59dcc5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Practicos/GS - Pr3.md",
+                "file": "Teoricos/GS - Teo24.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "GS - Pr3"
+              "title": "GS - Teo24"
             }
           },
           {
-            "id": "9970fa4099b7039a",
+            "id": "48a72febe94ed483",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Practicos/GS - Pr6.md",
+                "file": "Teoricos/GS - Teo21.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "GS - Pr6"
+              "title": "GS - Teo21"
             }
           },
           {
-            "id": "43ea09c9b467edcb",
+            "id": "45d140a982e16c96",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoricos/Teoremas Corazon.md",
+                "file": "Teoricos/GS - Teo5.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "GS - Teo5"
+            }
+          },
+          {
+            "id": "2aafc41c95180513",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Examenes/GS - 1er Final.md",
                 "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Teoremas Corazon"
+              "title": "GS - 1er Final"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "3f95b8eb39feceb2",
         "type": "tabs",
+        "dimension": 51.66217430368374,
         "children": [
           {
-            "id": "c2378d3f76a82834",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Examenes/GS - Ejercicios sueltos.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "GS - Ejercicios sueltos"
-            }
-          },
-          {
-            "id": "57d01d102b67a2f1",
-            "type": "leaf",
-            "state": {
-              "type": "random-statement-view",
-              "state": {},
-              "icon": "dices",
-              "title": "Random statement"
-            }
-          },
-          {
-            "id": "478476e375aeb526",
+            "id": "fc80af1b28025c2b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -97,21 +89,6 @@
               },
               "icon": "lucide-file",
               "title": "GS - Pr7"
-            }
-          },
-          {
-            "id": "ea6aa20d5e9a8650",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Practicos/GS - Pr4.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "GS - Pr4"
             }
           }
         ]
@@ -148,7 +125,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "suavidad formas",
+                "query": "local campos",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -173,8 +150,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 279.64891624450684,
-    "collapsed": true
+    "width": 279.64891624450684
   },
   "right": {
     "id": "e4c509da46b3a57e",
@@ -264,55 +240,59 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "random-statement:Random statement": false
+      "random-statement:Random statement": false,
+      "vault-fuzzy-search:Abrir búsqueda difusa": false,
+      "zathura-pdf:Abrir PDF en Zathura": false,
+      "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "c2378d3f76a82834",
+  "active": "fc80af1b28025c2b",
   "lastOpenFiles": [
-    "Teoricos/Teoremas Corazon.md",
-    "Examenes/GS - Ejercicios sueltos.md",
-    "Practicos/GS - Pr5.md",
-    "Practicos/GS - Pr4.md",
-    "Practicos/GS - Pr7.md",
-    "Practicos/GS - Pr4.pdf",
-    "Practicos/GS - Pr6.pdf",
-    "Practicos/GS - Pr5.pdf",
-    "Practicos/GS - Pr6.md",
-    "Practicos/GS - Pr3.md",
-    "Teoricos/GS - Teo21.md",
-    "Examenes/GS - 1er Final.md",
-    "Practicos/Glosario.md",
-    "Teoricos/GS - Teo14.md",
-    "Examenes/GS - 1er Parcial.md",
-    "Examenes/GS - 1er Final.pdf",
-    "Examenes/GS - 2do Parcial.md",
-    "Teoricos/Dudas.md",
-    "Teoricos/Glosario Teorico.md",
-    "Proceso extraccion de texto PDF.md",
-    "Teoricos/GS - Teo12.md",
-    "formatting.md",
-    "Teoricos/GS - Teo22.md",
-    "Teoricos/GS - Teo23.md",
-    "Teoricos/GS - Teo5.md",
-    "Teoricos/GS - Teo13.md",
-    "Teoricos/GS - Teo15.md",
-    "Teoricos/GS - Teo16.md",
-    "Teoricos/GS - Teo11.md",
-    "Practicos/GS - Pr7.pdf",
-    "Practicos/GS - Pr2.pdf",
+    "Examenes/GS - 2do Final.pdf",
     "Examenes/ListaTeoremas.pdf",
-    "Examenes/2026-07-22.pdf",
-    "ListaTeoremas.pdf",
-    "Images/Pasted image 20260625161051.png",
-    "Images/Pasted image 20260624212257.png",
-    "Images/Pasted image 20260612163318.png",
-    "Practicos/GS - Pr3.pdf",
-    "Pasted image 20260704194017.png",
-    "Pasted image 20260625161051.png",
-    "Pasted image 20260624212257.png",
-    "tmp/pdfs/teo24_render/sheet-25.jpg",
-    "tmp/pdfs/teo24_render/sheet-17.jpg",
-    "tmp/pdfs/teo24_render/sheet-09.jpg",
-    "tmp/pdfs/teo24_render/sheet-01.jpg"
+    "Examenes/GS - Ejercicios sueltos.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/Teoremas Corazon.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/Glosario Teorico.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo9.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo8.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo7.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo6.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo5.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo4.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo3.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo25.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo24.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo23.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo22.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo21.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo20.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo2.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo19.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo18.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo17.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo16.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo15.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo14.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo13.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos/GS - Teo12.md",
+    "Backup geo-math-book 2026-08-08 1025/Teoricos",
+    "Backup geo-math-book 2026-08-08 1025/Practicos",
+    "Backup geo-math-book 2026-08-08 1025",
+    "geo-math-book/src/pages/chapters/teo-8.mdx",
+    "geo-math-book/src/pages/chapters/teo-9.mdx",
+    "geo-math-book/src/pages/chapters/teo-7.mdx",
+    "geo-math-book/src/pages/chapters/teo-6.mdx",
+    "geo-math-book/src/pages/chapters/teo-5.mdx",
+    "geo-math-book/src/pages/chapters/teo-4.mdx",
+    "geo-math-book/public/images/distribucion-integral.png",
+    "geo-math-book/public/images/Pasted-image-20260607121743.png",
+    "geo-math-book/public/images/Pasted-image-20260603235453.png",
+    "geo-math-book/public/images/Pasted-image-20260603132446.png",
+    "geo-math-book/public/images/Pasted-image-20260603132433.png",
+    "geo-math-book/public/images/Pasted-image-20260513203229.png",
+    "geo-math-book/public/images/Pasted-image-20260513203039.png",
+    "geo-math-book/public/images/Pasted-image-20260513203029.png",
+    "geo-math-book/public/images/Pasted-image-20260510144900.png",
+    "geo-math-book/public/images/Pasted-image-20260510002225.png"
   ]
 }

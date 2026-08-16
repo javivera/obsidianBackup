@@ -52,11 +52,14 @@
 >>[!Proof]-
 >>1. Recordemos que, por la forma local de una inmersión, existen cartas cúbicas $(U,\varphi=(x_1,\ldots,x_m))$ centrada en $p$ y $(V,\psi=(y_1,\ldots,y_n))$ centrada en $f(p)$ tales que $$\psi\circ f\circ\varphi^{-1}(x_1,\ldots,x_m)=(x_1,\ldots,x_m,0,\ldots,0).$$
 >>2. Escribimos el campo $X$ en la carta de $M$ como $$X|_U=\sum_{k=1}^m a_k\frac{\partial}{\partial x_k},\qquad a_k\in C^\infty(U).$$
->>3. Si $q\in U$, entonces (ya lo probamos usando forma local [[GS - Pr4#^b71da3]]) $$(df)_q\left(\left.\frac{\partial}{\partial x_k}\right|_q\right)=\left.\frac{\partial}{\partial y_k}\right|_{f(q)},\qquad 1\le k\le m.$$
+>>3. Si $q\in U$, entonces (ya lo probamos usando forma local [[GS - Pr4#^b71da3|Ejercicio]]) $$(df)_q\left(\left.\frac{\partial}{\partial x_k}\right|_q\right)=\left.\frac{\partial}{\partial y_k}\right|_{f(q)},\qquad 1\le k\le m.$$
 >>4. Por lo tanto, $$(df)_qX_q=\sum_{k=1}^m a_k(q)\left.\frac{\partial}{\partial y_k}\right|_{f(q)}$$
->>5. Necesitamos extender $a_{k}$ para eso definimos funciones suaves $A_k$ sobre $V$ (En realidad esta definido sobre $V'=V\cap\psi ^{-1}(\pi ^{-1}(\varphi(U)))$, pero abusamos de notacion para hacerlo mas legible, ver demo de [[GS - Pr4#^7d5d0b]] para mas detalle, notar que ademas $f(U)\subseteq V'$ con lo cual no hace falta cambiar $U$. Si no otra forma seria hacer [[Glosario#^fd9e9b]]) por $$A_k=\begin{cases}a_k\circ\varphi^{-1}\circ\pi\circ\psi,&1\le k\le m,\\0,&m<k\le n,\end{cases}$$donde $\pi:\mathbb R^n\to\mathbb R^m$ está dada por $\pi(y_1,\ldots,y_n)=(y_1,\ldots,y_m)$. 
->>6. Y notamos $A_{k}$ cumple que $$A_{k}\circ f=a_{k}\circ\varphi ^{-1}\circ\pi\circ\psi\circ f(\varphi ^{-1} \circ\varphi(p))=a_{k}\circ\varphi ^{-1}\circ\varphi(p)=a_{k}(p)$$  
->>7. Finalmente proponemos $$\widetilde X=\sum_{k=1}^n A_k\frac{\partial}{\partial y_k}.$$ el cual cumple $\widetilde{X}(f(q))=(df)_{q}X_{q}$ para todo $q\in U$  
+>>5. $$A_k=\begin{cases}a_k\circ\varphi^{-1}\circ\pi\circ\psi,&1\le k\le m,\\0,&m<k\le n,\end{cases}$$
+>>Esta esta bien definido por que $\psi$ y $\varphi$ son cubicas.
+>>6. Y notamos $A_{k}$ cumple que $$(A_{k}\circ f)(p)=a_{k}\circ\varphi ^{-1}\circ\pi\circ\psi\circ f(\varphi ^{-1} \circ\varphi(p))=a_{k}\circ\varphi ^{-1}\circ\varphi(p)=a_{k}(p)$$
+>>7. Finalmente proponemos $$\widetilde X=\sum_{k=1}^n A_k\frac{\partial}{\partial y_k}.$$ el cual cumple $\widetilde{X}(f(q))=(df)_{q}X_{q}$ para todo $q\in U$ y $A_k$ esta definida en todo $V$, entonces $\widetilde X\in\mathfrak X(V)$ como queriamos.
+
+^d0b758
 
 ## Primera aplicación del flujo de un campo
 
@@ -93,16 +96,17 @@
 >
 >>[!Proof]-
 >>1. Por el lema anterior, tomamos una carta $(V,\psi=(y_1,\ldots,y_n))$ centrada en $p$ tal que $$\left.\frac{\partial}{\partial y_1}\right|_p=X_p.$$
->>2. Por otro lado por [[GS - Teo16#^3b18e6]] existe $\widetilde{V}$ abierto de $M$ en $p$ y $\epsilon>0$ tal que el flujo $\Theta$ de $X$ esta definido en $(-\epsilon,\epsilon)\times \widetilde{V}$
->>3. Achicando si hace falta podes suponer que $\widetilde{V}=V$ y que $(V,\psi)$ es una carta cubica centrada en $p$ osea $$\psi(V)=C_{\epsilon}^{n} (0)=(-\epsilon,\epsilon)^{n} $$
->>4. Ahora nos vamos a enfocar en una cierta rebanada de $\psi(V)$ dada por $$\{ (r_{1},\ldots,r_{n})\in \psi(V):r_{1}=0 \}$$  que en este caso es igual a $(-\epsilon,\epsilon)^{n-1}$ por ser $\psi$ carta cubica 
+>>2. Por otro lado por [[GS - Teo16#^3b18e6|Uniformidad local del tiempo]] existe $\widetilde{V}$ abierto de $M$ en $p$ y $\epsilon>0$ tal que el flujo $\Theta$ de $X$ esta definido en $(-\epsilon,\epsilon)\times \widetilde{V}$
+>>3. Achicando si hace falta podes suponer que $\widetilde{V}=V$ y que $(V,\psi)$ es una carta cubica centrada en $p$ osea $$\psi(V)=C_{\epsilon}^{n} (0)=(-\epsilon,\epsilon)^{n}$$
+>>4. Ahora nos vamos a enfocar en una cierta rebanada de $\psi(V)$ dada por $$\{ (r_{1},\ldots,r_{n})\in \psi(V):r_{1}=0 \}$$  que en este caso es igual a $(-\epsilon,\epsilon)^{n-1}$ por ser $\psi$ carta cubica
 >>5. Proponemos $$\sigma:(-\epsilon,\epsilon)\times C_{\epsilon}^{n-1}(0)\rightarrow M\qquad (r_{1},(0,r_{2},\ldots r_{n}))\mapsto \Theta_{r_{1}}(\psi ^{-1}(0,r_{2},\ldots,r_{n}))=\Theta_{r_{1}}\circ\psi ^{-1}(0,r_{2},\ldots,r_{n})$$
->>6. Ahora vamos a notar que $\sigma$ nos va a ayudar a armar una carta, para esto veamos que $(d\sigma)_{0}$ es invertible. Por que si sucediera entonces es isomorfismo luego por [[GS - Teo10#^b664ba]] tendremos un abierto $U$ abierto del $0$ tal que $$\sigma|_{U}^{-1}:W\subseteq M\rightarrow U$$ sera difeo (osea carta)
->>7. Luego tenemos si definimos la curva $\alpha (t)=(t,0,\ldots,0)$  $$\begin{align}(d\sigma)_0\left(\frac{\partial}{\partial r_1}\bigg|_0\right)&=(\sigma\circ\alpha )'(0)\\&=\frac{d}{dt}\bigg|_0\sigma(t,0,\dots,0)\\&=\frac{d}{dt}\bigg|_0\theta_t(\psi^{-1}(0,\dots,0))\\&=\frac{d}{dt}\bigg|_0\theta_t(p)\\&=\frac{d}{dt}\bigg|_0\gamma_{p}(t)\\&=\gamma'_{p}(0)\\&=X_{p}\\&=\left.\frac{\partial}{\partial y_1}\right|_p\end{align}$$ en el primer paso usamos [[Glosario Teorico#^99bdaa]] 
->>8. Por otro lado para $k>1$ $$\begin{align}(d\sigma)_0\frac{\partial}{\partial r_k}\bigg|_0 &=\frac{d}{dt}\bigg|_0\sigma(0,\ldots,t,\ldots,0)\\ &=\frac{d}{dt}\bigg|_0\Theta_{0}\left(\psi^{-1}(0,\ldots,t,\ldots,0)\right)\\ &=\frac{d}{dt}\bigg|_0\psi^{-1}(0,\ldots,t,\ldots,0)\\ &=(d\psi^{-1})_0\frac{\partial}{\partial y_k}\bigg|_0 \end{align}$$ el primer igual sale como en [[Glosario Teorico#^99bdaa]] cambiando la curva $\alpha(t)=te_{k}$ 
+>>6. Ahora vamos a notar que $\sigma$ nos va a ayudar a armar una carta, para esto veamos que $(d\sigma)_{0}$ es invertible. Por que si sucediera entonces es isomorfismo luego por [[GS - Teo10#^b664ba|Teorema de la funcion inversa en variedades]] tendremos un abierto $U$ abierto del $0$ tal que $$\sigma|_{U}^{-1}:W\subseteq M\rightarrow U$$ sera difeo (osea carta)
+>>7. Luego tenemos si definimos la curva $\alpha (t)=(t,0,\ldots,0)$  $$\begin{align}(d\sigma)_0\left(\frac{\partial}{\partial r_1}\bigg|_0\right)&=(\sigma\circ\alpha )'(0)\\&=\frac{d}{dt}\bigg|_0\sigma(t,0,\dots,0)\\&=\frac{d}{dt}\bigg|_0\theta_t(\psi^{-1}(0,\dots,0))\\&=\frac{d}{dt}\bigg|_0\theta_t(p)\\&=\frac{d}{dt}\bigg|_0\gamma_{p}(t)\\&=\gamma'_{p}(0)\\&=X_{p}\\&=\left.\frac{\partial}{\partial y_1}\right|_p\end{align}$$ en el primer paso usamos ^99bdaa
+>>8. Por otro lado para $k>1$ $$\begin{align}(d\sigma)_0\frac{\partial}{\partial r_k}\bigg|_0 &=\frac{d}{dt}\bigg|_0\sigma(0,\ldots,t,\ldots,0)\\ &=\frac{d}{dt}\bigg|_0\Theta_{0}\left(\psi^{-1}(0,\ldots,t,\ldots,0)\right)\\ &=\frac{d}{dt}\bigg|_0\psi^{-1}(0,\ldots,t,\ldots,0)\\ &=(d\psi^{-1})_0\frac{\partial}{\partial r_k}\bigg|_0\\ &=\left.\frac{\partial}{\partial y_k}\right|_p. \end{align}$$ el primer igual sale como en ^99bdaa cambiando la curva $\alpha(t)=te_{k}$. El ultimo igual vale porque $\psi$ es difeomorfismo de carta, entonces $(d\psi^{-1})_0$ es isomorfismo.
 >>9. Entonces $d\sigma$ es isomorfismo. Por tanto, por el teorema de la función inversa existe $U$ abierto de $M$ en $p$ y $W$ abierto de $\mathbb R^n$ en $(0,\dots,0)$ tal que $\sigma:W\to U$ es un difeomorfismo.
 >>10. Ahora nuestra candidata es la carta suave $(U,\phi=\sigma^{-1}|_U=(x_1,\dots,x_n)).$
 >>11. Veamos que $$X|_U=\frac{\partial}{\partial x_1}.$$
 >>12. Tomamos $q=\sigma(r_1,\ldots,r_n)=\Theta_{r_1}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right).$ Como $\phi=\sigma^{-1}$, osea $\phi(q)=(r_{1},\ldots,r_{n})$ por lo tanto $x_{i}(q)=r_{i}$. Entonces $$\begin{align}\frac{\partial}{\partial x_1}\bigg|_q&=(d\phi ^{-1})_{\phi(q)}\left(\frac{\partial}{\partial r_{1}}\bigg|_{\phi(q)}\right)\\&=(d\sigma)_{(r_1,\ldots,r_n)}\left(\frac{\partial}{\partial r_1}\bigg|_{(r_1,\ldots,r_n)}\right)\\&=\frac{d}{ds}\bigg|_{s=0}\sigma(r_1+s,r_2,\ldots,r_n)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_{r_1+s}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_s\left(\Theta_{r_1}\left(\psi^{-1}(0,r_2,\ldots,r_n)\right)\right)\\&=\frac{d}{ds}\bigg|_{s=0}\Theta_s(q)\\&=\frac{d}{ds}\bigg|_{s=0}\gamma_q(s)\\&=\gamma_q'(0)\\&=X_{\gamma_q(0)}\\&=X_q.\end{align}$$
 >>13. Por lo tanto, para todo $q\in U$, se cumple $$\frac{\partial}{\partial x_1}\bigg|_q=X_q.$$
 >>14. Luego $$X|_U=\frac{\partial}{\partial x_1}.$$
+

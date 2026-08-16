@@ -1,0 +1,101 @@
+---
+import "katex/dist/katex.min.css";
+import BookLayout from "../layouts/BookLayout.astro";
+import { definitions } from "../data/definitions";
+
+const definitionCount = definitions.length;
+---
+
+<BookLayout
+  title="Definiciones"
+  description="Todas las definiciones del libro con enlaces a sus enunciados originales"
+  chapter="Definiciones"
+>
+  <h1>Definiciones</h1>
+  <p class="lede">
+    Todas las definiciones del libro, reunidas en una sola nota y enlazadas a sus capítulos.
+  </p>
+
+  <ol class="definition-index" aria-label="Indice de definiciones">
+    {definitions.map((definition, index) => (
+      <li>
+        <a href={`#definicion-${index + 1}`}>
+          <span>{index + 1}. {definition.chapterLabel}</span>
+          <small set:html={definition.titleHtml || "Definicion"} />
+        </a>
+      </li>
+    ))}
+  </ol>
+
+  <section class="definition-list" aria-label={`${definitionCount} definiciones`}>
+    {definitions.map((definition, index) => (
+      <article class="book-block definition definition-item" id={`definicion-${index + 1}`}>
+        <header>
+          <span class="eyebrow">Definicion {index + 1}</span>
+          <strong set:html={definition.titleHtml || definition.chapterLabel} />
+          <a class="source-file" href={`${definition.chapterHref}?block=${definition.blockIndex}`}>
+            Definicion original: {definition.sourceFile}
+          </a>
+        </header>
+        <div class="block-body" set:html={definition.statementHtml} />
+      </article>
+    ))}
+  </section>
+</BookLayout>
+
+<style>
+  .definition-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 8px;
+    margin: 28px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .definition-index a {
+    display: grid;
+    gap: 4px;
+    min-height: 74px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .definition-index a:hover {
+    background: var(--hover);
+  }
+
+  .definition-index span,
+  .definition-index small {
+    overflow-wrap: anywhere;
+  }
+
+  .definition-index span {
+    font-weight: 800;
+  }
+
+  .definition-index small {
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .definition-list {
+    display: grid;
+    gap: 28px;
+  }
+
+  .definition-item {
+    scroll-margin-top: 120px;
+  }
+
+  .source-file {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 650;
+  }
+</style>

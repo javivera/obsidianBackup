@@ -1,0 +1,494 @@
+% This file is generated from the corresponding Obsidian note.
+% Source: Teoricos/GS - Teo17.md
+\chapter{Propiedades de los flujos}
+\label{ch:teo-17}
+\begin{booktheorem}{}
+Sea $X\in\mathfrak X(M)$ y sea $\theta:\mathcal D\subseteq\mathbb R\times M\to M$ su flujo. Entonces:
+
+\begin{itemize}
+\item \textbf{(i)} $\bigcup_{t>0}D_t=M$.
+\item \textbf{(ii)} Dados $s,t\in\mathbb R$, entonces $\operatorname{Dom}(\theta_t\circ\theta_s)\subseteq D_{t+s}$. Si $s$ y $t$ tienen el mismo signo, entonces $\operatorname{Dom}(\theta_t\circ\theta_s)=D_{t+s}$.
+\item \textbf{(iii)} Para todo $p\in\operatorname{Dom}(\theta_s\circ\theta_t)$ se cumple
+\end{itemize}
+\[
+\theta_s\circ\theta_t(p)=\theta_{s+t}(p).
+\]
+\begin{itemize}
+\item \textbf{(iv)} La función
+\end{itemize}
+\[
+\theta_t:D_t\to D_{-t}
+\]
+es un difeomorfismo, con inversa $\theta_{-t}$.
+
+\end{booktheorem}
+\begin{bookproof}{}
+\begin{itemize}
+\item \textbf{(i)}
+\end{itemize}
+\begin{enumerate}
+\item Dado $p\in M$ arbitrario, por \hyperref[blk:3ff110]{Existencia y unicidad de las curvas integrales} sabemos que existe una curva integral que comienza en $p$ definida en algún intervalo maximal $(a(p),b(p))$.
+\item Como dicho intervalo contiene al $0$. Tomamos algun $t\in(0,\epsilon)\subseteq (a(p),b(p))$. Entonces $p\in D_t$
+\item Como $p$ era arbitrario, se concluye que todo punto de $M$ pertenece a algún $D_t$ con $t>0$.
+\end{enumerate}
+\[
+\bigcup_{t>0}D_t=M
+\]
+(Notar que claramente $D_{t}\subseteq M$ para cualquier $t$ por eso vale trivialmente la otra inclusion)
+
+\begin{itemize}
+\item \textbf{(ii)}
+\end{itemize}
+\begin{enumerate}
+\item Sea $p\in\operatorname{Dom}(\theta_t\circ\theta_s)$. Esto significa que $p\in D_s$
+\item Luego esta bien definida $\theta_{s}(p)$ y ademas $q=\theta_s(p)\in D_t$.
+\item Luego por definicion $q=\gamma_p(s)$
+\item Por la observación sobre traslación de curvas integrales maximales, la curva integral maximal que comienza en $q$ satisface
+\end{enumerate}
+\[
+(a(q),b(q))=(a(p)-s,b(p)-s)
+\]
+\begin{enumerate}[start=5]
+\item Como $q\in D_t$, se tiene $t\in(a(q),b(q))$.
+\item Usando la igualdad de intervalos, esto equivale a
+\end{enumerate}
+\[
+t+s\in(a(p),b(p))
+\]
+\begin{enumerate}[start=7]
+\item Por lo tanto $p\in D_{t+s}$, y se obtiene
+\end{enumerate}
+\[
+\operatorname{Dom}(\theta_t\circ\theta_s)\subseteq D_{t+s}
+\]
+\begin{enumerate}[start=8]
+\item Ahora supongamos que $s,t>0$ y sea $p\in D_{s+t}$.
+\item Entonces $s+t\in(a(p),b(p))$ y, como $0<s<s+t$, también $s\in(a(p),b(p))$.
+\end{enumerate}
+\[
+p\in D_s
+\]
+\begin{enumerate}[start=10]
+\item Si $q=\theta_s(p)=\gamma_p(s)$, entonces la curva integral maximal que comienza en $q$ tiene dominio
+\end{enumerate}
+\[
+(a(q),b(q))=(a(p)-s,b(p)-s)
+\]
+\begin{enumerate}[start=11]
+\item Como $s+t\in(a(p),b(p))$, se obtiene $t\in(a(q),b(q))$.
+\end{enumerate}
+\[
+q\in D_t
+\]
+\begin{enumerate}[start=12]
+\item Luego $p\in\operatorname{Dom}(\Theta_t\circ\Theta_s)$.
+\item Por lo tanto, si $s,t>0$, se cumple
+\end{enumerate}
+\[
+\operatorname{Dom}(\theta_t\circ\theta_s)=D_{t+s}
+\]
+\begin{enumerate}[start=14]
+\item El caso $s,t<0$ se prueba de manera análoga, usando que $s+t<s<0$ y la misma traslación del dominio maximal.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{(iii)}
+\end{itemize}
+\begin{enumerate}
+\item Sea $p\in\operatorname{Dom}(\theta_s\circ\theta_t)$ y sea $q=\theta_t(p)$.
+\item Entonces $q=\gamma_p(t)$, y por la descripción de la curva maximal que comienza en $q$,
+\end{enumerate}
+\[
+\gamma_q(s)=\gamma_p(t+s)
+\]
+\begin{enumerate}[start=3]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\theta_s(\theta_t(p))=\theta_s(q)=\gamma_q(s)=\gamma_p(t+s)=\theta_{s+t}(p)
+\]
+\begin{enumerate}[start=4]
+\item Concluimos que
+\end{enumerate}
+\[
+\theta_s\circ\theta_t(p)=\theta_{s+t}(p)
+\]
+\begin{itemize}
+\item \textbf{(iv)}
+\end{itemize}
+\begin{enumerate}
+\item Veamos primero que $\theta_t(D_t)\subseteq D_{-t}$.
+\item Sea $p\in D_t$ y sea $q=\theta_t(p)=\gamma_p(t)$.
+\item Nuevamente,
+\end{enumerate}
+\[
+(a(q),b(q))=(a(p)-t,b(p)-t)
+\]
+\begin{enumerate}[start=4]
+\item Como $0\in(a(p),b(p))$, se tiene $-t\in(a(q),b(q))$.
+\end{enumerate}
+\[
+q\in D_{-t}
+\]
+\begin{enumerate}[start=5]
+\item Entonces $\theta_t:D_t\to D_{-t}$ está bien definida.
+\item Además, usando la parte \textbf{(iii)},
+\end{enumerate}
+\[
+\theta_{-t}(\theta_t(p))=\theta_0(p)=\gamma_{p}(0)=p
+\]
+\begin{enumerate}[start=7]
+\item Análogamente, para $q\in D_{-t}$,
+\end{enumerate}
+\[
+\theta_t(\theta_{-t}(q))=\theta_0(q)=\gamma_{q}(0)=q
+\]
+\begin{enumerate}[start=8]
+\item Así, $\theta_{-t}$ es la inversa de $\theta_t$.
+\item Veamos que \textbf{$\Theta_{t}$ es suave}
+\item Fijemos $t\in\mathbb R$. Recordemos que el flujo es una aplicación suave
+\end{enumerate}
+\[
+\Theta:\mathcal D\subseteq\mathbb R\times M\to M
+\]
+\begin{enumerate}[start=11]
+\item Por definición,
+\end{enumerate}
+\[
+D_t=\{p\in M:(t,p)\in\mathcal D\}
+\]
+y $\Theta_t:D_t\to M$ está dada por $\Theta_t(p)=\Theta(t,p)$ 12. Primero observemos que $D_t$ es abierto en $M$. En efecto, si definimos
+
+\[
+\iota_t:M\to\mathbb R\times M
+\]
+por $\iota_t(p)=(t,p)$, entonces $\iota_t$ es continua y $D_t=\iota_t^{-1}(\mathcal D)$. 13. Como $\mathcal D$ es abierto, se sigue que $D_t$ es abierto. Con lo cual es subvariedad de $M$ 14. Ahora consideramos la restricción
+
+\[
+\iota_t|_{D_t}:D_t\to\mathcal D
+\]
+dada por $\iota_t|_{D_t}(p)=(t,p)$. Esta aplicación es suave porque es la restricción de una aplicación suave a un abierto dentro de la variedad. 15. Para todo $p\in D_t$, tenemos
+
+\[
+\Theta_t(p)=\Theta(t,p)=\Theta\big(\iota_t|_{D_t}(p)\big).
+\]
+\begin{enumerate}[start=16]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\Theta_t=\Theta\circ \iota_t|_{D_t}.
+\]
+\begin{enumerate}[start=17]
+\item Como $\iota_t|_{D_t}$ es suave y $\Theta$ es suave, se concluye que $\Theta_t:D_t\to M$ es suave.
+\item Además, ya se probó que $\Theta_t(D_t)\subseteq D_{-t}$. Como $D_{-t}$ es un abierto de $M$, la misma aplicación puede verse como
+\end{enumerate}
+\[
+\Theta_t:D_t\to D_{-t}.
+\]
+\begin{enumerate}[start=19]
+\item Esta aplicación también es suave como aplicación con codominio $D_{-t}$, porque la suavidad hacia un abierto de $M$ se verifica componiendo con la inclusión $D_{-t}\hookrightarrow M$. Y usando continuidad de $\Theta_{t}$. Además, $D_{-t}$ es una subvariedad incrustada de $M$ por ser un abierto de $M$.
+\item Por lo tanto, $\Theta_t:D_t\to D_{-t}$ es un difeomorfismo con inversa $\Theta_{-t}$.
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:8d50da}
+\section{Groundwork de generador infinitesimal}
+\begin{bookremark}{Observación muy importante}
+Cuando $X$ es un campo completo, tenemos $D_t=M$ para todo $t\in\mathbb R$.
+
+En este caso, $\Theta_t:M\to M$ es un difeomorfismo para todo $t\in\mathbb R$
+
+\[
+\Theta_0=\operatorname{Id}_M, \quad\text{ y además }\quad \Theta_{s+t}=\Theta_s\circ\Theta_t
+\]
+Esto es lindo porque tenemos una acción del grupo aditivo $(\mathbb R,+)$ sobre $M$. Dados $t\in\mathbb R$ y $p\in M$, definimos
+
+\[
+t\cdot p=\gamma_p(t)=\Theta_t(p)
+\]
+Entonces $0$ actúa como la identidad:
+
+\[
+0\cdot p=\Theta_0(p)=p
+\]
+Además,
+
+\[
+t\cdot(s\cdot p)=\Theta_t(\Theta_s(p))=\Theta_{t+s}(p)=(t+s)\cdot p
+\]
+Por lo tanto, la aplicación
+
+\[
+\rho:(\mathbb R,+)\to(\operatorname{Diff}(M),\circ),\qquad t\mapsto\Theta_t
+\]
+es un homomorfismo de grupos.
+
+\end{bookremark}
+\begin{bookremark}{}
+Podemos pensar en el camino contrario. Supongamos que tenemos
+
+\[
+\Theta:\mathbb R\times M\to M
+\]
+una acción suave de $(\mathbb R,+)$ en $M$.
+
+Es decir, $\Theta$ es suave y, si $\Theta_t(p):=\Theta(t,p)$, entonces
+
+\[
+0\cdot p=\Theta_0(p)=p
+\]
+y
+
+\[
+t\cdot (s\cdot p)=\Theta_t\circ\Theta_s(p)=\Theta_{t+s}(p)=(t+s)\cdot p
+\]
+¿Será que existe $X\in\mathfrak X(M)$ cuyo flujo sea $\Theta$? La respuesta es que sí, y $X$ es llamado el generador infinitesimal de $\Theta$.
+
+\end{bookremark}
+\section{Generador infinitesimal}
+\begin{bookproposition}{Generador infinitesimal de un flujo global}
+Let $\Theta:\mathbb R\times M\to M$ be a smooth global flow on a smooth manifold $M$. The infinitesimal generator $V$ of $\Theta$ is a smooth vector field on $M$, and each curve $\Theta^{(p)}$ is an integral curve of $V$.
+
+En español: si $\Theta$ es un flujo global suave, entonces su generador infinitesimal es un campo vectorial suave, y cada curva $t\mapsto\Theta_t(p)$ es una curva integral de ese campo.
+
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Hacemos ingeniería inversa. Queremos que la curva
+\end{enumerate}
+\[
+\gamma_p(t)=\Theta_t(p)
+\]
+sea curva integral comenzando en $p$. 2. Entonces el valor del campo en $p$ debería ser la velocidad de esta curva en $t=0$.
+
+\[
+V_p=\left.\frac{d}{dt}\right|_{0}\Theta_t(p)
+\]
+\begin{enumerate}[start=3]
+\item Mas en general para cada $q\in M$, definimos $\Theta^{(q)}:\mathbb R\to M$ por
+\end{enumerate}
+\[
+\Theta^{(q)}(t)=\Theta(t,q)=\Theta_t(q)
+\]
+\begin{enumerate}[start=4]
+\item Definimos en general entonces
+\end{enumerate}
+\[
+V_q=\left.\frac{d}{dt}\right|_{0}\Theta^{(q)}(t)
+\]
+\begin{enumerate}[start=5]
+\item Veamos que cada curva $\Theta^{(p)}$ es una curva integral de $V$.
+\item Fijemos $t\in\mathbb R$. Usando la propiedad de flujo,
+\end{enumerate}
+\[
+\Theta^{(p)}(t+h)=\Theta_{t+h}(p)=\Theta_h(\Theta_t(p))
+\]
+\begin{enumerate}[start=7]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\frac{d}{dh}\bigg|_{0}\Theta^{(p)}(t+h)=\frac{d}{dh}\bigg|_{0}\Theta_h(\Theta_t(p))=V_{\Theta_t(p)}
+\]
+\begin{enumerate}[start=8]
+\item Pero el lado izquierdo es exactamente $(\Theta^{(p)})'(t)$.
+\end{enumerate}
+\[
+(\Theta^{(p)})'(t)=V_{\Theta_t(p)}
+\]
+\begin{enumerate}[start=9]
+\item Como $\Theta_t(p)=\Theta^{(p)}(t)$, concluimos que
+\end{enumerate}
+\[
+(\Theta^{(p)})'(t)=V_{\Theta^{(p)}(t)}
+\]
+\begin{enumerate}[start=10]
+\item Luego $\Theta^{(p)}$ es una curva integral de $V$.
+\item Falta ver que $V$ es suave.
+\item En una carta $(U,\varphi=(x_1,\ldots,x_n))$, escribimos localmente
+\end{enumerate}
+\[
+V=\sum_{i=1}^n V^i\frac{\partial}{\partial x_i}
+\]
+\begin{enumerate}[start=13]
+\item Las componentes de $V$ están dadas por derivar en $t=0$ las componentes coordenadas de $\Theta_t(p)$.
+\end{enumerate}
+\[
+V^i(p)=\left.\frac{d}{dt}\right|_0 x_i(\Theta_t(p))
+\]
+\begin{enumerate}[start=14]
+\item Como $\Theta$ es suave, la función $(t,p)\mapsto x_i(\Theta_t(p))$ es suave.
+\item Al derivar una función suave respecto de $t$, evaluando en $t=0$, obtenemos una función suave de $p$.
+\end{enumerate}
+\[
+V^i\in C^\infty(U)
+\]
+\begin{enumerate}[start=16]
+\item Entonces todas las componentes locales de $V$ son suaves.
+\item Por lo tanto, $V$ es un campo vectorial suave.
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:906978}
+\section{Uniformidad global del tiempo}
+\begin{booklemma}{Uniformidad global del tiempo}
+Sea $X$ un campo suave sobre una variedad $M$ y sea $\Theta$ su flujo. Supongamos que existe un número positivo $\varepsilon>0$ tal que, para todo $p\in M$, el dominio de $\gamma_p$ contiene a $(-\varepsilon,\varepsilon)$.
+
+Entonces $X$ es un campo completo.
+
+\end{booklemma}
+\begin{bookproof}{}
+\begin{enumerate}
+\item La idea es que, cuando se intenta acabar una curva integral maximal que comienza en $p$, la estiramos antes de que termine usando el intervalo uniforme $(-\varepsilon,\varepsilon)$, que sirve para todo punto.
+\item Razonemos por el absurdo. Supongamos que existe $p\in M$ tal que $b(p)<+\infty$. Osea estamos suponiendo que $X$ no es campo completo. (El caso $a(p)>-\infty$ es análogo)
+\item Elegimos un punto del final de la curva, antes de que se acabe, faltando menos de $\varepsilon$ segundos.
+\item Tomamos $t_0\in(a(p),b(p))$ tal que
+\end{enumerate}
+\[
+b(p)-\varepsilon<t_0<b(p)
+\]
+\begin{enumerate}[start=5]
+\item Pensemos en la curva integral maximal de $q$
+\end{enumerate}
+\[
+q=\gamma_p(t_0)
+\]
+por hipótesis, está definida al menos en $(-\varepsilon,\varepsilon)$. 6. Definimos una curva $\alpha$ pegando $\gamma_p$ con la curva que empieza en $q$:
+
+\[
+\alpha(t)=\begin{cases}\gamma_p(t),&a(p)<t<b(p),\\\gamma_q(t-t_0),&-\varepsilon<t-t_0<\varepsilon.\end{cases}
+\]
+\begin{enumerate}[start=7]
+\item Primero veamos que está bien definida donde se solapan las dos definiciones.
+\item Notar que $(a(p),b(p))\cap(t_0-\varepsilon,t_0+\varepsilon)=(t_0-\varepsilon,b(p))$.
+\item En efecto, como $a(p)<b(p)-\varepsilon$, podemos elegir $t_0$ de modo que $a(p)<t_0-\varepsilon$. Entonces $a(p)<t_0-\varepsilon<b(p)$.
+\item Por otro lado, como $b(p)-\varepsilon<t_0$, se sigue que $b(p)<t_0+\varepsilon$.
+\item Por lo tanto, $(a(p),b(p))\cap(t_0-\varepsilon,t_0+\varepsilon)=(t_0-\varepsilon,b(p))$.
+\item Entonces n el solapamiento osea si $t\in(t_0-\varepsilon,b(p))$, tenemos que
+\end{enumerate}
+\[
+\gamma_q(t-t_0)=\Theta_{t-t_0}(q)=\Theta_{t-t_0}(\Theta_{t_0}(p))=\Theta_t(p)=\gamma_p(t)
+\]
+por lo tanto, las dos expresiones coinciden en el solapamiento. 13. Además, $\alpha$ es curva integral de $X$ y en $t=0$ pasa por $p$. 14. Como $b(p)-\varepsilon<t_0$, tenemos $b(p)<t_0+\varepsilon$. 15. Entonces $\alpha$ está definida más allá de $b(p)$. 16. Esto contradice la maximalidad de $\gamma_p$. 17. Luego no puede ocurrir que $b(p)<+\infty$. (Análogamente, no puede ocurrir que $a(p)>-\infty$) 18. Por lo tanto, para todo $p\in M$ se cumple
+
+\[
+(a(p),b(p))=\mathbb R
+\]
+\begin{enumerate}[start=19]
+\item Concluimos que $X$ es completo.
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:17fba4}
+\section{Campo con soporte compacto es completo}
+\begin{booktheorem}{Campo con soporte compacto}
+Sea $X\in\mathfrak X(M)$ con soporte compacto. Entonces $X$ es completo.
+
+Recordemos que
+
+\[
+\operatorname{Sop}X=\operatorname{Cl}_M\{q\in M:X_q\neq0\}
+\]
+\end{booktheorem}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Sea $K=\operatorname{Sop}X$.
+\item Notemos primero que si $p\notin K$, entonces existe un abierto $V_p$ de $M$ con $p\in V_p$ donde el campo vale cero.
+\item Es decir, para todo $q\in V_p$,
+\end{enumerate}
+\[
+X_q=0
+\]
+\begin{enumerate}[start=4]
+\item Entonces, para todo $q\in V_p$, la curva constante
+\end{enumerate}
+\[
+\gamma_q:\mathbb R\to M,\qquad \gamma_q(t)=q
+\]
+es curva integral maximal de $X$. 5. Por lo tanto, los puntos fuera de $K$ no generan ningún problema: sus curvas integrales están definidas para todo tiempo mientras permanezcan fuera del soporte, y en particular tienen tiempo local uniforme. 6. Falta ver qué pasa en $K$. 7. Por \hyperref[blk:3b18e6]{Teórico 16}, para todo $p\in K$ existe $\varepsilon_p>0$ y existe un abierto $V_p$ de $M$ con $p\in V_p$ tal que, para todo $q\in V_p$, la curva integral que comienza en $q$ está definida en $(-\varepsilon_p,\varepsilon_p)$. Osea $(-\epsilon_{p},\epsilon_{p})\subseteq (a(q),b(q))$ para todo $q\in V_{p}$\\
+8. Con los abiertos $V_p$ podemos cubrir a $K$. 9. Como $K$ es compacto, existen $p_1,\ldots,p_s\in K$ tales que
+
+\[
+K\subseteq V_{p_1}\cup\cdots\cup V_{p_s}
+\]
+\begin{enumerate}[start=10]
+\item Tomamos
+\end{enumerate}
+\[
+\varepsilon=\min\{\varepsilon_{p_1},\ldots,\varepsilon_{p_s}\}
+\]
+\begin{enumerate}[start=11]
+\item Entonces, para todo $q\in K$, la curva integral que comienza en $q$ está definida al menos en $(-\varepsilon,\varepsilon)$.
+\item Por lo tanto, para todo $q\in M$, el dominio de $\gamma_q$ contiene a $(-\varepsilon,\varepsilon)$.
+\item Por el lema de uniformidad global del tiempo, $X$ es completo.
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\begin{booklemma}{Lema del escape}
+Sea $M$ una variedad suave y sea $X\in\mathfrak X(M)$. Sea $p\in M$ tal que la curva integral maximal
+
+\[
+\gamma_p:(a(p),b(p))\to M
+\]
+cumple $b(p)<+\infty$.
+
+Entonces, para todo $t_0\in(a(p),b(p))$, el tramo
+
+\[
+\gamma_p([t_0,b(p)))
+\]
+no puede estar contenido en ningún compacto de $M$.
+
+\end{booklemma}
+\begin{bookproof}{}
+14. Razonemos por el absurdo. 15. Supongamos que existe $t_0\in(a(p),b(p))$ y existe un compacto $K\subseteq M$ tal que
+
+\[
+\gamma_p([t_0,b(p)))\subseteq K
+\]
+\begin{enumerate}[start=16]
+\item Repetimos el argumento del teorema anterior sobre el compacto $K$.
+\item Por uniformidad local del tiempo, para todo $r\in K$ existe $\varepsilon_r>0$ y existe un abierto $V_r$ de $M$ con $r\in V_r$ tal que, para todo $q\in V_r$, la curva integral que comienza en $q$ está definida en $(-\varepsilon_r,\varepsilon_r)$.
+\item Los abiertos $V_r$ cubren a $K$.
+\item Como $K$ es compacto, existen $r_1,\ldots,r_s\in K$ tales que
+\end{enumerate}
+\[
+K\subseteq V_{r_1}\cup\cdots\cup V_{r_s}
+\]
+\begin{enumerate}[start=20]
+\item Tomamos
+\end{enumerate}
+\[
+\varepsilon=\min\{\varepsilon_{r_1},\ldots,\varepsilon_{r_s}\}
+\]
+\begin{enumerate}[start=21]
+\item Entonces, para todo $q\in K$, la curva integral que comienza en $q$ está definida al menos en $(-\varepsilon,\varepsilon)$.
+\item Como $b(p)<+\infty$, elegimos $t_1\in[t_{0},b(p))$ suficientemente cerca de $b(p)$, con
+\end{enumerate}
+\[
+b(p)-\varepsilon<t_1<b(p)
+\]
+\begin{enumerate}[start=23]
+\item Como $t_1\in[t_0,b(p))$, se tiene $q=\gamma_p(t_1)\in K$
+\item Por la uniformidad sobre $K$, la curva integral maximal que comienza en $q$ está definida en $(-\varepsilon,\varepsilon)$.
+\item Definimos
+\end{enumerate}
+\[
+\alpha(t)=\begin{cases}\gamma_p(t),&a(p)<t<b(p),\\\gamma_q(t-t_1),&-\varepsilon<t-t_1<\varepsilon.\end{cases}
+\]
+\begin{enumerate}[start=26]
+\item Veamos que las dos definiciones coinciden en el solapamiento.
+\item Si $t\in(t_1-\varepsilon,b(p))$, entonces
+\end{enumerate}
+\[
+\gamma_q(t-t_1)=\Theta_{t-t_1}(q)=\Theta_{t-t_1}(\Theta_{t_1}(p))=\Theta_t(p)=\gamma_p(t)
+\]
+\begin{enumerate}[start=28]
+\item Por lo tanto, $\alpha$ está bien definida.
+\item Además, $\alpha$ es curva integral de $X$ y extiende a $\gamma_p$.
+\item Como $b(p)-\varepsilon<t_1$, se tiene $b(p)<t_1+\varepsilon$.
+\item Entonces $\alpha$ está definida más allá de $b(p)$.
+\item Esto contradice la maximalidad de $\gamma_p$.
+\item Por lo tanto, ningún tramo final $\gamma_p([t_0,b(p)))$ puede estar contenido en un compacto de $M$.
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:f386fd}

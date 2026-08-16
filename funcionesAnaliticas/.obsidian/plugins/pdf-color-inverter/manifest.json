@@ -1,0 +1,9 @@
+{
+  "id": "pdf-color-inverter",
+  "name": "PDF Color Inverter",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Invert PDF page colors inside Obsidian's built-in PDF viewer.",
+  "author": "Javier Vera",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,921 @@
+% This file is generated from the corresponding Obsidian note.
+% Source: Teoricos/GS - Teo19.md
+\chapter{Corchete de Lie}
+\label{ch:teo-19}
+\begin{bookdefinition}{Subgrupo monoparamétrico de difeomorfismos}
+Una familia de difeomorfismos $\{\theta_t\}_{t\in\mathbb R}$ de $M$ es un subgrupo monoparamétrico de difeomorfismos de $M$ si satisface:
+
+\begin{itemize}
+\item \textbf{(i)} $\theta_t:M\to M$ es un difeomorfismo para todo $t\in\mathbb R$.
+\item \textbf{(ii)} $\theta_0=\operatorname{Id}_M$.
+\item \textbf{(iii)} $\theta_s\circ\theta_t=\theta_{s+t}$, para todo $s,t\in\mathbb R$.
+\end{itemize}
+Equivalentemente, la aplicación
+
+\[
+\xi:(\mathbb R,+)\to(\operatorname{Diff}(M),\circ),\qquad t\mapsto\theta_t,
+\]
+es un homomorfismo de grupos.
+
+\end{bookdefinition}
+\begin{bookproposition}{Generador infinitesimal y su suavidad}
+Sea $\theta=\{\theta_t\}_{t\in\mathbb R}$ un subgrupo monoparamétrico suave de difeomorfismos de $M$. Para cada $p\in M$, definimos
+
+\[
+X_p(f):=\left.\frac{d}{dt}\right|_{t=0}f(\theta_t(p)),\qquad f\in C^\infty(M).
+\]
+Entonces $X_p\in T_pM$ para todo $p\in M$, y $X$ es un campo vectorial suave en $M$. Este campo se llama el \textbf{generador infinitesimal} del subgrupo monoparamétrico $\theta$.
+
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Tomemos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$.
+\item Queremos ver que las funciones coordenadas de $X$ en esta carta son suaves.
+\item Recordemos que, para $q\in U$,
+\end{enumerate}
+\[
+X_q(x_i)=\left.\frac{d}{dt}\right|_{t=0}x_i(\theta_t(q)).
+\]
+\begin{enumerate}[start=4]
+\item Como $\theta:\mathbb R\times M\to M$ es suave, la función
+\end{enumerate}
+\[
+(t,q)\mapsto x_i(\theta_t(q))
+\]
+es suave donde está definida. 5. Entonces
+
+\[
+X^i(q)=X_q(x_i)=\left.\frac{d}{dt}\right|_{t=0}x_i(\theta_t(q))
+\]
+es suave como función de $q$. 6. Por lo tanto, en coordenadas
+
+\[
+X|_U=\sum_{i=1}^n X^i\frac{\partial}{\partial x_i}
+\]
+con $X^i\in C^\infty(U)$, y se sigue que $X$ es suave.
+
+\bookqed
+\end{bookproof}
+\section{Corchete de Lie}
+\begin{bookremark}{}
+Recordemos que dado $X\in\mathfrak X(M)$ y $f\in C^\infty(M)$, tenemos la función suave
+
+\[
+Xf:M\to\mathbb R,\qquad p\mapsto (Xf)(p)=X_p(f).
+\]
+Osea $Xf\in C^{\infty}(M)$
+
+\end{bookremark}
+\begin{bookdefinition}{Corchete de Lie}
+Sean $X,Y\in\mathfrak X(M)$. Se define el corchete de Lie de $X$ e $Y$, denotado por $[X,Y]$, como el campo que en $p$ actúa sobre $f\in C^\infty(M)$ de la siguiente manera
+
+\[
+[X,Y]_p f=X_p(Yf)-Y_p(Xf).
+\]
+\end{bookdefinition}
+\begin{bookproposition}{Buena definicion corchete de Lie}
+El corchete de Lie está bien definido, es decir, $[X,Y]_p\in T_pM$ y ademas $[X,Y]$ es un campo suave.
+
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Necesitamos ver que $[X,Y]_p$ es vector tangente.
+\item \textbf{Linealidad} Sea $f,g\in C^\infty(M)$. Entonces
+\end{enumerate}
+\[
+[X,Y]_p(f+g)=X_p(Y(f+g))-Y_p(X(f+g))=[X,Y]_pf+[X,Y]_pg,
+\]
+por linealidad de $X_p$ e $Y_p$. Para ver la igualdad intermedia, por ejemplo,
+
+\[
+(Y(f+g))(q)=Y_q(f+g)=Y_qf+Y_qg=(Yf)(q)+(Yg)(q),
+\]
+y por lo tanto $Y(f+g)=Yf+Yg$ como funciones. Análogo con $X(f+g)$. 3. \textbf{Leibniz} Primero por Leibniz
+
+\[
+Y(fg)=fYg+gYf.
+\]
+Esto se prueba facilmente de la misma manera que en 2. 4. Entonces
+
+\[
+X(Y(fg))=X(fYg+gYf)=X(fYg)+X(gYf).
+\]
+\begin{enumerate}[start=5]
+\item Usando Leibniz de $X$,
+\end{enumerate}
+\[
+X(fYg)=X(f)Yg+fX(Yg),
+\]
+y
+
+\[
+X(gYf)=X(g)Yf+gX(Yf).
+\]
+\begin{enumerate}[start=6]
+\item Luego
+\end{enumerate}
+\[
+X(Y(fg))=X(f)Yg+fX(Yg)+X(g)Yf+gX(Yf).
+\]
+\begin{enumerate}[start=7]
+\item Del mismo modo,
+\end{enumerate}
+\[
+X(fg)=fXg+gXf,
+\]
+y por lo tanto
+
+\[
+Y(X(fg))=Y(fXg+gXf)=Y(f)Xg+fY(Xg)+Y(g)Xf+gY(Xf).
+\]
+\begin{enumerate}[start=8]
+\item Restando,
+\end{enumerate}
+\[
+[X,Y](fg)=X(Y(fg))-Y(X(fg)).
+\]
+\begin{enumerate}[start=9]
+\item Los términos cruzados se cancelan porque son productos de funciones reales:
+\end{enumerate}
+\[
+X(f)Yg-Y(g)Xf\equiv0,\qquad X(g)Yf-Y(f)Xg\equiv0
+\]
+cuando se reordenan los productos entre funciones correspondientes. 10. Queda
+
+\[
+[X,Y](fg)=f[X,Y](g)+g[X,Y](f).
+\]
+entonces
+
+\[
+[X,Y]_{p}(fg)=f(g)[X,Y]_{p}(g)+g(p)[X,Y]_{p}(f)
+\]
+\begin{enumerate}[start=11]
+\item Finalmente vimos $[X,Y]_p$ es una vector tangente en $p$, es decir $[X,Y]_p\in T_pM$.
+\item \textbf{Suavidad} Para esto usemos \hyperref[blk:3accf8]{Caracterizaciones de suavidad} 4.
+\item Entonces dada $f\in C^{\infty}(M)$ tenemos que ver que $[X,Y]f=X(Yf)-Y(Xf)$ es suave
+\item Primero notamos $Yf,Xf\in C^{\infty}(M)$ por que $X,Y$ son campos suaves entonces $X(Yf),Y(Xf)\in C^{\infty}(M)$ misma razon
+\item Luego $[X,Y]f\in C^{\infty}(M)$ por ser resta de cosas en $C^{\infty}(M)$ por lo tanto $[X,Y]$ es campo suave
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\begin{bookproposition}{Propiedades del corchete de Lie}
+Sean $X,Y,Z\in\mathfrak X(M)$ y $f,g\in C^\infty(M)$. Entonces:
+
+\begin{itemize}
+\item \textbf{(i)} $[X,Y]=-[Y,X]$.
+\item \textbf{(ii)} Si $(U,\varphi=(x_{1},\ldots,x_{n}))$ entonces
+\end{itemize}
+\[
+\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0.
+\]
+\begin{itemize}
+\item \textbf{(iii)} $[X,gY]=g[X,Y]+X(g)Y$.
+\item \textbf{(iv)} $[fX,gY]=fg[X,Y]+fX(g)Y-gY(f)X$.
+\item \textbf{(v)} Identidad de Jacobi:
+\end{itemize}
+\[
+[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0.
+\]
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{itemize}
+\item \textbf{(i)}
+\end{itemize}
+\begin{enumerate}
+\item Sale directo:
+\end{enumerate}
+\[
+-[Y,X]f=-Y(Xf)+X(Yf)=[X,Y]f.
+\]
+\begin{itemize}
+\item \textbf{(ii)}
+\end{itemize}
+\begin{enumerate}
+\item Tomemos $f\in C^\infty(U)$.
+\end{enumerate}
+\[
+\begin{aligned}\left.\frac{\partial}{\partial x_i}\right|_p\left(\frac{\partial f}{\partial x_j}\right)&=\frac{\partial}{\partial r_i}\left[\left(\frac{\partial f}{\partial x_j}\right)\circ\varphi^{-1}\right](\varphi(p))\\&=\frac{\partial}{\partial r_i}\left[\left(\left(\frac{\partial}{\partial r_j}(f\circ\varphi^{-1})\right)\circ\varphi\right)\circ\varphi^{-1}\right](\varphi(p))\\&=\frac{\partial}{\partial r_i}\left[\frac{\partial}{\partial r_j}(f\circ\varphi^{-1})\circ(\varphi\circ\varphi^{-1})\right](\varphi(p))\\&=\frac{\partial}{\partial r_i}\left[\frac{\partial}{\partial r_j}(f\circ\varphi^{-1})\right](\varphi(p))\\&=\frac{\partial^2(f\circ\varphi^{-1})}{\partial r_i\partial r_j}(\varphi(p)).\end{aligned}
+\]
+\begin{enumerate}[start=2]
+\item Y se termina con el teorema de igualdad de las derivadas cruzadas.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{(iii)}
+\end{itemize}
+\begin{enumerate}
+\item Calculamos:
+\end{enumerate}
+\[
+[X,gY]h=X(gYh)-gY(Xh).
+\]
+\begin{enumerate}[start=2]
+\item Usando Leibniz:
+\end{enumerate}
+\[
+X(gYh)=X(g)Yh+gX(Yh).
+\]
+\begin{enumerate}[start=3]
+\item Entonces
+\end{enumerate}
+\[
+[X,gY]h=X(g)Yh+gX(Yh)-gY(Xh)=X(g)Yh+g[X,Y]h.
+\]
+\begin{enumerate}[start=4]
+\item Por lo tanto,
+\end{enumerate}
+\[
+[X,gY]=g[X,Y]+X(g)Y.
+\]
+\begin{itemize}
+\item \textbf{(iv)}
+\end{itemize}
+\begin{enumerate}
+\item Usando \textbf{(iii)} y antisimetría:
+\end{enumerate}
+\[
+[fX,gY]=f[X,gY]-gY(f)X.
+\]
+\begin{enumerate}[start=2]
+\item Luego
+\end{enumerate}
+\[
+[fX,gY]=fg[X,Y]+fX(g)Y-gY(f)X.
+\]
+\begin{itemize}
+\item \textbf{(v)}
+\end{itemize}
+\begin{enumerate}
+\item La prueba de Jacobi es un cálculo. Para $f\in C^\infty(M)$:
+\end{enumerate}
+\[
+\begin{aligned} \big[X,[Y,Z]]f+[Y,[Z,X]]f+[Z,[X,Y]]f&=X[Y,Z]f-[Y,Z]Xf+Y[Z,X]f-[Z,X]Yf+Z[X,Y]f-[X,Y]Zf\\&=XYZf-XZYf-YZXf+ZYXf+YZXf-YXZf\\&\quad -ZXYf+XZYf+ZXYf-ZYXf-XYZf+YXZf\\&=0.\end{aligned}
+\]
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:411d32}
+\begin{bookdefinition}{Campos $F$-relacionados}
+Sean $F:M\to N$ suave, $X\in\mathfrak X(M)$ y $\widetilde X\in\mathfrak X(N)$. Se dice que $X$ y $\widetilde X$ están $F$-relacionados si
+
+\[
+(dF)_pX_p=\widetilde X_{F(p)},\qquad p\in M.
+\]
+\end{bookdefinition}
+\begin{bookproposition}{Naturalidad del corchete}
+Sean $F:M\to N$ suave, $X,Y\in\mathfrak X(M)$ y $\widetilde X,\widetilde Y\in\mathfrak X(N)$ tales que $X,Y$ estan $F$-relacionados con $\widetilde{X},\widetilde Y$ respectivamente entonces $[X,Y]$ está $F$-relacionado con $[\widetilde X,\widetilde Y]$.
+
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Primero notamos
+\end{enumerate}
+\[
+(dF)_{p}[X,Y]_{p}f=[X,Y]_{p}(f\circ F)=X_{p}(Y(f\circ F))-Y_{p}(X(f\circ F))
+\]
+\begin{enumerate}[start=2]
+\item Tenemos que $(dF)_{p}(X_{p})=\widetilde{X}_{F(p)}$ entonces
+\end{enumerate}
+\[
+\widetilde X_{F(p)}(f)=(\widetilde Xf)(F(p)).
+\]
+Por lo tanto
+
+\[
+X_p(f\circ F)=((\widetilde Xf)\circ F)(p).
+\]
+Como esto vale para todo $p\in M$, se obtiene la igualdad de funciones
+
+\[
+X(f\circ F)=(\widetilde Xf)\circ F.
+\]
+Analogo con $Y(f\circ F)$. 3. Por lo tanto
+
+\[
+\begin{aligned}(dF)_{p}[X,Y]_{p}h=[X,Y]_{p}(h\circ F)&=X_{p}((\widetilde Y f)\circ F)-Y_{p}((\widetilde X f)\circ F)\\&=(dF)_{p}(X_{p})(\widetilde{Y}f)-(dF)_{p}(Y_{p})(\widetilde{X}f)\\&=\widetilde{X}_{F(p)}(\widetilde{Y}f)-\widetilde{Y}_{F(p)}(\widetilde{X}f)\\&=[\widetilde{X},\widetilde{Y}]_{F(p)}f\end{aligned}
+\]
+mostrando que $[X,Y]$ y $[\widetilde{X},\widetilde{Y}]$ estan $F$-relacionados
+
+\bookqed
+\end{bookproof}
+\section{Derivada de Lie}
+\begin{booklemma}{}
+Sea $\alpha:(-\epsilon,\epsilon)\to TM$ una curva suave. Entonces, para toda $f\in C^\infty(M)$, se cumple
+
+\[
+\alpha'(0)(f)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)f.
+\]
+donde identificamos $T_{\alpha(0)}(TM)$ con $T_pM$.
+
+\end{booklemma}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Fijemos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ en $p$.
+\item Luego
+\end{enumerate}
+\[
+\alpha(t)=\sum_{i=1}^n b^i(t)\frac{\partial}{\partial x_i}\bigg|_p,
+\]
+con $b^i:(-\epsilon,\epsilon)\to\mathbb R$ suaves. 3. Vemos a $\alpha'(0)$ como elemento de $T_pM$ vía la identificación $T_{\alpha(0)}(T_pM)\cong T_pM$. 4. Usando la base $\left\{\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_n}\bigg|_p\right\}$, tenemos
+
+\[
+\alpha'(0)=\sum_{i=1}^n (b^i)'(0)\frac{\partial}{\partial x_i}\bigg|_p.
+\]
+\begin{enumerate}[start=5]
+\item Así,
+\end{enumerate}
+\[
+\alpha'(0)f=\sum_{i=1}^n (b^i)'(0)\frac{\partial f}{\partial x_i}(p).
+\]
+\begin{enumerate}[start=6]
+\item Por otro lado,
+\end{enumerate}
+\[
+\alpha(t)f=\sum_{i=1}^n b^i(t)\frac{\partial f}{\partial x_i}(p).
+\]
+\begin{enumerate}[start=7]
+\item Entonces,
+\end{enumerate}
+\[
+\frac{d}{dt}\bigg|_{t=0}\alpha(t)f=\frac{d}{dt}\bigg|_{t=0}\sum_{i=1}^n b^i(t)\frac{\partial f}{\partial x_i}(p)=\sum_{i=1}^n (b^i)'(0)\frac{\partial f}{\partial x_i}(p).
+\]
+\begin{enumerate}[start=8]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\alpha'(0)(f)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)f.
+\]
+\bookqed
+\end{bookproof}
+\begin{bookexercise}{Ejercicio 23 del practico}
+Sean $M$ una variedad diferenciable, $X,Y\in\mathfrak X(M)$ y sea $p\in M$. Probar que
+
+\[
+t\mapsto(d\theta_{-t})_{\theta_t(p)}(Y_{\theta_t(p)})
+\]
+define una curva $C^\infty$ en $T_pM$, donde $\theta_t$ es el flujo local asociado a $X$.
+
+\end{bookexercise}
+\begin{bookproof}{}
+\hyperref[blk:d6291e]{Ejercicio}
+
+\bookqed
+\end{bookproof}
+\begin{booktheorem}{Derivada de Lie NO FINAL}
+Para todo $X,Y\in\mathfrak X(M)$ y para todo $p\in M$, se cumple
+
+\[
+[X,Y]_p=(\mathcal L_XY)_p=\lim_{t\to0}\frac{(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}-Y_p}{t},
+\]
+donde $\theta$ es el flujo de $X$.
+
+\end{booktheorem}
+\begin{bookproof}{}
+9. Se calculan ambos lados y se prueba que son iguales. 10. Supongamos primero que $X_p\neq0$. 11. Por el teorema de rectificación de campos, existe una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ centrada en $p$ tal que
+
+\[
+X=\frac{\partial}{\partial x_1}.
+\]
+\begin{enumerate}[start=12]
+\item Escribimos
+\end{enumerate}
+\[
+Y=\sum_{j=1}^n a_j\frac{\partial}{\partial x_j},
+\]
+con $a_1,\ldots,a_n$ funciones suaves sobre $U$. 13. Entonces
+
+\[
+[X,Y]=\left[\frac{\partial}{\partial x_1},\sum_{j=1}^n a_j\frac{\partial}{\partial x_j}\right]=\sum_{j=1}^n a_j\left[\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_j}\right]+\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}\frac{\partial}{\partial x_j}.
+\]
+\begin{enumerate}[start=14]
+\item Como los campos coordenados conmutan,
+\end{enumerate}
+\[
+\left[\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_j}\right]=0.
+\]
+\begin{enumerate}[start=15]
+\item Por lo tanto,
+\end{enumerate}
+\[
+[X,Y]_p=\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}(p)\frac{\partial}{\partial x_j}\bigg|_p.
+\]
+\begin{enumerate}[start=16]
+\item Por otro lado, consideremos la curva suave
+\end{enumerate}
+\[
+\alpha(t)=(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\in T_pM.
+\]
+\begin{enumerate}[start=17]
+\item Queremos calcular
+\end{enumerate}
+\[
+\alpha'(0)\in T_{\alpha(0)}(T_pM)\simeq T_pM.
+\]
+\begin{enumerate}[start=18]
+\item Entonces
+\end{enumerate}
+\[
+\alpha'(0)=\sum_{j=1}^n c_j\frac{\partial}{\partial x_j}\bigg|_p,
+\]
+donde
+
+\[
+c_j=\alpha'(0)(x_j).
+\]
+\begin{enumerate}[start=19]
+\item Por el lema previo,
+\end{enumerate}
+\[
+\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)(x_j).
+\]
+\begin{enumerate}[start=20]
+\item Luego
+\end{enumerate}
+\[
+\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}\left((d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\right)(x_j).
+\]
+\begin{enumerate}[start=21]
+\item Por definición de diferencial,
+\end{enumerate}
+\[
+\left((d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}\right)(x_j)=Y_{\theta_t(p)}(x_j\circ\theta_{-t}).
+\]
+\begin{enumerate}[start=22]
+\item Como
+\end{enumerate}
+\[
+Y_{\theta_t(p)}=\sum_{i=1}^n a_i(\theta_t(p))\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)},
+\]
+tenemos
+
+\[
+Y_{\theta_t(p)}(x_j\circ\theta_{-t})=\sum_{i=1}^n a_i(\theta_t(p))\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)}(x_j\circ\theta_{-t}).
+\]
+\begin{enumerate}[start=23]
+\item En estas coordenadas, como $X=\frac{\partial}{\partial x_1}$, el flujo satisface
+\end{enumerate}
+\[
+x_j\circ\theta_{-t}=x_j-t\delta_{1j}.
+\]
+\begin{enumerate}[start=24]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\frac{\partial}{\partial x_i}\bigg|_{\theta_t(p)}(x_j\circ\theta_{-t})=\delta_{ij}.
+\]
+\begin{enumerate}[start=25]
+\item Así,
+\end{enumerate}
+\[
+Y_{\theta_t(p)}(x_j\circ\theta_{-t})=a_j(\theta_t(p)).
+\]
+\begin{enumerate}[start=26]
+\item Entonces
+\end{enumerate}
+\[
+\alpha'(0)(x_j)=\frac{d}{dt}\bigg|_{t=0}a_j(\theta_t(p))=X_pa_j=\frac{\partial a_j}{\partial x_1}(p).
+\]
+\begin{enumerate}[start=27]
+\item El igual del medio se justifica así: si $v\in T_pM$ y $\gamma$ es una curva con $\gamma(0)=p$ y $\gamma'(0)=v$, entonces
+\end{enumerate}
+\[
+v(f)=\frac{d}{dt}\bigg|_{t=0}f(\gamma(t)).
+\]
+\begin{enumerate}[start=28]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\alpha'(0)=\sum_{j=1}^n \frac{\partial a_j}{\partial x_1}(p)\frac{\partial}{\partial x_j}\bigg|_p=[X,Y]_p.
+\]
+\begin{enumerate}[start=29]
+\item Ahora supongamos que $X_p=0$.
+\item En este caso, la curva integral de $X$ que parte de $p$ es constante, luego
+\end{enumerate}
+\[
+\theta_t(p)=p.
+\]
+\begin{enumerate}[start=31]
+\item Entonces la curva queda
+\end{enumerate}
+\[
+\alpha(t)=(d\theta_{-t})_pY_p.
+\]
+\begin{enumerate}[start=32]
+\item Para toda $f\in C^\infty(M)$,
+\end{enumerate}
+\[
+\alpha'(0)(f)=\frac{d}{dt}\bigg|_{t=0}\alpha(t)(f)=\frac{d}{dt}\bigg|_{t=0}Y_p(f\circ\theta_{-t}).
+\]
+\begin{enumerate}[start=33]
+\item Como $Y_p$ es una derivación fija,
+\end{enumerate}
+\[
+\alpha'(0)(f)=Y_p\left(\frac{d}{dt}\bigg|_{t=0}f\circ\theta_{-t}\right).
+\]
+\begin{enumerate}[start=34]
+\item Pero
+\end{enumerate}
+\[
+\frac{d}{dt}\bigg|_{t=0}f(\theta_{-t}(q))=-X_qf.
+\]
+\begin{enumerate}[start=35]
+\item Es decir,
+\end{enumerate}
+\[
+\frac{d}{dt}\bigg|_{t=0}f\circ\theta_{-t}=-Xf.
+\]
+\begin{enumerate}[start=36]
+\item Por lo tanto,
+\end{enumerate}
+\[
+\alpha'(0)(f)=-Y_p(Xf).
+\]
+\begin{enumerate}[start=37]
+\item Como $X_p=0$, también
+\end{enumerate}
+\[
+[X,Y]_pf=X_p(Yf)-Y_p(Xf)=-Y_p(Xf).
+\]
+\begin{enumerate}[start=38]
+\item Así,
+\end{enumerate}
+\[
+\alpha'(0)(f)=[X,Y]_pf.
+\]
+\begin{enumerate}[start=39]
+\item Como esto vale para toda $f\in C^\infty(M)$, concluimos que
+\end{enumerate}
+\[
+\alpha'(0)=[X,Y]_p.
+\]
+\begin{enumerate}[start=40]
+\item Por lo tanto,
+\end{enumerate}
+\[
+(\mathcal L_XY)_p=[X,Y]_p.
+\]
+\bookqed
+\end{bookproof}
+\begin{bookdefinition}{Corchete de Lie mediante el flujo}
+Sean $X,Y\in\mathfrak X(M)$, y sea $\theta$ el flujo local de $X$. Para $p\in M$, consideramos la curva
+
+\[
+t\mapsto(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}
+\]
+en $T_pM$. Su derivada en $t=0$ es el corchete:
+
+\[
+[X,Y]_p=\left.\frac{d}{dt}\right|_{0}(d\theta_{-t})_{\theta_t(p)}Y_{\theta_t(p)}.
+\]
+Esto se puede pensar como que empujamos $Y$ por el flujo de $X$ y vemos cómo cambia infinitesimalmente.
+
+\end{bookdefinition}
+\section{Lema de uniformidad conjunta para dos flujos}
+\begin{booklemma}{Uniformidad conjunta para dos flujos}
+Sean $X$ e $Y$ dos campos en una variedad $M$, y sean $\theta$ y $\phi$ sus respectivos flujos. Para todo $p\in M$ existen un entorno abierto $U$ en $M$ de $p$ y $\delta>0$ tal que $\theta_s\circ\phi_t$ y $\phi_t\circ\theta_s$ están definidos en $U$ para $|s|<\delta$ y $|t|<\delta$.
+
+\end{booklemma}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Usemos uniformidad para cada uno de $X$ e $Y$.
+\item Existen abiertos $V_0$ y $W_0$ de $M$ en $p$, y $\varepsilon_1,\varepsilon_2>0$, tales que
+\end{enumerate}
+\[
+(-\varepsilon_1,\varepsilon_1)\times V_0\subset\mathcal D_\theta,
+\]
+\[
+(-\varepsilon_2,\varepsilon_2)\times W_0\subset\mathcal D_\phi.
+\]
+\begin{enumerate}[start=3]
+\item Por tanto están bien definidos
+\end{enumerate}
+\[
+\theta:(-\varepsilon_1,\varepsilon_1)\times V_0\to M,
+\]
+\[
+\phi:(-\varepsilon_2,\varepsilon_2)\times W_0\to M.
+\]
+\begin{enumerate}[start=4]
+\item Después vamos a querer hacer $\theta_s\circ\phi_t$ en cierto abierto de $p$. En particular $\phi_t(q)$ debe poder evaluarse en $\theta_s$.
+\item Como también $\theta_s(q)$ debe poder evaluarse en $\phi_t$, pensamos en los abiertos de $\mathbb R\times M$:
+\end{enumerate}
+\[
+\theta^{-1}(V_0),\qquad \phi^{-1}(W_0).
+\]
+\begin{enumerate}[start=6]
+\item Como $\mathbb R\times M$ tiene la topología producto, existe $\delta>0$ y un abierto $U$ de $p$ tal que
+\end{enumerate}
+\[
+(-\delta,\delta)\times U\subset \theta^{-1}(W_0)\cap\phi^{-1}(V_0),
+\]
+con $\delta<\varepsilon_1,\varepsilon_2$. 7. Resta ver que $\delta$ y $U$ cumplen lo que queremos. 8. Sean $s,t\in(-\delta,\delta)$ y $q\in U$. 9. Tenemos $(t,q)\in(-\varepsilon_2,\varepsilon_2)\times W_0$, por tanto $\phi_t(q)$ está definido. 10. Además, como $(t,q)\in\phi^{-1}(V_0)$, se tiene $\phi_t(q)\in V_0$. 11. Como $s\in(-\varepsilon_1,\varepsilon_1)$ y $\phi_t(q)\in V_0$, podemos evaluar $\theta_s(\phi_t(q))$. 12. Similarmente, $(s,q)\in\theta^{-1}(W_0)$ implica $\theta_s(q)\in W_0$, y entonces $\phi_t(\theta_s(q))$ también está definido.
+
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:39cc9a}
+\begin{bookproposition}{Criterio de conmutación de flujos (Hulet 9.15)}
+Sean $X,Y\in\mathfrak X(M)$ tales que $[X,Y]=0$ y sean $\theta,\phi$ los flujos respectivos. Dado $p\in M$, sean $U$ y $\delta$ los del \hyperref[blk:39cc9a]{Uniformidad conjunta para dos flujos}. Entonces:
+
+\begin{itemize}
+\item \textbf{(i)} $(d\theta_s)_qY_q=Y_{\theta_s(q)}$ con $q\in U$ para $s\in(-\delta,\delta)$.
+\item \textbf{(ii)} $\theta_t\circ\phi_s=\phi_s\circ\theta_t$ en $U$ para $t,s\in(-\delta,\delta)$.
+\end{itemize}
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{itemize}
+\item (i)
+\end{itemize}
+\begin{enumerate}
+\item Recordemos la fórmula
+\end{enumerate}
+\[
+[X,Y](p)=\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(p)}\big(Y_{\theta_t(p)}\big),\qquad p\in M.
+\]
+\begin{enumerate}[start=2]
+\item Notar que probar $(i)$ equivale a probar que
+\end{enumerate}
+\[
+Y_p=(d\theta_{-s})_{\theta_s(p)}\big(Y_{\theta_s(p)}\big),\qquad \forall s\in (-\delta ,\delta),\forall p\in U
+\]
+\begin{enumerate}[start=3]
+\item En otras palabras, para probar $(i)$ debemos ver que, para cada $p$, la curva
+\end{enumerate}
+\[
+z(s)=(d\theta_{-s})_{\theta_s(p)}\big(Y_{\theta_s(p)}\big)
+\]
+es constantemente igual a $Y_p$. 4. Calculamos $z'(s)$. Por definición,
+
+\[
+z'(s)=\frac{d}{dt}\Big|_{t=0}z(t+s).
+\]
+\begin{enumerate}[start=5]
+\item Ahora,
+\end{enumerate}
+\[
+z(t+s)=(d\theta_{-(t+s)})_{\theta_{t+s}(p)}\big(Y_{\theta_{t+s}(p)}\big).
+\]
+\begin{enumerate}[start=6]
+\item Como
+\end{enumerate}
+\[
+\theta_{t+s}(p)=\theta_t(\theta_s(p))
+\]
+y
+
+\[
+\theta_{-(t+s)}=\theta_{-s}\circ\theta_{-t},
+\]
+por la regla de la cadena obtenemos
+
+\[
+z(t+s)=(d\theta_{-s})_{\theta_s(p)}\left((d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)\right).
+\]
+\begin{enumerate}[start=7]
+\item Por lo tanto,
+\end{enumerate}
+\[
+z'(s)=\frac{d}{dt}\Big|_{t=0}(d\theta_{-s})_{\theta_s(p)}\left((d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)\right).
+\]
+\begin{enumerate}[start=8]
+\item Como $(d\theta_{-s})_{\theta_s(p)}$ es lineal y no depende de $t$,
+\end{enumerate}
+\[
+z'(s)=(d\theta_{-s})_{\theta_s(p)}\left(\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)\right).
+\]
+\begin{enumerate}[start=9]
+\item Por la fórmula del corchete aplicada al punto $\theta_s(p)$,
+\end{enumerate}
+\[
+\frac{d}{dt}\Big|_{t=0}(d\theta_{-t})_{\theta_t(\theta_s(p))}\big(Y_{\theta_t(\theta_s(p))}\big)=[X,Y]_{\theta_s(p)}.
+\]
+\begin{enumerate}[start=10]
+\item Luego
+\end{enumerate}
+\[
+z'(s)=(d\theta_{-s})_{\theta_s(p)}\big([X,Y]_{\theta_s(p)}\big).
+\]
+\begin{enumerate}[start=11]
+\item Como $[X,Y]=0$, concluimos que
+\end{enumerate}
+\[
+z'(s)=0,\qquad \forall s\in (-\delta ,\delta )
+\]
+osea $z(s)$ es constante 12. Además,
+
+\[
+z(0)=(d\theta_0)_p(Y_p)=Y_p.
+\]
+\begin{enumerate}[start=13]
+\item Por lo tanto,
+\end{enumerate}
+\[
+z(s)=Y_p,\qquad \forall s,
+\]
+es decir,
+
+\[
+(d\theta_{-t})_{\theta_t(p)}\big(Y_{\theta_t(p)}\big)=Y_p.
+\]
+\begin{enumerate}[start=14]
+\item Aplicando $(d\theta_t)_p$ a ambos lados, obtenemos
+\end{enumerate}
+\[
+(d\theta_t)_p(Y_p)=Y_{\theta_t(p)}.
+\]
+\begin{enumerate}[start=15]
+\item \textbf{(ii)} Ahora fijemos $t$ y $q$. Consideramos
+\end{enumerate}
+\[
+\alpha(s)=\theta_t(\phi_s(q)),
+\]
+\[
+\beta(s)=\phi_s(\theta_t(q)).
+\]
+\begin{enumerate}[start=16]
+\item Tenemos
+\end{enumerate}
+\[
+\alpha(0)=\theta_t(q)=\beta(0).
+\]
+\begin{enumerate}[start=17]
+\item Además,
+\end{enumerate}
+\[
+\alpha'(s)=(d\theta_t)_{\phi_s(q)}Y_{\phi_s(q)}=Y_{\theta_t(\phi_s(q))}=Y_{\alpha(s)},
+\]
+donde usamos \textbf{(i)}. 18. Por otro lado,
+
+\[
+\beta'(s)=Y_{\phi_s(\theta_t(q))}=Y_{\beta(s)}.
+\]
+\begin{enumerate}[start=19]
+\item Entonces $\alpha$ y $\beta$ son curvas integrales de $Y$ con el mismo dato inicial.
+\item Por unicidad,
+\end{enumerate}
+\[
+\theta_t(\phi_s(q))=\phi_s(\theta_t(q)).
+\]
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:26db5d}
+\begin{bookproposition}{(Hulet 9.16)}
+Sean $X,Y\in\mathfrak{X}(M)$, cuyos flujos conmutan. Entonces
+
+\[
+[X,Y]=0.
+\]
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Sean $\theta$ y $\phi$ los flujos de $X$ e $Y$, respectivamente. Fijemos $p\in M$. Por el lema de uniformidad conjunta de los flujos, existen un abierto $U$ que contiene a $p$ y $\delta>0$ tales que, para $|s|,|t|<\delta$, las composiciones $\theta_t\circ\phi_s$ y $\phi_s\circ\theta_t$ están definidas en $U$.
+\item Como los flujos conmutan, para $|s|,|t|<\delta$ se cumple
+\end{enumerate}
+\[
+\theta_t(\phi_s(p))=\phi_s(\theta_t(p)).
+\]
+\begin{enumerate}[start=3]
+\item Derivando respecto de $s$ en $s=0$, obtenemos
+\end{enumerate}
+\[
+(d\theta_t)_p(Y_p)=(d\theta_t)_{\phi_0(p)}\left(\frac{d}{ds}\bigg|_{s=0}\phi_s(p)\right)=\frac{d}{ds}\bigg|_{s=0}\theta_t(\phi_s(p))=\frac{d}{ds}\bigg|_{s=0}\phi_s(\theta_t(p))=Y_{\theta_t(p)}.
+\]
+\begin{enumerate}[start=4]
+\item Aplicamos $(d\theta_{-t})_{\theta_t(p)}$ a ambos lados. Entonces
+\end{enumerate}
+\[
+\begin{aligned}(d\theta_{-t})_{\theta_t(p)}\left((d\theta_t)_p(Y_p)\right)&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right),\\d(\theta_{-t}\circ\theta_t)_p(Y_p)&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right),\\Y_p&=(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right).\end{aligned}
+\]
+\begin{enumerate}[start=5]
+\item Por lo tanto, la curva
+\end{enumerate}
+\[
+t\mapsto(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right)
+\]
+es constante para $|t|<\delta$. 6. Usando la fórmula del corchete en términos del flujo de $X$,
+
+\[
+[X,Y]_p=\frac{d}{dt}\bigg|_{t=0}(d\theta_{-t})_{\theta_t(p)}\left(Y_{\theta_t(p)}\right)=0.
+\]
+\begin{enumerate}[start=7]
+\item Como $p\in M$ era arbitrario, concluimos que
+\end{enumerate}
+\[
+[X,Y]=0.
+\]
+\bookqed
+\end{bookproof}
+\begin{bookremark}{}
+Recordar que si $\frac{\partial}{\partial x_i}$ y $\frac{\partial}{\partial x_j}$ son los campos de un marco coordenado, entonces
+
+\[
+\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0.
+\]
+Por tanto, si queremos rectificar dos campos $X,Y$ necesitamos como hipótesis $[X,Y]=0$. Por que si pudieramos rectificarlos entonces
+
+\[
+[X,Y]=\left[\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\right]=0
+\]
+\end{bookremark}
+\begin{bookproposition}{Rectificación simultánea (Hulet 9.18)}
+Sean $X_1,\ldots,X_k\in\mathfrak X(M)$ linealmente independientes en un abierto de $M$ en $p$ tales que
+
+\[
+[X_{i},X_{j}]=0\quad 1\leq i,j\leq k
+\]
+Entonces existe un sistema coordenado $(U,\varphi=(x_1,\ldots,x_n))$ centrado en $p$ tal que
+
+\[
+X_1|_U=\frac{\partial}{\partial x_1},\ldots,\qquad X_k|_U=\frac{\partial}{\partial x_k}
+\]
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Por \hyperref[blk:39cc9a]{Uniformidad conjunta para dos flujos}. Existe $\varepsilon>0$ y un abierto $V$ de $p$ tal que la composición
+\end{enumerate}
+\[
+\theta^{1}_{t_1}\circ\cdots\circ\theta^k_{t_k}
+\]
+está bien definida sobre $V$ para todos $t_1,\ldots,t_k\in(-\varepsilon,\varepsilon)$. 2. Como los campos son linealmente independientes. Achicando $V$ si hace falta, tomamos una carta cúbica centrada en $p$,
+
+\[
+(V,\psi=(x_1,\ldots,x_n)),
+\]
+tal que
+
+\[
+\left.\frac{\partial}{\partial x_i}\right|_p=X_i|_p,\qquad i=1,\ldots,k.
+\]
+por \hyperref[blk:047506]{Lema} 3. Nos enfocamos en la rebanada
+
+\[
+R=\{(r_1,\ldots,r_n)\in C_{\epsilon}^{n} (0):r_1=\cdots=r_k=0\}\simeq C_{\epsilon}^{n-k} (0)\subseteq \psi(V)
+\]
+que tiene dimensión $n-k$. 4. Armamos el mapa
+
+\[
+\sigma:(-\varepsilon,\varepsilon)^k\times C_{\epsilon}^{n-k}\subseteq \mathbb{R}^{n}  \to M
+\]
+por
+
+\[
+\sigma(t_1,\ldots,t_k,r^{k+1},\ldots,r^{n}  )=\theta^1_{t_1}\circ\cdots\circ\theta^k_{t_k}(\psi^{-1}(0,\ldots 0,r^{k+1},\ldots,r^{n}  )).
+\]
+Notar que esto este bien definido por que al ser carta cubica $\psi ^{-1}(0,\ldots,0,r^{k+1},\ldots r^{n})$ cae en $V$ 5. Como en la vez anterior, vamos a ver que $\sigma$ es un difeomorfismo entre un abierto de $\mathbb{R}^n$ y un abierto de $M$ que contiene a $p$, mostrando que
+
+\[
+(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)=\begin{cases} X_i|_p, & i=1,\ldots,k,\\[4pt] \left.\dfrac{\partial}{\partial x^i}\right|_p, & i>k.\end{cases}
+\]
+\begin{enumerate}[start=6]
+\item En efecto, si $i\leq k$,
+\end{enumerate}
+\[
+\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial t^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1}_{0}\circ\cdots\circ\theta^{i}_{s}\circ\cdots\circ\theta^{k}_{0}\right)\left(\psi^{-1}(0,\ldots,0)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i}_{s}(p)\\&=X_i|_p\end{aligned}
+\]
+\begin{enumerate}[start=7]
+\item Si $i>k$,
+\end{enumerate}
+\[
+\begin{aligned}(d\sigma)_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(se_i)\\&=\left.\frac{d}{ds}\right|_{s=0}\sigma(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}(\theta^{1}_{0}\circ\cdots\circ\theta^{k}_{0})(\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=\left.\frac{d}{ds}\right|_{s=0}\psi^{-1}(0,\ldots,0,s,0,\ldots,0)\\&=(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)\\&=\left.\frac{\partial}{\partial x^i}\right|_p\end{aligned}
+\]
+este ultimo igual sale rapido escribiendo a $(d\psi^{-1})_0\left(\left.\frac{\partial}{\partial r^i}\right|_0\right)$ en coordenadas del $T_{\phi ^{-1}(0)}M$ 8. Ahora notamos que por paso 2.
+
+\[
+\left\{ X_{1}|_{p},\ldots,X_{k}|_{p},\frac{\partial}{\partial x^{k+1}}\bigg|_{p},\ldots, \frac{\partial}{\partial x^{n}}|_{p}\right\}=\left\{ \frac{\partial}{\partial x^{n}}\bigg|_{p},\ldots, \frac{\partial}{\partial x^{k}}\bigg|_{p} , \frac{\partial}{\partial x^{k+1}}|_{p}\ldots\frac{\partial}{\partial x^{n}}\bigg|_{p} \right\}
+\]
+\begin{enumerate}[start=9]
+\item Entonces $(d\sigma)_{0}$ es isomorfismo lineal por que manda base $\{ \frac{\partial}{\partial r_{i}} \}_{i<n}$ (notar aca llamo $t_{i}:=r^{i}$ es solo notacion para cordenadas en $\mathbb{R}$) en una base $\{ \frac{\partial}{\partial x^{n}}|_{p},\ldots, \frac{\partial}{\partial x^{k}}|_{p} , \frac{\partial}{\partial x^{k+1}}|_{p}\ldots\frac{\partial}{\partial x^{n}}|_{p} \}$
+\item Estamos entonces en condiciones de aplicar el Teorema de la Función Inversa. Existe un abierto $\widetilde U\subseteq\mathbb{R}^n$ que contiene a $0$ y un abierto $U\subseteq M$ que contiene a $p$ tales que
+\end{enumerate}
+\[
+\sigma|_{\widetilde U}:\widetilde U\longrightarrow U
+\]
+es un difeomorfismo. 11. Como $\sigma$ es un difeomorfismo entre $\widetilde U$ y $U$, llamamos $\sigma^{-1}=\varphi$, de modo que $(U,\varphi=y^{1},\ldots,y^{i})$ es una carta coordenada. 12. Recordamos nuestro objetivo es probar que
+
+\[
+X_i|_U=\frac{\partial}{\partial y^i},\qquad i=1,\ldots,k.
+\]
+\begin{enumerate}[start=13]
+\item Equivalentemente, queremos ver que para todo $(r^1,\ldots,r^n)\in\widetilde U$, e $1\leq i\leq k$
+\end{enumerate}
+\[
+(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(X_i)_{\sigma(r^1,\ldots,r^n)}.
+\]
+por que si esto es cierto usamos que
+
+\[
+(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=(d\varphi ^{-1})_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)=\frac{\partial}{\partial y^{i} }\bigg|_{\varphi ^{-1}(r)=\sigma(r)}
+\]
+\begin{enumerate}[start=14]
+\item Primero notemos que, como
+\end{enumerate}
+\[
+[X_i,X_j]=0
+\]
+los flujos conmutan localmente por \hyperref[blk:26db5d]{Criterio de conmutación de flujos (Hulet 9.15)} 15. Fijemos $1\leq i\leq k$. Entonces
+
+\[
+\begin{aligned}(d\sigma)_{(r^1,\ldots,r^n)}\left(\left.\frac{\partial}{\partial r^i}\right|_{(r^1,\ldots,r^n)}\right)&=\left.\frac{d}{ds}\right|_{s=0}\sigma(r^1,\ldots,r^i+s,\ldots,r^n)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i+s}\circ\cdots\circ\theta_{k,r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\left(\theta^{1} _{r^1}\circ\cdots\circ\theta^{i} _{r^i}\circ\theta^{i} _{s}\circ\cdots\circ\theta^{k} _{r^k}\right)\left(\psi^{-1}(0,\ldots,0,r^{k+1},\ldots,r^n)\right)\\&=\left.\frac{d}{ds}\right|_{s=0}\theta^{i} _{s}\left(\sigma(r^1,\ldots,r^n)\right)\\&=(X_i)_{\sigma(r^1,\ldots,r^n)}.\end{aligned}
+\]
+donde usamos que los flujos conmutan
+
+\bookqed
+\end{bookproof}

@@ -1,0 +1,708 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Practico 3"
+description: "Practico convertido desde GS - Pr3.md"
+chapter: "Pr 3"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Practico 3
+
+### Ejercicio 1
+
+<BookBlock kind="exercise">
+Sea <Math tex={"\\phi:(-\\pi/4,\\pi/2)\\to\\mathbb R^2"} /> dada por <Math tex={"\\phi(t)=\\sin(2t)(\\cos t,\\sin t)"} />. Graficar la imagen y probar que <Math tex={"( (-\\pi/4,\\pi/2),\\phi)"} /> es una subvariedad que no es incrustada.
+<Proof title="Demostracion">
+- **<Math tex={"\\phi"} /> es inyectiva**
+1. Sea <Math tex={"t_1,t_2\\in(-\\pi/4,\\pi/2)"} /> tales que <Math tex={"\\phi(t_1)=\\phi(t_2)"} />.  
+2. Como <Math tex={"\\phi(t)=\\sin(2t)(\\cos t,\\sin t),"} /> tenemos <Math display tex={"\\|\\phi(t)\\|=|\\sin(2t)|."} />
+3. Entonces <Math display tex={"\\phi(t)=0\\iff \\sin(2t)=0."} />
+4. En el intervalo <Math tex={"(-\\pi/4,\\pi/2)"} />, esto ocurre solamente para <Math tex={"t=0"} />.
+5. Por lo tanto, si <Math tex={"\\phi(t_1)=\\phi(t_2)=0"} />, entonces <Math tex={"t_1=t_2=0"} />. 
+6. Supongamos ahora que <Math tex={"\\phi(t_1)=\\phi(t_2)\\neq 0"} />.  
+7. Entonces <Math tex={"t_1,t_2\\neq 0"} />, y podemos normalizar: <Math display tex={"\\frac{\\phi(t)}{\\|\\phi(t)\\|}=\\operatorname{sgn}(\\sin(2t))(\\cos t,\\sin t)."} />
+8. Como <Math tex={"\\phi(t_1)=\\phi(t_2)"} />, se sigue que <Math display tex={"\\operatorname{sgn}(\\sin(2t_1))(\\cos t_1,\\sin t_1)=\\operatorname{sgn}(\\sin(2t_2))(\\cos t_2,\\sin t_2)."} />
+9. Si <Math tex={"t_1"} /> y <Math tex={"t_2"} /> tienen el mismo signo, entonces <Math tex={"\\sin(2t_1)"} /> y <Math tex={"\\sin(2t_2)"} /> tienen el mismo signo. Luego <Math display tex={"(\\cos t_1,\\sin t_1)=(\\cos t_2,\\sin t_2)."} />
+10. Como <Math tex={"t_1,t_2\\in(-\\pi/4,\\pi/2)"} />, necesariamente <Math tex={"t_1=t_2"} />. 
+11. Si <Math tex={"t_1"} /> y <Math tex={"t_2"} /> tienen signos opuestos, entonces <Math tex={"\\sin(2t_1)"} /> y <Math tex={"\\sin(2t_2)"} /> tienen signos opuestos. Luego <Math display tex={"(\\cos t_1,\\sin t_1)=-(\\cos t_2,\\sin t_2)."} />
+12. Esto implicaría que las direcciones difieren en <Math tex={"\\pi"} />, es decir, <Math display tex={"t_1-t_2\\equiv \\pi \\pmod{2\\pi}."} />
+13. Pero esto es imposible, porque el intervalo <Math tex={"(-\\pi/4,\\pi/2)"} /> tiene longitud <Math display tex={"\\frac{\\pi}{2}-\\left(-\\frac{\\pi}{4}\\right)=\\frac{3\\pi}{4}<\\pi."} />
+14. Por lo tanto, el caso de signos opuestos no puede ocurrir.
+15. Concluimos que <Math display tex={"\\phi(t_1)=\\phi(t_2)\\implies t_1=t_2."} />
+16. Luego <Math tex={"\\phi"} /> es inyectiva.
+- **La aplicación <Math tex={"\\phi"} /> es suave e inmersión**
+1. Notamos que <Math display tex={"\\phi'(t)=\\bigl(2\\cos(2t)\\cos t-\\sin(2t)\\sin t,\\;2\\cos(2t)\\sin t+\\sin(2t)\\cos t\\bigr),"} /> que es el diferencial
+2. Y en <Math tex={"t=0"} /> vale <Math tex={"\\phi'(0)=(2,0)\\neq 0"} />, mientras que para <Math tex={"t\\neq 0"} /> tampoco puede anularse porque <Math tex={"\\phi(t)=r(\\cos t,\\sin t)"} /> con <Math tex={"r' = 2\\cos(2t)"} /> y la derivada tiene una componente radial o angular no nula.
+3. Por lo tanto es inyectivo
+4. Y ademas usando las cartas identidad se ve que <Math tex={"Id \\circ\\phi \\circ Id=\\phi"} /> que es suave
+- **<Math tex={"\\phi"} /> no es incrustada**
+1. No es incrustada porque no es homeomorfismo sobre su imagen con la topología de subespacio heredada de <Math tex={"\\mathbb{R}^{2}"} />
+2. Por ejemplo, si <Math tex={"t_n=\\pi/2-1/n"} />, entonces <Math tex={"p_{n}=\\phi(t_n)\\to(0,0)"} /> y <Math tex={"t_n\\not\\to 0"} />. Luego <Math tex={"\\phi^{-1}"} /> no es continua en el origen.
+3. Por que si lo fuese <Math tex={"\\phi ^{-1}(p_{n})"} /> deberia converger a <Math tex={"\\phi ^{-1}(0,0)=0"} /> pero <Math tex={"\\phi ^{-1}(p_{n})=t_{n}=\\frac{\\pi}{2}-\\frac{1}{n}"} /> que no tiende a <Math tex={"0"} />    
+</Proof>
+</BookBlock>
+
+### Ejercicio 2
+
+<BookBlock kind="exercise">
+Sea <Math tex={"M\\subset N"} /> una subvariedad. Sea <Math tex={"\\phi:(a,b)\\to N"} /> una curva diferenciable tal que <Math tex={"\\phi((a,b))\\subset M"} />. Mostrar que no es necesariamente cierto que <Math tex={"\\dot\\phi(t)\\in(d\\iota)_{\\phi(t)}(T_{\\phi(t)}M)"} /> para todo <Math tex={"t"} />, donde <Math tex={"\\iota:M\\to N"} /> es la inclusión.
+<PreviewLink href="/chapters/pr-3#800b80" label="Sobre ejercicio 2" title="Observacion: Sobre ejercicio 2" />
+<Proof title="Demostracion">
+3. Suponemos que <Math tex={"N=\\mathbb{R}^{2}"} /> 
+4. Tomemos la subvariedad <Math tex={"((0,2\\pi),\\phi)"} /> con <Math display tex={"\\phi(t)=\\left(\\frac{\\sin(2t)}{2},\\sin t\\right)"} />
+5. En <Math tex={"\\phi(0,2\\pi)=M"} /> tomamos como topologia la heredada de <Math tex={"\\phi"} />. Asi es directo que <Math tex={"M"} /> es variedad topologica, con <Math tex={"((0,2\\pi),\\phi)"} /> como carta que nos da una estructura suave para el ocho (aca implicitamente estoy usando que <Math tex={"\\iota"} /> no es incrustacion, si no <Math tex={"M"} /> tendria que tener la topologia relativa a <Math tex={"\\mathbb{R}^{2}"} />) 
+6. Primero notamos <Math display tex={"d\\phi_{\\pi}:T_{\\pi}\\left( 0, 2\\pi\\right)\\rightarrow T_{p}M"} /> (con <Math tex={"p=\\phi(\\pi)=(0,0)"} />) es un isomorfismo lineal por que <Math tex={"\\phi"} /> es un difeomorfismo (por que tomamos la estructura transportada, con la topologia heredada de <Math tex={"\\mathbb{R}^{2}"} /> esta claro que no es homeo, si no seria incrustacion, notar que al tratar de usar las sucesiones para ver que no es homeo, no tenemos el mismo ejemplo con la topologia transportada, por que <Math tex={"p_{n}=\\phi\\left( \\frac{1}{n} \\right)"} /> no converge a <Math tex={"(0,0)"} /> por que hay abiertos del <Math tex={"(0,0)"} /> que no contienen a <Math tex={"p_{n}"} /> con esta nueva topologia)
+7. Como es isomorfismo <Math tex={"d\\phi_{0}\\left( \\frac{d}{dt}|_{0} \\right)"} /> nos da una base del <Math tex={"T_{p}M"} /> 
+8. Luego por regla de la cadena <Math display tex={"(di)_{p}\\left( d\\phi_{\\pi}\\left( \\frac{d}{dt}|_{0} \\right) \\right)=d(i\\circ\\phi)_{\\pi}\\left( \\frac{d}{dt}|_{0} \\right)=d\\phi_{\\pi}\\left( \\frac{d}{dt}|_{0} \\right)=\\phi'(\\pi)=(1,-1)"} /> 
+9. Por lo tanto <Math display tex={"(d\\iota)_p(T_pM)=\\mathbb R(1,-1),"} />
+10. Osea que de alguna manera una vez que definimos la estrucutra diferencaible para <Math tex={"M"} /> nos queda univocamente definido <Math tex={"(d\\iota)_{p}(T_{p}M)"} />  
+11. Ahora si tomamos <Math tex={"\\tilde{\\phi}(t):(-\\pi,\\pi)\\rightarrow \\mathbb{R}^{2}"} /> dada por <Math tex={"\\tilde{\\phi}(t)=\\left(\\frac{\\sin(2t)}{2},\\sin t\\right)"} /> es claro que <Math tex={"\\widetilde{\\phi}(-\\pi,\\pi)\\subseteq M"} /> 
+12. Sin embargo notemos que <Math tex={"\\tilde{\\phi}(0)=(0,0)=\\phi(\\pi)"} /> pero <Math display tex={"\\tilde{\\phi}'(0)=(1,1)\\not\\in\\mathbb{R}(1,-1)=(d\\iota)_{p}(T_{p}M)"} />
+13. Esto muestra que, si <Math tex={"M"} /> no es incrustada, una curva diferenciable en el ambiente cuya imagen cae en el subconjunto <Math tex={"M"} /> no necesariamente tiene velocidad perteneciente a la imagen del espacio tangente de <Math tex={"M"} /> por la inclusión.  
+14. La moraleja es que, si <Math tex={"\\iota"} /> no es incrustacion, la topología y la estructura diferenciable de <Math tex={"M"} /> no tienen por qué coincidir con las de <Math tex={"M"} /> como subconjunto de <Math tex={"N"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 3
+
+<BookBlock kind="exercise">
+Sea <Math tex={"(M,\\psi)"} /> una subvariedad de <Math tex={"N"} />. Mostrar que si <Math tex={"M"} /> es compacta, entonces es incrustada.
+<Proof title="Demostracion">
+1. Por definición, <Math tex={"\\psi:M\\to N"} /> es una inmersión inyectiva. 
+2. Como <Math tex={"M"} /> es compacta y <Math tex={"N"} /> es Hausdorff (por ser variedad), la restricción <Math display tex={"\\psi:M\\to\\psi(M)"} /> es una aplicación continua (por que antes de corestringir era suave por lo tanto continua y restriccion de continua es continua) biyectiva.
+3. Ademas <Math tex={"\\psi(M)"} /> es Hausdorff por ser subespacio de <Math tex={"N"} /> que es Hausdorff por ser variedad topologica
+4. Como <Math tex={"\\psi"} /> sale de un compacto y cae a un Hausdorff entonces es cerrada, por que dado un cerrado <Math tex={"C\\subseteq M"} /> como <Math tex={"M"} /> compacto entonces <Math tex={"C"} /> es compacto. Luego <Math tex={"\\psi(C)\\subseteq \\psi(M)"} /> es compacto. Pero como <Math tex={"\\psi(M)"} /> es Hausdorff todo compacto es cerrado, luego <Math tex={"\\psi(C)"} /> es cerrado.
+5. Luego <Math tex={"\\psi"} /> es biyectiva y cerrado entonces es un homeomorfismo. 
+6. Por lo tanto <Math tex={"\\psi"} /> es una inmersión que además es homeomorfismo sobre su imagen: es una incrustación.
+</Proof>
+</BookBlock>
+
+### Ejercicio 4
+
+<BookBlock kind="exercise">
+Mostrar que <Math tex={"k"} /> funcionales lineales <Math tex={"\\lambda_1,\\dots,\\lambda_k"} /> en <Math tex={"\\mathbb R^m"} /> son linealmente independientes si y sólo si <Math tex={"\\dim\\bigl(\\bigcap_{i=1}^k\\ker(\\lambda_i)\\bigr)=m-k"} />.
+<Proof title="Demostracion">
+1. Consideremos la aplicación lineal <Math display tex={"T:\\mathbb R^m\\to\\mathbb R^k,\\qquad T(x)=(\\lambda_1(x),\\dots,\\lambda_k(x))."} />
+2. Luego <Math display tex={"\\ker T=\\bigcap_{i=1}^{k}\\ker(\\lambda_{i})"} /> 
+3. Ahora miramos el pullback <Math display tex={"T^{*}:(\\mathbb{R}^{k})^{*}\\rightarrow(\\mathbb{R}^{m})^{*}"} /> y miramos la base estandar del dual <Math tex={"(\\mathbb{R}^{k})^{*}"} /> dada por <Math tex={"\\{ e^{1},\\ldots,e^{k} \\}"} /> 
+4. Luego <Math tex={"T^{*}(e^{i})=e^{i}T"} /> entonces <Math tex={"T^{*}(e^{i})(x)=e^{i}(T(x))"} /> y recordemos que <Math tex={"e^{i}"} /> nos da la <Math tex={"i"} />-esima coordenada de cualquier vector en <Math tex={"\\mathbb{R}^{k}"} /> en la base predual (que aca seria la estandar de <Math tex={"\\mathbb{R}^{k}"} />)  que seria <Math tex={"\\lambda_{i}(x)"} /> mostrando que <Math tex={"T^{*}(e^{i})=\\lambda_{i}"} />      
+5. Entonces <Math tex={"\\lambda_{i}"} /> son independientes si y solo si <Math tex={"T^{*}"} /> es inyectiva si y solo si <Math tex={"\\dim Im=\\dim Dm"} /> si y solo si rango<Math tex={"(T^{*})=k"} /> si y solo si rango<Math tex={"(T)=k"} /> si y solo si <Math tex={"m-k=\\dim \\ker (T)"} /> 
+</Proof>
+</BookBlock>
+
+### Ejercicio 5
+
+<BookBlock kind="exercise">
+Sea <Math tex={"M"} /> una variedad de dimensión <Math tex={"m"} /> y <Math tex={"p\\in M"} />.
+
+- (a) Si <Math tex={"y_1,\\dots,y_n"} /> con <Math tex={"n<m"} /> son funciones independientes en <Math tex={"p"} />, mostrar que forman parte de un sistema coordenado en un entorno de <Math tex={"p"} />.
+- (b) Si <Math tex={"f:M\\to N"} /> es suave y <Math tex={"(df)_p"} /> es sobreyectiva, y <Math tex={"(x_1,\\dots,x_n)"} /> es un sistema coordenado cerca de <Math tex={"f(p)"} />, mostrar que <Math tex={"x_1\\circ f,\\dots,x_n\\circ f"} /> forman parte de un sistema coordenado cerca de <Math tex={"p"} />.
+<Proof title="Demostracion">
+- (a)
+1. Como <Math tex={"(dy_1)_p,\\dots,(dy_n)_p"} /> son linealmente independientes (sobre <Math tex={"O"} /> )  en <Math tex={"T_p^*M"} />, se pueden completar a una base de <Math tex={"T_p^*M"} /> con covectores <Math tex={"\\eta_{n+1},\\dots,\\eta_m"} />. 
+2. Tomando una carta <Math tex={"(U,x_1,\\dots,x_m)"} /> alrededor de <Math tex={"p"} />, sabemos que entonces <Math tex={"\\{ (dx_{1})_{p}\\ldots,(dx_{m})_{p} \\}"} /> es base de <Math tex={"(T_{p}M)^{*}"} />
+3. Pero entonces puedo completar usando <Math tex={"(dx_{j_{1}})_{p},\\ldots (dx_{j_{m-n}})_{p}"} /> 
+4. Obteniendo asi la base <Math display tex={"\\{ (dy_1)_p,\\dots,(dy_n)_p,(dx_{j_{1}})_{p},\\ldots (dx_{j_{m-n}})_{p} \\}"} /> del <Math tex={"(T_{p}M)^{*}"} /> 
+5. Finalmente <Math tex={"(y_{1},\\ldots,y_{n},x_{j_{1}}\\ldots,x_{j_{m-n}})"} /> son independientes sobre <Math tex={"U\\cap O"} /> en <Math tex={"p"} /> entonces por <PreviewLink href="/chapters/teo-10#2b23b2" label="Proposicion" title="Proposicion" /> <Math tex={"(V,\\psi=(y_{1},\\ldots,y_{n},x_{j_{1}}\\ldots,x_{j_{m-n}}))"} /> carta
+- (b) 
+1. Si <Math tex={"(df)_p:T_{p}M\\rightarrow T_{f(p)}N"} /> es sobreyectiva (ya esto nos dice <Math tex={"n\\leq m"} />), entonces el pullback <Math display tex={"(df)_p^*:T_{f(p)}^*N\\to T_p^*M"} /> es inyectivo. 
+2. Como <Math tex={"(x_{1},\\ldots,x_{n})"} /> son sistema coordenado entonces <Math tex={"\\{(dx_1)_{f(p)},\\dots,(dx_n)_{f(p)}\\}"} /> son base de <Math tex={"(T_{f(p)}N)^{*}"} /> con lo cual son linealmente independientes, luego por inyeccion también lo son sus imágenes
+3. Recordemos <Math display tex={"(df)_{p}^{*}((dx_{j})_{f(p)})=(dx_{j})_{f(p)}\\circ(df)_{p}=d(x_{j}\\circ f)_{p}"} /> por lo tanto <Math tex={"d(x_{1}\\circ f)_{p},\\ldots d(x_{n}\\circ f)_{p}"} /> son independientes
+4. Aplicando el primer punto a las funciones <Math tex={"x_1\\circ f,\\dots,x_n\\circ f"} />, concluimos que forman parte de un sistema coordenado cerca de <Math tex={"p"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 6
+
+<BookBlock kind="exercise">
+Una función diferenciable <Math tex={"\\pi:M\\to N"} /> se dice una **submersión** si <Math display tex={"d\\pi_p:T_pM\\to T_{\\pi(p)}N"} /> es suryectiva para todo <Math tex={"p\\in M"} />.
+- (a) **Forma local de una submersión.** Probar que si <Math tex={"\\pi:M^m\\to N^n"} /> es una submersión, entonces dado <Math tex={"p\\in M"} /> existen sistemas coordenados <Math tex={"(U,\\varphi)"} /> alrededor de <Math tex={"p"} /> en <Math tex={"M"} /> y <Math tex={"(V,\\psi)"} /> alrededor de <Math tex={"\\pi(p)"} /> en <Math tex={"N"} /> tales que <Math display tex={"\\psi\\circ\\pi\\circ\\varphi^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_n)"} /> es la proyección sobre las primeras <Math tex={"n"} /> coordenadas.
+- Probar que toda submersión es abierta.
+<Proof title="Demostracion">
+- (a)
+1. Como <Math tex={"\\operatorname{rango}(d\\pi)_p=n"} /> para todo <Math tex={"p"} />, el teorema del rango constante da cartas <Math tex={"(U,\\varphi)"} /> en <Math tex={"M"} /> alrededor de <Math tex={"p"} /> y <Math tex={"(V,\\psi)"} /> en <Math tex={"N"} /> alrededor de <Math tex={"\\pi(p)"} /> tales que <Math display tex={"\\psi\\circ\\pi\\circ\\varphi^{-1}(x_1,\\dots,x_m)=(x_1,\\dots,x_n)."} />
+2. Es decir, localmente una submersión es la proyección sobre las primeras <Math tex={"n"} /> coordenadas.
+- (b)
+1. Sea <Math tex={"W\\subset M"} /> abierto queremos ver que <Math tex={"\\pi(W)"} /> es abierto entonces tomamos <Math tex={"q=\\pi(p)\\in\\pi(W)"} />. 
+2. Tomamos cartas como arriba con <Math tex={"p\\in U\\subset W"} />. Esto lo podemos hacer por que tomamos <Math tex={"U= \\tilde{U}\\cap W"} /> donde <Math tex={"(\\tilde{U},\\varphi)"} /> era la carta. Y ahora tenemos <Math tex={"(U,\\varphi|_{U})"} /> sigue siendo carta
+3. Ahora tomamos la forma local <Math display tex={"\\psi\\circ\\pi\\circ\\varphi^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_n)"} /> y la podemos ver restringida es lo mismo <Math display tex={"\\psi\\circ\\pi\\circ\\varphi|_{U}^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_n)"} />
+4. Pero entonces <Math display tex={"\\psi\\circ\\pi(U)=\\psi\\circ\\pi\\circ\\varphi|_{U}^{-1}(\\varphi(U))=pr_{1,\\ldots,n}(\\varphi(U))"} />
+5. Luego <Math display tex={"\\pi(U)=\\psi^{-1}\\circ pr_{1,\\ldots,n}(\\varphi(U))"} /> que es abierto por que <Math tex={"\\varphi(U)"} /> es abierto por ser <Math tex={"\\varphi"} /> homeomorfismo y <Math tex={"pr"} /> es una funcion abierta por lo tanto <Math tex={"pr(\\varphi(U))"} /> es abierto y <Math tex={"\\psi"} /> es homeomorfismo  
+6. Por lo tanto tenemos un abierto <Math tex={"\\pi(U)"} /> que contien a <Math tex={"q=\\pi(p)"} /> y esta contenido en <Math tex={"\\pi(W)"} />. Mostrando que <Math tex={"\\pi(W)"} /> es abierto  
+</Proof>
+</BookBlock>
+
+<span id="466288"></span>
+
+ 
+### Ejercicio 7
+
+<BookBlock kind="exercise">
+Probar que no existe una inmersión de una variedad compacta <Math tex={"M"} /> de dimensión <Math tex={"n"} /> en <Math tex={"\\mathbb R^n"} />.
+<Proof title="Demostracion">
+1. Si <Math tex={"F:M\\to\\mathbb R^n"} /> fuera una inmersión, entonces <Math tex={"(dF)_p"} /> sería un isomorfismo para todo <Math tex={"p"} />. Por que inyeccion nos dice que <Math tex={"dim\\ker (dF)_{p}=0"} /> entonces <Math tex={"\\dim im (dF)_{p}=\\dim T_{p}M=\\dim M=n"} /> por lo tanto <Math tex={"(dF)_{p}"} /> es sobreyectiva osea es isomorfismo  
+2. Por el teorema de la función inversa, <Math tex={"F"} /> es un difeomorfismo local; 
+3. En particular es una aplicación abierta. Por que difeomorfimos local es para cada <Math tex={"p\\in M"} /> existen abiertos <Math tex={"U_{p}\\subseteq M"} /> y <Math tex={"V_{p}\\subseteq \\mathbb{R}^{n}"} /> tales que <Math display tex={"F|_{U_{p}}:U_{p}\\rightarrow V_{p}"} /> es difeomorfimos.
+4. Luego dado <Math tex={"U"} /> abierto tenemos que <Math display tex={"F(U)=\\bigcup_{p\\in U} F(U_{p})=\\bigcup_{p\\in U}V_{p}"} /> que es union de abiertos
+5. Luego <Math tex={"F(M)\\subseteq \\mathbb{R}^{n}"} /> es abierto por que <Math tex={"M"} /> es abierto pero tambien es compacta y como <Math tex={"\\mathbb{R}^{n}"} /> es Hausdorff entonces es cerrada
+6. Luego <Math tex={"F(M)"} /> es abierto y cerrado y como <Math tex={"\\mathbb{R}^{n}"} /> es conexo entonces <Math tex={"F(M)=\\mathbb{R}^{n}"} /> 
+7. Lo cual es absurdo por que <Math tex={"\\mathbb{R}^{n}"} /> no es compacto
+</Proof>
+</BookBlock>
+
+### Ejercicio 8 (Opcional)
+
+<BookBlock kind="exercise">
+Sean <Math tex={"M,N,P"} /> variedades y <Math tex={"\\pi:M\\to N"} /> una submersión. Probar las propiedades pedidas.
+<Proof title="Demostracion">
+Todas se deducen de la forma local de una submersión.
+
+- **Secciones locales.** Cerca de cualquier <Math tex={"p\\in M"} />, en coordenadas <Math tex={"\\pi"} /> es la proyección <Math tex={"(x_1,\\dots,x_m)\\mapsto(x_1,\\dots,x_n)"} />. Entonces una sección local está dada por
+<Math display tex={"\\sigma(x_1,\\dots,x_n)=(x_1,\\dots,x_n,0,\\dots,0)."} />
+
+- **Suavidad detectada por composición.** Si <Math tex={"H"} /> es suave, entonces <Math tex={"H\\circ\\pi"} /> también. Recíprocamente, si <Math tex={"H\\circ\\pi"} /> es suave y <Math tex={"q\\in N"} />, tomamos una sección local <Math tex={"\\sigma"} /> alrededor de <Math tex={"q"} />. Entonces
+<Math display tex={"H|_V=(H\\circ\\pi)\\circ\\sigma,"} />
+luego <Math tex={"H"} /> es suave cerca de <Math tex={"q"} />, y por tanto en todo <Math tex={"N"} />.
+
+- **Bajar funciones.** Si <Math tex={"F:M\\to P"} /> es constante en las fibras, definimos <Math tex={"\\widetilde F(q)=F(p)"} /> para cualquier <Math tex={"p\\in\\pi^{-1}(q)"} />. Está bien definida por hipótesis. Para ver suavidad, en un abierto <Math tex={"V"} /> con sección local <Math tex={"\\sigma"} /> se tiene
+<Math display tex={"\\widetilde F|_V=F\\circ\\sigma,"} />
+que es suave. La unicidad es obvia porque <Math tex={"\\pi"} /> es sobreyectiva.
+
+- **Levantamiento de curvas.** En coordenadas locales donde <Math tex={"\\pi"} /> es la proyección, si <Math tex={"\\alpha(t)=(a_1(t),\\dots,a_n(t))"} /> y <Math tex={"p"} /> corresponde a <Math tex={"(a(0),b_0)"} />, basta definir
+<Math display tex={"\\gamma(t)=(a_1(t),\\dots,a_n(t),\\,b_{n+1}(t),\\dots,b_m(t)),"} />
+eligiendo las últimas coordenadas de modo que <Math tex={"\\gamma(0)=p"} /> y <Math tex={"\\gamma'(0)=v"} />. Entonces <Math tex={"\\pi\\circ\\gamma=\\alpha"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 9
+
+<BookBlock kind="exercise">
+Probar que si <Math tex={"F:M\\to N"} /> es una biyección diferenciable y <Math tex={"(dF)_{p}"} /> no singular en todo punto, entonces <Math tex={"F"} /> es un difeomorfismo.
+<Proof title="Demostracion">
+1. Queremos probar que <Math tex={"F^{-1}:N\\to M"} /> es suave.
+2. Como la suavidad es local, basta probar que <Math tex={"F^{-1}"} /> es suave en un entorno de cada punto de <Math tex={"N"} />.
+3. Sea <Math tex={"q\\in N"} />. Como <Math tex={"F"} /> es biyectiva, existe un único <Math tex={"p\\in M"} /> tal que <Math tex={"F(p)=q"} />.
+4. Como <Math tex={"(dF)_p"} /> es no singular, por el teorema de la función inversa existen abiertos <Math tex={"U\\subset M"} /> de <Math tex={"p"} /> y <Math tex={"V\\subset N"} /> de <Math tex={"q"} /> tales que <Math display tex={"F|_U:U\\to V"} /> es un difeomorfismo.
+5. Por lo tanto <Math display tex={"(F|_U)^{-1}:V\\to U"} /> es suave.
+6. Como <Math tex={"F"} /> es biyectiva, para todo <Math tex={"y\\in V"} /> se tiene <Math tex={"F^{-1}(y)=(F|_U)^{-1}(y)"} />.
+7. Entonces <Math display tex={"F^{-1}|_V=(F|_U)^{-1}."} />
+8. Así, <Math tex={"F^{-1}"} /> es suave en un entorno de <Math tex={"q"} />. Como <Math tex={"q\\in N"} /> era arbitrario, <Math tex={"F^{-1}"} /> es suave.
+9. Como <Math tex={"F"} /> es ya era continua y suave entonces <Math tex={"F"} /> es un difeomorfismo.
+</Proof>
+</BookBlock>
+
+### Ejercicio 10
+
+<BookBlock kind="exercise">
+- (a) Dar una estructura diferenciable a <Math tex={"T^*M"} />.
+- (b) Probar que las proyecciones canónicas <Math tex={"\\pi:TM\\to M"} /> y <Math tex={"\\pi^*:T^*M\\to M"} /> son submersiones.
+<Proof title="Demostracion">
+- (a) 
+1. Si <Math tex={"(U,x_1,\\dots,x_m)"} /> es una carta de <Math tex={"M"} /> (de dimension <Math tex={"m"} />) , toda covector <Math tex={"\\alpha_p\\in T_p^*M"} /> se escribe de manera única como <Math display tex={"\\alpha_p=\\sum_{i=1}^m \\xi_i\\,(dx_i)_p."} />
+2. Definimos entonces la carta inducida <Math tex={"(\\widetilde{U},\\widetilde{\\varphi})"} /> en <Math tex={"T^*M"} /> (donde <Math tex={"\\tilde{U}=(\\pi^{*})^{-1}(U)"} /> con <Math tex={"(\\pi^{*})"} /> la que manda <Math tex={"(p,v)\\mapsto p"} /> con <Math tex={"v\\in T^{*}M"} />, analogo a <PreviewLink href="/chapters/teo-7#4762ec" label="Fibrado tangente" title="Definicion: Fibrado tangente" />) por <Math display tex={"\\widetilde \\varphi:\\ (\\pi^*)^{-1}(U)\\to x(U)\\times\\mathbb R^m,\\qquad \\widetilde \\varphi(p,\\alpha_p)=\\bigl(x_1(p),\\dots,x_m(p),\\xi_1,\\dots,\\xi_m\\bigr)."} /> 
+3. Esta aplicación es biyectiva, y su inversa es <Math display tex={"\\widetilde\\varphi^{-1}(r_1,\\dots,r_n,t_1,\\dots,t_n)=\\left(\\varphi^{-1}(r_1,\\dots,r_n),\\sum_{i=1}^m t_i(dx_{i})_{p}\\right)."} />
+4. Esta claro que estas cartas cubren todo <Math tex={"TM"} />. Veamos que son compatibles
+5. Sean <Math tex={"(\\tilde{V},\\tilde{\\psi})"} /> y <Math tex={"(\\tilde{U},\\tilde{\\varphi})"} /> dos cartas de <Math tex={"TM^{*}"} /> asociadas a <Math tex={"(V,\\psi=(y_1,\\dots,y_n))"} /> y <Math tex={"(U,\\varphi=(x_{1},\\ldots x_{n}))"} /> tales que <Math tex={"\\tilde{V}\\cap \\tilde{U}\\neq 0"} />, luego <Math tex={"V\\cap U\\neq0"} />
+6. Entonces <Math display tex={"\\tilde{\\psi}\\circ \\tilde{\\varphi}^{-1}:\\tilde{\\varphi}(\\tilde{U}\\cap \\tilde{V}) \\subset \\mathbb{R}^{2m}\\longrightarrow\\tilde{\\psi}(\\tilde{U}\\cap \\tilde{V}) \\subset \\mathbb{R}^{2m}"} /> que es: <Math display tex={"\\begin{align}(r_{1},\\ldots r_{n},t_{1},...,t_{n})&\\longmapsto^{\\tilde{\\varphi}^{-1}} \\left(\\tilde{\\varphi}^{-1}(r),\\sum_{i=1}^m t_i(dx_{i})_{p}\\right)\\\\&\\longmapsto^{\\tilde{\\psi}}\\left(y_{1}(\\tilde{\\varphi}^{-1}(r)),\\ldots,y_{n}(\\tilde{\\varphi}^{-1}(r)),\\sum_{i=1}^m t_i(dx_{i})_{p}\\left(\\frac{\\partial}{\\partial y_1}\\right),\\ldots,\\sum_{i=1}^m t_i(dx_{i})_{p}\\left(\\frac{\\partial}{\\partial y_n}\\right)\\right)\\\\&=\\left((\\psi\\circ\\varphi^{-1})(r),\\sum^{m}_{i=1}t_{i}\\left(\\frac{\\partial}{\\partial y_1}\\bigg|_{p}\\right)x_{i},\\ldots\\sum^{m}_{i=1}t_{i}\\left(\\frac{\\partial}{\\partial y_n}\\bigg|_{p}\\right)x_{i} \\right)\\\\&=\\bigg((\\psi\\circ\\varphi ^{-1})(r),\\sum_{i=1}^m t_i\\frac{\\partial}{\\partial r_i}(\\varphi\\circ\\psi ^{-1})_{1}(r),\\ldots,\\sum_{i=1}^m t_i\\frac{\\partial}{\\partial r_i}(\\varphi\\circ\\psi ^{-1})_{n}(r)\\bigg)\\end{align}"} />
+7. Obviamente las primeras coordendas son suaves por que son el cambio de coordenadas, y la segunda tanda de coordenadas cada derivada parcial es suave por que <Math tex={"\\psi\\circ\\varphi ^{-1}"} /> es suave y proyectar en la primera coordenada es suave entonces son sumas de suaves
+8. Y obviamente cambiando los roles obtenemos que la otra composicion es suave tambien
+9. Por lo tanto, las cartas <Math tex={"\\{(\\widetilde U,\\widetilde\\varphi)\\}"} /> formarian un atlas suave sobre <Math tex={"(TM)^{*}"} /> de dimensión es <Math tex={"2m"} />. (Si <Math tex={"\\tilde{U},\\tilde{V}"} /> fueran abiertos).
+10. Ahora habria que ver toda la parte de abiertos igual que en fibrado tangente
+- (b)
+1. Miremos <Math display tex={"f=\\varphi\\circ\\pi\\circ \\widetilde{\\varphi}^{-1}:\\varphi(U)\\times\\mathbb{R}^{n} \\rightarrow \\varphi(U)"} /> donde <Math tex={"(U,\\varphi)"} /> es carta y <Math tex={"(\\widetilde{U},\\widetilde \\varphi)"} /> es la carta inducida. y es directo ver que <Math display tex={"f(x_{1}(p),\\ldots,x_{m}(p),v_{1},\\ldots,v_{m})=(x_{1}(p),\\ldots,x_{m}(p))"} /> osea es una proyeccion que sabemos que su diferencial es sobreyectiva. Por que te queda la identidad de tamaño <Math tex={"m"} /> con ceros. Y eso tiene rango <Math tex={"m"} /> que es la misma dimension que la imagen que esta en <Math tex={"\\mathbb{R}^{m}"} /> (por que la variedad es de dimension <Math tex={"m"} />)   
+2. Pero entonces como <Math tex={"df"} /> es sobre y <Math tex={"d\\varphi,(d \\widetilde{\\varphi})^{-1}"} /> son isomorfimos (por ser cartas). Podemos concluir que <Math tex={"d\\pi"} /> es sobreyectiva osea es submersion
+3. Analogo con <Math tex={"(d\\pi)^{*}"} /> 
+</Proof>
+</BookBlock>
+
+### Ejercicio 11
+
+<BookBlock kind="exercise">
+Sean <Math tex={"\\pi:M\\to N"} /> una submersión, <Math tex={"S"} /> una variedad y <Math tex={"f:S\\to M"} /> una aplicación suave tal que <Math tex={"\\pi\\circ f:S\\to N"} /> es un difeomorfismo. Probar que <Math tex={"(S,f)"} /> es una subvariedad incrustada de <Math tex={"M"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"h=\\pi\\circ f"} /> entonces <Math tex={"r=h^{-1}\\circ \\pi:M\\rightarrow S"} /> es suave por ser composicion de suaves (como <Math tex={"h"} /> difeo el dominio de <Math tex={"h^{-1}"} /> es todo <Math tex={"N"} /> entonces no estoy cambiando el codominio de <Math tex={"\\pi"} />)
+2. Ademas <Math display tex={"r\\circ f=h^{-1}\\circ\\pi\\circ f=h^{-1}\\circ h=Id_{S}"} />
+3. Afirmamos **<Math tex={"f"} /> es inyectiva**. Dados <Math tex={"f(s_{1})=f(s_{2})"} /> tenemos que <Math display tex={"s_{1}=r(f(s_{1}))=r(f(s_{2}))=s_{2}"} /> (sale usando 2.)
+4. Tambien por 2. <Math display tex={"d(r\\circ f)_{s}=d(Id_{S})_{s}"} />
+5. Primero notemos que <Math tex={"d(Id_{S})_{s}(v)\\in T_{s}S"} /> pero ademas <Math tex={"d(Id_{S})_{s}(v)(f)=v(f\\circ Id_{S})=v(f)"} />  y esto vale para cualqiuer <Math tex={"f"} /> entonces <Math tex={"d(Id_{S})_{s}(v)=v"} />. Por lo tanto <Math tex={"d(Id_{S})_{s}=Id_{T_{s}S}"} /> 
+6. Ademas por regla de la cadena tenemos <Math display tex={"dr_{f(s)}\\circ df_{s}=Id_{T_{s}S}"} />
+7. Entonces podemos ver inyectividad, dados <Math tex={"v_{1},v_{2}\\in T_{s}S"} /> tales que <Math tex={"df_{s}(v_{1})=df_{s}(v_{2})"} /> tenemos que <Math display tex={"v_{1}=Id_{T_{s}S}(v_{1})=dr_{f(s)}(df_{s}(v_{1}))=dr_{f(s)}(df_{s}(v_{2}))=Id_{T_{s}S}(v_{2})=v_{2}"} /> mostrando que <Math tex={"df_{s}"} /> es inyectiva (para cualquier <Math tex={"s"} />). Entonces **<Math tex={"f"} /> es inmersion**
+8. Con lo cual **<Math tex={"(S,f)"} /> es subvariedad**.
+9. Sabemos que <Math tex={"f:S\\rightarrow f(S)"} /> es biyectiva pero por 2.  es directo ver que <Math display tex={"r|_{f(S)}:f(S)\\rightarrow S"} /> es su inversa y considerando que <Math tex={"f(S)"} /> tiene la topologia heredada de <Math tex={"M"} /> y <Math tex={"r:M \\rightarrow S"} /> es continua entonces <Math tex={"r|_{f(S)}"} /> es continua
+10. Por lo tanto <Math tex={"f:S\\rightarrow f(S)"} /> es homeomorfismo si <Math tex={"f(S)"} /> tiene la topologia heredada de <Math tex={"M"} />
+11. Entonces <Math tex={"(S,f)"} /> es subvariedad **incrustada** de <Math tex={"M"} /> 
+</Proof>
+</BookBlock>
+ 
+### Ejercicio 12
+
+<BookBlock kind="exercise">
+Sea <Math tex={"(M,\\phi)"} /> una subvariedad incrustada de <Math tex={"N"} /> con <Math tex={"\\dim M<\\dim N"} />. Probar que <Math tex={"\\phi(M)"} /> no es densa en <Math tex={"N"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in \\phi(M)"} /> y sean <Math tex={"m=\\dim M<n=\\dim N"} />.
+2. Como <Math tex={"(M,\\phi)"} /> es una subvariedad incrustada de <Math tex={"N"} />, existe una carta adaptada <Math tex={"(V,\\psi=(y_1,\\ldots,y_n))"} /> de <Math tex={"N"} /> alrededor de <Math tex={"p"} /> tal que <Math display tex={"V\\cap \\phi(M)=R(0,\\ldots,0)."} />
+3. Por definición de rebanada, <Math display tex={"R(0,\\ldots,0)=\\{q\\in V:y_{m+1}(q)=\\cdots=y_n(q)=0\\}."} />
+4. Evaluando en la carta <Math tex={"\\psi"} />, tenemos <Math display tex={"\\psi(V\\cap\\phi(M))=\\psi(R(0,\\ldots,0))."} />
+5. Ahora, si <Math tex={"q\\in R(0,\\ldots,0)"} />, entonces <Math display tex={"\\psi(q)=(y_1(q),\\ldots,y_n(q)),"} /> con <Math display tex={"y_{m+1}(q)=\\cdots=y_n(q)=0."} /> Por lo tanto, <Math display tex={"\\psi(q)\\in \\psi(V)\\cap(\\mathbb R^m\\times\\{0\\})."} />
+6. Recíprocamente, si <Math display tex={"z\\in \\psi(V)\\cap(\\mathbb R^m\\times\\{0\\}),"} /> entonces existe <Math tex={"q\\in V"} /> tal que <Math tex={"z=\\psi(q)"} />. Además, como <Math tex={"z\\in \\mathbb R^m\\times\\{0\\}"} />, sus últimas coordenadas son cero. Es decir, <Math display tex={"y_{m+1}(q)=\\cdots=y_n(q)=0."} /> Entonces <Math tex={"q\\in R(0,\\ldots,0)"} /> y por lo tanto <Math display tex={"z=\\psi(q)\\in \\psi(R(0,\\ldots,0))."} />
+7. Así, <Math display tex={"\\psi(R(0,\\ldots,0))=\\psi(V)\\cap(\\mathbb R^m\\times\\{0\\})."} /> Luego <Math display tex={"\\psi(V\\cap\\phi(M))=\\psi(V)\\cap(\\mathbb R^m\\times\\{0\\})."} />
+8. Supongamos, por absurdo, que <Math tex={"\\phi(M)"} /> es densa en <Math tex={"N"} />. Entonces, como <Math tex={"V"} /> es abierto de <Math tex={"N"} />, se tiene que <Math display tex={"V\\cap\\phi(M)"} /> es denso en <Math tex={"V"} /> por <PreviewLink href="/chapters/pr-3#db8cf9" label="Lema previo" title="Lema: Lema previo" />
+9. Como <Math tex={"\\psi:V\\to\\psi(V)"} /> es un homeomorfismo, preserva densidad. Luego <Math display tex={"\\psi(V\\cap\\phi(M))"} /> es denso en <Math tex={"\\psi(V)"} />.
+10. Pero, por el paso 7, <Math display tex={"\\psi(V\\cap\\phi(M))=\\psi(V)\\cap(\\mathbb R^m\\times\\{0\\})."} />
+11. Tomamos <Math tex={"a\\in V\\cap\\phi(M)"} /> entonces <Math tex={"\\psi(a)\\in \\psi(V)\\cap(\\mathbb R^m\\times\\{0\\})"} /> como <Math tex={"\\psi(a)\\in \\psi(V)"} /> que es abierto tenemos <Math display tex={"B_{r}(\\psi(a))\\subseteq \\psi(V)"} />
+12. Ahora tomamos <Math tex={"q=\\psi(a)+\\frac{r}{2}e_{m+1}"} /> (osae <Math tex={"q_{m+1}=\\frac{r}{2}"} />) entonces <Math tex={"\\lVert q-\\psi(a) \\rVert=\\frac{r}{2}"} /> osea <Math tex={"q\\in B_{r}(\\psi(a))\\subseteq \\psi(V)"} />  
+13. Ahora tomamoas <Math tex={"B_{\\tilde{r}}(q)"} /> con <Math tex={"\\tilde{r}=\\frac{r}{4}"} /> entonces <Math tex={"B_{\\tilde{r}}(q)\\subseteq B_{r}(\\psi(a))"} /> por que si <Math tex={"z\\in B_{\\tilde{r}}(q)"} /> entonces <Math display tex={"\\lVert z-\\psi(a) \\rVert\\leq \\lVert z-q \\rVert+\\lVert q-\\psi(a) \\rVert\\leq \\frac{r}{4}+\\frac{r}{2}<r"} />  
+14. Ademas nos asegura que cualquier punto <Math tex={"\\tilde{q}\\in B_{\\tilde{r}}(q)"} /> cumple <Math tex={"\\tilde{q}_{m+1}>0"} /> por que <Math display tex={"|\\tilde q_{m+1} -q_{m+1}|<\\tilde{r}"} /> pero <Math tex={"q_{m+1}=\\frac{r}{2}"} /> entonces <Math tex={"\\tilde{q}_{m+1}>-\\tilde{r}+\\frac{r}{2}=\\frac{r}{2}-\\frac{r}{4}>0"} />.
+15. Por ende <Math tex={"B_{\\tilde{r}}(q)\\cap (\\mathbb{R}^{m}\\times \\{ 0 \\})=\\emptyset"} /> entonces <Math display tex={"\\psi(V\\cap\\phi(M))\\cap B_{\\tilde{r}}(q)=\\emptyset"} /> que es absurdo por que <Math tex={"\\psi(V\\cap\\phi(M))"} /> era denso en <Math tex={"\\psi(V)"} /> y <Math tex={"B_{\\tilde{r}}(q)"} /> es abierto   
+16. Así, <Math tex={"\\psi(V)\\cap(\\mathbb R^m\\times\\{0\\})"} /> no es denso en <Math tex={"\\psi(V)"} />, contradiciendo el paso 9.
+17. Por lo tanto, <Math tex={"\\phi(M)"} /> no es densa en <Math tex={"N"} />.
+### Ejercicio 13
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise">
+- Pruebe que todo subgrupo de <Math tex={"(\\mathbb R,+)"} /> cíclico y generado por un <Math tex={"a>0"} /> o es un subconjunto denso de <Math tex={"\\mathbb R"} />.  
+- Sea <Math tex={"\\alpha"} /> un número irracional y considere el conjunto <Math display tex={"\\{(x,y)\\in\\mathbb R^2:x=t+n,\\ y=\\alpha t+m\\text{ con }t\\in\\mathbb R\\text{ y }m,n\\in\\mathbb Z\\}"} /> es un subconjunto denso de <Math tex={"\\mathbb R^2"} />.  
+- Sean <Math tex={"S^1"} /> la circunferencia unitaria en <Math tex={"\\mathbb C"} /> y <Math tex={"\\mathbb T^2"} /> el toro <Math tex={"S^1\\times S^1"} />. Se define la función <Math tex={"\\varphi:\\mathbb R\\to\\mathbb T^2"} /> por <Math display tex={"\\varphi(t)=\\left(e^{2\\pi it},e^{2\\pi i\\alpha t}\\right),"} /> donde <Math tex={"\\alpha"} /> es un número irracional. Mostrar que <Math tex={"(\\mathbb R,\\varphi)"} /> es una subvariedad densa de <Math tex={"\\mathbb T^2"} /> que no es una incrustación. Verificar que <Math tex={"\\varphi"} /> es un homomorfismo de grupos.
+<Proof title="Demostracion">
+1. Sea <Math tex={"H\\leq(\\mathbb R,+)"} />. Si <Math tex={"H=\\{0\\}"} />, entonces <Math tex={"H"} /> es cíclico. Supongamos ahora que <Math tex={"H\\neq\\{0\\}"} />. Entonces <Math tex={"H\\cap\\mathbb R_{>0}\\neq\\varnothing"} />, porque si <Math tex={"h\\in H"} /> y <Math tex={"h\\neq 0"} />, entonces <Math tex={"|h|\\in H\\cap\\mathbb R_{>0}"} />.  
+2. Definimos <Math display tex={"a=\\inf(H\\cap\\mathbb R_{>0})."} />  
+3. Supongamos primero que <Math tex={"a>0"} />. Probamos que <Math tex={"a\\in H"} />. Por definición de ínfimo, existen <Math tex={"h_n\\in H\\cap\\mathbb R_{>0}"} /> tales que <Math tex={"h_n\\to a"} />. Si <Math tex={"a\\notin H"} />, entonces podemos tomar <Math tex={"h_n,h_m"} /> suficientemente cerca de <Math tex={"a"} /> con <Math tex={"h_n>h_m"} /> y <Math display tex={"0<h_n-h_m<a."} /> Pero <Math tex={"h_n-h_m\\in H"} />, por que <Math tex={"h_{n}-h_{m}=h_{n}+(-h_{m})"} /> que es suma de cosas dentro de <Math tex={"H"} /> (ademas esta en <Math tex={"\\mathbb{R}_{>0}"} /> por ser positivo) contradiciendo la definición de <Math tex={"a"} /> como ínfimo de los elementos positivos de <Math tex={"H"} />. Por lo tanto <Math tex={"a\\in H"} />.  
+4. Probamos ahora que <Math tex={"H=a\\mathbb Z"} />. Sea <Math tex={"h\\in H"} />. Existe <Math tex={"q\\in\\mathbb Z"} /> tal que <Math display tex={"qa\\leq h<(q+1)a."} /> Entonces <Math display tex={"0\\leq h-qa<a."} /> Como <Math tex={"h,qa\\in H"} />, se tiene <Math tex={"h-qa\\in H"} />. Si <Math tex={"h-qa>0"} />, contradice la minimalidad de <Math tex={"a"} />. Por lo tanto <Math tex={"h-qa=0"} />, y entonces <Math tex={"h=qa"} />. Así, <Math display tex={"H=a\\mathbb Z."} />  
+5. Supongamos ahora que <Math tex={"a=0"} />. Sea <Math tex={"(u,v)\\subseteq\\mathbb R"} /> un intervalo abierto no vacío. Como <Math tex={"a=0"} />, existe <Math tex={"h\\in H\\cap\\mathbb R_{>0}"} /> tal que <Math display tex={"0<h<v-u."} /> Tomamos <Math tex={"n\\in\\mathbb Z"} /> tal que <Math display tex={"u<nh<v."} /> Entonces <Math tex={"nh\\in H\\cap(u,v)"} />. Por lo tanto todo intervalo abierto no vacío corta a <Math tex={"H"} />, y entonces <Math tex={"H"} /> es denso en <Math tex={"\\mathbb R"} />.  
+6. Para la segunda parte, consideremos el subgrupo <Math display tex={"G=\\mathbb Z+\\alpha\\mathbb Z=\\{m+n\\alpha:m,n\\in\\mathbb Z\\}\\leq\\mathbb R."} />
+7. Este subgrupo no puede ser cíclico. En efecto, si <Math tex={"G=a\\mathbb Z"} /> para algún <Math tex={"a>0"} />, como <Math tex={"1,\\alpha\\in G"} />, existen <Math tex={"k,\\ell\\in\\mathbb Z"} /> tales que <Math display tex={"1=ka,\\qquad \\alpha=\\ell a."} /> Entonces <Math display tex={"\\alpha=\\frac{\\ell}{k},"} /> contradiciendo que <Math tex={"\\alpha"} /> es irracional. Por el punto anterior, <Math tex={"G"} /> es denso en <Math tex={"\\mathbb R"} />.  
+8. Probamos que <Math display tex={"A=\\{(x,y)\\in\\mathbb R^2:x=t+n,\\ y=\\alpha t+m,\\ t\\in\\mathbb R,\\ m,n\\in\\mathbb Z\\}"} /> es denso en <Math tex={"\\mathbb R^2"} />. Sea <Math tex={"(X,Y)\\in\\mathbb R^2"} /> y sea <Math tex={"\\varepsilon>0"} />. Como <Math tex={"G"} /> es denso en <Math tex={"\\mathbb R"} />, existe <Math tex={"m-\\alpha n\\in G"} /> tal que <Math display tex={"|m-\\alpha n-(Y-\\alpha X)|<\\varepsilon."} />  
+9. Tomamos <Math display tex={"t=X-n."} /> Entonces <Math display tex={"t+n=X,"} /> y además <Math display tex={"\\alpha t+m=\\alpha(X-n)+m=\\alpha X+(m-\\alpha n)."} /> Por lo tanto <Math display tex={"|\\alpha t+m-Y|<\\varepsilon."} /> Así encontramos un punto de <Math tex={"A"} /> cuya primera coordenada es exactamente <Math tex={"X"} /> y cuya segunda coordenada está a distancia menor que <Math tex={"\\varepsilon"} /> de <Math tex={"Y"} />. Luego <Math tex={"A"} /> es denso en <Math tex={"\\mathbb R^2"} />.  
+10. Para la tercera parte, definimos <Math display tex={"\\varphi:\\mathbb R\\to\\mathbb T^2,\\qquad \\varphi(t)=\\left(e^{2\\pi it},e^{2\\pi i\\alpha t}\\right)."} /> Primero verificamos que es un homomorfismo. Para <Math tex={"s,t\\in\\mathbb R"} />, <Math display tex={"\\varphi(t+s)=\\left(e^{2\\pi i(t+s)},e^{2\\pi i\\alpha(t+s)}\\right)=\\left(e^{2\\pi it}e^{2\\pi is},e^{2\\pi i\\alpha t}e^{2\\pi i\\alpha s}\\right)=\\varphi(t)\\varphi(s)."} /> Luego <Math tex={"\\varphi"} /> es homomorfismo de grupos.  
+11. Probamos que <Math tex={"\\varphi"} /> es inyectiva. Si <Math tex={"\\varphi(t)=\\varphi(s)"} />, entonces <Math display tex={"e^{2\\pi i(t-s)}=1\\qquad\\text{y}\\qquad e^{2\\pi i\\alpha(t-s)}=1."} /> Por lo tanto <Math display tex={"t-s\\in\\mathbb Z\\qquad\\text{y}\\qquad \\alpha(t-s)\\in\\mathbb Z."} /> Si <Math tex={"t-s=k\\in\\mathbb Z"} />, entonces <Math tex={"\\alpha k\\in\\mathbb Z"} />. Como <Math tex={"\\alpha"} /> es irracional, esto fuerza <Math tex={"k=0"} />. Luego <Math tex={"t=s"} />. Por lo tanto <Math tex={"\\varphi"} /> es inyectiva.  
+12. Probamos que <Math tex={"\\varphi"} /> es una inmersión. Para cada <Math tex={"t\\in\\mathbb R"} />, debemos ver que <Math display tex={"d\\varphi_t:T_t\\mathbb R\\to T_{\\varphi(t)}\\mathbb T^2"} /> es inyectivo. Como <Math tex={"T_t\\mathbb R"} /> tiene dimensión <Math tex={"1"} />, alcanza probar que <Math display tex={"d\\varphi_t\\left(\\frac{d}{dt}\\Big|_t\\right)\\neq 0."} />
+13. Sea <Math tex={"i:\\mathbb T^2\\hookrightarrow \\mathbb C^2"} /> la inclusión. Entonces <Math display tex={"i\\circ\\varphi(t)=\\left(e^{2\\pi it},e^{2\\pi i\\alpha t}\\right)."} /> Por lo tanto, calculando la velocidad en el ambiente <Math tex={"\\mathbb C^2"} />, se tiene <Math display tex={"d(i\\circ\\varphi)_t\\left(\\frac{d}{dt}\\Big|_t\\right)=(i\\circ\\varphi)'(t)=\\left(2\\pi i e^{2\\pi it},2\\pi i\\alpha e^{2\\pi i\\alpha t}\\right)."} /> aca usamos <PreviewLink href="/chapters/pr-2#6da36a" label="Ejercicio" title="Ejercicio" />
+14. Por la regla de la cadena, <Math display tex={"d(i\\circ\\varphi)_t=di_{\\varphi(t)}\\circ d\\varphi_t."} /> Luego <Math display tex={"di_{\\varphi(t)}\\left(d\\varphi_t\\left(\\frac{d}{dt}\\Big|_t\\right)\\right)=\\left(2\\pi i e^{2\\pi it},2\\pi i\\alpha e^{2\\pi i\\alpha t}\\right)."} /> Este vector no es cero, porque <Math tex={"2\\pi i e^{2\\pi it}\\neq 0"} />. Por lo tanto <Math display tex={"d\\varphi_t\\left(\\frac{d}{dt}\\Big|_t\\right)\\neq 0."} /> Entonces <Math tex={"d\\varphi_t"} /> es inyectivo para todo <Math tex={"t"} />, y <Math tex={"\\varphi"} /> es una inmersión.
+15. Como <Math tex={"\\varphi"} /> es una inmersión inyectiva, <Math tex={"(\\mathbb R,\\varphi)"} /> es una subvariedad inmersa de <Math tex={"\\mathbb T^2"} />.  
+16. Probamos ahora que su imagen es densa. Sea <Math display tex={"q:\\mathbb R^2\\to\\mathbb T^2,\\qquad q(x,y)=\\left(e^{2\\pi ix},e^{2\\pi iy}\\right)."} /> Entonces <Math display tex={"\\varphi(t)=q(t,\\alpha t)."} /> Veamos que <Math display tex={"q^{-1}(\\varphi(\\mathbb R))=A."} />  
+17. En efecto, si <Math tex={"(x,y)\\in q^{-1}(\\varphi(\\mathbb R))"} />, entonces existe <Math tex={"t\\in\\mathbb R"} /> tal que <Math display tex={"q(x,y)=\\varphi(t)."} /> Es decir, <Math display tex={"\\left(e^{2\\pi ix},e^{2\\pi iy}\\right)=\\left(e^{2\\pi it},e^{2\\pi i\\alpha t}\\right)."} /> Por lo tanto <Math display tex={"e^{2\\pi ix}=e^{2\\pi it}\\qquad\\text{y}\\qquad e^{2\\pi iy}=e^{2\\pi i\\alpha t}."} />  
+18. Usando que <Math display tex={"e^{2\\pi ia}=e^{2\\pi ib}\\iff a-b\\in\\mathbb Z,"} /> se obtiene <Math display tex={"x-t\\in\\mathbb Z\\qquad\\text{y}\\qquad y-\\alpha t\\in\\mathbb Z."} /> Luego existen <Math tex={"n,m\\in\\mathbb Z"} /> tales que <Math display tex={"x=t+n,\\qquad y=\\alpha t+m."} /> Entonces <Math display tex={"(x,y)\\in A."} /> Así, <Math display tex={"q^{-1}(\\varphi(\\mathbb R))\\subseteq A."} />  
+19. Recíprocamente, si <Math tex={"(x,y)\\in A"} />, entonces existen <Math tex={"t\\in\\mathbb R"} /> y <Math tex={"m,n\\in\\mathbb Z"} /> tales que <Math display tex={"x=t+n,\\qquad y=\\alpha t+m."} /> Por lo tanto <Math display tex={"q(x,y)=\\left(e^{2\\pi i(t+n)},e^{2\\pi i(\\alpha t+m)}\\right)=\\left(e^{2\\pi it},e^{2\\pi i\\alpha t}\\right)=\\varphi(t)."} /> Entonces <Math tex={"(x,y)\\in q^{-1}(\\varphi(\\mathbb R))"} />. Así, <Math display tex={"A\\subseteq q^{-1}(\\varphi(\\mathbb R))."} />  
+20. Por ambas inclusiones, <Math tex={"q^{-1}(\\varphi(\\mathbb R))=A."} /> por lo tanto <Math display tex={"q(A)=\\varphi(\\mathbb{R})"} /> 
+21. Como <Math tex={"A"} /> es denso en <Math tex={"\\mathbb R^2"} /> (<Math tex={"\\overline{A}=\\mathbb{R}^{2}"} />) podemos usar esto para probar que <Math tex={"\\varphi(\\mathbb R)"} /> es densa en <Math tex={"\\mathbb T^2"} />
+22. Como <Math tex={"q"} /> es continua y sobreyectiva, se tiene <Math display tex={"\\mathbb T^2=q(\\mathbb R^2)=q(\\overline{A})\\subseteq \\overline{q(A)}=\\overline{\\varphi(\\mathbb R)}."} /> en el primer igual usamos sobreyectiva, en el segundo usamos densidad de <Math tex={"A"} /> en el contenido continuidad de <Math tex={"q"} /> y el cuarto igual el paso 20. 
+23. Por lo tanto <Math display tex={"\\overline{\\varphi(\\mathbb R)}=\\mathbb T^2."} /> (por que la otra inclusion vale siempre)
+24. Así, la subvariedad inmersa <Math tex={"(\\mathbb R,\\varphi)"} /> es densa en <Math tex={"\\mathbb T^2"} />.
+25. Finalmente probamos que <Math tex={"\\varphi"} /> no es una incrustación. Como <Math tex={"\\alpha"} /> es irracional, el subgrupo <Math tex={"\\mathbb Z+\\alpha\\mathbb Z"} /> es denso en <Math tex={"\\mathbb R"} />. En particular, existen enteros <Math tex={"n_k\\to\\infty"} /> tales que <Math display tex={"e^{2\\pi i\\alpha n_k}\\to 1."} /> Como además <Math display tex={"e^{2\\pi i n_k}=1,"} /> se obtiene <Math display tex={"\\varphi(n_k)=\\left(1,e^{2\\pi i\\alpha n_k}\\right)\\to(1,1)=\\varphi(0)."} />  
+26. Pero <Math tex={"n_k\\not\\to 0"} /> en <Math tex={"\\mathbb R"} />. Entonces la inversa <Math display tex={"\\varphi(\\mathbb R)\\to\\mathbb R"} /> no es continua respecto de la topología relativa de <Math tex={"\\varphi(\\mathbb R)\\subseteq\\mathbb T^2"} />. Por lo tanto <Math tex={"\\varphi"} /> no es un homeomorfismo sobre su imagen. Así, <Math tex={"\\varphi"} /> no es una incrustación.
+</Proof>
+</BookBlock>
+
+### Ejercicio 14 (Opcional)
+
+<BookBlock kind="exercise">
+Si <Math tex={"F:M\\to N"} /> es una inmersión y <Math tex={"g"} /> es una métrica Riemanniana en <Math tex={"N"} />, probar que <Math tex={"F^*g"} /> es una métrica Riemanniana en <Math tex={"M"} />.
+<Proof title="Demostracion">
+Definimos
+<Math display tex={"(F^*g)_p(u,v)=g_{F(p)}\\bigl((dF)_pu,(dF)_pv\\bigr)."} />
+La bilinealidad y simetría son inmediatas. La suavidad se verifica en coordenadas porque la matriz de <Math tex={"F^*g"} /> es
+<Math display tex={"J_F^T\\,G\\,J_F,"} />
+donde <Math tex={"G"} /> es la matriz de <Math tex={"g"} />.
+
+Además, si <Math tex={"u\\neq 0"} />, como <Math tex={"F"} /> es inmersión, <Math tex={"(dF)_pu\\neq 0"} />, y entonces
+<Math display tex={"(F^*g)_p(u,u)=g_{F(p)}((dF)_pu,(dF)_pu)>0."} />
+Luego <Math tex={"F^*g"} /> es una métrica Riemanniana.
+</Proof>
+</BookBlock>
+
+### Ejercicio 15
+
+<BookBlock kind="exercise" title="Ejercicio 15">
+De la teoría se conoce la siguiente proposición:  
+Sea <Math tex={"(M,\\psi)"} /> una subvariedad de <Math tex={"N"} />. Si <Math tex={"M"} /> es incrustada y <Math tex={"\\psi(M)"} /> es cerrado en <Math tex={"N"} />, entonces para toda <Math tex={"g\\in C^\\infty(M)"} /> existe <Math tex={"f\\in C^\\infty(N)"} /> tal que <Math tex={"f\\circ \\psi=g"} />.  
+
+Probar que la proposición no es verdadera si quitamos la hipótesis que <Math tex={"\\psi"} /> es una incrustación o la hipótesis que <Math tex={"\\psi(M)"} /> es cerrado en <Math tex={"N"} />.
+<Proof title="Demostracion">
+- **Si quitamos la hipótesis de incrustación.** Tomemos la inmersión densa del ejercicio 13,
+<Math display tex={"\\varphi:\\mathbb R\\to T^2."} />
+Sea <Math tex={"g:\\mathbb R\\to\\mathbb R"} />, <Math tex={"g(t)=t"} />. Si existiera <Math tex={"f\\in C^\\infty(T^2)"} /> con <Math tex={"f\\circ\\varphi=g"} />, entonces <Math tex={"g"} /> sería acotada porque <Math tex={"f"} /> lo es en el compacto <Math tex={"T^2"} /> (por ser continua). Pero <Math tex={"g(t)=t"} /> es no acotada. Contradicción. También sale con el ocho. Hacer
+
+- **Si quitamos que la imagen sea cerrada.** Tomemos la incrustación abierta
+<Math display tex={"\\psi:(0,1)\\hookrightarrow \\mathbb R."} />
+Sea <Math tex={"g(x)=1/x"} />, suave en <Math tex={"(0,1)"} />. Si existiera <Math tex={"f\\in C^\\infty(\\mathbb R)"} /> tal que <Math tex={"f|_{(0,1)}=g"} /> por continuidad si <Math tex={"x_{n}\\rightarrow 0^{+}"} /> tendriamos que <Math tex={"f(x_{n})\\rightarrow f(0)"} /> pero <Math tex={"f(x_{n})=\\frac{1}{x_{n}}"} /> (a partir de algun momento la sucesion esta dentro del <Math tex={"(0,1)"} />) entonces <Math tex={"f(x_{n})\\rightarrow \\infty"} /> osea tendriamos <Math tex={"f(0)=\\infty"} /> que es absurdo  
+</Proof>
+</BookBlock>
+
+### Ejercicio 16
+
+<BookBlock kind="exercise">
+Mostrar que la esfera sin los polos y el hiperboloide de revolución de una hoja son subvariedades de <Math tex={"\\mathbb R^3"} /> y además difeomorfas.
+<Proof title="Demostracion">
+1. La esfera sin polos es <Math display tex={"S^2\\setminus\\{(0,0,\\pm 1)\\}=\\{(x,y,z):x^2+y^2+z^2=1,\\ z\\neq\\pm 1\\},"} />y es subvariedad porque es un abierto de la esfera, que es el nivel regular de <Math display tex={"F(x,y,z)=x^2+y^2+z^2"} />
+2. El hiperboloide de una hoja es <Math display tex={"H=\\{(u,v,w):u^2+v^2-w^2=1\\},"} />que es una subvariedad porque <Math tex={"1"} /> es valor regular de <Math tex={"G(u,v,w)=u^2+v^2-w^2"} />.
+3. El difeomorfismo es <Math display tex={"\\Phi:S^2\\setminus\\{N,S\\}\\to H,\\qquad \\Phi(x,y,z)=\\left(\\frac{x}{1-z^2},\\frac{y}{1-z^2},\\frac{z}{\\sqrt{1-z^2}}\\right)."} />
+4. Como en la esfera <Math tex={"x^2+y^2=1-z^2"} />, se verifica <Math display tex={"\\frac{x^2+y^2}{1-z^2}=1,"} />
+5. Luego <Math tex={"\\Phi"} /> toma valores en <Math tex={"H"} />. Su inversa es <Math display tex={"\\Phi^{-1}(u,v,w)=\\left(\\frac{u}{1+w^2},\\frac{v}{1+w^2},\\frac{w}{\\sqrt{1+w^2}}\\right),"} />
+6. Veamos suavidad. Primero recordemos que <Math tex={"(H,i_{H})"} /> y <Math tex={"(S,i_{S})"} /> son incrustaciones de <Math tex={"\\mathbb{R}^{3}"} /> 
+7. Luego tenemos <Math display tex={"F=i_{H}\\circ\\Phi:S^{2}\\setminus\\{N,S\\}\\rightarrow \\mathbb{R}^{3}"} /> que es suave por que <Math tex={"F=\\widetilde{\\Phi}\\circ i_{S}"} /> donde <Math display tex={"\\widetilde\\Phi(x,y,z)=\\left(\\frac{x}{1-z^2},\\frac{y}{1-z^2},\\frac{z}{\\sqrt{1-z^2}}\\right)."} /> vista desde <Math tex={"\\mathbb{R}^{3}"} /> a <Math tex={"\\mathbb{R}^{3}"} /> osea suave y ademas <Math tex={"i_{S}"} /> es suave por ser subvariedad
+8. Pero entonces ahora usamos <PreviewLink href="/chapters/teo-11#300685" label="Lema de factorización para subvariedades incrustadas" title="Corolario: Lema de factorización para subvariedades incrustadas" />. Tenemos <Math display tex={"F:S^{2}\\setminus\\{N,S\\}\\rightarrow \\mathbb{R}^{3}"} /> suave, <Math display tex={"g=i_{H}:H\\rightarrow \\mathbb{R}^{3}"} /> subvariedad incrustada y <Math display tex={"\\widehat{F}=\\phi:S^{2}\\setminus\\{N,S\\}\\rightarrow H"} /> la unica que hace conmutar el diagrama (osea <Math tex={"g\\circ \\hat{F}=F"} />) entonces <Math tex={"\\widehat{F}"} /> es suave
+</Proof>
+</BookBlock>
+ 
+### Ejercicio 17
+
+<BookBlock kind="exercise">
+Sea <Math tex={"f:\\mathbb R^2\\to\\mathbb R"} /> definida por <Math tex={"f(x)=\\|x\\|^4-5\\|x\\|^2+4"} />. 
+- Mostrar que existe <Math tex={"r>0"} /> que satisface que <Math tex={"(df)_x=0"} /> si y sólo si <Math tex={"x=0"} /> ó <Math tex={"\\|x\\|=r"} />. 
+- Mostrar que <Math tex={"f^{-1}(\\{4\\})"} /> no es subvariedad pero es unión de dos subvariedades disjuntas, 
+- Mostrar que <Math tex={"f^{-1}(\\{r^4-5r^2+4\\})"} /> y <Math tex={"f^{-1}(\\{4\\})-\\{0\\}"} /> son subvariedades incrustadas.
+- ¿En qué casos se puede aplicar el teorema de la función implícita a la función <Math tex={"f"} />?
+<Proof title="Demostracion">
+- **Existencia de <Math tex={"r"} />**
+1. Llamamos <Math tex={"r=\\|x\\|"} />, entonces <Math display tex={"f(x)=r^4-5r^2+4."} />
+2. Su gradiente es <Math display tex={"\\nabla f(x)=(4\\|x\\|^2-10)x."} />
+3. Luego <Math tex={"(df)_x=0"} /> si y sólo si <Math tex={"x=0"} /> o <Math tex={"\\|x\\|^2=5/2"} />. Es decir, vale con <Math display tex={"r=\\sqrt{5/2}."} />
+- **Preimagen es union de subvariedades**
+1. <Math tex={"f^{-1}(\\{4\\})"} /> viene dado por <Math tex={"r^4-5r^2=0"} />, o sea <Math tex={"r=0"} /> o <Math tex={"r=\\sqrt5"} />. Entonces <Math display tex={"f^{-1}(\\{4\\})=\\{0\\}\\cup S_{\\sqrt5}^1."} />Que no es ni siquiera es variedad porque en un entorno del origen tiene dimensión <Math tex={"0"} /> pero la circunferencia tiene dimension <Math tex={"1"} />. Entonces tendriamos que la variedad no tiene dimension bien definida. Sí es unión disjunta de dos subvariedades: el punto <Math tex={"\\{0\\}"} /> y la circunferencia <Math tex={"S_{\\sqrt5}^1"} />.
+2. Pero por separado tenemos la circunferencia que ya sabemos que es subvariedad incrustada y el <Math tex={"\\{ 0 \\}"} /> que trivialmente lo es.
+3. Entonces aca tenemos un caso no todo punto de <Math tex={"f^{-1}(\\{ 4 \\})"} /> es punto regular. Por que el <Math tex={"0\\in f^{-1}(\\{ 4 \\})"} /> y <Math tex={"df_{0}=0"} /> osea no es sobreyectiva osea no cumple las condiciones necesarias de <PreviewLink href="/chapters/teo-13#3f8e58" label="Conjunto de nivel con puntos regulares" title="Corolario: Conjunto de nivel con puntos regulares" /> y <Math tex={"f^{-1}(\\{ 4 \\})"} /> no es subvariedad incrustada    
+- **Preimagenes son subvariedades incrustadas**
+1. El valor <Math tex={"r^4-5r^2+4"} /> corresponde al nivel crítico con <Math tex={"\\|x\\|=r"} />, y <Math display tex={"f^{-1}(\\{r^4-5r^2+4\\})=S_r^1,"} />
+2. En este caso <Math tex={"df_{x}\\neq 0"} /> para todo <Math tex={"x\\in f^{-1}\\{ r^4-5r^2+4 \\}"} />  que es una subvariedad incrustada. Y se cumple el teorema
+3. También <Math display tex={"f^{-1}(\\{4\\})\\setminus\\{0\\}=S_{\\sqrt5}^1"} />es una subvariedad incrustada.
+4. Lo cual muestra que el problema era exactamente el punto no regular <Math tex={"\\{ 0 \\}"} /> si lo sacamos estamos nuevamente en las condiciones del teorema
+- **Cuando se puede aplicar teorema**
+1. En este caso en particuar el teorema de la función implícita se puede aplicar en los puntos donde <Math tex={"(df)_x\\neq 0"} />, por que si sucede eso como la imagen de <Math tex={"df"} /> es el <Math tex={"T_{f(p)}\\mathbb{R}"} /> tiene dimension <Math tex={"1"} /> entonces <Math tex={"(df)_{x}"} /> sera automaticamente sobreyectiva
+2. Es decir el teorema se puede aplicar para  <Math display tex={"x\\neq 0\\qquad\\text{y}\\qquad \\|x\\|\\neq \\sqrt{5/2}."} />
+3. Y como <Math tex={"f(x)=4"} /> si <Math tex={"x=0"} /> y <Math tex={"f(x)=-\\frac{9}{4}"} /> si <Math tex={"\\lVert x \\rVert=\\sqrt{ \\frac{5}{2} }"} /> entonces sabemos que no podemos aplicar el teorema a <Math tex={"c=-\\frac{9}{4}"} /> o <Math tex={"c=0"} />
+4. Pero notar que <Math tex={"f^{-1}\\left( -\\frac{9}{4} \\right)"} /> es subvariedad a pesar de que no cumpla las hipotesis del teorema
+</Proof>
+</BookBlock>
+
+<span id="230a55"></span>
+
+### Ejercicio 18
+
+<BookBlock kind="exercise">
+El grupo lineal especial <Math tex={"SL(n,\\mathbb R)"} /> consiste de las matrices <Math tex={"A"} /> de tamaño <Math tex={"n\\times n"} /> tales que <Math tex={"\\det(A)=1"} />. Usando la fórmula para <Math tex={"d\\det"} />, probar que <Math tex={"SL(n,\\mathbb R)"} /> es una subvariedad embebida de <Math tex={"GL(n,\\mathbb R)"} /> de dimensión <Math tex={"n^2-1"} />.
+<Proof title="Demostracion">
+Consideramos
+<Math display tex={"\\det:GL(n,\\mathbb R)\\to\\mathbb R^\\times."} />
+Se sabe que
+<Math display tex={"d(\\det)_A(H)=\\det(A)\\operatorname{tr}(A^{-1}H)."} />
+Si <Math tex={"A\\in SL(n,\\mathbb R)"} />, entonces <Math tex={"\\det(A)=1"} />, y basta encontrar <Math tex={"H"} /> con <Math tex={"d(\\det)_A(H)\\neq 0"} />. Tomando
+<Math display tex={"H=A,"} />
+obtenemos
+<Math display tex={"d(\\det)_A(A)=\\operatorname{tr}(I)=n\\neq 0."} />
+Por tanto <Math tex={"1"} /> es valor regular de <Math tex={"\\det"} />, y
+<Math display tex={"SL(n,\\mathbb R)=\\det^{-1}(1)"} />
+es una subvariedad incrustada de codimensión <Math tex={"1"} /> en <Math tex={"GL(n,\\mathbb R)"} />. Como <Math tex={"\\dim GL(n,\\mathbb R)=n^2"} />, resulta
+<Math display tex={"\\dim SL(n,\\mathbb R)=n^2-1."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 19
+
+<BookBlock kind="exercise">
+- (a) Sea <Math tex={"O(3)=\\{A\\in M(3,\\mathbb R):AA^t=I\\}"} /> el conjunto de matrices ortogonales <Math tex={"3\\times 3"} />. Mostrar que <Math tex={"O(3)"} /> es una subvariedad incrustada de <Math tex={"M(3,\\mathbb R)"} />. ¿Lo es de <Math tex={"GL(3,\\mathbb R):=\\{A\\in M(3,\\mathbb R):\\det(A)\\neq 0\\}"} />? 
+- (b) ¿Qué puede decir de <Math tex={"SO(3)"} />, el grupo de rotaciones de <Math tex={"\\mathbb R^3"} />?
+- (c) ¿Es diferenciable la función <Math tex={"\\gamma:\\mathbb R\\to O(3)"} /> definida por <Math tex={"\\gamma(t)=\\operatorname{diag}\\left(\\begin{pmatrix}\\cos t&-\\sin t\\\\ \\sin t&\\cos t\\end{pmatrix},1\\right)"} />?
+<Proof title="Demostracion">
+- (a)
+1. Definimos <Math display tex={"F:M_3(\\mathbb R)\\to S_3(\\mathbb R),\\qquad F(A)=AA^T."} /> ambos son espacios vectoriales reales de dimension finita por lo tanto variedades suaves
+2. Entonces <Math tex={"O(3)=F^{-1}(I)."} />
+3. La diferencial es <Math tex={"dF_A(H)=HA^T+AH^T"} />
+4. Si <Math tex={"A\\in O(3)"} /> y <Math tex={"S=S^T"} /> es simétrica, tomando <Math tex={"H=\\frac12 SA,"} /> se tiene <Math display tex={"dF_A(H)=\\frac12 SAA^T+\\frac12 A A^T S=S."} /> aca estamos identificando <Math tex={"T_{p}S_{3}(\\mathbb{R})"} />  con <Math tex={"S_{3}(\\mathbb{R})"} /> 
+5. Luego <Math tex={"dF_A"} /> es sobreyectiva sobre <Math tex={"S_3(\\mathbb R)"} /> para cualquier <Math tex={"A\\in  O(3)"} /> 
+6. Así que <Math tex={"I"} /> es valor regular. Por tanto <Math tex={"O(3)"} /> es subvariedad incrustada de <Math tex={"M(3,\\mathbb R)"} />.
+7. Ademas <Math tex={"GL(3,\\mathbb R)"} /> es abierto en <Math tex={"M(3,\\mathbb R)"} /> por que tenemos <Math display tex={"\\det|_{M(3,\\mathbb{R})}:M(3,\\mathbb{R})\\rightarrow \\mathbb{R}"} />y notamos que <Math tex={"GL(3,\\mathbb{R})=\\det|_{M(3,\\mathbb{R})}^{-1}(\\mathbb{R}\\setminus \\{ 0 \\})"} /> entonces por continuidad es abierto en <Math tex={"M(3,\\mathbb{R})"} /> 
+8. Entonces como <Math tex={"O(3)\\subset GL(3,\\mathbb R)"} />, sucede que <Math tex={"O(3)"} /> también es subvariedad incrustada de <Math tex={"GL(3,\\mathbb R)"} /> por <PreviewLink href="/chapters/pr-3#80e4a7" label="Lema" title="Lema" />
+- (b)
+1. Tenemos <Math tex={"SO(3)=\\{A\\in O(3):\\det A=1\\}."} /> 
+2. Notamos que la función determinante es <Math display tex={"\\det|_{O(3)}:O(3)\\rightarrow \\{ -1,1 \\}"} />
+3. Luego <Math tex={"SO(3)=det|_{O(3)}^{-1}(-1)"} /> pero <Math tex={"-1"} /> es cerrado y abierto en <Math tex={"\\{ -1,1 \\}"} /> 
+4. Luego <Math tex={"SO(3)"} /> es abierto (y cerrado) de <Math tex={"O(3)"} />; 
+5. Entonces <Math tex={"SO(3)"} /> es subvariedad incrustada de <Math tex={"O(3)"} /> por <PreviewLink href="/chapters/pr-3#772b8b" label="Lema" title="Lema" />
+6. Por lo tanto es subvariedad incrustada de <Math tex={"M(3,\\mathbb{R})"} /> y de <Math tex={"GL(3,\\mathbb{R})"} /> por (a) y por <PreviewLink href="/chapters/pr-3#fb9b56" label="Transitividad de incrustaciones" title="Lema: Transitividad de incrustaciones" /> 
+- (c) 
+1. Primero miramos la misma fórmula como aplicación con codominio ambiente. Definimos <Math display tex={"\\widetilde{\\gamma}:\\mathbb R\\to M(3,\\mathbb R),\\qquad \\widetilde{\\gamma}(t)=\\begin{pmatrix}\\cos t & -\\sin t & 0\\\\ \\sin t & \\cos t & 0\\\\ 0 & 0 & 1\\end{pmatrix}."} />
+2. En <Math tex={"M(3,\\mathbb R)"} /> usamos la estructura suave estándar de espacio vectorial real de dimensión <Math tex={"9"} />. Es decir, identificamos <Math display tex={"M(3,\\mathbb R)\\cong \\mathbb R^9"} /> mediante la carta global dada por las entradas: <Math display tex={"\\Phi:M(3,\\mathbb R)\\to \\mathbb R^9,"} /><Math display tex={"\\Phi\\begin{pmatrix}a_{11}&a_{12}&a_{13}\\\\ a_{21}&a_{22}&a_{23}\\\\ a_{31}&a_{32}&a_{33}\\end{pmatrix}=(a_{11},a_{12},a_{13},a_{21},a_{22},a_{23},a_{31},a_{32},a_{33})."} />
+3. Entonces, para probar que <Math tex={"\\widetilde{\\gamma}"} /> es suave, alcanza mirar su representación coordenada: <Math display tex={"\\Phi\\circ \\widetilde{\\gamma}(t)=(\\cos t,-\\sin t,0,\\sin t,\\cos t,0,0,0,1)."} />
+4. Cada componente es una función suave de <Math tex={"t"} />, por lo tanto <Math display tex={"\\widetilde{\\gamma}:\\mathbb R\\to M(3,\\mathbb R)"} /> es suave.  
+5. Ahora vemos que la imagen cae en <Math tex={"O(3)"} />. Sea <Math display tex={"R(t)=\\begin{pmatrix}\\cos t & -\\sin t\\\\ \\sin t & \\cos t\\end{pmatrix}."} />entonces <Math display tex={"R(t)R(t)^T=I_2."} />por lo tanto <Math display tex={"\\widetilde{\\gamma}(t)\\widetilde{\\gamma}(t)^T=\\begin{pmatrix}R(t)R(t)^T & 0\\\\ 0 & 1\\end{pmatrix}=I_3."} />así, <Math tex={"\\widetilde{\\gamma}(t)\\in O(3)"} /> para todo <Math tex={"t\\in\\mathbb R"} />.  
+6. Entonces podemos considerar la aplicación <Math display tex={"\\gamma:\\mathbb R\\to O(3)"} /> dada por la misma fórmula. Si <Math display tex={"i:O(3)\\hookrightarrow M(3,\\mathbb R)"} /> es la inclusión, entonces <Math display tex={"i\\circ \\gamma=\\widetilde{\\gamma}."} />
+7. Ya probamos que <Math tex={"\\widetilde{\\gamma}"} /> es suave como mapa hacia <Math tex={"M(3,\\mathbb R)"} />. Como <Math tex={"O(3)"} /> es subvariedad incrustada de <Math tex={"M(3,\\mathbb R)"} />, por el lema de factorización se concluye que <Math display tex={"\\gamma:\\mathbb R\\to O(3)"} /> es suave.  
+8. Además, <Math display tex={"\\det(\\gamma(t))=\\det(R(t))\\cdot 1=1,"} /> entonces en realidad <Math display tex={"\\gamma(\\mathbb R)\\subseteq SO(3)."} />
+9. Por el mismo argumento, también es suave como mapa <Math display tex={"\\gamma:\\mathbb R\\to SO(3)."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 20
+
+<BookBlock kind="exercise">
+Sea <Math tex={"f:N\\to Q"} /> suave, <Math tex={"q\\in Q"} /> un valor regular, <Math tex={"M=f^{-1}(\\{q\\})"} /> e <Math tex={"\\iota:M\\to N"} /> la inclusión.
+
+- (a) Mostrar que <Math tex={"T_pM\\simeq (d\\iota)_p(T_pM)=\\ker(df)_p"} />.
+- (b) Mostrar que si <Math tex={"p\\in S^n\\subset\\mathbb R^{n+1}"} />, entonces <Math tex={"T_pS^n\\simeq p^\\perp"} />.
+<Proof title="Demostracion">
+- (a) 
+1. Como <Math tex={"f\\circ\\iota"} /> es constante, se tiene <Math tex={"df_p\\circ d\\iota_p=0"} /> de donde <Math display tex={"(d\\iota)_p(T_pM)\\subset\\ker(df)_p."} />
+2. Por otra parte, como <Math tex={"q"} /> es valor regular, <Math tex={"df_p:T_{p}N\\rightarrow T_{f(p)}Q"} /> es sobreyectiva (aca asumimos <Math tex={"p\\in M"} />) por lo tanto <Math display tex={"\\dim Im (df_{p})=\\dim T_{f(p)}Q=\\dim Q"} />
+3. Luego <Math display tex={"\\dim\\ker(df)_p=\\dim N-\\dim Q=\\dim M=\\dim T_pM."} /> donde usamos teorema dimension en el primer igual y teorema implicita en el segundo igual
+4. Como <Math tex={"d\\iota_p"} /> es inyectiva (por ser subvariedad), tenemos que <Math tex={"\\dim\\ker (d\\iota)_{p}=0"} /> por lo tanto, por teorema dimension <Math tex={"\\dim T_{p}M=\\dim Im(d\\iota)=\\dim (d\\iota)_p(T_{p}M)"} /> 
+5. Finalmente <Math tex={"\\dim\\big( (d\\iota)_p(T_{p}M)\\big)=\\dim\\ker(df)_p"} /> que junto con la inclusion prueba que <Math display tex={"(d\\iota)_p(T_pM)=\\ker(df)_p."} />
+6. Ademas notamos que <Math tex={"d\\iota"} /> es inyectiva y si co restringimos a <Math tex={"(d\\iota)_{p}(T_{p}M)"} /> pasa a ser sobreyectiva con lo cual pasa a ser isomorfismo entonces <Math tex={"T_pM\\simeq (d\\iota)_p(T_pM)"} /> 
+7. Con lo cual terminamos probando <Math display tex={"T_pM\\simeq \\ker(df)_{p}"} />
+- (b) 
+1. Para la esfera, tomamos <Math display tex={"F:\\mathbb R^{n+1}\\to\\mathbb R,\\qquad F(x)=\\langle x,x\\rangle=\\lVert x \\rVert ^{2}"} />
+2. Entonces <Math display tex={"S^n=F^{-1}(1),\\qquad dF_p(v)=2\\langle p,v\\rangle."} />
+3. Aplicando el punto anterior, <Math display tex={"T_pS^n=\\ker dF_p=\\{v:\\langle p,v\\rangle=0\\}=p^\\perp."} />
+4. Tambien se podia tomar <Math tex={"F:\\mathbb{R}^{n+1}\\setminus\\{ 0 \\}\\rightarrow\\mathbb{R}"} /> dada por <Math tex={"F(x)=\\lVert x \\rVert"} />  
+</Proof>
+</BookBlock>
+
+### Ejercicio 21
+
+<BookBlock kind="exercise">
+Sea <Math tex={"f:M\\to N"} /> suave y sea <Math display tex={"U=\\{p\\in M:\\operatorname{rango}(df)_p \\geq \\operatorname{rango}(df)_{q}\\quad\\forall q\\in M\\}"} />Mostrar que <Math tex={"U"} /> es abierto.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in U"} />. Queremos probar que existe un abierto <Math tex={"W\\subseteq M"} /> tal que <Math tex={"p\\in W\\subseteq U"} />.  
+2. Definimos <Math display tex={"r=\\operatorname{rank}(df)_p."} />  
+3. Como <Math tex={"p\\in U"} />, para todo <Math tex={"q\\in M"} /> se tiene <Math display tex={"\\operatorname{rank}(df)_q\\leq r."} />  
+4. Como <Math tex={"f"} /> es suave, existen cartas suaves <Math tex={"(U_0,\\varphi)"} /> alrededor de <Math tex={"p"} /> y <Math tex={"(V_0,\\psi)"} /> alrededor de <Math tex={"f(p)"} /> tales que <Math display tex={"f(U_0)\\subseteq V_0"} /> y la representación local <Math display tex={"\\widehat f=\\psi\\circ f\\circ \\varphi^{-1}:\\varphi(U_0)\\to \\psi(V_0)"} /> es suave.  
+5. El rango de <Math tex={"(df)_x"} /> coincide con el rango de la matriz jacobiana de <Math tex={"\\widehat f"} /> en <Math tex={"\\varphi(x)"} />, por <PreviewLink href="/chapters/teo-7#bb7fdf" label="Matriz de la diferencial en coordenadas" title="Proposicion: Matriz de la diferencial en coordenadas" /> 
+6. Como <Math display tex={"\\operatorname{rank}(df)_p=r,"} /> la matriz jacobiana <Math tex={"D\\widehat f_{\\varphi(p)}"} /> tiene rango <Math tex={"r"} />.  
+7. Por lo tanto existe un menor <Math tex={"r\\times r"} /> de <Math tex={"D\\widehat f_{\\varphi(p)}"} /> cuyo determinante es no nulo.  
+8. Llamemos <Math tex={"D"} /> a la función determinante de ese menor. Entonces <Math display tex={"D(\\varphi(p))\\neq 0."} />  
+9. Como las entradas de <Math tex={"D\\widehat f"} /> son funciones suaves, <Math tex={"D"} /> es suave, luego continua.
+10. Entonces existe un abierto <Math tex={"\\Omega\\subseteq \\varphi(U_0)"} /> tal que <Math tex={"\\varphi(p)\\in \\Omega"} /> y <Math display tex={"D(y)\\neq 0\\quad \\forall y\\in \\Omega."} />  
+11. Definimos <Math display tex={"W=\\varphi^{-1}(\\Omega)."} />  
+12. Entonces <Math tex={"W"} /> es abierto en <Math tex={"M"} /> y <Math tex={"p\\in W"} />.  
+13. Si <Math tex={"x\\in W"} />, entonces <Math tex={"\\varphi(x)\\in\\Omega"} />, luego <Math display tex={"D(\\varphi(x))\\neq 0."} />  
+14. Por lo tanto, la matriz jacobiana <Math tex={"D\\widehat f_{\\varphi(x)}"} /> tiene un menor <Math tex={"r\\times r"} /> no nulo, y entonces <Math display tex={"\\operatorname{rank}(df)_x\\geq r."} />  
+15. Pero por el paso 3, para todo <Math tex={"x\\in M"} /> se tiene <Math display tex={"\\operatorname{rank}(df)_x\\leq r."} />  
+16. Entonces para todo <Math tex={"x\\in W"} />, <Math display tex={"\\operatorname{rank}(df)_x=r."} />  
+17. Por lo tanto, para todo <Math tex={"x\\in W"} /> y todo <Math tex={"q\\in M"} />, <Math display tex={"\\operatorname{rank}(df)_x=r\\geq \\operatorname{rank}(df)_q."} />  
+18. Luego <Math tex={"x\\in U"} /> para todo <Math tex={"x\\in W"} />, es decir, <Math display tex={"W\\subseteq U."} />  
+19. Como para cada <Math tex={"p\\in U"} /> existe un abierto <Math tex={"W"} /> tal que <Math tex={"p\\in W\\subseteq U"} />, concluimos que <Math tex={"U"} /> es abierto.  
+20. Si <Math tex={"r=0"} />, entonces por el paso 3 todos los rangos son <Math tex={"0"} />, por lo que <Math tex={"U=M"} />, que también es abierto.
+</Proof>
+</BookBlock>
+
+### Ejercicio 22 (Opcional)
+
+<BookBlock kind="exercise">
+Sea <Math tex={"S_n(\\mathbb R)=\\{A\\in M_n(\\mathbb R):A=A^T\\}"} />.
+<Proof title="Demostracion">
+- El conjunto <Math tex={"S_n(\\mathbb R)"} /> es el núcleo de la aplicación lineal
+<Math display tex={"L(A)=A-A^T,"} />
+así que es un subespacio vectorial, luego una subvariedad incrustada y cerrada de <Math tex={"M_n(\\mathbb R)"} />. Su dimensión es el número de entradas en la diagonal y por encima de ella:
+<Math display tex={"\\dim S_n(\\mathbb R)=\\frac{n(n+1)}2."} />
+Una retracción suave es
+<Math display tex={"\\phi:M_n(\\mathbb R)\\to S_n(\\mathbb R),\\qquad \\phi(A)=\\frac{A+A^T}{2},"} />
+y cumple <Math tex={"\\phi\\circ\\iota=\\operatorname{id}"} />.
+
+- El conjunto <Math tex={"P"} /> de matrices simétricas definidas positivas es abierto en <Math tex={"S_n(\\mathbb R)"} /> porque la positividad de los autovalores es estable por perturbaciones pequeñas. Si <Math tex={"A\\in P"} />, por el teorema espectral
+<Math display tex={"A=Q\\,\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)\\,Q^T,\\qquad \\lambda_i>0."} />
+Entonces
+<Math display tex={"A^{1/2}=Q\\,\\operatorname{diag}(\\sqrt{\\lambda_1},\\dots,\\sqrt{\\lambda_n})\\,Q^T\\in P,"} />
+y es la única raíz cuadrada positiva de <Math tex={"A"} />. Así, la inversa de
+<Math display tex={"F:P\\to P,\\qquad F(A)=A^2,"} />
+es
+<Math display tex={"F^{-1}(B)=B^{1/2}."} />
+Por tanto <Math tex={"F"} /> es un difeomorfismo.
+</Proof>
+</BookBlock>
+
+### Ejercicio 23 (Opcional)
+
+<BookBlock kind="exercise">
+Sea <Math tex={"V=\\{X\\in S_3(\\mathbb R):\\operatorname{tr}(X)=0\\}"} />. Mostrar que
+<Math display tex={"M=\\{X\\in V:X\\text{ singular y }X\\neq 0\\}"} />
+es una subvariedad incrustada de <Math tex={"V"} />.
+<Proof title="Demostracion">
+En <Math tex={"V"} /> consideramos la restricción
+<Math display tex={"g=\\det|_V:V\\to\\mathbb R."} />
+Entonces
+<Math display tex={"M=g^{-1}(0)\\setminus\\{0\\}."} />
+Basta ver que <Math tex={"0"} /> es valor regular de <Math tex={"g"} /> en <Math tex={"M"} />.
+
+Sea <Math tex={"X\\in M"} />. Como <Math tex={"X"} /> es simétrica, existe una base ortonormal en la cual
+<Math display tex={"X=\\operatorname{diag}(a,-a,0),\\qquad a\\neq 0,"} />
+porque <Math tex={"\\operatorname{tr}(X)=0"} /> y <Math tex={"\\det(X)=0"} />.
+Para
+<Math display tex={"H=\\operatorname{diag}(1,1,-2)\\in V,"} />
+usando la fórmula de la derivada del determinante,
+<Math display tex={"dg_X(H)=\\operatorname{tr}(\\operatorname{cof}(X)^T H)."} />
+Aquí
+<Math display tex={"\\operatorname{cof}(X)=\\operatorname{diag}(0,0,-a^2),"} />
+luego
+<Math display tex={"dg_X(H)=2a^2\\neq 0."} />
+Así <Math tex={"0"} /> es valor regular y <Math tex={"M"} /> es una subvariedad incrustada de <Math tex={"V"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 24 (Opcional)
+
+<BookBlock kind="exercise">
+Sea <Math tex={"M^m\\subset\\mathbb R^n"} /> una subvariedad incrustada. Probar que su fibrado tangente unitario
+<Math display tex={"UM=\\{(p,v)\\in T\\mathbb R^n:p\\in M,\\ v\\in T_pM,\\ \\|v\\|=1\\}"} />
+es una subvariedad incrustada de dimensión <Math tex={"2m-1"} />.
+<Proof title="Demostracion">
+Tomemos <Math tex={"p\\in M"} />. Como <Math tex={"M"} /> es incrustada, existen coordenadas locales en <Math tex={"\\mathbb R^n"} /> donde cerca de <Math tex={"p"} />
+<Math display tex={"M=\\mathbb R^m\\times\\{0\\}\\subset\\mathbb R^m\\times\\mathbb R^{n-m}."} />
+Entonces cerca de <Math tex={"(p,v)"} />, el espacio tangente total se identifica con
+<Math display tex={"T\\mathbb R^n\\simeq \\mathbb R^n\\times\\mathbb R^n,"} />
+y <Math tex={"UM"} /> queda dado por las ecuaciones
+<Math display tex={"y_{m+1}=\\cdots=y_n=0,\\qquad w_{m+1}=\\cdots=w_n=0,\\qquad w_1^2+\\cdots+w_m^2=1."} />
+Estas cortan un abierto en una subvariedad de dimensión
+<Math display tex={"n+n-(n-m)-(n-m)-1=2m-1."} />
+Luego <Math tex={"UM"} /> es una subvariedad incrustada de <Math tex={"\\mathbb R^n\\times\\mathbb R^n"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 25
+
+<BookBlock kind="exercise">
+Encontrar una incrustación de <Math tex={"\\mathbb{RP}^2"} /> en <Math tex={"\\mathbb R^6"} /> y luego en <Math tex={"\\mathbb R^5"} />.
+<Proof title="Demostracion">
+Representemos <Math tex={"[p]\\in\\mathbb{RP}^2"} /> por un vector unitario <Math tex={"p\\in S^2"} />. La proyección ortogonal sobre el plano tangente <Math tex={"T_pS^2=p^\\perp"} /> es
+<Math display tex={"P_p=I-pp^T."} />
+Como <Math tex={"P_{-p}=P_p"} />, la aplicación
+<Math display tex={"\\Phi:\\mathbb{RP}^2\\to S_3(\\mathbb R)\\simeq \\mathbb R^6,\\qquad \\Phi([p])=I-pp^T"} />
+está bien definida.
+
+Es suave, y es inyectiva porque <Math tex={"\\ker(P_p)=\\mathbb Rp"} />: conocer <Math tex={"P_p"} /> determina la recta <Math tex={"[p]"} />. Como <Math tex={"\\mathbb{RP}^2"} /> es compacta y <Math tex={"S_3(\\mathbb R)"} /> es Hausdorff, una inmersión inyectiva es una incrustación una vez que se sabe que la diferencial es inyectiva; eso se verifica diferenciando <Math tex={"pp^T"} /> en cartas afines.
+
+Además,
+<Math display tex={"\\operatorname{tr}(\\Phi([p]))=\\operatorname{tr}(I)-\\operatorname{tr}(pp^T)=3-1=2,"} />
+así que la imagen está contenida en el hiperplano afín <Math tex={"\\{\\operatorname{tr}=2\\}"} /> de <Math tex={"S_3(\\mathbb R)"} />, que es de dimensión <Math tex={"5"} />. Identificando ese hiperplano con <Math tex={"\\mathbb R^5"} />, obtenemos una incrustación en <Math tex={"\\mathbb R^5"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 26 (Opcional)
+
+<BookBlock kind="exercise">
+Mostrar que la aplicación de Veronese <Math tex={"f:\\mathbb{RP}^2\\to\\mathbb R^4"} />, <Math tex={"[x:y:z]\\mapsto(x^2-y^2,xy,xz,yz)"} /> es una incrustación, y que la superficie de Steiner <Math tex={"[x:y:z]\\mapsto(xy,yz,zx)"} /> es una inmersión salvo en los puntos especiales.
+<Proof title="Demostracion">
+- **Veronese.** La aplicación está bien definida porque sus componentes son homogéneas de grado <Math tex={"2"} />, luego no cambian al reemplazar <Math tex={"(x,y,z)"} /> por <Math tex={"-(x,y,z)"} />. En las cartas afines <Math tex={"z=1"} />, <Math tex={"y=1"} />, <Math tex={"x=1"} /> las expresiones son polinómicas, así que es suave.
+
+Para ver que es inyectiva, obsérvese que conocer
+<Math display tex={"a=x^2-y^2,\\quad b=xy,\\quad c=xz,\\quad d=yz"} />
+permite recuperar la recta <Math tex={"[x:y:z]"} />: por ejemplo, si <Math tex={"x\\neq 0"} />, entonces <Math tex={"y=b/x"} />, <Math tex={"z=c/x"} />, y <Math tex={"x^2"} /> queda determinado por la ecuación <Math tex={"x^4-ax^2-b^2=0"} />; el signo de <Math tex={"x"} /> no importa en proyectivo. Los otros casos son análogos. La diferencial tiene rango <Math tex={"2"} /> en cada carta, así que es una inmersión. Como <Math tex={"\\mathbb{RP}^2"} /> es compacta, resulta una incrustación.
+
+- **Steiner.** La aplicación
+<Math display tex={"g([x:y:z])=(xy,yz,zx)"} />
+también es bien definida y suave. En una carta afín, por ejemplo <Math tex={"z=1"} />, queda
+<Math display tex={"g(x,y)=(xy,y,x)."} />
+Su jacobiana tiene rango <Math tex={"2"} /> salvo cuando dos coordenadas homogéneas se anulan simultáneamente. Eso corresponde a los puntos proyectivos
+<Math display tex={"[1:0:0],\\quad [0:1:0],\\quad [0:0:1],"} />
+o, si se mira en <Math tex={"S^2"} />, a los seis representantes <Math tex={"\\pm e_1,\\pm e_2,\\pm e_3"} />. Por tanto es una inmersión excepto en esos puntos.
+</Proof>
+</BookBlock>
+## Glosario
+
+<BookBlock kind="remark" title="Sobre ejercicio 2">
+1. Notar que siempre <Math tex={"\\phi'\\in T_{\\phi(t)}N"} /> lo que no necesariamente vale es que <Math display tex={"\\phi'(t)\\in (d\\iota)_{\\phi(t)}(T_{\\phi(t)}M)\\subseteq T_{\\phi(t)}N"} /> uno esta tentado a pensar que si la cura vive en <Math tex={"M"} /> su velocidad debe vivir en el tangente de <Math tex={"M"} /> pero no es cierto
+2. Uno estaria tentado a pensar que dada la corestriccion <Math tex={"\\tilde{\\phi}:(a,b)\\rightarrow M"} /> tenemos <Math tex={"\\phi=\\iota\\circ\\tilde\\phi"} /> (lema triangular) entonces por regla de la cadena <Math display tex={"\\phi'(t)=(d\\iota)_{\\tilde{\\phi}(t)}(\\tilde{\\phi}'(t))"} /> entonces <Math tex={"\\phi'(t)\\in (d\\iota)_{\\phi(t)}(T_{\\phi(t)}M)"} />. Pero la regla de la cadena no anda si <Math tex={"\\tilde{\\phi}"} /> no es suave y <Math tex={"\\tilde{\\phi}"} /> no es necesariamente suave si <Math tex={"\\iota"} /> no es incrustacion
+</BookBlock>
+
+<span id="800b80"></span>
+
+<BookBlock kind="lemma" title="Lema previo">
+Sea <Math tex={"A\\subset X"} /> denso en <Math tex={"X"} />. Si <Math tex={"U\\subset X"} /> es abierto no vacío, entonces <Math tex={"U\\cap A"} /> es denso en <Math tex={"U"} />.
+<Proof title="Demostracion">
+2. Queremos probar que <Math tex={"U\\cap A"} /> es denso en <Math tex={"U"} />.
+3. Primero veamos por qué, si <Math tex={"A"} /> es denso en <Math tex={"X"} />, entonces todo abierto no vacío de <Math tex={"X"} /> corta a <Math tex={"A"} />.
+4. Como <Math tex={"A"} /> es denso en <Math tex={"X"} />, tenemos <Math display tex={"\\overline{A}^{\\,X}=X."} />
+5. Sea <Math tex={"O\\subset X"} /> un abierto no vacío. Como <Math tex={"O\\neq\\varnothing"} />, existe <Math tex={"x\\in O"} />.
+6. Como <Math tex={"\\overline{A}^{\\,X}=X"} />, se tiene <Math tex={"x\\in \\overline{A}^{\\,X}"} />.
+7. Por definición de clausura, todo entorno abierto de <Math tex={"x"} /> en <Math tex={"X"} /> corta a <Math tex={"A"} />.
+8. Como <Math tex={"O"} /> es un abierto de <Math tex={"X"} /> que contiene a <Math tex={"x"} />, se sigue que <Math display tex={"O\\cap A\\neq\\varnothing."} />
+9. Ahora tomemos <Math tex={"W\\subset U"} /> abierto no vacío, abierto con la topología relativa de <Math tex={"U"} />.
+10. Como <Math tex={"U"} /> es abierto en <Math tex={"X"} />, entonces <Math tex={"W"} /> también es abierto en <Math tex={"X"} />.
+11. Por los pasos anteriores, como <Math tex={"W"} /> es abierto no vacío de <Math tex={"X"} />, se tiene <Math display tex={"W\\cap A\\neq\\varnothing."} />
+12. Además, como <Math tex={"W\\subset U"} />, tenemos <Math display tex={"W\\cap A=W\\cap(U\\cap A)."} />
+13. Entonces <Math display tex={"W\\cap(U\\cap A)\\neq\\varnothing."} />
+14. Como todo abierto no vacío <Math tex={"W\\subset U"} /> corta a <Math tex={"U\\cap A"} />, concluimos que <Math tex={"U\\cap A"} /> es denso en <Math tex={"U"} />.
+</Proof>
+</BookBlock>
+
+<span id="db8cf9"></span>
+
+<BookBlock kind="lemma" title="Criterio de suavidad entre subvariedades incrustadas">
+Sean <Math tex={"(A,i_A)"} /> y <Math tex={"(B,i_B)"} /> subvariedades incrustadas de <Math tex={"\\mathbb R^m"} /> y <Math tex={"\\mathbb R^n"} />, respectivamente. Sea <Math tex={"F:A\\to B"} /> una función.
+Supongamos que existe un abierto <Math tex={"U\\subseteq \\mathbb R^m"} /> con <Math tex={"i_A(A)\\subseteq U"} /> y una función suave <Math display tex={"\\widetilde F:U\\to \\mathbb R^n"} /> tal que <Math display tex={"\\widetilde F\\circ i_A=i_B\\circ F."} />
+Entonces <Math display tex={"F:A\\to B"} /> es suave.
+<Proof title="Demostracion">
+1. Como <Math tex={"i_A:A\\to \\mathbb R^m"} /> es suave y <Math tex={"\\widetilde F:U\\to\\mathbb R^n"} /> es suave, la composición <Math display tex={"\\widetilde F\\circ i_A:A\\to\\mathbb R^n"} /> es suave.
+2. Por hipótesis, <Math display tex={"\\widetilde F\\circ i_A=i_B\\circ F."} />
+3. Luego <Math display tex={"i_B\\circ F:A\\to\\mathbb R^n"} /> es suave.
+4. Además, <Math display tex={"(i_B\\circ F)(A)\\subseteq i_B(B)."} />
+5. Como <Math tex={"(B,i_B)"} /> es una subvariedad incrustada de <Math tex={"\\mathbb R^n"} />, por el lema de factorización aplicado a <Math display tex={"i_B\\circ F:A\\to\\mathbb R^n,"} /> la única función <Math display tex={"\\widehat F:A\\to B"} /> tal que <Math display tex={"i_B\\circ\\widehat F=i_B\\circ F"} /> es suave.
+6. Pero <Math tex={"F"} /> satisface <Math display tex={"i_B\\circ F=i_B\\circ F."} />
+7. Por unicidad, <Math display tex={"\\widehat F=F."} />
+8. Por lo tanto, <Math display tex={"F:A\\to B"} /> es suave.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="lemma">
+Sea <Math tex={"S\\subseteq M"} /> una subvariedad incrustada de dimensión <Math tex={"k"} /> y sea <Math tex={"U\\subseteq M"} /> abierto. Entonces <Math tex={"S\\cap U"} /> es subvariedad incrustada de <Math tex={"U"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in S\\cap U"} />.
+2. Como <Math tex={"S"} /> es subvariedad incrustada de <Math tex={"M"} />, existe una carta suave <Math tex={"(V,\\varphi)"} /> de <Math tex={"M"} /> alrededor de <Math tex={"p"} /> tal que <Math display tex={"\\varphi(V\\cap S)=\\varphi(V)\\cap(\\mathbb R^k\\times\\{0\\})."} />
+3. Como <Math tex={"U"} /> es abierto en <Math tex={"M"} />, el conjunto <Math tex={"V\\cap U"} /> es abierto en <Math tex={"M"} />, y por lo tanto <Math tex={"(V\\cap U,\\varphi|_{V\\cap U})"} /> es una carta suave de la variedad abierta <Math tex={"U"} /> alrededor de <Math tex={"p"} />.
+4. Además, <Math display tex={"(V\\cap U)\\cap(S\\cap U)=V\\cap S\\cap U."} />
+5. Aplicando la carta restringida, se tiene <Math display tex={"\\varphi((V\\cap U)\\cap(S\\cap U))=\\varphi(V\\cap S\\cap U)."} />
+6. Como <Math tex={"\\varphi(V\\cap S)=\\varphi(V)\\cap(\\mathbb R^k\\times\\{0\\})"} />, al intersectar con <Math tex={"\\varphi(V\\cap U)"} /> queda <Math display tex={"\\varphi(V\\cap S\\cap U)=\\varphi(V\\cap U)\\cap(\\mathbb R^k\\times\\{0\\})."} />
+7. Entonces, en la carta <Math tex={"(V\\cap U,\\varphi|_{V\\cap U})"} /> de <Math tex={"U"} />, el conjunto <Math tex={"S\\cap U"} /> se ve localmente como una rebanada.
+8. Por lo tanto <Math tex={"S\\cap U"} /> es una subvariedad incrustada de <Math tex={"U"} />.
+</Proof>
+</BookBlock>
+
+<span id="80e4a7"></span>
+
+<BookBlock kind="lemma">
+Sea <Math tex={"M"} /> una variedad suave de dimensión <Math tex={"n"} /> y sea <Math tex={"U\\subseteq M"} /> abierto. Entonces <Math tex={"U"} /> es una subvariedad incrustada de <Math tex={"M"} /> de dimensión <Math tex={"n"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in U"} />.
+2. Como <Math tex={"M"} /> es una variedad suave, existe una carta suave <Math tex={"(V,\\varphi)"} /> de <Math tex={"M"} /> tal que <Math tex={"p\\in V"} />.
+3. Como <Math tex={"U"} /> es abierto en <Math tex={"M"} />, el conjunto <Math tex={"V\\cap U"} /> es abierto en <Math tex={"M"} />.
+4. Luego <Math tex={"(V\\cap U,\\varphi|_{V\\cap U})"} /> es una carta suave de <Math tex={"M"} /> alrededor de <Math tex={"p"} />.
+5. Además, <Math display tex={"(V\\cap U)\\cap U=V\\cap U."} />
+6. Aplicando la carta restringida, se obtiene <Math display tex={"\\varphi((V\\cap U)\\cap U)=\\varphi(V\\cap U)."} />
+7. Como <Math tex={"\\varphi(V\\cap U)"} /> es un abierto de <Math tex={"\\mathbb R^n"} />, localmente <Math tex={"U"} /> se ve como todo el espacio coordenado <Math tex={"\\mathbb R^n"} />.
+8. Equivalentemente, en esta carta adaptada, <Math display tex={"\\varphi((V\\cap U)\\cap U)=\\varphi(V\\cap U)\\cap\\mathbb R^n."} />
+9. Por lo tanto <Math tex={"U"} /> es una subvariedad incrustada de <Math tex={"M"} /> de dimensión <Math tex={"n"} />.
+</Proof>
+</BookBlock>
+
+<span id="772b8b"></span>
+
+<BookBlock kind="lemma" title="Transitividad de incrustaciones">
+Sean <Math tex={"P,S,M"} /> variedades suaves. Si <Math tex={"j:P\\hookrightarrow S"} /> es una incrustación y <Math tex={"i:S\\hookrightarrow M"} /> es una incrustación, entonces <Math tex={"i\\circ j:P\\hookrightarrow M"} /> es una incrustación.
+<Proof title="Demostracion">
+1. Como <Math tex={"i"} /> y <Math tex={"j"} /> son incrustaciones, en particular son aplicaciones suaves. Entonces <Math tex={"i\\circ j"} /> es suave.
+2. Además, como <Math tex={"i"} /> y <Math tex={"j"} /> son inyectivas, la composición <Math tex={"i\\circ j"} /> también es inyectiva.
+3. Veamos que <Math tex={"i\\circ j"} /> es una inmersión. Sea <Math tex={"p\\in P"} />. Por regla de la cadena, <Math display tex={"d(i\\circ j)_p=di_{j(p)}\\circ dj_p."} />
+4. Como <Math tex={"j"} /> es una inmersión, <Math tex={"dj_p:T_pP\\to T_{j(p)}S"} /> es inyectiva. Como <Math tex={"i"} /> es una inmersión, <Math tex={"di_{j(p)}:T_{j(p)}S\\to T_{i(j(p))}M"} /> es inyectiva.
+5. La composición de aplicaciones lineales inyectivas es inyectiva. Luego <Math display tex={"d(i\\circ j)_p:T_pP\\to T_{i(j(p))}M"} /> es inyectiva.
+6. Por lo tanto <Math tex={"i\\circ j"} /> es una inmersión.
+7. Falta ver que <Math tex={"i\\circ j"} /> es un homeomorfismo sobre su imagen. Como <Math tex={"j:P\\to j(P)"} /> es homeomorfismo, donde <Math tex={"j(P)"} /> tiene la topología relativa heredada de <Math tex={"S"} />, y como <Math tex={"i:S\\to i(S)"} /> es homeomorfismo, donde <Math tex={"i(S)"} /> tiene la topología relativa heredada de <Math tex={"M"} />, podemos restringir <Math tex={"i"} /> a <Math tex={"j(P)"} />.
+8. La restricción <Math display tex={"i|_{j(P)}:j(P)\\to i(j(P))"} /> es un homeomorfismo, donde <Math tex={"i(j(P))"} /> tiene la topología relativa heredada de <Math tex={"i(S)"} />.
+9. Ahora hay que justificar que esta es la topología correcta en <Math tex={"i(j(P))"} />. Para que <Math tex={"i\\circ j:P\\to M"} /> sea una incrustación, la imagen <Math tex={"i(j(P))"} /> debe llevar la topología relativa heredada de <Math tex={"M"} />.
+10. Como <Math display tex={"i(j(P))\\subseteq i(S)\\subseteq M,"} /> la topología relativa de <Math tex={"i(j(P))"} /> como subespacio de <Math tex={"i(S)"} /> coincide con la topología relativa de <Math tex={"i(j(P))"} /> como subespacio de <Math tex={"M"} />.
+11. En efecto, si <Math tex={"A\\subseteq B\\subseteq X"} />, entonces la topología relativa de <Math tex={"A"} /> heredada de <Math tex={"B"} /> coincide con la topología relativa de <Math tex={"A"} /> heredada de <Math tex={"X"} />. Si <Math tex={"O_A"} /> es abierto en <Math tex={"A"} /> relativo a <Math tex={"B"} />, entonces existe un abierto <Math tex={"O_B\\subseteq B"} /> tal que <Math display tex={"O_A=A\\cap O_B."} /> Como <Math tex={"B"} /> tiene la topología relativa de <Math tex={"X"} />, existe un abierto <Math tex={"O_X\\subseteq X"} /> tal que <Math display tex={"O_B=B\\cap O_X."} /> Entonces <Math display tex={"O_A=A\\cap O_B=A\\cap(B\\cap O_X)=A\\cap O_X,"} /> porque <Math tex={"A\\subseteq B"} />. Luego <Math tex={"O_A"} /> es abierto en <Math tex={"A"} /> relativo a <Math tex={"X"} />. La otra inclusión es directa.
+12. Aplicando esto con <Math display tex={"A=i(j(P)),\\qquad B=i(S),\\qquad X=M,"} /> obtenemos que <Math tex={"i(j(P))"} /> tiene la misma topología relativa si la pensamos como subespacio de <Math tex={"i(S)"} /> o como subespacio de <Math tex={"M"} />.
+13. Por lo tanto, <Math display tex={"i|_{j(P)}:j(P)\\to i(j(P))"} /> es homeomorfismo, donde <Math tex={"i(j(P))"} /> tiene la topología relativa heredada de <Math tex={"M"} />.
+14. Como <Math display tex={"i\\circ j:P\\to i(j(P))"} /> es la composición <Math display tex={"P\\xrightarrow{j}j(P)\\xrightarrow{i|_{j(P)}}i(j(P)),"} /> y ambas aplicaciones son homeomorfismos, se sigue que <Math tex={"i\\circ j"} /> es un homeomorfismo sobre su imagen.
+15. Así, <Math tex={"i\\circ j"} /> es suave, inyectiva, inmersión y homeomorfismo sobre su imagen.
+16. Por definición, <Math tex={"i\\circ j:P\\hookrightarrow M"} /> es una incrustación.
+</Proof>
+</BookBlock>
+
+<span id="fb9b56"></span>
+
+<BookBlock kind="corollary">
+Si <Math tex={"P\\subseteq S\\subseteq M"} />, <Math tex={"P"} /> es subvariedad incrustada de <Math tex={"S"} /> y <Math tex={"S"} /> es subvariedad incrustada de <Math tex={"M"} />, entonces <Math tex={"P"} /> es subvariedad incrustada de <Math tex={"M"} />.
+</BookBlock>

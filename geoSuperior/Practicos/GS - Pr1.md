@@ -156,6 +156,7 @@
 >>3. Como $M$ es compacta y $\varphi$ es continua, $\varphi(M)$ es **compacto**, luego **cerrado** en $\mathbb{R}^n$.
 >>4. Entonces $\varphi(M)$ es clopen en $\mathbb{R}^n$. Como $\mathbb{R}^n$ es conexo para $n\geq 1$ y $\varphi(M)\neq\varnothing$, se concluye $\varphi(M)=\mathbb{R}^n$.
 >>5. Pero $\mathbb{R}^n$ no es compacto (no es acotado) para $n\geq 1$, contradicción.
+>>6. Otra alternativa es usar homeo entonces $\varphi(M)$ es abierto de $\mathbb{R}^{n}$ spd $\varphi(M)=B_{r}(p)$. Pero esto no es compacto.. por que lo cubris con $B_{r-a_{n}}(p)$ con $a_{n}\rightarrow r$. Que son numerables.
 >>- **Observación**
 >El caso $\dim M=0$ es trivial: una variedad conexa de dimensión $0$ es un punto, homeomorfo a $\mathbb{R}^0=\{0\}$, y sí admite una única carta.
 
@@ -314,15 +315,15 @@
 >>1. Sea $\mathcal F$ el atlas de $S^1$ dado por las estereográficas. Entonces
 >>$$\{(U_i\times \mathbb R,\ \varphi_i\times \mathrm{Id})\}$$
 >>es un atlas producto para $M_1=S^1\times \mathbb R$.
->>2. Sea además $M_2=(M,\mathcal{F})$ donde $M$ es el cilundro y $\mathcal{F}$ es la estructura suave dada en el ejercicio $8$ 
+>>2. Sea además $M_2=(M,\mathcal{F})$ donde $M$ es el cilundro y $\mathcal{F}$ es la estructura suave dada en el ejercicio $8$
 >>3. Definimos $$H:M_1\to M_2,\qquad H((x,y),z)=(x,y,z).$$y afirmamos que es difeomorfismo.
->>4. Que $H$ es homeomorfismo es trivial: su inversa  es
+>>4. Que $H$ es homeomorfismo es trivial: su inversa es
 >>$$H^{-1}(x,y,z)=((x,y),z).$$
 >>5. Veamos que $H$ es suave. Tomemos $p=((p_1,p_2),p_3)\in M_1$. Elegimos una carta producto $(U_i\times \mathbb R,\varphi_i\times \mathrm{Id})$ de $M_1$ con $p\in U_i\times\mathbb R$, y para $M_2$ tomamos la carta global $(M_2,F)$ del ejercicio $8$, donde $$F(x,y,z)=(e^z x,e^z y).$$
 >>6. Obviamente $H(p)\in M$. Además, como $U_i\times\mathbb R$ es abierto de $M_1$ por definición de atlas producto y $F$ es carta global de $M_2$, la composición $$F\circ H\circ (\varphi_i\times \mathrm{Id})^{-1}$$está bien definida.
->>7. Ahora notemos que $$(\varphi_i\times \mathrm{Id})((x,y),z)=(\varphi_{i}(x,y),z)\Longrightarrow   (\varphi_i\times \mathrm{Id})^{-1}(v,w)=(\varphi^{-1}(v),w).$$por lo tanto
->>$$H\circ (\varphi_i\times \mathrm{Id})^{-1}(v,w)=(\varphi_1^{-1}(x,y),\varphi_{2}^{-1}(x,y),z),$$
->>y aplicando $F$ obtenemos $$F\circ H\circ (\varphi_i\times \mathrm{Id})^{-1}(x,y,z)=(e^z\varphi_1^{-1}(x,y),e^{z}\varphi_{2}^{-1}(x,y)) =e^{z}\varphi ^{-1}(x,y) $$que es producto y composición de funciones suaves. Luego $H$ es suave.
+>>7. Ahora notemos que $$(\varphi_i\times \mathrm{Id})((x,y),z)=(\varphi_{1}(x,y),\varphi_{2}(x,y),z)\Longrightarrow   (\varphi_i\times \mathrm{Id})^{-1}(x,y,v)=(\varphi^{-1}(x,y),z).$$por lo tanto
+>>$$H\circ (\varphi_i\times \mathrm{Id})^{-1}(x,y,z)=(\varphi_1^{-1}(x,y),\varphi_{2}^{-1}(x,y),z),$$
+>>y aplicando $F$ obtenemos $$F\circ H\circ (\varphi_i\times \mathrm{Id})^{-1}(x,y,z)=(e^z\varphi_1^{-1}(x,y),e^{z}\varphi_{2}^{-1}(x,y)) =e^{z}\varphi ^{-1}(x,y)$$que es producto y composición de funciones suaves. Luego $H$ es suave.
 >>8. Veamos ahora que $H^{-1}$ es suave. Sea $q=(x,y,z)\in M_2$. Sin perdida de generalidades tomamos un abierto $U$ de $q$ tal que $(U\times \mathbb R,\varphi_i\times \mathrm{Id})$ es carta de $M_1$. Y obviamente para la otra carta tomamos nuevamente la carta global $(U,F)$ restringida que clarmente es carta
 >>9. Luego recordamos $$F^{-1}(u,v)=\left(\frac{u}{\sqrt{u^2+v^2}},\frac{v}{\sqrt{u^2+v^2}},\ln\sqrt{u^2+v^2}\right),$$
 >>10. Por lo tanto obtenemos $$(\varphi_i\times \mathrm{Id})\circ H^{-1}\circ F^{-1}(u,v)=\left(\varphi_i\!\left(\frac{u}{\sqrt{u^2+v^2}},\frac{v}{\sqrt{u^2+v^2}}\right),\ln\sqrt{u^2+v^2}\right).$$ que esta bien definida y es suave en su dominio, luego $H^{-1}$ es suave.
@@ -434,3 +435,5 @@
 >>	5. La inversa está dada por $$(u,\rho)\longmapsto \{\rho\,u^{\perp}+tu:t\in\mathbb{R}\},$$ y es continua; por lo tanto obtenemos un homeomorfismo $$M\cong S^{1}\times\mathbb{R}.$$
 >>	6. Finalmente, componiendo con las cartas estereográficas de $S^{1}$, obtenemos cartas de $M$ con valores en abiertos de $\mathbb{R}^{2}$.
 >>	7. Por consiguiente, el conjunto de rectas orientadas del plano tiene estructura natural de variedad diferenciable de dimensión $2$.
+
+

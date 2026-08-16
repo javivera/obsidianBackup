@@ -1,0 +1,131 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Extensión local de campos"
+description: "Teorico convertido desde GS - Teo18.md"
+chapter: "Teo 18"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Extensión local de campos
+
+<BookBlock kind="definition" title="Variedad paralelizable">
+Sea <Math tex={"M"} /> una variedad suave de dimensión <Math tex={"n"} />, y sea <Math tex={"U\\subseteq M"} /> un abierto. Un conjunto de campos suaves <Math tex={"\\{E_1,\\dots,E_n\\}"} /> sobre <Math tex={"U"} /> se dice un marco local suave si <Math display tex={"\\{E_1|_p,\\dots,E_n|_p\\}"} /> forma una base de <Math tex={"T_pM"} /> para todo <Math tex={"p\\in U"} />. El marco se llama global si <Math tex={"U=M"} />.
+Una variedad suave se dice paralelizable si admite un marco global.
+</BookBlock>
+
+<BookBlock kind="example">
+<Math tex={"\\mathbb{R}^{n}"} /> es paralelizable
+<Proof title="Demostracion">
+34. Consideremos la carta global estándar <Math tex={"\\operatorname{Id}_{\\mathbb R^n}:\\mathbb R^n\\to\\mathbb R^n"} />.  
+35. Definimos, para cada <Math tex={"i=1,\\dots,n"} />, el campo vectorial <Math tex={"E_i=\\frac{\\partial}{\\partial x_{i}}"} />.  
+36. Es decir, para cada <Math tex={"p\\in\\mathbb R^n"} />,<Math display tex={"(E_i)_p=\\frac{\\partial}{\\partial x_{i}}\\bigg|_p\\in T_p\\mathbb R^n"} />
+37. Veamos que cada <Math tex={"E_i"} /> es suave. En la carta global estándar, las funciones coordenadas de <Math tex={"E_i"} /> son constantes: <Math tex={"E_i(p)=(0,\\dots,0,1,0,\\dots,0)"} />.  
+38. Como las funciones constantes son suaves, cada <Math tex={"E_i"} /> es un campo vectorial suave sobre <Math tex={"\\mathbb R^n"} />.  
+39. Además, para cada <Math tex={"p\\in\\mathbb R^n"} />, los vectores <Math display tex={"\\left\\{\\frac{\\partial}{\\partial x_{1}}\\bigg|_p,\\dots,\\frac{\\partial}{\\partial x_{n}}\\bigg|_p\\right\\}"} />forman una base de <Math tex={"T_p\\mathbb R^n"} />.  
+40. Por lo tanto, <Math tex={"\\{E_1,\\dots,E_n\\}"} /> es un marco global suave sobre <Math tex={"\\mathbb R^n"} />.  
+41. Concluimos que <Math tex={"\\mathbb R^n"} /> es paralelizable.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="example">
+<Math tex={"S^{1}"} /> es paralelizable
+<Proof title="Demostracion">
+42. Pensamos <Math tex={"S^1"} /> como la subvariedad de <Math tex={"\\mathbb R^2"} /> dada por <Math tex={"S^1=\\{(x,y)\\in\\mathbb R^2:x^2+y^2=1\\}"} />.  
+43. Obviamente en <Math tex={"\\mathbb{R}^{2}"} /> tenemos la carta canonica y la base del <Math tex={"T_{p}\\mathbb{R}^{2}"} /> dada por esa carta <Math display tex={"\\left\\{ \\frac{\\partial}{\\partial x}\\bigg|_{p},\\frac{\\partial}{\\partial y}\\bigg|_{p} \\right\\}"} />     
+44. Como <Math tex={"\\dim S^1=1"} />, alcanza construir un campo vectorial suave global que nunca se anule.  
+45. Definimos <Math tex={"E:S^1\\to TS^1"} /> por <Math tex={"E_{(x,y)}=(-y,x)"} />. (Osea <Math tex={"E(x,y)=((x,y),(-y,x))"} /> que esta en el fibrado tangente y luego lo identificamos como <Math tex={"E_{(x,y)}=(-y,x)"} /> <PreviewLink href="/chapters/teo-15#4e6c26" label="Campos coordenados" title="Corolario: Campos coordenados" />) 
+46. Notemos ademas que aca <Math tex={"(-y,x)"} /> son las coordenadas en la base del <Math tex={"T_{(x,y)}\\mathbb{R}^{2}"} />  
+47. Primero veamos que **<Math tex={"E_{(x,y)}"} /> es tangente a <Math tex={"S^1"} />**. Si <Math tex={"p=(x,y)\\in S^1"} />, entonces <Math display tex={"T_pS^1=\\{v\\in\\mathbb R^2:\\langle v,p\\rangle=0\\}"} /> esto es basicamente ^483e02   
+48. Calculamos <Math tex={"\\langle (-y,x),(x,y)\\rangle=-yx+xy=0"} />.  
+49. Por lo tanto, <Math tex={"E_p\\in T_pS^1"} /> para todo <Math tex={"p\\in S^1"} />.  
+50. Ahora veamos que <Math tex={"E"} /> nunca se anula. Si <Math tex={"E_{(x,y)}=(-y,x)=(0,0)"} />, entonces <Math tex={"x=0"} /> e <Math tex={"y=0"} />.  
+51. Pero <Math tex={"(0,0)\\notin S^1"} />, porque <Math tex={"0^2+0^2\\neq 1"} />.  
+52. Luego <Math tex={"E_p\\neq 0"} /> para todo <Math tex={"p\\in S^1"} />.  
+53. Además, <Math tex={"E"} /> es suave, porque sus componentes ambiente son <Math tex={"E(x,y)=(-y,x)"} />, que son funciones suaves en <Math tex={"x"} /> e <Math tex={"y"} />.  
+54. Como <Math tex={"\\dim S^1=1"} />, para cada <Math tex={"p\\in S^1"} />, el conjunto <Math tex={"\\{E_p\\}"} /> forma una base de <Math tex={"T_pS^1"} />.  
+55. Entonces <Math tex={"\\{E\\}"} /> es un marco global suave sobre <Math tex={"S^1"} />.  
+56. Concluimos que <Math tex={"S^1"} /> es paralelizable. 
+57. Aca al final en realidad creo deberia usar que <Math tex={"d\\iota"} /> es isomorfismo con su imagen (por ser incrustacion) y en realidad deberia tomar <Math tex={"V_{p}=d\\iota ^{-1}(E_{p})"} /> como los que forman una base para cada <Math tex={"p"} /> y quizas algo asi como <Math tex={"\\{ V \\}"} /> como marco global    
+</Proof>
+</BookBlock>
+
+<BookBlock kind="example">
+- Veremos más adelante que los grupos de Lie son paralelizables.
+- <Math tex={"S^2"} /> no es paralelizable; esto se relaciona con el teorema de la bola peluda.
+- Topología algebraica: <Math tex={"S^1"} />, <Math tex={"S^3"} /> y <Math tex={"S^7"} /> son las únicas esferas paralelizables.
+</BookBlock>
+
+## Extensión local de campos
+
+<BookBlock kind="theorem" title="Extensión local de campos">
+Sea <Math tex={"f:M\\to N"} /> una inmersión y sea <Math tex={"X\\in\\mathfrak X(M)"} />. Entonces, para todo <Math tex={"p\\in M"} />, existen un abierto <Math tex={"U"} /> de <Math tex={"p"} /> en <Math tex={"M"} />, un abierto <Math tex={"V"} /> de <Math tex={"N"} /> en <Math tex={"f(p)"} />, con <Math tex={"f(U)\\subseteq V"} />, y un campo suave <Math tex={"\\widetilde X\\in\\mathfrak X(V)"} /> tal que
+<Math display tex={"\\widetilde X_{f(q)}=(df)_qX_q,\\qquad q\\in U."} />
+
+Se dice que <Math tex={"\\widetilde X"} /> es una extensión local de <Math tex={"df(X)"} />.
+<Proof title="Demostracion">
+1. Recordemos que, por la forma local de una inmersión, existen cartas cúbicas <Math tex={"(U,\\varphi=(x_1,\\ldots,x_m))"} /> centrada en <Math tex={"p"} /> y <Math tex={"(V,\\psi=(y_1,\\ldots,y_n))"} /> centrada en <Math tex={"f(p)"} /> tales que <Math display tex={"\\psi\\circ f\\circ\\varphi^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_m,0,\\ldots,0)."} />
+2. Escribimos el campo <Math tex={"X"} /> en la carta de <Math tex={"M"} /> como <Math display tex={"X|_U=\\sum_{k=1}^m a_k\\frac{\\partial}{\\partial x_k},\\qquad a_k\\in C^\\infty(U)."} />
+3. Si <Math tex={"q\\in U"} />, entonces (ya lo probamos usando forma local <PreviewLink href="/chapters/pr-4#b71da3" label="Ejercicio" title="Ejercicio" />) <Math display tex={"(df)_q\\left(\\left.\\frac{\\partial}{\\partial x_k}\\right|_q\\right)=\\left.\\frac{\\partial}{\\partial y_k}\\right|_{f(q)},\\qquad 1\\le k\\le m."} />
+4. Por lo tanto, <Math display tex={"(df)_qX_q=\\sum_{k=1}^m a_k(q)\\left.\\frac{\\partial}{\\partial y_k}\\right|_{f(q)}"} />
+5. <Math display tex={"A_k=\\begin{cases}a_k\\circ\\varphi^{-1}\\circ\\pi\\circ\\psi,&1\\le k\\le m,\\\\0,&m<k\\le n,\\end{cases}"} />
+Esta esta bien definido por que <Math tex={"\\psi"} /> y <Math tex={"\\varphi"} /> son cubicas.
+6. Y notamos <Math tex={"A_{k}"} /> cumple que <Math display tex={"(A_{k}\\circ f)(p)=a_{k}\\circ\\varphi ^{-1}\\circ\\pi\\circ\\psi\\circ f(\\varphi ^{-1} \\circ\\varphi(p))=a_{k}\\circ\\varphi ^{-1}\\circ\\varphi(p)=a_{k}(p)"} />  
+7. Finalmente proponemos <Math display tex={"\\widetilde X=\\sum_{k=1}^n A_k\\frac{\\partial}{\\partial y_k}."} /> el cual cumple <Math tex={"\\widetilde{X}(f(q))=(df)_{q}X_{q}"} /> para todo <Math tex={"q\\in U"} /> y <Math tex={"A_k"} /> esta definida en todo <Math tex={"V"} />, entonces <Math tex={"\\widetilde X\\in\\mathfrak X(V)"} /> como queriamos.  
+</Proof>
+</BookBlock>
+
+## Primera aplicación del flujo de un campo
+
+<BookBlock kind="lemma">
+Sea <Math tex={"M"} /> una variedad suave de dimensión <Math tex={"n"} /> y sea <Math tex={"p\\in M"} />. Si <Math tex={"\\{v_1,\\ldots,v_k\\}\\subset T_pM"} /> es un conjunto linealmente independiente, entonces existe una carta suave <Math tex={"(U,\\varphi=(x_1,\\ldots,x_n))"} /> centrada en <Math tex={"p"} /> tal que <Math display tex={"\\left.\\frac{\\partial}{\\partial x_i}\\right|_p=v_i,\\qquad i=1,\\ldots,k."} />
+<Proof title="Demostracion">
+1. Completamos <Math tex={"\\{v_1,\\ldots,v_k\\}"} /> a una base <Math tex={"\\{v_1,\\ldots,v_n\\}"} /> de <Math tex={"T_pM"} />.
+2. Tomemos una carta suave <Math tex={"\\psi=(y_1,\\ldots,y_n)"} /> centrada en <Math tex={"p"} />.
+3. Entonces tenemos  <Math tex={"\\{(d\\psi)_pv_1,\\ldots,(d\\psi)_pv_n\\}"} /> base del <Math tex={"T_{0}\\mathbb{R}^{n}"} /> 
+4. Ahora queremos una transformacion lineal <Math tex={"T"} /> de <Math tex={"\\mathbb{R}^{n}"} /> en <Math tex={"\\mathbb{R}^{n}"} /> tal que su diferencial mande <Math tex={"(d\\psi)_{p}v_{1},\\ldots,(d\\psi)_{p}v_{i}"} /> en <Math tex={"\\frac{\\partial}{\\partial r_{1}}|_{T(0)=0},\\ldots,\\frac{\\partial}{\\partial r_{n}}|_{0}"} />. 
+5. Asi obtendriamos una nueva carta <Math tex={"\\varphi=T\\circ\\psi"} /> centrada en <Math tex={"p"} /> que cumpla lo pedido. Veamoslo
+6. Primero escribimos <Math display tex={"(d\\psi)_{p}(v_{j})=\\sum^{n}_{i=1} a_{ij}\\frac{\\partial}{\\partial r_{i}}\\bigg|_{0}"} /> y lo identificamo de la siguiente manera <Math display tex={"(d\\psi)_{p}v_{j}\\simeq\\begin{pmatrix} a_{1j} \\\\  \\vdots \\\\ a_{nj} \\end{pmatrix}"} />   
+7. Sea <Math tex={"A:\\mathbb R^n\\to\\mathbb R^n"} /> definida por <Math display tex={"\\begin{pmatrix} t_{1} \\\\  \\vdots \\\\ t_{n} \\end{pmatrix}\\mapsto(a_{ij})\\begin{pmatrix} t_{1} \\\\  \\vdots \\\\ t_{n} \\end{pmatrix}"} />  osea cumple que <Math display tex={"A(e_i)=\\begin{pmatrix} a_{1j} \\\\  \\vdots \\\\ a_{nj} \\end{pmatrix}"} />
+8. Sabemos <Math display tex={"(dA)_0\\left(\\frac{\\partial}{\\partial r_{j}}\\bigg|_0\\right)=\\sum_{i=1}^n b_{ij}\\frac{\\partial}{\\partial r_{i}}\\bigg|_0."} /> veamos que <Math tex={"b_{ij}=a_{ij}"} />
+9. En efecto, <Math display tex={"b_{ij}=(dA)_{0}\\left(\\frac{\\partial}{\\partial r_{j}}\\bigg|_0\\right)(r_{i} )=\\left(\\frac{\\partial}{\\partial r_{j}}\\bigg|_0\\right)(r_{i}(A))=a_{ij}"} /> para entender notar dos cosas primero que la funcion <Math tex={"r_{i}"} /> es tomar la cordenada <Math tex={"i"} /> osea <Math tex={"(r_{i}\\circ A)(t_{1},\\ldots,t_{n})=r_{i}(A(t))=(t_{1}a_{i1}+ t_{2}a_{i2} +\\ldots + t_{n}a_{n})"} /> y claramente la derivada <Math tex={"j"} /> esima de esta funcion es <Math tex={"a_{ij}"} />
+10. Ahora tomamos <Math tex={"T=A^{-1}"} />. Obviamente <Math tex={"A\\circ T=Id"} /> entonces <Math tex={"d(A\\circ T)_{0}(w)=w"} /> osea por regla de la cadena <Math tex={"(dA)_{0}( (dT)_{0}(w))=w"} /> por lo tanto <Math display tex={"(dA)_{0}(dT)_{0}\\left(\\sum_{i=1}^n a_{ij}\\frac{\\partial}{\\partial r_{i}}\\bigg|_0\\right)=\\sum_{i=1}^n a_{ij}\\frac{\\partial}{\\partial r_{i}}\\bigg|_0=(dA)_0\\left(\\frac{\\partial}{\\partial r_{j}}\\bigg|_0\\right)"} />el ultimo igual por paso 8. y 9.
+11. Y como <Math tex={"A"} /> es inyectiva <Math display tex={"(dT)_{0}\\left(\\sum_{i=1}^n a_{ij}\\frac{\\partial}{\\partial r_{i}}\\bigg|_0\\right)=\\frac{\\partial}{\\partial r_{j}}\\bigg|_0"} />
+12. Ahora si definimos <Math tex={"(U,\\varphi=T\\circ\\psi=(x_{1},\\ldots,x_{n}))"} />, tenemos que ver entonces que <Math display tex={"\\frac{\\partial}{\\partial x_{i}}\\bigg|_{p}=v_{i}"} /> pero esto es equivalente a ver que <Math display tex={"(d\\varphi)_{p}\\left(\\frac{\\partial}{\\partial x_{i}}\\bigg|_{p}\\right)=(d\\varphi)_{p}v_{i}"} /> (por que <Math tex={"d\\varphi"} /> es inyectiva)
+13. Pero <Math display tex={"(d\\varphi)_{p}(v_{j})=(dT)_{0}(d\\psi)_{p}(v_{j})=\\frac{\\partial}{\\partial r_{j}}\\bigg|_0"} /> por 6. y 11. 
+14. Y se termina probando que <Math display tex={"(d\\varphi)_{p}\\left(\\frac{\\partial}{\\partial x_{j}}\\bigg|_{p}\\right)=\\frac{\\partial}{\\partial r_{j}}\\bigg|_{\\varphi(p)=0}"} /> 
+15. Veamoslo, por definición del diferencial, <Math display tex={"(d\\varphi)_p\\left(\\left.\\frac{\\partial}{\\partial x_j}\\right|_p\\right)(g)=\\left.\\frac{\\partial}{\\partial x_j}\\right|_p(g\\circ\\varphi)=\\left.\\frac{\\partial}{\\partial r_j}\\right|_{\\varphi(p)}(g\\circ\\varphi\\circ\\varphi^{-1})=\\left.\\frac{\\partial}{\\partial r_j}\\right|_{\\varphi(p)}g"} />
+</Proof>
+</BookBlock>
+
+<span id="047506"></span>
+
+<BookBlock kind="remark">
+Otra prueba mas simple de <PreviewLink href="/chapters/teo-18#047506" label="Lema" title="Lema" /> es ^3071e3 
+</BookBlock>
+
+<BookBlock kind="theorem" title="Teorema de enderezamiento">
+Sea <Math tex={"X\\in\\mathfrak X(M)"} /> y sea <Math tex={"p\\in M"} /> tal que <Math tex={"X_p\\neq0"} />. Entonces existe una carta suave <Math tex={"(U,\\varphi=(x_1,\\ldots,x_n))"} /> centrada en <Math tex={"p"} /> tal que
+<Math display tex={"X|_U=\\frac{\\partial}{\\partial x_1}."} />
+
+Es decir, en una carta adecuada, el campo se ve como un campo constante.
+<Proof title="Demostracion">
+1. Por el lema anterior, tomamos una carta <Math tex={"(V,\\psi=(y_1,\\ldots,y_n))"} /> centrada en <Math tex={"p"} /> tal que <Math display tex={"\\left.\\frac{\\partial}{\\partial y_1}\\right|_p=X_p."} />
+2. Por otro lado por <PreviewLink href="/chapters/teo-16#3b18e6" label="Uniformidad local del tiempo" title="Corolario: Uniformidad local del tiempo" /> existe <Math tex={"\\widetilde{V}"} /> abierto de <Math tex={"M"} /> en <Math tex={"p"} /> y <Math tex={"\\epsilon>0"} /> tal que el flujo <Math tex={"\\Theta"} /> de <Math tex={"X"} /> esta definido en <Math tex={"(-\\epsilon,\\epsilon)\\times \\widetilde{V}"} />
+3. Achicando si hace falta podes suponer que <Math tex={"\\widetilde{V}=V"} /> y que <Math tex={"(V,\\psi)"} /> es una carta cubica centrada en <Math tex={"p"} /> osea <Math display tex={"\\psi(V)=C_{\\epsilon}^{n} (0)=(-\\epsilon,\\epsilon)^{n}"} />
+4. Ahora nos vamos a enfocar en una cierta rebanada de <Math tex={"\\psi(V)"} /> dada por <Math display tex={"\\{ (r_{1},\\ldots,r_{n})\\in \\psi(V):r_{1}=0 \\}"} />  que en este caso es igual a <Math tex={"(-\\epsilon,\\epsilon)^{n-1}"} /> por ser <Math tex={"\\psi"} /> carta cubica 
+5. Proponemos <Math display tex={"\\sigma:(-\\epsilon,\\epsilon)\\times C_{\\epsilon}^{n-1}(0)\\rightarrow M\\qquad (r_{1},(0,r_{2},\\ldots r_{n}))\\mapsto \\Theta_{r_{1}}(\\psi ^{-1}(0,r_{2},\\ldots,r_{n}))=\\Theta_{r_{1}}\\circ\\psi ^{-1}(0,r_{2},\\ldots,r_{n})"} />
+6. Ahora vamos a notar que <Math tex={"\\sigma"} /> nos va a ayudar a armar una carta, para esto veamos que <Math tex={"(d\\sigma)_{0}"} /> es invertible. Por que si sucediera entonces es isomorfismo luego por <PreviewLink href="/chapters/teo-10#b664ba" label="Teorema de la funcion inversa en variedades" title="Corolario: Teorema de la funcion inversa en variedades" /> tendremos un abierto <Math tex={"U"} /> abierto del <Math tex={"0"} /> tal que <Math display tex={"\\sigma|_{U}^{-1}:W\\subseteq M\\rightarrow U"} /> sera difeo (osea carta)
+7. Luego tenemos si definimos la curva <Math tex={"\\alpha (t)=(t,0,\\ldots,0)"} />  <Math display tex={"\\begin{align}(d\\sigma)_0\\left(\\frac{\\partial}{\\partial r_1}\\bigg|_0\\right)&=(\\sigma\\circ\\alpha )'(0)\\\\&=\\frac{d}{dt}\\bigg|_0\\sigma(t,0,\\dots,0)\\\\&=\\frac{d}{dt}\\bigg|_0\\theta_t(\\psi^{-1}(0,\\dots,0))\\\\&=\\frac{d}{dt}\\bigg|_0\\theta_t(p)\\\\&=\\frac{d}{dt}\\bigg|_0\\gamma_{p}(t)\\\\&=\\gamma'_{p}(0)\\\\&=X_{p}\\\\&=\\left.\\frac{\\partial}{\\partial y_1}\\right|_p\\end{align}"} /> en el primer paso usamos ^99bdaa 
+8. Por otro lado para <Math tex={"k>1"} /> <Math display tex={"\\begin{align}(d\\sigma)_0\\frac{\\partial}{\\partial r_k}\\bigg|_0 &=\\frac{d}{dt}\\bigg|_0\\sigma(0,\\ldots,t,\\ldots,0)\\\\ &=\\frac{d}{dt}\\bigg|_0\\Theta_{0}\\left(\\psi^{-1}(0,\\ldots,t,\\ldots,0)\\right)\\\\ &=\\frac{d}{dt}\\bigg|_0\\psi^{-1}(0,\\ldots,t,\\ldots,0)\\\\ &=(d\\psi^{-1})_0\\frac{\\partial}{\\partial r_k}\\bigg|_0\\\\ &=\\left.\\frac{\\partial}{\\partial y_k}\\right|_p. \\end{align}"} /> el primer igual sale como en ^99bdaa cambiando la curva <Math tex={"\\alpha(t)=te_{k}"} />. El ultimo igual vale porque <Math tex={"\\psi"} /> es difeomorfismo de carta, entonces <Math tex={"(d\\psi^{-1})_0"} /> es isomorfismo. 
+9. Entonces <Math tex={"d\\sigma"} /> es isomorfismo. Por tanto, por el teorema de la función inversa existe <Math tex={"U"} /> abierto de <Math tex={"M"} /> en <Math tex={"p"} /> y <Math tex={"W"} /> abierto de <Math tex={"\\mathbb R^n"} /> en <Math tex={"(0,\\dots,0)"} /> tal que <Math tex={"\\sigma:W\\to U"} /> es un difeomorfismo.
+10. Ahora nuestra candidata es la carta suave <Math tex={"(U,\\phi=\\sigma^{-1}|_U=(x_1,\\dots,x_n))."} />
+11. Veamos que <Math display tex={"X|_U=\\frac{\\partial}{\\partial x_1}."} />
+12. Tomamos <Math tex={"q=\\sigma(r_1,\\ldots,r_n)=\\Theta_{r_1}\\left(\\psi^{-1}(0,r_2,\\ldots,r_n)\\right)."} /> Como <Math tex={"\\phi=\\sigma^{-1}"} />, osea <Math tex={"\\phi(q)=(r_{1},\\ldots,r_{n})"} /> por lo tanto <Math tex={"x_{i}(q)=r_{i}"} />. Entonces <Math display tex={"\\begin{align}\\frac{\\partial}{\\partial x_1}\\bigg|_q&=(d\\phi ^{-1})_{\\phi(q)}\\left(\\frac{\\partial}{\\partial r_{1}}\\bigg|_{\\phi(q)}\\right)\\\\&=(d\\sigma)_{(r_1,\\ldots,r_n)}\\left(\\frac{\\partial}{\\partial r_1}\\bigg|_{(r_1,\\ldots,r_n)}\\right)\\\\&=\\frac{d}{ds}\\bigg|_{s=0}\\sigma(r_1+s,r_2,\\ldots,r_n)\\\\&=\\frac{d}{ds}\\bigg|_{s=0}\\Theta_{r_1+s}\\left(\\psi^{-1}(0,r_2,\\ldots,r_n)\\right)\\\\&=\\frac{d}{ds}\\bigg|_{s=0}\\Theta_s\\left(\\Theta_{r_1}\\left(\\psi^{-1}(0,r_2,\\ldots,r_n)\\right)\\right)\\\\&=\\frac{d}{ds}\\bigg|_{s=0}\\Theta_s(q)\\\\&=\\frac{d}{ds}\\bigg|_{s=0}\\gamma_q(s)\\\\&=\\gamma_q'(0)\\\\&=X_{\\gamma_q(0)}\\\\&=X_q.\\end{align}"} />
+13. Por lo tanto, para todo <Math tex={"q\\in U"} />, se cumple <Math display tex={"\\frac{\\partial}{\\partial x_1}\\bigg|_q=X_q."} />
+14. Luego <Math display tex={"X|_U=\\frac{\\partial}{\\partial x_1}."} />
+</Proof>
+</BookBlock>

@@ -1,0 +1,563 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Practico 5"
+description: "Practico convertido desde GS - Pr5.md"
+chapter: "Pr 5"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Practico 5
+
+### Ejercicio 1
+
+<BookBlock kind="exercise">
+Sea <Math tex={"V"} /> un espacio vectorial de dimension <Math tex={"n"} />. Mostrar que si <Math tex={"k>n"} />, entonces <Math tex={"\\Lambda^k(V^*)=\\{0\\}"} />.
+<Proof title="Demostracion">
+1. Supongamos tenemos <Math tex={"w\\in \\Lambda^{k}(V^{*})"} /> entonces <Math tex={"w_{p}:V\\times\\ldots\\times V\\rightarrow\\mathbb{R}"} /> es una funcion multilineal y alternada
+2. Ahora veamos que <Math tex={"w_{p}(v_{1},\\ldots,v_{k})=0"} /> para cualquier <Math tex={"v_{1},\\ldots,v_{k}"} />
+3. Dados <Math tex={"v_1,\\ldots,v_k"} />, el conjunto es linealmente dependiente por que dimension de <Math tex={"V"} /> es <Math tex={"n"} />
+4. Entonces spd <Math tex={"v_{k}=\\sum^{n}_{i=1} c_{i}v_{i}"} />. Luego <Math display tex={"w_{p}(v_{1},\\ldots,v_{k})=\\sum^{n}_{i=1} c_{i} w_{p}(v_{1},\\ldots,v_{i})"} />
+5. pero <Math tex={"w_{p}(v_{1},\\ldots,v_{i})=0"} /> para todo <Math tex={"1\\leq i\\leq n"} /> por <PreviewLink href="/chapters/glosario#9b49d4" label="Proposicion" title="Proposicion" />
+</Proof>
+</BookBlock>
+
+### Ejercicio 2
+
+<BookBlock kind="exercise">
+Sea <Math tex={"V"} /> un espacio vectorial de dimension <Math tex={"n"} /> y sean <Math tex={"\\lambda\\in\\Lambda^k(V^*)"} /> y <Math tex={"\\mu\\in\\Lambda^\\ell(V^*)"} />, donde <Math tex={"1\\le k,\\ell\\le n"} />. Mostrar que <Math tex={"\\lambda\\wedge\\mu\\in\\Lambda^{k+\\ell}(V^*)"} />.
+<Proof title="Demostracion">
+1. Si <Math tex={"\\lambda\\in\\Lambda^k(V^*)"} /> y <Math tex={"\\mu\\in\\Lambda^\\ell(V^*)"} />, por definicion <Math display tex={"\\lambda\\wedge\\mu=\\frac{(k+l)!}{k!l!}\\operatorname{Alt}(\\lambda\\otimes\\mu)"} />
+2. Recordamos que si <Math tex={"w\\in \\Lambda^{j}(V^{*})"} /> sucede que <Math display tex={"w:\\underbrace{V\\times\\cdots\\times V}_{j\\text{-veces}}\\to\\mathbb R"} /> 
+3. Entonces por definicion de producto tensorial <PreviewLink href="/chapters/teo-20#db8d92" label="Producto tensorial" title="Definicion: Producto tensorial" /> <Math display tex={"\\lambda\\otimes\\mu:\\underbrace{V\\times\\cdots\\times V}_{k\\text{-veces}}\\times \\underbrace{V\\times\\cdots\\times V}_{l\\text{-veces}}\\to\\mathbb R"} /> que es multi lineal (esta en <Math tex={"L(V,\\ldots ,V:\\mathbb{R})"} />) en particular esta en <Math tex={"T^{k+l}(V^{*})"} /> entonces por <PreviewLink href="/chapters/teo-20#c407fe" label="Ejercicio" title="Proposicion: Ejercicio" /> sabemos que <Math tex={"\\operatorname{Alt}(\\lambda\\otimes\\mu)\\in \\Lambda^{k+l}(V^{*})"} /> 
+</Proof>
+</BookBlock>
+  
+### Ejercicio 3
+
+<BookBlock kind="exercise">
+- Simplificar las siguientes expresiones: <Math display tex={"(e^2\\wedge e^3+e^3\\wedge e^1)\\wedge(5e^1-e^2),\\qquad e^1\\wedge e^5\\wedge e^4\\wedge(e^1\\wedge e^4+e^4\\wedge e^2)"} /> donde <Math tex={"e^{j}"} /> es el <Math tex={"j"} />-esimo covector de la base dual de <Math tex={"V^{*}"} />  
+- Mostrar que si <Math tex={"\\omega,\\lambda,\\varphi\\in\\Lambda^1(V^*)"} />, entonces <Math display tex={"(\\omega-\\lambda)\\wedge(\\lambda-\\varphi)=\\omega\\wedge\\lambda+\\varphi\\wedge\\omega+\\lambda\\wedge\\varphi."} />
+<Proof title="Demostracion">
+1. Para <Math display tex={"(e^2\\wedge e^3+e^3\\wedge e^1)\\wedge(5e^1-e^2)"} />
+2. <Math display tex={"\\begin{align*}(e^2\\wedge e^3+e^3\\wedge e^1)\\wedge(5e^1-e^2)&=e^2\\wedge e^3\\wedge(5e^1-e^2)+e^3\\wedge e^1\\wedge(5e^1-e^2) \\quad & \\text{Distributiva}\\\\&=e^2\\wedge e^3\\wedge 5e^1-e^2\\wedge e^3\\wedge e^2+e^3\\wedge e^1\\wedge 5e^1-e^3\\wedge e^1\\wedge e^2\\quad& \\text{Distributiva}\\\\&=5(e^2\\wedge e^3\\wedge e^1)-e^2\\wedge e^3\\wedge e^2+5(e^3\\wedge e^1\\wedge e^1)-e^3\\wedge e^1\\wedge e^2\\quad& \\text{Sacar constantes}\\\\&=5(e^2\\wedge e^3\\wedge e^1)-e^3\\wedge e^1\\wedge e^2\\quad&\\text{7. de Prop 18 Teo20}\\\\&=5(e^1\\wedge e^2\\wedge e^3)-e^1\\wedge e^2\\wedge e^3\\quad&\\text{Permutar }\\\\&=4e^1\\wedge e^2\\wedge e^3.\\end{align*}"} />para ser bien formales varias veces hay que usar asociatividad
+3. La segunda expresion es <Math display tex={"e^1\\wedge e^5\\wedge e^4\\wedge(e^1\\wedge e^4+e^4\\wedge e^2)"} />y vale <Math tex={"0"} />, porque en cada termino aparece un factor repetido.
+4. Finalmente, si <Math tex={"\\omega,\\lambda,\\varphi\\in\\Lambda^1(V^*)"} />,<Math display tex={"(\\omega-\\lambda)\\wedge(\\lambda-\\varphi)=\\omega\\wedge\\lambda-\\omega\\wedge\\varphi-\\lambda\\wedge\\lambda+\\lambda\\wedge\\varphi=\\omega\\wedge\\lambda+\\varphi\\wedge\\omega+\\lambda\\wedge\\varphi."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 4
+
+<BookBlock kind="exercise">
+Sea <Math tex={"V"} /> un espacio vectorial real de dimension finita <Math tex={"n"} /> y sean <Math tex={"B_1=\\{\\theta_1,\\ldots,\\theta_r\\}"} /> y <Math tex={"B_2=\\{\\xi_1,\\ldots,\\xi_r\\}"} /> subconjuntos de <Math tex={"V^*"} />.
+
+- Mostrar que <Math tex={"B_1"} /> es un subconjunto linealmente independiente de <Math tex={"V^*"} /> si y solo si <Math tex={"\\theta_1\\wedge\\cdots\\wedge\\theta_r\\ne0"} />.
+- Mostrar que <Math tex={"2e^1+3e^2-e^3"} />, <Math tex={"e^1+2e^2"} />, <Math tex={"e^1-2e^3"} /> son linealmente dependientes.
+- Suponer que tanto <Math tex={"B_1"} /> como <Math tex={"B_2"} /> son subconjuntos linealmente independientes de <Math tex={"V^*"} />. Probar que <Math tex={"B_1"} /> y <Math tex={"B_2"} /> son bases del mismo subespacio <Math tex={"r"} />-dimensional de <Math tex={"V^*"} /> si y solo si <Math display tex={"\\theta_1\\wedge\\cdots\\wedge\\theta_r=c\\,\\xi_1\\wedge\\cdots\\wedge\\xi_r"} />para algun <Math tex={"c\\ne0"} />; y en tal caso, si <Math tex={"M"} /> es la matriz de cambio de base de <Math tex={"B_1"} /> a la base <Math tex={"B_2"} />, <Math tex={"c=\\det(M)"} />.
+<Proof title="Demostracion">
+- (a) 
+1. <Math tex={"(\\Rightarrow)"} /> Suponemos <Math tex={"\\theta_{1}\\ldots\\theta_{r}"} /> son l.i ahora tomamos sus correspondientes vectores en la base predual <Math tex={"v_{1},\\ldots v_{r}"} /> 
+2. <Math tex={"\\theta_{1}\\wedge,\\ldots,\\wedge\\theta_{r}(v_{1},\\ldots,v_{r})=\\det(\\theta_{i}(v_{j}))=1"} /> por que es el determinante de la identidad
+3. Para ver que podemos tomar esos <Math tex={"v_{1},\\ldots v_{r}"} />. Basicamente como <Math tex={"\\theta_{1}\\ldots\\theta_{r}"} /> los podemos extender a una base <Math tex={"\\theta_{1}\\ldots\\theta_{r},\\ldots\\theta_{n}"} /> y ahora tomamos su base dual que es una base que vive en <Math tex={"V"} />.
+4. Osea su base dual son <Math tex={"v_{j}"} /> tal que <Math tex={"v_{j}(\\theta_{i})=\\delta_{ij}"} /> pero <Math tex={"v_{j}"} /> se identifica con <Math tex={"\\operatorname{ev}_{v_{j}}"} /> entonces <Math tex={"v_{j}(\\theta_{i})=\\theta_{i}(v_{j})"} /> 
+5. <Math tex={"(\\Leftarrow)"} /> Supongamos son linealmente dependientes spd <Math display tex={"\\theta_{r}=\\sum^{r-1}_{i=1}a_{i}\\theta_{i}"} />
+6. Entonces <Math display tex={"\\theta_1\\wedge\\cdots\\wedge\\theta_r=\\theta_1\\wedge\\cdots\\wedge\\sum^{r-1}_{i=1}a_{i}\\theta_{i}=\\sum^{r-1}_{i=1} a_{i}(\\theta_1\\wedge\\cdots\\wedge\\theta_i)=0"} /> por que se repite siempre alguno termino (para cada sumando) lo que es absurdo
+- (b)
+1. Sean <Math tex={"\\alpha_1=2e^1+3e^2-e^3"} />, <Math tex={"\\alpha_2=e^1+2e^2"} /> y <Math tex={"\\alpha_3=e^1-2e^3"} />.
+2. Como <Math tex={"\\Lambda^3((\\mathbb R^3)^*)"} /> está generado por <Math tex={"e^1\\wedge e^2\\wedge e^3"} />, podemos escribir el producto wedge como un múltiplo de ese generador:
+<Math display tex={"\\alpha_1\\wedge\\alpha_2\\wedge\\alpha_3=\\det\\begin{pmatrix}2 & 3 & -1 \\\\ 1 & 2 & 0 \\\\1 & 0 & -2\\end{pmatrix}e^1\\wedge e^2\\wedge e^3=0\\cdot e^1\\wedge e^2\\wedge e^3=0."} />
+3. Así probamos que <Math tex={"\\alpha_1\\wedge\\alpha_2\\wedge\\alpha_3"} /> es la <Math tex={"3"} />-forma cero, no solo que vale cero en una evaluación particular. Entonces por (a) esos elementos del dual son linealmente dependientes.
+- (c) 
+- <Math tex={"(\\Rightarrow)"} /> 
+	1. Supongamos generan el mismo espacio entonces <Math display tex={"\\theta_{j}=\\sum^{r}_{i=1}C_{i}^{j} \\xi_{i}"} />
+	2. Entonces <Math tex={"C_{i}^{j}"} /> son los coeficientes de la matriz cambio de base <Math tex={"C(B_{1},B_{2})"} />  
+	3. Luego <Math display tex={"\\begin{align}\\theta_{1}\\wedge\\ldots\\wedge\\theta_{r}& =\\sum^{r}_{i=1}C_{i}^{1} \\xi_{i}\\wedge\\ldots\\wedge \\sum^{r}_{i=1}C_{i}^{r} \\xi_{i}\\\\ &=\\sum_{i_{1},\\ldots,i_{r}} C_{i_{1}}^{1}\\ldots C_{i_{j}}^{r}\\ . \\ \\xi_{i_{1}}\\wedge\\ldots\\wedge\\xi_{i_{r}} \\\\& =\\sum_{\\sigma\\in S_{r}} C_{\\sigma(1)}^{1}\\ldots C_{\\sigma(r)}^{r} \\ . \\ \\xi_{\\sigma(1)}\\wedge\\ldots\\wedge\\xi_{\\sigma(r)}\\\\&= \\left (\\sum_{\\sigma\\in S_{r}}sg(\\sigma)C_{\\sigma(1)}^{1}\\ldots C_{\\sigma(r)}^{r}\\right)\\xi_{1}\\wedge\\ldots\\wedge\\xi_{r}  \\\\&=\\det(C)\\xi_{1}\\wedge\\ldots\\wedge\\xi_{r}\\end{align}"} />
+	4. Como <Math tex={"C=C(B_{1},B_{2})"} /> entonces es inversible. Por lo tanto su determinante es no nulo
+	5. Notar que aca podemos usar <PreviewLink href="/chapters/teo-20#8619e2" label="Ejercicio" title="Proposicion: Ejercicio" /> 7. por que <Math tex={"\\xi_{j}\\in \\Lambda^{1}(V^{*})=V^{*}"} /> 
+- <Math tex={"(\\Leftarrow)"} /> 
+	1. Primero notamos que <Math display tex={"0=\\theta_{1}\\wedge\\theta_1\\wedge\\cdots\\wedge\\theta_r=c\\theta_{1}\\wedge\\,\\xi_1\\wedge\\cdots\\wedge\\xi_r"} />
+	2. Entonces por parte (a) <Math tex={"\\{ \\theta_{1},\\xi_{1},\\ldots,\\xi_{r} \\}"} /> es un conjunto linealmente dependiente osea <Math tex={"\\theta_{1}=\\sum^{r}_{i=1}c^{1}_{i}\\xi_{i}"} /> 
+	3. Y esto mismo vale para cualquier <Math tex={"\\theta_{i}"} /> por ende <Math display tex={"\\operatorname{span} B_{1}\\subseteq \\operatorname{span}B_{2}"} />
+	4. Analogamente <Math display tex={"\\xi_{1}\\wedge\\theta_1\\wedge\\cdots\\wedge\\theta_r=c\\xi_{1}\\wedge\\,\\xi_1\\wedge\\cdots\\wedge\\xi_r=0"} /> y haciendo todo igual <Math tex={"\\operatorname{span} B_{2}\\subseteq \\operatorname{span}B_{1}"} />
+	5. Mostrando que <Math display tex={"\\operatorname{span} B_{1}= \\operatorname{span}B_{2}"} />
+	6. Y ahora usando que generan el mismo espacio. Podemos hacer lo mismo que ida para ver que <Math tex={"\\det(M)=c"} /> donde <Math tex={"M=C(B_{1},B_{2})"} />  
+	7. Notar que aca podemos usar <PreviewLink href="/chapters/teo-20#8619e2" label="Ejercicio" title="Proposicion: Ejercicio" /> 7. por que <Math tex={"\\xi_{j},\\theta_{i}\\in \\Lambda^{1}(V^{*})=V^{*}"} /> 
+</Proof>
+</BookBlock>
+
+### Ejercicio 5
+
+<BookBlock kind="exercise">
+Sea <Math tex={"V"} /> un espacio vectorial de dimension <Math tex={"n"} />. Un elemento <Math tex={"\\alpha"} /> de <Math tex={"\\Lambda^k(V^*)"} /> se dice descomponible si existen <Math tex={"\\theta_1,\\ldots,\\theta_r\\in V^*"} /> tales que <Math tex={"\\alpha=\\theta_1\\wedge\\cdots\\wedge\\theta_r"} />.
+
+- (a) Mostrar que <Math tex={"\\alpha\\wedge\\alpha=0"} /> si <Math tex={"\\alpha"} /> es descomponible.
+- (b) Mostrar que <Math tex={"e^1\\wedge e^2+e^3\\wedge e^4"} /> no es descomponible (<Math tex={"V=\\mathbb R^4"} />).
+- (c) Sea <Math tex={"\\omega"} /> una funcion <Math tex={"n"} />-lineal alternante no nula en <Math tex={"V"} /> y sea
+ <Math display tex={"F:V\\to\\Lambda^{n-1}(V^*),\\qquad F(v)(v_1,\\ldots,v_{n-1})=\\omega(v_1,\\ldots,v_{n-1},v)."} />
+ Probar que es un isomorfismo de espacios vectoriales.
+- Mostrar que si <Math tex={"k=1,n-1"} /> o <Math tex={"n"} />, entonces toda <Math tex={"\\alpha\\in\\Lambda^k(V^*)"} /> es descomponible.
+<Proof title="Demostracion">
+- (a)
+1. Si <Math tex={"\\alpha=\\theta_1\\wedge\\cdots\\wedge\\theta_k"} />, entonces <Math display tex={"\\alpha\\wedge\\alpha=\\theta_1\\wedge\\cdots\\wedge\\theta_k\\wedge\\theta_1\\wedge\\cdots\\wedge\\theta_k=0"} />porque aparecen factores repetidos. Y por que <Math tex={"\\theta_{j}\\in V^{*}"} />  Esto prueba directamente el caso <Math tex={"k"} /> impar; para <Math tex={"k"} /> par, el mismo argumento con factores repetidos tambien da <Math tex={"0"} />.
+- (b)
+1. En <Math tex={"V=\\mathbb R^4"} />, sea <Math display tex={"\\alpha=e^1\\wedge e^2+e^3\\wedge e^4"} />
+2. Entonces <Math display tex={"\\alpha\\wedge\\alpha=2e^1\\wedge e^2\\wedge e^3\\wedge e^4\\ne 0"} />por el punto anterior, <Math tex={"\\alpha"} /> no es descomponible.
+- (c)
+- **Inyectividad**
+	1. Si <Math tex={"F(v)=0"} />, entonces <Math tex={"\\omega(u_1,\\ldots,u_{n-1},v)=0"} /> para todo <Math tex={"u_i"} />. Ademas <Math tex={"\\omega\\ne0"} /> por hipotesis
+	2. Suponemos que <Math tex={"v\\neq 0"} /> luego a partir de <Math tex={"v"} /> extiendo a una base <Math tex={"\\{v_{1},\\ldots v_{n-1},v\\}"} /> 
+	3. Luego <Math tex={"\\omega(v_{1},\\ldots,v_{n-1},v)=\\det M"} /> donde <Math tex={"M"} /> es la matriz que tiene columnas <Math tex={"v_{i}"} /> y ultima columna <Math tex={"v"} /> .
+	4. Como estos son todos vectores linealmente independientes <Math tex={"\\det M\\neq 0"} /> que es absurdo.
+	5. Entonces <Math tex={"v=0"} />
+- **Sobre**
+	1. Notemos que <Math display tex={"\\dim\\Lambda^{n-1}(V^{*})=\\binom{n}{n-1}=n=\\dim Im(F)"} /> lo ultimo vale por teorema de dimension y considerando que por ser inyectiva <Math tex={"\\dim\\ker F=0"} /> y obviamente <Math tex={"\\dim V=n"} />   
+	2. Entonces es sobre.
+- **<Math tex={"F(v)"} /> es multilineal y <Math tex={"F"} />:** Trivial usando <Math tex={"\\omega"} /> es multilneal
+- (d)
+- <Math tex={"k=1"} />
+	1. Es trivial dado que si <Math tex={"\\alpha \\in \\Lambda^{1}(V^{*})"} /> se descompone como el mismo
+- <Math tex={"k=n"} />
+	1. Sabemos en general que <Math display tex={"\\{ e^{i_{1}}\\wedge\\ldots\\wedge e^{i_{k}}:1\\leq \\ldots\\leq i_{k}\\leq n \\}"} /> es base de <Math tex={"\\Lambda^{k}(V^{*})"} /> 
+	2. En este caso <Math tex={"k=n"} /> entonces hay un solo elemento generador <Math display tex={"e^{1}\\wedge\\ldots\\wedge e^{n}"} />
+	3. Entonces evidentemente todo <Math tex={"\\alpha \\in \\Lambda^{k}(V^{*})"} /> tenemos que <Math tex={"\\alpha =ce^{1}\\wedge\\ldots\\wedge e^{n}"} /> por lo tanto y cada uno de ellos esta en <Math tex={"V^{*}"} /> 
+	4. Luego <Math tex={"\\alpha"} /> es descomponible
+	5. notar que si <Math tex={"c=0"} /> sucede que <Math tex={"ce^{1}=0\\in V^{*}"} />  
+- <Math tex={"k=n-1"} />
+	1. Tomamos un <Math tex={"\\omega\\in \\Lambda^{n}(V^{*})"} /> no nulo entonces por (c) dado <Math tex={"\\alpha\\in \\Lambda^{n-1}(V^{*})"} /> tenemos que existe <Math tex={"v"} /> tal que <Math tex={"\\alpha =F(v)"} /> 
+	2. Si <Math tex={"v=0"} /> entonces <Math tex={"\\alpha =0"} /> con lo cual ya esta descompuesto  
+	3. Si no completamos <Math tex={"\\{ v \\}"} /> a una base <Math tex={"\\{e_{1},\\ldots,e_{n-1},v\\}"} /> y tomamos su dual <Math tex={"\\{ e^{1},\\ldots e^{n-1},\\widetilde{v} \\}"} />  
+	4. Como <Math tex={"w\\in \\Lambda^{n}(V^{*})"} /> entonces <Math tex={"w=ce^{1}\\wedge\\ldots\\wedge \\widetilde{v}"} /> por la parte de <Math tex={"k=n"} />  
+	5. Entonces tenemos que <Math display tex={"\\alpha(v_{1},\\ldots,v_{n-1})=F(v)(v_{1},\\ldots,v_{n-1})=w(v_{1},\\ldots,v_{n-1},v)=ce^{1}\\wedge\\ldots\\wedge \\widetilde{v}\\ . (v_{1},\\ldots,v_{n-1},v)"} />
+	6. Pero si miramos bien <Math display tex={"\\begin{align} ce^{1}\\wedge\\ldots\\wedge \\widetilde{v}\\ . (v_{1},\\ldots,v_{n-1},v)& =\\det\\begin{pmatrix}e^{1}(v_{1})& \\ldots &e^{n-1} (v_{n-1}) & e^{1}(v)\\\\ \\vdots & &\\vdots &\\vdots \\\\ e^{n-1} (v_{1})&\\dots &e^{n-1} (v_{n-1})&e^{n-1} (v)\\\\ \\tilde{v}(v_{1})&\\ldots&\\tilde{v}(v_{n-1})&\\tilde v(v) \\end{pmatrix}& \\\\& =\\det\\begin{pmatrix}e^{1}(v_{1})& \\ldots &e^{n-1} (v_{n-1}) \\\\ \\vdots & &\\vdots  \\\\ e^{n-1} (v_{1})&\\dots &e^{n-1} (v_{n-1})\\end{pmatrix}\\\\&=ce^{1} \\wedge\\ldots\\wedge e^{n-1}\\ .(v_{1},\\ldots,v_{n-1}) \\end{align}"} />
+	7. Por lo tanto <Math tex={"\\alpha =ce^{1}\\wedge\\ldots\\wedge e^{n-1}"} /> entonces la pudimos descomponer.
+</Proof>
+</BookBlock>
+
+### Ejercicio 6 (Opcional) 
+
+<BookBlock kind="exercise">
+(Opcional)
+
+- Sean <Math tex={"\\alpha_1,\\ldots,\\alpha_k\\in\\Lambda^1(V^*)"} /> y sea <Math tex={"v\\in V"} />. Mostrar que
+ <Math display tex={"\\iota_v(\\alpha_1\\wedge\\cdots\\wedge\\alpha_k)=\\sum_{i=1}^k(-1)^{i-1}\\alpha_i(v)(\\alpha_1\\wedge\\cdots\\widehat{\\alpha_i}\\cdots\\wedge\\alpha_k),"} />
+ donde el sombrero sobre <Math tex={"\\alpha_i"} /> indica que <Math tex={"\\alpha_i"} /> se ha omitido.
+- Concluir que la multiplicacion interior <Math tex={"\\iota_v"} /> es una antiderivacion de <Math tex={"\\Lambda^k(V^*)"} />, es decir,
+ <Math display tex={"\\iota_v(\\omega\\wedge\\eta)=\\iota_v(\\omega)\\wedge\\eta+(-1)^k\\omega\\wedge\\iota_v(\\eta)"} />
+ para todas <Math tex={"\\omega\\in\\Lambda^k(V^*)"} />, <Math tex={"\\eta\\in\\Lambda^\\ell(V^*)"} />.
+<Proof title="Demostracion">
+Para <Math tex={"a_1,\\ldots,a_k\\in\\Lambda^1(V^*)"} />,
+<Math display tex={"\\iota_v(a_1\\wedge\\cdots\\wedge a_k)\n=\\sum_{i=1}^k(-1)^{i-1}a_i(v)\\,\na_1\\wedge\\cdots\\widehat{a_i}\\cdots\\wedge a_k."} />
+Se obtiene evaluando el producto exterior en <Math tex={"(v,u_1,\\ldots,u_{k-1})"} /> y separando los terminos segun que <Math tex={"a_i"} /> actue sobre <Math tex={"v"} />.
+
+Por linealidad basta probar la identidad en formas descomponibles. Aplicando la formula anterior y separando los indices que pertenecen a <Math tex={"\\omega"} /> de los que pertenecen a <Math tex={"\\eta"} />, resulta
+<Math display tex={"\\iota_v(\\omega\\wedge\\eta)=\\iota_v\\omega\\wedge\\eta+(-1)^k\\omega\\wedge\\iota_v\\eta,"} />
+para <Math tex={"\\omega\\in\\Lambda^k(V^*)"} />. Es decir, <Math tex={"\\iota_v"} /> es una antiderivacion de grado <Math tex={"-1"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 7
+
+<BookBlock kind="exercise" title="La operacion pullback">
+Sea <Math tex={"T:V\\to W"} /> una transformacion lineal, donde <Math tex={"V"} /> y <Math tex={"W"} /> son espacios vectoriales reales de dimension finita. Se define <Math tex={"T^*_{k}:\\Lambda^k(W^*)\\to\\Lambda^k(V^*)"} /> mediante
+<Math display tex={"T_{k}^*\\sigma(v_1,\\ldots,v_k)=\\sigma(Tv_1,\\ldots,Tv_k),\\qquad \\sigma\\in\\Lambda^k(W^*),\\ v_1,\\ldots,v_k\\in V."} />
+
+- (a) Probar que <Math tex={"T^*"} /> es lineal y que <Math tex={"T_{k+l}^*(\\sigma\\wedge\\tau)=T^*\\sigma\\wedge T^*\\tau"} />, con <Math tex={"\\sigma\\in\\Lambda^k(W^*)"} /> y <Math tex={"\\tau\\in\\Lambda^\\ell(W^*)"} />.
+- (b) Sean <Math tex={"\\lambda_1,\\ldots,\\lambda_k\\in\\Lambda^1(W^*)"} />. Mostrar que <Math tex={"T^*(\\lambda_1\\wedge\\cdots\\wedge\\lambda_k)(v_1,\\ldots,v_k)"} /> es igual a <Math tex={"\\det(\\lambda_i(Tv_j))"} />.
+- (c) Si <Math tex={"W=V"} /> y <Math tex={"n"} /> es la dimension de <Math tex={"V"} />, verificar que <Math tex={"T^*"} /> es igual a <Math tex={"(\\det T)\\operatorname{Id}_{\\Lambda^n(V^*)}"} />.
+<Proof title="Demostracion">
+- **Linealidad**
+1. Aprovechando el hecho que sabemos que <Math tex={"\\Lambda^{k}(V^{*})"} /> es espacio vectorial vemos <Math display tex={"\\begin{align}T^{*}(\\alpha +c\\beta)(v_{1},\\ldots,v_{k})&=(\\alpha +c\\beta)(Tv_{1},\\ldots,Tv_{k})\\\\&=\\alpha (Tv_{1},\\ldots Tv_{k})+c\\beta(Tv_{1},\\ldots,v_{k})\\\\&=T^{*}(\\alpha)(v_{1},\\ldots,v_{k})+cT^{*}(\\beta)(v_{1},\\ldots,v_{k})\\end{align}"} />
+2. Entonces <Math tex={"T^{*}(\\alpha +c\\beta)=T^{*}\\alpha +cT^{*}(\\beta)"} /> 
+- **Compatibilidad con wedge**
+1. Let <Math tex={"\\sigma\\in\\Lambda^k(W^*)"} /> and <Math tex={"\\tau\\in\\Lambda^\\ell(W^*)"} />. We want to prove that <Math display tex={"T^*(\\sigma\\wedge\\tau)=T^*\\sigma\\wedge T^*\\tau."} />
+2. Evaluate both sides on arbitrary vectors <Math tex={"v_1,\\ldots,v_{k+\\ell}\\in V"} />. By definition of pullback, <Math display tex={"T^*(\\sigma\\wedge\\tau)(v_1,\\ldots,v_{k+\\ell})=(\\sigma\\wedge\\tau)(Tv_1,\\ldots,Tv_{k+\\ell})."} />  
+3. Using the definition of the wedge product, <Math display tex={"(\\sigma\\wedge\\tau)(Tv_1,\\ldots,Tv_{k+\\ell})=\\frac{1}{k!\\ell!}\\sum_{\\pi\\in S_{k+\\ell}}\\operatorname{sgn}(\\pi)\\sigma(Tv_{\\pi(1)},\\ldots,Tv_{\\pi(k)})\\tau(Tv_{\\pi(k+1)},\\ldots,Tv_{\\pi(k+\\ell)})."} />
+4. But, by definition of pullback again, <Math display tex={"\\sigma(Tv_{\\pi(1)},\\ldots,Tv_{\\pi(k)})=(T^*\\sigma)(v_{\\pi(1)},\\ldots,v_{\\pi(k)})"} />  and <Math display tex={"\\tau(Tv_{\\pi(k+1)},\\ldots,Tv_{\\pi(k+\\ell)})=(T^*\\tau)(v_{\\pi(k+1)},\\ldots,v_{\\pi(k+\\ell)})."} />
+5. Therefore  <Math display tex={"T^*(\\sigma\\wedge\\tau)(v_1,\\ldots,v_{k+\\ell})=\\frac{1}{k!\\ell!}\\sum_{\\pi\\in S_{k+\\ell}}\\operatorname{sgn}(\\pi)(T^*\\sigma)(v_{\\pi(1)},\\ldots,v_{\\pi(k)})(T^*\\tau)(v_{\\pi(k+1)},\\ldots,v_{\\pi(k+\\ell)})."} />
+6. The right-hand side is exactly the definition of  <Math display tex={"(T^*\\sigma\\wedge T^*\\tau)(v_1,\\ldots,v_{k+\\ell})."} />  
+7. Hece, for all <Math tex={"v_1,\\ldots,v_{k+\\ell}\\in V"} />, <Math display tex={"T^*(\\sigma\\wedge\\tau)(v_1,\\ldots,v_{k+\\ell})=(T^*\\sigma\\wedge T^*\\tau)(v_1,\\ldots,v_{k+\\ell})."} />
+8. Thus <Math display tex={"T^*(\\sigma\\wedge\\tau)=T^*\\sigma\\wedge T^*\\tau."} />
+- (c)
+1. Por la identidad notamos que estamos en el caso <Math display tex={"T_{n}^*\\sigma(v_1,\\ldots,v_n)=\\sigma(Tv_1,\\ldots,Tv_k),\\qquad \\sigma\\in\\Lambda^n(W^*),\\ v_1,\\ldots,v_n\\in V"} />
+2. Luego dado <Math tex={"\\omega\\in \\Lambda^{n}(W^{*})"} /> tenemos que <Math tex={"\\omega=ce^{1}\\wedge\\ldots\\wedge e^{n}"} /> 
+3. Luego notamos que por ser base <Math tex={"e^{1},\\ldots,e^{n}"} /> entonces <Math display tex={"T^{*}\\omega=a\\omega"} />  
+4. Luego <Math display tex={"T^{*}(\\omega)(e_{1},\\ldots e_{n})=a\\omega(e_{1},\\ldots,e_{n})=a"} /> y ademas <Math display tex={"T^{*}(w)(e_{1},\\ldots e_{n})=cT^{*}(e^{1} \\wedge\\ldots\\wedge e^{n})(e_{1},\\ldots, e_{n})"} />
+5. Por otro lado<Math display tex={"T^{*}(e^{1}\\wedge\\ldots\\wedge e^{n})(e_{1},\\ldots e_{n})=e^{1}\\wedge\\ldots\\wedge e^{n} \\ .(Te_{1},\\ldots,Te_{n})=\\det(e^{i} (Te_{j}))=\\det (T)"} />
+6. Entonces <Math display tex={"a=T^{*}(\\omega)(e_{1},\\ldots e_{n}) =c\\det(T)"} />
+7. Con lo cual <Math display tex={"T^{*}\\omega=c\\det(T)\\omega=\\det(T)\\operatorname{Id}_{\\Lambda^n(V^*)}\\omega"} /> 
+8. Como esto vale para cualquier <Math tex={"\\omega"} /> finalmente tenemos <Math display tex={"T^{*}=\\det(T)Id_{\\Lambda^{n} (V^{*} )}"} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 8 (Opcional)
+
+<BookBlock kind="exercise">
+(Opcional) Un par <Math tex={"(V,\\omega)"} /> se dice espacio vectorial simplectico si <Math tex={"V"} /> es un espacio vectorial real y <Math tex={"\\omega\\in\\Lambda^2(V^*)"} /> es una forma bilineal antisimetrica no degenerada; la cual es llamada una forma simplectica sobre <Math tex={"V"} />. Mostrar que la existencia de una tal <Math tex={"\\omega"} /> implica que la dimension de <Math tex={"V"} /> debe ser par, y reciprocamente, mostrar que todo espacio vectorial de dimension par admite una forma simplectica.
+<Proof title="Demostracion">
+Si <Math tex={"\\omega"} /> es simplectica, la aplicacion
+<Math display tex={"V\\to V^*,\\qquad v\\mapsto \\omega(v,\\cdot)"} />
+es un isomorfismo y su matriz en cualquier base es antisimetrica e invertible. Toda matriz antisimetrica de orden impar tiene determinante <Math tex={"0"} />, porque
+<Math display tex={"\\det A=\\det A^T=\\det(-A)=(-1)^n\\det A."} />
+Si <Math tex={"n"} /> es impar, <Math tex={"\\det A=-\\det A"} />, luego <Math tex={"\\det A=0"} />. Por tanto <Math tex={"\\dim V"} /> debe ser par.
+
+Reciprocamente, si <Math tex={"\\dim V=2m"} />, eligiendo una base <Math tex={"e_1,\\ldots,e_m,f_1,\\ldots,f_m"} /> y su dual, la forma
+<Math display tex={"\\omega=\\sum_{i=1}^m e^i\\wedge f^i"} />
+es antisimetrica y no degenerada. Luego todo espacio vectorial real de dimension par admite forma simplectica.
+</Proof>
+</BookBlock>
+
+### Ejercicio 9 (Opcional) 
+
+<BookBlock kind="exercise">
+(Opcional) Sea <Math tex={"V"} /> espacio vectorial real y sea <Math tex={"\\xi\\in\\Lambda^2(V^*)"} />. Probar que existe una base de <Math tex={"V"} />, <Math tex={"u_1,\\ldots,u_r,v_1,\\ldots,v_s,w_1,\\ldots,w_s"} />, tal que <Math tex={"\\xi(u_k,\\cdot)=0"} /> para <Math tex={"k=1,\\ldots,r"} />, <Math tex={"\\xi(v_i,v_j)=0=\\xi(w_i,w_j)"} /> y <Math tex={"\\xi(v_i,w_j)=\\delta(i,j)"} />, para todo <Math tex={"1\\le i,j\\le s"} />.
+<Proof title="Demostracion">
+Sea <Math tex={"\\varepsilon\\in\\Lambda^2(V^*)"} />. Si <Math tex={"\\varepsilon=0"} />, cualquier base sirve con <Math tex={"s=0"} />. Si no, elija <Math tex={"v_1,w_1"} /> con <Math tex={"\\varepsilon(v_1,w_1)\\ne0"} /> y reescale para que valga <Math tex={"1"} />. El subespacio <Math tex={"P_1=\\langle v_1,w_1\\rangle"} /> tiene complemento ortogonal
+<Math display tex={"P_1^\\perp=\\{x:\\varepsilon(x,v_1)=\\varepsilon(x,w_1)=0\\}."} />
+Como la restriccion a <Math tex={"P_1"} /> es no degenerada, <Math tex={"V=P_1\\oplus P_1^\\perp"} />. Repitiendo el procedimiento en <Math tex={"P_1^\\perp"} />, se obtienen pares <Math tex={"(v_i,w_i)"} />. Al final queda el radical
+<Math display tex={"R=\\{u:\\varepsilon(u,\\cdot)=0\\},"} />
+con base <Math tex={"u_1,\\ldots,u_r"} />. La base resultante cumple
+<Math display tex={"\\varepsilon(u_k,\\cdot)=0,\\qquad \\varepsilon(v_i,v_j)=0=\\varepsilon(w_i,w_j),\\qquad\n\\varepsilon(v_i,w_j)=\\delta_{ij}."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 10 (Opcional) 
+
+<BookBlock kind="exercise">
+(Opcional) Sea <Math tex={"V"} /> un espacio vectorial de dimension par <Math tex={"2n"} />. Mostrar que una <Math tex={"\\omega\\in\\Lambda^2(V^*)"} /> es no degenerada si y solo si
+<Math display tex={"\\omega^n=\\underbrace{\\omega\\wedge\\cdots\\wedge\\omega}_{n\\text{ veces}}"} />
+es no nulo.
+<Proof title="Demostracion">
+Sea <Math tex={"\\dim V=2n"} />. Si <Math tex={"\\omega"} /> es no degenerada, por el ejercicio anterior existe una base simplectica en la cual
+<Math display tex={"\\omega=\\sum_{i=1}^n v^i\\wedge w^i."} />
+Entonces
+<Math display tex={"\\omega^n=n!\\,v^1\\wedge w^1\\wedge\\cdots\\wedge v^n\\wedge w^n\\ne0."} />
+
+Si <Math tex={"\\omega"} /> es degenerada, existe <Math tex={"0\\ne v\\in V"} /> tal que <Math tex={"\\iota_v\\omega=0"} />. Entonces
+<Math display tex={"\\iota_v(\\omega^n)=n(\\iota_v\\omega)\\wedge\\omega^{n-1}=0."} />
+Pero una forma de volumen no nula tiene contraccion no nula con todo vector no nulo. Luego <Math tex={"\\omega^n=0"} />. Por tanto <Math tex={"\\omega"} /> es no degenerada si y solo si <Math tex={"\\omega^n\\ne0"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 11
+
+<BookBlock kind="exercise">
+Sea <Math tex={"M"} /> una variedad diferenciable de dimension <Math tex={"m"} />. Mostrar que la nocion de que una <Math tex={"k"} />-forma en <Math tex={"M"} /> sea suave no depende de la eleccion de sistema coordenado (considerar solo el caso <Math tex={"k=2"} />).
+<Proof title="Demostracion">
+1. Basta hacerlo para <Math tex={"2"} />-formas. En coordenadas <Math tex={"x=(x_1,\\ldots,x_{m})"} /> <Math display tex={"\\omega=\\sum_{i<j}a_{ij}\\,dx_{i}\\wedge dx_{j}"} /> esto por <PreviewLink href="/chapters/teo-21#70585b" label="Coordenadas de k-formas" title="Proposicion: Coordenadas de k-formas" />
+2. Si <Math tex={"y=(y^1,\\ldots,y^m)"} /> es otro sistema, entonces tenemos otra base del <Math tex={"T_{p}^{*}M"} /> por lo tanto <Math display tex={"dx_{i}=\\sum_j^{m} \\frac{\\partial x_{i}}{\\partial y_{j}}\\,dy_{j}"} /> las coordenadas salen evaluando en <Math tex={"\\frac{\\partial}{\\partial y_{j}}"} /> 
+3. Obviamente todo esto vale para cualquier <Math tex={"p\\in W"} /> donde este <Math tex={"W=U_{x}\\cap U_{y}"} /> con los abiertos de las cartas
+4. Ahora recordamos que suma de <Math tex={"k"} />-tensores es <Math tex={"k"} />-tensor. Y usando la "distributividad" del producto cuña   
+5. Por tanto <Math display tex={"dx_{i}\\wedge dx_{j}=\\left(\\sum_\\alpha ^{m} \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,dy_{\\alpha }\\right)\\wedge \\left(\\sum_\\beta ^{m} \\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,dy_{\\beta }\\right)=\\sum^{m}_{\\alpha ,\\beta =1} \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,\\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,dy_{\\beta }\\wedge dy_{\\alpha }"} /> (obviamente hay que evaluar en puntos de <Math tex={"W"} /> para hacer el producto cuña <PreviewLink href="/chapters/teo-21#76ed6d" label="Construccion de Omega^*(M)" title="Definicion: Construccion de Omega^*(M)" /> y notar que <Math tex={"\\frac{\\partial x_{i}}{\\partial y_{j}}(p)\\in \\mathbb{R}"} />) 
+6. Ademas <Math display tex={"\\sum^{m}_{\\alpha ,\\beta =1} \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,\\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,dy_{\\beta }\\wedge dy_{\\alpha }=\\sum^{m}_{\\alpha <\\beta } \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,\\frac{\\partial x_{j}}{\\partial y_{\\beta }}-\\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,\\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,dy_{\\beta }\\wedge dy_{\\alpha }"} /> esto es por que siempre hay dos terminos que tienen casi el mismo producto cuña solo que dandolo vuelta, por eso aparede el menos. Y caundo los indices son exatamente el mismo se cancela el producto cuña por eso aparece el menor o igual en la sumatoria
+7. Luego <Math display tex={"\\omega=\\sum^{m}_{i<j} a_{ij}\\sum^{m}_{\\alpha <\\beta } \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,\\frac{\\partial x_{j}}{\\partial y_{\\beta }}-\\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,\\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,dy_{\\beta }\\wedge dy_{\\alpha }=\\sum^{m}_{\\alpha <\\beta }\\left[\\sum^{m}_{i<j}a_{ij} \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,\\frac{\\partial x_{j}}{\\partial y_{\\beta }}-\\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,\\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\right]\\,dy_{\\beta }\\wedge dy_{\\alpha }"} />
+8. Por lo tanto tengo nuevos coeficientes <Math display tex={"b_{\\alpha \\beta }=\\sum^{m}_{i<j}a_{ij} \\frac{\\partial x_{i}}{\\partial y_{\\alpha }}\\,\\frac{\\partial x_{j}}{\\partial y_{\\beta }}-\\frac{\\partial x_{j}}{\\partial y_{\\beta }}\\,\\frac{\\partial x_{i}}{\\partial y_{\\alpha }}"} />  en el nuevo marco coordenado <Math tex={"\\{ dy_{i_{1}}\\wedge dy_{i_{2}} \\}_{i_{1}<i_{2}<m}"} /> y a <Math tex={"\\omega"} /> escrito en esos coeficientes. Me gustaria ver que sigue siendo suave. Esto mostraria que si es suave en un sistema coordenado lo es en cualquiera
+9. Pero los nuevos coeficientes son suaves para todo <Math tex={"p\\in W"} />. Porque <Math tex={"a_{ij}"} /> es suave para todo <Math tex={"p\\in W"} /> y las derivadas parciales tambien lo son por que son la derivada de <Math tex={"\\psi\\circ\\varphi ^{-1}"} /> (el cambio de coordenadas) que es suave.
+</Proof>
+</BookBlock>
+
+### Ejercicio 12
+
+<BookBlock kind="exercise">
+Sea <Math tex={"M"} /> una variedad diferenciable y <Math tex={"\\omega"} /> una <Math tex={"k"} />-forma en <Math tex={"M"} />. Probar que las siguientes afirmaciones son equivalentes, y en tal caso la <Math tex={"k"} />-forma <Math tex={"\\omega"} /> se dice diferenciable:
+
+- (a) Para <Math tex={"X_1,\\ldots,X_k\\in\\mathfrak X(M)"} /> arbitrarios, se tiene que <Math tex={"\\omega(X_1,\\ldots,X_k)\\in C^\\infty(M)"} />, donde <Math tex={"\\omega(X_1,\\ldots,X_k)"} /> es la funcion dada por <Math display tex={"\\omega(X_1,\\ldots,X_k)(p)=\\omega_p(X_1|_p,\\ldots,X_k|_p),\\qquad p\\in M"} />
+- (b) Para todo entorno coordenado <Math tex={"(U,(x^1,\\ldots,x^n))"} /> de <Math tex={"M"} />, se tiene <Math display tex={"\\omega|_U=\\sum_{i_1<\\cdots<i_k}C_{i_1\\cdots i_k}\\,dx_{i_1}\\wedge\\cdots\\wedge dx_{i_k},\\qquad C_{i_1\\cdots i_k}\\in C^\\infty(U)"} />
+<Proof title="Demostracion">
+- <Math tex={"(b\\Rightarrow a)"} /> 
+1. Tomamos un <Math tex={"p\\in M"} /> ahora tenemos <Math tex={"(U,\\phi=x_{1},\\ldots,x_{n})"} /> carta entonces por (b) <Math display tex={"\\omega|_U=\\sum_{i_1<\\cdots<i_k}C_{i_1\\cdots i_k}\\,dx_{i_1}\\wedge\\cdots\\wedge dx_{i_k},\\qquad C_{i_1\\cdots i_k}\\in C^\\infty(U)"} />
+2. Ademas <Math display tex={"X_{i}=\\sum^{n}_{j=1}a_{ij}\\frac{\\partial}{\\partial x_{j}}"} /> 
+3. Luego <Math display tex={"\\omega|_{U}(X_{1},\\ldots X_{k})=\\sum_{i_1<\\cdots<i_k}C_{i_1\\cdots i_k}\\,dx_{i_1}\\wedge\\cdots\\wedge dx_{i_k}\\left(\\sum^{n}_{j=1}a_{1j}\\frac{\\partial}{\\partial x_{j}},\\ldots,\\sum^{n}_{j=1}a_{kj}\\frac{\\partial}{\\partial x_{j}}\\right)"} />
+4. Ahora notamos que <Math display tex={"\\begin{align} dx_{i_1}\\wedge\\cdots\\wedge dx_{i_k}\\left(\\sum^{n}_{j=1}a_{1j}\\frac{\\partial}{\\partial x_{j}},\\ldots,\\sum^{n}_{j=1}a_{kj}\\frac{\\partial}{\\partial x_{j}}\\right)&=\\det\\left( dx_{i_{r}}\\left( \\sum^{n}_{j=1}a_{sj}\\frac{\\partial}{\\partial x_{j}} \\right) \\right)_{r,s=1}^{k} \\\\ & =\\det\\left( \\sum^{n}_{j=1} a_{sj}dx_{i_{r}}\\left(\\frac{\\partial}{\\partial x_{j}}\\right) \\right)_{r,s=1}^{k}\\\\&=\\det(a_{s i_{r}})_{r,s=1}^{k} \\end{align}"} />
+5. Pero entonces <Math display tex={"\\omega|_{U}(X_{1},\\ldots,X_{k})(p)=(\\omega|_{U})_{p}(X_{1},\\ldots,X_{k})=\\sum_{i_{1}<\\ldots<i_{k}} C_{i_{1}\\ldots i_{k}}(p)\\det(a_{s i_{r}}(p))"} /> 
+6. Pero <Math tex={"C_{i_{1}\\ldots i_{k}}"} /> es suave como funcion de <Math tex={"p"} /> por hipotesis, lo mismo para <Math tex={"\\det(a_{s i_{r}})_{r,s=1}^{k}"} /> como funcion de <Math tex={"p"} /> por que <Math tex={"X_{i}"} /> son campos suaves. Y <Math tex={"\\det"} /> es un polinomio de sus entradas.
+7. Entonces <Math tex={"\\omega|_{U}(X_{1},\\ldots,X_{k})(p)"} /> es suave y obviamente como esto lo podemos hacer para cualquier <Math tex={"p"} /> tenemosq ue <Math display tex={"\\omega(X_{1},\\ldots,X_{k})(p)"} /> es suave
+- <Math tex={"(a\\Rightarrow b)"} /> 
+1. Tomamos una carta <Math tex={"(U,x_{1},\\ldots,x_{n})"} /> como <Math tex={"B_k=\\{dx_{i_1}|_p\\wedge\\cdots\\wedge dx_{i_k}|_p:1\\le i_1<\\cdots<i_k\\le n\\}"} /> es base de <Math tex={"\\Lambda^{k}(T_{p}^{*}M)"} /> tenemos <Math display tex={"\\omega|_{U}=\\sum_{i_{1}<\\ldots<i_{k}} C_{i_{1}\\ldots i_{k}}\\ .dx_{i_{1}}\\wedge\\ldots\\wedge dx_{i_{k}}"} /> con <Math tex={"C_{i_{1}\\ldots i_{k}}:U \\rightarrow\\mathbb{R}"} />. Bastaria mostrar que son suaves
+2. Ahora tenemos que <Math display tex={"\\begin{align}\\omega|_{U}\\left(\\frac{\\partial}{\\partial x_{j_{1}}},\\ldots, \\frac{\\partial}{\\partial x_{j_{k}}}\\right)(p)& =\\omega_{p}\\left(\\frac{\\partial}{\\partial x_{j_{1}}}\\bigg|_{p},\\ldots, \\frac{\\partial}{\\partial x_{j_{k}}}\\bigg|_{p}\\right)\\\\&=\\sum^{\\infty}_{i_{1}<\\ldots<i_{k}}C_{i_{1}\\ldots i_{k}}(p) \\ .dx_{i_{1}}\\wedge\\ldots\\wedge dx_{i_{k}}\\left(\\frac{\\partial}{\\partial x_{j_{1}}}\\bigg|_{p},\\ldots, \\frac{\\partial}{\\partial x_{j_{k}}}\\bigg|_{p}\\right)\\\\&=C_{I}(p)\\end{align}"} /> con <Math tex={"I=J"} /> osea el unico caso donde el determinante no es <Math tex={"0"} /> que es cuando coinciden los multi indices, <Math tex={"j_{1}=i_{1}\\ldots j_{k}=i_{k}"} />    
+3. Ahora lo unico que tenemos que corregir es que <Math tex={"\\frac{\\partial}{\\partial x_{i}}"} /> son campos suaves sobre <Math tex={"U"} />  y para usar la hipotesis las necesito suaves sobre <Math tex={"M"} /> 
+4. Tomamos <Math tex={"q\\in U"} /> y ahora tenemos <Math tex={"V_{q}\\subseteq U"} /> abierto de <Math tex={"q"} /> y <Math tex={"f\\in C^{\\infty}(M)"} /> tal que <Math tex={"f|_{\\overline{V_{q}}}\\equiv 1"} /> y <Math tex={"\\operatorname{supp}f\\subseteq U"} /> y defino <Math display tex={"X_{i}(p)=\\begin{cases} f(p)\\frac{\\partial}{\\partial x_{i}}\\bigg|_{p} & p\\in U \\\\0 & x\\not\\in U \\end{cases}"} /> que sabemos es un campo suave sobre todo <Math tex={"M"} /> y cerca de <Math tex={"p"} /> (osea en algun abierto dentro de <Math tex={"\\overline{V_{q}}"} />, por ejemplo <Math tex={"V_{q}"} /> ) vale exactamente <Math tex={"\\frac{\\partial}{\\partial x_{i}}\\bigg|_{q}"} /> 
+5. Luego haciendo la misma cuenta que en 2. pero con <Math tex={"X_{i}"} /> tenemos que <Math display tex={"\\sum_{i_{1}<\\ldots<i_{k}} C_{i_{1}\\ldots i_{k}}(q)"} /> es suave para todo <Math tex={"q\\in V_{p}"} /> 
+6. Y como esto lo podemos hacer para cualquier <Math tex={"q\\in U"} /> es suave en todo <Math tex={"U"} /> como queriamos 
+</Proof>
+</BookBlock>
+
+<span id="174f5d"></span>
+
+### Ejercicio 13
+
+<BookBlock kind="exercise">
+Probar que si <Math tex={"\\omega\\in\\Omega^k(M)"} /> y <Math tex={"\\eta\\in\\Omega^\\ell(M)"} />, entonces <Math tex={"\\omega\\wedge\\eta\\in\\Omega^{k+\\ell}(M)"} />.
+<Proof title="Demostracion">
+1. En coordenadas, si <Math display tex={"\\omega=\\sum_I a_I\\,dx^I,\\qquad \\eta=\\sum_J b_J\\,dx^J"} />
+2.  entonces <Math display tex={"\\omega\\wedge\\eta=\\sum_{I,J}a_Ib_J\\,dx^I\\wedge dx^J"} /> 
+3. obviamente los términos que tienen diferenciales repetidos darán <Math tex={"0"} /> y hay que reordenar lo que posiblemente meta un cambio de signo. Pero nada de esto cambia que los coeficientes <Math tex={"a_Ib_J"} /> son suaves, luego <Math tex={"\\omega\\wedge\\eta\\in\\Omega^{k+\\ell}(M)"} />.
+</Proof>
+</BookBlock>
+
+<span id="5374b2"></span>
+
+### Ejercicio 14
+
+<BookBlock kind="exercise">
+Sea <Math tex={"M"} /> una variedad diferenciable de dimension <Math tex={"m"} />. Dadas <Math tex={"\\omega\\in\\Omega^k(M)"} /> y <Math tex={"\\theta\\in\\Omega^\\ell(M)"} />, mostrar que <Math display tex={"d_{k+\\ell}(\\omega\\wedge\\theta)=(d_k\\omega)\\wedge\\theta+(-1)^k\\omega\\wedge(d^\\ell\\theta)"} />
+<Proof title="Demostracion">
+1. En un entorno coordenado escribimos <Math display tex={"\\omega=\\sum_I a_I\\,dx^I,\\qquad \\theta=\\sum_J b_J\\,dx^J"} />
+2. Como <Math tex={"d(dx^i)=0"} /> al aplicar la regla 3. De <PreviewLink href="/chapters/teo-21#f7b034" label="Derivada exterior" title="Teorema: Derivada exterior" /> el segundo término es <Math tex={"0"} /> entonces <Math display tex={"\\begin{align}d(a_Ib_J\\,dx^I\\wedge dx^J)&=d(a_Ib_J)\\wedge dx^I\\wedge dx^J\\\\& =(da_I)b_J\\wedge dx^I\\wedge dx^J +a_I(db_J)\\wedge dx^I\\wedge dx^J\\end{align}"} /> para el segundo igual recordamos que las <Math tex={"0"} />-formas son funciones y por ende usamos la regla de derivar producto
+3. Es directo ver que el primer término es <Math tex={"d_{k}\\omega\\wedge\\theta"} /> por que <Math tex={"b_{J}"} /> es una <Math tex={"0"} />-forma entonces conmuta sin meter signo
+4. El segundo término cumple <Math display tex={"a_I(db_J)\\wedge dx^I\\wedge dx^J=(-1)^{k} .a_{I}\\wedge dx^{I} \\wedge db_{j}\\wedge dx^{J}=(-1)^{k} \\omega \\wedge d\\omega"} />
+5. Moviendo <Math tex={"db_J"} /> a traves de <Math tex={"dx^I"} /> aparece el signo <Math tex={"(-1)^k"} />. Sumando <Math display tex={"d(\\omega\\wedge\\theta)=d\\omega\\wedge\\theta+(-1)^k\\omega\\wedge d\\theta"} />
+6. En este ejercicio <Math tex={"d_{s}"} /> hace referencia al dominio <Math tex={"\\Omega^{s}(M)"} /> de <Math tex={"d"} />  
+</Proof>
+</BookBlock>
+
+### Ejercicio 15
+
+<BookBlock kind="exercise">
+- (a) Encontrar la diferencial exterior de <Math tex={"\\varphi"} /> y <Math tex={"\\eta"} /> en <Math tex={"\\Omega^2(\\mathbb R^3)"} /> dadas por <Math tex={"\\varphi=\\cos(xy^2)\\,dx\\wedge dz"} /> y <Math tex={"\\omega=x\\,dy\\wedge dz+y\\,dz\\wedge dx+z\\,dx\\wedge dy"} />.
+- (b) Encontrar una <Math tex={"(n-1)"} />-forma <Math tex={"\\epsilon"} /> tal que <Math tex={"d^{n-1}\\epsilon=dx_1\\wedge\\cdots\\wedge dx_n\\in\\Omega^n(\\mathbb R^n)"} />.
+<Proof title="Demostracion">
+- (a) 
+1. Podemos pensar a <Math display tex={"\\cos(xy^{2})=\\cos\\circ f(x,y,x)=h(x,y,z):\\mathbb{R}^{3}\\rightarrow \\mathbb{R}"} /> donde <Math tex={"f(x,y,z)=xy^{2}"} />
+2. Entonces <Math display tex={"d(\\cos(xy^{2}))_{p}:T_{p}\\mathbb{R}^{3} \\rightarrow T_{\\cos(p_{1}p_{2}^{2})}\\mathbb{R}\\simeq\\mathbb{R}"} />
+3. Entonces por la identificacion y usando la carta canonica  <Math display tex={"d(\\cos(xy^{2}))_{p}=a_{1}dx +a_{2}dy+a_{3}dz"} />
+4. Calculando coordenadas <Math display tex={"a_{1}=\\frac{\\partial}{\\partial x}\\cos(xy^{2})=-y^{2}\\sin(xy^{2})\\qquad a_{2}=\\frac{\\partial}{\\partial y}\\cos(xy^{2})=-2xy\\sin(xy^{2})\\qquad a_{3}=\\frac{\\partial}{\\partial z}\\cos(xy^{2})=0"} /> (en realidad deberian ser evaluadas en <Math tex={"p"} /> pero es lo mismo verlas antes de evaluar) 
+5. Finalmente <Math display tex={"(d\\cos(xy^{2}))=-y^{2}\\sin(xy^{2})dx -2xy\\sin(xy^{2})dy"} />
+6. Entonces <Math display tex={"d\\varphi=(d\\cos(xy^{2}))=-2xy\\sin(xy^{2})dy\\wedge dx\\wedge dz=2xy\\sin(xy^{2})dx\\wedge dy\\wedge dz"} /> 
+7. Haciendo algo analogo al paso 2. nos queda que <Math display tex={"d\\omega=dx\\wedge dy\\wedge dz+ dy\\wedge dz\\wedge dx+ dz\\wedge dx\\wedge dy=3dx\\wedge dy \\wedge dz"} /> 
+- (b) 
+1. La mas simple es: <Math display tex={"\\omega=x_{1}dx_{2}\\wedge\\ldots\\wedge dx_{n}"} /> 
+</Proof>
+</BookBlock>
+
+### Ejercicio 16
+
+<BookBlock kind="exercise">
+Sea <Math tex={"\\omega\\in\\Omega^1(M)"} /> y sean <Math tex={"X,Y\\in\\mathfrak{X}(M)"} />. Probar que <Math display tex={"d\\omega(X,Y)=X(\\omega(Y))-Y(\\omega(X))-\\omega([X,Y])."} />
+<Proof title="Demostracion">
+1. Sea <Math tex={"(U,(x^1,\\ldots,x^n))"} /> una carta suave y escribamos <Math display tex={"\\omega=\\sum_i c_i\\,dx^i."} />
+2. Como <Math display tex={"d\\omega=\\sum_i dc_i\\wedge dx^i,"} /> tenemos <Math display tex={"d\\omega(X,Y)=\\sum_i\\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\\right)."} /> donde usamos que <Math tex={"(dc_{i})X=X(c_{i})"} /> etc 
+3. El otro lado usando 1. <Math display tex={"\\omega(Y)=\\sum_i c_iY(x^i),\\qquad \\omega(X)=\\sum_i c_iX(x^i)."} />
+4. Por linealidad de <Math tex={"X"} /> y la regla de Leibniz, <Math display tex={"\\begin{aligned}X(\\omega(Y))&=X\\left(\\sum_i c_iY(x^i)\\right)\\\\&=\\sum_i X\\left(c_iY(x^i)\\right)\\\\&=\\sum_i\\left(X(c_i)Y(x^i)+c_iX(Y(x^i))\\right).\\end{aligned}"} />
+5. De la misma manera, <Math display tex={"\\begin{aligned}Y(\\omega(X))&=Y\\left(\\sum_i c_iX(x^i)\\right)\\\\&=\\sum_i Y\\left(c_iX(x^i)\\right)\\\\&=\\sum_i\\left(Y(c_i)X(x^i)+c_iY(X(x^i))\\right).\\end{aligned}"} />
+6. Por lo tanto, <Math display tex={"\\begin{aligned}X(\\omega(Y))-Y(\\omega(X))&=\\sum_i\\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\\right)\\\\&\\quad+\\sum_i c_i\\left(X(Y(x^i))-Y(X(x^i))\\right).\\end{aligned}"} />
+7. Como <Math display tex={"[X,Y](x^i)=X(Y(x^i))-Y(X(x^i)),"} /> resulta <Math display tex={"\\omega([X,Y])=\\sum_{i=1}c_{i}dx^{i}[X,Y]  =\\sum_i c_i\\left(X(Y(x^i))-Y(X(x^i))\\right)."} />
+8. Restando este término, obtenemos <Math display tex={"X(\\omega(Y))-Y(\\omega(X))-\\omega([X,Y])=\\sum_i\\left(X(c_i)Y(x^i)-Y(c_i)X(x^i)\\right)=d\\omega(X,Y)."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 17
+
+<BookBlock kind="exercise">
+Sea <Math tex={"F:M\\to N"} /> una función suave y sea <Math tex={"\\theta\\in\\Omega^k(N)"} />. Mostrar que <Math tex={"F^*\\theta\\in\\Omega^k(M)"} /> y que <Math tex={"d^k(F^*\\theta)=F^*(d^k\\theta)"} />
+<Proof title="Demostracion">
+- <Math tex={"F^{*}\\theta\\in \\Omega^{k}(M)"} />  
+1. Primero probamos que <Math tex={"F^*\\theta\\in\\Omega^k(M)"} />. Sea <Math tex={"\\theta=\\sum_I a_I\\,dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k}"} />.
+2. Por linealidad del pullback, <Math display tex={"F^*\\theta=\\sum_I F^*\\!\\left(a_I\\,dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k}\\right)."} />
+3. Afirmamos que <Math tex={"F^*(f\\omega)=(f\\circ F)\\,F^*(\\omega)"} />. En efecto, para todo <Math tex={"p\\in M"} /> y <Math tex={"v_1,\\ldots,v_k\\in T_pM"} />, <Math display tex={"(F^*(f\\omega))_p(v_1,\\ldots,v_k)=(f\\omega)_{F(p)}(dF_p(v_1),\\ldots,dF_p(v_k))."} />  
+4. Como <Math tex={"(f\\omega)_{F(p)}=f(F(p))\\,\\omega_{F(p)}"} />, obtenemos <Math display tex={"(F^* f\\omega))_p(v_1,\\ldots,v_k)=f(F(p))\\,\\omega_{F(p)}(dF_p(v_1),\\ldots,dF_p(v_k))."} />
+5. Como <Math tex={"f(F(p))=(f\\circ F)(p)"} />, <Math display tex={"(F^*(f\\omega))_p(v_1,\\ldots,v_k)=(f\\circ F)(p)\\,(F^*\\omega)_p(v_1,\\ldots,v_k)."} />
+6. Aplicando esta propiedad,  
+<Math display tex={"F^*\\theta=\\sum_I (a_I\\circ F)\\,F^*\\!\\left(dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k}\\right)."} />
+7. Como el pullback preserva productos wedge, <Math tex={"F^*(\\alpha_1\\wedge\\cdots\\wedge\\alpha_k)=F^*(\\alpha_1)\\wedge\\cdots\\wedge F^*(\\alpha_k)"} />, obtenemos <Math display tex={"F^*\\theta=\\sum_I (a_I\\circ F)\\,F^*(dy^{i_1})\\wedge\\cdots\\wedge F^*(dy^{i_k})."} />
+8. Afirmamos que <Math tex={"F^*(dy^j)=d(y^j\\circ F)"} />. En efecto, para todo <Math tex={"p\\in M"} /> y <Math tex={"v\\in T_pM"} />, <Math display tex={"(F^*(dy^j))_p(v)=(dy^j)_{F(p)}(dF_p(v))=dF_p(v)(y^j)=v(y^j\\circ F)."} /> primer igual por definicion de <Math tex={"F^{*}"} />, segundo y tercero por definicion de diferencial 
+9. Ahora usando este resultado <Math display tex={"F^*\\theta=\\sum_I (a_I\\circ F)\\,d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)."} />
+10. Los coeficientes <Math tex={"(a_I\\circ F)"} /> son suaves y las formas <Math tex={"d(y^j\\circ F)"} /> son <Math tex={"1"} />-formas suaves sobre <Math tex={"M"} />. Por lo tanto, <Math display tex={"F^*\\theta\\in\\Omega^k(M)."} />
+- <Math tex={"d^k(F^*\\theta)=F^*(d^k\\theta)."} /> 
+1. Por la primera parte, <Math display tex={"F^*\\theta=\\sum_I (a_I\\circ F)\\,d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)."} />
+2. Aplicando <Math tex={"d"} /> y usando la regla de Leibniz para derivada exterior, <Math display tex={"d(F^*\\theta)=\\sum_I d(a_I\\circ F)\\wedge d(y^{i_1}\\circ F)\\wedge\\cdots\\wedge d(y^{i_k}\\circ F)."} />
+3. Afirmamos que <Math tex={"d(a_I\\circ F)=F^*(da_I)"} /> sale analogo a paso 8.
+4. Sustituyendo en la expresión de <Math tex={"d(F^*\\theta)"} /> y usando que <Math tex={"d(y^{i_j}\\circ F)=F^*(dy^{i_j})"} />, <Math display tex={"d(F^*\\theta)=\\sum_I F^*(da_I)\\wedge F^*(dy^{i_1})\\wedge\\cdots\\wedge F^*(dy^{i_k})."} />
+5. Como el pullback preserva productos wedge, <Math display tex={"d(F^*\\theta)=\\sum_I F^*\\!\\left(da_I\\wedge dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k}\\right)."} />
+6. Por linealidad del pullback, <Math display tex={"d(F^*\\theta)=F^*\\!\\left(\\sum_I da_I\\wedge dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k}\\right)."} />
+7. Pero <Math display tex={"d\\theta=\\sum_I da_I\\wedge dy^{i_1}\\wedge\\cdots\\wedge dy^{i_k}."} />
+8. Por lo tanto, <Math display tex={"d(F^*\\theta)=F^*(d\\theta)."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 18
+
+<BookBlock kind="exercise">
+Una forma diferencial <Math tex={"\\alpha"} /> de grado <Math tex={"k"} /> se dice cerrada si <Math tex={"d\\alpha=0"} />. La forma <Math tex={"\\alpha"} /> se dice exacta si existe una forma <Math tex={"\\beta"} /> tal que <Math tex={"d\\beta=\\alpha"} />.
+
+- (a) Mostrar que toda forma exacta es cerrada y que toda <Math tex={"n"} />-forma en una variedad de dimension <Math tex={"n"} /> es cerrada.
+- (b) Mostrar que el producto exterior de dos formas cerradas es una forma cerrada y que el producto exterior de una forma cerrada con una exacta es una forma exacta.
+- (c) Mostrar que la <Math tex={"1"} />-forma <Math tex={"\\theta=x\\,dy"} /> en <Math tex={"\\mathbb R^2"} /> no es exacta. Mas aun, en ningun abierto <Math tex={"U"} /> esta definida una funcion <Math tex={"f"} /> tal que <Math tex={"df=\\theta"} /> en <Math tex={"U"} />.
+<Proof title="Demostracion">
+- (a)
+1. Si <Math tex={"\\alpha=d\\beta"} />, entonces <Math tex={"d\\alpha=d^2\\beta=0"} />. Toda <Math tex={"n"} />-forma en una variedad de dimension <Math tex={"n"} /> es cerrada porque su diferencial seria una <Math tex={"(n+1)"} />-forma, y <Math tex={"\\Omega^{n+1}(M)=0"} />.
+- (b)
+1. Si <Math tex={"d\\alpha=d\\beta=0"} />, entonces <Math display tex={"d(\\alpha\\wedge\\beta)=d\\alpha\\wedge\\beta+(-1)^{\\deg\\alpha}\\alpha\\wedge d\\beta=0"} />
+2. Si <Math tex={"\\beta=d\\gamma"} /> y <Math tex={"d\\alpha=0"} />, entonces <Math display tex={"(-1)^{\\deg\\alpha}\\alpha\\wedge\\beta=(-1)^{\\deg\\alpha}\\alpha\\wedge d\\gamma=d(\\alpha\\wedge\\gamma)"} />
+3. Entonces <Math display tex={"\\alpha \\wedge\\beta=d((-1)^{\\deg\\alpha}\\alpha \\wedge \\gamma)"} /> con lo cual es exacta
+- (c) 
+1. Para <Math tex={"\\theta=x\\,dy"} /> en <Math tex={"\\mathbb R^2"} />, <Math display tex={"d\\theta=dx\\wedge dy\\ne0"} /> por lo tanto no es cerrada, entonces por (a) no puede ser exacta
+2. Si existiera <Math tex={"f"} /> en algun abierto <Math tex={"U"} /> con <Math tex={"df=\\theta|_{U}"} />, entonces <Math display tex={"(dx\\wedge dy)|_{U}=d_{U}\\theta=d^2_{U}f=0"} /> en <Math tex={"U"} />, contradiccion por que <Math tex={"(dx\\wedge dy)"} /> es distinto de <Math tex={"0"} /> entodos lados 
+</Proof>
+</BookBlock>
+
+### Ejercicio 19
+
+<BookBlock kind="exercise">
+Considerar en la circunferencia <Math tex={"S^1"} /> los sistemas coordenados canonicos <Math tex={"s=\\phi^{-1}"} /> y <Math tex={"t=\\psi^{-1}"} /> con imagenes los intervalos <Math tex={"(0,2\\pi)"} /> y <Math tex={"(-\\pi,\\pi)"} />, respectivamente. Mostrar que <Math tex={"ds"} />, <Math tex={"dt"} /> definen bien una <Math tex={"1"} />-forma suave <Math tex={"\\theta"} /> en <Math tex={"S^1"} />. Probar que <Math tex={"\\theta"} /> es localmente exacta, pero no exacta.
+<Proof title="Demostracion">
+- 1era parte
+1. Define the two open sets <Math display tex={"U=S^1\\setminus\\{(1,0)\\},\\qquad V=S^1\\setminus\\{(-1,0)\\}."} />
+2. The canonical angle coordinate functions are <Math display tex={"s:U\\to(0,2\\pi),\\qquad t:V\\to(-\\pi,\\pi)."} /> Therefore, locally we have the <Math tex={"1"} />-forms <Math display tex={"ds\\in\\Omega^1(U),\\qquad dt\\in\\Omega^1(V)."} />
+3. We want to define a global <Math tex={"1"} />-form <Math tex={"\\theta\\in\\Omega^1(S^1)"} /> by <Math display tex={"\\theta|_U=ds,\\qquad \\theta|_V=dt."} />
+4. To prove that this definition is valid, we must check that the two local formulas agree on the overlap <Math display tex={"U\\cap V=S^1\\setminus\\{(1,0),(-1,0)\\}."} />
+5. Vamos a tomar <Math tex={"s"} /> como carta de <Math tex={"U\\cap V"} /> que anda bien por que es restriccion de carta. Entonces tenemos <Math tex={"\\{ \\frac{\\partial}{\\partial s} \\}"} /> como base del plano tangente <Math tex={"TS"} />
+6. Sea primero <Math tex={"p"} /> un punto de la componente superior de la superposición. En un entorno de <Math tex={"p"} /> las coordenadas satisfacen <Math display tex={"t=s."} />
+7. Entonces <Math display tex={"ds\\!\\left(\\frac{\\partial}{\\partial s}\\right)=\\frac{\\partial}{\\partial s}s=\\frac{\\partial}{\\partial r}s\\circ s^{-1}=1 \\quad \\text{ analogamente } \\quad \\  dt\\!\\left(\\frac{\\partial}{\\partial s}\\right)=\\frac{\\partial}{\\partial s}(t)=\\frac{\\partial}{\\partial s}(s)=1."} />
+8. Por lo tanto, <Math display tex={"dt\\!\\left(\\frac{\\partial}{\\partial s}\\right)=ds\\!\\left(\\frac{\\partial}{\\partial s}\\right)."} />
+9. Como <Math tex={"T_pS^1"} /> tiene dimensión <Math tex={"1"} />, concluimos que <Math tex={"dt=ds"} />.
+10. Sea ahora <Math tex={"p"} /> un punto de la componente inferior de la superposición. Seguimos con la misma carta pero aca <Math display tex={"t=s-2\\pi."} />
+11. Entonces <Math display tex={"ds\\!\\left(\\frac{\\partial}{\\partial s}\\right)=1."} />
+12. Pero esta vez (usando linealidad de vector tangente) <Math display tex={"dt\\!\\left(\\frac{\\partial}{\\partial s}\\right)=\\frac{\\partial}{\\partial s}(t)=\\frac{\\partial}{\\partial s}(s-2\\pi)=1."} />
+13. Por lo tanto, <Math display tex={"dt\\!\\left(\\frac{\\partial}{\\partial s}\\right)=ds\\!\\left(\\frac{\\partial}{\\partial s}\\right)."} />
+14. Como <Math tex={"T_pS^1"} /> tiene dimensión <Math tex={"1"} />, concluimos que <Math tex={"dt=ds"} />.
+15. Therefore, on all of <Math tex={"U\\cap V"} /> we have <Math display tex={"ds=dt."} />
+16. Digamos puedo definir <Math display tex={"\\theta_{p}=\\begin{cases}(ds)_{p} & p\\in U \\\\ (dt)_{p} & p\\in V \\end{cases}"} /> y esta bien definida
+17. Finally, smoothness is local. Since <Math tex={"\\theta=ds"} /> on <Math tex={"U"} /> and <Math tex={"\\theta=dt"} /> on <Math tex={"V"} />, and both <Math tex={"ds"} /> and <Math tex={"dt"} /> are smooth local <Math tex={"1"} />-forms, we conclude that <Math display tex={"\\theta\\in\\Omega^1(S^1)"} /> is a smooth <Math tex={"1"} />-form. (Sus coeficientes en esas cartas o en la interseccion son constantemente <Math tex={"1"} />) 
+- No global exacta
+1. Seguimos con la misma carta coordenada <Math tex={"s:U\\subseteq M\\rightarrow \\mathbb{R}"} /> que es obviamente una <Math tex={"0"} />-forma por ser suave  
+2. Entonces sus derivdad exterior es claramente una <Math tex={"1"} />-forma <Math display tex={"ds\\in\\Omega^1(U)."} />
+3. Con lo cual <Math tex={"ds"} /> es exacta y como <Math tex={"ds=\\theta|_{U}"} /> entonces <Math tex={"\\theta"} /> es localmente exacta
+4. Supongamos que fuese globalmente exacta. Entonces existiria un <Math tex={"0"} />-forma osea <Math tex={"f\\in C^{\\infty}(S^{1})"} /> tal que <Math tex={"df=\\theta"} /> 
+5. Pero <Math tex={"\\theta=ds"} /> entonces <Math tex={"d(f-s)=0"} /> con lo cual <Math tex={"f-s"} /> es localmente constante (por <PreviewLink href="/chapters/glosario#8cc5ce" label="dg=0 implica g localmente constante" title="Proposicion: dg=0 implica g localmente constante" />) y como <Math tex={"U"} /> es conexo entonces <Math tex={"(f-s)(p)=C"} /> para todo <Math tex={"p\\in U"} />  
+6. Pero entonces <Math tex={"f(p)=s(p)+C"} /> para todo <Math tex={"p\\in U"} /> entonces si agarramos sucesion <Math tex={"p_{n}"} /> en <Math tex={"U"} /> que tienda por abajo al <Math tex={"(1,0)"} /> tenemos que <Math tex={"s(p_{n})\\rightarrow 2\\pi"} /> osea <Math tex={"f(p_{n})\\rightarrow 2\\pi+C"} /> y si agarramos otra por arriba <Math tex={"s(\\widetilde{p}_{n})\\rightarrow 0"} /> osea <Math tex={"f(\\widetilde{p}_{n})\\rightarrow C"} />. Lo que es absurdo por que <Math tex={"f"} /> es continua en todo <Math tex={"S_{1}"} />  
+- Localmente exacta
+1. Probemos primero que <Math tex={"\\theta"} /> es localmente exacta. Si <Math tex={"p\\in U"} />, entonces en un entorno de <Math tex={"p"} /> se tiene <Math display tex={"\\theta=ds=d(s),"} /> donde <Math tex={"s\\in\\Omega^0(U)"} />.
+2. Si <Math tex={"p\\in V"} />, entonces en un entorno de <Math tex={"p"} /> se tiene <Math display tex={"\\theta=dt=d(t),"} /> donde <Math tex={"t\\in\\Omega^0(V)"} />.
+3. Por lo tanto, alrededor de todo punto de <Math tex={"S^1"} />, la forma <Math tex={"\\theta"} /> es la derivada exterior de una <Math tex={"0"} />-forma. Luego <Math tex={"\\theta"} /> es localmente exacta.
+</Proof>
+</BookBlock>
+
+### Ejercicio 20
+
+<BookBlock kind="exercise">
+Sea <Math tex={"U"} /> un abierto de <Math tex={"\\mathbb R^3"} />. Para un campo suave <Math tex={"u=(a,b,c)"} /> en <Math tex={"U"} /> se definen
+<Math display tex={"\\operatorname{div}(u)=\\frac{\\partial a}{\\partial x}+\\frac{\\partial b}{\\partial y}+\\frac{\\partial c}{\\partial z},\\qquad\\operatorname{rot}(u)=\\left(\\frac{\\partial c}{\\partial y}-\\frac{\\partial b}{\\partial z},\\frac{\\partial a}{\\partial z}-\\frac{\\partial c}{\\partial x},\\frac{\\partial b}{\\partial x}-\\frac{\\partial a}{\\partial y}\\right)."} />
+Considerar el diagrama con <Math tex={"F_1(u)=a\\,dx+b\\,dy+c\\,dz"} />, <Math tex={"F_2(u)=a\\,dy\\wedge dz+b\\,dz\\wedge dx+c\\,dx\\wedge dy"} /> y <Math tex={"F_3(f)=f\\,dx\\wedge dy\\wedge dz"} />.
+
+- (a) Para cada <Math tex={"j=1,2,3"} />, mostrar que <Math tex={"F_j"} /> es un isomorfismo de <Math tex={"C^\\infty(U)"} />-modulos.
+- (b) Probar que el diagrama es conmutativo y deducir que <Math tex={"\\operatorname{div}\\operatorname{rot}=0"} /> y <Math tex={"\\operatorname{rot}\\operatorname{grad}=0"} />.
+- (c) Decidir si el campo vectorial <Math tex={"u(x,y,z)=(x,0,0)"} /> puede ser el rotor de algun campo vectorial en <Math tex={"\\mathbb R^3"} />.
+<Proof title="Demostracion">
+- (a)
+1. Recordamos que un campo vectorial suave en <Math tex={"U\\subset\\mathbb R^3"} /> se escribe como <Math display tex={"u=a\\frac{\\partial}{\\partial x}+b\\frac{\\partial}{\\partial y}+c\\frac{\\partial}{\\partial z},"} /> con <Math tex={"a,b,c\\in C^\\infty(U)"} />.  
+2. Primero probamos que <Math tex={"F_1"} /> es un isomorfismo de <Math tex={"C^\\infty(U)"} />-módulos. Toda <Math tex={"1"} />-forma <Math tex={"\\alpha\\in\\Omega^1(U)"} /> se escribe de manera única como <Math display tex={"\\alpha=A\\,dx+B\\,dy+C\\,dz,"} /> con <Math tex={"A,B,C\\in C^\\infty(U)"} />. Por lo tanto, si <Math tex={"\\alpha=A\\,dx+B\\,dy+C\\,dz"} />, definimos <Math display tex={"F_1^{-1}(\\alpha)=A\\frac{\\partial}{\\partial x}+B\\frac{\\partial}{\\partial y}+C\\frac{\\partial}{\\partial z}."} /> Además, para todo <Math tex={"h\\in C^\\infty(U)"} />, <Math display tex={"F_1(hu)=F_1(ha,hb,hc)=ha\\,dx+hb\\,dy+hc\\,dz=hF_1(u)."} /> Entonces <Math tex={"F_1"} /> es un isomorfismo de <Math tex={"C^\\infty(U)"} />-módulos.  
+3. Probamos ahora que <Math tex={"F_2"} /> es un isomorfismo. Toda <Math tex={"2"} />-forma <Math tex={"\\beta\\in\\Omega^2(U)"} /> se escribe de manera única como <Math display tex={"\\beta=A\\,dy\\wedge dz+B\\,dz\\wedge dx+C\\,dx\\wedge dy,"} /> con <Math tex={"A,B,C\\in C^\\infty(U)"} />. Por lo tanto, si <Math tex={"\\beta=A\\,dy\\wedge dz+B\\,dz\\wedge dx+C\\,dx\\wedge dy"} />, definimos <Math display tex={"F_2^{-1}(\\beta)=A\\frac{\\partial}{\\partial x}+B\\frac{\\partial}{\\partial y}+C\\frac{\\partial}{\\partial z}."} /> Además, para todo <Math tex={"h\\in C^\\infty(U)"} />, <Math display tex={"F_2(hu)=hF_2(u)."} /> Entonces <Math tex={"F_2"} /> es un isomorfismo de <Math tex={"C^\\infty(U)"} />-módulos.  
+4. Probamos ahora que <Math tex={"F_3"} /> es un isomorfismo. Toda <Math tex={"3"} />-forma <Math tex={"\\omega\\in\\Omega^3(U)"} /> se escribe de manera única como <Math display tex={"\\omega=f\\,dx\\wedge dy\\wedge dz,"} /> con <Math tex={"f\\in C^\\infty(U)"} />. Por lo tanto, si <Math tex={"\\omega=f\\,dx\\wedge dy\\wedge dz"} />, definimos <Math display tex={"F_3^{-1}(\\omega)=f."} /> Además, para todo <Math tex={"h\\in C^\\infty(U)"} />, <Math display tex={"F_3(hf)=hf\\,dx\\wedge dy\\wedge dz=hF_3(f)."} /> Entonces <Math tex={"F_3"} /> es un isomorfismo de <Math tex={"C^\\infty(U)"} />-módulos.  
+- (b)
+1. ![Pasted image 20260607121743](/images/Pasted-image-20260607121743.png)
+2. **Probamos la conmutatividad del primer cuadrado**. Sea <Math tex={"f\\in C^\\infty(U)"} />. Entonces <Math display tex={"\\operatorname{grad}(f)=\\frac{\\partial f}{\\partial x}\\frac{\\partial}{\\partial x}+\\frac{\\partial f}{\\partial y}\\frac{\\partial}{\\partial y}+\\frac{\\partial f}{\\partial z}\\frac{\\partial}{\\partial z}."} /> Aplicando <Math tex={"F_1"} />, obtenemos <Math display tex={"F_1(\\operatorname{grad}f)=\\frac{\\partial f}{\\partial x}\\,dx+\\frac{\\partial f}{\\partial y}\\,dy+\\frac{\\partial f}{\\partial z}\\,dz=df."} /> Por lo tanto, <Math display tex={"F_1(\\operatorname{grad}f)=df."} />  
+3. **Probamos la conmutatividad del segundo cuadrado**. Sea <Math tex={"u=(a,b,c)"} />. Entonces <Math display tex={"F_1(u)=a\\,dx+b\\,dy+c\\,dz."} /> Aplicamos <Math tex={"d"} />: <Math display tex={"dF_1(u)=d(a\\,dx+b\\,dy+c\\,dz)=da\\wedge dx+db\\wedge dy+dc\\wedge dz."} /> Como <Math display tex={"da=a_x\\,dx+a_y\\,dy+a_z\\,dz,"} /> se tiene <Math display tex={"da\\wedge dx=a_y\\,dy\\wedge dx+a_z\\,dz\\wedge dx=-a_y\\,dx\\wedge dy+a_z\\,dz\\wedge dx."} /> Como <Math display tex={"db=b_x\\,dx+b_y\\,dy+b_z\\,dz,"} /> se tiene <Math display tex={"db\\wedge dy=b_x\\,dx\\wedge dy+b_z\\,dz\\wedge dy=b_x\\,dx\\wedge dy-b_z\\,dy\\wedge dz."} /> Como <Math display tex={"dc=c_x\\,dx+c_y\\,dy+c_z\\,dz,"} /> se tiene <Math display tex={"dc\\wedge dz=c_x\\,dx\\wedge dz+c_y\\,dy\\wedge dz=-c_x\\,dz\\wedge dx+c_y\\,dy\\wedge dz."} /> Sumando, obtenemos <Math display tex={"dF_1(u)=(c_y-b_z)\\,dy\\wedge dz+(a_z-c_x)\\,dz\\wedge dx+(b_x-a_y)\\,dx\\wedge dy."} /> Pero <Math display tex={"\\operatorname{rot}(u)=\\left(c_y-b_z,a_z-c_x,b_x-a_y\\right)."} /> Por la definición de <Math tex={"F_2"} />, resulta <Math display tex={"F_2(\\operatorname{rot}u)=(c_y-b_z)\\,dy\\wedge dz+(a_z-c_x)\\,dz\\wedge dx+(b_x-a_y)\\,dx\\wedge dy."} /> Por lo tanto, <Math display tex={"dF_1(u)=F_2(\\operatorname{rot}u)."} />  
+4. **Probamos la conmutatividad del tercer cuadrado**. Sea <Math tex={"u=(a,b,c)"} />. Entonces <Math display tex={"F_2(u)=a\\,dy\\wedge dz+b\\,dz\\wedge dx+c\\,dx\\wedge dy."} /> Aplicamos <Math tex={"d"} />: <Math display tex={"dF_2(u)=da\\wedge dy\\wedge dz+db\\wedge dz\\wedge dx+dc\\wedge dx\\wedge dy."} /> Ahora <Math display tex={"da\\wedge dy\\wedge dz=a_x\\,dx\\wedge dy\\wedge dz,"} /> porque los términos con <Math tex={"dy\\wedge dy"} /> y <Math tex={"dz\\wedge dz"} /> son cero. También <Math display tex={"db\\wedge dz\\wedge dx=b_y\\,dy\\wedge dz\\wedge dx=b_y\\,dx\\wedge dy\\wedge dz,"} /> y <Math display tex={"dc\\wedge dx\\wedge dy=c_z\\,dz\\wedge dx\\wedge dy=c_z\\,dx\\wedge dy\\wedge dz."} /> Por lo tanto, <Math display tex={"dF_2(u)=(a_x+b_y+c_z)\\,dx\\wedge dy\\wedge dz."} /> Pero <Math display tex={"\\operatorname{div}(u)=a_x+b_y+c_z."} /> Entonces, por la definición de <Math tex={"F_3"} />, <Math display tex={"F_3(\\operatorname{div}u)=(a_x+b_y+c_z)\\,dx\\wedge dy\\wedge dz."} /> Por lo tanto, <Math display tex={"dF_2(u)=F_3(\\operatorname{div}u)."} />  
+5. De los pasos anteriores, el diagrama conmuta: <Math display tex={"F_1\\circ\\operatorname{grad}=d,"} /> <Math display tex={"F_2\\circ\\operatorname{rot}=d\\circ F_1,"} /> <Math display tex={"F_3\\circ\\operatorname{div}=d\\circ F_2."} />  
+6. Deducimos que <Math tex={"\\operatorname{div}\\operatorname{rot}=0"} />. Sea <Math tex={"u\\in\\mathfrak X(U)"} />. Entonces <Math display tex={"F_3(\\operatorname{div}(\\operatorname{rot}u))=dF_2(\\operatorname{rot}u)=d(dF_1(u))=d^2F_1(u)=0."} /> Como <Math tex={"F_3"} /> es un isomorfismo, se sigue que <Math display tex={"\\operatorname{div}(\\operatorname{rot}u)=0."} />  
+7. Deducimos que <Math tex={"\\operatorname{rot}\\operatorname{grad}=0"} />. Sea <Math tex={"f\\in C^\\infty(U)"} />. Entonces <Math display tex={"F_2(\\operatorname{rot}(\\operatorname{grad}f))=dF_1(\\operatorname{grad}f)=d(df)=d^2f=0."} /> Como <Math tex={"F_2"} /> es un isomorfismo, se sigue que <Math display tex={"\\operatorname{rot}(\\operatorname{grad}f)=0."} />
+- (c)
+1. Finalmente decidimos si <Math tex={"u(x,y,z)=(x,0,0)"} /> puede ser el rotor de algún campo vectorial en <Math tex={"\\mathbb R^3"} />. 
+2. Si existiera <Math tex={"v\\in\\mathfrak X(\\mathbb R^3)"} /> tal que <Math display tex={"\\operatorname{rot}(v)=u,"} /> entonces por el paso anterior tendríamos <Math display tex={"\\operatorname{div}(u)=\\operatorname{div}(\\operatorname{rot}v)=0."} />
+3. Pero para <Math tex={"u=(x,0,0)"} />, <Math display tex={"\\operatorname{div}(u)=\\frac{\\partial x}{\\partial x}+\\frac{\\partial 0}{\\partial y}+\\frac{\\partial 0}{\\partial z}=1."} />
+4. Esto contradice que <Math tex={"\\operatorname{div}(u)=0"} />. Por lo tanto, <Math display tex={"u(x,y,z)=(x,0,0)"} /> no puede ser el rotor de ningún campo vectorial suave en <Math tex={"\\mathbb R^3"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 21
+
+<BookBlock kind="exercise">
+Sea <Math tex={"u"} /> un campo suave en un abierto <Math tex={"U"} /> de <Math tex={"\\mathbb R^n"} /> y sea <Math tex={"\\phi"} /> el flujo de <Math tex={"u"} />. Dado <Math tex={"p\\in U"} />, probar que la divergencia de <Math tex={"u"} /> en <Math tex={"p"} /> es la tasa de variacion del volumen de <Math tex={"\\phi"} />. Mas precisamente,
+<Math display tex={"\\operatorname{div}_p(u)=\\left.\\frac d{dt}\\right|_0\\det(d\\phi_t)_p."} />
+<Proof title="Demostracion">
+Sea <Math tex={"\\phi_t"} /> el flujo de <Math tex={"u"} />. Por definicion de flujo, para todo <Math tex={"x"} /> se cumple
+<Math display tex={"\\frac{\\partial}{\\partial t}\\phi_t(x)=u(\\phi_t(x))."} />
+Derivamos esta igualdad respecto de <Math tex={"x"} /> en <Math tex={"p"} />. Como <Math tex={"u"} /> y el flujo son suaves, podemos intercambiar las derivadas respecto de <Math tex={"t"} /> y <Math tex={"x"} />; luego, por la regla de la cadena,
+<Math display tex={"\\frac d{dt}d\\phi_t|_p=du_{\\phi_t(p)}\\circ d\\phi_t|_p."} />
+Por la formula de Jacobi,
+<Math display tex={"\\frac d{dt}\\det(d\\phi_t|_p)\n=\\det(d\\phi_t|_p)\\operatorname{tr}\\left((d\\phi_t|_p)^{-1}du_{\\phi_t(p)}d\\phi_t|_p\\right)"} />
+<Math display tex={"=\\det(d\\phi_t|_p)\\operatorname{tr}(du_{\\phi_t(p)})\n=\\det(d\\phi_t|_p)\\operatorname{div}u(\\phi_t(p))."} />
+Evaluando en <Math tex={"t=0"} />, donde <Math tex={"d\\phi_0=\\operatorname{Id}"} />, queda
+<Math display tex={"\\left.\\frac d{dt}\\right|_{t=0}\\det(d\\phi_t|_p)=\\operatorname{div}_p(u)."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 22 (Opcional) 
+
+<BookBlock kind="exercise">
+(Opcional) [Aspecto dinamico de las funciones analiticas.]
+
+- Sea <Math tex={"(u(x,y),v(x,y))"} /> un campo en el plano. El campo <Math tex={"(u,v)"} /> se dice incompresible (respectivamente irrotacional) si su divergencia <Math tex={"u_x+v_y"} /> (respectivamente su rotor <Math tex={"v_x-u_y"} />) se anula identicamente. Mostrar que la funcion <Math tex={"f=u-iv"} /> es analitica si y solo si el campo <Math tex={"(u,v)"} /> es irrotacional e incompresible.
+- Sea <Math tex={"V(x,y)=(u(x,y),v(x,y))"} /> un campo en una region <Math tex={"D"} /> del plano, y sea <Math tex={"C(t)=(x(t),y(t))"} /> un contorno simple cerrado en <Math tex={"D"} /> definido en el intervalo <Math tex={"[a,b]"} /> y recorrido en sentido antihorario. Se definen la circulacion y el flujo de <Math tex={"V"} /> a lo largo de <Math tex={"C"} /> mediante
+ <Math display tex={"\\operatorname{Circ}(V,C)=\\int_a^b\\langle V(t),C'(t)\\rangle\\,dt,\\qquad \\operatorname{Flujo}(V,C)=\\int_a^b\\det(V(t),C'(t))\\,dt."} />
+ Si <Math tex={"f=u-iv"} />, mostrar que
+ <Math display tex={"\\int_C f(z)\\,dz=\\operatorname{Circ}(V,C)+i\\operatorname{Flujo}(V,C)."} />
+<Proof title="Demostracion">
+Sea <Math tex={"f=u-iv"} />. Las ecuaciones de Cauchy-Riemann para <Math tex={"f"} /> son
+<Math display tex={"u_x=(-v)_y=-v_y,\\qquad u_y=-(-v)_x=v_x."} />
+Equivalen a
+<Math display tex={"u_x+v_y=0,\\qquad v_x-u_y=0."} />
+Es decir, el campo <Math tex={"(u,v)"} /> es incompresible e irrotacional.
+
+Para <Math tex={"z(t)=x(t)+iy(t)"} />,
+<Math display tex={"f(z)z'(t)=(u-iv)(x'+iy')\n=ux'+vy'+i(uy'-vx')."} />
+El termino real es <Math tex={"(V,C')"} />. El imaginario es
+<Math display tex={"uy'-vx'=\\det(V,C')."} />
+Por tanto
+<Math display tex={"\\int_C f(z)\\,dz=\\operatorname{Circ}(V,C)+i\\,\\operatorname{Flujo}(V,C)."} />
+</Proof>
+</BookBlock>
+
+### Ejercicio 23 (Opcional)
+
+<BookBlock kind="exercise">
+(Opcional) Sea <Math tex={"\\alpha=\\sum_{i=1}^n f_i\\,dx_i"} /> una <Math tex={"1"} />-forma cerrada de <Math tex={"\\mathbb R^n"} /> y definir la funcion <Math tex={"g"} /> como
+<Math display tex={"g(x_1,\\ldots,x_n)=\\int_0^{x_1}f_1(t,x_2,x_3,\\ldots,x_n)\\,dt+\\int_0^{x_2}f_2(0,t,x_3,\\ldots,x_n)\\,dt+\\cdots+\\int_0^{x_n}f_n(0,0,0,\\ldots,t)\\,dt."} />
+¿Que relacion hay entre <Math tex={"dg"} /> y <Math tex={"\\alpha"} />?
+<Proof title="Demostracion">
+La funcion <Math tex={"g"} /> se obtiene integrando la <Math tex={"1"} />-forma cerrada <Math tex={"\\alpha=\\sum_i f_i\\,dx_i"} /> sobre el camino poligonal que va de <Math tex={"0"} /> a <Math tex={"x"} /> moviendo una coordenada por vez. Como <Math tex={"\\alpha"} /> es cerrada en <Math tex={"\\mathbb R^n"} />, el lema de Poincare en el dominio estrella <Math tex={"\\mathbb R^n"} /> da independencia del camino. Por tanto
+<Math display tex={"dg=\\alpha."} />
+Equivalente y directamente: al derivar <Math tex={"g"} /> respecto de <Math tex={"x_j"} />, los terminos posteriores se simplifican usando <Math tex={"\\partial_i f_j=\\partial_j f_i"} />, y queda <Math tex={"\\partial g/\\partial x_j=f_j"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 24 (Opcional)
+
+<BookBlock kind="exercise">
+(Opcional) Sea <Math tex={"\\alpha=\\sum_{i=1}^n f_i\\,dx_i"} /> una <Math tex={"1"} />-forma cerrada cuyos coeficientes <Math tex={"f_i"} /> son funciones suaves definidas sobre <Math tex={"\\mathbb R^n\\setminus\\{0\\}"} /> y que son todas funciones homogeneas del mismo grado <Math tex={"p"} /> (<Math tex={"p\\ne-1"} />). Definir
+<Math display tex={"g=\\frac1{p+1}\\sum_{i=1}^n x_i f_i(x_1,\\ldots,x_n)."} />
+Mostrar que <Math tex={"dg=\\alpha"} />.
+<Proof title="Demostracion">
+Sea
+<Math display tex={"g=\\frac1{p+1}\\sum_{i=1}^n x_i f_i(x),\\qquad p\\ne-1."} />
+Entonces
+<Math display tex={"dg=\\frac1{p+1}\\sum_i f_i\\,dx_i+\\frac1{p+1}\\sum_{i,j}x_i\\frac{\\partial f_i}{\\partial x_j}\\,dx_j."} />
+Como <Math tex={"\\alpha"} /> es cerrada,
+<Math display tex={"\\frac{\\partial f_i}{\\partial x_j}=\\frac{\\partial f_j}{\\partial x_i}."} />
+Por homogeneidad de grado <Math tex={"p"} />, la formula de Euler da
+<Math display tex={"\\sum_i x_i\\frac{\\partial f_j}{\\partial x_i}=p f_j."} />
+Luego el coeficiente de <Math tex={"dx_j"} /> en <Math tex={"dg"} /> es
+<Math display tex={"\\frac1{p+1}(f_j+p f_j)=f_j."} />
+Asi <Math tex={"dg=\\alpha"} />.
+</Proof>
+</BookBlock>
+
+### Ejercicio 25 (Opcional)
+
+<BookBlock kind="exercise">
+(Opcional) Sea <Math tex={"\\alpha"} /> una <Math tex={"1"} />-forma nunca nula sobre una variedad suave de dimension <Math tex={"2"} />. Mostrar que <Math tex={"\\alpha"} /> puede escribirse localmente como <Math tex={"f\\,dg"} /> con <Math tex={"f"} /> y <Math tex={"g"} /> funciones suaves.
+<Proof title="Demostracion">
+Sea <Math tex={"\\alpha"} /> una <Math tex={"1"} />-forma nunca nula en una superficie. Cerca de cualquier punto se puede elegir una coordenada <Math tex={"x"} /> tal que el coeficiente de <Math tex={"dx"} /> en <Math tex={"\\alpha"} /> no se anule. Escribamos
+<Math display tex={"\\alpha=a(x,y)\\,dx+b(x,y)\\,dy,\\qquad a\\ne0."} />
+Buscamos <Math tex={"\\alpha=f\\,dg"} />. Equivale a hallar una funcion <Math tex={"g"} /> con
+<Math display tex={"\\alpha\\wedge dg=0,"} />
+es decir
+<Math display tex={"(a\\,dx+b\\,dy)\\wedge(g_x\\,dx+g_y\\,dy)=0\n\\quad\\Longleftrightarrow\\quad\na g_y-b g_x=0."} />
+Esta es una ecuacion diferencial lineal de primer orden. Por el teorema local de existencia para campos suaves, existe una solucion <Math tex={"g"} /> con <Math tex={"dg\\ne0"} /> localmente, constante sobre las curvas tangentes al nucleo de <Math tex={"\\alpha"} />. Entonces <Math tex={"dg"} /> y <Math tex={"\\alpha"} /> tienen el mismo nucleo, por lo que son proporcionales:
+<Math display tex={"\\alpha=f\\,dg"} />
+para alguna funcion suave <Math tex={"f"} />, que no se anula.
+</Proof>
+</BookBlock>

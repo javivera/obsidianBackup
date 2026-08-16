@@ -21,13 +21,13 @@
 >>12. O sea que las ultimas $\binom nk$-funciones de $\widetilde\varphi$ nos dan las coordenadas de $\omega$ con respecto a la base $$\{dx_{i_1}|_p\wedge\cdots\wedge dx_{i_k}|_p\}_{1\le i_1<\cdots<i_k\le n}.$$
 >>13. En esta estructura de variedad diferenciable, la proyeccion canonica $\pi:\Lambda^k(T^*M)\to M$ es suave.
 
->[!Definition] $k$-forma alternante o simplemente $k$-forma
+>[!Definition] k-forma alternante o simplemente k-forma
 >Una $k$-forma $\omega$ es cualquier seccion de $\pi:\Lambda^k(T^*M)\to M$ es decir, es una funcion $$\omega:M\to\Lambda^k(T^*M)$$tal que $\pi(\omega(p))=p$, o lo que es lo mismo $\omega(p)=(p,\omega_p)$ con $\omega_p\in\Lambda^k(T_p^*M)$.
 >Como hicimos con los campos, identificamos $\omega(p)$ con su segunda componente $\omega_p$.
 
->[!Remark] El conjunto de las $k$-formas suaves 
->Vamos a estar interesados en las $k$-formas suaves, es decir, cuando la seccion de $\pi$, $$\omega:M\to\Lambda^k(T^*M)$$es una funcion suave. 
->Se suele denotar el conjunto de tales secciones suaves por $$\Omega^k(M)$$o en notacion de fibrados vectoriales $\Gamma(\Lambda^k(T^*M))$.
+>[!Definition] k-forma suave
+>Decimos que una $k$-forma es suave cuando la sección de $\pi$, $$\omega:M\to\Lambda^k(T^*M)$$es una función suave.
+>Se suele denotar el conjunto de tales secciones suaves por $$\Omega^k(M)$$o, en notación de fibrados vectoriales, por $\Gamma(\Lambda^k(T^*M))$.
 
 >[!Remark] Para memorizar (intuicion)
 >$\Omega^{k}(M)$ vendria a ser como el equivalente a $\mathfrak{X}(M)$ para campos
@@ -69,13 +69,43 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >[!Theorem] Suavidad de $k$-formas
 >Sea $\omega:M\to\Lambda^k(T^*M)$ una $k$-forma. Las siguientes afirmaciones son equivalentes:
 >
->1. $\omega$ es suave.
->2. Para toda carta $(U,\varphi=(x_1,\ldots,x_n))$, las coordenadas de $\omega$ con respecto al marco coordenado $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}_{1\le i_1<\cdots<i_k\le n}$ son funciones suaves.
->3. Para cualquier $k$ campos suaves $X_1,\ldots,X_k\in\mathfrak X(M)$, la funcion $\omega(X_1,\ldots,X_k)\in C^\infty(M)$.
+>- (a) $\omega$ es suave.
+>- (b) Para toda carta $(U,\varphi=(x_1,\ldots,x_n))$, las coordenadas de $\omega$ con respecto al marco coordenado $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}_{1\le i_1<\cdots<i_k\le n}$ son funciones suaves.
+>- (c) Para cualquier $k$ campos suaves $X_1,\ldots,X_k\in\mathfrak X(M)$, la funcion $\omega(X_1,\ldots,X_k)\in C^\infty(M)$.
 >
 >>[!Proof]-
->>1. $(2\iff 3)$ [[GS - Pr5#^174f5d]]
->>2. $(1\iff 2)$ estimo que es trivial usando que suavidad se ve localmente
+>>- $(a\Rightarrow b)$.
+>>1. Supongamos que $\omega:M\to\Lambda^k(T^*M)$ es suave.
+>>2. Sea $(U,\varphi=(x^1,\ldots,x^n))$ una carta de $M$.
+>>3. Esta carta induce una carta $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$, donde $\widetilde U=\pi^{-1}(U)$. Usamos la notación de multiíndices $I=(i_1,\ldots,i_k)$, con $i_1<\cdots<i_k$, y escribimos $dx^I=dx^{i_1}\wedge\cdots\wedge dx^{i_k}$. La carta inducida está dada por $$\widetilde\varphi\left(\sum_I C_I\,dx^I|_p\right)=\left(x^1(p),\ldots,x^n(p),(C_I)_I\right).$$
+>>4. Como $\omega$ es suave, su restricción $\omega|_U:U\to\widetilde U$ es suave. Por lo tanto, como $\widetilde\varphi$ es suave, la composición $$\widetilde\varphi\circ\omega|_U:U\to\mathbb R^{n+\binom nk}$$es suave.
+>>5. Escribimos, para cada $p\in U$, $$\omega_p=\sum_I C_I(p)\,dx^I|_p.$$
+>>6. Entonces $$(\widetilde\varphi\circ\omega|_U)(p)=\left(x^1(p),\ldots,x^n(p),(C_I(p))_I\right).$$
+>>7. Como $\widetilde\varphi\circ\omega|_U$ es suave, todas sus funciones coordenadas son suaves. En particular, para cada multiíndice $I=(i_1,\ldots,i_k)$ con $1\le i_1<\cdots<i_k\le n$, la función $C_I:U\to\mathbb R$ es suave.
+>>8. Como la carta $(U,\varphi)$ era arbitraria, las coordenadas $C_I$ de $\omega$ respecto de todo marco coordenado $\{dx^I\}_I$ son funciones suaves.
+>>- $(b\Rightarrow a)$.
+>>1. Supongamos que, para toda carta $(U,\varphi=(x^1,\ldots,x^n))$, las coordenadas $C_I:U\to\mathbb R$ de $\omega$ son funciones suaves.
+>>2. Fijemos una de estas cartas y consideremos la carta inducida $(\widetilde U,\widetilde\varphi)$ de $\Lambda^k(T^*M)$, con $\widetilde U=\pi^{-1}(U)$.
+>>3. Para cada $p\in U$, escribimos $$\omega_p=\sum_I C_I(p)\,dx^I|_p.$$
+>>4. Por la definición de la carta inducida, $$(\widetilde\varphi\circ\omega|_U)(p)=\left(x^1(p),\ldots,x^n(p),(C_I(p))_I\right).$$
+>>5. Las funciones $x^1,\ldots,x^n$ son suaves y, por hipótesis, todas las funciones $C_I$ son suaves. Por lo tanto, $\widetilde\varphi\circ\omega|_U$ es suave.
+>>6. Como $\widetilde\varphi$ es una carta, concluimos que $\omega|_U:U\to\widetilde U$ es suave.
+>>7. Como esto vale para toda carta $(U,\varphi)$ de $M$, concluimos que $\omega:M\to\Lambda^k(T^*M)$ es suave.
+>>- $(b\Rightarrow c)$
+>>1. Tomamos un $p\in M$ ahora tenemos $(U,\phi=x_{1},\ldots,x_{n})$ carta entonces por (b) $$\omega|_U=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\cdots i_k}\in C^\infty(U)$$
+>>2. Ademas $$X_{i}=\sum^{n}_{j=1}a_{ij}\frac{\partial}{\partial x_{j}}$$
+>>3. Luego $$\omega|_{U}(X_{1},\ldots X_{k})=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)$$
+>>4. Ahora notamos que $$\begin{align} dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)&=\det\left( dx_{i_{r}}\left( \sum^{n}_{j=1}a_{sj}\frac{\partial}{\partial x_{j}} \right) \right)_{r,s=1}^{k} \\ & =\det\left( \sum^{n}_{j=1} a_{sj}dx_{i_{r}}\left(\frac{\partial}{\partial x_{j}}\right) \right)_{r,s=1}^{k}\\&=\det(a_{s i_{r}})_{r,s=1}^{k} \end{align}$$
+>>5. Pero entonces $$\omega|_{U}(X_{1},\ldots,X_{k})(p)=(\omega|_{U})_{p}(X_{1},\ldots,X_{k})=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(p)\det(a_{s i_{r}}(p))$$
+>>6. Pero $C_{i_{1}\ldots i_{k}}$ es suave como funcion de $p$ por hipotesis, lo mismo para $\det(a_{s i_{r}})_{r,s=1}^{k}$ como funcion de $p$ por que $X_{i}$ son campos suaves. Y $\det$ es un polinomio de sus entradas.
+>>7. Entonces $\omega|_{U}(X_{1},\ldots,X_{k})(p)$ es suave y obviamente como esto lo podemos hacer para cualquier $p$ tenemosq ue $$\omega(X_{1},\ldots,X_{k})(p)$$ es suave
+>>- $(c\Rightarrow b)$
+>>1. Tomamos una carta $(U,x_{1},\ldots,x_{n})$ como $B_k=\{dx_{i_1}|_p\wedge\cdots\wedge dx_{i_k}|_p:1\le i_1<\cdots<i_k\le n\}$ es base de $\Lambda^{k}(T_{p}^{*}M)$ tenemos $$\omega|_{U}=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}\ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}$$ con $C_{i_{1}\ldots i_{k}}:U \rightarrow\mathbb{R}$. Bastaria mostrar que son suaves
+>>2. Ahora tenemos que $$\begin{align}\omega|_{U}\left(\frac{\partial}{\partial x_{j_{1}}},\ldots, \frac{\partial}{\partial x_{j_{k}}}\right)(p)& =\omega_{p}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=\sum^{\infty}_{i_{1}<\ldots<i_{k}}C_{i_{1}\ldots i_{k}}(p) \ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=C_{I}(p)\end{align}$$ con $I=J$ osea el unico caso donde el determinante no es $0$ que es cuando coinciden los multi indices, $j_{1}=i_{1}\ldots j_{k}=i_{k}$
+>>3. Ahora lo unico que tenemos que corregir es que $\frac{\partial}{\partial x_{i}}$ son campos suaves sobre $U$  y para usar la hipotesis las necesito suaves sobre $M$
+>>4. Tomamos $q\in U$ y ahora tenemos $V_{q}\subseteq U$ abierto de $q$ y $f\in C^{\infty}(M)$ tal que $f|_{\overline{V_{q}}}\equiv 1$ y $\operatorname{supp}f\subseteq U$ y defino $$X_{i}(p)=\begin{cases} f(p)\frac{\partial}{\partial x_{i}}\bigg|_{p} & p\in U \\0 & x\not\in U \end{cases}$$ que sabemos es un campo suave sobre todo $M$ y cerca de $p$ (osea en algun abierto dentro de $\overline{V_{q}}$, por ejemplo $V_{q}$ ) vale exactamente $\frac{\partial}{\partial x_{i}}\bigg|_{q}$
+>>5. Luego haciendo la misma cuenta que en 2. pero con $X_{i}$ tenemos que $$\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(q)$$ es suave para todo $q\in V_{p}$
+>>6. Y como esto lo podemos hacer para cualquier $q\in U$ es suave en todo $U$ como queriamos
 
 >[!Proposition] Suavidad con una sola carta (analogo a campos) 
 >Sea $(U,\varphi=(x_1,\ldots,x_n))$ una carta suave y sea $\omega$ una $k$-forma sobre $U$, $$\omega:U\to\Lambda^k(T^*M)$$entonces $\omega$ es suave si y solo si las coordenadas de $\omega$ con respecto al marco $\{dx_{i_1}\wedge\cdots\wedge dx_{i_k}\}_{1\le i_1<\cdots<i_k\le n}$ son funciones suaves.
@@ -96,7 +126,10 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >Probar que si $\omega\in\Omega^k(M)$ y $\eta\in\Omega^\ell(M)$, entonces $\omega\wedge\eta\in\Omega^{k+\ell}(M)$.
 >
 >>[!Proof]-
->>[[GS - Pr5#^5374b2]]
+>>1. En coordenadas, escribimos $$\omega=\sum_I a_I\,dx^I,\qquad \eta=\sum_J b_J\,dx^J,$$ con $a_I,b_J$ funciones suaves.
+>>2. Entonces $$\omega\wedge\eta=\sum_{I,J}a_Ib_J\,dx^I\wedge dx^J.$$
+>>3. Los términos que tienen diferenciales repetidos dan $0$, y los demás se reordenan posiblemente cambiando el signo. Pero los nuevos coeficientes siguen siendo productos $\pm a_Ib_J$ de funciones suaves.
+>>4. Por lo tanto, en cada carta $\omega\wedge\eta$ tiene coordenadas suaves. Luego $\omega\wedge\eta\in\Omega^{k+\ell}(M)$.
 
 ^ce25ad
 
@@ -152,42 +185,42 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >
 >>[!Proof]-
 >>- **Unicidad**
->>	1. La idea de la prueba es construir $d$ de forma local, usando las condiciones que debemos satisfacer: (ii)-(iv). Hacemos ingenieria inversa para saber como deberia ser $d$, localmente. Primero, notemos:
->>	2. Asumiendo existencia veamos primero la unicidad, que nos va dar pistas de como definir $d$. 
->>	3. Como $d$ se va definir localmente , fijemos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ y tomemos $\omega\in\Omega^k(M)$ arbitrario y llegemos a una formula para $(d\omega)|_U$.
->>	4. Tenemos $$\omega|_U=\sum_{1\le i_1<\cdots<i_k\le n}C_{i_1\ldots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}.$$
->>	5. Pero $d$ actua sobre cosas definidas sobre todo $M$, entonces no podemos aplicar directamente $d$ a la expresion anterior. Para hacerlo bien, debemos extender dicha expresion a todo $M$, usando una funcion de levantamiento.
->>	6. Sea $V$ abierto de $M$ con $\overline V\subset U$, y sea $f\in C^\infty(M)$ tal que $f|_{\overline V}\equiv1$ y $\operatorname{supp}f\subset U$. Extendemos las $C_{i_1\ldots i_k}$ y $x_1,\ldots,x_n$ definiendo: $$f\cdot x_i=\begin{cases}f(q)x_i(q),&q\in U,\\0,&\text{en otro caso},\end{cases}\qquad f\cdot C_{i_1\ldots i_k}=\begin{cases}f(q)C_{i_1\ldots i_k}(q),&q\in U,\\0,&\text{en otro caso}.\end{cases}$$
->>	7. Estas nuevas funciones son suaves (hemos hecho cuentas similares en otras ocaciones) 
->>	8. Consideremos la nueva $k$-forma: $$\widetilde{\omega}=\sum_{1\le i_1<\cdots<i_k\le n}\underbrace{f.C_{i_1\cdots i_k}}_{\text{smooth function}}\ \ \underbrace{\underbrace{d(f.x_{i_1})}_{\text{smooth }1\text{-form}}\wedge\cdots\wedge\underbrace{d(f.x_{i_k})}_{\text{smooth }1\text{-form}}}_{\text{smooth }k\text{-form}}.$$ $d(f.x_{i_{j}})$ son $1$-formas por lo mismo que [[GS - Teo21#^171d2a]] y luego usamos [[GS - Teo21#^ce25ad]] para el wedge de todas esas $1$-formas y llegamos a la $k$-forma  
->>	9. Notar que $\widetilde\omega$ coincide con $\omega$ en el abierto $V$. En efecto, si $q\in V$, tenemos $f(q)=1$ y asi $$(f\cdot C_{i_1\ldots i_k})(q)=f(q).C_{i_1\ldots i_k}(q)=C_{i_1\ldots i_k}(q)$$
->>	10. Y ademas $d(f\cdot x_i)_q=(dx_i)_q$ por que $$d(f.x_{i})_{q}\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)=\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)(f.x_{i})=\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)(x_{i})=(dx_{i})_{q}\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$$ usando definicion de diferencial y en el segundo igual como $f.x_{i}\equiv x_{i}$ en el abierto $V$ sabemos que $\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$ actua de la misma forma en ambos (germen local)
->>	11. Pero entonces $$(d(f.x_{i_{1}})\wedge\ldots\wedge d(f.x_{i_{k}}))_{q}=(d(x_{i_{1}})\wedge\ldots\wedge d(x_{i_{k}}))_{q}$$ usando la definicion de producto cuña de $k$-formas y la asociatividad 
->>	12. Luego $w$ y $\widetilde{w}$  coinciden en un abierto $V$. Por tanto, por [[GS - Teo21#^ef3cfa]] $$(d\omega)|_V=(d\widetilde\omega)|_V.$$
->>	13. Lo bueno es que la expresion para $\widetilde\omega$ esta definida sobre todo $M$. Por lo tanto podemos aplicar $d$ y obtenemos: $$(d\widetilde\omega)=d\sum fC_{i_1\ldots i_k}\,d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})=d\sum fC_{i_1\ldots i_k}\wedge d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})$$ el ultimo igual por que $fC_{i_1\ldots i_k}$ es una $0$-forma 
->>	14. Por linealidad de $d$ y usando la propiedad $3$ de esta misma afirmacion y considerando que $fC_{i_1\ldots i_k}$ es una $0$-forma, queda $$(d\widetilde\omega)=\sum d(fC_{i_1\ldots i_k})\wedge d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})+\sum fC_{i_1\ldots i_k}\wedge d( d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k}))$$
->>	15. Ahora como $d^{2}=0$ $$(d\widetilde\omega)=\sum d(fC_{i_1\ldots i_k})\wedge d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})$$
->>	16. Finalmente como por paso 12. $(d\omega)|_{V}=(d \widetilde{\omega})|_{V}$ y por paso 15. y por las mismas idaes en paso 9. y 11. tenemos $$(d\omega)|_V=(d \widetilde{\omega})|_{V}\sum d(C_{i_1\ldots i_k})\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}.$$
->>	17. De lo que resulta que $d$ es unico pues la formula anterior solo depende de la diferencial usual de funciones suaves.
->>	18. Notar que la formula anterior da pistas de como se debe definir la transformacion lineal $d:\Omega^*(M)\to\Omega^*(M)$.
+>>1. La idea de la prueba es construir $d$ de forma local, usando las condiciones que debemos satisfacer: (ii)-(iv). Hacemos ingenieria inversa para saber como deberia ser $d$, localmente. Primero, notemos:
+>>2. Asumiendo existencia veamos primero la unicidad, que nos va dar pistas de como definir $d$.
+>>3. Como $d$ se va definir localmente , fijemos una carta suave $(U,\varphi=(x_1,\ldots,x_n))$ y tomemos $\omega\in\Omega^k(M)$ arbitrario y llegemos a una formula para $(d\omega)|_U$.
+>>4. Tenemos $$\omega|_U=\sum_{1\le i_1<\cdots<i_k\le n}C_{i_1\ldots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}.$$
+>>5. Pero $d$ actua sobre cosas definidas sobre todo $M$, entonces no podemos aplicar directamente $d$ a la expresion anterior. Para hacerlo bien, debemos extender dicha expresion a todo $M$, usando una funcion de levantamiento.
+>>6. Sea $V$ abierto de $M$ con $\overline V\subset U$, y sea $f\in C^\infty(M)$ tal que $f|_{\overline V}\equiv1$ y $\operatorname{supp}f\subset U$. Extendemos las $C_{i_1\ldots i_k}$ y $x_1,\ldots,x_n$ definiendo: $$f\cdot x_i=\begin{cases}f(q)x_i(q),&q\in U,\\0,&\text{en otro caso},\end{cases}\qquad f\cdot C_{i_1\ldots i_k}=\begin{cases}f(q)C_{i_1\ldots i_k}(q),&q\in U,\\0,&\text{en otro caso}.\end{cases}$$
+>>7. Estas nuevas funciones son suaves (hemos hecho cuentas similares en otras ocaciones)
+>>8. Consideremos la nueva $k$-forma: $$\widetilde{\omega}=\sum_{1\le i_1<\cdots<i_k\le n}\underbrace{f.C_{i_1\cdots i_k}}_{\text{smooth function}}\ \ \underbrace{\underbrace{d(f.x_{i_1})}_{\text{smooth }1\text{-form}}\wedge\cdots\wedge\underbrace{d(f.x_{i_k})}_{\text{smooth }1\text{-form}}}_{\text{smooth }k\text{-form}}.$$ $d(f.x_{i_{j}})$ son $1$-formas por lo mismo que [[GS - Teo21#^171d2a|Motivacion]] y luego usamos [[GS - Teo21#^ce25ad|Ejercicio del practico]] para el wedge de todas esas $1$-formas y llegamos a la $k$-forma
+>>9. Notar que $\widetilde\omega$ coincide con $\omega$ en el abierto $V$. En efecto, si $q\in V$, tenemos $f(q)=1$ y asi $$(f\cdot C_{i_1\ldots i_k})(q)=f(q).C_{i_1\ldots i_k}(q)=C_{i_1\ldots i_k}(q)$$
+>>10. Y ademas $d(f\cdot x_i)_q=(dx_i)_q$ por que $$d(f.x_{i})_{q}\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)=\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)(f.x_{i})=\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)(x_{i})=(dx_{i})_{q}\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$$ usando definicion de diferencial y en el segundo igual como $f.x_{i}\equiv x_{i}$ en el abierto $V$ sabemos que $\left(\frac{\partial}{\partial x_{i}}\bigg|_{q}\right)$ actua de la misma forma en ambos (germen local)
+>>11. Pero entonces $$(d(f.x_{i_{1}})\wedge\ldots\wedge d(f.x_{i_{k}}))_{q}=(d(x_{i_{1}})\wedge\ldots\wedge d(x_{i_{k}}))_{q}$$ usando la definicion de producto cuña de $k$-formas y la asociatividad
+>>12. Luego $w$ y $\widetilde{w}$  coinciden en un abierto $V$. Por tanto, por [[GS - Teo21#^ef3cfa|La diferencial exterior es local, lema previo]] $$(d\omega)|_V=(d\widetilde\omega)|_V.$$
+>>13. Lo bueno es que la expresion para $\widetilde\omega$ esta definida sobre todo $M$. Por lo tanto podemos aplicar $d$ y obtenemos: $$(d\widetilde\omega)=d\sum fC_{i_1\ldots i_k}\,d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})=d\sum fC_{i_1\ldots i_k}\wedge d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})$$ el ultimo igual por que $fC_{i_1\ldots i_k}$ es una $0$-forma
+>>14. Por linealidad de $d$ y usando la propiedad $3$ de esta misma afirmacion y considerando que $fC_{i_1\ldots i_k}$ es una $0$-forma, queda $$(d\widetilde\omega)=\sum d(fC_{i_1\ldots i_k})\wedge d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})+\sum fC_{i_1\ldots i_k}\wedge d( d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k}))$$
+>>15. Ahora como $d^{2}=0$ $$(d\widetilde\omega)=\sum d(fC_{i_1\ldots i_k})\wedge d(fx_{i_1})\wedge\cdots\wedge d(fx_{i_k})$$
+>>16. Finalmente como por paso 12. $(d\omega)|_{V}=(d \widetilde{\omega})|_{V}$ y por paso 16. y por la misma idea que en 11. tenemos $$(d\omega)|_V=(d \widetilde{\omega})|_{V}=\sum d(C_{i_1\ldots i_k})\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}.$$
+>>17. De lo que resulta que $d$ es unico pues la formula anterior solo depende de la diferencial usual de funciones suaves.
+>>18. Notar que la formula anterior da pistas de como se debe definir la transformacion lineal $d:\Omega^*(M)\to\Omega^*(M)$.
 >>- **Existencia**
->>	1. Construyamos $d$ localmente y luego lo hacemos de forma global. Fijemos una carta $(U,\varphi=(x_1,\ldots,x_n))$.
->>	2. Dada una $k$-forma $\omega\in\Omega^k(U)$,$$\omega=\sum C_{i_1\ldots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\ldots i_k}\in C^\infty(U),$$
->>	3. Definimos $d_U$ por $$d_U\omega:=\sum dC_{i_1\ldots i_k}\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k},$$donde $dC_{i_1\ldots i_k}$ es la diferencial de $C_{i_1\ldots i_k}$, por lo tanto una $1$-forma y luego su base es $\{ dx_{1},\ldots,dx_{n} \}$  $$dC_{i_1\ldots i_k}=\sum_{j=1}^n\frac{\partial C_{i_1\ldots i_k}}{\partial x_j}\,dx_j.$$ los coeficientes salen por que $dC_{I}\frac{\partial}{\partial x_{j}}=\frac{\partial}{\partial x_{j}}C_{I}$ y esto vale por [[Glosario Teorico#^311f86]]
->>	4. Por linealidad del diferencial de funciones suaves, claramente $d_U$ se extiende a una transformacion lineal sobre todo $\Omega^*(U)$
->>	5. Ademas $d_U$ satisface **(i)** por que si reemplazamos la expresion que dimos en 3. llegamos a $$d_U\omega:=\sum_{j=1}^{n}  \sum_{i_{1}< \ldots<i_{k}}\frac{\partial C_{i_1\ldots i_k}}{\partial x_j}\,dx_j\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k},$$ y luego de permutar y posiblemente agregar un $-1$ nos queda que esto es una suma de $1$ hasta $n$ de $k+1$-formas 
->>	6. **(ii)** es trivial por que $f=f.1$ entonces $d|_{U}f=d|_{U}f.1=d|_{U}f$  
->>	7. **(iii)** Como $d_U$ es lineal y $\wedge$ es bilineal, basta con analizar cuando $\omega=f\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}$ y $\theta=g\,dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}$. Esto es por que el producto cuña de dos elementos de la suma directa se define como la suma de los productos cuña de los pares son $k$-formas del mismo grado $k$.
->>	8. Luego por linealidad seria diferencial de cada uno de esos productos. Pero esos productos son basicamente como en multiplicacion de polinomios la suma de todas las combinaciones, y luego por linealidad nuevamente basta verlo para un caso cualquiera de esos que seria $\omega\wedge\theta$ 
->>	9. Entonces $$\begin{align}d_U(\omega\wedge\theta)& =d_U(fg\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell})\\ & =d(fg)\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\&=(f\,dg+g\,df)\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\& =f\,dg\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}+g\,df\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\&=(-1)^k f\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dg\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}+df\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge g\,dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\&=(d_U\omega)\wedge\theta+(-1)^k\omega\wedge d_U\theta.\end{align}$$
->>	10. **(iv)** $d_U^2=0$. Por linealidad de $d_U$, es suficiente con ver $d_Ud_U\omega=0$ con $\omega=f\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}$. $$\begin{align}d_Ud_U\omega&=d_U\left(\sum_j\frac{\partial f}{\partial x_j}dx_j\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\right)\\&=d_U\left(\sum_j\sum_I\frac{\partial f}{\partial x_j}dx_j\wedge dx_I\right)\\&=\sum_j\sum_I d\left(\frac{\partial f}{\partial x_j}\right)\wedge dx_j\wedge dx_I\\&=\sum_j\sum_I\left(\sum_k\frac{\partial^2 f}{\partial x_k\partial x_j}dx_k\right)\wedge dx_j\wedge dx_I\\&=\sum_I\sum_{1\le j<k\le n}\left(\frac{\partial^2 f}{\partial x_k\partial x_j}-\frac{\partial^2 f}{\partial x_j\partial x_k}\right)dx_k\wedge dx_j\wedge dx_I=0\end{align}$$ esto ultimo vale por que $$\left(\frac{\partial^2 f}{\partial x_k\partial x_j}-\frac{\partial^2 f}{\partial x_j\partial x_k}\right)=\left[\frac{\partial }{\partial x_k},\frac{\partial}{\partial x_j}\right]f=0$$ 
->>	11. Por ultimo, definimos de manera global $d$. Sea $\theta\in\Omega^r(M)$. Dado $p\in M$, definimos $$(d\theta)_p:=(d_U\theta|_U)_p$$para cualquier carta suave $(U,\varphi=(x_1,\ldots,x_n))$ de $M$ alrededor de $p$. (la parte. dela derecha cae en lo que hicimos al principio por lo tanto cumple todo) 
->>	12. Necesitamos ver que esta bien definido. Sea $(V,\psi=(y_1,\ldots,y_n))$ otra carta suave de $p$, y $W=U\cap V\ne\varnothing$. Por linealidad de la derivada exterior, alcanza con verlo cuando $\theta\in\Omega^k(M)$.
->>	13. Tenemos $$\theta|_U=\sum_Ia_I\,dx_I,\qquad \theta|_V=\sum_Jb_J\,dy_J.$$
->>	14. Entonces por definicion de $d_U$ y $d_V$, $$d_U\theta|_U=\sum_Ida_I\wedge dx_I,\qquad d_V\theta|_V=\sum_Jdb_J\wedge dy_J.$$
->>	15. Pero en $W=U\cap V$ hay una unica diferencial exterior local $$d_W:\Omega^*(W)\to\Omega^{*}(W).$$
->>	16. Tomando las dos expresiones de $\theta|_W$, esto ultimo es igual a, por ser $d_W$ diferencial exterior, $$\sum_Ida_I\wedge dx_I=\sum_Jdb_J\wedge dy_J.$$
->>	17. En particular, si evaluamos en $p$, $$(\sum_Ida_I\wedge dx_I)_p=(\sum_Jdb_J\wedge dy_J)_p.$$
+>>1. Construyamos $d$ localmente y luego lo hacemos de forma global. Fijemos una carta $(U,\varphi=(x_1,\ldots,x_n))$.
+>>2. Dada una $k$-forma $\omega\in\Omega^k(U)$,$$\omega=\sum C_{i_1\ldots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\ldots i_k}\in C^\infty(U),$$
+>>3. Definimos $d_U$ por $$d_U\omega:=\sum dC_{i_1\ldots i_k}\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k},$$donde $dC_{i_1\ldots i_k}$ es la diferencial de $C_{i_1\ldots i_k}$, por lo tanto una $1$-forma y luego su base es $\{ dx_{1},\ldots,dx_{n} \}$  $$dC_{i_1\ldots i_k}=\sum_{j=1}^n\frac{\partial C_{i_1\ldots i_k}}{\partial x_j}\,dx_j.$$ los coeficientes salen por que $dC_{I}\frac{\partial}{\partial x_{j}}=\frac{\partial}{\partial x_{j}}C_{I}$ y esto vale por ^311f86
+>>4. Por linealidad del diferencial de funciones suaves, claramente $d_U$ se extiende a una transformacion lineal sobre todo $\Omega^*(U)$
+>>5. Ademas $d_U$ satisface **(i)** por que si reemplazamos la expresion que dimos en 3. llegamos a $$d_U\omega:=\sum_{j=1}^{n}  \sum_{i_{1}< \ldots<i_{k}}\frac{\partial C_{i_1\ldots i_k}}{\partial x_j}\,dx_j\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k},$$ y luego de permutar y posiblemente agregar un $-1$ nos queda que esto es una suma de $1$ hasta $n$ de $k+1$-formas
+>>6. **(ii)** es trivial por que $f=f.1$ entonces $d|_{U}f=d|_{U}f.1=d|_{U}f$
+>>7. **(iii)** Como $d_U$ es lineal y $\wedge$ es bilineal, basta con analizar cuando $\omega=f\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}$ y $\theta=g\,dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}$. Esto es por que el producto cuña de dos elementos de la suma directa se define como la suma de los productos cuña de los pares son $k$-formas del mismo grado $k$.
+>>8. Luego por linealidad seria diferencial de cada uno de esos productos. Pero esos productos son basicamente como en multiplicacion de polinomios la suma de todas las combinaciones, y luego por linealidad nuevamente basta verlo para un caso cualquiera de esos que seria $\omega\wedge\theta$
+>>9. Entonces $$\begin{align}d_U(\omega\wedge\theta)& =d_U(fg\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell})\\ & =d(fg)\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\&=(f\,dg+g\,df)\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\& =f\,dg\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}+g\,df\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\&=(-1)^k f\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge dg\wedge dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}+df\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}\wedge g\,dx_{j_1}\wedge\cdots\wedge dx_{j_\ell}\\&=(d_U\omega)\wedge\theta+(-1)^k\omega\wedge d_U\theta.\end{align}$$
+>>10. **(iv)** $d_U^2=0$. Por linealidad de $d_U$, es suficiente con ver $d_Ud_U\omega=0$ con $\omega=f\,dx_I$, donde $dx_I=dx_{i_1}\wedge\cdots\wedge dx_{i_k}$. $$\begin{align}d_Ud_U\omega&=d_U\left(\sum_j\frac{\partial f}{\partial x_j}dx_j\wedge dx_I\right)\\&=\sum_j d\left(\frac{\partial f}{\partial x_j}\right)\wedge dx_j\wedge dx_I\\&=\sum_j\sum_k\frac{\partial^2 f}{\partial x_k\partial x_j}dx_k\wedge dx_j\wedge dx_I\\&=\sum_{1\le j<k\le n}\left(\frac{\partial^2 f}{\partial x_k\partial x_j}-\frac{\partial^2 f}{\partial x_j\partial x_k}\right)dx_k\wedge dx_j\wedge dx_I=0.\end{align}$$ Esto último vale porque $$\left(\frac{\partial^2 f}{\partial x_k\partial x_j}-\frac{\partial^2 f}{\partial x_j\partial x_k}\right)=\left[\frac{\partial }{\partial x_k},\frac{\partial}{\partial x_j}\right]f=0.$$
+>>11. Por ultimo, definimos de manera global $d$. Sea $\theta\in\Omega^r(M)$. Dado $p\in M$, definimos $$(d\theta)_p:=(d_U\theta|_U)_p$$para cualquier carta suave $(U,\varphi=(x_1,\ldots,x_n))$ de $M$ alrededor de $p$. (la parte. dela derecha cae en lo que hicimos al principio por lo tanto cumple todo)
+>>12. Necesitamos ver que esta bien definido. Sea $(V,\psi=(y_1,\ldots,y_n))$ otra carta suave de $p$, y $W=U\cap V\ne\varnothing$. Por linealidad de la derivada exterior, alcanza con verlo cuando $\theta\in\Omega^k(M)$.
+>>13. Tenemos $$\theta|_U=\sum_Ia_I\,dx_I,\qquad \theta|_V=\sum_Jb_J\,dy_J.$$
+>>14. Entonces por definicion de $d_U$ y $d_V$, $$d_U\theta|_U=\sum_Ida_I\wedge dx_I,\qquad d_V\theta|_V=\sum_Jdb_J\wedge dy_J.$$
+>>15. Pero en $W=U\cap V$ hay una unica diferencial exterior local $$d_W:\Omega^*(W)\to\Omega^{*}(W).$$
+>>16. Tomando las dos expresiones de $\theta|_W$, esto ultimo es igual a, por ser $d_W$ diferencial exterior, $$\sum_Ida_I\wedge dx_I=\sum_Jdb_J\wedge dy_J.$$
+>>17. En particular, si evaluamos en $p$, $$(\sum_Ida_I\wedge dx_I)_p=(\sum_Jdb_J\wedge dy_J)_p.$$
 
 ^f7b034
 
@@ -203,3 +236,5 @@ Como nos sucedio en el capitulo de Campos, la primera pregunta es: criterios par
 >Es decir, $v_{i_1\cdots i_k}(\omega)$ es el coeficiente de $\omega$ obtenido al evaluarla en los vectores coordenados correspondientes.
 
 ^4e8085
+
+

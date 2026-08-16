@@ -1,0 +1,1091 @@
+---
+import BookLayout from "../layouts/BookLayout.astro";
+import AccountGate from "../components/AccountGate.astro";
+import { chapters } from "../data/chapters";
+import { blockTitle, corazonTheorems, renderInlineMdx } from "../data/corazonTheorems";
+import { withBase } from "../lib/paths";
+import { listaCorazonesBlockIds } from "../data/listaTeoremas";
+
+const kindLabels = {
+  definition: "Definiciones",
+  theorem: "Teoremas",
+  lemma: "Lemas",
+  proposition: "Proposiciones",
+  corollary: "Corolarios",
+  remark: "Observaciones",
+  example: "Ejemplos",
+  exercise: "Ejercicios"
+} as const;
+
+type Kind = keyof typeof kindLabels;
+
+const chapterSources = import.meta.glob("./chapters/*.mdx", {
+  query: "?raw",
+  import: "default",
+  eager: true
+}) as Record<string, string>;
+
+const catalog = chapters.flatMap((chapter) => {
+  const slug = chapter.href.split("/").filter(Boolean).at(-1);
+  if (!slug) return [];
+
+  const source = chapterSources[`./chapters/${slug}.mdx`];
+  if (!source) return [];
+  const chapterNumber = Number(slug.match(/^teo-(\d+)$/)?.[1]) || null;
+  const entries: Array<{
+    chapterHref: string;
+    chapterLabel: string;
+    chapterTitle: string;
+    chapterNumber: number | null;
+    index: number;
+    kindIndex: number;
+    kind: Kind;
+    optional: boolean;
+    titleHtml: string;
+  }> = [];
+  const blockPattern = /<BookBlock\b[^>]*\bkind="([^"]+)"[^>]*>/g;
+  let match;
+  let index = 0;
+  const kindCounts: Partial<Record<Kind, number>> = {};
+  let previousBlockEnd = 0;
+
+  while ((match = blockPattern.exec(source)) !== null) {
+    const kind = match[1] as Kind;
+    const kindIndex = kindCounts[kind] ?? 0;
+    kindCounts[kind] = kindIndex + 1;
+    const closingIndex = source.indexOf("</BookBlock>", blockPattern.lastIndex);
+    const body = source.slice(
+      blockPattern.lastIndex,
+      closingIndex >= 0 ? closingIndex : blockPattern.lastIndex + 500
+    );
+    const precedingContent = source.slice(previousBlockEnd, match.index);
+    const optional =
+      kind === "exercise" &&
+      (
+        /^\s*###?[^\n]*(?:opcional|optativ[oa])/im.test(precedingContent) ||
+        /(?:opcional|optativ[oa])/i.test(body.slice(0, 300))
+      );
+    if (kind in kindLabels) {
+      entries.push({
+        chapterHref: chapter.href,
+        chapterLabel: chapter.label,
+        chapterTitle: chapter.title,
+        chapterNumber,
+        index,
+        kindIndex,
+        kind,
+        optional,
+        titleHtml: renderInlineMdx(blockTitle(match[0], body))
+      });
+    }
+    if (closingIndex >= 0) {
+      previousBlockEnd = closingIndex + "</BookBlock>".length;
+    }
+    index += 1;
+  }
+
+  return entries;
+});
+
+const counts = Object.keys(kindLabels).reduce<Record<string, number>>((result, kind) => {
+  result[kind] = catalog.filter((entry) => entry.kind === kind).length;
+  return result;
+}, {});
+const optionalExerciseCount = catalog.filter((entry) => entry.optional).length;
+
+const listaCorazonesIds = new Set(listaCorazonesBlockIds);
+const listaCorazonesCatalogCount = catalog.filter((entry) =>
+  listaCorazonesIds.has(`${entry.chapterHref}:${entry.index}` as typeof listaCorazonesBlockIds[number])
+).length;
+const corazonGuides = Object.fromEntries(
+  corazonTheorems.map((entry) => [entry.id, entry.proofCueStepsHtml])
+);
+const corazonProofs = Object.fromEntries(
+  corazonTheorems.map((entry) => [entry.id, entry.proofStepsHtml])
+);
+
+const theoryChapters = chapters.filter((chapter) => chapter.section === "theory");
+const practiceChapters = chapters.filter((chapter) => chapter.section === "practice");
+---
+
+<BookLayout
+  title="Tester aleatorio"
+  description="Crea examenes aleatorios y guarda tus puntuaciones"
+  chapter="Tester"
+>
+  <AccountGate contentId="tester-account-content" />
+  <div class="random-page tester-page" id="tester-account-content" hidden>
+    <div class="account-session">
+      <span>Usuario: <strong data-account-username></strong></span>
+      <button class="text-button" type="button" data-account-logout>Cerrar sesion</button>
+    </div>
+    <header class="random-hero">
+      <p class="random-kicker">Modo examen</p>
+      <h1>Tester aleatorio</h1>
+      <p class="lede">
+        Configura un examen, descubre cada respuesta cuando estes listo y marca
+        si la sabias. Tus resultados se guardan en tu cuenta.
+      </p>
+    </header>
+
+    <section class="random-toolbar" id="test-setup" aria-label="Configurar examen">
+      <fieldset class="kind-filters">
+        <legend>Que quieres practicar</legend>
+        <label class="kind-option kind-option-all">
+          <input id="test-kind-all" type="checkbox" checked />
+          <span>Todo <small>{catalog.length}</small></span>
+        </label>
+        {Object.entries(kindLabels).map(([kind, label]) => (
+          <label class="kind-option">
+            <input class="test-kind-filter" type="checkbox" value={kind} checked />
+            <span>{label} <small>{counts[kind]}</small></span>
+          </label>
+        ))}
+        <label class="kind-option">
+          <input class="test-kind-filter" type="checkbox" value="heart" checked />
+          <span>Teoremas corazón <small>{listaCorazonesCatalogCount}</small></span>
+        </label>
+        <label class="kind-option kind-option-all">
+          <input id="test-exclude-optional" type="checkbox" />
+          <span>Excluir ejercicios opcionales <small>{optionalExerciseCount}</small></span>
+        </label>
+      </fieldset>
+
+      <fieldset class="kind-filters chapter-filters">
+        <legend>De que archivos</legend>
+
+        <div class="file-filter-section">
+          <strong>Teoria</strong>
+          <div class="kind-filters">
+            <label class="kind-option">
+              <input class="test-range-filter" type="radio" name="test-range" value="all" checked />
+              <span>Todos</span>
+            </label>
+            <label class="kind-option">
+              <input class="test-range-filter" type="radio" name="test-range" value="before-13" />
+              <span>Antes del 13 <small>1–12</small></span>
+            </label>
+            <label class="kind-option">
+              <input class="test-range-filter" type="radio" name="test-range" value="from-13" />
+              <span>Desde el 13 <small>13–23</small></span>
+            </label>
+          </div>
+          <div class="kind-filters">
+            {theoryChapters.map((chapter) => (
+              <label class="kind-option">
+                <input class="test-file-filter" type="checkbox" value={chapter.href} />
+                <span>{chapter.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="file-filter-section">
+          <strong>Practica</strong>
+          <div class="kind-filters">
+            <label class="kind-option">
+              <input class="test-practice-group" type="checkbox" value="pr-1-3" />
+              <span>Practicos 1–3</span>
+            </label>
+            <label class="kind-option">
+              <input class="test-practice-group" type="checkbox" value="pr-4-6" />
+              <span>Practicos 4–6</span>
+            </label>
+          </div>
+          <div class="kind-filters">
+            {practiceChapters.map((chapter) => (
+              <label class="kind-option">
+                <input class="test-file-filter" type="checkbox" value={chapter.href} />
+                <span>{chapter.label}</span>
+              </label>
+            ))}
+          </div>
+          <small>Las selecciones individuales y los grupos se pueden combinar.</small>
+        </div>
+      </fieldset>
+
+      <div class="test-length-row">
+        <label for="test-length">
+          Cantidad de preguntas
+          <input id="test-length" type="number" min="1" max="100" value="10" inputmode="numeric" />
+        </label>
+        <button class="primary-button" id="test-start" type="button">Empezar examen</button>
+      </div>
+      <p class="random-status" id="test-setup-status" aria-live="polite"></p>
+    </section>
+
+    <section class="test-session" id="test-session" hidden>
+      <div class="test-progress-header">
+        <div>
+          <span id="test-progress-label">Pregunta 1 de 10</span>
+          <strong id="test-live-score">0 correctas</strong>
+        </div>
+        <div class="test-progress-track" aria-hidden="true">
+          <span id="test-progress-bar"></span>
+        </div>
+      </div>
+
+      <div class="random-result test-card">
+        <div class="random-result-meta">
+          <span id="test-result-kind"></span>
+          <a id="test-result-source" href={withBase("/")}>Ver en el capitulo</a>
+        </div>
+        <div id="test-question"></div>
+        <div id="test-answer" hidden></div>
+        <div class="proof-reveal" id="test-guide-reveal" hidden>
+          <div class="proof-reveal-header">
+            <div>
+              <span class="proof-label">Guía de reconstrucción</span>
+              <small id="test-guide-progress"></small>
+            </div>
+            <button class="secondary-button" id="test-guide-start" type="button">
+              Revelar guía paso a paso
+            </button>
+          </div>
+          <div class="proof-steps" id="test-guide-steps" aria-live="polite"></div>
+          <button class="secondary-button" id="test-guide-next" type="button" hidden>
+            Siguiente pista
+          </button>
+        </div>
+        <div class="proof-reveal" id="test-proof-reveal" hidden>
+          <div class="proof-reveal-header">
+            <div>
+              <span class="proof-label" id="test-proof-title">Demostracion</span>
+              <small id="test-proof-progress"></small>
+            </div>
+            <button class="secondary-button" id="test-proof-start" type="button">
+              Mostrar paso a paso
+            </button>
+          </div>
+          <div class="proof-steps" id="test-proof-steps" aria-live="polite"></div>
+          <button class="secondary-button" id="test-proof-next" type="button" hidden>
+            Siguiente paso
+          </button>
+        </div>
+        <div class="test-question-actions">
+          <button class="secondary-button test-reveal-button" id="test-reveal" type="button">
+            Mostrar respuesta
+          </button>
+          <button class="text-button test-disable-button" id="test-disable" type="button">
+            Desactivar este enunciado
+          </button>
+        </div>
+        <div class="test-grade-actions" id="test-grade-actions" hidden>
+          <button class="secondary-button score-no" id="test-wrong" type="button">No la sabia</button>
+          <button class="secondary-button score-partial" id="test-partial" type="button">Mas o menos</button>
+          <button class="secondary-button score-skip" id="test-skip" type="button">No cuenta</button>
+          <button class="primary-button" id="test-correct" type="button">La sabia</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="test-finish" id="test-finish" hidden>
+      <p class="random-kicker">Examen terminado</p>
+      <h2 id="test-final-score">0 de 0</h2>
+      <p id="test-final-detail"></p>
+      <button class="primary-button" id="test-again" type="button">Crear otro examen</button>
+    </section>
+
+    <section class="score-dashboard" aria-labelledby="score-title">
+      <div class="score-dashboard-header">
+        <div>
+          <p class="random-kicker">Cuenta de <span data-account-username></span></p>
+          <h2 id="score-title">Tus puntuaciones</h2>
+        </div>
+        <button class="text-button" id="clear-scores" type="button">Borrar historial</button>
+      </div>
+      <div class="score-summary" id="score-summary"></div>
+      <h3>Examenes recientes</h3>
+      <div class="attempt-history" id="attempt-history"></div>
+    </section>
+  </div>
+
+  <script is:inline define:vars={{ catalog, kindLabels, listaCorazonesBlockIds, corazonGuides, corazonProofs }}>
+    const maxMasteryLevel = 6;
+    const masteryWeightFactor = 0.68;
+    const allKinds = document.querySelector("#test-kind-all");
+    const excludeOptional = document.querySelector("#test-exclude-optional");
+    const kindFilters = Array.from(document.querySelectorAll(".test-kind-filter"));
+    const rangeFilters = Array.from(document.querySelectorAll(".test-range-filter"));
+    const fileFilters = Array.from(document.querySelectorAll(".test-file-filter"));
+    const practiceGroups = Array.from(document.querySelectorAll(".test-practice-group"));
+    const lengthInput = document.querySelector("#test-length");
+    const startButton = document.querySelector("#test-start");
+    const setup = document.querySelector("#test-setup");
+    const setupStatus = document.querySelector("#test-setup-status");
+    const session = document.querySelector("#test-session");
+    const progressLabel = document.querySelector("#test-progress-label");
+    const liveScore = document.querySelector("#test-live-score");
+    const progressBar = document.querySelector("#test-progress-bar");
+    const resultKind = document.querySelector("#test-result-kind");
+    const resultSource = document.querySelector("#test-result-source");
+    const question = document.querySelector("#test-question");
+    const answer = document.querySelector("#test-answer");
+    const guideReveal = document.querySelector("#test-guide-reveal");
+    const guideProgress = document.querySelector("#test-guide-progress");
+    const guideStart = document.querySelector("#test-guide-start");
+    const guideSteps = document.querySelector("#test-guide-steps");
+    const guideNext = document.querySelector("#test-guide-next");
+    const proofReveal = document.querySelector("#test-proof-reveal");
+    const proofTitle = document.querySelector("#test-proof-title");
+    const proofProgress = document.querySelector("#test-proof-progress");
+    const proofStart = document.querySelector("#test-proof-start");
+    const proofSteps = document.querySelector("#test-proof-steps");
+    const proofNext = document.querySelector("#test-proof-next");
+    const revealButton = document.querySelector("#test-reveal");
+    const disableButton = document.querySelector("#test-disable");
+    const gradeActions = document.querySelector("#test-grade-actions");
+    const correctButton = document.querySelector("#test-correct");
+    const partialButton = document.querySelector("#test-partial");
+    const wrongButton = document.querySelector("#test-wrong");
+    const skipButton = document.querySelector("#test-skip");
+    const finish = document.querySelector("#test-finish");
+    const finalScore = document.querySelector("#test-final-score");
+    const finalDetail = document.querySelector("#test-final-detail");
+    const againButton = document.querySelector("#test-again");
+    const scoreSummary = document.querySelector("#score-summary");
+    const attemptHistory = document.querySelector("#attempt-history");
+    const clearScores = document.querySelector("#clear-scores");
+    const chapterCache = new Map();
+    const heartListIds = new Set(listaCorazonesBlockIds);
+
+    let testEntries = [];
+    let currentIndex = 0;
+    let answers = [];
+    let testConfig = null;
+    let currentGuideSteps = [];
+    let visibleGuideSteps = 0;
+    let currentProofSteps = [];
+    let visibleProofSteps = 0;
+
+    function selectedKinds() {
+      return new Set(kindFilters.filter((filter) => filter.checked).map((filter) => filter.value));
+    }
+
+    function selectedRange() {
+      return rangeFilters.find((filter) => filter.checked)?.value || "all";
+    }
+
+    function selectedFiles() {
+      const files = new Set(
+        fileFilters.filter((filter) => filter.checked).map((filter) => filter.value)
+      );
+
+      practiceGroups.filter((filter) => filter.checked).forEach((filter) => {
+        const [start, end] = filter.value === "pr-1-3" ? [1, 3] : [4, 6];
+        for (let number = start; number <= end; number += 1) {
+          const practiceFile = fileFilters.find((item) =>
+            item.value.endsWith(`/chapters/pr-${number}`)
+          );
+          if (practiceFile) files.add(practiceFile.value);
+        }
+      });
+      return files;
+    }
+
+    function saveFilters() {
+      window.geoAccount.data.filters ||= {};
+      window.geoAccount.data.filters.tester = {
+        kinds: [...selectedKinds()],
+        range: selectedRange(),
+        files: fileFilters.filter((filter) => filter.checked).map((filter) => filter.value),
+        practiceGroups: practiceGroups
+          .filter((filter) => filter.checked)
+          .map((filter) => filter.value),
+        excludeOptional: excludeOptional.checked,
+        length: Math.max(1, Math.min(100, Number(lengthInput.value) || 10))
+      };
+      window.geoAccount.save();
+    }
+
+    function restoreFilters() {
+      try {
+        const saved = window.geoAccount.data.filters?.tester;
+        if (!saved || typeof saved !== "object") return;
+
+        if (Array.isArray(saved.kinds)) {
+          const kinds = new Set(saved.kinds);
+          if (saved.heartListOnly === true) kinds.add("heart");
+          kindFilters.forEach((filter) => {
+            filter.checked = kinds.has(filter.value);
+          });
+        }
+
+        if (typeof saved.range === "string") {
+          const savedRange = rangeFilters.find((filter) => filter.value === saved.range);
+          if (savedRange) savedRange.checked = true;
+        }
+
+        if (Array.isArray(saved.files)) {
+          const files = new Set(saved.files);
+          fileFilters.forEach((filter) => {
+            filter.checked = files.has(filter.value);
+          });
+        }
+
+        if (Array.isArray(saved.practiceGroups)) {
+          const groups = new Set(saved.practiceGroups);
+          practiceGroups.forEach((filter) => {
+            filter.checked = groups.has(filter.value);
+          });
+        }
+
+        excludeOptional.checked = saved.excludeOptional === true;
+
+        const savedLength = Number(saved.length);
+        if (Number.isFinite(savedLength)) {
+          lengthInput.value = String(Math.max(1, Math.min(100, savedLength)));
+        }
+      } catch {
+        // Keep the default filters when saved data is unavailable or malformed.
+      }
+    }
+
+    function matchesFiles(entry) {
+      const files = selectedFiles();
+      if (files.size > 0) return files.has(entry.chapterHref);
+      const range = selectedRange();
+      if (range === "before-13") return entry.chapterNumber !== null && entry.chapterNumber < 13;
+      if (range === "from-13") return entry.chapterNumber !== null && entry.chapterNumber >= 13;
+      return true;
+    }
+
+    function entryId(entry) {
+      return `${entry.chapterHref}:${entry.index}`;
+    }
+
+    function isHeartEntry(entry) {
+      return heartListIds.has(entryId(entry));
+    }
+
+    function matchesSelectedCategory(entry, kinds) {
+      return kinds.has(entry.kind) || (kinds.has("heart") && isHeartEntry(entry));
+    }
+
+    function readMastery() {
+      const mastery = window.geoAccount.data.mastery;
+      return mastery && typeof mastery === "object" && !Array.isArray(mastery) ? mastery : {};
+    }
+
+    function questionWeight(entry, mastery) {
+      const level = Math.max(
+        -maxMasteryLevel,
+        Math.min(maxMasteryLevel, Number(mastery[entryId(entry)]) || 0)
+      );
+      return Math.pow(masteryWeightFactor, level);
+    }
+
+    function answerScore(result) {
+      if (result === true) return 1;
+      if (result === "partial") return 0.5;
+      return 0;
+    }
+
+    function formatScore(value) {
+      return Number.isInteger(value) ? String(value) : value.toFixed(1);
+    }
+
+    function readDisabledQuestions() {
+      const disabled = window.geoAccount.data.disabled;
+      return new Set(Array.isArray(disabled) ? disabled : []);
+    }
+
+    function writeDisabledQuestions(disabled) {
+      window.geoAccount.data.disabled = [...disabled];
+      window.geoAccount.save();
+    }
+
+    function weightedSample(items, count) {
+      const mastery = readMastery();
+      const available = [...items];
+      const selected = [];
+
+      while (selected.length < count && available.length > 0) {
+        const weights = available.map((entry) => questionWeight(entry, mastery));
+        const totalWeight = weights.reduce((total, weight) => total + weight, 0);
+        let target = Math.random() * totalWeight;
+        let selectedIndex = available.length - 1;
+
+        for (let index = 0; index < available.length; index += 1) {
+          target -= weights[index];
+          if (target <= 0) {
+            selectedIndex = index;
+            break;
+          }
+        }
+
+        selected.push(available[selectedIndex]);
+        available.splice(selectedIndex, 1);
+      }
+
+      return selected;
+    }
+
+    function updateQuestionMastery(entry, result) {
+      if (result === null) return;
+
+      const mastery = readMastery();
+      const id = entryId(entry);
+      const currentLevel = Math.max(
+        -maxMasteryLevel,
+        Math.min(maxMasteryLevel, Number(mastery[id]) || 0)
+      );
+      const nextLevel =
+        result === true
+          ? Math.min(maxMasteryLevel, currentLevel + 1)
+          : result === "partial"
+            ? Math.min(maxMasteryLevel, currentLevel + 0.35)
+          : Math.max(-maxMasteryLevel, currentLevel - 1);
+
+      if (nextLevel === 0) {
+        delete mastery[id];
+      } else {
+        mastery[id] = nextLevel;
+      }
+      window.geoAccount.data.mastery = mastery;
+      window.geoAccount.save();
+    }
+
+    function setQuestionDisabled(id, shouldDisable) {
+      const disabled = readDisabledQuestions();
+      if (shouldDisable) {
+        disabled.add(id);
+      } else {
+        disabled.delete(id);
+      }
+      writeDisabledQuestions(disabled);
+    }
+
+    function updateSetupState() {
+      const selectedCount = kindFilters.filter((filter) => filter.checked).length;
+      const kinds = selectedKinds();
+      const availableCount = catalog.filter(
+        (entry) =>
+          matchesSelectedCategory(entry, kinds) &&
+          matchesFiles(entry) &&
+          (!excludeOptional.checked || !entry.optional) &&
+          !readDisabledQuestions().has(entryId(entry))
+      ).length;
+      allKinds.checked = selectedCount === kindFilters.length;
+      allKinds.indeterminate = selectedCount > 0 && selectedCount < kindFilters.length;
+      startButton.disabled = selectedCount === 0 || availableCount === 0;
+      setupStatus.textContent =
+        selectedCount === 0
+          ? "Selecciona al menos un tipo de ejercicio."
+          : availableCount === 0
+            ? "No hay preguntas activas para esos filtros."
+            : `${availableCount} preguntas disponibles.`;
+    }
+
+    async function loadChapter(pathname) {
+      if (chapterCache.has(pathname)) return chapterCache.get(pathname);
+      const response = await fetch(pathname, { cache: "no-store" });
+      if (!response.ok) throw new Error(`No se pudo cargar ${pathname}`);
+      const documentText = await response.text();
+      const chapterDocument = new DOMParser().parseFromString(documentText, "text/html");
+      chapterCache.set(pathname, chapterDocument);
+      return chapterDocument;
+    }
+
+    function ensureBlockTitle(block, entry) {
+      if (!entry.titleHtml) return;
+      const header = block.querySelector("header");
+      if (!header || header.querySelector("strong")) return;
+
+      const title = document.createElement("strong");
+      title.innerHTML = entry.titleHtml;
+      header.append(title);
+    }
+
+    function buildQuestion(block, entry) {
+      if (entry.kind !== "definition") {
+        const statement = document.createElement("section");
+        statement.className = "test-plain-statement";
+        const body = block.querySelector(".block-body");
+        if (body) {
+          Array.from(body.childNodes).forEach((node) => {
+            statement.append(node.cloneNode(true));
+          });
+        }
+        return statement;
+      }
+
+      const prompt = document.createElement("section");
+      prompt.className = block.className;
+      const header = block.querySelector("header")?.cloneNode(true);
+      if (header) prompt.append(header);
+      ensureBlockTitle(prompt, entry);
+
+      if (!prompt.querySelector("header strong")) {
+        const instruction = document.createElement("p");
+        instruction.className = "test-question-instruction";
+        instruction.textContent = "Recuerda el enunciado o contenido de esta entrada.";
+        prompt.append(instruction);
+      }
+      return prompt;
+    }
+
+    function splitProofIntoSteps(proofBody) {
+      const markers = [];
+      const textWalker = document.createTreeWalker(proofBody, NodeFilter.SHOW_TEXT);
+      let expectedNumber = 1;
+      let textNode;
+
+      while ((textNode = textWalker.nextNode())) {
+        if (textNode.parentElement?.closest(".katex, .preview-card, script, style")) continue;
+
+        const markerPattern = /(^|\s)(\d+)\.\s+/g;
+        let match;
+        while ((match = markerPattern.exec(textNode.nodeValue || ""))) {
+          const number = Number(match[2]);
+          if (number !== expectedNumber) continue;
+          markers.push({ node: textNode, offset: match.index + match[1].length });
+          expectedNumber += 1;
+        }
+      }
+
+      if (markers.length > 0) {
+        return markers.map((marker, index) => {
+          const range = document.createRange();
+          range.setStart(marker.node, marker.offset);
+
+          const nextMarker = markers[index + 1];
+          if (nextMarker) {
+            range.setEnd(nextMarker.node, nextMarker.offset);
+          } else {
+            range.setEnd(proofBody, proofBody.childNodes.length);
+          }
+
+          const step = document.createElement("div");
+          step.append(range.cloneContents());
+
+          const stepTextWalker = document.createTreeWalker(step, NodeFilter.SHOW_TEXT);
+          let firstText;
+          while ((firstText = stepTextWalker.nextNode())) {
+            if (!firstText.nodeValue?.trim()) continue;
+            firstText.nodeValue = firstText.nodeValue.replace(/^\d+\.\s*/, "");
+            break;
+          }
+
+          return step;
+        });
+      }
+
+      const steps = [];
+
+      Array.from(proofBody.children).forEach((child) => {
+        if (child.matches("ol, ul")) {
+          Array.from(child.children).forEach((item, itemIndex) => {
+            const list = document.createElement(child.tagName.toLowerCase());
+            if (list instanceof HTMLOListElement) {
+              list.start = Number(child.getAttribute("start") || 1) + itemIndex;
+            }
+            list.append(item.cloneNode(true));
+            steps.push(list);
+          });
+          return;
+        }
+
+        steps.push(child.cloneNode(true));
+      });
+
+      if (steps.length === 0 && proofBody.textContent.trim()) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = proofBody.textContent.trim();
+        steps.push(paragraph);
+      }
+
+      return steps;
+    }
+
+    function updateGuideProgress() {
+      guideProgress.textContent = `${visibleGuideSteps} de ${currentGuideSteps.length} pistas`;
+      guideNext.textContent =
+        visibleGuideSteps >= currentGuideSteps.length ? "Guía completa" : "Siguiente pista";
+      guideNext.disabled = visibleGuideSteps >= currentGuideSteps.length;
+    }
+
+    function revealNextGuideStep() {
+      if (visibleGuideSteps >= currentGuideSteps.length) return;
+
+      const step = document.createElement("div");
+      step.className = "proof-step";
+      step.innerHTML = currentGuideSteps[visibleGuideSteps];
+      guideSteps.append(step);
+      visibleGuideSteps += 1;
+      updateGuideProgress();
+      step.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function prepareGuide(entry) {
+      guideReveal.hidden = true;
+      guideSteps.replaceChildren();
+      guideStart.hidden = false;
+      guideNext.hidden = true;
+      guideNext.disabled = false;
+      currentGuideSteps = isHeartEntry(entry) ? corazonGuides[entryId(entry)] || [] : [];
+      visibleGuideSteps = 0;
+      guideProgress.textContent = `${currentGuideSteps.length} pistas disponibles`;
+    }
+
+    function updateProofProgress() {
+      proofProgress.textContent = `${visibleProofSteps} de ${currentProofSteps.length} pasos`;
+      proofNext.textContent =
+        visibleProofSteps >= currentProofSteps.length ? "Demostracion completa" : "Siguiente paso";
+      proofNext.disabled = visibleProofSteps >= currentProofSteps.length;
+    }
+
+    function revealNextProofStep() {
+      if (visibleProofSteps >= currentProofSteps.length) return;
+
+      const step = document.createElement("div");
+      step.className = "proof-step";
+      if (currentProofSteps[visibleProofSteps].matches("ol")) {
+        step.classList.add("has-native-number");
+      }
+      step.append(currentProofSteps[visibleProofSteps].cloneNode(true));
+      proofSteps.append(step);
+      visibleProofSteps += 1;
+      updateProofProgress();
+      step.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function prepareProof(proof, kind, entry = null) {
+      proofReveal.hidden = true;
+      proofSteps.replaceChildren();
+      proofStart.hidden = false;
+      proofNext.hidden = true;
+      proofNext.disabled = false;
+      currentProofSteps = [];
+      visibleProofSteps = 0;
+
+      if (kind === "definition" || !proof) return;
+
+      const originalProofSteps =
+        entry && isHeartEntry(entry) ? corazonProofs[entryId(entry)] || [] : [];
+      if (originalProofSteps.length > 0) {
+        currentProofSteps = originalProofSteps.map((html) => {
+          const step = document.createElement("div");
+          step.innerHTML = html;
+          return step;
+        });
+        proofTitle.textContent = proof.querySelector("summary")?.textContent?.trim() || "Demostracion";
+        proofProgress.textContent = `${currentProofSteps.length} pasos disponibles`;
+        return;
+      }
+
+      const body = proof.querySelector(".proof-body");
+      if (!body) return;
+
+      currentProofSteps = splitProofIntoSteps(body);
+      proofTitle.textContent = proof.querySelector("summary")?.textContent?.trim() || "Demostracion";
+      proofProgress.textContent = `${currentProofSteps.length} pasos disponibles`;
+    }
+
+    async function showQuestion() {
+      const entry = testEntries[currentIndex];
+      const skipped = answers.filter((result) => result === null).length;
+      const currentScore = answers.reduce((total, result) => total + answerScore(result), 0);
+      progressLabel.textContent = `Pregunta ${currentIndex + 1} de ${testEntries.length}`;
+      liveScore.textContent =
+        `${formatScore(currentScore)} correctas` +
+        (skipped ? ` · ${skipped} sin contar` : "");
+      progressBar.style.width = `${(currentIndex / testEntries.length) * 100}%`;
+      revealButton.hidden = false;
+      gradeActions.hidden = true;
+      answer.hidden = true;
+      guideReveal.hidden = true;
+      proofReveal.hidden = true;
+      question.replaceChildren();
+      answer.replaceChildren();
+      prepareGuide(entry);
+      prepareProof(null, entry.kind);
+
+      try {
+        const chapterDocument = await loadChapter(entry.chapterHref);
+        const chapterBlocks = Array.from(
+          chapterDocument.querySelectorAll(".book-page > .book-block")
+        );
+        const sameKindBlocks = chapterBlocks.filter((candidate) =>
+          candidate.classList.contains(entry.kind)
+        );
+        const sourceBlock = sameKindBlocks[entry.kindIndex] ?? chapterBlocks[entry.index];
+        if (!sourceBlock) throw new Error("No se encontro la entrada elegida.");
+
+        const block = sourceBlock.cloneNode(true);
+        block.removeAttribute("id");
+        block.querySelectorAll(".preview-card").forEach((preview) => preview.remove());
+        const proof = block.querySelector("details.proof");
+        proof?.remove();
+        ensureBlockTitle(block, entry);
+        const prompt = buildQuestion(block, entry);
+        question.append(prompt);
+        if (entry.kind === "definition") {
+          answer.append(block);
+        } else if (!proof) {
+          const noProof = document.createElement("p");
+          noProof.className = "test-question-instruction";
+          noProof.textContent = "Esta entrada no tiene una demostracion guardada.";
+          answer.append(noProof);
+        }
+        prepareProof(proof, entry.kind, entry);
+        resultKind.textContent = isHeartEntry(entry)
+          ? `${kindLabels[entry.kind]} · Corazón`
+          : kindLabels[entry.kind];
+        resultSource.textContent = `${entry.chapterLabel}: ${entry.chapterTitle}`;
+        resultSource.href = `${entry.chapterHref}?block=${entry.index}`;
+      } catch (error) {
+        console.error(error);
+        setupStatus.textContent = "No se pudo cargar una pregunta. Prueba de nuevo.";
+        resetTester();
+      }
+    }
+
+    function readHistory() {
+      const history = window.geoAccount.data.history;
+      return Array.isArray(history) ? history : [];
+    }
+
+    function saveAttempt() {
+      const history = readHistory();
+      const scoredAnswers = answers.filter((result) => result !== null);
+      history.unshift({
+        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        date: new Date().toISOString(),
+        correct: scoredAnswers.reduce((total, result) => total + answerScore(result), 0),
+        total: scoredAnswers.length,
+        skipped: answers.length - scoredAnswers.length,
+        kinds: testConfig.kinds,
+        fileLabel: testConfig.fileLabel,
+        results: testEntries.map((entry, index) => ({
+          questionId: entryId(entry),
+          kind: entry.kind,
+          correct: answers[index]
+        }))
+      });
+      window.geoAccount.data.history = history.slice(0, 100);
+      window.geoAccount.save();
+      renderScores();
+    }
+
+    function scorePercent(correct, total) {
+      return total ? Math.round((correct / total) * 100) : 0;
+    }
+
+    function renderScores() {
+      const history = readHistory();
+      scoreSummary.replaceChildren();
+      attemptHistory.replaceChildren();
+
+      Object.entries(kindLabels).forEach(([kind, label]) => {
+        const results = history
+          .flatMap((attempt) => attempt.results || [])
+          .filter((item) => item.kind === kind && item.correct !== null);
+        if (results.length === 0) return;
+        const correct = results.reduce((total, item) => total + answerScore(item.correct), 0);
+        const card = document.createElement("article");
+        card.className = "score-card";
+        card.innerHTML = `
+          <span>${label}</span>
+          <strong>${scorePercent(correct, results.length)}%</strong>
+          <small>${formatScore(correct)} de ${results.length} respuestas</small>
+        `;
+        scoreSummary.append(card);
+      });
+
+      if (scoreSummary.children.length === 0) {
+        scoreSummary.innerHTML = '<p class="empty-score">Todavia no hay resultados guardados.</p>';
+      }
+
+      history.slice(0, 12).forEach((attempt) => {
+        const row = document.createElement("article");
+        row.className = "attempt-row";
+        const date = new Intl.DateTimeFormat("es", {
+          dateStyle: "medium",
+          timeStyle: "short"
+        }).format(new Date(attempt.date));
+        const labels = attempt.kinds
+          .map((kind) => kind === "heart" ? "Teoremas corazón" : kindLabels[kind])
+          .join(", ");
+        const scoreLabel = attempt.total
+          ? `${scorePercent(attempt.correct, attempt.total)}% · ${formatScore(attempt.correct)}/${attempt.total}`
+          : "Sin preguntas puntuadas";
+        const skippedLabel = attempt.skipped ? ` · ${attempt.skipped} sin contar` : "";
+        row.innerHTML = `
+          <div>
+            <strong>${scoreLabel}${skippedLabel}</strong>
+            <span>${labels}</span>
+            <small>${attempt.fileLabel}</small>
+          </div>
+          <time datetime="${attempt.date}">${date}</time>
+        `;
+        attemptHistory.append(row);
+      });
+
+      if (history.length === 0) {
+        attemptHistory.innerHTML = '<p class="empty-score">Tus examenes apareceran aqui.</p>';
+      }
+    }
+
+    function finishTest() {
+      progressBar.style.width = "100%";
+      session.hidden = true;
+      finish.hidden = false;
+      const scoredAnswers = answers.filter((result) => result !== null);
+      const correct = scoredAnswers.reduce((total, result) => total + answerScore(result), 0);
+      const skipped = answers.length - scoredAnswers.length;
+      finalScore.textContent = scoredAnswers.length
+        ? `${scorePercent(correct, scoredAnswers.length)}%`
+        : "Sin puntaje";
+      finalDetail.textContent =
+        `Sabias ${formatScore(correct)} de ${scoredAnswers.length} respuestas puntuadas.` +
+        (skipped ? ` ${skipped} no ${skipped === 1 ? "conto" : "contaron"}.` : "");
+      saveAttempt();
+      finish.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function gradeCurrent(result) {
+      updateQuestionMastery(testEntries[currentIndex], result);
+      answers.push(result);
+      currentIndex += 1;
+      if (currentIndex >= testEntries.length) {
+        finishTest();
+        return;
+      }
+      showQuestion();
+      session.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function disableCurrentQuestion() {
+      const entry = testEntries[currentIndex];
+      if (!entry) return;
+      setQuestionDisabled(entryId(entry), true);
+      gradeCurrent(null);
+    }
+
+    function resetTester() {
+      testEntries = [];
+      currentIndex = 0;
+      answers = [];
+      testConfig = null;
+      setup.hidden = false;
+      session.hidden = true;
+      finish.hidden = true;
+    }
+
+    async function startTest() {
+      const kinds = selectedKinds();
+      const requestedLength = Math.max(1, Math.min(100, Number(lengthInput.value) || 10));
+      lengthInput.value = String(requestedLength);
+      const disabled = readDisabledQuestions();
+      const shouldExcludeOptional = excludeOptional.checked;
+      const candidates = catalog.filter(
+        (entry) =>
+          matchesSelectedCategory(entry, kinds) &&
+          matchesFiles(entry) &&
+          (!shouldExcludeOptional || !entry.optional) &&
+          !disabled.has(entryId(entry))
+      );
+
+      if (candidates.length === 0) {
+        setupStatus.textContent = "No hay preguntas para esos filtros.";
+        return;
+      }
+
+      testEntries = weightedSample(
+        candidates,
+        Math.min(requestedLength, candidates.length)
+      );
+      const rangeLabel =
+        selectedFiles().size > 0
+          ? `${selectedFiles().size} archivos seleccionados`
+          : selectedRange() === "before-13"
+            ? "Archivos 1–12"
+            : selectedRange() === "from-13"
+              ? "Archivos 13–23"
+              : "Todos los archivos";
+      testConfig = {
+        kinds: [...kinds],
+        fileLabel: shouldExcludeOptional ? `${rangeLabel} · Sin opcionales` : rangeLabel
+      };
+      currentIndex = 0;
+      answers = [];
+      setupStatus.textContent =
+        testEntries.length < requestedLength
+          ? `Solo hay ${testEntries.length} preguntas disponibles para esos filtros.`
+          : "";
+      setup.hidden = true;
+      finish.hidden = true;
+      session.hidden = false;
+      await showQuestion();
+      session.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    allKinds.addEventListener("change", () => {
+      kindFilters.forEach((filter) => {
+        filter.checked = allKinds.checked;
+      });
+      updateSetupState();
+      saveFilters();
+    });
+    [excludeOptional, ...kindFilters, ...rangeFilters, ...fileFilters, ...practiceGroups].forEach((filter) =>
+      filter.addEventListener("change", () => {
+        updateSetupState();
+        saveFilters();
+      })
+    );
+    lengthInput.addEventListener("input", saveFilters);
+    startButton.addEventListener("click", startTest);
+    revealButton.addEventListener("click", () => {
+      answer.hidden = false;
+      revealButton.hidden = true;
+      guideReveal.hidden = currentGuideSteps.length === 0;
+      proofReveal.hidden = currentProofSteps.length === 0;
+      gradeActions.hidden = false;
+    });
+    guideStart.addEventListener("click", () => {
+      guideStart.hidden = true;
+      guideNext.hidden = false;
+      revealNextGuideStep();
+    });
+    guideNext.addEventListener("click", revealNextGuideStep);
+    proofStart.addEventListener("click", () => {
+      proofStart.hidden = true;
+      proofNext.hidden = false;
+      revealNextProofStep();
+    });
+    proofNext.addEventListener("click", revealNextProofStep);
+    correctButton.addEventListener("click", () => gradeCurrent(true));
+    partialButton.addEventListener("click", () => gradeCurrent("partial"));
+    wrongButton.addEventListener("click", () => gradeCurrent(false));
+    skipButton.addEventListener("click", () => gradeCurrent(null));
+    disableButton.addEventListener("click", disableCurrentQuestion);
+    againButton.addEventListener("click", () => {
+      resetTester();
+      setup.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    clearScores.addEventListener("click", () => {
+      if (!window.confirm("Borrar el historial, la frecuencia adaptativa y los enunciados desactivados?")) return;
+      window.geoAccount.data.history = [];
+      window.geoAccount.data.mastery = {};
+      window.geoAccount.data.disabled = [];
+      window.geoAccount.save();
+      renderScores();
+    });
+
+    function initializeTesterWhenAccountIsReady() {
+      if (!window.geoAccount) {
+        window.setTimeout(initializeTesterWhenAccountIsReady, 25);
+        return;
+      }
+
+      window.geoAccount.ready.then(() => {
+        restoreFilters();
+        updateSetupState();
+        renderScores();
+      });
+    }
+
+    initializeTesterWhenAccountIsReady();
+  </script>
+</BookLayout>

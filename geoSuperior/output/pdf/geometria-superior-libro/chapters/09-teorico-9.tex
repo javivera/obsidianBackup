@@ -1,0 +1,811 @@
+% This file is generated from the corresponding Obsidian note.
+% Source: Teoricos/GS - Teo9.md
+\chapter{Subvariedades}
+\label{ch:teo-9}
+\section{Subvariedades}
+\begin{bookdefinition}{Inmersión}
+Sean $M$ y $N$ variedades suaves y sea
+
+\[
+F:M\to N
+\]
+una función suave. Se dice que $F$ es una \textbf{inmersión} si para todo $p\in M$ la diferencial
+
+\[
+(dF)_p:T_pM\to T_{F(p)}N
+\]
+es inyectiva.
+
+\end{bookdefinition}
+\begin{bookdefinition}{Subvariedad}
+Se dice que el par $(M,F)$ es una \textbf{subvariedad} de $N$ si
+
+\[
+F:M\to N
+\]
+es una inmersión y ademas es inyectiva.
+
+\end{bookdefinition}
+\begin{bookdefinition}{Subvariedad incrustada}
+Se dice que $(M,F)$ es una \textbf{subvariedad incrustada} de $N$ si además
+
+\[
+F:M\to F(M)\subseteq N
+\]
+es homeomorfismo entre $M$ y $F(M)$ , donde $F(M)$ lleva la topología heredada de $N$ En ese caso se dice también se dice que $F$ es una \textbf{incrustación suave}.
+
+\end{bookdefinition}
+\section{Ejemplos}
+\begin{bookexample}{Inclusion}
+Supongamos que $m<n$ y definimos
+
+\[
+c:\mathbb R^m\to\mathbb R^n,\qquad c(x^1,\dots,x^m)=(x^1,\dots,x^m,0,\dots,0).
+\]
+Queremos ver que $c$ es una incrustación suave de $\mathbb R^m$ en $\mathbb R^n$.
+
+\end{bookexample}
+\begin{bookproof}{}
+\begin{itemize}
+\item \textbf{$c$ es suave}
+\end{itemize}
+\begin{enumerate}
+\item Cada función coordenada de $c$ es suave:
+\end{enumerate}
+\[
+c^i(x)=x^i\quad\text{si }1\le i\le m,
+\]
+y
+
+\[
+c^i(x)=0\quad\text{si }m+1\le i\le n.
+\]
+\begin{enumerate}[start=2]
+\item Por lo tanto $c$ es $C^\infty$.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{$c$ es inyectiva}
+\end{itemize}
+\begin{enumerate}
+\item Si
+\end{enumerate}
+\[
+c(x^1,\dots,x^m)=c(y^1,\dots,y^m),
+\]
+entonces, comparando las primeras $m$ coordenadas,
+
+\[
+x^i=y^i,\qquad i=1,\dots,m.
+\]
+Luego
+
+\[
+(x^1,\dots,x^m)=(y^1,\dots,y^m).
+\]
+Por lo tanto $c$ es inyectiva.
+
+\begin{itemize}
+\item \textbf{Cálculo del diferencial}
+\end{itemize}
+\begin{enumerate}
+\item Usamos cartas identidad:
+\end{enumerate}
+\[
+\varphi=\operatorname{id}_{\mathbb R^m},\qquad \psi=\operatorname{id}_{\mathbb R^n}.
+\]
+\begin{enumerate}[start=2]
+\item Entonces
+\end{enumerate}
+\[
+\widehat c=\psi\circ c\circ\varphi^{-1}=c.
+\]
+\begin{enumerate}[start=3]
+\item Y con sus respectivas bases sabemos
+\end{enumerate}
+\[
+[dc_{x}]_{\mathcal{B_{1}}}^{\mathcal{B_{2}}}=J\widehat c(\varphi(x))=Jc(x)=\begin{pmatrix}1&0&\cdots&0\\0&1&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&1\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix}.
+\]
+\begin{enumerate}[start=4]
+\item Así,
+\end{enumerate}
+\[
+dc_x(v^1,\dots,v^m)=(v^1,\dots,v^m,0,\dots,0).
+\]
+\begin{enumerate}[start=5]
+\item Si $dc_x(v)=0,$ entonces
+\end{enumerate}
+\[
+(v^1,\dots,v^m,0,\dots,0)=(0,\dots,0),
+\]
+y por lo tanto
+
+\[
+v^1=\cdots=v^m=0.
+\]
+\begin{enumerate}[start=6]
+\item Luego $v=0$, y entonces
+\end{enumerate}
+\[
+dc_x:T_x\mathbb R^m\to T_{c(x)}\mathbb R^n
+\]
+es inyectiva.
+
+\begin{itemize}
+\item \textbf{$c$ es homeomorfismo sobre su imagen}
+\end{itemize}
+\begin{enumerate}
+\item La imagen de $c$ es
+\end{enumerate}
+\[
+c(\mathbb R^m)=\mathbb R^m\times\{0\}^{n-m}\subseteq\mathbb R^n.
+\]
+\begin{enumerate}[start=2]
+\item Definimos
+\end{enumerate}
+\[
+\pi:c(\mathbb R^m)\to\mathbb R^m,\qquad \pi(y^1,\dots,y^n)=(y^1,\dots,y^m).
+\]
+\begin{enumerate}[start=3]
+\item Esta aplicación es continua porque es la restricción de la proyección continua
+\end{enumerate}
+\[
+\operatorname{pr}:\mathbb R^n\to\mathbb R^m,\qquad \operatorname{pr}(y^1,\dots,y^n)=(y^1,\dots,y^m).
+\]
+\begin{enumerate}[start=4]
+\item Además,
+\end{enumerate}
+\[
+\pi(c(x^1,\dots,x^m))=(x^1,\dots,x^m),
+\]
+es decir,
+
+\[
+\pi\circ c=\operatorname{id}_{\mathbb R^m}.
+\]
+\begin{enumerate}[start=5]
+\item Y si $y\in c(\mathbb R^m)$, entonces
+\end{enumerate}
+\[
+y=(y^1,\dots,y^m,0,\dots,0),
+\]
+por lo que
+
+\[
+c(\pi(y))=c(y^1,\dots,y^m)=(y^1,\dots,y^m,0,\dots,0)=y.
+\]
+\begin{enumerate}[start=6]
+\item Entonces
+\end{enumerate}
+\[
+c\circ\pi=\operatorname{id}_{c(\mathbb R^m)}.
+\]
+\begin{enumerate}[start=7]
+\item Así, $\pi=c^{-1}$ sobre la imagen, y $c:\mathbb R^m\to c(\mathbb R^m)$ es un homeomorfismo.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{Conclusión} La aplicación $c$ es suave, inyectiva, su diferencial es inyectivo en todo punto, y además $c$ es un homeomorfismo sobre su imagen. Por lo tanto
+\end{itemize}
+\[
+c:\mathbb R^m\to\mathbb R^n
+\]
+es una incrustación suave.
+
+\bookqed
+\end{bookproof}
+\begin{bookexample}{Helice}
+Sea
+
+\[
+f:\mathbb R\to\mathbb R^3,\qquad f(t)=(\cos t,\sin t,t).
+\]
+Queremos ver que $f$ es una incrustación suave de $\mathbb R$ en $\mathbb R^3$.
+
+\end{bookexample}
+\begin{bookproof}{}
+\begin{itemize}
+\item \textbf{$f$ es suave}
+\end{itemize}
+\begin{enumerate}
+\item Usando la carta de identidad de ambos lados con $\mathbb{R}$ y $\mathbb{R}^{3}$ respectivamente
+\item Se reduce a ver que $f$ es suave como lo haciamos normalmente
+\item Las funciones coordenadas de $f$ son
+\end{enumerate}
+\[
+f^1(t)=\cos t,\qquad f^2(t)=\sin t,\qquad f^3(t)=t.
+\]
+\begin{enumerate}[start=4]
+\item Todas son $C^\infty$, por lo tanto $f$ es $C^\infty$.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{$f$ es inyectiva}
+\end{itemize}
+\begin{enumerate}
+\item Supongamos que
+\end{enumerate}
+\[
+f(t)=f(s).
+\]
+\begin{enumerate}[start=2]
+\item Entonces
+\end{enumerate}
+\[
+(\cos t,\sin t,t)=(\cos s,\sin s,s).
+\]
+\begin{enumerate}[start=3]
+\item Comparando la tercera coordenada,
+\end{enumerate}
+\[
+t=s.
+\]
+\begin{enumerate}[start=4]
+\item Por lo tanto $f$ es inyectiva.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{$df_t$ es inyectiva}
+\end{itemize}
+\begin{enumerate}
+\item $df_t:T_t\mathbb R\to T_{f(t)}\mathbb R^3$ con base de $T_t\mathbb R$
+\end{enumerate}
+\[
+\left\{\frac{\partial}{\partial t}\bigg|_t\right\},
+\]
+y base de $T_{f(t)}\mathbb R^3$:
+
+\[
+\left\{\frac{\partial}{\partial x_k}\bigg|_{f(t)}\right\}.
+\]
+\begin{enumerate}[start=2]
+\item Luego
+\end{enumerate}
+\[
+f'(t)=(df)_t\frac{\partial}{\partial t}\bigg|_t=\sum_{k=1}^3 a_k(t)\frac{\partial}{\partial x_k}\bigg|_{f(t)}.
+\]
+\begin{enumerate}[start=3]
+\item Encontramos $a_k$ actuando sobre $x_k=\pi_k$ (aca asumimos que la carta para $\mathbb{R}^{3}$ es la identidad)
+\end{enumerate}
+\[
+\sum_{k=1}^3 a_k(t)\frac{\partial}{\partial x_k}\bigg|_{f(t)}=\sum_{k=1}^3 (df)_t\frac{\partial}{\partial t}\bigg|_t(\pi_k)\frac{\partial}{\partial x_k}\bigg|_{f(t)}.
+\]
+\begin{enumerate}[start=4]
+\item Por definición de diferencial:
+\end{enumerate}
+\[
+\sum_{k=1}^3\frac{\partial}{\partial t}\bigg|_t(\pi_k\circ f)\frac{\partial}{\partial x_k}\bigg|_{f(t)}.
+\]
+\begin{enumerate}[start=5]
+\item Ahora:
+\end{enumerate}
+\[
+\pi_1\circ f=\cos t,\qquad \pi_2\circ f=\sin t,\qquad \pi_3\circ f=t.
+\]
+\begin{enumerate}[start=6]
+\item Entonces:
+\end{enumerate}
+\[
+(df)_t\left(\frac{\partial}{\partial t}\bigg|_t\right)=-\sin t\frac{\partial}{\partial x_1}\bigg|_{f(t)}+\cos t\frac{\partial}{\partial x_2}\bigg|_{f(t)}+1.\frac{\partial}{\partial x_3}\bigg|_{f(t)}
+\]
+\begin{enumerate}[start=7]
+\item Identifico $T_{f(t)}\mathbb R^3$ con $\mathbb R^3.$ Entonces tenemos el viejo y conocido
+\end{enumerate}
+\[
+(df)_t\left(\frac{\partial}{\partial t}\bigg|_t\right)=(-\sin t,\cos t,1).
+\]
+\begin{enumerate}[start=8]
+\item Luego
+\end{enumerate}
+\[
+(df)_t\lambda\frac{\partial}{\partial t}\bigg|_t
+\]
+es cero sii $\lambda=0,$ porque
+
+\[
+\lambda(-\sin t,\cos t,1)=0.
+\]
+\begin{enumerate}[start=9]
+\item Por lo tanto
+\end{enumerate}
+\[
+\ker(df_t)=\{0\}.
+\]
+Osea $df_{t}$ es inyectiva para cualquier $t$
+
+\begin{itemize}
+\item \textbf{$f$ es homeomorfismo sobre su imagen}
+\end{itemize}
+\begin{enumerate}
+\item La imagen de $f$ es
+\end{enumerate}
+\[
+f(\mathbb R)=\{(\cos t,\sin t,t):t\in\mathbb R\}\subseteq\mathbb R^3.
+\]
+\begin{enumerate}[start=2]
+\item Definimos
+\end{enumerate}
+\[
+\pi_3:\mathbb R^3\to\mathbb R,\qquad \pi_3(x^1,x^2,x^3)=x^3.
+\]
+\begin{enumerate}[start=3]
+\item Entonces $\pi_3$ es continua. Además,
+\end{enumerate}
+\[
+\pi_3(f(t))=\pi_3(\cos t,\sin t,t)=t.
+\]
+\begin{enumerate}[start=4]
+\item Por lo tanto
+\end{enumerate}
+\[
+\pi_3|_{f(\mathbb R)}:f(\mathbb R)\to\mathbb R
+\]
+es la inversa de $f:\mathbb R\to f(\mathbb R)$. 5. En efecto:
+
+\[
+\pi_3|_{f(\mathbb R)}\circ f=\operatorname{id}_{\mathbb R},
+\]
+y si $p\in f(\mathbb R)$, entonces $p=f(t)$ para algún $t$, y
+
+\[
+f(\pi_3(p))=f(\pi_3(f(t)))=f(t)=p.
+\]
+\begin{enumerate}[start=6]
+\item Entonces
+\end{enumerate}
+\[
+f\circ \pi_3|_{f(\mathbb R)}=\operatorname{id}_{f(\mathbb R)}.
+\]
+\begin{enumerate}[start=7]
+\item Así, $f$ es un homeomorfismo sobre su imagen.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{Conclusión.} La aplicación $f$ es suave, inyectiva, su diferencial es inyectivo en todo punto, y además $f$ es un homeomorfismo sobre su imagen. Por lo tanto
+\end{itemize}
+\[
+f:\mathbb R\to\mathbb R^3
+\]
+es una incrustación suave.
+
+\bookqed
+\end{bookproof}
+\begin{bookexercise}{}
+En general, si
+
+\[
+f:I\subseteq\mathbb R\to M
+\]
+es suave, entonces $f$ es inmersión si y solo si
+
+\[
+f'(t)\neq 0
+\]
+para todo $t\in I$.
+
+\end{bookexercise}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Para cada $t\in I$, el espacio tangente $T_tI$ es $1$-dimensional y tiene base
+\end{enumerate}
+\[
+\left\{\frac{\partial}{\partial t}\bigg|_t\right\}.
+\]
+\begin{enumerate}[start=2]
+\item Por definición, la derivada de la curva en $t$ es
+\end{enumerate}
+\[
+f'(t):=(df)_t\left(\frac{\partial}{\partial t}\bigg|_t\right)\in T_{f(t)}M.
+\]
+\begin{enumerate}[start=3]
+\item Supongamos primero que $f$ es inmersión. Entonces
+\end{enumerate}
+\[
+(df)_t:T_tI\to T_{f(t)}M
+\]
+es inyectiva para todo $t\in I$. 4. Como $\frac{\partial}{\partial t}\big|_t\neq 0$, por inyectividad se tiene
+
+\[
+(df)_t\left(\frac{\partial}{\partial t}\bigg|_t\right)\neq 0.
+\]
+Por lo tanto $f'(t)\neq 0$ para todo $t\in I$. 5. Recíprocamente, supongamos que $f'(t)\neq 0$ para todo $t\in I$. 6. Sea $v\in T_tI$. Como $T_tI$ es $1$-dimensional, existe $\lambda\in\mathbb R$ tal que
+
+\[
+v=\lambda\frac{\partial}{\partial t}\bigg|_t.
+\]
+\begin{enumerate}[start=7]
+\item Si $(df)_t(v)=0$, entonces
+\end{enumerate}
+\[
+0=(df)_t\left(\lambda\frac{\partial}{\partial t}\bigg|_t\right)=\lambda (df)_t\left(\frac{\partial}{\partial t}\bigg|_t\right)=\lambda f'(t).
+\]
+\begin{enumerate}[start=8]
+\item Como $f'(t)\neq 0$, necesariamente $\lambda=0$. Luego $v=0$.
+\item Entonces
+\end{enumerate}
+\[
+\ker(df)_t=\{0\},
+\]
+y por lo tanto $(df)_t$ es inyectiva para todo $t\in I$. 10. Concluimos que $f$ es inmersión si y solo si $f'(t)\neq 0$ para todo $t\in I$.
+
+\bookqed
+\end{bookproof}
+\begin{bookexample}{Esfera es subvariedad incrustada}
+Sea $S^2$ la esfera con su estructura de variedad suave usual, y pensemos en
+
+\[
+i:S^2\to\mathbb R^3
+\]
+la inclusión,
+
+\[
+p\mapsto i(p)=p.
+\]
+Veamos que $(S^2,i)$ es una subvariedad incrustada.
+
+\end{bookexample}
+\begin{bookproof}{}
+\begin{itemize}
+\item \textbf{$i$ es suave}
+\end{itemize}
+\begin{enumerate}
+\item Tomamos la carta identidad en $\mathbb{R}^{3}$ y la proyeccion estereografica $\varphi$ (o cualquiera otra) y se reduce a ver que dado $p\in S^{2}$ $i\circ\varphi ^{-1}$ es suave
+\item Pero $i\circ\varphi ^{-1}=\varphi ^{-1}$ por definicion de $i$ y recordemos que $\varphi ^{-1}$ es suave por ser $\varphi$ carta
+\end{enumerate}
+\begin{itemize}
+\item \textbf{$i$ es función inyectiva} Trivial
+\item \textbf{$(di)_p:T_pS^2\to T_p\mathbb R^3$ es inyectiva}
+\end{itemize}
+\begin{enumerate}
+\item Supongamos que $p$ está en el casquete $U_1^\varepsilon$ y Tenemos la carta
+\end{enumerate}
+\[
+(U_{i}^{\epsilon,} \psi_1^\varepsilon=(x_1,x_2)),
+\]
+dada por $q=(q_{1},q_{2},q_{3})$
+
+\[
+x_1(q)=q_2,\qquad x_2(q)=q_3.
+\]
+\begin{enumerate}[start=2]
+\item Su inversa es
+\end{enumerate}
+\[
+(\psi_1^\varepsilon)^{-1}(s_1,s_2)=(\varepsilon\sqrt{1-s_1^2-s_2^2},s_1,s_2).
+\]
+\begin{enumerate}[start=3]
+\item Recordar:
+\end{enumerate}
+\[
+U_i^\varepsilon=\{(q_1,q_2,q_3)\in S^2:q_i\varepsilon>0\},\qquad \varepsilon=\pm1.
+\]
+\begin{enumerate}[start=4]
+\item Tenemos base de $T_pS^2$ dada por
+\end{enumerate}
+\[
+\mathcal B_1=\left\{\frac{\partial}{\partial x_1}\bigg|_p,\frac{\partial}{\partial x_2}\bigg|_p\right\}.
+\]
+\begin{enumerate}[start=5]
+\item Y base de $T_p\mathbb R^3$ dada por
+\end{enumerate}
+\[
+\mathcal B_2=\left\{\frac{\partial}{\partial y_1}\bigg|_p,\frac{\partial}{\partial y_2}\bigg|_p,\frac{\partial}{\partial y_3}\bigg|_p\right\}.
+\]
+\begin{enumerate}[start=6]
+\item Calculamos la matriz de $[(di)_p]^{\mathcal B_2}_{\mathcal B_1}.$
+\end{enumerate}
+\[
+(di)_p\frac{\partial}{\partial x_1}\bigg|_p=\sum_{k=1}^3 a_k(p)\frac{\partial}{\partial y_k}\bigg|_p.
+\]
+\begin{enumerate}[start=7]
+\item Aplicamos $y_k$ para obtener $a_k$:
+\end{enumerate}
+\[
+\sum_{k=1}^3 (di)_p\frac{\partial}{\partial x_1}\bigg|_p(y_k)\frac{\partial}{\partial y_k}\bigg|_p.
+\]
+\begin{enumerate}[start=8]
+\item Por definición de diferencial:
+\end{enumerate}
+\[
+\sum_{k=1}^3 \frac{\partial}{\partial x_1}\bigg|_p(y_k\circ i)\frac{\partial}{\partial y_k}\bigg|_p=\sum_{k=1}^3 \frac{\partial}{\partial s_1}\bigg|_{\varphi_{1}^{\epsilon} (p)}(y_k\circ i\circ(\psi_{1}^{\epsilon})^{-1} )\frac{\partial}{\partial y_k}\bigg|_p.
+\]
+\begin{enumerate}[start=9]
+\item Ademas notemos que
+\end{enumerate}
+\[
+y_1\circ i\circ(\psi_1^\varepsilon)^{-1}(s_1,s_2)=\varepsilon\sqrt{1-s_1^2-s_2^2},
+\]
+\[
+y_2\circ i\circ(\psi_1^\varepsilon)^{-1}(s_1,s_2)=s_1,
+\]
+\[
+y_3\circ i\circ(\psi_1^\varepsilon)^{-1}(s_1,s_2)=s_2.
+\]
+\begin{enumerate}[start=10]
+\item Y ademas notando que $\psi_1^\varepsilon(p)=(p_{2},p_{3})$ tenemos
+\end{enumerate}
+\[
+(di)_p\frac{\partial}{\partial x_1}\bigg|_p=\varepsilon\frac{-p_2}{\sqrt{1-p_2^2-p_3^2}}\frac{\partial}{\partial y_1}\bigg|_p+1\frac{\partial}{\partial y_2}\bigg|_p+0\frac{\partial}{\partial y_3}\bigg|_p.
+\]
+\begin{enumerate}[start=11]
+\item Similarmente:
+\end{enumerate}
+\[
+(di)_p\frac{\partial}{\partial x_2}\bigg|_p=\varepsilon\frac{-p_3}{\sqrt{1-p_2^2-p_3^2}}\frac{\partial}{\partial y_1}\bigg|_p+0\frac{\partial}{\partial y_2}\bigg|_p+1\frac{\partial}{\partial y_3}\bigg|_p.
+\]
+\begin{enumerate}[start=12]
+\item Por lo tanto la matriz de $[(di)_p]^{\mathcal B_2}_{\mathcal B_1}$ es
+\end{enumerate}
+\[
+\begin{pmatrix}-\frac{p_2}{p_1}&-\frac{p_3}{p_1}\\1&0\\0&1\end{pmatrix}.
+\]
+\begin{enumerate}[start=13]
+\item Por el teorema del rango y la dimensión, $(di)_p$ es inyectiva sii $\operatorname{Im}(di)_p$ tiene rango $2$.
+\item Y esto es equivalente a que la anterior matriz tenga una submatriz $2\times 2$ no singular.
+\item En este caso sería $A[2:3,2:3]$ con
+\end{enumerate}
+\[
+A=[(di)_p]^{\mathcal B_2}_{\mathcal B_1}.
+\]
+\begin{itemize}
+\item \textbf{Homeomorfismo}
+\end{itemize}
+\begin{enumerate}
+\item Es trivial, por que la topologia que le dimos a $S^{2}$ para verla como variedad diferenciable es la topologia heredada de $\mathbb{R}^{3}$
+\end{enumerate}
+\bookqed
+\end{bookproof}
+\begin{bookexample}{El ocho no es subvariedad incrustada}
+Considérese
+
+\[
+f:\mathbb{R}\to\mathbb R^2, \qquad f(t)=\sin t\left(\cos t,1\right)=\left(\frac{\sin 2t}{2},\sin t\right)
+\]
+Su imagen es la curva con forma de ocho. Entonces $((0,2\pi),f)$ es una subvariedad de $\mathbb{R}^{2}$ pero no incrustada
+
+\end{bookexample}
+\begin{bookproof}{}
+2. $g$ es claramente suave e inyectiva 3. Devuelta usando cartas identidad y bases tangentes podemos calcular el jacobiano (gradiente en este caso).
+
+\[
+[dg_{t}]=\begin{pmatrix}\cos^{2}t-\sin^{2}t\\\cos t\end{pmatrix}=\begin{pmatrix}\cos2t\\ \cos t\end{pmatrix}
+\]
+\begin{enumerate}[start=4]
+\item Y esta claro que la unica forma de que esto sea el vector nulo es que $\cos t=0$ osea $t=\frac{2k+1}{2}\pi$ entonces $\cos 2t=\cos(2k+1)=1$. Osea no puede ser el vector nulo. Para ningun punto $t$
+\item Por ende la unica forma de que el diferencial sea $0$ es evaluando en $0$ osea su $\ker = \{ 0 \}$
+\item Pero $f$ no es inyectiva asi que no es subvariedad
+\item Entonces redefinimos a
+\end{enumerate}
+\[
+g:(0,2\pi)\to\mathbb R^2, \qquad g(t)=\sin t\left(\cos t,1\right)
+\]
+
+\bookimage{assets/pasted-image-20260425112115.png}{Pasted image 20260425112115}
+
+
+\begin{itemize}
+\item \textbf{$f$ es inyectiva} Sea $f(t)=\left(\frac{\sin 2t}{2},\sin t\right)=\left(\frac{\sin 2s}{2},\sin s\right)=f(s)$.
+\end{itemize}
+\begin{enumerate}
+\item Si $t=s$, listo. Por lo que supongamos $t\neq s$.
+\item De $\sin t=\sin s$ se sigue que $t=s+2k\pi$ o $t=\pi-s+2k\pi$, con $k\in\mathbb Z$.
+\item Si $\sin t=0$, entonces $\sin s=0$, y en $(0,2\pi)$ solo es posible si $t=s=\pi$.
+\item Si $\sin t\neq0$, entonces $\sin s\neq0$. Además, de $\frac{\sin 2t}{2}=\frac{\sin 2s}{2}$ se obtiene $\sin t\cos t=\sin s\cos s$.
+\item Como $\sin t=\sin s\neq0$, concluimos $\cos t=\cos s$.
+\item En cualquiera de los casos, $\sin t=\sin s$ y $\cos t=\cos s$.
+\item Como $0<s,t<2\pi$, esto implica $|t-s|<2\pi$.
+\item Pero si tienen el mismo seno y coseno, entonces $t-s=2k\pi$ con $k\in\mathbb Z$.
+\item Luego $|k|<1$, por lo tanto $k=0$. Así, $t=s$.
+\end{enumerate}
+\begin{itemize}
+\item Que es inmersion sale igual que antes por que el diferencial no cambia. Luego $((0,2\pi),g)$ es subvariedad.
+\item \textbf{$f$ no es homeomorfismo}
+\end{itemize}
+\begin{enumerate}
+\item Para ver esto, tenemos que mostrar que $g$ no produce un homeomorfismo entre $(0,2\pi)$ y el ocho con la topología de $\mathbb R^2$.
+\item La idea está en que hay puntos "cercanos" en el ocho pero cuando se ven en $(0,2\pi)$ están "lejos".
+\item Razonemos por el absurdo. Supongamos que
+\end{enumerate}
+\[
+g:(0,2\pi)\to\text{ocho}
+\]
+es homeomorfismo. 4. Entonces
+
+\[
+g^{-1}:\text{ocho}\to(0,2\pi)
+\]
+es continua. 5. Tomemos la sucesión de puntos del ocho
+
+\[
+p_n=g\left(\frac1n\right)=\left(\frac{\sin(2/n)}{2},\sin(1/n)\right).
+\]
+\begin{enumerate}[start=6]
+\item Con la topología del subespacio, $\{p_n\}$ es una sucesión de puntos del ocho que converge a $(0,0)$.
+\item Por tanto, como $g^{-1}$ es continua, la sucesión $\{g^{-1}(p_n)\}$ debería converger a $g^{-1}(0,0)=\pi$.
+\item Pero
+\end{enumerate}
+\[
+g^{-1}(p_n)=\frac1n,
+\]
+luego
+
+\[
+g^{-1}(p_n)\to0.
+\]
+\begin{enumerate}[start=9]
+\item Por lo tanto, $g$ no es homeomorfismo sobre su imagen.
+\end{enumerate}
+\begin{itemize}
+\item Así, $((0,2\pi),g)$ es una subvariedad inmersa, pero no una subvariedad incrustada.
+\end{itemize}
+\bookqed
+\end{bookproof}
+\section{Equivalencia de subvariedades}
+\begin{bookdefinition}{Equivalencia de subvariedades}
+Dos subvariedades
+
+\[
+(N_1,f_1),\qquad (N_2,f_2)
+\]
+de una variedad suave $M$ se dicen \textbf{equivalentes} si existe un difeomorfismo
+
+\[
+\Phi:N_1\to N_2
+\]
+tal que
+
+\[
+f_1=f_2\circ\Phi
+\]
+Esto define una relación de equivalencia en el conjunto de todas las subvariedades de $M$. Analogamente 
+\bookimage{assets/pasted-image-20260425120519.png}{Pasted image 20260425120519}
+ es un diagrama conmutativo
+
+\end{bookdefinition}
+\begin{bookproposition}{Representante incrustado único}
+Sea $M$ una variedad suave. Toda clase de equivalencia $[(N,f)]$ de subvariedades de $M$ contiene un único representante de la forma
+
+\[
+(\widehat N,i)
+\]
+donde $\widehat N\subseteq M$ es un subconjunto e
+
+\[
+i:\widehat N\hookrightarrow M
+\]
+es la inclusión.
+
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Como $(N,f)$ una subvariedad de $M$. Como $f$ es inyectiva, induce una biyección
+\end{enumerate}
+\[
+\widehat f:N\to \widehat N:=f(N)
+\]
+notar que como cambia el conjunto de llegada cambia la funcion 2. Transportamos la topología y la estructura suave de $N$ a $\widehat N$ mediante $\widehat f$. Con esa estructura, $\widehat f$ es un difeomorfismo. 3. Si $i:\widehat N\hookrightarrow M$ es la inclusión, entonces
+
+\[
+f=i\circ \widehat f
+\]
+\begin{enumerate}[start=4]
+\item Veamos que $i:\widehat N\to M$ es suave. Las cartas de $\widehat N$ son de la forma $(\widehat U,\psi=\varphi\circ \widehat f^{-1})$, donde $\widehat U=\widehat f(U)$ y $(U,\varphi)$ es carta de $N$.
+\item Para cada una de estas cartas,
+\end{enumerate}
+\[
+i\circ(\varphi\circ \widehat f^{-1})^{-1}:\varphi(U)\to M
+\]
+es suave, pues
+
+\[
+i\circ(\varphi\circ \widehat f^{-1})^{-1}= f\circ\varphi^{-1}:\varphi(U)\to M,
+\]
+que es suave, ya que $f:U\to M$ es suave por hipótesis y $\varphi$ es carta, osea suave 6. Notar que alcanza con una sola de las composiciones por que si $f\circ \varphi ^{-1}$ es suave entonces $\psi\circ f\circ\varphi ^{-1}$ va a ser suave para cualquier $\psi$ carta\\
+7. En cuanto a $(di)_p:T_p\widehat N\to T_pM$, esta es inyectiva, por que $f=i\circ\widehat f$, entonces $df_p=(di)_{\widehat f(p)}(d\widehat f)_p$. 8. Y al ser $(d f)_p$ inyectiva y $(d\widehat f)_{p}$ isomorfismo sobre su imagen (por que $\tilde{f}$ es homeomorfismo), entonces $(di)_{\widehat f(p)}$ debe ser inyectiva. 9. Por lo tanto $(\widehat{N},i)$ es claramente subvariedad y por 3. (y 2. que dice $\widehat{f}$ es difeo) tenemos $(\widehat{N},i)\in [(N,f)]$
+
+\begin{itemize}
+\item ¿Es el único representante en $[N,f]$ de esta forma?
+\end{itemize}
+\begin{enumerate}
+\item Si $(\widetilde N,i)\in[N,f]$, esto quiere decir que existe
+\end{enumerate}
+\[
+g:N\to\widetilde N
+\]
+difeo tal que
+
+\[
+f=i\circ g.
+\]
+\begin{enumerate}[start=2]
+\item Pero $f=i\circ\widehat f$  por lo que $\widetilde N=\widehat N$ como conjuntos y  $g=\widehat f$.
+\item Ahora queremos ver que $\widehat{N}$ y $\widetilde{N}$ tienen la misma estructura diferenciable $\widehat{\mathcal{F}}$ y $\widetilde{\mathcal{F}}$. (Sabemos que son iguales como conjuntos)
+\item Miramos
+\end{enumerate}
+\[
+\operatorname{Id}_{\widehat N}:(\widetilde N,\widetilde{\mathcal F})\to(\widehat N,\widehat{\mathcal F}).
+\]
+\begin{enumerate}[start=5]
+\item Como $\widehat f:N\to(\widehat N,\widehat{\mathcal A})$ es difeo y $\widehat f=g:N\to(\widetilde N,\widetilde{\mathcal A})$ también es difeo (por ser inmersiones, definicion), entonces
+\end{enumerate}
+\[
+g\circ\widehat f^{-1}=\widehat f\circ\widehat f^{-1}=\operatorname{Id}_{\widehat N}
+\]
+es difeo. (Que la $Id_{\widehat{N}}$ sea difeo nos dice que para cualquier par de cartas $(\widetilde{N},\varphi)$ y $(\widehat{N},\psi)$ sucede $\psi\circ Id_{\widehat{N}}\circ\varphi ^{-1}=\psi\circ\varphi ^{-1}$ es suave. Mostrando la compatibilidad) 6. Por ende las estructuras son las mismas, por que si tomamos cartas cualquier $\varphi,\psi$ en $\widetilde{F},\widehat{F}$ respectivamente
+
+\bookqed
+\end{bookproof}
+\section{Consecuencia práctica}
+\begin{bookremark}{Identificar una subvariedad con su imagen}
+Gracias a la proposición anterior, muchas veces una subvariedad se identifica con un subconjunto
+
+\[
+\widehat N\subseteq M
+\]
+provisto de la estructura suave que hace a la inclusión una incrustación.
+
+En ese contexto, decir que “$\widehat N$ es una subvariedad de $M$” significa precisamente que la inclusión
+
+\[
+i:\widehat N\hookrightarrow M
+\]
+es una incrustación suave.
+
+\end{bookremark}
+\section{Ejemplo final}
+\begin{bookexample}{Dos presentaciones del ocho}
+Considérese la imagen del ocho en $\mathbb R^2$ y las dos presentaciones
+
+\[
+f:(0,2\pi)\to\mathbb R^2,\qquad f|_{(0,2\pi)}(t)=\left(\frac{\sin 2t}{2},\sin t\right),
+\]
+y
+
+\[
+\tilde f:(-\pi,\pi)\to\mathbb R^2,\qquad \tilde f|_{(-\pi,\pi)}(t)=\left(\frac{\sin 2t}{2},\sin t\right)
+\]
+Estas dos subvariedades no son equivalentes. 
+\bookimage{assets/pasted-image-20260425170149.png}{Pasted image 20260425170149}
+
+
+\begin{bookremark}{}
+\begin{enumerate}
+\item Si fueran equivalentes, existiría un difeomorfismo
+\end{enumerate}
+\[
+F:(0,2\pi)\to(-\pi,\pi)
+\]
+tal que
+
+\[
+f=\tilde f\circ F
+\]
+\begin{enumerate}[start=2]
+\item La unica $F$ que cumple eso manda $t$ a $t$ para $0<t<\pi$ $t$ a $t-2t$ para $\pi<t<2\pi$ y $t$ a $\pi$ si $t=\pi$
+\item \bookimage{assets/pasted-image-20260425170729.png}{Pasted image 20260425170729}
+\item ¿Cómo sale $F$? Si
+\end{enumerate}
+\[
+f|_{(-\pi,\pi)}\circ F=f|_{(0,2\pi)}.
+\]
+\begin{enumerate}[start=5]
+\item Si $t\in(0,\pi)$, entonces $f|_{(-\pi,\pi)}(t)=f|_{(0,2\pi)}(t)$.
+\item Por tanto,
+\end{enumerate}
+\[
+f|_{(-\pi,\pi)}(F(t))=f|_{(0,2\pi)}(t)=f|_{(-\pi,\pi)}(t).
+\]
+\begin{enumerate}[start=7]
+\item Y como $f|_{(-\pi,\pi)}$ es inyectiva, se sigue que $F(t)=t$.
+\item Si $t=\pi$, entonces
+\end{enumerate}
+\[
+f|_{(-\pi,\pi)}(F(\pi))=f|_{(0,2\pi)}(\pi)=(0,0).
+\]
+\begin{enumerate}[start=9]
+\item Y como $f|_{(-\pi,\pi)}(0)=0$, con $f|_{(-\pi,\pi)}$ inyectiva, se sigue que
+\end{enumerate}
+\[
+F(\pi)=0.
+\]
+\begin{enumerate}[start=10]
+\item Ya con esto, $F$ no es continua. Ver el tramo $(\pi,2\pi)$.
+\end{enumerate}
+\end{bookremark}
+\end{bookexample}
+\phantomsection\label{blk:8ed2bd}

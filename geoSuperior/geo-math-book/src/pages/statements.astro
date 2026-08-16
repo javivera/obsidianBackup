@@ -1,0 +1,307 @@
+---
+import BookLayout from "../layouts/BookLayout.astro";
+import AccountGate from "../components/AccountGate.astro";
+import { searchCatalog as catalog } from "../data/searchCatalog";
+
+const kindOrder = [
+  "definition",
+  "theorem",
+  "lemma",
+  "proposition",
+  "corollary",
+  "remark",
+  "example",
+  "exercise"
+];
+---
+
+<BookLayout
+  title="Enunciados"
+  description="Indice editable de los enunciados usados por el tester"
+  chapter="Enunciados"
+>
+  <AccountGate contentId="statements-account-content" />
+  <div class="statements-page" id="statements-account-content" hidden>
+    <div class="account-session">
+      <span>Usuario: <strong data-account-username></strong></span>
+      <button class="text-button" type="button" data-account-logout>Cerrar sesion</button>
+    </div>
+    <header class="random-hero">
+      <p class="random-kicker">Indice del tester</p>
+      <h1>Todos los enunciados</h1>
+      <p class="lede">
+        Ordena las entradas por archivo o tipo, cambia el titulo que muestra el tester
+        y ajusta su frecuencia.
+      </p>
+    </header>
+
+    <div class="statements-toolbar">
+      <label>
+        Buscar
+        <input id="statement-search" type="search" placeholder="Titulo, archivo o tipo..." />
+      </label>
+      <label>
+        Ordenar por
+        <select id="statement-sort">
+          <option value="chapter">Numero de archivo</option>
+          <option value="kind">Tipo de enunciado</option>
+        </select>
+      </label>
+    </div>
+
+    <section class="statement-dashboard" aria-labelledby="statement-settings-title">
+      <div class="score-dashboard-header">
+        <div>
+          <p class="random-kicker">Frecuencia adaptativa</p>
+          <h2 id="statement-settings-title">Enunciados personalizados</h2>
+        </div>
+      </div>
+      <p class="statement-settings-help">
+        Edita que enunciados aparecen mas, menos o quedan desactivados hasta que decidas recuperarlos.
+      </p>
+      <div class="statement-groups" id="statement-groups"></div>
+    </section>
+
+    <p class="random-status" id="statement-count" aria-live="polite"></p>
+    <div
+      class="all-statements"
+      id="all-statements"
+      data-kind-order={JSON.stringify(kindOrder)}
+    ></div>
+  </div>
+
+  <script is:inline define:vars={{ catalog }}>
+    const searchInput = document.querySelector("#statement-search");
+    const sortSelect = document.querySelector("#statement-sort");
+    const countLabel = document.querySelector("#statement-count");
+    const statementList = document.querySelector("#all-statements");
+    const statementGroups = document.querySelector("#statement-groups");
+    const kindOrder = JSON.parse(statementList.dataset.kindOrder);
+
+    function entryId(entry) {
+      return `${entry.chapterHref}:${entry.index}`;
+    }
+
+    function readObject(name) {
+      const value = window.geoAccount.data[name];
+      return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+    }
+
+    function readDisabled() {
+      const value = window.geoAccount.data.disabled;
+      return new Set(Array.isArray(value) ? value : []);
+    }
+
+    function saveTitle(id, originalTitle, value) {
+      const titles = readObject("titles");
+      const title = value.trim();
+      if (!title || title === originalTitle) delete titles[id];
+      else titles[id] = title;
+      window.geoAccount.data.titles = titles;
+      window.geoAccount.save();
+      renderPage();
+    }
+
+    function saveStatus(id, status) {
+      const mastery = readObject("mastery");
+      const disabled = readDisabled();
+      disabled.delete(id);
+
+      if (status === "more") mastery[id] = -1;
+      else if (status === "less") mastery[id] = 1;
+      else delete mastery[id];
+      if (status === "disabled") disabled.add(id);
+
+      window.geoAccount.data.mastery = mastery;
+      window.geoAccount.data.disabled = [...disabled];
+      window.geoAccount.save();
+      renderPage();
+    }
+
+    function currentStatus(id, mastery, disabled) {
+      if (disabled.has(id)) return "disabled";
+      if (Number(mastery[id]) < 0) return "more";
+      if (Number(mastery[id]) > 0) return "less";
+      return "normal";
+    }
+
+    function normalize(value) {
+      return value
+        .toLocaleLowerCase("es")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function chapterNumber(entry) {
+      const theory = entry.chapterHref.match(/teo-(\d+)/);
+      if (theory) return Number(theory[1]);
+      const practice = entry.chapterHref.match(/pr-(\d+)/);
+      if (practice) return 100 + Number(practice[1]);
+      return 1000;
+    }
+
+    function renderStatements() {
+      const mastery = readObject("mastery");
+      const disabled = readDisabled();
+      const titles = readObject("titles");
+      const query = normalize(searchInput.value.trim());
+      const entries = catalog
+        .filter((entry) => {
+          const text = normalize(
+            `${titles[entryId(entry)] || entry.title} ${entry.chapterLabel} ${entry.chapterTitle} ${entry.kindLabel}`
+          );
+          return !query || text.includes(query);
+        })
+        .sort((a, b) => {
+          if (sortSelect.value === "kind") {
+            return kindOrder.indexOf(a.kind) - kindOrder.indexOf(b.kind) ||
+              chapterNumber(a) - chapterNumber(b) ||
+              a.index - b.index;
+          }
+          return chapterNumber(a) - chapterNumber(b) ||
+            a.index - b.index ||
+            kindOrder.indexOf(a.kind) - kindOrder.indexOf(b.kind);
+        });
+
+      const fragment = document.createDocumentFragment();
+      entries.forEach((entry) => {
+        const id = entryId(entry);
+        const row = document.createElement("article");
+        row.className = "statement-editor";
+
+        const meta = document.createElement("div");
+        meta.className = "statement-editor-meta";
+        meta.innerHTML = `<strong>${entry.kindLabel}</strong><span>${entry.chapterLabel}: ${entry.chapterTitle}</span>`;
+
+        const titleLabel = document.createElement("label");
+        titleLabel.textContent = "Titulo del tester";
+        const titleInput = document.createElement("input");
+        titleInput.type = "text";
+        titleInput.value = titles[id] || entry.title;
+        titleInput.addEventListener("change", () => saveTitle(id, entry.title, titleInput.value));
+        titleLabel.append(titleInput);
+
+        const controls = document.createElement("div");
+        controls.className = "statement-editor-controls";
+        const statusLabel = document.createElement("label");
+        statusLabel.textContent = "Frecuencia";
+        const statusSelect = document.createElement("select");
+        [
+          ["normal", "Normal"],
+          ["more", "Aparece mas"],
+          ["less", "Aparece menos"],
+          ["disabled", "Desactivado"]
+        ].forEach(([value, label]) => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = label;
+          statusSelect.append(option);
+        });
+        statusSelect.value = currentStatus(id, mastery, disabled);
+        statusSelect.addEventListener("change", () => saveStatus(id, statusSelect.value));
+        statusLabel.append(statusSelect);
+
+        const source = document.createElement("a");
+        source.href = `${entry.chapterHref}?block=${entry.index}`;
+        source.textContent = "Ver en el capitulo";
+        controls.append(statusLabel, source);
+        row.append(meta, titleLabel, controls);
+        fragment.append(row);
+      });
+
+      statementList.replaceChildren(fragment);
+      countLabel.textContent = `${entries.length} de ${catalog.length} enunciados.`;
+    }
+
+    function makeStatusButton(label, id, status) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "text-button";
+      button.textContent = label;
+      button.addEventListener("click", () => saveStatus(id, status));
+      return button;
+    }
+
+    function renderStatementGroups() {
+      const mastery = readObject("mastery");
+      const disabled = readDisabled();
+      const titles = readObject("titles");
+      const entriesById = new Map(catalog.map((entry) => [entryId(entry), entry]));
+      const groups = [
+        {
+          title: "Aparecen mas",
+          description: "Enunciados reforzados despues de fallos o por edicion manual.",
+          ids: Object.keys(mastery).filter((id) => Number(mastery[id]) < 0 && !disabled.has(id))
+        },
+        {
+          title: "Aparecen menos",
+          description: "Enunciados reducidos despues de respuestas correctas o por edicion manual.",
+          ids: Object.keys(mastery).filter((id) => Number(mastery[id]) > 0 && !disabled.has(id))
+        },
+        {
+          title: "Desactivados",
+          description: "No se incluiran en ningun examen hasta que los actives.",
+          ids: [...disabled]
+        }
+      ];
+      const fragment = document.createDocumentFragment();
+
+      groups.forEach((group) => {
+        const section = document.createElement("section");
+        section.className = "statement-group";
+        const heading = document.createElement("h3");
+        const validIds = group.ids.filter((id) => entriesById.has(id));
+        heading.textContent = `${group.title} (${validIds.length})`;
+        const description = document.createElement("p");
+        description.textContent = group.description;
+        const list = document.createElement("div");
+        list.className = "statement-list";
+
+        validIds.forEach((id) => {
+          const entry = entriesById.get(id);
+          const row = document.createElement("article");
+          row.className = "statement-row";
+          const details = document.createElement("div");
+          const title = document.createElement("strong");
+          title.textContent = titles[id] || entry.title;
+          const meta = document.createElement("small");
+          meta.textContent = `${entry.chapterLabel}: ${entry.chapterTitle} · ${entry.kindLabel}`;
+          details.append(title, meta);
+
+          const actions = document.createElement("div");
+          actions.className = "statement-row-actions";
+          actions.append(
+            makeStatusButton("Mas", id, "more"),
+            makeStatusButton("Normal", id, "normal"),
+            makeStatusButton("Menos", id, "less"),
+            makeStatusButton(disabled.has(id) ? "Activar" : "Desactivar", id, disabled.has(id) ? "normal" : "disabled")
+          );
+          row.append(details, actions);
+          list.append(row);
+        });
+
+        if (validIds.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty-score";
+          empty.textContent = "No hay enunciados en esta lista.";
+          list.append(empty);
+        }
+        section.append(heading, description, list);
+        fragment.append(section);
+      });
+
+      statementGroups.replaceChildren(fragment);
+    }
+
+    function renderPage() {
+      renderStatementGroups();
+      renderStatements();
+    }
+
+    window.geoAccount.ready.then(() => {
+      searchInput.addEventListener("input", renderStatements);
+      sortSelect.addEventListener("change", renderStatements);
+      renderPage();
+    });
+  </script>
+</BookLayout>

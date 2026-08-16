@@ -1,0 +1,759 @@
+---
+import BookLayout from "../layouts/BookLayout.astro";
+import { chapters } from "../data/chapters";
+import { corazonTheorems } from "../data/corazonTheorems";
+import { listaCorazonesBlockIds } from "../data/listaTeoremas";
+import { withBase } from "../lib/paths";
+
+const kindLabels = {
+  definition: "Definiciones",
+  theorem: "Teoremas",
+  lemma: "Lemas",
+  proposition: "Proposiciones",
+  corollary: "Corolarios",
+  remark: "Observaciones",
+  example: "Ejemplos",
+  exercise: "Ejercicios"
+} as const;
+
+type Kind = keyof typeof kindLabels;
+
+const chapterSources = import.meta.glob("./chapters/*.mdx", {
+  query: "?raw",
+  import: "default",
+  eager: true
+}) as Record<string, string>;
+
+const catalog = chapters.flatMap((chapter) => {
+  const slug = chapter.href.split("/").filter(Boolean).at(-1);
+  if (!slug) return [];
+
+  const source = chapterSources[`./chapters/${slug}.mdx`];
+  if (!source) return [];
+  const chapterNumber = Number(slug.match(/^teo-(\d+)$/)?.[1]) || null;
+  const entries: Array<{
+    chapterHref: string;
+    chapterLabel: string;
+    chapterTitle: string;
+    chapterNumber: number | null;
+    index: number;
+    kindIndex: number;
+    kind: Kind;
+    optional: boolean;
+    exerciseNumber: number | null;
+  }> = [];
+  const blockPattern = /<BookBlock\b[^>]*\bkind="([^"]+)"[^>]*>/g;
+  let match;
+  let index = 0;
+  const kindCounts: Partial<Record<Kind, number>> = {};
+  let exerciseCount = 0;
+  let previousBlockEnd = 0;
+
+  while ((match = blockPattern.exec(source)) !== null) {
+    const kind = match[1] as Kind;
+    const kindIndex = kindCounts[kind] ?? 0;
+    kindCounts[kind] = kindIndex + 1;
+    const closingIndex = source.indexOf("</BookBlock>", blockPattern.lastIndex);
+    const body = source.slice(
+      blockPattern.lastIndex,
+      closingIndex >= 0 ? closingIndex : blockPattern.lastIndex + 500
+    );
+    const precedingContent = source.slice(previousBlockEnd, match.index);
+    if (kind === "exercise") exerciseCount += 1;
+    const headingNumber = precedingContent.match(
+      /###\s*Ejercicio\s+(\d+)(?:\s|\(|$)/i
+    )?.[1];
+    const exerciseNumber =
+      kind === "exercise" && chapter.section === "practice"
+        ? Number(headingNumber) || exerciseCount
+        : null;
+    const optional =
+      kind === "exercise" &&
+      (
+        /^\s*###?[^\n]*(?:opcional|optativ[oa])/im.test(precedingContent) ||
+        /(?:opcional|optativ[oa])/i.test(body.slice(0, 300))
+      );
+    if (kind in kindLabels) {
+      entries.push({
+        chapterHref: chapter.href,
+        chapterLabel: chapter.label,
+        chapterTitle: chapter.title,
+        chapterNumber,
+        index,
+        kindIndex,
+        kind,
+        optional,
+        exerciseNumber
+      });
+    }
+    if (closingIndex >= 0) {
+      previousBlockEnd = closingIndex + "</BookBlock>".length;
+    }
+    index += 1;
+  }
+
+  return entries;
+});
+
+const listaCorazonesIds = new Set(listaCorazonesBlockIds);
+const listaCorazonesCatalogCount = catalog.filter((entry) =>
+  listaCorazonesIds.has(`${entry.chapterHref}:${entry.index}` as typeof listaCorazonesBlockIds[number])
+).length;
+const corazonGuides = Object.fromEntries(
+  corazonTheorems.map((entry) => [entry.id, entry.proofCueStepsHtml])
+);
+const corazonProofs = Object.fromEntries(
+  corazonTheorems.map((entry) => [entry.id, entry.proofStepsHtml])
+);
+
+const counts = Object.keys(kindLabels).reduce<Record<string, number>>((result, kind) => {
+  result[kind] = catalog.filter((entry) => entry.kind === kind).length;
+  return result;
+}, {});
+const optionalExerciseCount = catalog.filter((entry) => entry.optional).length;
+---
+
+<BookLayout
+  title="Repaso aleatorio"
+  description="Practica definiciones, teoremas y demostraciones al azar"
+  chapter="Aleatorio"
+>
+  <div class="random-page">
+    <header class="random-hero">
+      <p class="random-kicker">Modo de estudio</p>
+      <h1>Repaso aleatorio</h1>
+      <p class="lede">
+        Saca una definicion, teorema, lema o ejercicio al azar. Cuando haya una
+        demostracion, puedes descubrirla paso a paso.
+      </p>
+    </header>
+
+    <section class="random-toolbar" aria-label="Opciones de repaso">
+      <div class="random-toolbar-header">
+        <div>
+          <strong>Filtros</strong>
+          <small>Ajusta el contenido del repaso aleatorio</small>
+        </div>
+        <button
+          class="filter-section-toggle"
+          id="random-filters-toggle"
+          type="button"
+          aria-expanded="true"
+          aria-controls="random-filters-content"
+        >
+          <span>Ocultar filtros</span>
+          <span class="filter-section-chevron" aria-hidden="true">⌄</span>
+        </button>
+      </div>
+
+      <div class="random-filters-content" id="random-filters-content">
+        <fieldset class="kind-filters">
+          <legend>Quiero practicar</legend>
+          <label class="kind-option kind-option-all">
+            <input id="kind-filter-all" type="checkbox" checked />
+            <span>Todo <small>{catalog.length}</small></span>
+          </label>
+          {Object.entries(kindLabels).map(([kind, label]) => (
+            <label class="kind-option">
+              <input class="kind-filter" type="checkbox" value={kind} checked />
+              <span>{label} <small>{counts[kind]}</small></span>
+            </label>
+          ))}
+          <label class="kind-option">
+            <input class="kind-filter" type="checkbox" value="heart" checked />
+            <span>Teoremas corazón <small>{listaCorazonesCatalogCount}</small></span>
+          </label>
+          <label class="kind-option kind-option-all">
+            <input id="random-exclude-optional" type="checkbox" />
+            <span>Excluir ejercicios opcionales <small>{optionalExerciseCount}</small></span>
+          </label>
+        </fieldset>
+        <fieldset class="kind-filters chapter-filters">
+          <legend>Archivos</legend>
+          <label class="kind-option">
+            <input class="chapter-filter" type="radio" name="chapter-range" value="all" checked />
+            <span>Todos</span>
+          </label>
+          <label class="kind-option">
+            <input class="chapter-filter" type="radio" name="chapter-range" value="before-13" />
+            <span>Antes del archivo 13 <small>1–12</small></span>
+          </label>
+          <label class="kind-option">
+            <input class="chapter-filter" type="radio" name="chapter-range" value="from-13" />
+            <span>Desde el archivo 13 <small>13–23</small></span>
+          </label>
+          <div class="individual-file-filters">
+            <strong>Teoricos individuales</strong>
+            <small>Selecciona uno o varios. Si no eliges ninguno, se usa el rango de arriba.</small>
+            <div class="kind-filters">
+              {chapters
+                .filter((chapter) => chapter.section === "theory")
+                .map((chapter) => (
+                  <label class="kind-option">
+                    <input class="file-filter" type="checkbox" value={chapter.href} />
+                    <span>{chapter.label}</span>
+                  </label>
+                ))}
+            </div>
+            <strong>Practicos</strong>
+            <div class="kind-filters">
+              {chapters
+                .filter((chapter) => chapter.section === "practice")
+                .map((chapter) => (
+                  <label class="kind-option">
+                    <input class="file-filter" type="checkbox" value={chapter.href} />
+                    <span>{chapter.label}</span>
+                  </label>
+              ))}
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="random-actions">
+        <button class="primary-button" id="random-button" type="button">
+          Dame uno al azar
+        </button>
+      </div>
+    </section>
+
+    <p class="random-status" id="random-status" aria-live="polite">
+      Elige un filtro y pulsa el boton para empezar.
+    </p>
+
+    <section class="random-result" id="random-result" hidden>
+      <div class="random-result-meta">
+        <span id="result-kind"></span>
+        <a id="result-source" href={withBase("/")}>Ver en el capitulo</a>
+      </div>
+      <div id="result-content"></div>
+
+      <div class="definition-reveal" id="definition-reveal" hidden>
+        <button class="secondary-button" id="definition-show" type="button">
+          Mostrar definicion
+        </button>
+      </div>
+
+      <div class="proof-reveal" id="guide-reveal" hidden>
+        <div class="proof-reveal-header">
+          <div>
+            <span class="proof-label">Guía de reconstrucción</span>
+            <small id="guide-progress"></small>
+          </div>
+          <button class="secondary-button" id="guide-start" type="button">
+            Revelar guía paso a paso
+          </button>
+        </div>
+        <div class="proof-steps" id="guide-steps" aria-live="polite"></div>
+        <button class="secondary-button" id="guide-next" type="button" hidden>
+          Siguiente pista
+        </button>
+      </div>
+
+      <div class="proof-reveal" id="proof-reveal" hidden>
+        <div class="proof-reveal-header">
+          <div>
+            <span class="proof-label" id="proof-title">Demostracion</span>
+            <small id="proof-progress"></small>
+          </div>
+          <button class="secondary-button" id="proof-start" type="button">
+            Mostrar paso a paso
+          </button>
+        </div>
+        <div class="proof-steps" id="proof-steps" aria-live="polite"></div>
+        <button class="secondary-button" id="proof-next" type="button" hidden>
+          Siguiente paso
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline define:vars={{ catalog, kindLabels, listaCorazonesBlockIds, corazonGuides, corazonProofs }}>
+    const filterStorageKey = "geoSuperior.randomFilters.v2";
+    const filtersCollapsedStorageKey = "geoSuperior.randomFiltersCollapsed.v1";
+    const allFilter = document.querySelector("#kind-filter-all");
+    const excludeOptional = document.querySelector("#random-exclude-optional");
+    const kindFilters = Array.from(document.querySelectorAll(".kind-filter"));
+    const chapterFilters = Array.from(document.querySelectorAll(".chapter-filter"));
+    const fileFilters = Array.from(document.querySelectorAll(".file-filter"));
+    const randomButton = document.querySelector("#random-button");
+    const status = document.querySelector("#random-status");
+    const result = document.querySelector("#random-result");
+    const resultKind = document.querySelector("#result-kind");
+    const resultSource = document.querySelector("#result-source");
+    const resultContent = document.querySelector("#result-content");
+    const definitionReveal = document.querySelector("#definition-reveal");
+    const definitionShow = document.querySelector("#definition-show");
+    const guideReveal = document.querySelector("#guide-reveal");
+    const guideProgress = document.querySelector("#guide-progress");
+    const guideStart = document.querySelector("#guide-start");
+    const guideSteps = document.querySelector("#guide-steps");
+    const guideNext = document.querySelector("#guide-next");
+    const proofReveal = document.querySelector("#proof-reveal");
+    const proofTitle = document.querySelector("#proof-title");
+    const proofProgress = document.querySelector("#proof-progress");
+    const proofStart = document.querySelector("#proof-start");
+    const proofSteps = document.querySelector("#proof-steps");
+    const proofNext = document.querySelector("#proof-next");
+    const chapterCache = new Map();
+    const heartListIds = new Set(listaCorazonesBlockIds);
+    const filtersToggle = document.querySelector("#random-filters-toggle");
+    const filtersContent = document.querySelector("#random-filters-content");
+    const randomToolbar = document.querySelector(".random-toolbar");
+
+    let lastEntry = null;
+    let currentDefinitionBody = null;
+    let currentGuideSteps = [];
+    let visibleGuideSteps = 0;
+    let currentProofSteps = [];
+    let visibleProofSteps = 0;
+
+    function selectedKinds() {
+      return new Set(
+        kindFilters.filter((filter) => filter.checked).map((filter) => filter.value)
+      );
+    }
+
+    function selectedChapterRange() {
+      return chapterFilters.find((filter) => filter.checked)?.value || "all";
+    }
+
+    function selectedFiles() {
+      return new Set(
+        fileFilters.filter((filter) => filter.checked).map((filter) => filter.value)
+      );
+    }
+
+    function saveFilters() {
+      localStorage.setItem(
+        filterStorageKey,
+        JSON.stringify({
+          kinds: [...selectedKinds()],
+          chapterRange: selectedChapterRange(),
+          files: [...selectedFiles()],
+          excludeOptional: excludeOptional.checked
+        })
+      );
+    }
+
+    function setFiltersCollapsed(collapsed, shouldSave = true) {
+      randomToolbar?.classList.toggle("is-filters-collapsed", collapsed);
+      filtersToggle?.setAttribute("aria-expanded", String(!collapsed));
+      if (filtersContent) filtersContent.hidden = collapsed;
+      const label = filtersToggle?.querySelector("span:first-child");
+      if (label) label.textContent = collapsed ? "Mostrar filtros" : "Ocultar filtros";
+      if (shouldSave) localStorage.setItem(filtersCollapsedStorageKey, collapsed ? "1" : "0");
+    }
+
+    function restoreFiltersCollapsed() {
+      setFiltersCollapsed(localStorage.getItem(filtersCollapsedStorageKey) === "1", false);
+    }
+
+    function restoreFilters() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(filterStorageKey) || "null");
+        if (!saved || typeof saved !== "object") return;
+
+        if (Array.isArray(saved.kinds)) {
+          const kinds = new Set(saved.kinds);
+          kindFilters.forEach((filter) => {
+            filter.checked = kinds.has(filter.value);
+          });
+        }
+
+        if (typeof saved.chapterRange === "string") {
+          const savedRange = chapterFilters.find(
+            (filter) => filter.value === saved.chapterRange
+          );
+          if (savedRange) savedRange.checked = true;
+        }
+
+        if (Array.isArray(saved.files)) {
+          const files = new Set(saved.files);
+          fileFilters.forEach((filter) => {
+            filter.checked = files.has(filter.value);
+          });
+        }
+
+        excludeOptional.checked = saved.excludeOptional === true;
+      } catch {
+        // Keep the default filters when saved data is unavailable or malformed.
+      }
+    }
+
+    function matchesChapterRange(entry, range, files) {
+      if (files.size > 0) return files.has(entry.chapterHref);
+      if (range === "before-13") {
+        return entry.chapterNumber !== null && entry.chapterNumber < 13;
+      }
+      if (range === "from-13") {
+        return entry.chapterNumber !== null && entry.chapterNumber >= 13;
+      }
+      return true;
+    }
+
+    function entryId(entry) {
+      return `${entry.chapterHref}:${entry.index}`;
+    }
+
+    function isHeartEntry(entry) {
+      return heartListIds.has(entryId(entry));
+    }
+
+    function matchesSelectedCategory(entry, kinds) {
+      return kinds.has(entry.kind) || (kinds.has("heart") && isHeartEntry(entry));
+    }
+
+    function updateFilterState() {
+      const selectedCount = kindFilters.filter((filter) => filter.checked).length;
+      const chapterRange = selectedChapterRange();
+      const files = selectedFiles();
+      const activeKinds = selectedKinds();
+      const availableCount = catalog.filter(
+        (entry) =>
+          matchesSelectedCategory(entry, activeKinds) &&
+          matchesChapterRange(entry, chapterRange, files) &&
+          (!excludeOptional.checked || !entry.optional)
+      ).length;
+      const chapterRangeLabel =
+        files.size > 0
+          ? `${files.size} archivo${files.size === 1 ? "" : "s"} seleccionado${files.size === 1 ? "" : "s"}`
+          : chapterRange === "before-13"
+          ? "archivos 1–12"
+          : chapterRange === "from-13"
+            ? "archivos 13–23"
+            : "todos los archivos";
+      allFilter.checked = selectedCount === kindFilters.length;
+      allFilter.indeterminate = selectedCount > 0 && selectedCount < kindFilters.length;
+      randomButton.disabled = selectedCount === 0;
+
+      if (selectedCount === 0) {
+        status.textContent = "Selecciona al menos una categoria.";
+      } else if (selectedCount === kindFilters.length) {
+        status.textContent = `Filtro listo: todas las categorias, ${chapterRangeLabel}, ${availableCount} entradas.`;
+      } else {
+        status.textContent = `Filtro listo: ${selectedCount} categorias, ${chapterRangeLabel}, ${availableCount} entradas.`;
+      }
+    }
+
+    async function loadChapter(pathname) {
+      if (chapterCache.has(pathname)) return chapterCache.get(pathname);
+
+      const response = await fetch(pathname, { cache: "no-store" });
+      if (!response.ok) throw new Error(`No se pudo cargar ${pathname}`);
+
+      const documentText = await response.text();
+      const chapterDocument = new DOMParser().parseFromString(documentText, "text/html");
+      chapterCache.set(pathname, chapterDocument);
+      return chapterDocument;
+    }
+
+    function splitProofIntoSteps(proofBody) {
+      const markers = [];
+      const textWalker = document.createTreeWalker(proofBody, NodeFilter.SHOW_TEXT);
+      let expectedNumber = 1;
+      let textNode;
+
+      while ((textNode = textWalker.nextNode())) {
+        if (textNode.parentElement?.closest(".katex, .preview-card, script, style")) continue;
+
+        const markerPattern = /(^|\s)(\d+)\.\s+/g;
+        let match;
+        while ((match = markerPattern.exec(textNode.nodeValue || ""))) {
+          const number = Number(match[2]);
+          if (number !== expectedNumber) continue;
+          markers.push({ node: textNode, offset: match.index + match[1].length });
+          expectedNumber += 1;
+        }
+      }
+
+      if (markers.length > 0) {
+        return markers.map((marker, index) => {
+          const range = document.createRange();
+          range.setStart(marker.node, marker.offset);
+
+          const nextMarker = markers[index + 1];
+          if (nextMarker) {
+            range.setEnd(nextMarker.node, nextMarker.offset);
+          } else {
+            range.setEnd(proofBody, proofBody.childNodes.length);
+          }
+
+          const step = document.createElement("div");
+          step.append(range.cloneContents());
+
+          const stepTextWalker = document.createTreeWalker(step, NodeFilter.SHOW_TEXT);
+          let firstText;
+          while ((firstText = stepTextWalker.nextNode())) {
+            if (!firstText.nodeValue?.trim()) continue;
+            firstText.nodeValue = firstText.nodeValue.replace(/^\d+\.\s*/, "");
+            break;
+          }
+
+          return step;
+        });
+      }
+
+      const steps = [];
+
+      Array.from(proofBody.children).forEach((child) => {
+        if (child.matches("ol, ul")) {
+          Array.from(child.children).forEach((item, itemIndex) => {
+            const list = document.createElement(child.tagName.toLowerCase());
+            if (list instanceof HTMLOListElement) {
+              list.start = Number(child.getAttribute("start") || 1) + itemIndex;
+            }
+            list.append(item.cloneNode(true));
+            steps.push(list);
+          });
+          return;
+        }
+
+        steps.push(child.cloneNode(true));
+      });
+
+      if (steps.length === 0 && proofBody.textContent.trim()) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = proofBody.textContent.trim();
+        steps.push(paragraph);
+      }
+
+      return steps;
+    }
+
+    function updateGuideProgress() {
+      guideProgress.textContent = `${visibleGuideSteps} de ${currentGuideSteps.length} pistas`;
+      guideNext.textContent =
+        visibleGuideSteps >= currentGuideSteps.length ? "Guía completa" : "Siguiente pista";
+      guideNext.disabled = visibleGuideSteps >= currentGuideSteps.length;
+    }
+
+    function revealNextGuideStep() {
+      if (visibleGuideSteps >= currentGuideSteps.length) return;
+
+      const step = document.createElement("div");
+      step.className = "proof-step";
+      step.innerHTML = currentGuideSteps[visibleGuideSteps];
+      guideSteps.append(step);
+      visibleGuideSteps += 1;
+      updateGuideProgress();
+      step.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function prepareGuide(entry) {
+      guideSteps.replaceChildren();
+      visibleGuideSteps = 0;
+      currentGuideSteps = isHeartEntry(entry) ? corazonGuides[entryId(entry)] || [] : [];
+      guideNext.hidden = true;
+      guideNext.disabled = false;
+      guideStart.hidden = false;
+      guideProgress.textContent = `${currentGuideSteps.length} pistas disponibles`;
+      guideReveal.hidden = currentGuideSteps.length === 0;
+    }
+
+    function updateProofProgress() {
+      proofProgress.textContent = `${visibleProofSteps} de ${currentProofSteps.length} pasos`;
+      proofNext.textContent =
+        visibleProofSteps >= currentProofSteps.length ? "Demostracion completa" : "Siguiente paso";
+      proofNext.disabled = visibleProofSteps >= currentProofSteps.length;
+    }
+
+    function revealNextProofStep() {
+      if (visibleProofSteps >= currentProofSteps.length) return;
+
+      const step = document.createElement("div");
+      step.className = "proof-step";
+      if (currentProofSteps[visibleProofSteps].matches("ol")) {
+        step.classList.add("has-native-number");
+      }
+      step.append(currentProofSteps[visibleProofSteps].cloneNode(true));
+      proofSteps.append(step);
+      visibleProofSteps += 1;
+      updateProofProgress();
+      step.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function prepareProof(proof, entry = null) {
+      proofSteps.replaceChildren();
+      visibleProofSteps = 0;
+      currentProofSteps = [];
+      proofNext.hidden = true;
+      proofNext.disabled = false;
+      proofStart.hidden = false;
+
+      if (!proof) {
+        proofReveal.hidden = true;
+        return;
+      }
+
+      const originalProofSteps =
+        entry && isHeartEntry(entry) ? corazonProofs[entryId(entry)] || [] : [];
+      if (originalProofSteps.length > 0) {
+        currentProofSteps = originalProofSteps.map((html) => {
+          const step = document.createElement("div");
+          step.innerHTML = html;
+          return step;
+        });
+        proofTitle.textContent = proof.querySelector("summary")?.textContent?.trim() || "Demostracion";
+        proofProgress.textContent = `${currentProofSteps.length} pasos disponibles`;
+        proofReveal.hidden = false;
+        return;
+      }
+
+      const body = proof.querySelector(".proof-body");
+      if (!body) {
+        proofReveal.hidden = true;
+        return;
+      }
+
+      currentProofSteps = splitProofIntoSteps(body);
+      proofTitle.textContent = proof.querySelector("summary")?.textContent?.trim() || "Demostracion";
+      proofProgress.textContent = `${currentProofSteps.length} pasos disponibles`;
+      proofReveal.hidden = currentProofSteps.length === 0;
+    }
+
+    function prepareDefinition(block, kind) {
+      currentDefinitionBody = null;
+      definitionReveal.hidden = true;
+      definitionShow.hidden = false;
+      definitionShow.textContent = "Mostrar definicion";
+
+      if (kind !== "definition") return;
+
+      const body = block.querySelector(".block-body");
+      if (!body) return;
+
+      currentDefinitionBody = body.cloneNode(true);
+      body.remove();
+      definitionReveal.hidden = false;
+    }
+
+    async function showRandomEntry() {
+      const activeKinds = selectedKinds();
+      const chapterRange = selectedChapterRange();
+      const files = selectedFiles();
+      const shouldExcludeOptional = excludeOptional.checked;
+      const candidates = catalog.filter(
+        (entry) =>
+          matchesSelectedCategory(entry, activeKinds) &&
+          matchesChapterRange(entry, chapterRange, files) &&
+          (!shouldExcludeOptional || !entry.optional)
+      );
+      const alternatives =
+        candidates.length > 1
+          ? candidates.filter(
+              (entry) =>
+                !lastEntry ||
+                entry.chapterHref !== lastEntry.chapterHref ||
+                entry.index !== lastEntry.index
+            )
+          : candidates;
+
+      if (alternatives.length === 0) {
+        status.textContent = "No hay contenido para ese filtro.";
+        result.hidden = true;
+        return;
+      }
+
+      randomButton.disabled = true;
+      randomButton.textContent = "Buscando...";
+      status.textContent = "Eligiendo una entrada del libro...";
+
+      try {
+        const entry = alternatives[Math.floor(Math.random() * alternatives.length)];
+        const chapterDocument = await loadChapter(entry.chapterHref);
+        const chapterBlocks = Array.from(
+          chapterDocument.querySelectorAll(".book-page > .book-block")
+        );
+        const sameKindBlocks = chapterBlocks.filter((candidate) =>
+          candidate.classList.contains(entry.kind)
+        );
+        const sourceBlock = sameKindBlocks[entry.kindIndex] ?? chapterBlocks[entry.index];
+
+        if (!sourceBlock) throw new Error("No se encontro el bloque elegido.");
+
+        const block = sourceBlock.cloneNode(true);
+        block.removeAttribute("id");
+        block.querySelectorAll(".preview-card").forEach((preview) => preview.remove());
+        const proof = block.querySelector("details.proof");
+        proof?.remove();
+        prepareDefinition(block, entry.kind);
+
+        resultKind.textContent = isHeartEntry(entry)
+          ? `${kindLabels[entry.kind]} · Corazón`
+          : kindLabels[entry.kind];
+        resultSource.textContent =
+          entry.kind === "exercise" && entry.exerciseNumber
+            ? `${entry.chapterLabel}: ${entry.chapterTitle} · Ejercicio ${entry.exerciseNumber}`
+            : `${entry.chapterLabel}: ${entry.chapterTitle}`;
+        resultSource.href = entry.chapterHref;
+        resultContent.replaceChildren(block);
+        prepareGuide(entry);
+        prepareProof(proof, entry);
+
+        lastEntry = entry;
+        result.hidden = false;
+        if (entry.kind === "definition") {
+          status.textContent = "Intenta recordar la definicion antes de mostrarla.";
+        } else if (isHeartEntry(entry)) {
+          status.textContent = proof
+            ? "Teorema corazón: puedes revelar la guía de reconstrucción o la demostración paso a paso."
+            : "Teorema corazón: puedes revelar la guía de reconstrucción paso a paso.";
+        } else {
+          status.textContent = proof
+            ? "Esta entrada tiene demostracion. Intenta resolverla antes de mostrar los pasos."
+            : "Esta entrada no tiene una demostracion guardada.";
+        }
+        result.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (error) {
+        console.error(error);
+        result.hidden = true;
+        status.textContent = "No se pudo cargar la entrada. Prueba otra vez.";
+      } finally {
+        randomButton.disabled = false;
+        randomButton.textContent = "Dame otro al azar";
+      }
+    }
+
+    randomButton.addEventListener("click", showRandomEntry);
+    allFilter.addEventListener("change", () => {
+      kindFilters.forEach((filter) => {
+        filter.checked = allFilter.checked;
+      });
+      updateFilterState();
+      saveFilters();
+    });
+    [excludeOptional, ...kindFilters, ...chapterFilters, ...fileFilters].forEach((filter) =>
+      filter.addEventListener("change", () => {
+        updateFilterState();
+        saveFilters();
+      })
+    );
+    definitionShow.addEventListener("click", () => {
+      const block = resultContent.querySelector(".book-block");
+      if (!block || !currentDefinitionBody) return;
+
+      block.append(currentDefinitionBody.cloneNode(true));
+      currentDefinitionBody = null;
+      definitionShow.hidden = true;
+      status.textContent = "Definicion mostrada.";
+    });
+    guideStart.addEventListener("click", () => {
+      guideStart.hidden = true;
+      guideNext.hidden = false;
+      revealNextGuideStep();
+    });
+    guideNext.addEventListener("click", revealNextGuideStep);
+    proofStart.addEventListener("click", () => {
+      proofStart.hidden = true;
+      proofNext.hidden = false;
+      revealNextProofStep();
+    });
+    proofNext.addEventListener("click", revealNextProofStep);
+    filtersToggle?.addEventListener("click", () => {
+      setFiltersCollapsed(!randomToolbar?.classList.contains("is-filters-collapsed"));
+    });
+    restoreFilters();
+    restoreFiltersCollapsed();
+    updateFilterState();
+  </script>
+</BookLayout>

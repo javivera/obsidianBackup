@@ -1,0 +1,426 @@
+/* ===============================
+   Minimalist Theorem Callout Styling
+   Compatible with Light & Dark Mode
+   =============================== */
+
+.theorem-callout,
+.callout[data-callout="theorem"],
+.callout[data-callout="lemma"],
+.callout[data-callout="proof"],
+.callout[data-callout="example"],
+.callout[data-callout="definition"],
+.callout[data-callout="remark"],
+.callout[data-callout="proposition"],
+.callout[data-callout="corollary"],
+.callout[data-callout="property"],
+.callout[data-callout="exercise"] {
+    /* --callout-color: 160, 216, 239; /* Light blue accent */ */
+    --callout-color: var(--color-accent);
+    border: none;
+    border-left: 4px solid rgb(var(--callout-color));
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0.5em 0;
+    font-family: "Neo Euler", serif;
+    background-color: transparent;
+}
+
+/* ---------- Titles ---------- */
+
+.theorem-callout .callout-title,
+.callout[data-callout] .callout-title {
+    padding: 0.25em 1em;
+    font-family: "Neo Euler", serif;
+    font-weight: normal;
+    color: rgb(var(--callout-color));
+}
+
+.theorem-callout .callout-icon,
+.callout[data-callout] .callout-icon {
+    display: none;
+}
+
+.theorem-callout .callout-title-inner,
+.callout[data-callout] .callout-title-inner {
+    font-weight: normal;
+    color: rgb(var(--callout-color));
+}
+
+.theorem-callout-subtitle {
+    font-weight: lighter;
+    color: rgb(var(--callout-color));
+}
+
+/* Show the callout type when Obsidian uses a custom title but Math Booster
+   has not replaced it with its generated theorem title. */
+.callout[data-callout="theorem"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Theorem. ";
+}
+
+.callout[data-callout="lemma"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Lemma. ";
+}
+
+.callout[data-callout="proposition"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Proposition. ";
+}
+
+.callout[data-callout="corollary"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Corollary. ";
+}
+
+.callout[data-callout="definition"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Definition. ";
+}
+
+.callout[data-callout="example"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Example. ";
+}
+
+.callout[data-callout="property"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Property. ";
+}
+
+.callout[data-callout="exercise"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
+    content: "Exercise. ";
+}
+
+/* ---------- Content ---------- */
+
+.theorem-callout .callout-content,
+.callout[data-callout] .callout-content {
+    background-color: var(--background-primary);
+    padding: 0.25em 1em;
+    margin: 0;
+    color: var(--text-normal);
+}
+
+.theorem-callout .callout-content p,
+.callout[data-callout] .callout-content p {
+    margin: 0;
+    padding: 0.25em 0;
+    color: var(--text-normal);
+}
+
+/* ---------- Nested / Collapsible Callouts ---------- */
+
+.theorem-callout .callout-content .callout.is-collapsible,
+.theorem-callout .callout-content .callout.is-collapsible.is-collapsed,
+.callout[data-callout] .callout-content .callout.is-collapsible,
+.callout[data-callout] .callout-content .callout.is-collapsible.is-collapsed {
+    background-color: var(--background-primary);
+    padding: 0.25em 0.75em;
+    margin: 0.25em 0;
+    color: var(--text-normal);
+}
+
+/* ---------- Lists ---------- */
+
+.theorem-callout .callout-content .has-list-bullet,
+.callout[data-callout] .callout-content .has-list-bullet {
+    padding: 0.25em 0;
+    margin: 0;
+    color: var(--text-normal);
+}
+
+/* ===============================
+   Popover Styling for Clean Previews
+   =============================== */
+
+.popover.hover-popover {
+    max-height: 400px;
+    width: auto;
+    overflow-y: auto;
+}
+
+.popover.hover-popover > .markdown-embed {
+    overflow: unset;
+    width: 100%;
+    height: 100%;
+}
+
+.markdown-embed.is-loaded {
+    width: 100%;
+    max-height: 100%;
+}
+
+.popover.hover-popover > .markdown-embed > .markdown-embed-content {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.markdown-embed-content.node-insert-event {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.markdown-embed .markdown-preview-view {
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+.popover.hover-popover > .markdown-embed > .markdown-embed-content > 
+.markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller,
+.popover.hover-popover > .markdown-embed > .markdown-embed-content 
+.markdown-preview-view {
+    padding: 0.25em;
+}
+
+/* ===============================
+   Minimalist Theorem Callout Styling
+   Compatible with Light & Dark Mode
+   =============================== */
+
+.theorem-callout,
+.callout[data-callout="theorem"],
+.callout[data-callout="lemma"],
+.callout[data-callout="proof"],
+.callout[data-callout="example"],
+.callout[data-callout="definition"],
+.callout[data-callout="remark"],
+.callout[data-callout="proposition"],
+.callout[data-callout="corollary"],
+.callout[data-callout="property"],
+.callout[data-callout="exercise"] {
+    --callout-color: 160, 216, 239; /* Light blue accent */
+    border: none;
+    border-left: 4px solid rgb(var(--callout-color));
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0.5em 0;
+    font-family: "Neo Euler", serif;
+    background-color: transparent;
+}
+
+/* ---------- Titles ---------- */
+
+.theorem-callout .callout-title,
+.callout[data-callout] .callout-title {
+    padding: 0.25em 1em;
+    font-family: "Neo Euler", serif;
+    font-weight: normal;
+    color: rgb(var(--callout-color));
+}
+
+.theorem-callout .callout-icon,
+.callout[data-callout] .callout-icon {
+    display: none;
+}
+
+.theorem-callout .callout-title-inner,
+.callout[data-callout] .callout-title-inner {
+    font-weight: normal;
+    color: rgb(var(--callout-color));
+}
+
+.theorem-callout-subtitle {
+    font-weight: lighter;
+    color: rgb(var(--callout-color));
+}
+
+/* ---------- Content ---------- */
+
+.theorem-callout .callout-content,
+.callout[data-callout] .callout-content {
+    background-color: var(--background-primary);
+    padding: 0.25em 1em;
+    margin: 0;
+    color: var(--text-normal);
+}
+
+.theorem-callout .callout-content p,
+.callout[data-callout] .callout-content p {
+    margin: 0;
+    padding: 0.25em 0;
+    color: var(--text-normal);
+}
+
+/* ---------- Nested / Collapsible Callouts ---------- */
+
+.theorem-callout .callout-content .callout.is-collapsible,
+.theorem-callout .callout-content .callout.is-collapsible.is-collapsed,
+.callout[data-callout] .callout-content .callout.is-collapsible,
+.callout[data-callout] .callout-content .callout.is-collapsible.is-collapsed {
+    background-color: var(--background-primary);
+    padding: 0.25em 0.75em;
+    margin: 0.25em 0;
+    color: var(--text-normal);
+}
+
+/* ---------- Lists ---------- */
+
+.theorem-callout .callout-content .has-list-bullet,
+.callout[data-callout] .callout-content .has-list-bullet {
+    padding: 0.25em 0;
+    margin: 0;
+    color: var(--text-normal);
+}
+
+/* ===============================
+   Popover Styling for Clean Previews
+   =============================== */
+
+.popover.hover-popover {
+    max-height: 400px;
+    width: auto;
+    overflow-y: auto;
+}
+
+.popover.hover-popover > .markdown-embed {
+    overflow: unset;
+    width: 100%;
+    height: 100%;
+}
+
+.markdown-embed.is-loaded {
+    width: 100%;
+    max-height: 100%;
+}
+
+.popover.hover-popover > .markdown-embed > .markdown-embed-content {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.markdown-embed-content.node-insert-event {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.markdown-embed .markdown-preview-view {
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+.popover.hover-popover > .markdown-embed > .markdown-embed-content > 
+.markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller,
+.popover.hover-popover > .markdown-embed > .markdown-embed-content 
+.markdown-preview-view {
+    padding: 0.25em;
+}
+
+/* A nested Proof shares the vertical rule of its parent callout. */
+.callout[data-callout]
+    .callout-content
+    .callout[data-callout="proof"] {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: -1.5em;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-title {
+    padding-left: 1.5em;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-content {
+    padding-left: 1em;
+}
+
+/* Keep the same alignment and trim the tail when the Proof is collapsed. */
+.callout[data-callout]
+    .callout-content
+    .callout[data-callout="proof"].is-collapsible.is-collapsed {
+    border-left: 0;
+    padding: 0;
+    margin: 0.25em 0 0 -1.5em;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"].is-collapsed > .callout-title {
+    padding-bottom: 0;
+}
+
+.callout[data-callout]:has(
+    .callout[data-callout="proof"].is-collapsed
+) > .callout-content {
+    padding-bottom: 0.25em;
+}
+
+/* Remove the empty tail below an expanded Proof. */
+.callout[data-callout]
+    .callout[data-callout="proof"]:not(.is-collapsed) {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"]:not(.is-collapsed) > .callout-content {
+    padding-bottom: 0;
+}
+
+/* Keep the first proof step close to the Proof heading. */
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-content > ol:first-child {
+    margin-top: 0.2em;
+}
+
+.callout[data-callout]
+    .callout[data-callout="proof"] > .callout-content > :last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.callout[data-callout]:has(
+    .callout[data-callout="proof"]
+) > .callout-content {
+    padding-bottom: 0;
+}
+
+/* ===============================
+   Compact Border Theme Workspace
+   =============================== */
+
+/* Border reserves 16 px on both sides and 24 px below the workspace. */
+body:not(.is-mobile) .workspace {
+    margin-right: 8px !important;
+}
+
+body:not(.is-mobile):not(.show-ribbon) .workspace {
+    margin-left: 8px !important;
+}
+
+body:not(.is-mobile).is-popout-window .workspace {
+    margin-right: 8px !important;
+    margin-left: 8px !important;
+}
+
+body:not(.is-mobile) .horizontal-main-container,
+body:not(.is-mobile).is-popout-window .horizontal-main-container {
+    padding-bottom: 8px !important;
+}
+
+/* Hide the entire status bar; its plugins remain enabled. */
+body:not(.is-mobile) .status-bar {
+    display: none !important;
+}
+
+/* Let link previews shrink to their actual content instead of keeping an
+   empty fixed-height area below short notes or block references. */
+body:not(.is-mobile) .popover.hover-popover {
+    height: fit-content !important;
+    min-height: 0 !important;
+    max-height: min(400px, calc(100vh - 32px)) !important;
+    overflow: hidden;
+}
+
+body:not(.is-mobile) .popover.hover-popover > .markdown-embed,
+body:not(.is-mobile) .popover.hover-popover > .markdown-embed > .markdown-embed-content,
+body:not(.is-mobile) .popover.hover-popover .markdown-preview-view {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover > .markdown-embed > .markdown-embed-content {
+    max-height: min(400px, calc(100vh - 32px)) !important;
+    overflow-y: auto;
+}

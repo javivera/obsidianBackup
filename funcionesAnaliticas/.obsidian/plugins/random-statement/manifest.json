@@ -1,0 +1,9 @@
+{
+  "id": "random-statement",
+  "name": "Random Statement",
+  "version": "1.0.6",
+  "minAppVersion": "1.4.0",
+  "description": "Study random mathematical statements from selected notes and reveal their proofs one step at a time.",
+  "author": "Javier Vera",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,100 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Soluciones de `Pr0CF.pdf`"
+description: "Practico convertido desde GS - Pr0.md"
+chapter: "Pr 0"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Soluciones de `Pr0CF.pdf`
+
+
+<BookBlock kind="exercise">
+Sea <Math tex={"f:\\mathbb R^2\\to\\mathbb R^2"} /> definida por <Math tex={"f(u,v)=\\bigl(u^2e^{2v},\\,u+v^2\\bigr)."} /> Calcular <Math tex={"\\frac{\\partial f}{\\partial v}"} /> y <Math tex={"(df)_{(3,0)}"} />. Escribir la aproximación afín de <Math tex={"f"} /> en <Math tex={"(3,0)"} /> y usarla para aproximar <Math tex={"f(3.1,0.2)"} />.
+<Proof title="Demostracion">
+Las derivadas parciales son <Math display tex={"\\frac{\\partial f}{\\partial u}(u,v)=\\bigl(2ue^{2v},\\,1\\bigr),\\qquad \\frac{\\partial f}{\\partial v}(u,v)=\\bigl(2u^2e^{2v},\\,2v\\bigr)."} />
+En particular, <Math display tex={"\\frac{\\partial f}{\\partial v}(u,v)=\\bigl(2u^2e^{2v},\\,2v\\bigr)."} />
+La diferencial en <Math tex={"(3,0)"} /> tiene matriz jacobiana <Math display tex={"J_f(3,0)=\\begin{pmatrix}6 & 18\\\\ 1 & 0\\end{pmatrix}."} />
+Por lo tanto <Math display tex={"(df)_{(3,0)}(h,k)=\\bigl(6h+18k,\\;h\\bigr)."} />
+Como <Math display tex={"f(3,0)=(9,3),"} /> la aproximación afín en <Math tex={"(3,0)"} /> es <Math display tex={"L(u,v)=f(3,0)+(df)_{(3,0)}(u-3,v)=\\bigl(9+6(u-3)+18v,\\;3+(u-3)\\bigr)."} />
+Equivalente: <Math display tex={"L(u,v)=\\bigl(6u+18v-9,\\;u\\bigr)."} />
+Entonces <Math display tex={"f(3.1,0.2)\\approx L(3.1,0.2)=\\bigl(13.2,\\;3.1\\bigr)."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise">
+- Sea <Math tex={"u_0\\in\\mathbb R^m"} /> y <Math tex={"g:\\mathbb R^n\\to\\mathbb R^m"} /> definida por <Math tex={"g(p)=u_0"} />. Mostrar que <Math tex={"(dg)_p"} /> es la transformación lineal nula.
+- Sea <Math tex={"f:\\mathbb R^n\\to\\mathbb R^m"} /> una transformación lineal. Mostrar que <Math tex={"(df)_p=f"} /> para todo <Math tex={"p\\in\\mathbb R^n"} />.
+<Proof title="Demostracion">
+**2.a** Si <Math tex={"g:\\mathbb R^n\\to\\mathbb R^m"} /> está dada por <Math tex={"g(p)=u_0"} />, entonces <Math display tex={"g(p+h)-g(p)=0."} /> Luego la mejor aproximación lineal es la transformación nula, y por tanto <Math display tex={"(dg)_p=0"} /> para todo <Math tex={"p\\in\\mathbb R^n"} />.
+
+**2.b** Si <Math tex={"f:\\mathbb R^n\\to\\mathbb R^m"} /> es lineal, entonces <Math display tex={"f(p+h)-f(p)=f(h)."} /> No hay término de error. Por definición de diferencial, <Math display tex={"(df)_p=f"} /> para todo <Math tex={"p\\in\\mathbb R^n"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise">
+Mostrar que si <Math tex={"f:\\mathbb R^n\\to\\mathbb R^m"} /> es una función diferenciable, entonces <Math display tex={"(df)_p(v)=\\frac{d}{dt}\\Big|_{t=0}f(\\alpha(t))"} /> para cualquier curva <Math tex={"\\alpha"} /> con <Math tex={"\\alpha(0)=p"} /> y <Math tex={"\\alpha'(0)=v"} />.
+<Proof title="Demostracion">
+Sea <Math tex={"\\alpha:(-\\varepsilon,\\varepsilon)\\to\\mathbb R^n"} /> una curva con <Math tex={"\\alpha(0)=p"} /> y <Math tex={"\\alpha'(0)=v"} />. Aplicamos la regla de la cadena a <Math display tex={"f\\circ\\alpha:(-\\varepsilon,\\varepsilon)\\to\\mathbb R^m."} /> Entonces <Math display tex={"\\frac{d}{dt}\\Big|_{t=0}f(\\alpha(t))=(df)_p\\bigl((d\\alpha)_0(1)\\bigr)."} />
+Ahora bien, como <Math tex={"\\alpha"} /> es una curva, su diferencial en <Math tex={"0"} /> es la aplicación lineal <Math display tex={"(d\\alpha)_0:\\mathbb R\\to\\mathbb R^n,\\qquad (d\\alpha)_0(t)=t\\,\\alpha'(0)."} /> En particular, <Math display tex={"(d\\alpha)_0(1)=\\alpha'(0)=v."} />
+Sustituyendo en la igualdad anterior, obtenemos <Math display tex={"\\frac{d}{dt}\\Big|_{t=0}f(\\alpha(t))=(df)_p(v)."} />
+Esto prueba la igualdad pedida: <Math display tex={"(df)_p(v)=\\frac{d}{dt}\\Big|_{t=0}f(\\alpha(t))."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise">
+- Sean <Math tex={"\\det:\\mathbb R^{n\\times n}\\to\\mathbb R"} /> y <Math tex={"\\operatorname{tr}:\\mathbb R^{n\\times n}\\to\\mathbb R"} /> las funciones determinante y traza, respectivamente. Mostrar que <Math display tex={"(d\\det)_X(Y)=\\langle\\operatorname{cof}(X),Y\\rangle=\\operatorname{tr}(\\operatorname{cof}(X)^tY)=\\operatorname{tr}(\\operatorname{adj}(X)Y),"} /> donde <Math tex={"\\operatorname{cof}(X)"} /> es la matriz de cofactores de <Math tex={"X"} /> y <Math tex={"\\operatorname{adj}(X)"} /> es la matriz adjunta de <Math tex={"X"} />.
+- Sea <Math tex={"X"} /> una matriz <Math tex={"n\\times n"} /> con coeficientes reales. Mostrar que <Math tex={"(d\\det)_X"} /> es la transformación lineal nula si y solo si su rango es menor o igual que <Math tex={"n-2"} />.
+**Ayuda.** Usar la expansión de Laplace del determinante.
+<Proof title="Demostracion">
+- **4.a** 
+1. Escribiendo <Math tex={"X=(x_{ij})"} /> y <Math tex={"Y=(y_{ij})"} />, por multilinealidad del determinante en las columnas: <Math display tex={"\\det(X+tY)=\\det(X)+t\\sum_{j=1}^n \\det(X_1,\\dots,Y_j,\\dots,X_n)+o(t)."} />
+2. Recordamos que por expanision de Laplace tenemos <Math display tex={"\\det(A)=\\sum^{n}_{i=1} a_{ij}C_{ij}(A)"} />
+3. Luego <Math display tex={"\\det(X+tY)=\\det(X)+t\\sum_{i,j} C_{ij}(X)y_{ij}+o(t)"} /> donde <Math tex={"C_{ij}(X)"} /> es el cofactor <Math tex={"(i,j)"} />
+4. Y usando la misma idea que el <PreviewLink href="/chapters/pr-0#527a68" label="Ejercicio" title="Ejercicio" /> llegamos a que <Math display tex={"(d\\det)_X(Y) = \\sum_{i,j} C_{ij}(X)y_{ij}."} />
+5. Esta suma coincide con el producto interno <Math tex={"\\langle \\operatorname{cof}(X), Y \\rangle"} />.
+6. Y ademas usando que <Math tex={"\\langle A, B \\rangle = \\operatorname{tr}(A^t B)"} /> y que <Math tex={"\\operatorname{adj}(X) = \\operatorname{cof}(X)^t"} />, concluimos: <Math display tex={"(d\\det)_X(Y) =\\langle\\operatorname{cof}(X),Y\\rangle=\\operatorname{tr}(\\operatorname{cof}(X)^{t}Y)=  \\operatorname{tr}(\\operatorname{adj}(X) Y)."} />
+- **4.b**
+1. <Math tex={"(d\\det)_X"} /> es nula si y solo si todos los cofactores de <Math tex={"X"} /> son cero. 
+2. Eso ocurre si y solo si todos los menores de orden <Math tex={"n-1"} /> son cero, es decir, si y solo si <Math display tex={"\\operatorname{rg}(X)\\le n-2."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="exercise">
+Mostrar que <Math display tex={"(d\\det)_{\\operatorname{id}}(Y)=\\operatorname{tr}(Y)"} /> para toda matriz <Math tex={"Y"} /> de orden <Math tex={"n\\times n"} /> y deducir que para toda matriz invertible <Math tex={"X"} /> se tiene <Math display tex={"(d\\det)_X(Y)=\\det(X)\\operatorname{tr}(X^{-1}Y)."} />
+<Proof title="Demostracion">
+1. Tomamos la curva <Math tex={"\\alpha(t) = \\operatorname{id} + tY"} />. Notamos que <Math tex={"\\alpha(0) = \\operatorname{id}"} /> y <Math tex={"\\alpha'(0) = Y"} />
+2. Por el Ejercicio 3, la diferencial es la derivada direccional a lo largo de esta curva: <Math display tex={"(d\\det)_{\\operatorname{id}}(Y) = (d\\det)_{\\alpha(0)}(\\alpha'(0)) = \\frac{d}{dt}\\Big|_{t=0} \\det(\\alpha(t)) = \\frac{d}{dt}\\Big|_{t=0} \\det(\\operatorname{id} + tY)."} />
+- **Caso <Math tex={"\\dim = 2"} />:**
+1. Usando que el determinante es multilineal por columnas: <Math display tex={"\\begin{aligned}\\det(\\operatorname{id} + tY) &= \\det(e_1 + tY_1, e_2 + tY_2) \\\\&= \\det(e_1, e_2 + tY_2) + \\det(tY_1, e_2 + tY_2) \\\\&= \\det(e_1, e_2) + \\det(e_1, tY_2) + \\det(tY_1, e_2) + \\det(tY_1, tY_2) \\\\&= 1 + t\\det(e_1, Y_2) + t\\det(Y_1, e_2) + t^2 \\det(Y) \\\\&= 1 + t(Y_{22} + Y_{11}) + t^2 \\det(Y) = 1 + t \\operatorname{tr}(Y) + t^2 \\det(Y).\\end{aligned}"} />
+- **Caso <Math tex={"\\dim = n"} />:**
+1. Por el mismo argumento de multilinealidad, al expandir <Math tex={"\\det(e_1 + tY_1, \\dots, e_n + tY_n)"} />, el término constante es <Math tex={"\\det(\\operatorname{id})=1"} />. 
+2. Los términos en <Math tex={"t"} /> surgen de elegir exactamente una columna <Math tex={"tY_i"} /> y el resto <Math tex={"e_j"} />: <Math display tex={"\\det(\\operatorname{id} + tY) = 1 + t \\sum_{i=1}^n \\det(e_1, \\dots, Y_i, \\dots, e_n) + P(t)"} /> donde <Math tex={"P(t)"} /> contiene términos con potencias de <Math tex={"t"} /> mayores o iguales a 2 (donde se eligen al menos dos columnas de <Math tex={"tY"} />). 
+3. Como <Math tex={"\\det(e_1, \\dots, Y_i, \\dots, e_n) = Y_{ii}"} />, tenemos: <Math display tex={"\\det(\\operatorname{id} + tY) = 1 + t \\sum_{i=1}^n Y_{ii} + P(t), \\quad \\text{con } \\operatorname{gr}(P) \\ge 2."} />
+4. Derivando respecto a <Math tex={"t"} /> en <Math tex={"t=0"} />: <Math display tex={"(d\\det)_{\\operatorname{id}}(Y) = \\frac{d}{dt}\\Big|_{t=0} \\left( 1 + t \\operatorname{tr}(Y) + P(t) \\right) = \\operatorname{tr}(Y)."} />
+- **Para <Math tex={"X"} /> invertible:**
+1. Queremos calcular <Math tex={"(d\\det)_X(Y) = \\frac{d}{dt}\\Big|_{t=0} \\det(X + tY)"} />.
+2. Si <Math tex={"X"} /> es invertible, podemos escribir <Math tex={"X + tY = X(\\operatorname{id} + tX^{-1}Y)"} />. 
+3. Luego: <Math display tex={"\\det(X + tY) = \\det(X) \\det(\\operatorname{id} + tX^{-1}Y)."} />
+4. Derivando en <Math tex={"t=0"} /> y usando el resultado anterior para <Math tex={"Y' = X^{-1}Y"} />: <Math display tex={"\\begin{aligned}(d\\det)_X(Y) &= \\frac{d}{dt}\\Big|_{t=0} \\left( \\det(X) \\det(\\operatorname{id} + tX^{-1}Y) \\right) \\\\&= \\det(X) \\cdot (d\\det)_{\\operatorname{id}}(X^{-1}Y) \\\\&= \\det(X) \\operatorname{tr}(X^{-1}Y).\\end{aligned}"} />
+</Proof>
+</BookBlock>
+
+<span id="527a68"></span>
+
+<BookBlock kind="exercise">
+Sea <Math tex={"( -\\varepsilon,\\varepsilon)\\subset\\mathbb R"} /> un intervalo abierto. Sean <Math display tex={"A:(-\\varepsilon,\\varepsilon)\\to L^1(\\mathbb R^n;\\mathbb R^m)"} /> una curva suave de transformaciones lineales de <Math tex={"\\mathbb R^n"} /> en <Math tex={"\\mathbb R^m"} /> y <Math tex={"\\alpha:(-\\varepsilon,\\varepsilon)\\to\\mathbb R^n"} /> una curva suave. 
+Definir <Math display tex={"\\beta:(-\\varepsilon,\\varepsilon)\\to\\mathbb R^m,\\qquad \\beta(t)=A(t)(\\alpha(t))."} />
+Probar que <Math tex={"\\beta"} /> es suave y que para todo <Math tex={"t\\in(-\\varepsilon,\\varepsilon)"} /> se cumple <Math display tex={"\\beta'(t)=A'(t)(\\alpha(t))+A(t)(\\alpha'(t))."} />
+<Proof title="Demostracion">
+1. Sea <Math display tex={"\\beta(t)=A(t)(\\alpha(t))."} />si <Math tex={"A(t)=(a_{ij}(t))"} /> y <Math tex={"\\alpha(t)=(\\alpha_1(t),\\dots,\\alpha_n(t))"} />, entonces la componente <Math tex={"i"} />-ésima de <Math tex={"\\beta"} /> es <Math display tex={"\\beta_i(t)=\\sum_{j=1}^n a_{ij}(t)\\alpha_j(t)."} />
+2. Como suma y producto de funciones suaves son suaves, <Math tex={"\\beta"} /> es suave.
+3. Derivando componente a componente: <Math display tex={"\\beta_i'(t)=\\sum_{j=1}^n a_{ij}'(t)\\alpha_j(t)+\\sum_{j=1}^n a_{ij}(t)\\alpha_j'(t)."} />
+4. Eso es exactamente <Math display tex={"\\beta'(t)=A'(t)(\\alpha(t))+A(t)(\\alpha'(t))."} />
+</Proof>
+</BookBlock>
+

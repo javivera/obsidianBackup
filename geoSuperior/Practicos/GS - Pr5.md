@@ -42,31 +42,33 @@
 >- Suponer que tanto $B_1$ como $B_2$ son subconjuntos linealmente independientes de $V^*$. Probar que $B_1$ y $B_2$ son bases del mismo subespacio $r$-dimensional de $V^*$ si y solo si $$\theta_1\wedge\cdots\wedge\theta_r=c\,\xi_1\wedge\cdots\wedge\xi_r$$para algun $c\ne0$; y en tal caso, si $M$ es la matriz de cambio de base de $B_1$ a la base $B_2$, $c=\det(M)$.
 >
 >>[!Proof]-
->>- (a) 
->>	1. $(\Rightarrow)$ Suponemos $\theta_{1}\ldots\theta_{r}$ son l.i ahora tomamos sus correspondientes vectores en la base predual $v_{1},\ldots v_{r}$ 
->>	2. $\theta_{1}\wedge,\ldots,\wedge\theta_{r}(v_{1},\ldots,v_{r})=\det(\theta_{i}(v_{j}))=1$ por que es el determinante de la identidad
->>	3. Para ver que podemos tomar esos $v_{1},\ldots v_{r}$. Basicamente como $\theta_{1}\ldots\theta_{r}$ los podemos extender a una base $\theta_{1}\ldots\theta_{r},\ldots\theta_{n}$ y ahora tomamos su base dual que es una base que vive en $V$.
->>	4. Osea su base dual son $v_{j}$ tal que $v_{j}(\theta_{i})=\delta_{ij}$ pero $v_{j}$ se identifica con $\operatorname{ev}_{v_{j}}$ entonces $v_{j}(\theta_{i})=\theta_{i}(v_{j})$ 
->>	5. $(\Leftarrow)$ Supongamos son linealmente dependientes spd $$\theta_{r}=\sum^{r-1}_{i=1}a_{i}\theta_{i}$$
->>	6. Entonces $$\theta_1\wedge\cdots\wedge\theta_r=\theta_1\wedge\cdots\wedge\sum^{r-1}_{i=1}a_{i}\theta_{i}=\sum^{r-1}_{i=1} a_{i}(\theta_1\wedge\cdots\wedge\theta_i)=0$$ por que se repite siempre alguno termino (para cada sumando) lo que es absurdo
+>>- (a)
+>>1. $(\Rightarrow)$ Suponemos $\theta_{1}\ldots\theta_{r}$ son l.i ahora tomamos sus correspondientes vectores en la base predual $v_{1},\ldots v_{r}$
+>>2. $\theta_{1}\wedge,\ldots,\wedge\theta_{r}(v_{1},\ldots,v_{r})=\det(\theta_{i}(v_{j}))=1$ por que es el determinante de la identidad
+>>3. Para ver que podemos tomar esos $v_{1},\ldots v_{r}$. Basicamente como $\theta_{1}\ldots\theta_{r}$ los podemos extender a una base $\theta_{1}\ldots\theta_{r},\ldots\theta_{n}$ y ahora tomamos su base dual que es una base que vive en $V$.
+>>4. Osea su base dual son $v_{j}$ tal que $v_{j}(\theta_{i})=\delta_{ij}$ pero $v_{j}$ se identifica con $\operatorname{ev}_{v_{j}}$ entonces $v_{j}(\theta_{i})=\theta_{i}(v_{j})$
+>>5. $(\Leftarrow)$ Supongamos son linealmente dependientes spd $$\theta_{r}=\sum^{r-1}_{i=1}a_{i}\theta_{i}$$
+>>6. Entonces $$\theta_1\wedge\cdots\wedge\theta_r=\theta_1\wedge\cdots\wedge\sum^{r-1}_{i=1}a_{i}\theta_{i}=\sum^{r-1}_{i=1} a_{i}(\theta_1\wedge\cdots\wedge\theta_i)=0$$ por que se repite siempre alguno termino (para cada sumando) lo que es absurdo
 >>- (b)
->>	1. Usando defincion $$(2e^1+3e^2-e^3\wedge e^1+2e^2\wedge e^1-2e^3)(e_{1},e_{2},e_{3})=\det\begin{pmatrix}2 & 3 & -1 \\ 1 & 2 & 0 \\1 & 0 & -2\end{pmatrix}=0$$
->>	2. Entonces por (a) esos elementos del dual son linealmente dependientes
->>- (c) 
->>	- $(\Rightarrow)$ 
->>		1. Supongamos generan el mismo espacio entonces $$\theta_{j}=\sum^{r}_{i=1}C_{i}^{j} \xi_{i}$$
->>		2. Entonces $C_{i}^{j}$ son los coeficientes de la matriz cambio de base $C(B_{1},B_{2})$  
->>		3. Luego $$\begin{align}\theta_{1}\wedge\ldots\wedge\theta_{r}& =\sum^{r}_{i=1}C_{i}^{1} \xi_{i}\wedge\ldots\wedge \sum^{r}_{i=1}C_{i}^{r} \xi_{i}\\ &=\sum_{i_{1},\ldots,i_{r}} C_{i_{1}}^{1}\ldots C_{i_{j}}^{r}\ . \ \xi_{i_{1}}\wedge\ldots\wedge\xi_{i_{r}} \\& =\sum_{\sigma\in S_{r}} C_{\sigma(1)}^{1}\ldots C_{\sigma(r)}^{r} \ . \ \xi_{\sigma(1)}\wedge\ldots\wedge\xi_{\sigma(r)}\\&= \left (\sum_{\sigma\in S_{r}}sg(\sigma)C_{\sigma(1)}^{1}\ldots C_{\sigma(r)}^{r}\right)\xi_{1}\wedge\ldots\wedge\xi_{r}  \\&=\det(C)\xi_{1}\wedge\ldots\wedge\xi_{r}\end{align}$$
->>		4. Como $C=C(B_{1},B_{2})$ entonces es inversible. Por lo tanto su determinante es no nulo
->>		5. Notar que aca podemos usar [[GS - Teo20#^8619e2]] 7. por que $\xi_{j}\in \Lambda^{1}(V^{*})=V^{*}$ 
->>	- $(\Leftarrow)$ 
->>		1. Primero notamos que $$0=\theta_{1}\wedge\theta_1\wedge\cdots\wedge\theta_r=c\theta_{1}\wedge\,\xi_1\wedge\cdots\wedge\xi_r$$
->>		2. Entonces por parte (a) $\{ \theta_{1},\xi_{1},\ldots,\xi_{r} \}$ es un conjunto linealmente dependiente osea $\theta_{1}=\sum^{r}_{i=1}c^{1}_{i}\xi_{i}$ 
->>		3. Y esto mismo vale para cualquier $\theta_{i}$ por ende $$\operatorname{span} B_{1}\subseteq \operatorname{span}B_{2}$$
->>		4. Analogamente $$\xi_{1}\wedge\theta_1\wedge\cdots\wedge\theta_r=c\xi_{1}\wedge\,\xi_1\wedge\cdots\wedge\xi_r=0$$ y haciendo todo igual $\operatorname{span} B_{2}\subseteq \operatorname{span}B_{1}$
->>		5. Mostrando que $$\operatorname{span} B_{1}= \operatorname{span}B_{2}$$
->>		6. Y ahora usando que generan el mismo espacio. Podemos hacer lo mismo que ida para ver que $\det(M)=c$ donde $M=C(B_{1},B_{2})$  
->>		7. Notar que aca podemos usar [[GS - Teo20#^8619e2]] 7. por que $\xi_{j},\theta_{i}\in \Lambda^{1}(V^{*})=V^{*}$ 
+>>1. Sean $\alpha_1=2e^1+3e^2-e^3$, $\alpha_2=e^1+2e^2$ y $\alpha_3=e^1-2e^3$.
+>>2. Como $\Lambda^3((\mathbb R^3)^*)$ está generado por $e^1\wedge e^2\wedge e^3$, podemos escribir el producto wedge como un múltiplo de ese generador:
+>>$$\alpha_1\wedge\alpha_2\wedge\alpha_3=\det\begin{pmatrix}2 & 3 & -1 \\ 1 & 2 & 0 \\1 & 0 & -2\end{pmatrix}e^1\wedge e^2\wedge e^3=0\cdot e^1\wedge e^2\wedge e^3=0.$$
+>>3. Así probamos que $\alpha_1\wedge\alpha_2\wedge\alpha_3$ es la $3$-forma cero, no solo que vale cero en una evaluación particular. Entonces por (a) esos elementos del dual son linealmente dependientes.
+>>- (c)
+>>- $(\Rightarrow)$
+>>	1. Supongamos generan el mismo espacio entonces $$\theta_{j}=\sum^{r}_{i=1}C_{i}^{j} \xi_{i}$$
+>>	2. Entonces $C_{i}^{j}$ son los coeficientes de la matriz cambio de base $C(B_{1},B_{2})$
+>>	3. Luego $$\begin{align}\theta_{1}\wedge\ldots\wedge\theta_{r}& =\sum^{r}_{i=1}C_{i}^{1} \xi_{i}\wedge\ldots\wedge \sum^{r}_{i=1}C_{i}^{r} \xi_{i}\\ &=\sum_{i_{1},\ldots,i_{r}} C_{i_{1}}^{1}\ldots C_{i_{j}}^{r}\ . \ \xi_{i_{1}}\wedge\ldots\wedge\xi_{i_{r}} \\& =\sum_{\sigma\in S_{r}} C_{\sigma(1)}^{1}\ldots C_{\sigma(r)}^{r} \ . \ \xi_{\sigma(1)}\wedge\ldots\wedge\xi_{\sigma(r)}\\&= \left (\sum_{\sigma\in S_{r}}sg(\sigma)C_{\sigma(1)}^{1}\ldots C_{\sigma(r)}^{r}\right)\xi_{1}\wedge\ldots\wedge\xi_{r}  \\&=\det(C)\xi_{1}\wedge\ldots\wedge\xi_{r}\end{align}$$
+>>	4. Como $C=C(B_{1},B_{2})$ entonces es inversible. Por lo tanto su determinante es no nulo
+>>	5. Notar que aca podemos usar [[GS - Teo20#^8619e2|Ejercicio]] 7. por que $\xi_{j}\in \Lambda^{1}(V^{*})=V^{*}$
+>>- $(\Leftarrow)$
+>>	1. Primero notamos que $$0=\theta_{1}\wedge\theta_1\wedge\cdots\wedge\theta_r=c\theta_{1}\wedge\,\xi_1\wedge\cdots\wedge\xi_r$$
+>>	2. Entonces por parte (a) $\{ \theta_{1},\xi_{1},\ldots,\xi_{r} \}$ es un conjunto linealmente dependiente osea $\theta_{1}=\sum^{r}_{i=1}c^{1}_{i}\xi_{i}$
+>>	3. Y esto mismo vale para cualquier $\theta_{i}$ por ende $$\operatorname{span} B_{1}\subseteq \operatorname{span}B_{2}$$
+>>	4. Analogamente $$\xi_{1}\wedge\theta_1\wedge\cdots\wedge\theta_r=c\xi_{1}\wedge\,\xi_1\wedge\cdots\wedge\xi_r=0$$ y haciendo todo igual $\operatorname{span} B_{2}\subseteq \operatorname{span}B_{1}$
+>>	5. Mostrando que $$\operatorname{span} B_{1}= \operatorname{span}B_{2}$$
+>>	6. Y ahora usando que generan el mismo espacio. Podemos hacer lo mismo que ida para ver que $\det(M)=c$ donde $M=C(B_{1},B_{2})$
+>>	7. Notar que aca podemos usar [[GS - Teo20#^8619e2|Ejercicio]] 7. por que $\xi_{j},\theta_{i}\in \Lambda^{1}(V^{*})=V^{*}$
 
 ### Ejercicio 5
 
@@ -256,11 +258,11 @@
 >Sea $M$ una variedad diferenciable de dimension $m$. Mostrar que la nocion de que una $k$-forma en $M$ sea suave no depende de la eleccion de sistema coordenado (considerar solo el caso $k=2$).
 >
 >>[!Proof]-
->>1. Basta hacerlo para $2$-formas. En coordenadas $x=(x_1,\ldots,x_{m})$ $$\omega=\sum_{i<j}a_{ij}\,dx_{i}\wedge dx_{j}$$ esto por [[GS - Teo21#^70585b]]
->>2. Si $y=(y^1,\ldots,y^m)$ es otro sistema, entonces tenemos otra base del $T_{p}^{*}M$ por lo tanto $$dx_{i}=\sum_j^{m} \frac{\partial x_{i}}{\partial y_{j}}\,dy_{j}$$ las coordenadas salen evaluando en $\frac{\partial}{\partial y_{j}}$ 
+>>1. Basta hacerlo para $2$-formas. En coordenadas $x=(x_1,\ldots,x_{m})$ $$\omega=\sum_{i<j}a_{ij}\,dx_{i}\wedge dx_{j}$$ esto por [[GS - Teo21#^70585b|Coordenadas de k-formas]]
+>>2. Si $y=(y^1,\ldots,y^m)$ es otro sistema, entonces tenemos otra base del $T_{p}^{*}M$ por lo tanto $$dx_{i}=\sum_j^{m} \frac{\partial x_{i}}{\partial y_{j}}\,dy_{j}$$ las coordenadas salen evaluando en $\frac{\partial}{\partial y_{j}}$
 >>3. Obviamente todo esto vale para cualquier $p\in W$ donde este $W=U_{x}\cap U_{y}$ con los abiertos de las cartas
->>4. Ahora recordamos que suma de $k$-tensores es $k$-tensor. Y usando la "distributividad" del producto cuña   
->>5. Por tanto $$dx_{i}\wedge dx_{j}=\left(\sum_\alpha ^{m} \frac{\partial x_{i}}{\partial y_{\alpha }}\,dy_{\alpha }\right)\wedge \left(\sum_\beta ^{m} \frac{\partial x_{j}}{\partial y_{\beta }}\,dy_{\beta }\right)=\sum^{m}_{\alpha ,\beta =1} \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}\,dy_{\beta }\wedge dy_{\alpha }$$ (obviamente hay que evaluar en puntos de $W$ para hacer el producto cuña [[GS - Teo21#^76ed6d]] y notar que $\frac{\partial x_{i}}{\partial y_{j}}(p)\in \mathbb{R}$) 
+>>4. Ahora recordamos que suma de $k$-tensores es $k$-tensor. Y usando la "distributividad" del producto cuña
+>>5. Por tanto $$dx_{i}\wedge dx_{j}=\left(\sum_\alpha ^{m} \frac{\partial x_{i}}{\partial y_{\alpha }}\,dy_{\alpha }\right)\wedge \left(\sum_\beta ^{m} \frac{\partial x_{j}}{\partial y_{\beta }}\,dy_{\beta }\right)=\sum^{m}_{\alpha ,\beta =1} \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}\,dy_{\beta }\wedge dy_{\alpha }$$ (obviamente hay que evaluar en puntos de $W$ para hacer el producto cuña [[GS - Teo21#^76ed6d|Construccion de Omega^*(M)]] y notar que $\frac{\partial x_{i}}{\partial y_{j}}(p)\in \mathbb{R}$)
 >>6. Ademas $$\sum^{m}_{\alpha ,\beta =1} \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}\,dy_{\beta }\wedge dy_{\alpha }=\sum^{m}_{\alpha <\beta } \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}-\frac{\partial x_{j}}{\partial y_{\beta }}\,\frac{\partial x_{i}}{\partial y_{\alpha }}\,dy_{\beta }\wedge dy_{\alpha }$$ esto es por que siempre hay dos terminos que tienen casi el mismo producto cuña solo que dandolo vuelta, por eso aparede el menos. Y caundo los indices son exatamente el mismo se cancela el producto cuña por eso aparece el menor o igual en la sumatoria
 >>7. Luego $$\omega=\sum^{m}_{i<j} a_{ij}\sum^{m}_{\alpha <\beta } \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}-\frac{\partial x_{j}}{\partial y_{\beta }}\,\frac{\partial x_{i}}{\partial y_{\alpha }}\,dy_{\beta }\wedge dy_{\alpha }=\sum^{m}_{\alpha <\beta }\left[\sum^{m}_{i<j}a_{ij} \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}-\frac{\partial x_{j}}{\partial y_{\beta }}\,\frac{\partial x_{i}}{\partial y_{\alpha }}\right]\,dy_{\beta }\wedge dy_{\alpha }$$
 >>8. Por lo tanto tengo nuevos coeficientes $$b_{\alpha \beta }=\sum^{m}_{i<j}a_{ij} \frac{\partial x_{i}}{\partial y_{\alpha }}\,\frac{\partial x_{j}}{\partial y_{\beta }}-\frac{\partial x_{j}}{\partial y_{\beta }}\,\frac{\partial x_{i}}{\partial y_{\alpha }}$$  en el nuevo marco coordenado $\{ dy_{i_{1}}\wedge dy_{i_{2}} \}_{i_{1}<i_{2}<m}$ y a $\omega$ escrito en esos coeficientes. Me gustaria ver que sigue siendo suave. Esto mostraria que si es suave en un sistema coordenado lo es en cualquiera
@@ -272,25 +274,24 @@
 >Sea $M$ una variedad diferenciable y $\omega$ una $k$-forma en $M$. Probar que las siguientes afirmaciones son equivalentes, y en tal caso la $k$-forma $\omega$ se dice diferenciable:
 >
 >- (a) Para $X_1,\ldots,X_k\in\mathfrak X(M)$ arbitrarios, se tiene que $\omega(X_1,\ldots,X_k)\in C^\infty(M)$, donde $\omega(X_1,\ldots,X_k)$ es la funcion dada por $$\omega(X_1,\ldots,X_k)(p)=\omega_p(X_1|_p,\ldots,X_k|_p),\qquad p\in M$$
->- (b) Para todo entorno coordenado $(U,(x^1,\ldots,x^n))$ de $M$, se tiene $$\omega|_U=\sum_{i_1<\cdots<i_k}a_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad a_{i_1\cdots i_k}\in C^\infty(U)$$
+>- (b) Para todo entorno coordenado $(U,(x^1,\ldots,x^n))$ de $M$, se tiene $$\omega|_U=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\cdots i_k}\in C^\infty(U)$$
 >
 >>[!Proof]-
->>- $(b\Rightarrow a)$ 
->>	1. Tomamos un $p\in M$ ahora tenemos $(U,\phi=x_{1},\ldots,x_{n})$ carta entonces por (b) $$\omega|_U=\sum_{i_1<\cdots<i_k}a_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad a_{i_1\cdots i_k}\in C^\infty(U)$$
->>	2. Ademas $$X_{i}=\sum^{n}_{j=1}a_{ij}\frac{\partial}{\partial x_{j}}$$ 
->>	3. Luego $$\omega|_{U}(X_{1},\ldots X_{k})=\sum_{i_1<\cdots<i_k}a_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{i1}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{nj}\frac{\partial}{\partial x_{j}}\right)$$
->>	4. Ahora notamos que $$\begin{align} dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{i1}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{nj}\frac{\partial}{\partial x_{j}}\right)&=\det\left( dx_{i_{s}}\left( \sum^{n}_{j=1}a_{rj}\frac{\partial}{\partial x_{j}} \right) \right)_{s,r=1}^{k} \\ & =\det\left( \sum^{n}_{j=1} a_{rj}dx_{i_{s}}\frac{\partial}{\partial x_{j}} \right)\\&=\det(a_{ri_{s}})_{s,r=1}^{k} \end{align}$$
->>	5. Pero entonces $$\omega|_{U}(X_{1},\ldots,X_{k})(p)=(\omega|_{U})_{p}(X_{1},\ldots,X_{k})=\sum_{i_{1}<\ldots<i_{k}} a_{i_{1}\ldots i_{k}}(p)\det(a_{r i_{s}}(p))$$ 
->>	6. Pero $a_{i_{1}\ldots i_{k}}$ es suave como funcion de $p$ por hipotesis, lo mismo para $\det(a_{ri_{s}})_{s,r=1}^{k}$ como funcion de $p$ por que $X_{i}$ son campos suaves. Y $\det$ es un polinomio de sus entradas.
->>	7. Entonces $\omega|_{U}(X_{1},\ldots,X_{k})(p)$ es suave y obviamente como esto lo podemos hacer para cualquier $p$ tenemosq ue $$\omega(X_{1},\ldots,X_{k})(p)$$ es suave
->>- $(a\Rightarrow b)$ 
->>	1. Tomamos una carta $(U,x_{1},\ldots,x_{n})$ como $B_k=\{dx_{i_1}|_p\wedge\cdots\wedge dx_{i_k}|_p:1\le i_1<\cdots<i_k\le n\}$ es base de $\Lambda^{k}(T_{p}^{*}M)$ tenemos $$\omega|_{U}=\sum_{i_{1}<\ldots<i_{k}} a_{i_{k}\ldots i_{k}}\ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}$$ con $a_{i_{1}\ldots i_{k}}:U \rightarrow\mathbb{R}$. Bastaria mostrar que son suaves
->>	2. Ahora tenemos que $$\begin{align}\omega|_{U}\left(\frac{\partial}{\partial x_{j_{1}}},\ldots, \frac{\partial}{\partial x_{j_{k}}}\right)(p)& =\omega_{p}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=\sum^{\infty}_{i_{1}<\ldots<i_{k}}a_{i_{1}\ldots i_{k}}(p) \ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=a_{I}(p)\end{align}$$ con $I=J$ osea el unico caso donde el determinante no es $0$ que es cuando coinciden los multi indices, $j_{1}=i_{1}\ldots j_{k}=i_{k}$    
->>	3. Por hipotesis $\omega(X_1,\ldots,X_k)\in C^{\infty}(M)$ en particular $\omega|_{U}\left(\frac{\partial}{\partial x_{j_{1}}},\ldots, \frac{\partial}{\partial x_{j_{k}}}\right)\in C^{\infty}(U)$. Por ende $$a_{I}(p)\in C^{\infty}(U)$$
->>	4. Ahora lo unico que tenemos que corregir es que $\frac{\partial}{\partial x_{i}}$ son campos suaves sobre $U$  y para usar la hipotesis las necesito suaves sobre $M$ 
->>	5. Tomamos $q\in U$ y ahora tenemos $V_{q}\subseteq U$ abierto de $q$ y $f\in C^{\infty}(M)$ tal que $f|_{\overline{V_{q}}}\equiv 1$ y $\operatorname{supp}f\subseteq U$ y defino $$X_{i}(p)=\begin{cases} f(p)\frac{\partial}{\partial x_{i}}\bigg|_{p} & p\in U \\0 & x\not\in U \end{cases}$$ que sabemos es un campo suave sobre todo $M$ y cerca de $p$ (osea en algun abierto dentro de $\overline{V_{q}}$, por ejemplo $V_{q}$ ) vale exactamente $\frac{\partial}{\partial x_{i}}\bigg|_{q}$ 
->>	6. Luego haciendo la misma cuenta que en 2. pero con $X_{i}$ tenemos que $$\sum_{i_{1}<\ldots<i_{k}} a_{i_{1}\ldots i_{k}}(q)$$ es suave para todo $q\in V_{p}$ 
->>	7. Y como esto lo podemos hacer para cualquier $q\in U$ es suave en todo $U$ como queriamos 
+>>- $(b\Rightarrow a)$
+>>1. Tomamos un $p\in M$ ahora tenemos $(U,\phi=x_{1},\ldots,x_{n})$ carta entonces por (b) $$\omega|_U=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k},\qquad C_{i_1\cdots i_k}\in C^\infty(U)$$
+>>2. Ademas $$X_{i}=\sum^{n}_{j=1}a_{ij}\frac{\partial}{\partial x_{j}}$$
+>>3. Luego $$\omega|_{U}(X_{1},\ldots X_{k})=\sum_{i_1<\cdots<i_k}C_{i_1\cdots i_k}\,dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)$$
+>>4. Ahora notamos que $$\begin{align} dx_{i_1}\wedge\cdots\wedge dx_{i_k}\left(\sum^{n}_{j=1}a_{1j}\frac{\partial}{\partial x_{j}},\ldots,\sum^{n}_{j=1}a_{kj}\frac{\partial}{\partial x_{j}}\right)&=\det\left( dx_{i_{r}}\left( \sum^{n}_{j=1}a_{sj}\frac{\partial}{\partial x_{j}} \right) \right)_{r,s=1}^{k} \\ & =\det\left( \sum^{n}_{j=1} a_{sj}dx_{i_{r}}\left(\frac{\partial}{\partial x_{j}}\right) \right)_{r,s=1}^{k}\\&=\det(a_{s i_{r}})_{r,s=1}^{k} \end{align}$$
+>>5. Pero entonces $$\omega|_{U}(X_{1},\ldots,X_{k})(p)=(\omega|_{U})_{p}(X_{1},\ldots,X_{k})=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(p)\det(a_{s i_{r}}(p))$$
+>>6. Pero $C_{i_{1}\ldots i_{k}}$ es suave como funcion de $p$ por hipotesis, lo mismo para $\det(a_{s i_{r}})_{r,s=1}^{k}$ como funcion de $p$ por que $X_{i}$ son campos suaves. Y $\det$ es un polinomio de sus entradas.
+>>7. Entonces $\omega|_{U}(X_{1},\ldots,X_{k})(p)$ es suave y obviamente como esto lo podemos hacer para cualquier $p$ tenemosq ue $$\omega(X_{1},\ldots,X_{k})(p)$$ es suave
+>>- $(a\Rightarrow b)$
+>>1. Tomamos una carta $(U,x_{1},\ldots,x_{n})$ como $B_k=\{dx_{i_1}|_p\wedge\cdots\wedge dx_{i_k}|_p:1\le i_1<\cdots<i_k\le n\}$ es base de $\Lambda^{k}(T_{p}^{*}M)$ tenemos $$\omega|_{U}=\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}\ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}$$ con $C_{i_{1}\ldots i_{k}}:U \rightarrow\mathbb{R}$. Bastaria mostrar que son suaves
+>>2. Ahora tenemos que $$\begin{align}\omega|_{U}\left(\frac{\partial}{\partial x_{j_{1}}},\ldots, \frac{\partial}{\partial x_{j_{k}}}\right)(p)& =\omega_{p}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=\sum^{\infty}_{i_{1}<\ldots<i_{k}}C_{i_{1}\ldots i_{k}}(p) \ .dx_{i_{1}}\wedge\ldots\wedge dx_{i_{k}}\left(\frac{\partial}{\partial x_{j_{1}}}\bigg|_{p},\ldots, \frac{\partial}{\partial x_{j_{k}}}\bigg|_{p}\right)\\&=C_{I}(p)\end{align}$$ con $I=J$ osea el unico caso donde el determinante no es $0$ que es cuando coinciden los multi indices, $j_{1}=i_{1}\ldots j_{k}=i_{k}$
+>>3. Ahora lo unico que tenemos que corregir es que $\frac{\partial}{\partial x_{i}}$ son campos suaves sobre $U$  y para usar la hipotesis las necesito suaves sobre $M$
+>>4. Tomamos $q\in U$ y ahora tenemos $V_{q}\subseteq U$ abierto de $q$ y $f\in C^{\infty}(M)$ tal que $f|_{\overline{V_{q}}}\equiv 1$ y $\operatorname{supp}f\subseteq U$ y defino $$X_{i}(p)=\begin{cases} f(p)\frac{\partial}{\partial x_{i}}\bigg|_{p} & p\in U \\0 & x\not\in U \end{cases}$$ que sabemos es un campo suave sobre todo $M$ y cerca de $p$ (osea en algun abierto dentro de $\overline{V_{q}}$, por ejemplo $V_{q}$ ) vale exactamente $\frac{\partial}{\partial x_{i}}\bigg|_{q}$
+>>5. Luego haciendo la misma cuenta que en 2. pero con $X_{i}$ tenemos que $$\sum_{i_{1}<\ldots<i_{k}} C_{i_{1}\ldots i_{k}}(q)$$ es suave para todo $q\in V_{p}$
+>>6. Y como esto lo podemos hacer para cualquier $q\in U$ es suave en todo $U$ como queriamos
 
 ^174f5d
 
@@ -322,20 +323,20 @@
 ### Ejercicio 15
 
 >[!Exercise]
->- (a) Encontrar la diferencial exterior de $\varphi$ y $\omega$ en $\Omega^2(\mathbb R^3)$ dadas por $\varphi=\cos(xy^2)\,dx\wedge dz$ y $\omega=x\,dy\wedge dz+y\,dz\wedge dx+z\,dx\wedge dy$.
->- (b) Encontrar una $(n-1)$-forma $\epsilon$ tal que $d\epsilon=dx_1\wedge\cdots\wedge dx_n\in\Omega^n(\mathbb R^n)$.
+>- (a) Encontrar la diferencial exterior de $\varphi$ y $\eta$ en $\Omega^2(\mathbb R^3)$ dadas por $\varphi=\cos(xy^2)\,dx\wedge dz$ y $\omega=x\,dy\wedge dz+y\,dz\wedge dx+z\,dx\wedge dy$.
+>- (b) Encontrar una $(n-1)$-forma $\epsilon$ tal que $d^{n-1}\epsilon=dx_1\wedge\cdots\wedge dx_n\in\Omega^n(\mathbb R^n)$.
 >
 >>[!Proof]-
->>- (a) 
->>	1. Podemos pensar a $$\cos(xy^{2})=\cos\circ f(x,y,x)=h(x,y,z):\mathbb{R}^{3}\rightarrow \mathbb{R}$$ donde $f(x,y,z)=xy^{2}$
->>	2. Entonces $$d(\cos(xy^{2}))_{p}:T_{p}\mathbb{R}^{3} \rightarrow T_{\cos(p_{1}p_{2}^{2})}\mathbb{R}\simeq\mathbb{R}$$
->>	3. Entonces por la identificacion y usando la carta canonica  $$d(\cos(xy^{2}))_{p}=a_{1}dx +a_{2}dy+a_{3}dz$$
->>	4. Calculando coordenadas $$a_{1}=\frac{\partial}{\partial x}\cos(xy^{2})=-y^{2}\sin(xy^{2})\qquad a_{2}=\frac{\partial}{\partial y}\cos(xy^{2})=-2xy\sin(xy^{2})\qquad a_{3}=\frac{\partial}{\partial z}\cos(xy^{2})=0$$ (en realidad deberian ser evaluadas en $p$ pero es lo mismo verlas antes de evaluar) 
->>	5. Finalmente $$(d\cos(xy^{2}))=-y^{2}\sin(xy^{2})dx -2xy\sin(xy^{2})dy$$
->>	6. Entonces $$d\varphi=(d\cos(xy^{2}))=-2xy\sin(xy^{2})dy\wedge dx\wedge dz=2xy\sin(xy^{2})dx\wedge dy\wedge dz$$ 
->>	7. Haciendo algo analogo al paso 2. nos queda que $$d\omega=dx\wedge dy\wedge dz+ dy\wedge dz\wedge dx+ dz\wedge dx\wedge dy=3dx\wedge dy \wedge dz$$ 
->>- (b) 
->>	1. La más simple es $$\epsilon=x_1\,dx_2\wedge\cdots\wedge dx_n.$$ En efecto, $$d\epsilon=dx_1\wedge dx_2\wedge\cdots\wedge dx_n,$$ pues $d(dx_i)=0$ para todo $i$.
+>>- (a)
+>>1. Podemos pensar a $$\cos(xy^{2})=\cos\circ f(x,y,x)=h(x,y,z):\mathbb{R}^{3}\rightarrow \mathbb{R}$$ donde $f(x,y,z)=xy^{2}$
+>>2. Entonces $$d(\cos(xy^{2}))_{p}:T_{p}\mathbb{R}^{3} \rightarrow T_{\cos(p_{1}p_{2}^{2})}\mathbb{R}\simeq\mathbb{R}$$
+>>3. Entonces por la identificacion y usando la carta canonica  $$d(\cos(xy^{2}))_{p}=a_{1}dx +a_{2}dy+a_{3}dz$$
+>>4. Calculando coordenadas $$a_{1}=\frac{\partial}{\partial x}\cos(xy^{2})=-y^{2}\sin(xy^{2})\qquad a_{2}=\frac{\partial}{\partial y}\cos(xy^{2})=-2xy\sin(xy^{2})\qquad a_{3}=\frac{\partial}{\partial z}\cos(xy^{2})=0$$ (en realidad deberian ser evaluadas en $p$ pero es lo mismo verlas antes de evaluar)
+>>5. Finalmente $$(d\cos(xy^{2}))=-y^{2}\sin(xy^{2})dx -2xy\sin(xy^{2})dy$$
+>>6. Entonces $$d\varphi=(d\cos(xy^{2}))=-2xy\sin(xy^{2})dy\wedge dx\wedge dz=2xy\sin(xy^{2})dx\wedge dy\wedge dz$$
+>>7. Haciendo algo analogo al paso 2. nos queda que $$d\omega=dx\wedge dy\wedge dz+ dy\wedge dz\wedge dx+ dz\wedge dx\wedge dy=3dx\wedge dy \wedge dz$$
+>>- (b)
+>>1. La mas simple es: $$\omega=x_{1}dx_{2}\wedge\ldots\wedge dx_{n}$$
 
 ### Ejercicio 16
 
@@ -471,28 +472,20 @@
 
 >[!Exercise]
 >Sea $u$ un campo suave en un abierto $U$ de $\mathbb R^n$ y sea $\phi$ el flujo de $u$. Dado $p\in U$, probar que la divergencia de $u$ en $p$ es la tasa de variacion del volumen de $\phi$. Mas precisamente,
->$$
->\operatorname{div}_p(u)=\left.\frac d{dt}\right|_0\det(d\phi_t)_p.
->$$
+>$$\operatorname{div}_p(u)=\left.\frac d{dt}\right|_0\det(d\phi_t)_p.$$
 >
 >>[!Proof]-
->>Sea $\phi_t$ el flujo de $u$. La derivada de $d\phi_t$ satisface
->>$$
->>\frac d{dt}d\phi_t|_p=du_{\phi_t(p)}\circ d\phi_t|_p.
->>$$
+>>Sea $\phi_t$ el flujo de $u$. Por definicion de flujo, para todo $x$ se cumple
+>>$$\frac{\partial}{\partial t}\phi_t(x)=u(\phi_t(x)).$$
+>>Derivamos esta igualdad respecto de $x$ en $p$. Como $u$ y el flujo son suaves, podemos intercambiar las derivadas respecto de $t$ y $x$; luego, por la regla de la cadena,
+>>$$\frac d{dt}d\phi_t|_p=du_{\phi_t(p)}\circ d\phi_t|_p.$$
 >>Por la formula de Jacobi,
->>$$
->>\frac d{dt}\det(d\phi_t|_p)
->>=\det(d\phi_t|_p)\operatorname{tr}\left((d\phi_t|_p)^{-1}du_{\phi_t(p)}d\phi_t|_p\right)
->>$$
->>$$
->>=\det(d\phi_t|_p)\operatorname{tr}(du_{\phi_t(p)})
->>=\det(d\phi_t|_p)\operatorname{div}u(\phi_t(p)).
->>$$
+>>$$\frac d{dt}\det(d\phi_t|_p)
+>>=\det(d\phi_t|_p)\operatorname{tr}\left((d\phi_t|_p)^{-1}du_{\phi_t(p)}d\phi_t|_p\right)$$
+>>$$=\det(d\phi_t|_p)\operatorname{tr}(du_{\phi_t(p)})
+>>=\det(d\phi_t|_p)\operatorname{div}u(\phi_t(p)).$$
 >>Evaluando en $t=0$, donde $d\phi_0=\operatorname{Id}$, queda
->>$$
->>\left.\frac d{dt}\right|_{t=0}\det(d\phi_t|_p)=\operatorname{div}_p(u).
->>$$
+>>$$\left.\frac d{dt}\right|_{t=0}\det(d\phi_t|_p)=\operatorname{div}_p(u).$$
 
 ### Ejercicio 22 (Opcional) 
 
@@ -607,3 +600,5 @@
 >>\alpha=f\,dg
 >>$$
 >>para alguna funcion suave $f$, que no se anula.
+
+

@@ -1,0 +1,165 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Distribuciones"
+description: "Teorico convertido desde GS - Teo23.md"
+chapter: "Teo 23"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Distribuciones
+
+## Distribuciones
+
+<BookBlock kind="remark">
+Intentamos generalizar la idea de campo: que a cada punto asigna un vector. A cada punto asigna un subespacio tangente.
+</BookBlock>
+
+<BookBlock kind="definition" title="Distribucion">
+Una distribucion en <Math tex={"M"} /> es una aplicacion <Math tex={"\\mathcal D"} /> que a cada punto <Math tex={"p\\in M"} /> le asigna un subespacio <Math tex={"\\mathcal D_p"} /> de <Math tex={"T_pM"} /> de dimension <Math tex={"k"} />.
+</BookBlock>
+
+<BookBlock kind="definition" title="Suavidad de Distribucion">
+Una distribucion <Math tex={"\\mathcal D"} /> se dice suave si para todo <Math tex={"p\\in M"} />, existe un abierto de <Math tex={"M"} /> en <Math tex={"p"} />, y campos <Math tex={"X_1,\\ldots,X_k"} /> en <Math tex={"\\mathfrak X(U)"} /> tales que
+<Math display tex={"\\mathcal D_q=\\operatorname{span}\\{X_1(q),\\ldots,X_k(q)\\},"} />
+para todo <Math tex={"q\\in U"} />.
+</BookBlock>
+
+<BookBlock kind="remark">
+Existe la nocion de subfibrado de rango <Math tex={"k"} /> de <Math tex={"TM"} />, habria estado lindo haberla visto y definir distribucion con esto.
+</BookBlock>
+
+<BookBlock kind="remark">
+Intentamos generalizar la nocion de curva integral.
+</BookBlock>
+
+<BookBlock kind="definition" title="Distribucion integrable">
+Una distribucion suave <Math tex={"\\mathcal D"} /> se dice integrable si para todo <Math tex={"p\\in M"} />, existe una subvariedad <Math tex={"(N,F)"} /> de <Math tex={"M"} /> con <Math tex={"p\\in F(N)"} /> y
+<Math display tex={"(dF)_qT_qN=\\mathcal D_{F(q)},"} />
+para todo <Math tex={"q\\in N"} />.
+
+La subvariedad <Math tex={"(N,F)"} /> se llama subvariedad integral de <Math tex={"M"} /> para <Math tex={"\\mathcal D"} /> que pasa por <Math tex={"p"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Dibujo ultil para entender">
+Criollo: una subvariedad integral es una subvariedad que se acomoda muy bien a los subespacios que hay fijos en cada punto.
+![Pasted image 20260603132446](/images/Pasted-image-20260603132446.png)
+</BookBlock>
+
+<BookBlock kind="example">
+Sea <Math tex={"X"} /> un campo suave que nunca se anula. Entonces <Math tex={"X"} /> genera una distribucion suave <Math display tex={"\\mathcal D_p=\\operatorname{span}\\{X_p\\}."} />
+Y cualquier curva integral de <Math tex={"X"} /> es subvariedad integral de la distribucion. Necesitamos que <Math tex={"X"} /> no se anule por la nocion de dimension que impusimos a las distribuciones.
+</BookBlock>
+
+<BookBlock kind="example">
+Si <Math tex={"M=\\mathbb R^n"} /> y <Math display tex={"\\mathcal D_q=\\operatorname{span}\\left\\{\\frac{\\partial}{\\partial x_1}\\bigg|_q,\\ldots,\\frac{\\partial}{\\partial x_k}\\bigg|_q\\right\\},"} />este tiene ejemplo de subvariedades integrales para esta distribucion.
+</BookBlock>
+
+<BookBlock kind="example">
+En <Math tex={"M=\\mathbb R^3"} />, <Math display tex={"\\mathcal D_q=\\operatorname{span}\\left\\{\\frac{\\partial}{\\partial x}\\bigg|_q+z(q)\\frac{\\partial}{\\partial z}\\bigg|_q,\\frac{\\partial}{\\partial y}\\bigg|_q\\right\\}"} />es una distribucion que no es integrable, como veremos mas adelante.
+</BookBlock>
+
+<BookBlock kind="definition" title="Distribucion involutiva">
+Sea <Math tex={"\\mathcal D"} /> una distribucion suave en <Math tex={"M"} />. Si <Math tex={"U"} /> es abierto de <Math tex={"M"} /> y <Math tex={"X\\in\\mathfrak X(U)"} />, se dice que <Math tex={"X"} /> esta en <Math tex={"\\mathcal D"} /> si <Math tex={"X_p\\in\\mathcal D_p"} /> para todo <Math tex={"p\\in U"} />. La distribucion se dice involutiva si se cumple que <Math tex={"X,Y"} /> en <Math tex={"\\mathcal D"} />, entonces <Math tex={"[X,Y]"} /> esta en <Math tex={"\\mathcal D"} />.
+</BookBlock>
+
+<BookBlock kind="exercise">
+Sea <Math tex={"\\mathcal D"} /> una distribucion suave de dimension <Math tex={"k"} />. Probar que <Math tex={"\\mathcal D"} /> es involutiva si y solo si para todo <Math tex={"p\\in M"} />, existe un entorno <Math tex={"U"} /> de <Math tex={"p"} /> y <Math tex={"Z_1,\\ldots,Z_k"} /> campos suaves en <Math tex={"\\mathfrak X(U)"} /> tales que
+<Math display tex={"\\mathcal D_q=\\operatorname{span}\\{(Z_1)_q,\\ldots,(Z_k)_q\\}"} />
+para todo <Math tex={"q\\in U"} />, y <Math display tex={"[Z_i,Z_j]\\text{ esta en }\\mathcal D,\\qquad 1\\le i,j\\le k."} /> osea <Math display tex={"[Z_{i},Z_{j}]_{q}\\in \\mathcal{D}_{q}\\quad1\\leq i,j\\leq k"} />
+</BookBlock>
+
+<BookBlock kind="proposition" title="D integrable implica involutiva">
+Sea <Math tex={"\\mathcal D"} /> una distribucion suave de dimension <Math tex={"k"} />. Si <Math tex={"\\mathcal D"} /> es integrable, entonces es involutiva.
+<Proof title="Demostracion">
+Sean <Math tex={"X,Y"} /> campos en <Math tex={"\\mathcal D"} />. Queremos que <Math tex={"[X,Y]"} /> esta en <Math tex={"\\mathcal D"} />.
+
+Sea <Math tex={"q\\in M"} /> arbitrario y sea <Math tex={"(N,F)"} /> subvariedad integral de <Math tex={"\\mathcal D"} /> por <Math tex={"q=F(p)"} />, <Math tex={"p\\in N"} />.
+
+Como <Math tex={"(dF)_pT_pN=\\mathcal D_{F(p)}"} /> para todo <Math tex={"p\\in N"} />, y <Math tex={"X_{F(p)},Y_{F(p)}\\in\\mathcal D_{F(p)}"} />.
+
+Por <PreviewLink href="/chapters/pr-4#ejercicio-8-pr4" label="Ejercicio 8, practico 4" title="Ejercicio 8: Practico 4" />, existen campos suaves <Math tex={"\\widetilde X,\\widetilde Y"} /> en <Math tex={"\\mathfrak X(N)"} /> tales que
+<Math display tex={"(dF)_p\\widetilde X_p=X_{F(p)},\\qquad (dF)_p\\widetilde Y_p=Y_{F(p)},"} />
+para todo <Math tex={"p\\in N"} />.
+
+Esto no es mas que <Math tex={"\\widetilde X"} /> e <Math tex={"\\widetilde Y"} /> estan <Math tex={"F"} />-relacionados con <Math tex={"X,Y"} />. Tenemos por teorema que <Math tex={"[\\widetilde X,\\widetilde Y]"} /> esta <Math tex={"F"} />-relacionado con <Math tex={"[X,Y]"} />; es decir
+<Math display tex={"(dF)_p[\\widetilde X,\\widetilde Y]_p=[X,Y]_{F(p)},"} />
+para todo <Math tex={"p\\in N"} />.
+
+Por tanto, como <Math tex={"(dF)_p[\\widetilde X,\\widetilde Y]_p\\in\\mathcal D_{F(p)}"} />, por definicion de subvariedad integral, tenemos <Math tex={"[X,Y]_{F(p)}\\in\\mathcal D_{F(p)}"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark">
+Ahora nos enfocamos en probar la vuelta.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Frobenius local / Warner Th. 1.60">
+Toda distribucion involutiva es integrable.
+
+Mejor aun, para todo <Math tex={"p\\in M"} />, existe una carta suave <Math tex={"(U,\\varphi=(x_1,\\ldots,x_n))"} />, cubico centrado en <Math tex={"p"} />, tal que las rebanadas
+<Math display tex={"D=\\{q\\in U:x_j(q)=\\text{constante},\\ j=k+1,\\ldots,n\\}"} />
+son subvariedades integrales de <Math tex={"\\mathcal D"} />.
+
+Ademas, si <Math tex={"N\\subset M"} /> es una subvariedad integral conexa de <Math tex={"\\mathcal D"} /> tal que <Math tex={"N\\subset U"} />, entonces <Math tex={"N"} /> debe estar contenida en una de estas rebanadas.
+<Proof title="Demostracion">
+Sea <Math tex={"\\mathcal D"} /> una distribucion de dimension <Math tex={"k"} />. Nos paramos en <Math tex={"p"} />, y tenemos <Math tex={"\\mathcal D_p=\\operatorname{span}\\{v_1,\\ldots,v_k\\}"} />.
+
+Sabemos por una proposicion probada en el capitulo de Campos que existe una carta <Math tex={"(V,\\psi=(y_1,\\ldots,y_n))"} />, centrada en <Math tex={"p"} />, tal que
+<Math display tex={"v_j=\\frac{\\partial}{\\partial y_j}\\bigg|_p,\\qquad j=1,\\ldots,k."} />
+
+Nos llevamos la distribucion para el abierto <Math tex={"\\psi(V)"} /> de <Math tex={"\\mathbb R^n"} />, usando la carta. Tenemos una distribucion <Math tex={"\\mathcal D"} /> en <Math tex={"\\psi(V)"} />, con <Math tex={"0=\\psi(p)"} />, y tal que
+<Math display tex={"\\mathcal D_0=\\operatorname{span}\\left\\{\\frac{\\partial}{\\partial y_1}\\bigg|_0,\\ldots,\\frac{\\partial}{\\partial y_k}\\bigg|_0\\right\\}."} />
+
+Como la distribucion es suave, tenemos campos suaves <Math tex={"X_1,\\ldots,X_k"} /> definidos en un abierto de <Math tex={"\\psi(V)"} /> tal que
+<Math display tex={"\\mathcal D_q=\\operatorname{span}\\{(X_1)_q,\\ldots,(X_k)_q\\}."} />
+
+Por tanto, podemos usar el marco <Math tex={"\\left\\{\\frac{\\partial}{\\partial y_1},\\ldots,\\frac{\\partial}{\\partial y_n}\\right\\}"} /> para escribir estos campos como combinacion lineal
+<Math display tex={"X_j=\\sum_{i=1}^na_{ij}\\frac{\\partial}{\\partial y_i},"} />
+donde <Math tex={"a_{ij}"} /> son funciones suaves sobre un abierto contenido en <Math tex={"\\psi(V)"} />.
+
+Armando la matriz <Math tex={"T(q)=(a_{ij}(q))"} />, cuando hacemos <Math tex={"T(0)"} />, esta matriz tiene la submatriz <Math tex={"T(0)_{1\\ldots k,1\\ldots k}"} /> igual a la identidad, porque <Math tex={"(X_j)_0=\\frac{\\partial}{\\partial y_j}\\big|_0"} />. Podemos pensar en la funcion
+<Math display tex={"f:\\psi(V)\\to\\mathbb R,\\qquad q\\mapsto\\det(T(q)_{1\\ldots k,1\\ldots k})."} />
+
+La cual es una funcion suave por las entradas de la matriz <Math tex={"T(q)"} /> son suaves. Como <Math tex={"f(0)=1\\ne0"} />, existe un abierto de <Math tex={"0"} /> donde <Math tex={"f(q)\\ne0"} />. Achicamos <Math tex={"\\psi(V)"} />, si hace falta, y podemos asumir que esto pasa en <Math tex={"\\psi(V)"} />.
+
+Por tanto, tiene sentido hablar de la matriz inversa de la submatriz <Math tex={"T(q)_{1\\ldots k,1\\ldots k}"} />, digamos <Math tex={"Q(q)"} />. Esto define una funcion
+<Math display tex={"Q:\\psi(V)\\to M_{k\\times k}(\\mathbb R),\\qquad q\\mapsto Q(q),"} />
+tal que
+<Math display tex={"T(q)_{1\\ldots k,1\\ldots k}\\cdot Q(q)=I_k."} />
+
+Notar que las entradas de la matriz que da <Math tex={"Q"} /> son funciones suaves, pues son funciones racionales entre productos y sumas con las entradas de <Math tex={"T(q)"} />, con denominador el determinante de <Math tex={"T(q)_{1\\ldots k,1\\ldots k}"} />, el cual no se anula en <Math tex={"\\psi(V)"} />.
+
+Luego
+<Math display tex={"T(q)Q(q)=\\begin{pmatrix}1& &0\\\\ &\\ddots& \\\\0& &1\\\\ b_{k+1,1}&\\cdots&b_{k+1,k}\\\\ \\vdots& &\\vdots\\\\ b_{n1}&\\cdots&b_{nk}\\end{pmatrix}."} />
+
+¿Que hemos hecho? Por algebra, lo que se ha hecho es cambiar los generadores de la distribucion. Como los vectores columnas de <Math tex={"T(q)"} /> generan <Math tex={"\\mathcal D_q"} /> y <Math tex={"Q(q)"} /> da los escalares para que las combinaciones lineales de las columnas de <Math tex={"T(q)"} /> generen los vectores columnas de la matriz de la derecha, tenemos que <Math tex={"\\mathcal D"} /> es generada en el abierto <Math tex={"\\psi(V)"} /> por los campos <Math tex={"\\widetilde X_1,\\ldots,\\widetilde X_k"} /> con
+<Math display tex={"\\widetilde X_j=\\frac{\\partial}{\\partial y_j}+\\sum_{i=k+1}^nb_{ij}\\frac{\\partial}{\\partial y_i},\\qquad b_{ij}\\in C^\\infty(V)."} />
+
+La forma de pensarlo: recordemos que en algebra 2, cuando pedian dar una base de un subespacio vectorial generado por <Math tex={"k"} /> vectores, se ponian en una matriz como vectores fila y se hacia Gauss-Jordan; en cada paso estamos haciendo combinaciones lineales de las filas, y el resultado final es otro conjunto generador muy lindo del subespacio vectorial.
+
+Lo lindo que tiene este nuevo conjunto de generadores es que conmutan.
+
+Hagamos:
+<Math display tex={"[\\widetilde X_i,\\widetilde X_j]=\\left[\\frac{\\partial}{\\partial y_i}+\\sum_{h=k+1}^nb_{hi}\\frac{\\partial}{\\partial y_h},\\frac{\\partial}{\\partial y_j}+\\sum_{\\ell=k+1}^nb_{\\ell j}\\frac{\\partial}{\\partial y_\\ell}\\right]."} />
+
+Por bilinealidad del corchete y que <Math tex={"\\left[\\frac{\\partial}{\\partial y_i},\\frac{\\partial}{\\partial y_j}\\right]=0"} />, queda
+<Math display tex={"[\\widetilde X_i,\\widetilde X_j]=\\left[\\frac{\\partial}{\\partial y_i},\\sum_{\\ell=k+1}^nb_{\\ell j}\\frac{\\partial}{\\partial y_\\ell}\\right]-\\left[\\frac{\\partial}{\\partial y_j},\\sum_{h=k+1}^nb_{hi}\\frac{\\partial}{\\partial y_h}\\right]+\\left[\\sum_{h=k+1}^nb_{hi}\\frac{\\partial}{\\partial y_h},\\sum_{\\ell=k+1}^nb_{\\ell j}\\frac{\\partial}{\\partial y_\\ell}\\right]."} />
+
+Esto pertenece a
+<Math display tex={"\\operatorname{span}\\left\\{\\frac{\\partial}{\\partial y_{k+1}},\\ldots,\\frac{\\partial}{\\partial y_n}\\right\\}."} />
+
+Por hipotesis, la distribucion es involutiva, por tanto <Math tex={"[\\widetilde X_i,\\widetilde X_j]\\in\\mathcal D"} />. Y como
+<Math display tex={"\\mathcal D_q\\cap\\operatorname{span}\\left\\{\\frac{\\partial}{\\partial y_{k+1}}\\bigg|_q,\\ldots,\\frac{\\partial}{\\partial y_n}\\bigg|_q\\right\\}=\\{0\\},"} />
+se sigue la afirmacion
+<Math display tex={"[\\widetilde X_i,\\widetilde X_j]=0."} />
+
+Con estos campos vamos a construir de manera natural una subvariedad integral. ¿Por que natural? Como los campos estan en la distribucion, entonces sus curvas integrales van a estar contenidas en las subvariedades integrales. Lo natural es combinar los flujos de cada campo para ir formando la subvariedad. Sabemos que esto sale bien cuando los campos conmutan.
+
+Si en estos momentos tuvieramos que dar una subvariedad integral por el origen <Math tex={"0"} />, usando que podemos tomar un abierto cubico de <Math tex={"0"} /> donde hay uniformidad conjunta para <Math tex={"\\widetilde X_1,\\ldots,\\widetilde X_k"} />, con flujos <Math tex={"\\theta^1,\\ldots,\\theta^k"} /> respectivamente, definimos
+<Math display tex={"f:(-\\delta,\\delta)^k\\to\\mathbb R^n,\\qquad (t_1,\\ldots,t_k)\\mapsto\\theta^1_{t_1}\\circ\\cdots\\circ\\theta^k_{t_k}(0)."} />
+</Proof>
+</BookBlock>

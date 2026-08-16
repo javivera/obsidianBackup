@@ -1,0 +1,472 @@
+% This file is generated from the corresponding Obsidian note.
+% Source: Teoricos/GS - Teo5.md
+\chapter{Vectores tangentes}
+\label{ch:teo-5}
+\section{Vectores tangentes}
+\begin{bookremark}{Motivación geométrica}
+La motivación geométrica es que, por ejemplo, el tangente a la esfera en un punto es el subespacio ortogonal al radio en ese punto. Si eso puede describirse de manera intrínseca, automáticamente aparece una noción de derivada direccional.
+
+Si $p\in S^2$ y $v\in \langle p\rangle^\perp$, entonces para toda $f:S^2\to\mathbb{R}$ suave se puede definir
+
+\[
+D_vf=\left.\frac{d}{dt}\right|_{t=0}f(\gamma(t)),
+\]
+donde $\gamma$ es una curva suave con $\gamma(0)=p$ y velocidad $\gamma'(0)=v$. Que seria la derivada en la direccion de $v$ Este operador es lineal y satisface la regla de Leibniz. Las notas usan esta idea como motivación para la definición intrínseca de vector tangente. El tema es que cuando $M$ es una variedad que no necesariamente esta embebida en $\mathbb{R}^{n}$ entonces esa "direccion" $v$ ya no es un vector de $\mathbb{R}^{n}$
+
+\end{bookremark}
+\section{Definición de vector tangente}
+\begin{bookdefinition}{Vector tangente}
+Sea $M$ una variedad suave y $p\in M$. Un \textbf{vector tangente a $M$ en $p$} es una derivación en $p$ del álgebra $C^\infty(M)$. Es decir, una función
+
+\[
+v:C^\infty(M)\to\mathbb{R}
+\]
+tal que:
+
+\begin{itemize}
+\item Es lineal: para todo $f,g\in C^\infty(M)$ y $\lambda\in\mathbb{R}$,
+\end{itemize}
+\[
+v(f+\lambda g)=v(f)+\lambda v(g).
+\]
+\begin{itemize}
+\item Satisface la regla de Leibniz en $p$: para todo $f,g\in C^\infty(M)$,
+\end{itemize}
+\[
+v(fg)=f(p)\,v(g)+g(p)\,v(f).
+\]
+Se denota por $T_pM$ al conjunto de todos los vectores tangentes de $M$ en $p$ y se lo llama \textbf{espacio tangente} a $M$ en $p$.
+
+El objetivo es mostrar que $T_pM$ tiene una estructura natural de espacio vectorial real de dimensión finita $n$ si $\dim M=n$.
+
+\end{bookdefinition}
+\section{Estructura de espacio vectorial}
+\begin{bookproposition}{Estructura de espacio vectorial}
+$T_pM$ es un espacio vectorial real con las operaciones
+
+\[
+(v+w)(f)=v(f)+w(f),\qquad (\lambda v)(f)=\lambda\,v(f).
+\]
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Para ver que $T_pM$ es un espacio vectorial real, basta ver que es subespacio de $\mathrm{Lin}(C^\infty(M),\mathbb{R})$.
+\item Por como estan definidas las operaciones es evidente que $v+w$ y $\lambda v$ estan en $\mathrm{Lin}(C^\infty(M),\mathbb{R})$ con lo cual solo habria que ver Leibniz en ambos casos
+\end{enumerate}
+\begin{itemize}
+\item $0\in T_pM$ por que cumple Leibniz:
+\end{itemize}
+\[
+0(fg)=0=f(p)\cdot0+g(p)\cdot0
+\]
+\begin{itemize}
+\item Si $v,w\in T_pM$, entonces $v+w\in T_pM$ (Leibniz para la suma)
+\end{itemize}
+\[
+\begin{aligned}(v+w)(fg)&=v(fg)+w(fg)\\&=f(p)v(g)+g(p)v(f)+f(p)w(g)+g(p)w(f)\\&=f(p)(v+w)(g)+g(p)(v+w)(f)\end{aligned}
+\]
+\begin{itemize}
+\item Si $v\in T_pM$ y $\lambda\in\mathbb{R}$, entonces $\lambda v\in T_pM$ (Leibniz para el producto)
+\end{itemize}
+\[
+\begin{aligned}(\lambda v)(fg)&=\lambda v(fg)\\&=\lambda\big(f(p)v(g)+g(p)v(f)\big)\\&=f(p)(\lambda v)(g)+g(p)(\lambda v)(f)\end{aligned}
+\]
+Por lo tanto, $T_pM$ es un subespacio de $\mathrm{Lin}(C^\infty(M),\mathbb{R})$ y en consecuencia un espacio vectorial real.
+
+\bookqed
+\end{bookproof}
+\section{Lema técnico: funciones campana}
+\begin{booklemma}{Funciones campana}
+Sea $M$ una variedad suave, $p\in M$ y $U$ un abierto de $p$. Entonces existen un abierto $V$ de $p$, con $\overline{V}\subseteq U$, y una función suave $\beta:M\to\mathbb{R}$ tales que:
+
+\[
+\begin{aligned} & (I)\quad0\leq \beta(x)\leq 1\qquad\forall x\in M \\ & (II) \quad\beta|_{\overline{V}}\equiv 1\\&(III)\quad\operatorname{supp}(\beta)\subseteq U\end{aligned}
+\]
+Recordar el soporte es $\operatorname{supp}(\beta)=\{ q\in M:\beta(q)\neq0 \}$ Este es el lema de funciones campana o de levantamiento en variedades suaves.
+
+\end{booklemma}
+\begin{bookproof}{}
+6. Sea $p\in M$ y $U$ abierto de $p$. Sea $(W,\psi)$ una carta suave de $p$ tal que, sin pérdida de generalidad, podemos asumir que:
+
+\begin{itemize}
+\item $W\subset U$
+\item $\psi(W)=B(0,3)$ (Esto por que las bolas son base $\mathbb{R}^{n}$ y son difeomorfas entre si)
+\end{itemize}
+\begin{enumerate}
+\item Por tanto hay un abierto $V$ de $p$, $V\subset W\subset U$ tal que:
+\end{enumerate}
+\[
+\psi(V)=B(0,1)
+\]
+\begin{enumerate}[start=2]
+\item Pensamos en la función $\beta:M\to\mathbb{R}$:
+\end{enumerate}
+\[
+\beta(q)=\begin{cases}h\circ\psi(q) & \text{si } q\in W,\\0 & \text{si } q\notin W.\end{cases}
+\]
+con $h$ como \hyperref[blk:83d0e9]{Teórico 8} con $\gamma_1=1$, $\gamma_2=2$.\\
+3. Veamos que cumple las condiciones que buscamos:
+
+\begin{itemize}
+\item (i)  $0\le \beta(x)\le 1$ es trivial
+\item (ii)
+
+\begin{enumerate}
+\item Veamos $\beta|_{\overline{V}}\equiv 1$. Tenemos que $V=\psi^{-1}(B(0,1))$ que es un abierto de $W$ y por tanto es abierto de $M$.
+\item Notemos que como $V\subseteq K=\psi ^{-1}(\overline{B(0,1)})\subseteq W$ con $K$ compacto por que $\psi$ es homeomorfismo entonces $\overline{V}^{W}=\overline{V}^{M}=\overline{V}$
+\item Ahora como $\psi$ es homeo
+\end{enumerate}
+\end{itemize}
+\[
+\overline{V} =\overline{V}^{W}=\psi ^{-1}(\psi(\overline{V}^{B(0,3)}  ))=\psi ^{-1}(\overline{B(0,1)}^{B(0,3)})  \subseteq B(0,2)\subseteq W
+\]
+\begin{Verbatim}[fontsize=\small]
+ 4. En particular, $\overline{V}\subseteq W\subseteq U$ entonces $\beta|_{\overline{V}}\equiv 1$.  
+\end{Verbatim}
+\begin{itemize}
+\item (ii) Soporte de $\beta\subseteq U$:
+
+\begin{enumerate}
+\item Recordemos que $\operatorname{supp}(\beta)=\overline{\{q\in M:\beta(q)\neq 0\}}$.
+\item En el caso de la función $h$, el soporte es $\overline{B(0,2)}$.
+\item Afirmación: $\operatorname{supp}(\beta)=\psi^{-1}(\overline{B(0,2)})$.
+\item En efecto, por definición de $\beta$, $\beta(q)\neq 0$ sii $q\in W$ y $\psi(q)\in B(0,2)$.
+\item Luego por definicion
+\end{enumerate}
+\end{itemize}
+\[
+\operatorname{supp}(\beta)=\overline{(\psi^{-1}(B(0,2)))}^{M}
+\]
+\begin{Verbatim}[fontsize=\small]
+ 6. Como $\psi^{-1}(B(0,2))$ está contenido en el compacto $K=\psi^{-1}(\overline{B(0,2.5)})$, que a su vez está contenido en $W$ devuelta las clausura coinciden 
+\end{Verbatim}
+\[
+\overline{(\psi^{-1}(B(0,2)))}^{M}=\overline{(\psi^{-1}(B(0,2)))}^{W}
+\]
+\begin{Verbatim}[fontsize=\small]
+ 7. Por lo tanto se tiene: 
+\end{Verbatim}
+\[
+\operatorname{supp}(\beta)=\overline{\psi ^{-1}(B(0,2)) }^{W}=\psi^{-1}(\overline{B(0,2)}^{B(0,3)}) \subset K\subset W\subset U
+\]
+\begin{Verbatim}[fontsize=\small]
+ 8. Nuevamente, hay que tener cuidado al clausurar: podría haber pasado algo como $U=(0,5)$ y $\psi^{-1}(\Delta(0,2))=(0,5)$, y en este caso se sale de $U$. Por eso tomamos $W$ tal que $\psi(W)=\Delta(0,3)$, para quedar holgados y que la clausura del soporte no se escape de $U$.  
+ 9. Por último, veamos que $\beta$ es suave mostrando que lo es en algún entorno abierto de cada punto.  
+ 10. Tenemos dos casos:  
+ 	- (i) Si $q\in W$, entonces $\beta|_{W}=h\circ\psi$, que es composición de suaves.
+ 	- (ii) Si $q\notin W$, entonces $q\not\in \operatorname{supp}(\beta)$ por que $\operatorname{supp}(\beta) \subseteq W$ y como $\operatorname{supp}(\beta)$ es cerrado, su complemento es abierto entonces existe un abierto $O\subseteq \operatorname{supp}(\beta)^{c}$ de $q$ tal que $\beta|_{O}=0$, como función constante es suave, se tiene que $\beta|_{O}$ es suave. 
+ 6. Por lo tanto, $\beta$ es suave.
+\end{Verbatim}
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:45cd5d}
+\section{Lema técnico: extensión de funciones suaves}
+\begin{booklemma}{Extensión de funciones suaves}
+Sea $M$ una variedad suave, $p\in M$ y $U$ un abierto de $p$. Para toda $f\in C^\infty(U)$ existen $\widetilde{f}\in C^\infty(M)$ y un abierto $V$ de $p$, con $\overline{V}\subseteq U$, tales que
+
+\[
+\widetilde{f}=f\qquad\text{sobre }V.
+\]
+\end{booklemma}
+\begin{bookproof}{}
+\begin{enumerate}
+\item La idea es usar la función $\beta$ del lema técnico, pues $\beta$ vale cero fuera de $U$. Definimos
+\end{enumerate}
+\[
+\tilde f(q)=\begin{cases}\beta (q)\,f(q) & \text{si } q\in U\\0 & \text{si } q\notin U\end{cases}
+\]
+\begin{enumerate}[start=2]
+\item El papel de la función $\beta$ es mantener el valor de $f$ sobre $\overline V$ (pues $\beta|_{\overline V}=1$) e ir haciendo cero a $f$ mientras no se está más en $U$.
+\item Veamos que $\tilde f\in C^\infty(M)$. Para hacer esto, es suficiente con mostrar que para todo $q\in M$ existe un abierto $W$ de $q$ tal que $\tilde f|_W$ es suave.
+\item ¿Por qué? Porque la suavidad es una propiedad local: una función es suave $(C^{\infty})$ si alrededor de cada punto existe un abierto en el cual su restricción es suave.
+\item Como $\tilde f$ está definida por partes, analizamos por casos.
+\end{enumerate}
+\begin{itemize}
+\item (i) Si $q\in U$. En este caso
+\end{itemize}
+\[
+\tilde f|_U=\beta |_U\cdot f|_U
+\]
+y como $\beta|_U$ es suave en $U$ (restricción de una función suave sobre $M$) y $f|_U=f\in C^\infty(U)$, entonces $\tilde f|_U$ es suave por ser producto de funciones suaves.
+
+\begin{itemize}
+\item (ii)
+
+\begin{enumerate}
+\item Si $q\notin U$. Por el lema técnico, $\operatorname{soporte}(\beta)\subset U$, y entonces $q\notin \operatorname{soporte}(\beta)$.
+\item Por definición de soporte, existe un abierto $W$ de $q$ tal que
+\end{enumerate}
+\end{itemize}
+\[
+\beta |_W\equiv 0.
+\]
+\begin{Verbatim}[fontsize=\small]
+ 3. Luego $\tilde f|_W$ es constante e igual a cero, pues si $x\in W\cap U$, entonces 
+\end{Verbatim}
+\[
+\tilde f(x)=\beta (x)f(x)=0,
+\]
+por 2. 4. Y si $x\in W\cap U^c$, entonces
+
+\[
+\tilde f(x)=0
+\]
+por definición de $\tilde f$. 5. Como toda función constante es suave, se sigue que
+
+\[
+\tilde f|_W\in C^\infty(W).
+\]
+\begin{enumerate}[start=6]
+\item Como $\tilde f$ es suave en un abierto de cualquier punto de $M$, se sigue que
+\end{enumerate}
+\[
+\tilde f\in C^\infty(M).
+\]
+y claramente cumple $\widetilde{f}=f$ sobre $V$.
+
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:405b16}
+\section{Los vectores tangentes actúan de forma local}
+\begin{bookproposition}{Localidad de los vectores tangentes}
+Sea $M$ una variedad suave, $p\in M$ y $v\in T_pM$. Si $f,g\in C^\infty(M)$ coinciden en un abierto de $p$, entonces
+
+\[
+v(f)=v(g).
+\]
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Es equivalente demostrar que si $f-g=h\in C^\infty(M)$ se anula en un abierto $U$ de $p$, entonces $v(h)=0$.
+\item Se toma una función campana $\beta$ con $\beta\equiv 1$ en un abierto $V\subseteq U$ de $p$ y soporte contenido en $U$.
+\item Entonces $\beta h\equiv 0$ en todo $M$ por que si $x\in U$ $h(x)=0$ y si $x\in U^{c}$ entonces $\beta(x)=0$ entonces
+\end{enumerate}
+\[
+v(\beta h)=0.
+\]
+por linealidad de $v$ 4. Pero por Leibniz,
+
+\[
+0=v(\beta h)=\beta(p)\,v(h)+h(p)\,v(\beta)=v(h)
+\]
+ya que $\beta(p)=1$ y $h(p)=0$. 5. Luego $v(h)=0$.
+
+\bookqed
+\end{bookproof}
+\phantomsection\label{blk:b713ca}
+\section{Vectores coordenados}
+\begin{bookdefinition}{Vectores coordenados}
+Sea $M$ una variedad suave, $p\in M$, y sea $(U,\varphi=(x_1,\dots,x_n))$ una carta suave alrededor de $p$:
+
+\[
+\varphi:U\subseteq M\to \varphi(U)\subseteq\mathbb{R}^n,\qquad q\mapsto (x_1(q),\dots,x_n(q)).
+\]
+Las funciones coordenadas $x_i:U\to\mathbb{R}$ son suaves. Luego para $f\in C^\infty(M)$ se define
+
+\[
+\left.\frac{\partial}{\partial x_i}\right|_p:C^{\infty}(M)\rightarrow \mathbb{R}\qquad\text{dada por}\qquad\left.\frac{\partial}{\partial x_i}\right|_p f=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(f\circ\varphi^{-1})
+\]
+donde $(y_1,\dots,y_n)$ son las coordenadas usuales de $\mathbb{R}^n$. Estas aplicaciones se llaman \textbf{vectores coordenados} en $p$ asociados a la carta $(U,\varphi)$.
+
+\end{bookdefinition}
+\begin{bookexercise}{Vectores coordenados}
+Mostrar que cada función $\left.\frac{\partial}{\partial x_i}\right|_p$ es un vector tangente de $M$ en $p$.
+
+\end{bookexercise}
+\begin{bookproof}{}
+Fijemos $i$ y escribamos $a=\varphi(p)\in\mathbb{R}^n$. Debemos ver que
+
+\[
+\left.\frac{\partial}{\partial x_i}\right|_p:C^\infty(M)\to\mathbb{R},\qquad
+f\mapsto \frac{\partial(f\circ\varphi^{-1})}{\partial y_i}(a)
+\]
+es lineal y satisface Leibniz en $p$.
+
+\begin{enumerate}
+\item \textbf{Linealidad.} Si $f,g\in C^\infty(M)$ y $\lambda\in\mathbb{R}$, entonces
+\end{enumerate}
+\[
+((f+\lambda g)\circ\varphi^{-1})=(f\circ\varphi^{-1})+\lambda(g\circ\varphi^{-1}),
+\]
+y por linealidad de la derivada parcial en $\mathbb{R}^n$,
+
+\[
+\left.\frac{\partial}{\partial x_i}\right|_p(f+\lambda g)
+=
+\left.\frac{\partial}{\partial x_i}\right|_p(f)
++
+\lambda\left.\frac{\partial}{\partial x_i}\right|_p(g).
+\]
+\begin{enumerate}[start=2]
+\item \textbf{Regla de Leibniz.} Como
+\end{enumerate}
+\[
+(fg)\circ\varphi^{-1}=(f\circ\varphi^{-1})(g\circ\varphi^{-1}),
+\]
+aplicando la regla del producto en $\mathbb{R}^n$ se obtiene
+
+\[
+\begin{aligned}
+\left.\frac{\partial}{\partial x_i}\right|_p(fg)
+&=\frac{\partial\big((f\circ\varphi^{-1})(g\circ\varphi^{-1})\big)}{\partial y_i}(a)\\
+&=(f\circ\varphi^{-1})(a)\,\frac{\partial(g\circ\varphi^{-1})}{\partial y_i}(a)
++(g\circ\varphi^{-1})(a)\,\frac{\partial(f\circ\varphi^{-1})}{\partial y_i}(a).
+\end{aligned}
+\]
+Pero $(f\circ\varphi^{-1})(a)=f(p)$ y $(g\circ\varphi^{-1})(a)=g(p)$, luego
+
+\[
+\left.\frac{\partial}{\partial x_i}\right|_p(fg)
+=
+f(p)\left.\frac{\partial}{\partial x_i}\right|_p(g)
++
+g(p)\left.\frac{\partial}{\partial x_i}\right|_p(f).
+\]
+Por lo tanto, $\left.\frac{\partial}{\partial x_i}\right|_p$ es una derivación en $p$, es decir, un vector tangente de $M$ en $p$.
+
+\bookqed
+\end{bookproof}
+\section{Independencia lineal de los vectores coordenados}
+\begin{bookproposition}{Independencia lineal de los vectores coordenados}
+El conjunto de vectores coordenados
+
+\[
+\left\{\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p\right\}
+\]
+es linealmente independiente en $T_pM$.
+
+\end{bookproposition}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Las funciones coordenadas $x_i$ están definidas solo en $U$, ósea están en $C^{\infty}(U)$
+\item Pero $\left.\frac{\partial}{\partial x_n}\right|_p$ esta en $C^{\infty}(M)$ así que primero se extienden a funciones suaves globales $\widetilde{x}_i\in C^\infty(M)$ que coinciden con $x_i$ en un abierto $V$ de $p$ usando \hyperref[blk:405b16]{Extensión de funciones suaves} (obtenemos múltiples abiertos y tomamos la intersección no vacía por que esta $p$)
+\item Ahora notamos que
+\end{enumerate}
+\[
+\left.\frac{\partial}{\partial x_i}\right|_{p}\widetilde{x}_{j}=\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}
+\]
+porque $\widetilde{x}_{j}$ y $x_j$ coinciden en $V$ un abierto de $p$, por \hyperref[blk:b713ca]{Localidad de los vectores tangentes}. Luego aplicando la definición del vector coordenado,
+
+\[
+\left.\frac{\partial}{\partial x_i}\right|_{p}x_{j}=\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}(x_{j}\circ\varphi^{-1}).
+\]
+\begin{enumerate}[start=4]
+\item Y recordemos la notacion $(U,\varphi=(x_{1},\ldots,x_{n}))$ osea que $x_{j}\circ\varphi ^{-1}(q_{1},\ldots,q_{n})=x_{j}(p)=q_{j}$ otra manera de decir que $x_{j}\circ\varphi ^{-1}=\pi_{j}$ la proyeccion
+\item Y es directo ver que
+\end{enumerate}
+\[
+\left.\frac{\partial}{\partial y_i}\right|_{\varphi(p)}\pi_{j}=\delta_{ij}
+\]
+\begin{enumerate}[start=6]
+\item Entonces tenemos
+\end{enumerate}
+\[
+t_1\left.\frac{\partial}{\partial x_1}\right|_p+\cdots+t_n\left.\frac{\partial}{\partial x_n}\right|_p=0
+\]
+aplicando $\widetilde{x}_j$ a esta combinación lineal se obtiene
+
+\[
+0=t_1\delta_{1j}+\cdots+t_n\delta_{nj}=t_j
+\]
+y por lo tanto todos los coeficientes son cero. 7. Mostrando la independencia lineal.
+
+\bookqed
+\end{bookproof}
+\section{Un lema sobre funciones constantes}
+\begin{booklemma}{Los tangentes anulan constantes}
+Si $v\in T_pM$ y $c:U\to\mathbb{R}$ es constante, entonces
+
+\[
+v(c)=0.
+\]
+\end{booklemma}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Primero se aplica Leibniz a la función constante $1$:
+\end{enumerate}
+\[
+v(1)=v(1\cdot 1)=1\cdot v(1)+1\cdot v(1)=2v(1),
+\]
+de donde $v(1)=0$. 2. Luego, como $c=c\cdot 1$,
+
+\[
+v(c)=v(c\,1)=c\,v(1)=0
+\]
+\bookqed
+\end{bookproof}
+\section{Teorema sobre base del espacio tangente}
+\begin{booktheorem}{Base del espacio tangente (Para final)}
+Los vectores coordenados
+
+\[
+\left.\frac{\partial}{\partial x_1}\right|_p,\dots,\left.\frac{\partial}{\partial x_n}\right|_p
+\]
+generan $T_pM$ y por lo tanto forman una base
+
+\end{booktheorem}
+\begin{bookproof}{}
+\begin{enumerate}
+\item Sea $(U,\varphi=(x_1,\dots,x_n))$ una carta de $p$. Queremos mostrar que para todo $v\in T_pM$,
+\end{enumerate}
+\[
+v=\sum_{i=1}^n t_{i}\left.\frac{\partial}{\partial x_i}\right|_p
+\]
+\begin{enumerate}[start=2]
+\item Pero evaluando en $\tilde{x_{i}}$ esto es análogo a ver
+\end{enumerate}
+\[
+v=\sum_{i=1}^n v(\widetilde{x}_i)\left.\frac{\partial}{\partial x_i}\right|_p
+\]
+donde las $\widetilde{x}_i$ son extensiones suaves de las coordenadas $x_i$. 3. Se puede achicar $U$ para suponer que $\varphi(U)$ es una bola $\Delta(a,\varepsilon)\subseteq\mathbb{R}^n$ centrada en $a=\varphi(p)$. 4. Sea
+
+\[
+g=f\circ\varphi^{-1}:\Delta(a,\varepsilon)\to\mathbb{R}
+\]
+\begin{enumerate}[start=5]
+\item Para $y\in\Delta(a,\varepsilon)$, por el teorema fundamental del cálculo aplicado al segmento $a+t(y-a)$, se obtiene el \textbf{truco de Hadamard}:
+\end{enumerate}
+\[
+\begin{aligned}g(y)-g(a)&=\int_{0}^{1} \frac{d}{dt}g(a+t(y-a))dt\\&=\int_{0}^{1} <(\nabla g)(a+t(y-a)),y-a>dt\\&=\int_{0}^{1} \sum^{n}_{i=1} \frac{\partial}{\partial y_{i}}g(a+t(y-a)).(y_{i}-a_{i})dt\\&=\sum^{\infty}_{n=1}(y_{i}-a_{i})\int_{0}^{1} \frac{\partial}{\partial y_{i}}g(a+t(y-a))dt\end{aligned}
+\]
+\begin{enumerate}[start=6]
+\item De donde podemos concluir
+\end{enumerate}
+\[
+g(y)=g(a)+\sum_{i=1}^n (y_i-a_i)\,g_i(y)\qquad \text{con}\qquad g_i(y)=\int_0^1 \frac{\partial g}{\partial y_i}(a+t(y-a))\,dt
+\]
+\begin{enumerate}[start=7]
+\item Luego $f=g\circ\varphi$ entonces
+\end{enumerate}
+\[
+f(q)=f(p)+\sum^{n}_{i=1} (x_{i}(q)-a_{i})(g_{i}\circ\varphi(q))
+\]
+notar que usando 6. vemos que
+
+\[
+f_{i}(q)=(g_{i}\circ\varphi(q))=\int_{0}^{1} \frac{\partial g}{\partial y_{i}}(a+t(\varphi(q)-a))=\int_{0}^{1} \frac{\partial g}{\partial y_{i}}(a)=\frac{\partial g}{\partial y_{i}}(a)
+\]
+\begin{enumerate}[start=8]
+\item Volviendo a $M$, esto expresa a $f$ localmente en términos de las coordenadas $x_i$. Ósea, si bien $f\in C^{\infty}(M)$ la expresión de la sumatoria que dimos está en $C^{\infty}(U)$ , porque la compusimos con $\varphi$
+\item Luego se extienden a funciones globales las $x_i$ y las funciones $f_{i}=g_i\circ\varphi$, y se forma una función global $\widetilde{f}$ que coincide con $f$ en un abierto de $p$.
+\item Como los vectores tangentes actúan localmente,
+\end{enumerate}
+\[
+v(f)=v(\widetilde{f})
+\]
+\begin{enumerate}[start=11]
+\item Aplicando linealidad, Leibniz y el hecho de que los tangentes anulan constantes, se concluye que (notar $x(p)=a$ ósea $x_{i}(p)=a_{i}$)
+\end{enumerate}
+\[
+\begin{aligned}v(f)&=v(\tilde{f})\\&= v(\tilde{f}(p))+\sum^{n}_{i=1}v(\tilde{x_{i}}-a_{i})\tilde{f}_{i}(p)+(\tilde{x}_{i}(p)-a_{i})v(\tilde{f}_{i})\\&=\sum_{i=1}^n \frac{\partial g}{\partial y_i}(a)\,v(\widetilde{x}_i)\\&=\sum_{i=1}^n \frac{\partial f\circ\varphi ^{-1}}{\partial y_i}(a)\,v(\widetilde{x}_i)\\&=\sum_{i=1}^n v(\widetilde{x}_i)\left.\frac{\partial}{\partial x_i}\right|_p f.\end{aligned}
+\]
+\begin{enumerate}[start=12]
+\item Esto vale para todo $f\in C^\infty(M)$, así que
+\end{enumerate}
+\[
+v=\sum_{i=1}^n v(\widetilde{x}_i)\left.\frac{\partial}{\partial x_i}\right|_p.
+\]
+\begin{enumerate}[start=13]
+\item Como ya se sabía que los vectores coordenados son linealmente independientes, forman una base de $T_pM$.
+\end{enumerate}
+\bookqed
+\end{bookproof}

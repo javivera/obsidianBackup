@@ -1,0 +1,141 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Orientacion"
+description: "Teorico convertido desde GS - Teo12.md"
+chapter: "Teo 12"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Orientacion
+
+
+<BookBlock kind="definition" title="Funcion de rango constante">
+Una funcion suave <Math display tex={"F:M\\to N"} /> se dice de rango constante <Math tex={"r"} /> si para todo <Math tex={"p\\in M"} />, la imagen de <Math display tex={"(dF)_p"} /> tiene dimension <Math tex={"r"} />.
+</BookBlock>
+
+<BookBlock kind="definition" title="Submersion">
+Una funcion suave <Math display tex={"F:M\\to N"} /> se dice submersion suave si <Math display tex={"(dF)_p"} /> es sobreyectiva para todo <Math tex={"p\\in M"} />.
+</BookBlock>
+
+<BookBlock kind="example" title="Submersion">
+Sean <Math tex={"m\\ge n"} />. Considerar <Math display tex={"\\pi:\\mathbb R^m\\to \\mathbb R^n,"} />
+<Math display tex={"(s_1,\\ldots,s_n,s_{n+1},\\ldots,s_m)\\mapsto (s_1,\\ldots,s_n)."} />
+Notar que <Math tex={"\\pi"} /> es transformacion lineal.
+</BookBlock>
+
+<BookBlock kind="example" title="Rango constante">
+1. Si <Math display tex={"F:M\\to N"} /> es una inmersion, entonces <Math tex={"\\ker(dF)_p"} /> es trivial para todo <Math tex={"p\\in M"} />, entonces <Math tex={"F"} /> es de rango constante e igual a <Math tex={"\\dim M"} />.
+2. Si <Math display tex={"F:M\\to N"} /> es submersion, entonces <Math tex={"F"} /> es de rango constante e igual a <Math tex={"\\dim N"} />.
+3. Sean <Math tex={"m,n\\in\\mathbb N"} />, <Math tex={"m,n\\ge 2"} />, y sea <Math tex={"r<\\min\\{m,n\\}"} />. La transformacion lineal
+<Math display tex={"T:\\mathbb R^m\\to \\mathbb R^n,"} />
+<Math display tex={"(s_1,\\ldots,s_r,s_{r+1},\\ldots,s_m)\\mapsto (s_1,\\ldots,s_r,0,\\ldots,0)"} />
+es una funcion de rango constante <Math tex={"r"} />. Notar que <Math tex={"T"} /> es transformacion lineal.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Forma local de una funcion de rango constante">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves de dimension <Math tex={"m"} /> y <Math tex={"n"} /> respectivamente, y sea <Math display tex={"F:M\\to N"} /> una funcion suave de rango constante <Math tex={"r"} />. Entonces, para cada <Math tex={"p\\in M"} />, existen cartas suaves <Math tex={"(U,\\varphi)"} /> de <Math tex={"M"} /> centrada en <Math tex={"p"} /> y <Math tex={"(V,\\psi)"} /> de <Math tex={"N"} /> centrada en <Math tex={"F(p)"} /> tales que <Math display tex={"F(U)\\subseteq V"} /> y
+<Math display tex={"\\psi\\circ F\\circ \\varphi^{-1}(s_1,\\ldots,s_r,s_{r+1},\\ldots,s_m)=(s_1,\\ldots,s_r,0,\\ldots,0)."} />
+
+En particular, si <Math tex={"F"} /> es una submersion suave, entonces <Math tex={"(r=n)"} /> y
+<Math display tex={"\\psi\\circ F\\circ \\varphi^{-1}(s_1,\\ldots,s_m)=(s_1,\\ldots,s_n),"} />
+y si <Math tex={"F"} /> es una inmersion suave, entonces <Math tex={"(r=m)"} /> y
+<Math display tex={"\\psi\\circ F\\circ \\varphi^{-1}(s_1,\\ldots,s_m)=(s_1,\\ldots,s_m,0,\\ldots,0)."} />
+<Proof title="Revisar">
+1. Sea <Math tex={"p\\in M"} />. Tomamos cartas suaves <Math tex={"(U,\\varphi)"} /> de <Math tex={"M"} /> centrada en <Math tex={"p"} /> y <Math tex={"(V,\\psi)"} /> de <Math tex={"N"} /> centrada en <Math tex={"F(p)"} /> tales que <Math tex={"F(U)\\subseteq V"} />.
+2. Consideramos <Math display tex={"\\widetilde F=\\psi\\circ F\\circ\\varphi^{-1}:\\varphi(U)\\subseteq\\mathbb R^m\\to\\psi(V)\\subseteq\\mathbb R^n."} />
+3. Como <Math tex={"\\widetilde F"} /> tiene rango <Math tex={"r"} />, achicando si hace falta, podemos suponer que una submatriz <Math tex={"r\\times r"} /> de la matriz jacobiana es no singular en <Math tex={"(0,0)"} />. Reordenando coordenadas, tomamos <Math display tex={"\\left(\\frac{\\partial \\widetilde F_i}{\\partial x_j}(0,0)\\right)_{1\\le i,j\\le r}."} />
+4. Escribimos coordenadas en <Math tex={"\\mathbb R^m"} /> como <Math display tex={"s=(x,y),\\qquad x=(x_1,\\ldots,x_r),\\qquad y=(y_1,\\ldots,y_{m-r})."} />
+5. Definimos <Math display tex={"Q:\\widetilde U\\subseteq\\mathbb R^m\\to\\mathbb R^m,"} /> <Math display tex={"Q(x,y)=\\big(\\widetilde F_1(x,y),\\ldots,\\widetilde F_r(x,y),y\\big)."} />
+6. Afirmacion: <Math display tex={"dQ(0,0)=\\begin{pmatrix}\\dfrac{\\partial Q_i}{\\partial x_j} & \\dfrac{\\partial Q_i}{\\partial y_j}\\\\0 & I_{m-r}\\end{pmatrix}_{(0,0)}"} /> es no singular. Como el bloque <Math display tex={"\\left(\\frac{\\partial Q_i}{\\partial x_j}(0,0)\\right)"} /> es no singular, <Math tex={"dQ(0,0)"} /> es no singular.
+7. Por el teorema de la funcion inversa, existen abiertos <Math tex={"\\widetilde U_0"} /> de <Math tex={"\\mathbb R^m"} /> en <Math tex={"(0,0)"} /> y <Math tex={"\\widehat U"} /> de <Math tex={"(0,0)"} /> tales que <Math display tex={"Q|_{\\widetilde U_0}:\\widetilde U_0\\to \\widehat U"} />es un difeomorfismo.
+8. Como las cajas abiertas son una base de la topologia de <Math tex={"\\mathbb R^m"} />, podemos suponer que <Math tex={"\\widehat U"} /> es una caja: <Math display tex={"C_\\varepsilon^m(0,0)=\\{(s_1,\\ldots,s_m)\\in\\mathbb R^m:\\ |s_i|<\\varepsilon\\}."} />
+9. Sea <Math display tex={"\\varphi^{-1}:C_\\varepsilon^m(0,0)\\subseteq\\mathbb R^m\\to \\widetilde U_0\\subseteq\\mathbb R^m,"} /><Math display tex={"(x,y)\\mapsto (A(x,y),B(x,y))."} />
+10. Por definicion, <Math display tex={"Q(A(x,y),B(x,y))=(x,y)."} />
+11. Esto dice que <Math display tex={"\\big(\\widetilde F_1(A,B),\\ldots,\\widetilde F_r(A,B),B(x,y)\\big)=(x,y),"} />
+12. Luego <Math tex={"B(x,y)=y"} /> y entonces <Math display tex={"\\varphi^{-1}(x,y)=(A(x,y),y)."} />
+13. Con esto <Math display tex={"\\widetilde F\\circ\\varphi^{-1}(x,y)=\\widetilde F(A(x,y),y)=(x,\\widetilde B(x,y)),"} />donde <Math display tex={"\\widetilde B:C_\\varepsilon^m(0,0)\\subseteq\\mathbb R^m\\to\\mathbb R^{n-r}."} />
+14. Como <Math tex={"\\widetilde F\\circ\\varphi^{-1}"} /> tiene rango <Math tex={"r"} />, y la primera parte ya aporta las <Math tex={"r"} /> coordenadas <Math tex={"x"} />, se tiene <Math display tex={"\\frac{\\partial \\widetilde B_j}{\\partial y_i}(x,y)=0"} />para todo <Math tex={"(x,y)\\in C_\\varepsilon^m(0,0)"} />.
+15. Es decir, <Math tex={"\\widetilde B_j"} /> no depende de las variables <Math tex={"y_1,\\ldots,y_{m-r}"} />. En particular, como <Math tex={"C_\\varepsilon^m(0,0)"} /> es una caja, <Math display tex={"\\widetilde B_j(x,y)=\\widetilde B_j(x,0)."} />
+16. Definimos <Math display tex={"S:C_\\varepsilon^r(0)\\subseteq\\mathbb R^r\\to\\mathbb R^{n-r},\\qquad S(x)=\\widetilde B(x,0)."} />
+17. Entonces <Math display tex={"\\widetilde F\\circ\\varphi^{-1}(x,y)=(x,S(x))."} />
+18. Ahora definimos una carta en el codominio: <Math display tex={"\\psi(w,u)=(w,u-S(w))."} />
+19. Esta funcion es un difeomorfismo local, pues <Math display tex={"d\\psi(0)=\\begin{pmatrix} I_r & 0\\\\-\\dfrac{\\partial S_i}{\\partial w_j}(0) & I_{n-r}\\end{pmatrix}"} />es no singular.
+20. Finalmente, <Math display tex={"\\psi\\circ\\widetilde F\\circ\\varphi^{-1}(x,y)=\\psi(x,S(x))=(x,0)."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="proposition">
+Si <Math tex={"X"} /> es un espacio topologico N2, entonces todo cubrimiento abierto de <Math tex={"X"} /> tiene un subcubrimiento numerable.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Teorema de Baire">
+Si <Math tex={"X"} /> es un espacio topologico localmente compacto y <Math tex={"T_2"} />, entonces <Math tex={"X"} /> no se puede expresar como una union numerable de cerrados con interior vacio.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Del rango global">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves, y sea <Math display tex={"F:M\\to N"} />funcion suave de rango constante. Entonces:
+- (a)  Si <Math tex={"F"} /> es sobreyectiva, entonces <Math tex={"F"} /> es submersion.
+- (b)  Si <Math tex={"F"} /> es inyectiva, entonces <Math tex={"F"} /> es inmersion.
+- (c)  Si <Math tex={"F"} /> es biyectiva, entonces <Math tex={"F"} /> es difeomorfismo.
+<Proof title="Revisar">
+- (a)
+1. Razonemos por absurdo. Si <Math tex={"F"} /> es sobreyectiva y no es submersion, entonces el rango constante <Math tex={"r"} /> satisface <Math tex={"r<n"} />.
+2. Por el teorema de rango constante, para cada <Math tex={"p\\in M"} /> existen cartas <Math tex={"(U_p,\\varphi_p)"} /> y <Math tex={"(V_p,\\psi_p)"} /> tales que <Math display tex={"\\psi_p\\circ F\\circ\\varphi_p^{-1}(x_1,\\ldots,x_r,x_{r+1},\\ldots,x_m)=(x_1,\\ldots,x_r,0,\\ldots,0)."} />
+3. Podemos tomar <Math tex={"U_p"} /> abierto con clausura compacta dentro de una carta. Como <Math tex={"M"} /> es segundo numerable, existe un subcubrimiento numerable <Math tex={"\\{U_{p_k}\\}_{k\\in\\mathbb N}"} />.
+4. Entonces <Math display tex={"N=F(M)=\\bigcup_{k\\in\\mathbb N}F(U_{p_k})."} />
+5. Pero cada <Math tex={"F(U_{p_k})"} /> esta contenido, en coordenadas locales, en un subconjunto de la forma <Math display tex={"\\{(x_1,\\ldots,x_r,0,\\ldots,0)\\}\\subseteq\\mathbb R^n,"} />que tiene interior vacio si <Math tex={"r<n"} />. Esto contradice el teorema de Baire. Luego <Math tex={"r=n"} /> y <Math tex={"F"} /> es submersion.
+- (c)
+1. Si <Math tex={"F"} /> es inyectiva y no fuera inmersion, entonces <Math tex={"r<m"} />. En cartas de rango constante, <Math display tex={"\\psi\\circ F\\circ\\varphi^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_r,0,\\ldots,0)."} />
+2. Tomando puntos distintos que coinciden en las primeras <Math tex={"r"} /> coordenadas y difieren en alguna de las restantes, sus imagenes por <Math tex={"F"} /> coinciden. Esto contradice que <Math tex={"F"} /> sea inyectiva. Por lo tanto <Math tex={"r=m"} /> y <Math tex={"F"} /> es inmersion.
+3. Si <Math tex={"F"} /> es biyectiva, por 1 es submersion y por 2 es inmersion. Luego <Math tex={"r=n"} /> y <Math tex={"r=m"} />, asi que <Math tex={"m=n"} />. Entonces <Math tex={"(dF)_p"} /> es un isomorfismo para todo <Math tex={"p\\in M"} />.
+4. Por el teorema de la funcion inversa, <Math tex={"F"} /> es un difeomorfismo local. Como ademas <Math tex={"F"} /> es biyectiva, <Math tex={"F^{-1}"} /> esta bien definida globalmente y es suave localmente. Por lo tanto <Math tex={"F"} /> es un difeomorfismo.
+</Proof>
+</BookBlock>
+
+
+<BookBlock kind="definition" title="Cubo abierto">
+Sea <Math tex={"\\epsilon > 0"} />. Venimos denotando por <Math tex={"C_\\epsilon^n(0)"} /> al cubo abierto centrado en <Math tex={"0"} /> de <Math tex={"\\mathbb R^n"} /> de ancho <Math tex={"2\\epsilon"} />: <Math display tex={"C_\\epsilon^n(0)=\\{(x_1,\\ldots,x_n)\\in\\mathbb R^n: |x_i|<\\epsilon\\}=(-\\epsilon,\\epsilon)\\times\\cdots\\times(-\\epsilon,\\epsilon)\\qquad (n\\text{ veces})."} />
+</BookBlock>
+
+<BookBlock kind="definition">
+<Fragment slot="title">Rebanada de <Math tex={"C_{\\epsilon}^{n}(0)"} /> a una altura</Fragment>
+Sea <Math tex={"m<n"} /> y sean <Math tex={"c_{m+1},\\ldots,c_n"} /> constantes en <Math tex={"\\mathbb R"} /> con <Math tex={"|c_j|<\\epsilon"} /> para todo <Math tex={"j"} />. <Math display tex={"R(c_{m+1},\\ldots,c_n):=\\{y\\in C_\\epsilon^n(0):y_{m+1}=c_{m+1},\\ldots,y_n=c_n\\}."} />
+Se le llama rebanada de <Math tex={"C_\\epsilon^n(0)"} /> a la altura de <Math tex={"(c_{m+1},\\ldots,c_n)"} />.
+</BookBlock>
+
+<BookBlock kind="definition" title="Rebanada de una variedad">
+Sea <Math tex={"M"} /> una variedad de dimension <Math tex={"n"} /> y <Math tex={"(U,\\varphi=(x_1,\\ldots,x_n))"} /> una carta suave cubica de <Math tex={"M"} /> centrada en <Math tex={"p"} />; esto es <Math tex={"\\varphi(U)=C_\\epsilon^n(0)"} /> con <Math tex={"\\varphi(p)=0"} /> de <Math tex={"\\mathbb R^n"} />.
+
+Dado <Math tex={"m\\in\\mathbb N"} />, <Math tex={"m<n"} />, y constantes <Math tex={"c_{m+1},\\ldots,c_n"} /> con <Math tex={"|c_j|<\\epsilon"} />, se define la rebanada <Math tex={"R(c_{m+1},\\ldots,c_n)"} /> de <Math tex={"(U,\\varphi)"} /> como el conjunto: <Math display tex={"R(c_{m+1},\\ldots,c_n)=\\{q\\in U:x_{m+1}(q)=c_{m+1},\\ldots,x_n(q)=c_n\\}."} />
+Otra forma de verlo es <Math display tex={"R(c_{m+1},\\ldots,c_{n})=\\varphi ^{-1}((-\\epsilon,\\epsilon)^{m} \\times \\{ c_{m+1},\\ldots c_{n} \\})"} /> para esta idea es que se usa una carta cubica
+</BookBlock>
+  
+
+<BookBlock kind="remark" title="Ejercicio">
+Para todo <Math tex={"p\\in M"} /> variedad, existe una carta cubica centrada en <Math tex={"p"} />.
+</BookBlock>
+
+<BookBlock kind="proposition" title="Ejercicio">
+Sea <Math tex={"M"} /> variedad y <Math tex={"(U,\\varphi)"} /> carta. Toda rebanada <Math tex={"R=R(c_{m+1},\\ldots,c_n)"} /> con la topologia relativa de <Math tex={"M"} /> tiene una estructura diferenciable tal que <Math tex={"(R,i)"} /> es subvariedad de <Math tex={"U"} /> y a su vez de <Math tex={"M"} />, de dimension <Math tex={"m"} />. (Supongo <Math tex={"m<n"} /> por como definimos rebanada) 
+<Proof title="Demostracion">
+1. Consideremos la funcion <Math display tex={"\\pi_m:\\mathbb R^n\\to\\mathbb R^m"} /><Math display tex={"(y_1,\\ldots,y_n)\\mapsto(y_1,\\ldots,y_m)"} />que proyecta a <Math tex={"(y_1,\\ldots,y_n)"} /> en sus primeras <Math tex={"m"} /> coordenadas.
+2. Supongamos como carta de <Math tex={"R"} />: <Math display tex={"(R,\\widetilde\\varphi=\\pi_m\\circ\\varphi|_R)"} />y la estructura dif. sobre <Math tex={"R"} /> seria el atlas maximal generado por <Math tex={"\\{(R,\\widetilde\\varphi)\\}"} />.
+3. Notar que <Math tex={"\\widetilde\\varphi(R)"} /> es el abierto en <Math tex={"\\mathbb R^m"} /> <Math display tex={"C_\\epsilon^m(0)=\\{(y_1,\\ldots,y_m)\\in\\mathbb R^m:|y_i|<\\epsilon\\}."} /> aca estamos asumiendo que <Math tex={"\\varphi"} /> es carta cubica, por definicion de rebanada
+4. Veamos que <Math tex={"\\widetilde\\varphi"} /> es homeo entre <Math tex={"R"} /> y <Math tex={"C_\\epsilon^m(0)"} />.
+5. Claramente <Math tex={"\\widetilde\\varphi"} /> es continua, pues <Math tex={"\\varphi|_R"} /> es continua, por tener <Math tex={"R"} /> la topologia relativa y por ser <Math tex={"\\varphi"} /> continua 
+6. Ademas <Math tex={"\\widetilde{\\varphi}"} /> tiene inversa continua <Math display tex={"\\varphi^{-1}\\circ j:C_\\epsilon^m(0)\\to R"} />donde <Math tex={"j"} /> es la funcion <Math display tex={"j:C_\\epsilon^m(0)\\to C_\\epsilon^n(0),\\qquad (y_1,\\ldots,y_m)\\mapsto(y_1,\\ldots,y_m,c_{m+1},\\ldots,c_n)."} />
+7. Por ultimo, veamos que <Math tex={"i:R\\to M"} /> es suave y una inmersion. Para esto comparemos con las cartas <Math tex={"\\widetilde\\varphi"} /> y <Math tex={"\\varphi"} />: <Math display tex={"\\varphi\\circ i\\circ\\widetilde\\varphi^{-1}:C_\\epsilon^m(0)\\subseteq\\mathbb R^m\\to C_\\epsilon^n(0)\\subseteq\\mathbb R^n"} /><Math display tex={"(y_1,\\ldots,y_m)\\mapsto(y_1,\\ldots,y_m,c_{m+1},\\ldots,c_n)."} /> por lo que <Math tex={"i"} /> es suave
+8. Y de paso resulta inmersion, pues <Math tex={"F=\\varphi\\circ i\\circ\\widetilde\\varphi^{-1}"} /> es una inmersion. <Math display tex={"J(\\varphi\\circ i\\circ\\widetilde\\varphi^{-1})=\\begin{pmatrix}I_{m\\times m}\\\\0\\end{pmatrix}."} />por lo que <Math tex={"\\operatorname{Imagen} d(\\varphi\\circ i\\circ\\widetilde\\varphi^{-1})_{(y_1,\\ldots,y_m)}"} /> tiene rango <Math tex={"m"} />, por lo que tiene kernel trivial (Teorema del rango y el kernel). Osea <Math tex={"(dF)_{(y_{1},\\ldots,y_{m})}"} /> es inyectiva 
+9. Ademas esto implica que <Math tex={"(di)_q"} /> para todo <Math tex={"q\\in R"} /> tambien es inyectiva, veamoslo
+10. Notemos que <Math tex={"(d\\varphi)_q\\text{ y }(d\\widetilde\\varphi^{-1})_{\\widetilde\\varphi(q)}"} /> son isomorfismos por que <Math tex={"\\varphi"} /> y <Math tex={"\\widetilde{\\varphi}"} /> son cartas osea difeomorfismos.
+11. Entonces sea <Math tex={"v"} /> tal que <Math tex={"di(v)=0"} /> como <Math tex={"d \\tilde{\\varphi}^{-1}"} /> es isomorfismo existe <Math tex={"w"} /> tal que <Math tex={"d \\tilde{\\varphi}^{-1}(w)=v"} /> entonces <Math display tex={"(dF)_{q}(w)=d\\varphi(di(d \\tilde{\\varphi}(w)))=d\\varphi(di(w))=d\\varphi(0)=0"} /> por que <Math tex={"d\\varphi"} /> es es lineal y como <Math tex={"dF"} /> es iso entonces <Math tex={"w=0"} />
+12. Luego <Math tex={"0=d \\tilde{\\varphi}(w)=v"} /> mostrando que <Math tex={"\\ker\\{ (di)_{q} \\}=0"} /> osea que <Math tex={"(di)_{q}"} /> es inyectiva, como queriamos
+</Proof>
+</BookBlock>
+
+
+

@@ -31,10 +31,10 @@
 >>[!Proof]- Revisar
 >>1. Sea $p\in M$. Tomamos cartas suaves $(U,\varphi)$ de $M$ centrada en $p$ y $(V,\psi)$ de $N$ centrada en $F(p)$ tales que $F(U)\subseteq V$.
 >>2. Consideramos $$\widetilde F=\psi\circ F\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb R^m\to\psi(V)\subseteq\mathbb R^n.$$
->>3. Como $\widetilde F$ tiene rango $r$ (es por que $F$ tiene rango $r$ y las cartas son homeomorfismos entonces su diferencial es isomorfismo con lo cual no cambia el rango), achicando si hace falta, podemos suponer que una submatriz $r\times r$ de la matriz jacobiana es no singular en $(0,0)$. Reordenando coordenadas, tomamos $$\left(\frac{\partial \widetilde F_i}{\partial x_j}(0,0)\right)_{1\le i,j\le r}.$$
+>>3. Como $\widetilde F$ tiene rango $r$, achicando si hace falta, podemos suponer que una submatriz $r\times r$ de la matriz jacobiana es no singular en $(0,0)$. Reordenando coordenadas, tomamos $$\left(\frac{\partial \widetilde F_i}{\partial x_j}(0,0)\right)_{1\le i,j\le r}.$$
 >>4. Escribimos coordenadas en $\mathbb R^m$ como $$s=(x,y),\qquad x=(x_1,\ldots,x_r),\qquad y=(y_1,\ldots,y_{m-r}).$$
 >>5. Definimos $$Q:\widetilde U\subseteq\mathbb R^m\to\mathbb R^m,$$ $$Q(x,y)=\big(\widetilde F_1(x,y),\ldots,\widetilde F_r(x,y),y\big).$$
->>6. Afirmacion: $$dQ(0,0)=\begin{pmatrix}\dfrac{\partial Q_i}{\partial x_j} & \dfrac{\partial Q_i}{\partial y_j}\\0 & I_{m-r}\end{pmatrix}_{(0,0)}$$ es no singular. Como el bloque $$\left(\frac{\partial Q_i}{\partial x_j}(0,0)\right)$$ es no singular por el paso 3. entonces $dQ(0,0)$ es no singular.
+>>6. Afirmacion: $$dQ(0,0)=\begin{pmatrix}\dfrac{\partial Q_i}{\partial x_j} & \dfrac{\partial Q_i}{\partial y_j}\\0 & I_{m-r}\end{pmatrix}_{(0,0)}$$ es no singular. Como el bloque $$\left(\frac{\partial Q_i}{\partial x_j}(0,0)\right)$$ es no singular, $dQ(0,0)$ es no singular.
 >>7. Por el teorema de la funcion inversa, existen abiertos $\widetilde U_0$ de $\mathbb R^m$ en $(0,0)$ y $\widehat U$ de $(0,0)$ tales que $$Q|_{\widetilde U_0}:\widetilde U_0\to \widehat U$$es un difeomorfismo.
 >>8. Como las cajas abiertas son una base de la topologia de $\mathbb R^m$, podemos suponer que $\widehat U$ es una caja: $$C_\varepsilon^m(0,0)=\{(s_1,\ldots,s_m)\in\mathbb R^m:\ |s_i|<\varepsilon\}.$$
 >>9. Sea $$\varphi^{-1}:C_\varepsilon^m(0,0)\subseteq\mathbb R^m\to \widetilde U_0\subseteq\mathbb R^m,$$$$(x,y)\mapsto (A(x,y),B(x,y)).$$
@@ -110,5 +110,7 @@
 >>10. Notemos que $(d\varphi)_q\text{ y }(d\widetilde\varphi^{-1})_{\widetilde\varphi(q)}$ son isomorfismos por que $\varphi$ y $\widetilde{\varphi}$ son cartas osea difeomorfismos.
 >>11. Entonces sea $v$ tal que $di(v)=0$ como $d \tilde{\varphi}^{-1}$ es isomorfismo existe $w$ tal que $d \tilde{\varphi}^{-1}(w)=v$ entonces $$(dF)_{q}(w)=d\varphi(di(d \tilde{\varphi}(w)))=d\varphi(di(w))=d\varphi(0)=0$$ por que $d\varphi$ es es lineal y como $dF$ es iso entonces $w=0$
 >>12. Luego $0=d \tilde{\varphi}(w)=v$ mostrando que $\ker\{ (di)_{q} \}=0$ osea que $(di)_{q}$ es inyectiva, como queriamos
+
+
 
 

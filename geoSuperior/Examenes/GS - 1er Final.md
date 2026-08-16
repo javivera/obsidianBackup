@@ -125,22 +125,25 @@
 >>	11. Si $(x,y,z)=F(t,s)$, entonces $$x^2+y^2=e^{2s},\qquad z=e^{-s}>0,$$ y por lo tanto $$z^2(x^2+y^2)=1.$$
 >>	12. Así, la imagen de $F$ es $$S=\{(x,y,z)\in U:z>0,\ z^2(x^2+y^2)=1\}\subseteq U$$ osea $F(\mathbb{R}^{2})=S$ 
 >>	13. Como $\mathbb R^2$ es conexo y $F$ es continua, $S=F(\mathbb R^2)$ es conexa.
->>	14. Ahora lo que tenemos que probar es que $(S,i)$ es subvariedad integral de $U$ para $D$ osea $di_{p}(T_{p}S)=D_{i(p)}=D_{p}$ 
->>	15. Sea $\widetilde F:\mathbb R^2\to S$ la parametrización dada por $$\widetilde F(t,s)=\left(e^s\cos t,e^s\sin t,e^{-s}\right),$$ y sea $i:S\hookrightarrow U$ la inclusión. Entonces la aplicación $F:\mathbb R^2\to U$ que veníamos usando satisface $$F=i\circ\widetilde F.$$
->>	16. Si $p=\widetilde F(t,s)$, como $\widetilde F$ parametriza $S$, tenemos $$T_pS=d\widetilde F_{(t,s)}\left(T_{(t,s)}\mathbb R^2\right)=\operatorname{span}\left\{d\widetilde F_{(t,s)}\left(\frac{\partial}{\partial t}\right),d\widetilde F_{(t,s)}\left(\frac{\partial}{\partial s}\right)\right\}.$$
->>	17. Aplicando $di_p$ y usando la linealidad, $$di_p(T_pS)=\operatorname{span}\left\{di_p\left(d\widetilde F_{(t,s)}\left(\frac{\partial}{\partial t}\right)\right),di_p\left(d\widetilde F_{(t,s)}\left(\frac{\partial}{\partial s}\right)\right)\right\}.$$
->>	18. Como $F=i\circ\widetilde F$, por la regla de la cadena $$dF_{(t,s)}=di_p\circ d\widetilde F_{(t,s)}.$$
->>	19. Por lo tanto, $$di_p(T_pS)=\operatorname{span}\left\{dF_{(t,s)}\left(\frac{\partial}{\partial t}\right),dF_{(t,s)}\left(\frac{\partial}{\partial s}\right)\right\}=\operatorname{span}\left\{\frac{\partial F}{\partial t}(t,s),\frac{\partial F}{\partial s}(t,s)\right\}.$$
->>	20. Como $$\frac{\partial F}{\partial t}(t,s)=X_p,\qquad \frac{\partial F}{\partial s}(t,s)=Y_p,$$ obtenemos $$di_p(T_pS)=\operatorname{span}\{X_p,Y_p\}=\mathcal D_p.$$
->>	21. Luego $(S,i)$ es una subvariedad integral de $\mathcal D$.
->>	22. Para probar que es maximal usamos el resultado que afirma que toda subvariedad integral conexa cuya imagen es cerrada en la variedad ambiente es maximal.
->>	23. Definimos $$H:U\to\mathbb R,\qquad H(x,y,z)=z^2(x^2+y^2).$$ Entonces $$H^{-1}(1)=\{(x,y,z)\in U:z^2(x^2+y^2)=1\}.$$
->>	24. Como $H$ es continua y $\{1\}$ es cerrado en $\mathbb R$, $H^{-1}(1)$ es cerrado en $U$.
->>	25. Si $(x,y,z)\in H^{-1}(1)$, necesariamente $z\neq0$, pues $z=0$ implicaría $H(x,y,z)=0$.
->>	26. Por lo tanto, $$H^{-1}(1)=S_+\sqcup S_-,$$ donde $$S_+=H^{-1}(1)\cap\{z>0\}=S,\qquad S_-=H^{-1}(1)\cap\{z<0\}.$$
->>	27. Como $\{z<0\}$ es abierto en $U$, $S_-$ es abierto en $H^{-1}(1)$. Por consiguiente, su complemento relativo $$S_+=H^{-1}(1)\setminus S_-$$ es cerrado en $H^{-1}(1)$.
->>	28. Como $S=S_+$ es cerrado en $H^{-1}(1)$ y $H^{-1}(1)$ es cerrado en $U$, se sigue que $S$ es cerrado en $U$.
->>	29. Entonces tenemos que $(S,i)$ es una subvariedad integral conexa y $i(S)=S$ es cerrado en $U$ por 22. Luego por teorema, $$\boxed{S=\{(x,y,z)\in U:z>0,\ z^2(x^2+y^2)=1\}}$$ es maximal
+>>	14. Antes de probar que $S$ es una subvariedad integral, debemos probar que $S$ es una subvariedad de $U$. Sea $$W=U\cap\{z>0\},$$ que es un abierto de $U$, y definimos $$H:W\to\mathbb R,\qquad H(x,y,z)=z^2(x^2+y^2).$$ Entonces $$S=H^{-1}(1).$$
+>>	15. Para $p=(x,y,z)\in S$, tenemos $$\frac{\partial H}{\partial z}(p)=2z(x^2+y^2).$$ Como $z>0$ y $x^2+y^2>0$, resulta $$\frac{\partial H}{\partial z}(p)\neq0.$$ Por lo tanto, $dH_p\neq0$ para todo $p\in S$.
+>>	16. Así, $1$ es un valor regular de $H$ y, por el teorema del valor regular, $$S=H^{-1}(1)$$ es una subvariedad embebida de dimensión $2$ de $W$ y, por lo tanto, también de $U$. Osea $(S,\iota)$ es subvariedad de $U$ 
+>>	17. Sea $i:S\hookrightarrow U$ la inclusión. Como $S=H^{-1}(1)$ es una subvariedad de nivel regular, para todo $p\in S$ tenemos $$di_p(T_pS)=\ker dH_p.$$
+>>	18. Si $p=(x,y,z)\in S$, entonces $$X_p=(-y,x,0),\qquad Y_p=(x,y,-z).$$
+>>	19. Calculamos $$dH_p(X_p)=2xz^2(-y)+2yz^2(x)+2z(x^2+y^2)\cdot0=0.$$
+>>	20. Del mismo modo, $$dH_p(Y_p)=2xz^2x+2yz^2y+2z(x^2+y^2)(-z)=0.$$
+>>	21. Por lo tanto, $$X_p,Y_p\in\ker dH_p=di_p(T_pS),$$ y entonces $$\mathcal D_p=\operatorname{span}\{X_p,Y_p\}\subseteq di_p(T_pS).$$
+>>	22. Como $\mathcal D$ tiene rango $2$, $$\dim\mathcal D_p=2.$$ Además, como $S$ es una subvariedad de dimensión $2$ y $di_p$ es inyectiva, $$\dim di_p(T_pS)=\dim T_pS=2.$$
+>>	23. Como $\mathcal D_p\subseteq di_p(T_pS)$ y ambos subespacios tienen dimensión $2$, concluimos que $$di_p(T_pS)=\mathcal D_p.$$
+>>	24. Por lo tanto, $$(S,i)\text{ es una subvariedad integral de }\mathcal D.$$
+>>	25. Para probar que es maximal usamos el resultado que afirma que toda subvariedad integral conexa cuya imagen es cerrada en la variedad ambiente es maximal.
+>>	26. Definimos $$H:U\to\mathbb R,\qquad H(x,y,z)=z^2(x^2+y^2).$$ Entonces $$H^{-1}(1)=\{(x,y,z)\in U:z^2(x^2+y^2)=1\}.$$
+>>	27. Como $H$ es continua y $\{1\}$ es cerrado en $\mathbb R$, $H^{-1}(1)$ es cerrado en $U$.
+>>	28. Si $(x,y,z)\in H^{-1}(1)$, necesariamente $z\neq0$, pues $z=0$ implicaría $H(x,y,z)=0$.
+>>	29. Por lo tanto, $$H^{-1}(1)=S_+\sqcup S_-,$$ donde $$S_+=H^{-1}(1)\cap\{z>0\}=S,\qquad S_-=H^{-1}(1)\cap\{z<0\}.$$
+>>	30. Como $\{z<0\}$ es abierto en $U$, $S_-$ es abierto en $H^{-1}(1)$. Por consiguiente, su complemento relativo $$S_+=H^{-1}(1)\setminus S_-$$ es cerrado en $H^{-1}(1)$.
+>>	31. Como $S=S_+$ es cerrado en $H^{-1}(1)$ y $H^{-1}(1)$ es cerrado en $U$, se sigue que $S$ es cerrado en $U$.
+>>	32. Entonces tenemos que $(S,i)$ es una subvariedad integral conexa y $i(S)=S$ es cerrado en $U$ por 22. Luego por teorema, $$\boxed{S=\{(x,y,z)\in U:z>0,\ z^2(x^2+y^2)=1\}}$$ es maximal
 >>- (c)
 >>	1. Usamos nuevamente la función $$H(x,y,z)=z^2(x^2+y^2),$$ de modo que $$S=H^{-1}(1)\cap\{z>0\}.$$
 >>	2. Su gradiente es $$\nabla H(x,y,z)=\bigl(2xz^2,2yz^2,2z(x^2+y^2)\bigr).$$

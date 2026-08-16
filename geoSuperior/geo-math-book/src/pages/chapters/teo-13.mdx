@@ -1,0 +1,219 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Ejemplos de aplicacion"
+description: "Teorico convertido desde GS - Teo13.md"
+chapter: "Teo 13"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Ejemplos de aplicacion
+
+
+<BookBlock kind="proposition" title="Inmersiones son localmente incrustaciones">
+Sea <Math tex={"F:M\\to N"} /> una inmersion y sea <Math tex={"p\\in M"} />. Entonces existe una carta suave cubica <Math tex={"(V,\\psi)"} /> centrada en <Math tex={"F(p)"} />, y un entorno <Math tex={"U"} /> de <Math tex={"p"} /> tal que <Math tex={"F|_U"} /> es inyectiva y <Math tex={"F(U)=R(0,\\ldots,0)"} />, la rebanada cero de <Math tex={"(V,\\psi)"} />. En particular, <Math tex={"(U,F|_U)"} /> se vuelve una subvariedad incrustada de <Math tex={"N"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"m=\\dim M"} /> y <Math tex={"n=\\dim N"} />. Luego <Math tex={"m\\le n"} />.
+2. Usamos la forma local de una inmersion: existen cartas <Math tex={"(\\widetilde U,\\widetilde\\varphi)"} /> centrada en <Math tex={"p"} /> y <Math tex={"(\\widetilde V,\\psi)"} /> centrada en <Math tex={"F(p)"} /> t.q. <Math tex={"F(\\widetilde U)\\subset\\widetilde V"} /> y <Math display tex={"\\psi\\circ F\\circ\\widetilde\\varphi^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_m,0,\\ldots,0)"} />
+3. Este teorema nos exige que <Math tex={"F(\\widetilde U)"} /> sea exactamente una rebanada de <Math tex={"(\\widetilde V,\\psi)"} />. Con lo de arriba, solo podemos garantizar que <Math tex={"F(\\widetilde U)"} /> esta contenido en una rebanada.
+4. Achicamos <Math tex={"\\widetilde U"} /> y al mismo tiempo <Math tex={"\\widetilde V"} />. Como las cajitas abiertas son base de la topologia de <Math tex={"\\mathbb R^m"} /> y <Math tex={"\\mathbb R^n"} />, tomamos <Math tex={"\\varepsilon>0"} /> t.q. <Math tex={"C_\\varepsilon^m(0)\\subset\\widetilde\\varphi(\\widetilde U)"} /> y <Math tex={"C_\\varepsilon^n(0)\\subset\\psi(\\widetilde V)"} />.
+5. Hacemos <Math tex={"U=\\widetilde\\varphi^{-1}(C_\\varepsilon^m(0))"} /> y <Math tex={"V=\\psi^{-1}(C_\\varepsilon^n(0))"} />.
+6. Primero, notemos que <Math tex={"F(U)\\subset V"} />, que equivale a ver <Math tex={"\\psi\\circ F(U)\\subset\\psi(V)=C_\\varepsilon^n(0)"} />.
+7. Si <Math tex={"U=\\widetilde\\varphi^{-1}(C_\\varepsilon^m(0))"} />, luego <Math tex={"\\psi\\circ F(U)=\\psi\\circ F\\circ\\widetilde\\varphi^{-1}(C_\\varepsilon^m(0))=\\{(x_1,\\ldots,x_m,0,\\ldots,0):|x_i|<\\varepsilon\\}\\subset C_\\varepsilon^n(0)"} />.
+8. Por ultimo, <Math tex={"F(U)=R(0,\\ldots,0)"} /> de <Math tex={"(V,\\psi)"} />.
+9. Claramente <Math tex={"F(U)\\subset R(0,\\ldots,0)"} />, pues <Math tex={"R(0,\\ldots,0)=\\psi^{-1}\\{(x_1,\\ldots,x_m)\\in C_\\varepsilon^n:x_{m+1}=0,\\ldots,x_n=0\\}"} />.
+10. Para la contencion contraria, si <Math tex={"q\\in R(0,\\ldots,0)"} />, esto quiere decir <Math tex={"\\psi(q)=(x_1,\\ldots,x_m)\\in C_\\varepsilon^n(0)"} /> con <Math tex={"|x_1|<\\varepsilon,\\ldots,|x_m|<\\varepsilon"} /> y <Math tex={"x_{m+1}=0,\\ldots,x_n=0"} />.
+11. Se sigue que <Math tex={"(x_1,\\ldots,x_m)\\in C_\\varepsilon^m(0)"} /> y <Math tex={"\\eta=\\widetilde\\varphi^{-1}(x_1,\\ldots,x_m)\\in U"} />.
+12. Cumple que <Math tex={"\\eta\\in U=\\widetilde\\varphi^{-1}(C_\\varepsilon^m(0))"} /> y <Math tex={"F(\\eta)=q"} />.
+13. Asi pues <Math tex={"F(U)=R(0,\\ldots,0)"} />.
+14. Por ultimo, <Math tex={"(U,F|_U)"} /> es subvariedad incrustada, pues <Math tex={"F"} /> es inmersion, y como <Math tex={"\\psi\\circ F\\circ\\widetilde\\varphi^{-1}"} /> es inyectiva en <Math tex={"\\varphi(U)"} />, entonces <Math tex={"F"} /> es inyectiva en <Math tex={"U"} />.
+15. Falta ver que <Math tex={"F|_U"} /> es un homeo entre <Math tex={"U"} /> y <Math tex={"F(U)=R(0,\\ldots,0)"} />, donde <Math tex={"R(0,\\ldots,0)"} /> tiene la topologia relativa de <Math tex={"N"} />, que es lo mismo que la topologia relativa con respecto al abierto <Math tex={"V"} />.
+16. Por tanto, ambas estructuras deben coincidir y esto implica que <Math tex={"F|_U:U\\subset M\\to R\\subset N"} /> es incrustacion.
+</Proof>
+</BookBlock>
+
+<span id="d6bd60"></span>
+
+<BookBlock kind="corollary" title="SÚPER útil: caso incrustado">
+Sea <Math tex={"F:M\\to N"} /> una incrustación y sea <Math tex={"p\\in M"} />. Entonces existe una carta cúbica suave <Math tex={"(V,\\psi)"} /> de <Math tex={"N"} /> centrada en <Math tex={"F(p)"} /> y un entorno <Math tex={"U"} /> de <Math tex={"p"} /> tal que <Math tex={"F(U)=F(M)\\cap V"} /> es exactamente la rebanada cero de <Math tex={"(V,\\psi)"} />.
+![Pasted image 20260505200757](/images/Pasted-image-20260505200757.png)
+
+<Proof title="Demostracion">
+1. Por el resultado anterior <PreviewLink href="/chapters/teo-13#d6bd60" label="Inmersiones son localmente incrustaciones" title="Proposicion: Inmersiones son localmente incrustaciones" />, existen cartas cúbicas <Math tex={"(U,\\varphi)"} /> y <Math tex={"(V,\\psi)"} /> centradas en <Math tex={"p"} /> y <Math tex={"F(p)"} /> respectivamente, tales que <Math tex={"F(U)"} /> es la rebanada cero de <Math tex={"V"} />
+2. Por otro lado, <Math tex={"F"} /> es incrustación. Es decir, <Math tex={"F"} /> es homeomorfismo entre <Math tex={"M"} /> y <Math tex={"F(M)"} />, donde <Math tex={"F(M)"} /> tiene la topología relativa.
+3. Ahora como <Math tex={"U\\subseteq M"} /> es abierto <Math tex={"F(U)"} /> debera ser abierto relativo. Por tanto, existe <Math tex={"W"} /> abierto en <Math tex={"N"} /> tal que <Math display tex={"F(U)=F(M)\\cap W."} />
+4. Consideremos el abierto <Math tex={"W\\cap V"} /> y restrinjamos la carta <Math tex={"\\psi"} /> a <Math tex={"W\\cap V"} />. 
+![Pasted image 20260505203810](/images/Pasted-image-20260505203810.png)
+5. Como <Math display tex={"F(p)\\in W\\cap V,"} /> entonces <Math tex={"\\psi(W\\cap V)"} /> tiene al <Math tex={"0"} /> y es abierto de <Math tex={"\\mathbb{R}^n"} />. (Por que <Math tex={"\\psi"} /> es homeomorfismo) 
+6. Como los cubos abiertos generan la topología de <Math tex={"\\mathbb{R}^n"} />, existe <Math tex={"\\varepsilon>0"} /> tal que <Math display tex={"C_\\varepsilon^n(0)\\subseteq \\psi(W\\cap V)."} />
+7. Sea <Math display tex={"\\widehat V=\\psi^{-1}\\left(C_\\varepsilon^n(0)\\right)."} />
+8. Consideremos las rebanadas cero <Math display tex={"R^{\\widehat V}(0,\\ldots,0)=\\left\\{q\\in \\widehat V:x_{m+1}(q)=0,\\ldots,x_n(q)=0\\right\\}"} /> y <Math display tex={"R^V(0,\\ldots,0)=\\left\\{q\\in V:x_{m+1}(q)=0,\\ldots,x_n(q)=0\\right\\}."} />
+9. Claramente, <Math display tex={"R^{\\widehat V}(0,\\ldots,0)=R^V(0,\\ldots,0)\\cap \\widehat V."} />
+10. Ahora, como <Math tex={"F(U)=R^{V}(0,\\ldots,0)"} /> tenemos <Math display tex={"F(U)\\cap W=R^V(0,\\ldots,0)\\cap W"} />  por lo tanto tenemos que <Math display tex={"F(U)\\cap W\\cap \\widehat V=R^V(0,\\ldots,0)\\cap \\widehat V."} />
+11. Luego como <Math tex={"\\widehat V\\subseteq W"} />, <Math display tex={"F(U)\\cap \\widehat V=R^{\\widehat V}(0,\\ldots,0)."} />
+12. Y recordamos <Math tex={"F(U)=F(M)\\cap W."} /> entonces <Math display tex={"F(U)\\cap \\widehat{V}=F(M)\\cap W\\cap \\widehat{V}=F(M)\\cap \\widehat{V}."} /> 
+13. Así, tomando la carta restringida <Math display tex={"(\\widehat V,\\psi|_{\\widehat V}),"} /> obtenemos una carta de <Math tex={"N"} /> centrada en <Math tex={"F(p)"} /> tal que <Math tex={"F(M)\\cap \\widehat V"} /> es la rebanada cero de <Math tex={"\\widehat V"} />
+</Proof>
+</BookBlock>
+
+<span id="8f3892"></span>
+
+<BookBlock kind="remark">
+La idea de este ultimo corolario es que, como <Math tex={"F"} /> es incrustación, su imagen no solo se ve localmente como una rebanada alrededor de cada punto de <Math tex={"F(M)"} />, sino que esa rebanada coincide exactamente con <Math tex={"F(M)"} /> dentro de un entorno abierto de <Math tex={"N"} />.
+</BookBlock>
+
+<BookBlock kind="remark" title="Otra forma de hacer la parte de subvariedad">
+Otra forma para hacer esta ultima parte, es haciendo y usando el siguiente ejercicio del Werner
+![Pasted image 20260503221047](/images/Pasted-image-20260503221047.png)
+pues ya sabemos que las rebanadas son subvariedades incrustadas de <Math tex={"N"} /> y por otro lado al ser <Math tex={"(U,F|_{U})"} /> subvariedad inmersa (<Math tex={"F"} /> ya es inmersion por hipotesis y <Math tex={"F|_{U}"} /> es inyectiva) entonces la rebanada que es igual <Math tex={"F(U)"} /> tiene otra estructura de variedad diferenciable que la hace subvariedad inmersa de <Math tex={"N"} /> y es la inducida por <Math tex={"(U,F|_{U})"} />. Por lo tanto ambas estructuras deben coincidir y entonces <Math display tex={"F|_{U}:U\\subseteq M\\rightarrow R\\subseteq N"} /> es incrustada  
+</BookBlock>
+
+<BookBlock kind="example" title="El ocho">
+Tenemos la subvariedad inmersa <Math tex={"((0,2\\pi),f|_{(0,2\\pi)})"} />, con <Math tex={"f:\\mathbb R\\to\\mathbb R"} />, <Math tex={"f(t)=\\operatorname{sen}(\\cos t,1)"} />. 
+Ya sabemos que <Math tex={"((0,2\\pi),f|_{(0,2\\pi)})"} /> no es subvariedad incrustada.
+El teorema anterior nos garantiza que hay un abierto <Math tex={"U\\subseteq (0,2\\pi)"} /> de <Math tex={"p=\\pi"} />, donde <Math tex={"f|_{(0,2\\pi)}"} /> se vuelve incrustacion; 
+Por ejemplo <Math tex={"U=(\\pi/2,3\\pi/2)"} />.
+![Pasted image 20260503221526](/images/Pasted-image-20260503221526.png)
+</BookBlock>
+
+<BookBlock kind="example" title="Consultar este ejempo">
+Dado <Math tex={"f:\\mathbb{R}\\rightarrow\\mathbb{R}^{2}"} /> con <Math tex={"p\\mapsto (\\cos p,\\sin p)"} />. Con <Math tex={"p=0"} /> entonces <Math tex={"f(p)=(1,0)"} />  
+![Pasted image 20260503222403](/images/Pasted-image-20260503222403.png)
+</BookBlock>
+
+<span id="078822"></span>
+
+
+<BookBlock kind="remark">
+Veamos una forma de "producir" variedades suaves.
+</BookBlock>
+
+<BookBlock kind="definition" title="Conjunto de nivel">
+Sea <Math tex={"F:M\\to N"} /> funcion suave y sea <Math tex={"c"} /> cualquier punto de <Math tex={"N"} />. El conjunto <Math tex={"F^{-1}(c)"} /> se llama conjunto de nivel de <Math tex={"F"} />.
+</BookBlock>
+
+<BookBlock kind="theorem" title="Conjuntos de nivel de funciones de rango constante">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves, y sea <Math tex={"F:M\\to N"} /> una funcion suave de rango constante <Math tex={"r"} />. Si el conjunto de nivel <Math tex={"P=F^{-1}(c)"} /> es no vacio, entonces dotando a <Math tex={"P"} /> de la topologia heredada de <Math tex={"M"} />, este tiene una estructura de variedad diferenciable que lo vuelve subvariedad incrustada de <Math tex={"M"} /> y de dimension <Math tex={"\\dim(M)-r"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"m=\\dim M"} /> y sea <Math tex={"k=m-r"} />.
+2. El conjunto <Math tex={"P"} /> con la topologia del subespacio es <Math tex={"T_2"} /> y <Math tex={"N_2"} />. Para ver que es localmente Euclideo, construyamos un atlas.
+3. Sea <Math tex={"p\\in P"} />. Por la forma local de una funcion de rango constante, existen cartas <Math display tex={"(U,\\varphi=(x_1,\\ldots,x_m))"} /> de <Math tex={"M"} /> centrada en <Math tex={"p"} /> y <Math tex={"(W,\\psi)"} /> carta de <Math tex={"F(p)=c"} />, centrada en <Math tex={"c"} />, t.q. <Math tex={"F(U)\\subset W"} /> y <Math display tex={"\\psi\\circ F\\circ\\varphi^{-1}(x_1,\\ldots,x_r,x_{r+1},\\ldots,x_m)=(x_1,\\ldots,x_r,0,\\ldots,0)"} />
+4. Como <Math tex={"\\psi(c)=(0,\\ldots,0)"} />, tenemos <Math display tex={"\\begin{align*}U\\cap P &=\\{q\\in U:F(q)=c\\}\\\\ &=\\{q\\in U:\\psi(F(q))=(0,\\ldots,0)\\}\\\\&=\\{q\\in U:\\psi\\circ F\\circ \\varphi^{-1}(\\varphi(q))=(0,\\ldots,0)\\}\\\\&=\\{q\\in U:\\psi\\circ F\\circ \\varphi^{-1}(x_1(q),\\ldots,x_r(q),x_{r+1}(q),\\ldots,x_m(q))=(0,\\ldots,0)\\}\\\\&=\\{q\\in U:(x_1(q),\\ldots,x_r(q),\\underbrace{0,\\ldots,0}_{n-r})=(0,\\ldots,0)\\}\\\\&=\\{q\\in U:x_1(q)=\\cdots=x_r(q)=0\\}.\\end{align*}"} />  
+5. Es decir, <Math tex={"U\\cap P"} /> es la rebanada de <Math tex={"U"} /> dejando el resto de coordenadas "libres" para los puntos que viven en <Math tex={"U\\cap P"} />.
+6. Esto nos motiva a definir <Math display tex={"\\pi:\\mathbb R^m\\to\\mathbb R^k,\\qquad(x_1,\\ldots,x_r,x_{r+1},\\ldots,x_m)\\mapsto(x_{r+1},\\ldots,x_m)"} />
+7. Sea <Math tex={"V=U\\cap P"} /> un abierto de <Math tex={"P"} />, con la topologia relativa.
+8. Sea <Math display tex={"\\widehat\\varphi=\\pi\\circ\\varphi|_V:V\\subset P\\to\\mathbb R^k"} />, que va a ser candidato a carta.
+9. Y sea <Math tex={"\\hat{V}=\\hat{\\varphi}(V)"} />. Veamos que <Math tex={"\\hat{V}"} /> es un abierto de <Math tex={"\\mathbb{R}^{k}"} /> y <Math tex={"\\widehat\\varphi"} /> es un homeo entre <Math tex={"V"} /> y <Math tex={"\\widehat V"} />.
+10. Ya vimos que <Math tex={"\\varphi(V)=\\varphi(U\\cap P)=\\{(s_1,\\ldots,s_m)\\in\\varphi(U):s_1=0,\\ldots,s_r=0\\}"} />. Es decir, <Math tex={"\\varphi(V)"} /> es la interseccion de <Math tex={"U"} /> con la rebanada de <Math tex={"\\mathbb R^m"} /> definida por <Math tex={"R=\\{(s_1,\\ldots,s_m)\\in\\mathbb R^m:s_1=0,\\ldots,s_r=0\\}"} />.
+11. Entonces <Math tex={"\\varphi(V)=\\varphi(U)\\cap R"} />.
+12. Como <Math display tex={"\\pi_R:R\\subset\\mathbb R^m\\to\\mathbb R^k"} /> es un homeomorfismo (osea es abierta), si dotamos a <Math tex={"R"} /> con la topologia relativa (topologia de <Math tex={"\\mathbb R^m"} />, equivalente topologia producto <Math tex={"\\mathbb R^r\\times\\mathbb R^k"} />), y dado que <Math tex={"\\varphi(U)\\cap R"} /> es un abierto relativo de <Math tex={"R"} />, entonces tenemos <Math tex={"\\widehat V=\\pi\\circ\\varphi(V)"} /> es abierto de <Math tex={"\\mathbb R^k"} />.
+13. Y ademas <Math display tex={"\\widehat\\varphi:V\\subset P\\to\\widehat V\\subset\\mathbb R^k"} /> es un homeo entre <Math tex={"V"} /> y <Math tex={"\\widehat V"} />, pues la inversa de <Math tex={"\\widehat\\varphi"} /> es <Math display tex={"\\widehat\\varphi^{-1}=\\varphi^{-1}\\circ j|_{\\widehat V}"} />donde <Math tex={"j:\\mathbb R^k\\to\\mathbb R^m"} /> es <Math tex={"(s_1,\\ldots,s_k)\\mapsto(0,\\ldots,0,s_1,\\ldots,s_k)"} />.
+14. Con esto tenemos que <Math tex={"P"} /> es localmente euclideo
+15. Veamos que sus cartas son suavemente compatibles. Sean <Math tex={"(V_{1},\\hat{\\varphi}_{1})"} /> y <Math tex={"(V_{2},\\hat{\\varphi}_{2})"} /> dos cartas de <Math tex={"P"} /> entonces quiero ver que <Math display tex={"\\widehat{\\varphi}_{2}\\circ \\hat{\\varphi}_{1}^{-1}:\\widehat{\\varphi}_{1}(V_{1}\\cap V_{2})\\subseteq \\mathbb{R}^{k}\\rightarrow \\widehat{\\varphi}_{2}(V_{1}\\cap V_{2})\\subseteq \\mathbb{R}^{k}"} /> es suave   
+16. Para eso notamos que <Math display tex={"\\hat{\\varphi}_{2}\\circ \\hat{\\varphi}_{1}^{-1}=\\pi\\circ(\\varphi_{2}\\circ\\varphi_{1}^{-1})\\circ j"} /> que es composicion de funciones suaves (por que son cartas y proyeccion y recordamos que corestringir no genera problema con cartas)
+17. Por ultimo veamos que <Math tex={"\\iota:P\\rightarrow M"} /> es suave e inmersion.
+18. Usando las cartas de arriba <Math display tex={"f=\\varphi\\circ\\iota\\circ\\hat{\\varphi}^{-1}:\\widehat{V}\\subseteq \\mathbb{R}^{k}\\rightarrow\\mathbb{R}^{m}"} /> esta dada por <Math tex={"f(s_{1},\\ldots,s_{k})=(0,\\ldots,0,s_{1},\\ldots,s_{k})"} /> que es una funcion suave e inmersion lo que implica que <Math tex={"\\iota"} /> es suave 
+19. Y tambien implica que <Math tex={"f"} /> es inmersion pues <Math tex={"\\varphi"} /> y <Math tex={"\\hat{\\varphi}^{-1}"} /> son difeomorfismos (osea sus diferenciales son isomorfimos) y <Math tex={"df"} /> por definicion va a ser inyectiva 
+</Proof>
+</BookBlock>
+
+<span id="210dde"></span>
+
+<BookBlock kind="corollary" title="Submersiones y conjuntos de nivel">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves y <Math tex={"F:M\\to N"} /> una submersion suave. Entonces cada conjunto de nivel no vacio de <Math tex={"F"} /> es una subvariedad incrustada de <Math tex={"M"} /> de dimension <Math tex={"\\dim M-\\dim N"} />.
+</BookBlock>
+
+<span id="784cb7"></span>
+
+## Ejemplos de aplicacion
+
+<BookBlock kind="example" title="Ejemplo de aplicacion, esfera">
+La esfera es subvariedad incrustada de <Math tex={"\\mathbb{R}^{n+1}\\setminus\\{ 0 \\}"} /> 
+<Proof title="Demostracion" open>
+1. Sea <Math display tex={"F:\\mathbb R^{n+1}\\setminus\\{0\\}\\to\\mathbb R"} />dada por <Math display tex={"(s_1,\\ldots,s_{n+1})\\mapsto\\|s\\|^2-1=s_1^2+\\cdots+s_{n+1}^2-1"} />luego tenemos <Math tex={"S^n=F^{-1}(0)"} />. 
+2. Notemos que <Math tex={"F"} /> es de rango constante e igual a <Math tex={"1"} /> por que dado <Math tex={"p\\in\\mathbb R^{n+1}\\setminus\\{0\\}"} />. <Math display tex={"(dF)_p v=\\langle(\\nabla F)(p),v\\rangle=\\langle(2p_1,\\ldots,2p_{n+1}),v\\rangle"} />
+3. Luego tomando <Math tex={"v=p"} />, tenemos <Math tex={"(dF)_p p=2\\|p\\|^2\\neq0"} />. Entonces <Math tex={"(dF)_{p}"} /> no es la aplicacion nula, por lo tanto tiene rango por lo menos <Math tex={"1"} /> entonces tiene rango <Math tex={"1"} />
+4. Como esto vale para cualquier <Math tex={"p"} /> podemos decir que <Math tex={"F"} /> tiene rango constante <Math tex={"1"} />
+5. Entonces se puede aplicar <PreviewLink href="/chapters/teo-13#210dde" label="Conjuntos de nivel de funciones de rango constante" title="Teorema: Conjuntos de nivel de funciones de rango constante" />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark" title="Recordar">
+Notemos que si <Math tex={"U\\subseteq M"} /> abierto con <Math tex={"M"} /> variedad entonces para <Math tex={"p\\in U"} /> la inclusion <Math display tex={"\\iota: U\\rightarrow M"} /> induce un isomorfismo <Math display tex={"(d\\iota)_{p}:T_{p}U\\rightarrow T_{p}M"} />   
+</BookBlock>
+
+<span id="234f1c"></span>
+
+<BookBlock kind="example" title="Otro ejemplo de aplicacion DUDA La parte de identificacion">
+Recordemos el subconjunto de <Math tex={"M(n,\\mathbb{R})"} /> (Matrices): <Math display tex={"GL(n,\\mathbb{R})=\\{X\\in M(n,\\mathbb{R}):X\\text{ es invertible}\\}"} />
+Como <Math tex={"M(n,\\mathbb{R})"} /> es variedad suave (por ser esp. vectorial) y <Math tex={"GL(n,\\mathbb{R})"} /> es un abierto de <Math tex={"M(n,\\mathbb{R})"} />, recordemos entonces que <Math tex={"GL(n,\\mathbb{R})"} /> es variedad, que resulta grupo de Lie.
+Consideremos <Math display tex={"F=\\det:GL(n,R)\\to\\mathbb R"} /> y sea <Math tex={"SL(n,R)=\\{X\\in GL(n,R):\\det X=1\\}"} />, llamado el grupo especial lineal.
+Tenemos <Math tex={"SL(n,R)=F^{-1}(1)"} />. Veamos que es subvariedad incrustada de <Math tex={"GL(n,R)"} />. 
+<Proof title="Demostracion">
+1. Por <PreviewLink href="/chapters/teo-13#234f1c" label="Recordar" title="Observacion: Recordar" /> y notando que <Math tex={"GL(n,\\mathbb{R})\\subseteq M(n,\\mathbb{R})"} /> es abierto. Entonces puedo identificar <Math tex={"T_{X}GL(n,\\mathbb{R})\\cong T_{X}M(n,\\mathbb{R})"} /> y por ser espacio vectorial <Math tex={"T_{X}M(n,\\mathbb{R})\\cong M(n,\\mathbb{R})"} />  
+2. Vimos en el practico que <Math display tex={"(d\\det)_X Y=\\langle(\\nabla\\det)_X,Y\\rangle=\\det(X)\\operatorname{tr}(X^{-1}Y)"} /> por definicion <Math tex={"X\\in GL(n,\\mathbb{R})"} /> e <Math tex={"Y\\in T_{X}GL(n,\\mathbb{R})"} />  
+3. Para ver que <Math tex={"(d\\det)_X"} /> es sobreyectiva, basta ver que no es nula. Por que entonces tendra rango al menos <Math tex={"1"} /> y por lo tanto tendra rango <Math tex={"1"} /> 
+4. Por paso 1. podemos yomar <Math tex={"Y=X"} />, y mantenter la misma formula entonces <Math display tex={"(d\\det)_X X=\\det(X)\\operatorname{tr}(I_n)=n\\det(X)\\neq0"} />, pues <Math tex={"X\\in GL(n,R)\\subseteq M(n,\\mathbb{R})\\cong T_{X}GL(n,\\mathbb{R})"} />.
+5. Entonces como esto vale para cualquier <Math tex={"X"} /> podemos decir que <Math tex={"F"} /> tiene rango constante <Math tex={"1"} />
+6. Luego <Math tex={"SL(n,R)"} /> es subvariedad incrustada de <Math tex={"GL(n,R)"} />, lo que implica ademas que es variedad suave.
+</Proof>
+</BookBlock>
+
+<span id="3ae198"></span>
+
+<BookBlock kind="remark">
+<Fragment slot="title">Estructura de grupo de Lie de <Math tex={"SL(n,R)"} /> DUDA</Fragment>
+Claramente <Math tex={"SL(n,R)"} /> es un grupo. Solo falta ver que <Math display tex={"SL(n,R)\\times SL(n,R)\\to SL(n,R) \\qquad (g,h)\\mapsto gh"} /><Math display tex={"\\operatorname{inv}:SL(n,R)\\to SL(n,R)\\qquad g\\mapsto g^{-1}"} />son suaves.
+Vemos mas adelante que solo necesitamos ver que son suaves como funciones en el ambiente; asi nos sirve muchisimo el lema de factorizacion.
+<Proof title="Demostracion">
+1. Consideremos <Math display tex={"\\tilde{i}=i\\times i:SL(n,\\mathbb{R})\\times SL(n,\\mathbb{R})\\to GL(n,\\mathbb{R})\\times GL(n,\\mathbb{R})\\qquad (g,h)\\mapsto(g,h)"} />, que resulta suave, pues <Math tex={"SL(n,\\mathbb{R})"} /> es subvariedad.
+2. Como <Math tex={"GL(n,\\mathbb{R})"} /> es grupo de Lie entonces <Math display tex={"m:GL(n,\\mathbb{R})\\times GL(n,\\mathbb{R})\\to GL(n,\\mathbb{R})\\qquad (g,h)\\mapsto m(g,h)=g.h"} />es suave. (Por que no cambiamos ningun codominio) 
+3. Luego <Math display tex={"m\\circ\\tilde i:SL(n,\\mathbb{R})\\times SL(n,\\mathbb{R})\\to GL(n,\\mathbb{R})"} /> es suave.
+4. Pero la imagen de <Math tex={"m\\circ\\tilde i"} /> cae en <Math tex={"SL(n,R)"} />, por ser subgrupo de <Math tex={"GL"} />. (Como estructura) **Por que como estructura?** creo que para aclarar que no es como subgrupo de Lie.. si no como estructura algebraica.. osea para <Math tex={"g,h\\in SL(n,\\mathbb{R})"} /> tenemos que <Math tex={"det(gh)=deg(g)det(h)=1"} /> entonces <Math tex={"gh\\in SL(n,\\mathbb{R})"} /> por lo tanto <Math tex={"m\\circ \\tilde{i}(g,h)=gh\\in SL(n,\\mathbb{R})"} /> mostrando que <Math tex={"Im(m\\circ \\tilde{i})\\subseteq SL(n,\\mathbb{R})"} /> 
+5. Entonces tenemos el diagrama
+![Pasted image 20260504165253](/images/Pasted-image-20260504165253.png)
+6. Donde <Math tex={"*"} /> resulta el producto de <Math tex={"SL"} />, y como <Math tex={"SL"} /> es subvariedad incrustada, entonces <Math tex={"*"} /> es funcion suave por <PreviewLink href="/chapters/teo-11#300685" label="Lema de factorización para subvariedades incrustadas" title="Corolario: Lema de factorización para subvariedades incrustadas" />
+</Proof>
+</BookBlock>
+
+<span id="04a3ee"></span>
+
+## Punto regular y valor regular
+
+<BookBlock kind="definition" title="Punto regular y valor regular">
+Dada <Math tex={"F:M\\to N"} /> funcion suave, un punto <Math tex={"p\\in M"} /> se dice punto regular de <Math tex={"F"} /> si <Math tex={"(dF)_p:T_pM\\to T_{F(p)}N"} /> es sobreyectiva.
+Un punto <Math tex={"c"} /> en la imagen de <Math tex={"F"} /> se dice valor regular de <Math tex={"F"} /> si todo punto en <Math tex={"F^{-1}(c)"} /> es un punto regular.
+</BookBlock>
+
+<BookBlock kind="exercise" title="Algebra 3">
+Sea <Math tex={"F:M\\to N"} /> funcion suave y sea <Math tex={"p\\in M"} />.
+Si <Math display tex={"(dF)_p:T_pM\\to T_{F(p)}N"} /> es una transformacion lineal sobreyectiva, entonces existe un abierto de <Math tex={"M"} /> en <Math tex={"p"} /> tal que <Math tex={"F|_U"} /> es una submersion.
+</BookBlock>
+
+<span id="1aee60"></span>
+
+<BookBlock kind="corollary" title="Conjunto de nivel con puntos regulares">
+Sea <Math tex={"F:M\\to N"} /> suave y <Math tex={"c\\in\\operatorname{Im}F"} /> tal que todo punto en el conjunto de nivel <Math tex={"F^{-1}(c)"} /> es un punto regular. Entonces <Math tex={"F^{-1}(c)"} /> es una subvariedad incrustada de <Math tex={"M"} /> de dimension <Math tex={"\\dim M-\\dim N"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in F^{-1}(c)"} /> como <Math tex={"c"} /> es valor regular de <Math tex={"F"} />, tenemos que <Math display tex={"(dF)_p:T_pM\\to T_cN"} /> es sobreyectiva.  
+2. Por <PreviewLink href="/chapters/teo-13#1aee60" label="Algebra 3" title="Ejercicio: Algebra 3" />, existe un abierto <Math tex={"U_p\\subseteq M"} /> con <Math tex={"p\\in U_p"} /> tal que <Math display tex={"F|_{U_p}:U_p\\to N"} /> es una submersión.  
+3. Como <Math tex={"c\\in F(U_p)"} /> por el <PreviewLink href="/chapters/teo-13#784cb7" label="Submersiones y conjuntos de nivel" title="Corolario: Submersiones y conjuntos de nivel" /> aplicado a <Math tex={"F|_{U_p}"} /> se tiene que <Math tex={"(F|_{U_p})^{-1}(c)"} /> es una subvariedad incrustada de <Math tex={"U_p"} /> de dimensión <Math tex={"\\dim M-\\dim N"} />  
+4. Pero <Math display tex={"(F|_{U_p})^{-1}(c)=F^{-1}(c)\\cap U_p."} />  
+5. Entonces, para cada <Math tex={"p\\in F^{-1}(c)"} /> existe un entorno abierto <Math tex={"U_p"} /> tal que <Math tex={"F^{-1}(c)\\cap U_p"} /> es una subvariedad incrustada de <Math tex={"U_p"} /> de dimensión <Math tex={"\\dim M-\\dim N."} />  
+6. Como ser subvariedad incrustada es una propiedad local, concluimos que <Math tex={"F^{-1}(c)"} /> es una subvariedad incrustada de <Math tex={"M"} /> de dimensión <Math tex={"\\dim M-\\dim N"} />
+</Proof>
+</BookBlock>
+
+<span id="3f8e58"></span>
+
+<BookBlock kind="remark">
+Notar que <PreviewLink href="/chapters/teo-13#3f8e58" label="Conjunto de nivel con puntos regulares" title="Corolario: Conjunto de nivel con puntos regulares" /> no pedimos rango constante. Pero pedimos que <Math tex={"c"} /> sea valor regular. Osea <Math tex={"F^{-1}(c)"} /> sea una conjunto de puntos regulares. Osea que la diferencial en esos puntos sea sobreyectiva. Con lo cual la diferencial en esos puntos va a tener rango constante 
+</BookBlock>
+
+<BookBlock kind="exercise" title="MUY IMPORTANTE y lo veran en el practico.">
+Sea <Math tex={"f:N\\to Q"} /> una funcion diferenciable entre variedades diferenciables y sea <Math tex={"q\\in Q"} /> un valor regular de <Math tex={"f"} />. Sea <Math tex={"M"} /> la subvariedad <Math tex={"f^{-1}\\{q\\}"} /> y sea <Math tex={"i:M\\to N"} /> la inclusion.
+Mostrar que para todo <Math tex={"p\\in M"} /> se cumple que <Math tex={"T_pM\\simeq (di)_p(T_pM)=\\operatorname{Ker}(df)_p"} />.
+</BookBlock>

@@ -138,8 +138,8 @@
 
 >[!Definition] Subordinación
 >Sea $\Omega=\{U_\alpha\}_{\alpha\in I}$ un cubrimiento por abiertos de $M$.
->- Se dice que la particion de la unidad $\{\rho_{\alpha}\}_{\alpha \in I}$ esta subordinada a $\Omega$. Si la familia de soportes $\{ \operatorname{supp}(\rho_{\alpha }) \}_{\alpha \in I}$ es un refinamiento de $\Omega$.
->- Y se dice que la partición de la unidad $\{\rho_\alpha\}_{\alpha\in I}$ esta **estrictamente subordinada** a $\Omega$ si $I=J$ y $\operatorname{supp}\rho_\alpha\subseteq U_\alpha$ para todo $\alpha\in I$.
+>- Se dice que la particion de la unidad $\{\rho_j\}_{j\in J}$ esta subordinada a $\Omega$ si la familia de soportes $\{ \operatorname{supp}(\rho_j) \}_{j\in J}$ es un refinamiento de $\Omega$.
+>- Y se dice que la partición de la unidad $\{\rho_j\}_{j\in J}$ esta **estrictamente subordinada** a $\Omega$ si $J=I$ y $\operatorname{supp}\rho_\alpha\subseteq U_\alpha$ para todo $\alpha\in I$.
 >Notar que siempre una particion de la unidad cubre todo $M$ por parte 3 de la dfeinicion.
 
 ^12d7c6
@@ -187,44 +187,44 @@
 
 ## Consecuencias de las particiones de la unidad
 
->[!Corollary] Función que vale $1$ sobre un cerrado
+>[!Corollary] Función que vale 1 sobre un cerrado
 >Sea $U$ un abierto de $M$ y $A$ un cerrado de $M$ con $$A\subseteq U$$
 >Entonces existe una función suave $$f:M\to\mathbb R$$tal que $$0\le f\le 1,\qquad f|_A\equiv 1,\qquad \operatorname{supp}f\subseteq U$$
 >
 >>[!Proof]-
 >>1. Como $A$ es cerrado. Considerar al cubrimiento de $M$ dado por $$\{U,M\setminus A\}$$
->>2. Por [[GS - Teo8#^eafe2b]] existe una particion de la unidad $\{\rho,\sigma\}$ subordinada a $\{U,M\setminus A\}$ con $$\operatorname{supp}\rho\subseteq U,\qquad \operatorname{supp}\sigma\subseteq M\setminus A$$
->>3. Para $p\in A$ se tiene $\sigma(p)=0$, luego $$\rho(p)=1$$
+>>2. Por [[GS - Teo8#^eafe2b|Existencia de particiones de la unidad]] existe una particion de la unidad $\{\rho,\sigma\}$ subordinada a $\{U,M\setminus A\}$ con $$\operatorname{supp}\rho\subseteq U,\qquad \operatorname{supp}\sigma\subseteq M\setminus A$$
+>>3. Para $p\in A$ se tiene $\sigma(p)=0$ porque $\operatorname{supp}\sigma\subseteq M\setminus A$. Usando la parte 3 de la [[GS - Teo8#^f5db1b|definición de partición de la unidad]], tenemos $\rho(p)+\sigma(p)=1$, luego $$\rho(p)=1$$
 >>4. Tomamos $f=\rho$ que es la funcion que buscabamos
-
-^cf02ec
 
 >[!Definition] Función suave sobre un subconjunto arbitrario
 >Sean $M$ y $N$ variedades suaves y sea $A\subseteq M$ un subconjunto cualquiera. Una función $$F:A\to N$$se dice **suave** si para todo $p\in A$ existe un abierto $W_p$ de $M$ con $p\in W_p$ y una función suave $$F_p:W_p\to N$$que coincide con $F$ sobre $W_p\cap A$
 
+^cf02ec
+
 >[!Proposition] Extensión de funciones suaves definidas en cerrados
->Sea $M$ una variedad suave, $A\subseteq M$ cerrado y $$F:A\to\mathbb R^k$$una función suave en el sentido anterior. 
+>Sea $M$ una variedad suave, $A\subseteq M$ cerrado y $$F:A\to\mathbb R^k$$una función suave en el sentido anterior.
 >Entonces, para todo abierto $U$ con $A\subseteq U$ existe una función suave $$\widetilde F:M\to\mathbb R^k$$ funcion suave tal que
->$$
->\widetilde F|_A=F,
+>$$\widetilde F|_A=F,
 >\qquad
->\operatorname{supp}\widetilde F\subseteq U.
->$$
+>\operatorname{supp}\widetilde F\subseteq U.$$
 >
 >>[!Proof]-
->>1. Por definicion de $F$ suave para cada $p\in A$ elegimos un abierto $W_p\subseteq U$ y una extensión suave local $$\widetilde F_p:W_p\to\mathbb R^k$$que coincide con $F$ en $W_{p}\cap A$ 
->>2. Sin perdida de generalidades podemos suponer $W_{p}\subseteq U$ (En otro caso, cambiamos $W_{p}$ por el abierto $W_{p}\cap U$)   
+>>1. Por [[GS - Teo8#^cf02ec|Función suave sobre un subconjunto arbitrario]], para cada $p\in A$ elegimos un abierto $W_p\subseteq U$ y una extensión suave local $$\widetilde F_p:W_p\to\mathbb R^k$$que coincide con $F$ en $W_{p}\cap A$
+>>2. Sin perdida de generalidades podemos suponer $W_{p}\subseteq U$ (En otro caso, cambiamos $W_{p}$ por el abierto $W_{p}\cap U$)
 >>3. Ahora tenemos el conjunto $$\{W_p\}_{p\in A}\cup\{M\setminus A\}$$que es un cubrimiento abierto de $M$.
->>4. Por [[GS - Teo8#^eafe2b]] existe una partición de la unidad $$\{\rho_p\}_{p\in A}\cup\{\rho_0\}$$subordinada estrictamente a este cubrimiento, con $$\operatorname{supp}\rho_p\subseteq W_p, \qquad \operatorname{supp}\rho_0\subseteq M\setminus A$$
+>>4. Por [[GS - Teo8#^eafe2b|Existencia de particiones de la unidad]] existe una partición de la unidad $$\{\rho_p\}_{p\in A}\cup\{\rho_0\}$$subordinada estrictamente a este cubrimiento, con $$\operatorname{supp}\rho_p\subseteq W_p, \qquad \operatorname{supp}\rho_0\subseteq M\setminus A$$
 >>5. Como hicimos en el ejemplo anterior, definimos $$\widetilde F=\sum_{p\in A}\rho_p\,\widetilde F_p$$donde estamos abusando de notación y entendemos el producto $$(\rho_p\widetilde{F}_p)(q)=\begin{cases}\rho_p(q)\,\widetilde{F}_p(q)&\text{si }q\in W_p,\\0&\text{si }q\notin W_p.\end{cases}$$
->>6. Nuevamente, no olvidar que cada término $\rho_p\tilde F_p$ resulta suave sobre todo $M$, pues $\operatorname{supp}\rho_p\subset W_p$ permite extender $\rho_p\tilde F_p$ por $0$ fuera de $W_p$.
->>7. Tenemos $\widetilde{F}$ es suave pues del hecho que $\{\operatorname{supp}\rho_p\}$ sea localmente finita hace que la suma sea una suma finita de funciones suaves en un entorno de cada punto de $M$.
+>>6. Veamos que cada término $\rho_p\widetilde F_p$ extendido por $0$ fuera de $W_p$ es suave sobre todo $M$. Si $q\in W_p$, la suavidad es trivial porque allí es producto de funciones suaves. Si $q\notin W_p$, entonces como $\operatorname{supp}\rho_p\subseteq W_p$, también $q\notin\operatorname{supp}\rho_p$. Como $\operatorname{supp}\rho_p$ es cerrado, $M\setminus\operatorname{supp}\rho_p$ es un abierto que contiene a $q$, y en ese abierto la extensión vale $0$; por tanto también es suave alrededor de $q$.
+>>7. Tenemos que $\widetilde{F}$ es suave: como $\{\operatorname{supp}\rho_p\}$ es localmente finita, alrededor de cada punto de $M$ la suma es finita; y por el paso 6 cada término de esa suma finita es una función suave.
 >>8. Ahora, si $q\in A$, $$\widetilde{F}(q)=\sum_{p\in A}\rho_p(q)\widetilde{F}_p(q)=\sum_{p\in A}\rho_p(q)F(q)$$ porque $\widetilde{F}_p$ coincide con $F$ en $W_p\cap A$,
->>9. Y seguimos $$\sum_{p\in A}\rho_p(q)F(q)=\left(\sum_{p\in A}\rho_p(q)\right)F(q)=\left(1-\rho_0(q)\right)F(q)$$ donde el segundo igual vale por que $\sum_{p\in A}\rho_{p}+\rho_{0}=1$ 
+>>9. Y seguimos $$\sum_{p\in A}\rho_p(q)F(q)=\left(\sum_{p\in A}\rho_p(q)\right)F(q)=\left(1-\rho_0(q)\right)F(q)$$ donde el segundo igual vale por que $\sum_{p\in A}\rho_{p}+\rho_{0}=1$
 >>10. Y como $\operatorname{supp}\rho_0\subseteq M\setminus A$, tenemos $$\left(1-\rho_0(q)\right)F(q)=F(q).$$
 >>11. Por último veamos $\operatorname{supp}\widetilde{F}\subseteq U$: Sea $q\in\operatorname{supp}\widetilde{F}$. Como $\{\operatorname{supp}\rho_p\}\cup\{\operatorname{supp}\rho_0\}$ es localmente finita, existe $W_q$ abierto de $M$ con $q$ que corta un número finito de miembros de $\{\operatorname{supp}\rho_p\}\cup\{\operatorname{supp}\rho_0\}$, digamos $\operatorname{supp}\rho_{p_1},\ldots,\operatorname{supp}\rho_{p_k}$ y $\operatorname{supp}\rho_0$.
 >>12. Esto implica que debe haber un $j$ tal que $q\in\operatorname{supp}\rho_{p_j}$, pues en otro caso, existirían abiertos $W_1,\ldots,W_k$ de $q$ donde $\rho_{p_1},\ldots,\rho_{p_k}$ se anulan, y así $$W_0\cap W_1\cap\cdots\cap W_k$$es un abierto de $q$ donde $\widetilde{F}$ vale cero que es absurdo
+>>13. Como $q\in\operatorname{supp}\rho_{p_j}$ y $\operatorname{supp}\rho_{p_j}\subseteq W_{p_j}\subseteq U$, entonces $q\in U$. Por lo tanto, $\operatorname{supp}\widetilde F\subseteq U$.
 >>
+
 
 ^b5794a
 
@@ -260,4 +260,5 @@
 >$$
 >
 >Pista: usar particiones de la unidad.
+
 

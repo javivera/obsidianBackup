@@ -1,0 +1,34 @@
+---
+type Props = {
+  kind: "definition" | "theorem" | "lemma" | "proposition" | "corollary" | "remark" | "example" | "exercise";
+  title?: string;
+  number?: string;
+  id?: string;
+};
+
+const { kind, title, number, id } = Astro.props;
+const hasTitleSlot = Astro.slots.has("title");
+
+const labels = {
+  definition: "Definicion",
+  theorem: "Teorema",
+  lemma: "Lema",
+  proposition: "Proposicion",
+  corollary: "Corolario",
+  remark: "Observacion",
+  example: "Ejemplo",
+  exercise: "Ejercicio"
+};
+---
+
+<section class={`book-block ${kind}`} id={id}>
+  <header>
+    <span class="eyebrow">{labels[kind]}{number ? ` ${number}` : ""}</span>
+    {(title || hasTitleSlot) && (
+      <strong>{hasTitleSlot ? <slot name="title" /> : title}</strong>
+    )}
+  </header>
+  <div class="block-body">
+    <slot />
+  </div>
+</section>

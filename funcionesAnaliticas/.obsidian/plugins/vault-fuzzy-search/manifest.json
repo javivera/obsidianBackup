@@ -1,0 +1,9 @@
+{
+  "id": "vault-fuzzy-search",
+  "name": "Vault Fuzzy Search",
+  "version": "1.4.0",
+  "minAppVersion": "1.4.0",
+  "description": "Fuzzy search file names and note contents, with an explicit included-files filter.",
+  "author": "Javier Vera",
+  "isDesktopOnly": false
+}

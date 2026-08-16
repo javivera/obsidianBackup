@@ -1,0 +1,27 @@
+---
+import { withBase } from "../lib/paths";
+
+type Props = {
+  href: string;
+  title?: string;
+  label?: string;
+  preview?: string;
+};
+
+const { href, label, preview } = Astro.props;
+const resolvedHref = withBase(href);
+const hasPreviewSlot = Astro.slots.has("preview");
+---
+
+<span class="preview-link-wrap">
+  <a class="preview-link" href={resolvedHref}>
+    {label ?? <slot />}
+  </a>
+  <span class="preview-card" role="tooltip">
+    <span class="preview-content">
+      {preview && <span>{preview}</span>}
+      {hasPreviewSlot && <slot name="preview" />}
+      {!preview && !hasPreviewSlot && <span>Cargando referencia...</span>}
+    </span>
+  </span>
+</span>

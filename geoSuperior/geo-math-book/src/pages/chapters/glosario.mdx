@@ -1,0 +1,276 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Glosario"
+description: "Teorico convertido desde Glosario.md"
+chapter: "Glosario"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Glosario
+
+## Practico 4
+
+<BookBlock kind="lemma" title="Unicidad de curvas integrales con tiempo arbitrario">
+Sea <Math tex={"X\\in\\mathfrak X(M)"} />. Sean <Math tex={"\\gamma:I\\to M"} /> y <Math tex={"\\sigma:J\\to M"} /> curvas integrales de <Math tex={"X"} />, donde <Math tex={"I,J\\subseteq\\mathbb R"} /> son intervalos abiertos. Si existe <Math tex={"t_0\\in I\\cap J"} /> tal que <Math tex={"\\gamma(t_0)=\\sigma(t_0)"} />, entonces <Math tex={"\\gamma(t)=\\sigma(t)"} /> para todo <Math tex={"t\\in I\\cap J"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p=\\gamma(t_0)=\\sigma(t_0)"} />.
+2. Definimos los intervalos trasladados <Math tex={"I_0=I-t_0=\\{s\\in\\mathbb R:t_0+s\\in I\\}"} /> y <Math tex={"J_0=J-t_0=\\{s\\in\\mathbb R:t_0+s\\in J\\}"} />.
+3. Entonces <Math tex={"0\\in I_0\\cap J_0"} />.
+4. Definimos <Math tex={"\\widetilde{\\gamma}:I_0\\to M"} /> por <Math tex={"\\widetilde{\\gamma}(s)=\\gamma(t_0+s)"} /> y <Math tex={"\\tilde{\\sigma}:J_0\\to M"} /> por <Math tex={"\\tilde{\\sigma}(s)=\\sigma(t_0+s)"} />.
+5. Tenemos <Math tex={"\\widetilde{\\gamma}(0)=\\gamma(t_0)=p"} /> y <Math tex={"\\tilde{\\sigma}(0)=\\sigma(t_0)=p"} />.
+6. Además, por regla de la cadena, <Math display tex={"\\widetilde{\\gamma}'(s)=\\gamma'(t_0+s)=X_{\\gamma(t_0+s)}=X_{\\tilde{\\gamma}(s)}"} />
+7. De la misma forma, <Math display tex={"\\tilde{\\sigma}'(s)=\\sigma'(t_0+s)=X_{\\sigma(t_0+s)}=X_{\\tilde{\\sigma}(s)}"} />
+8. Entonces <Math tex={"\\widetilde{\\gamma}"} /> y <Math tex={"\\tilde{\\sigma}"} /> son curvas integrales de <Math tex={"X"} /> que empiezan en <Math tex={"p"} /> en tiempo <Math tex={"0"} />.
+9. Por <PreviewLink href="/chapters/teo-16#3ff110" label="Existencia y unicidad de las curvas integrales" title="Teorema: Existencia y unicidad de las curvas integrales" />, existe una unica curva integral maximal <Math tex={"\\gamma_p:(a(p),b(p))\\to M"} /> que empieza en <Math tex={"p"} />.
+10. Como <Math tex={"\\widetilde{\\gamma}"} /> cumple la condición inicial <Math tex={"\\widetilde{\\gamma}(0)=p"} /> y es curva integral de <Math tex={"X"} />, por maximalidad se tiene <Math tex={"I_0\\subseteq(a(p),b(p))"} /> y <Math tex={"\\widetilde{\\gamma}(s)=\\gamma_p(s)"} /> para todo <Math tex={"s\\in I_0"} />.
+11. Como <Math tex={"\\widetilde{\\gamma}"} /> cumple la condición inicial <Math tex={"\\widetilde{\\sigma}(0)=p"} /> y es curva integral de <Math tex={"X"} />, por maximalidad se tiene <Math tex={"J_0\\subseteq(a(p),b(p))"} /> y <Math tex={"\\widetilde{\\sigma}(s)=\\gamma_p(s)"} /> para todo <Math tex={"s\\in J_0"} />.
+12. Por lo tanto, para todo <Math tex={"s\\in I_0\\cap J_0"} />, se tiene <Math display tex={"\\widetilde{\\gamma}(s)=\\widetilde{\\sigma}(s)."} />
+13. Si <Math tex={"t\\in I\\cap J"} />, entonces <Math tex={"s=t-t_0\\in I_0\\cap J_0"} />. Luego
+<Math display tex={"\\gamma(t)=\\gamma(t_0+s)=\\widetilde{\\gamma}(s)=\\widetilde{\\sigma}(s)=\\sigma(t_0+s)=\\sigma(t)."} />
+14. Por lo tanto,
+<Math display tex={"\\gamma(t)=\\sigma(t)\\qquad\\forall t\\in I\\cap J."} />
+</Proof>
+</BookBlock>
+
+<span id="c00595z"></span>
+
+<BookBlock kind="lemma" title="Unicidad de curvas integrales salvo traslación temporal no se si se usa">
+Sea <Math tex={"X\\in\\mathfrak X(M)"} />. Sean <Math tex={"\\gamma:I\\to M"} /> y <Math tex={"\\sigma:J\\to M"} /> curvas integrales de <Math tex={"X"} />. Si existen <Math tex={"t_0\\in I"} /> y <Math tex={"s_0\\in J"} /> tales que <Math tex={"\\gamma(t_0)=\\sigma(s_0)"} />, entonces <Math tex={"\\gamma(t)=\\sigma(t-t_0+s_0)"} /> para todo <Math tex={"t\\in I"} /> tal que <Math tex={"t-t_0+s_0\\in J"} />.
+<Proof title="Demostracion">
+1. Sea <Math tex={"p=\\gamma(t_0)=\\sigma(s_0)"} />.
+2. Definimos <Math tex={"\\widetilde\\sigma:I'\\to M"} /> por <Math tex={"\\widetilde\\sigma(t)=\\sigma(t-t_0+s_0)"} />, donde <Math tex={"I'=\\{t\\in I:t-t_0+s_0\\in J\\}"} />.
+3. Como <Math tex={"\\sigma"} /> es curva integral de <Math tex={"X"} />, por regla de la cadena se tiene <Math tex={"\\widetilde\\sigma'(t)=\\sigma'(t-t_0+s_0)=X_{\\sigma(t-t_0+s_0)}=X_{\\widetilde\\sigma(t)}"} />.
+4. Entonces <Math tex={"\\widetilde\\sigma"} /> es curva integral de <Math tex={"X"} />.
+5. Además, <Math tex={"\\widetilde\\sigma(t_0)=\\sigma(s_0)=p=\\gamma(t_0)"} />.
+6. Por el lema anterior, <Math tex={"\\gamma(t)=\\widetilde\\sigma(t)"} /> para todo <Math tex={"t\\in I'"} />.
+7. Por lo tanto,
+<Math display tex={"\\gamma(t)=\\sigma(t-t_0+s_0)"} />
+8. para todo <Math tex={"t\\in I"} /> tal que <Math tex={"t-t_0+s_0\\in J"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark" title="Curvas integrales en coordenadas">
+Sea <Math tex={"M"} /> una variedad suave y sea <Math tex={"X\\in\\mathfrak X(M)"} /> un campo vectorial suave. Sea <Math tex={"(U,\\varphi)"} /> una carta local, con coordenadas <Math tex={"(x^1,\\dots,x^n)"} />. En esa carta, el campo se escribe como <Math display tex={"X=\\sum_{i=1}^n X^i\\frac{\\partial}{\\partial x^i}."} />
+Esto significa que para cada punto <Math tex={"q\\in U"} />, el vector <Math tex={"X_q\\in T_qM"} /> está dado por <Math display tex={"X_q=\\sum_{i=1}^n X^i(q)\\frac{\\partial}{\\partial x^i}\\bigg|_q."} />
+Sea <Math tex={"\\gamma:I\\to M"} /> una curva suave tal que <Math tex={"\\gamma(I)\\subseteq U"} />. La curva <Math tex={"\\gamma"} /> es una curva integral de <Math tex={"X"} /> si y solo si, para todo <Math tex={"t\\in I"} />, <Math display tex={"\\gamma'(t)=X_{\\gamma(t)}."} />
+Como <Math tex={"\\gamma'(t)\\in T_{\\gamma(t)}M"} />, podemos escribirlo en la base coordenada del espacio tangente en <Math tex={"\\gamma(t)"} />: <Math display tex={"\\gamma'(t)=\\sum_{i=1}^n (x^i\\circ\\gamma)'(t)\\frac{\\partial}{\\partial x^i}\\bigg|_{\\gamma(t)}."} /> (evaluando en <Math tex={"x^{i}"} /> sale el coeficiente) 
+Por otro lado, evaluando el campo en el punto <Math tex={"\\gamma(t)"} />, tenemos <Math display tex={"X_{\\gamma(t)}=\\sum_{i=1}^n X^i(\\gamma(t))\\frac{\\partial}{\\partial x^i}\\bigg|_{\\gamma(t)}."} />
+Entonces la igualdad <Math tex={"\\gamma'(t)=X_{\\gamma(t)}"} /> equivale a comparar coeficientes en la base <Math display tex={"\\left\\{\\frac{\\partial}{\\partial x^1}\\bigg|_{\\gamma(t)},\\dots,\\frac{\\partial}{\\partial x^n}\\bigg|_{\\gamma(t)}\\right\\}."} />
+Por lo tanto, <Math tex={"\\gamma"} /> es curva integral de <Math tex={"X"} /> si y solo si sus funciones coordenadas satisfacen el sistema de EDOs <Math display tex={"(x^i\\circ\\gamma)'(t)=X^i(\\gamma(t)),\\qquad i=1,\\dots,n."} />
+Si escribimos la curva en coordenadas como <Math display tex={"\\varphi(\\gamma(t))=(x^1(t),\\dots,x^n(t)),"} /> entonces el sistema queda <Math display tex={"\\frac{d x^i}{dt}(t)=X^i(x^1(t),\\dots,x^n(t)),\\qquad i=1,\\dots,n."} />
+</BookBlock>
+
+<span id="da6e6d"></span>
+
+<BookBlock kind="theorem">
+Sean <Math tex={"M,N"} /> variedades suaves y sea <Math tex={"F:M\\to N"} /> una inmersión. Supongamos que
+<Math display tex={"\\dim M=\\dim N."} />
+Entonces <Math tex={"F(M)"} /> es abierto en <Math tex={"N"} />.
+
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in M"} />. Como <Math tex={"F"} /> es una inmersión,
+<Math display tex={"dF_p:T_pM\\to T_{F(p)}N"} />
+es inyectiva.
+2. Como <Math tex={"\\dim M=\\dim N"} />, los espacios vectoriales <Math tex={"T_pM"} /> y <Math tex={"T_{F(p)}N"} /> tienen la misma dimensión. Por lo tanto, <Math tex={"dF_p"} /> es un isomorfismo.
+3. Por el teorema de la función inversa para variedades, existen abiertos <Math tex={"U_p\\subseteq M"} /> y <Math tex={"V_p\\subseteq N"} /> tales que <Math tex={"p\\in U_p"} />, <Math tex={"F(p)\\in V_p"} />, y
+<Math display tex={"F|_{U_p}:U_p\\to V_p"} />
+es un difeomorfismo.
+4. En particular,
+<Math display tex={"F(U_p)=V_p,"} />
+y por lo tanto <Math tex={"F(U_p)"} /> es abierto en <Math tex={"N"} />.
+5. Como esto vale para todo <Math tex={"p\\in M"} />, tenemos
+<Math display tex={"F(M)=\\bigcup_{p\\in M}F(U_p)."} />
+6. Cada <Math tex={"F(U_p)"} /> es abierto en <Math tex={"N"} />, y una unión arbitraria de abiertos es abierta. Por lo tanto,
+<Math display tex={"F(M)"} />
+es abierto en <Math tex={"N"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="corollary">
+Sea <Math tex={"S\\subseteq M"} /> una subvariedad inmersa de <Math tex={"M"} /> mediante la inclusión
+<Math display tex={"\\iota:S\\hookrightarrow M."} />
+Si
+<Math display tex={"\\dim S=\\dim M,"} />
+entonces <Math tex={"S"} /> es abierto en <Math tex={"M"} />.
+
+<Proof title="Demostracion">
+1. Como <Math tex={"S"} /> es una subvariedad inmersa de <Math tex={"M"} />, la inclusión
+<Math display tex={"\\iota:S\\hookrightarrow M"} />
+es una inmersión.
+2. Además, por hipótesis,
+<Math display tex={"\\dim S=\\dim M."} />
+3. Por el teorema anterior,
+<Math display tex={"\\iota(S)"} />
+es abierto en <Math tex={"M"} />.
+4. Como <Math tex={"\\iota"} /> es la inclusión,
+<Math display tex={"\\iota(S)=S."} />
+5. Por lo tanto, <Math tex={"S"} /> es abierto en <Math tex={"M"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="corollary">
+Sea <Math tex={"S\\subseteq M"} /> una subvariedad inmersa de <Math tex={"M"} /> mediante la inclusión
+<Math display tex={"\\iota:S\\hookrightarrow M."} />
+Supongamos que
+<Math display tex={"\\dim S=\\dim M"} />
+y que <Math tex={"S"} /> es cerrado en <Math tex={"M"} />. Entonces <Math tex={"S"} /> es abierto y cerrado en <Math tex={"M"} />.
+
+<Proof title="Demostracion">
+6. Por el corolario anterior, como <Math tex={"\\dim S=\\dim M"} />, tenemos que <Math tex={"S"} /> es abierto en <Math tex={"M"} />.
+7. Por hipótesis, <Math tex={"S"} /> es cerrado en <Math tex={"M"} />.
+8. Por lo tanto, <Math tex={"S"} /> es abierto y cerrado en <Math tex={"M"} />.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="corollary">
+Sea <Math tex={"M"} /> una variedad conexa y sea <Math tex={"S\\subseteq M"} /> una subvariedad inmersa  y <Math tex={"S"} /> cerrado de <Math tex={"M"} /> . Si <Math display tex={"\\dim S=\\dim M,"} /> entonces <Math display tex={"S=\\varnothing \\qquad \\text{o}\\qquad S=M."} />
+<Proof title="Demostracion">
+9. Por el corolario anterior, <Math tex={"S"} /> es abierto y cerrado en <Math tex={"M"} />.
+10. Como <Math tex={"M"} /> es conexa, los únicos subconjuntos de <Math tex={"M"} /> que son abiertos y cerrados son
+<Math display tex={"\\varnothing"} />
+y
+<Math display tex={"M."} />
+11. Por lo tanto,
+<Math display tex={"S=\\varnothing"} />
+o
+<Math display tex={"S=M."} />
+12. En particular, si <Math tex={"S\\neq\\varnothing"} />, entonces <Math display tex={"S=M."} />
+</Proof>
+</BookBlock>
+
+<BookBlock kind="remark" title="Otra forma de ver el ejercicio 7">
+Identificando <Math tex={"\\mathbb R^2\\simeq \\mathbb C"} /> mediante <Math tex={"z=x+iy"} />, la transformación <Math display tex={"\\varphi_t(x,y)=(x\\cos t+y\\sin t,-x\\sin t+y\\cos t)"} />se puede escribir como <Math display tex={"\\varphi_t(z)=e^{-it}z."} />
+En efecto, <Math display tex={"e^{-it}z=(\\cos t-i\\sin t)(x+iy)=(x\\cos t+y\\sin t)+i(-x\\sin t+y\\cos t)."} />
+Si ahora escribimos <Math tex={"z"} /> en coordenadas polares como <Math display tex={"z=re^{i\\theta},"} />entonces <Math display tex={"\\varphi_t(z)=e^{-it}re^{i\\theta}=re^{i(\\theta-t)}."} />
+Así, el radio permanece constante y solo cambia el ángulo. 
+Luego las órbitas, para <Math tex={"z\\neq 0"} />, son circunferencias centradas en el origen.
+El campo generado se obtiene derivando el flujo en <Math tex={"t=0"} />: <Math display tex={"X_z=\\left.\\frac{d}{dt}\\right|_{t=0}\\varphi_t(z)=\\left.\\frac{d}{dt}\\right|_{t=0}e^{-it}z=-iz."} />
+Si <Math tex={"z=x+iy"} />, entonces <Math display tex={"-iz=-i(x+iy)=y-ix."} />
+Por lo tanto, en coordenadas reales, <Math display tex={"X_{(x,y)}=(y,-x)."} />
+Equivalente: <Math display tex={"X=y\\frac{\\partial}{\\partial x}-x\\frac{\\partial}{\\partial y}."} />
+En coordenadas polares esto se interpreta como <Math display tex={"X=-\\frac{\\partial}{\\partial \\theta},"} />
+Para ver de dónde aparece <Math tex={"\\frac{\\partial}{\\partial \\theta}"} />, trabajamos fuera del origen usando coordenadas polares: <Math display tex={"(r,\\theta)\\mapsto (x,y)=(r\\cos\\theta,r\\sin\\theta)."} />  
+Identificando <Math tex={"\\mathbb R^2\\setminus\\{0\\}"} /> con <Math tex={"\\mathbb C^*"} />, escribimos <Math display tex={"z=re^{i\\theta}."} />  
+Como el flujo es <Math display tex={"\\varphi_t(z)=e^{-it}z,"} /> entonces <Math display tex={"\\varphi_t(z)=e^{-it}re^{i\\theta}=re^{i(\\theta-t)}."} />  
+Por lo tanto, en coordenadas polares el flujo se escribe como <Math display tex={"\\widetilde{\\varphi}_t(r,\\theta)=(r,\\theta-t)."} />  
+El campo generado se obtiene derivando respecto de <Math tex={"t"} /> en <Math tex={"t=0"} />: <Math display tex={"X_{(r,\\theta)}=\\left.\\frac{d}{dt}\\right|_{t=0}\\widetilde{\\varphi}_t(r,\\theta)=\\left.\\frac{d}{dt}\\right|_{t=0}(r,\\theta-t)."} />  
+Como <Math display tex={"\\left.\\frac{d}{dt}\\right|_{t=0}r=0"} /> y <Math display tex={"\\left.\\frac{d}{dt}\\right|_{t=0}(\\theta-t)=-1,"} /> obtenemos <Math display tex={"X_{(r,\\theta)}=(0,-1)."} />  
+En una carta con coordenadas <Math tex={"(r,\\theta)"} />, un vector con componentes <Math tex={"(a,b)"} /> se escribe como <Math display tex={"a\\frac{\\partial}{\\partial r}+b\\frac{\\partial}{\\partial \\theta}."} />  
+Entonces <Math display tex={"X=0\\frac{\\partial}{\\partial r}-1\\frac{\\partial}{\\partial \\theta}."} />  
+Por lo tanto, <Math display tex={"X=-\\frac{\\partial}{\\partial \\theta}."} />  
+Conceptualmente, <Math tex={"\\frac{\\partial}{\\partial r}"} /> cambia el radio dejando fijo el ángulo, mientras que <Math tex={"\\frac{\\partial}{\\partial \\theta}"} /> cambia el ángulo dejando fijo el radio. En este caso, <Math display tex={"r(t)=r_0,\\qquad \\theta(t)=\\theta_0-t,"} /> por lo que no hay componente radial y la componente angular es <Math tex={"-1"} />.  
+Esta expresión solo vale en <Math tex={"\\mathbb R^2\\setminus\\{0\\}"} />, porque las coordenadas polares no son una carta en el origen. En el origen se calcula aparte: <Math display tex={"X_0=0."} />
+</BookBlock>
+
+<span id="d158d2"></span>
+
+<BookBlock kind="remark">
+<Fragment slot="title">Extension a todo <Math tex={"W"} /> Ejercicio 10</Fragment>
+Queremos ver que el producto <Math tex={"\\rho_\\alpha\\widetilde X_\\alpha"} />, definido inicialmente en <Math tex={"W_\\alpha"} />, puede verse como un campo suave sobre todo <Math tex={"W"} />.  
+Definimos <Math tex={"Z_\\alpha:W\\to TM"} /> por <Math display tex={"(Z_\\alpha)_q=\\begin{cases}\\rho_\\alpha(q)(\\widetilde X_\\alpha)_q,& q\\in W_\\alpha,\\\\0_q,& q\\notin W_\\alpha.\\end{cases}"} />
+Primero, <Math tex={"Z_\\alpha"} /> está bien definido como campo sobre <Math tex={"W"} />. En efecto, si <Math tex={"q\\in W_\\alpha"} />, entonces <Math tex={"(\\widetilde X_\\alpha)_q\\in T_qM"} />, luego <Math tex={"\\rho_\\alpha(q)(\\widetilde X_\\alpha)_q\\in T_qM"} />. Si <Math tex={"q\\notin W_\\alpha"} />, entonces <Math tex={"0_q\\in T_qM"} />.  
+Veamos que <Math tex={"Z_\\alpha"} /> es suave. Sea <Math tex={"q\\in W"} />.  
+Si <Math tex={"q\\in W_\\alpha"} />, entonces en el abierto <Math tex={"W_\\alpha"} /> tenemos <Math display tex={"Z_\\alpha=\\rho_\\alpha\\widetilde X_\\alpha."} />
+Como <Math tex={"\\rho_\\alpha"} /> es suave y <Math tex={"\\widetilde X_\\alpha"} /> es un campo suave, <Math tex={"Z_\\alpha"} /> es suave cerca de <Math tex={"q"} />.  
+Si <Math tex={"q\\notin W_\\alpha"} />, como <Math tex={"\\operatorname{supp}(\\rho_\\alpha)\\subseteq W_\\alpha"} />, se tiene <Math tex={"q\\notin\\operatorname{supp}(\\rho_\\alpha)"} />. Luego existe un abierto <Math tex={"O\\subseteq W"} /> con <Math tex={"q\\in O"} /> tal que <Math display tex={"O\\cap\\operatorname{supp}(\\rho_\\alpha)=\\varnothing."} />
+Por lo tanto <Math tex={"\\rho_\\alpha=0"} /> en <Math tex={"O"} />, y entonces <Math display tex={"Z_\\alpha=0"} /> en <Math tex={"O"} />. Como el campo cero es suave, <Math tex={"Z_\\alpha"} /> es suave cerca de <Math tex={"q"} />.  
+Concluimos que <Math display tex={"Z_\\alpha\\in\\mathfrak X(W)."} />
+</BookBlock>
+
+<span id="c3dcb6"></span>
+
+<BookBlock kind="proposition" title="Corrección de los abiertos en cartas cúbicas">
+Sea <Math tex={"f:M\\to N"} /> una inmersión. Supongamos que existen cartas cúbicas centradas <Math tex={"(U,\\varphi)"} /> en <Math tex={"p"} /> y <Math tex={"(V,\\psi)"} /> en <Math tex={"f(p)"} /> tales que <Math display tex={"\\varphi(U)=(-\\varepsilon,\\varepsilon)^m,\\qquad \\psi(V)=(-\\delta,\\delta)^n,"} /> y <Math display tex={"\\psi\\circ f\\circ\\varphi^{-1}(x_1,\\ldots,x_m)=(x_1,\\ldots,x_m,0,\\ldots,0)."} /> Entonces existen abiertos más pequeños <Math tex={"U_\\rho\\subseteq U"} /> y <Math tex={"V_\\rho\\subseteq V"} /> tales que <Math tex={"p\\in U_\\rho"} />, <Math tex={"f(p)\\in V_\\rho"} />, <Math tex={"f(U_\\rho)\\subseteq V_\\rho"} />, y para todo <Math tex={"r\\in V_\\rho"} /> la composición <Math display tex={"a_k\\circ\\varphi^{-1}\\circ\\pi\\circ\\psi(r)"} /> está bien definida, donde <Math tex={"\\pi:\\mathbb R^n\\to\\mathbb R^m"} /> está dada por <Math display tex={"\\pi(y_1,\\ldots,y_n)=(y_1,\\ldots,y_m)."} />
+<Proof title="Demostracion">
+1. El problema es que, si definimos <Math display tex={"A_k=a_k\\circ\\varphi^{-1}\\circ\\pi\\circ\\psi,"} /> esta función solo tiene sentido en los puntos <Math tex={"r\\in V"} /> tales que <Math display tex={"\\pi(\\psi(r))\\in\\varphi(U)."} />
+2. Como <Math display tex={"\\varphi(U)=(-\\varepsilon,\\varepsilon)^m,\\qquad \\psi(V)=(-\\delta,\\delta)^n,"} /> elegimos <Math display tex={"0<\\rho<\\min\\{\\varepsilon,\\delta\\}."} />
+3. Definimos los abiertos restringidos <Math display tex={"U_\\rho:=\\varphi^{-1}\\big((-\\rho,\\rho)^m\\big),\\qquad V_\\rho:=\\psi^{-1}\\big((-\\rho,\\rho)^n\\big)."} />
+4. Como las cajas <Math tex={"(-\\rho,\\rho)^m"} /> y <Math tex={"(-\\rho,\\rho)^n"} /> son abiertas, se sigue que <Math tex={"U_\\rho"} /> es abierto en <Math tex={"M"} /> y <Math tex={"V_\\rho"} /> es abierto en <Math tex={"N"} />.
+5. Además, como las cartas están centradas en <Math tex={"p"} /> y en <Math tex={"f(p)"} />, tenemos <Math display tex={"\\varphi(p)=0,\\qquad \\psi(f(p))=0."} /> Por lo tanto, <Math display tex={"p\\in U_\\rho,\\qquad f(p)\\in V_\\rho."} />
+6. Veamos que la composición <Math tex={"a_k\\circ\\varphi^{-1}\\circ\\pi\\circ\\psi"} /> está bien definida en todo <Math tex={"V_\\rho"} />. Sea <Math tex={"r\\in V_\\rho"} />. Entonces <Math display tex={"\\psi(r)\\in(-\\rho,\\rho)^n."} /> Por lo tanto, <Math display tex={"\\pi(\\psi(r))\\in(-\\rho,\\rho)^m."} />
+7. Como <Math tex={"\\rho<\\varepsilon"} />, tenemos <Math display tex={"(-\\rho,\\rho)^m\\subseteq(-\\varepsilon,\\varepsilon)^m=\\varphi(U)."} /> Luego <Math display tex={"\\pi(\\psi(r))\\in\\varphi(U),"} /> y entonces <Math display tex={"\\varphi^{-1}(\\pi(\\psi(r)))"} /> está bien definido.
+8. Por lo tanto, para <Math tex={"1\\leq k\\leq m"} />, la función <Math display tex={"A_k(r):=a_k\\big(\\varphi^{-1}(\\pi(\\psi(r)))\\big)"} /> está bien definida para todo <Math tex={"r\\in V_\\rho"} />.
+9. Ahora veamos que <Math tex={"f(U_\\rho)\\subseteq V_\\rho"} />. Sea <Math tex={"q\\in U_\\rho"} />. Entonces <Math display tex={"\\varphi(q)\\in(-\\rho,\\rho)^m."} />
+10. Usando la forma local de la inmersión, obtenemos <Math display tex={"\\psi(f(q))=(\\varphi(q),0,\\ldots,0)."} />
+11. Como <Math tex={"\\varphi(q)\\in(-\\rho,\\rho)^m"} />, se tiene <Math display tex={"\\psi(f(q))\\in(-\\rho,\\rho)^n."} />
+12. Por definición de <Math tex={"V_\\rho"} />, esto implica que <Math display tex={"f(q)\\in V_\\rho."} />
+13. Como esto vale para todo <Math tex={"q\\in U_\\rho"} />, concluimos que <Math display tex={"f(U_\\rho)\\subseteq V_\\rho."} />
+14. Así, reemplazando <Math tex={"U"} /> por <Math tex={"U_\\rho"} /> y <Math tex={"V"} /> por <Math tex={"V_\\rho"} />, podemos definir sin ambigüedad <Math display tex={"A_k(r)=a_k\\big(\\varphi^{-1}(\\pi(\\psi(r)))\\big),\\qquad r\\in V_\\rho,\\quad 1\\leq k\\leq m,"} /> y <Math display tex={"A_k(r)=0,\\qquad r\\in V_\\rho,\\quad m<k\\leq n."} />
+</Proof>
+</BookBlock>
+
+<span id="fd9e9b"></span>
+
+
+## Practico 5
+
+<BookBlock kind="proposition">
+Si <Math tex={"w"} /> es multi lineal y alternada entonces si <Math tex={"v_{i}=v_{j}"} /> <Math display tex={"w(v_{1},\\ldots,v_{i},\\ldots,v_{j},\\ldots,v_{n})=0"} />
+Osea si repetimos dos coordenadas en la entrada nos da <Math tex={"0"} />.
+<Proof title="Demostracion">
+1. Por ser alternada <Math tex={"w(v_{1},\\ldots,v_{i},\\ldots,v_{j},\\ldots,v_{n})=-w(v_{1},\\ldots,v_{j},\\ldots,v_{i},\\ldots,v_{n})"} /> 
+2. Pero <Math tex={"-w(v_{1},\\ldots,v_{j},\\ldots,v_{i},\\ldots,v_{n})=-w(v_{1},\\ldots,v_{i},\\ldots,v_{j},\\ldots,v_{n})"} /> por que <Math tex={"v_{i}=v_{j}"} />
+3. Entonces <Math tex={"2w(v_{1},\\ldots,v_{i},\\ldots,v_{j},\\ldots,v_{n})=0"} />
+4. Por lo tanto <Math tex={"w(v_{1},\\ldots,v_{i},\\ldots,v_{j},\\ldots,v_{n})=0"} /> 
+</Proof>
+</BookBlock>
+
+<span id="9b49d4"></span>
+
+<BookBlock kind="proposition">
+Si <Math tex={"X,Y\\in\\mathfrak X(M)"} /> y en una carta local <Math tex={"(U,x^1,\\ldots,x^n)"} /> escribimos <Math tex={"X=\\sum_j X^j\\frac{\\partial}{\\partial x^j}"} /> y <Math tex={"Y=\\sum_j Y^j\\frac{\\partial}{\\partial x^j}"} />, entonces
+<Math display tex={"[X,Y]=\\sum_i\\left(\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_j Y^j\\frac{\\partial X^i}{\\partial x^j}\\right)\\frac{\\partial}{\\partial x^i}."} />
+<Proof title="Demostracion">
+1. Por definición del corchete de Lie, para toda función suave <Math tex={"f\\in C^\\infty(U)"} /> se tiene <Math display tex={"[X,Y](f)=X(Y(f))-Y(X(f))."} />
+2. Como <Math tex={"[X,Y]"} /> es un campo vectorial, en coordenadas se puede escribir <Math display tex={"[X,Y]=\\sum_i [X,Y]^i\\frac{\\partial}{\\partial x^i}."} />
+3. Para encontrar el coeficiente <Math tex={"[X,Y]^i"} />, evaluamos el campo <Math tex={"[X,Y]"} /> en la función coordenada <Math tex={"x^i"} />. Como <Math tex={"\\frac{\\partial}{\\partial x^k}(x^i)=\\delta^i_k"} />, se tiene <Math display tex={"[X,Y](x^i)=\\sum_k [X,Y]^k\\frac{\\partial x^i}{\\partial x^k}=\\sum_k [X,Y]^k\\delta^i_k=[X,Y]^i."} />
+4. Por otro lado, usando la definición del corchete, <Math display tex={"[X,Y](x^i)=X(Y(x^i))-Y(X(x^i))."} />
+5. Como <Math tex={"Y=\\sum_j Y^j\\frac{\\partial}{\\partial x^j}"} />, entonces <Math display tex={"Y(x^i)=\\sum_j Y^j\\frac{\\partial x^i}{\\partial x^j}=\\sum_j Y^j\\delta^i_j=Y^i."} />
+6. Análogamente, <Math display tex={"X(x^i)=X^i."} />
+7. Entonces <Math display tex={"[X,Y](x^i)=X(Y^i)-Y(X^i)."} />
+8. Usando que <Math tex={"X=\\sum_j X^j\\frac{\\partial}{\\partial x^j}"} /> y <Math tex={"Y=\\sum_j Y^j\\frac{\\partial}{\\partial x^j}"} />, obtenemos <Math display tex={"X(Y^i)=\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j},\\qquad Y(X^i)=\\sum_j Y^j\\frac{\\partial X^i}{\\partial x^j}."} />
+9. Por lo tanto, <Math display tex={"[X,Y](x^i)=\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_j Y^j\\frac{\\partial X^i}{\\partial x^j}."} />
+10. Pero por el paso 3, <Math tex={"[X,Y](x^i)=[X,Y]^i"} />. Luego <Math display tex={"[X,Y]^i=\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_j Y^j\\frac{\\partial X^i}{\\partial x^j}."} />
+11. Sustituyendo estos coeficientes en la expresión coordenada de <Math tex={"[X,Y]"} />, concluimos que <Math display tex={"[X,Y]=\\sum_i\\left(\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_j Y^j\\frac{\\partial X^i}{\\partial x^j}\\right)\\frac{\\partial}{\\partial x^i}."} />
+</Proof>
+</BookBlock>
+
+<span id="0415b0"></span>
+
+<BookBlock kind="remark">
+Supongamos que en coordenadas tenemos <Math display tex={"\\omega=\\sum_i a_i\\,dx^i"} /> y <Math display tex={"[X,Y]=\\sum_i\\left(\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_jY^j\\frac{\\partial X^i}{\\partial x^j}\\right)\\frac{\\partial}{\\partial x^i}."} />
+Para simplificar la notación, llamemos <Math display tex={"[X,Y]^i=\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_jY^j\\frac{\\partial X^i}{\\partial x^j}."} />
+Entonces <Math display tex={"[X,Y]=\\sum_k [X,Y]^k\\frac{\\partial}{\\partial x^k}."} />
+Evaluamos <Math tex={"\\omega"} /> en <Math tex={"[X,Y]"} />: <Math display tex={"\\omega([X,Y])=\\left(\\sum_i a_i\\,dx^i\\right)\\left(\\sum_k [X,Y]^k\\frac{\\partial}{\\partial x^k}\\right)."} />
+Usando la linealidad de la <Math tex={"1"} />-forma en el vector de entrada, obtenemos <Math display tex={"\\omega([X,Y])=\\sum_{i,k}a_i[X,Y]^k\\,dx^i\\left(\\frac{\\partial}{\\partial x^k}\\right)."} />
+Como <Math tex={"dx^i"} /> es la base dual de <Math tex={"\\frac{\\partial}{\\partial x^1},\\ldots,\\frac{\\partial}{\\partial x^n}"} />, tenemos <Math display tex={"dx^i\\left(\\frac{\\partial}{\\partial x^k}\\right)=\\delta^i_k."} />
+Por lo tanto, <Math display tex={"\\omega([X,Y])=\\sum_{i,k}a_i[X,Y]^k\\delta^i_k."} />
+La delta de Kronecker elimina todos los términos salvo aquellos con <Math tex={"i=k"} />, entonces <Math display tex={"\\omega([X,Y])=\\sum_i a_i[X,Y]^i."} />
+Finalmente, reemplazando la expresión de <Math tex={"[X,Y]^i"} />, queda <Math display tex={"\\omega([X,Y])=\\sum_i a_i\\left(\\sum_j X^j\\frac{\\partial Y^i}{\\partial x^j}-\\sum_jY^j\\frac{\\partial X^i}{\\partial x^j}\\right)."} />
+</BookBlock>
+
+<span id="151174"></span>
+
+<BookBlock kind="proposition">
+<Fragment slot="title"><Math tex={"dg=0"} /> implica <Math tex={"g"} /> localmente constante</Fragment>
+Let <Math tex={"M"} /> be a smooth manifold, let <Math tex={"U\\subset M"} /> be open, and let <Math tex={"g\\in C^\\infty(U)"} />. If <Math display tex={"dg=0,"} /> then <Math tex={"g"} /> is locally constant.
+<Proof title="Demostracion">
+1. Fix an arbitrary point <Math tex={"p\\in U"} />.
+2. Choose a smooth coordinate chart around <Math tex={"p"} />, say <Math display tex={"(W,r),"} /> with <Math tex={"p\\in W\\subset U"} /> and <Math tex={"W"} /> connected.
+3. Since <Math display tex={"dg=0,"} /> for every <Math tex={"q\\in W"} /> we have <Math display tex={"0=(dg)_q\\left(\\frac{\\partial}{\\partial r}\\bigg|_q\\right)."} />
+4. By definition of the differential of a smooth function, <Math display tex={"(dg)_q\\left(\\frac{\\partial}{\\partial r}\\bigg|_q\\right)=\\frac{\\partial g}{\\partial r}(q)."} />
+5. Therefore, for every <Math tex={"q\\in W"} />, <Math display tex={"\\frac{\\partial g}{\\partial r}(q)=0."} />
+6. Let <Math tex={"\\widetilde g=g\\circ r^{-1}"} /> be the coordinate representation of <Math tex={"g"} />. Then <Math display tex={"\\frac{d\\widetilde g}{dr}=0"} /> on the interval <Math tex={"r(W)\\subset\\mathbb R"} />.
+7. By the ordinary one-variable result from calculus, <Math tex={"\\widetilde g"} /> is constant on <Math tex={"r(W)"} />.
+8. Therefore <Math tex={"g"} /> is constant on <Math tex={"W"} />. (esto es por que la carta coordenada es una biyecion) 
+9. Since every point <Math tex={"p\\in U"} /> has a neighborhood <Math tex={"W"} /> on which <Math tex={"g"} /> is constant, <Math tex={"g"} /> is locally constant.
+</Proof>
+</BookBlock>
+
+<span id="8cc5ce"></span>
+
+

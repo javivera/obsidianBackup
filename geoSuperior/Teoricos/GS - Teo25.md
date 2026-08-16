@@ -9,12 +9,12 @@
 >
 >Su clausura es acotada, entonces es compacta.
 
->[!Definition] $n$-forma suave en conjuntos cerrados
+>[!Definition] n-forma suave en conjuntos cerrados
 >Sea $A$ un subconjunto cerrado de $\mathbb R^n$. Una $n$-forma $\omega$ sobre $A$ es un tensor de la forma
 >$$\omega=f\,dx_1\wedge\cdots\wedge dx_n,$$
 >donde $f$ es suave sobre $A$.
 >
->Recordemos que, por aplicacion de particiones de la unidad [[GS - Teo8#^b5794a]], si $f$ es suave sobre $A$ cerrado entonces existe $\widetilde f\in C^\infty(\mathbb{R}^{n})$, donde $A\subseteq U$, y $\widetilde f=f$ sobre $A$.
+>Recordemos que, por aplicacion de particiones de la unidad, $f$ es suave sobre $A$ si existe $\widetilde f\in C^\infty(U)$, donde $A\subseteq U$, y $\widetilde f=f$ sobre $A$.
 
 >[!Definition] Integral sobre un dominio de integracion
 >Sea $D$ un dominio de integracion y sea $\omega$ una $n$-forma suave sobre $\overline D$, digamos
@@ -33,7 +33,7 @@
 
 ^322b65
 
->[!Definition]
+>[!Definition] Integracion de n formas
 >Sea $U\subseteq\mathbb R^n$ un abierto y sea $\omega\in\Omega^n(U)$ tal que $\operatorname{sop}(\omega):=\{p\in U:\omega_p\neq0\}$ es un subconjunto compacto. Se define
 >$$\int_U\omega:=\int_D\omega,$$
 >donde $D$ es cualquier dominio de integracion de $\mathbb R^n$ tal que
@@ -56,11 +56,11 @@
 ## Integracion sobre variedades
 
 >[!Definition] Integracion sobre variedades
->Sea $M$ variedad suave orientada y sea $\omega\in\Omega^n(M)$ una $n$-forma suave arbitraria. Estudiemos primero el caso en que $\operatorname{sop}\omega$ es compacto y esta contenido en $U$, donde $U$ es el dominio de una carta $(U,\varphi=(x_1,\ldots,x_n))$ positivamente orientada.
+>Sea $M$ variedad suave orientable y sea $\omega\in\Omega^n(M)$ una $n$-forma suave arbitraria. Estudiemos primero el caso en que $\operatorname{sop}\omega$ es compacto y esta contenido en $U$, donde $U$ es el dominio de una carta $(U,\varphi=(x_1,\ldots,x_n))$ positivamente orientada.
 >
->Tenemos $$\omega|_U=f\,dx_1\wedge\cdots\wedge dx_n$$y $\operatorname{sop}(\omega)=\operatorname{sop}(f)\subseteq U$. 
->Como $\varphi$ es un homeomorfismo, tenemos $$\widetilde f=f\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb R^n\to\mathbb R.$$ tiene soporte compacto y es integrable sobre el abierto $\varphi(U)$. 
->Esto es por que $$\operatorname{sup}\widetilde{f}=\varphi(\operatorname{supp}(f))$$ 
+>Tenemos $$\omega|_U=f\,dx_1\wedge\cdots\wedge dx_n$$y $\operatorname{sop}(\omega)=\operatorname{sop}(f)\subseteq U$.
+>Como $\varphi$ es un homeomorfismo, tenemos $$\widetilde f=f\circ\varphi^{-1}:\varphi(U)\subseteq\mathbb R^n\to\mathbb R.$$ tiene soporte compacto y es integrable sobre el abierto $\varphi(U)$.
+>Esto es por que $$\operatorname{sup}\widetilde{f}=\varphi(\operatorname{supp}(f))$$
 >Entonces se define $$\int_M\omega:=\int_{\varphi(U)}f\circ\varphi^{-1}(x_1,\ldots,x_n)\,dx_1\cdots dx_n.$$
 
 ^11f3f1
@@ -117,43 +117,52 @@
 >$$-A=\{(U_\alpha,\widehat\varphi_\alpha=(-x_1^\alpha,x_2^\alpha,\ldots,x_n^\alpha))\}.$$
 >Es facil ver que $-A$ es un atlas de orientacion sobre $M$, y se llama la orientacion opuesta sobre $M$. Denotamos por $-M$ a $(M,-A)$.
 
->[!Definition] $n$-forma de volumen (positivamente orientada)
->Sea $(M,A)$ una variedad orientada y $\omega\in\Omega^n(M)$ nunca nula. Se dice que $\omega$ esta positivamente orientada si
+>[!Definition] $n$-forma positivamente orientada
+>Sea $(M,A)$ una variedad orientable y $\omega\in\Omega^n(M)$ nunca nula. Se dice que $\omega$ esta positivamente orientada si
 >$$\omega_p\left(\frac{\partial}{\partial x_1}\bigg|_p,\ldots,\frac{\partial}{\partial x_n}\bigg|_p\right)>0$$
 >para todo $p\in M$ y toda carta $(U,\varphi=(x_1,\ldots,x_n))$ en $A$.
+
+^46786b
 
 >[!Definition] Difeomorfismo que preserva orientacion
 >Sean $M$ y $N$ variedades orientadas y sea $F:M\to N$ un difeomorfismo local. Se dice que $F$ preserva la orientacion si para cada $p\in M$, $(dF)_p$ manda bases positivamente orientadas de $T_pM$ a bases positivamente orientadas de $T_{F(p)}N$. De manera dual, se define que $F$ reversa la orientacion.
 
 >[!Proposition] Propiedades de integrales de formas
 >Sean $M$ y $N$ variedades orientadas de dimension $n$, y sean $\omega$ y $\eta$ $n$-formas con soporte compacto sobre $M$.
->- (i) Linealidad: si $a,b\in\mathbb R$, entonces $$\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta.$$
->- (ii) Orientacion opuesta: $$\int_{-M}\omega=-\int_M\omega.$$
->- (iii) Positividad: sea $M$ compacta. Si $\omega$ es una $n$-forma positivamente orientada, entonces $$\int_M\omega>0.$$
->- (iv) Invariancia por difeomorfismos: si $F:N\to M$ preserva la orientacion o reversa la orientacion, entonces $$\int_M\omega=\begin{cases}\int_NF^*\omega,&\text{si }F\text{ preserva},\\-\int_NF^*\omega,&\text{si }F\text{ reversa}.\end{cases}$$
 >
->>[!Proof]
->>- (i) 
->>	1. Como $$\operatorname{sop}(a\omega+b\eta)\subseteq\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta),$$y $\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta)$ es compacto, tomamos un cubrimiento abierto $\{U_i\}$ de este compacto por dominios de cartas positivamente orientadas. Este cubrimiento existe, por que las cartas cubren todo $M$ en particular cubren dichos soportes que son subconjuntos de $M$  
->>	2. Este mismo sirve para $\operatorname{sop}(a\omega+b\eta)$. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Por independencia de la integral respecto del cubrimiento y de la particion, $$\begin{align*}\int_M(a\omega+b\eta)&=\sum_i\int_{U_i}\rho_i(a\omega+b\eta)\\&=\sum_i\int_{\varphi_i(U_i)}\bigl((a\rho_i f+b\rho_i g)\circ\varphi_i^{-1}\bigr)\\&=\sum_i\int_{\varphi_i(U_i)}\left(a(\rho_i f\circ\varphi_i^{-1})+b(\rho_i g\circ\varphi_i^{-1})\right)\\&=\sum_i\left(a\int_{\varphi_i(U_i)}(\rho_i f)\circ\varphi_i^{-1}+b\int_{\varphi_i(U_i)}(\rho_i g)\circ\varphi_i^{-1}\right)\\&=a\sum_i\int_{U_i}\rho_i\omega+b\sum_i\int_{U_i}\rho_i\eta\\&=a\int_M\omega+b\int_M\eta.\end{align*}$$
->>- (ii) 
->>	1. Primero vemos el caso en que $\operatorname{sop}\omega$ cae en el dominio de una carta positivamente orientada $(U,\varphi=(x_1,\ldots,x_n))$. Entonces $(U,\widetilde\varphi=(-x_1,x_2,\ldots,x_n))$ es una carta de $-M$ y $\widetilde\varphi=T\circ\varphi$, con $T(y_1,\ldots,y_n)=(-y_1,y_2,\ldots,y_n)$.
->>	2. Ahora si llamamos $-x_{1}:=y_{1}$ y $x_{i}=y_{i}$ para $i>1$, tenemos que $(U,\widetilde\varphi=(-x_1,x_2,\ldots,x_n))=(U,\widetilde\varphi=(y_1,y_2,\ldots,y_n))$ es una carta positivamente orientada con respecto al atlas inverso $-U$    
->>	3. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n=-f\,d(-x_1)\wedge dx_2\wedge\cdots\wedge dx_n=-fdy_{1}\wedge\ldots\wedge dy_{n}$$entonces, considerando que $\det D T=-1$ (y usando modulo), por teorema de cambio de variables tenemos: $$\int_{-U}\omega=\int_{\widetilde{\varphi}(U)}(-f\circ\widetilde\varphi^{-1})\,dy_1\cdots dy_n =-\int_{\varphi(U)}f\circ\varphi^{-1}|\det DT|dx_1\cdots dx_n=-\int_U\omega.$$
->>	4. El caso general se obtiene cubriendo $\operatorname{sop}\omega$ por dominios de cartas positivamente orientadas $\{U_i\}$, usando las cartas negativamente orientadas $(U_i,T\circ\varphi_i)$ y una particion de la unidad.
->>- (iii) 
->>	1. Como $\omega$ es positivamente orientada, si $(U,\varphi=(x_1,\ldots,x_n))$ es una carta positivamente orientada, entonces $$\omega|_U=f\,dx_1\wedge\cdots\wedge dx_n,\qquad f(p)>0\quad\forall p\in U.$$
->>	2. Como $M$ es compacta, podemos cubrirla con una familia finita de abiertos $\{U_i\}$ que son dominios de cartas positivamente orientadas. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Tenemos $$\int_M\omega=\sum_i\int_{U_i}\rho_i\omega.$$
->>	3. Como $\rho_i\ge0$ y $f_i>0$, entonces $\rho_if_i\ge0$, asi que $$\int_{U_i}\rho_i\omega\ge0$$por Analisis III. 
->>	4. Por otro lado, dado $p\in M$, $\sum_i\rho_i(p)=1$, entonces existe $i$ tal que $\rho_i(p)>0$. Por continuidad, $\rho_i>0$ en un abierto que contiene a $p$, y por lo tanto $\rho_if_i>0$ en un abierto de $U_i$, lo que implica $$\int_{U_i}\rho_i\omega>0$$para algun $i$.
+>2. Linealidad: si $a,b\in\mathbb R$, entonces
+>$$\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta.$$
+>3. Orientacion opuesta:
+>$$\int_{-M}\omega=-\int_M\omega.$$
+>4. Positividad: sea $M$ compacta. Si $\omega$ es una $n$-forma positivamente orientada, entonces
+>$$\int_M\omega>0.$$
+>5. Invariancia por difeomorfismos: si $F:N\to M$ preserva la orientacion o reversa la orientacion, entonces
+>$$\int_M\omega=
+>\begin{cases}
+>\int_NF^*\omega,&\text{si }F\text{ preserva},\\
+>-\int_NF^*\omega,&\text{si }F\text{ reversa}.
+>\end{cases}$$
+>
+>>[!Proof]-
+>>- (i)
+>>1. Como $$\operatorname{sop}(a\omega+b\eta)\subseteq\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta),$$y $\operatorname{sop}(\omega)\cup\operatorname{sop}(\eta)$ es compacto, tomamos un cubrimiento abierto $\{U_i\}$ de este compacto por dominios de cartas positivamente orientadas.
+>>2. Este mismo sirve para $\operatorname{sop}(a\omega+b\eta)$. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Por independencia de la integral respecto del cubrimiento y de la particion, $$\begin{align} \int_Ma\omega+b\eta& =\sum_i\int_{U_i}\rho_i(a\omega+b\eta)\\&=\sum_i\left(a\int_{U_i}\rho_i\omega+b\int_{U_i}\rho_i\eta\right)\\&=a\int_M\omega+b\int_M\eta\end{align}$$
+>>- (ii)
+>>1. Primero vemos el caso en que $\operatorname{sop}\omega$ cae en el dominio de una carta positivamente orientada $(U,\varphi=(x_1,\ldots,x_n))$. Entonces $(U,\widetilde\varphi=(-x_1,x_2,\ldots,x_n))$ es una carta de $-M$ y $\widetilde\varphi=T\circ\varphi$, con $T(y_1,\ldots,y_n)=(-y_1,y_2,\ldots,y_n)$.
+>>2. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n=-f\,d(-x_1)\wedge dx_2\wedge\cdots\wedge dx_n,$$entonces, tomando $D$ dominio de integracion abierto que contiene el soporte, $$\int_{-U}\omega=\int_D(-f\circ\widetilde\varphi^{-1})\,ds_1\cdots ds_n =-\int_{\varphi(U)}f\circ\varphi^{-1}\,dx_1\cdots dx_n=-\int_U\omega.$$
+>>3. El caso general se obtiene cubriendo $\operatorname{sop}\omega$ por dominios de cartas positivamente orientadas $\{U_i\}$, usando las cartas negativamente orientadas $(U_i,T\circ\varphi_i)$ y una particion de la unidad.
+>>- (iii)
+>>1. Como $\omega$ es positivamente orientada, si $(U,\varphi=(x_1,\ldots,x_n))$ es una carta positivamente orientada, entonces $$\omega|_U=f\,dx_1\wedge\cdots\wedge dx_n,\qquad f(p)>0\quad\forall p\in U.$$
+>>2. Como $M$ es compacta, podemos cubrirla con una familia finita de abiertos $\{U_i\}$ que son dominios de cartas positivamente orientadas. Sea $\{\rho_i\}$ una particion de la unidad subordinada a $\{U_i\}$. Tenemos $$\int_M\omega=\sum_i\int_{U_i}\rho_i\omega.$$
+>>3. Como $\rho_i\ge0$ y $f_i>0$, entonces $\rho_if_i\ge0$, asi que $$\int_{U_i}\rho_i\omega\ge0$$por Analisis III.
+>>4. Por otro lado, dado $p\in M$, $\sum_i\rho_i(p)=1$, entonces existe $i$ tal que $\rho_i(p)>0$. Por continuidad, $\rho_i>0$ en un abierto que contiene a $p$, y por lo tanto $\rho_if_i>0$ en un abierto de $U_i$, lo que implica $$\int_{U_i}\rho_i\omega>0$$para algun $i$.
 >>- (iv)
->>	1. Supongamos primero el caso donde $\operatorname{sop}\omega$ esta contenido en el dominio de una carta positivamente orientada $(U,\varphi)$. Como $F:N\to M$ es difeomorfismo y preserva la orientacion o reversa la orientacion, entonces $(F^{-1}(U),\varphi\circ F)$ es una carta positivamente orientada de $N$ o negativamente orientada, respectivamente, que contiene al soporte de $F^*\omega$.
->>	2. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n\quad\text{sobre }U,$$entonces $$F^*\omega=(f\circ F)\,d(x_1\circ F)\wedge\cdots\wedge d(x_n\circ F).$$
->>	3. Si $F$ preserva orientacion, usando la carta $(F^{-1}(U),\varphi\circ F)$, $$\int_NF^*\omega=\int_{F^{-1}(U)}F^*\omega=\int_{\varphi(U)}(f\circ F)\circ(\varphi\circ F)^{-1}\,dr_1\cdots dr_n=\int_M\omega.$$
->>	4. Si $F$ invierte la orientacion entonces podemos considerar $$F:M\rightarrow -N$$ osea la misma funcion pero cambiando la orientacion en el codominio. 
->>	5. Entonces ahora $F$ preserva orientacion luego por lo que hicimos recien se cumple $$\int_{-N}F^*\omega=\int_M\omega.$$
->>	6. Y por (ii) sabemos $$\int_{-N}F^*\omega=-\int_NF^{*} \omega.$$  
- 
+>>1. Supongamos primero el caso donde $\operatorname{sop}\omega$ esta contenido en el dominio de una carta positivamente orientada $(U,\varphi)$. Como $F:N\to M$ es difeomorfismo y preserva la orientacion o reversa la orientacion, entonces $(F^{-1}(U),\varphi\circ F)$ es una carta positivamente orientada de $N$ o negativamente orientada, respectivamente, que contiene al soporte de $F^*\omega$.
+>>2. Si $$\omega=f\,dx_1\wedge\cdots\wedge dx_n\quad\text{sobre }U,$$entonces $$F^*\omega=(f\circ F)\,d(x_1\circ F)\wedge\cdots\wedge d(x_n\circ F).$$
+>>3. Si $F$ preserva orientacion, usando la carta $(F^{-1}(U),\varphi\circ F)$, $$\int_NF^*\omega=\int_{F^{-1}(U)}F^*\omega=\int_{\varphi(U)}(f\circ F)\circ(\varphi\circ F)^{-1}\,dx_1\cdots dx_n=\int_M\omega.$$
+>>4. Si $F$ invierte la orientacion, se usa la carta positiva respecto de $N$ obtenida al cambiar el signo de la primera coordenada, y queda $$\int_NF^*\omega=-\int_M\omega.$$
+>>5. El caso general es directo usando el caso anterior y la definicion de integral por cubrimiento de dominios de cartas positivamente orientadas.
+
 >[!Proposition] Integracion sobre parametrizaciones
 >Sea $M$ variedad orientada de dimension $n$ y sea $\omega$ una $n$-forma de soporte compacto. Supongamos que hay $D_1,\ldots,D_k$ dominios de integracion abiertos de $\mathbb R^n$ y funciones suaves $F_i:\overline{D_i}\to M$ que satisfacen:
 >- (a) $F_i:D_i\subseteq\mathbb R^n\to W_i$ es un difeomorfismo sobre $W_i$ abierto de $M$.
@@ -162,8 +171,8 @@
 >
 >Entonces: $$\int_M\omega=\sum_{i=1}^k\int_{D_i}F_i^*\omega.$$
 >
->>[!Proof]
->>7. No la hizo
+>>[!Proof]-
+>>1. No la hizo
 
 >[!Remark]
 >Para la prueba, se necesita usar propiedades de las integrales.
@@ -175,3 +184,5 @@
 >7. Si $f\ge0$ en $D$, entonces $\int_Df\,dV\ge0$, con igualdad si y solo si $f\equiv0$ en $\operatorname{int}D$.
 >8. $$(\inf_Df)\operatorname{Vol}(D)\le\int_Df\,dV\le(\sup_Df)\operatorname{Vol}(D).$$
 >9. $$\left|\int_Df\,dV\right|\le\int_D|f|\,dV.$$
+
+

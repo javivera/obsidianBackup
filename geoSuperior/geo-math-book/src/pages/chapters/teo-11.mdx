@@ -1,0 +1,185 @@
+---
+layout: ../../layouts/BookLayout.astro
+title: "Lema de factorización MUY IMPORTANTE"
+description: "Teorico convertido desde GS - Teo11.md"
+chapter: "Teo 11"
+---
+
+import BookBlock from "../../components/BookBlock.astro";
+import Math from "../../components/Math.astro";
+import Proof from "../../components/Proof.astro";
+import PreviewLink from "../../components/PreviewLink.astro";
+
+# Lema de factorización MUY IMPORTANTE
+
+
+<BookBlock kind="proposition" title="Existencia de cartas dado diferenciales" id="existencia-cartas-dado-diferenciales">
+Sea <Math tex={"M"} /> variedad suave de dimensión <Math tex={"m"} /> y sea <Math tex={"k\\ge m"} />. Si <Math display tex={"\\{y_1,\\ldots,y_k\\}"} /> es un conjunto de funciones suaves definidas en un abierto <Math tex={"U"} /> de <Math tex={"M"} /> en <Math tex={"p"} /> tal que <Math display tex={"\\{(dy_1)_p,\\ldots,(dy_k)_p\\}"} /> generan <Math tex={"T_p^\\ast M"} />, entonces existe un subconjunto <Math display tex={"\\{i_1,\\ldots,i_m\\}\\subseteq\\{1,\\ldots,k\\}"} /> tal que <Math display tex={"\\psi=(y_{i_1},\\ldots,y_{i_m})"} /> define una carta suave en algún abierto de <Math tex={"p"} />.
+<Proof title="Demostracion">
+1. Como <Math tex={"\\{(dy_j)_p:j\\in\\{1,\\ldots,k\\}\\}"} /> genera <Math tex={"T_p^\\ast M"} />, entonces contiene una base <Math display tex={"\\{(dy_{i_1})_p,\\ldots,(dy_{i_m})_p\\}"} /> de <Math tex={"T_p^\\ast M"} />.
+2. Por <PreviewLink href="/chapters/teo-10#2b23b2" label="Proposicion" title="Proposicion" />, la aplicación <Math display tex={"\\psi=(y_{i_1},\\ldots,y_{i_m})"} /> define una carta suave en cierto abierto de <Math tex={"p"} />.
+</Proof>
+</BookBlock>
+
+<span id="49431b"></span>
+
+<BookBlock kind="corollary">
+Sean <Math tex={"M"} /> y <Math tex={"N"} /> variedades suaves de dimensión <Math tex={"m"} /> y <Math tex={"n"} />, respectivamente. Sea <Math display tex={"F:M\\to N"} /> suave y supongamos que <Math display tex={"(dF)_p:T_pM\\to T_{F(p)}N"} /> es inyectiva, y por tanto <Math tex={"m\\le n"} />. (Osea <Math tex={"F"} /> es inmersion) 
+Si <Math tex={"(V,\\varphi=(x_1,\\ldots,x_n))"} /> es una carta suave de <Math tex={"N"} /> en <Math tex={"F(p)"} />, entonces existen <Math display tex={"i_1,\\ldots,i_m\\in\\{1,\\ldots,n\\}"} /> tales que <Math display tex={"\\psi=(x_{i_1}\\circ F,\\ldots,x_{i_m}\\circ F)"} /> define una carta suave de <Math tex={"M"} /> en cierto abierto de <Math tex={"p"} />.
+<Proof title="Demostracion">
+1. Para usar el <PreviewLink href="/chapters/teo-11#existencia-cartas-dado-diferenciales" label="resultado anterior" title="Proposicion: Existencia de cartas dado diferenciales" />, alcanza con ver que <Math display tex={"\\{d(x_1\\circ F)_p,\\ldots,d(x_n\\circ F)_p\\}"} /> genera <Math tex={"T_p^\\ast M"} />.
+2. Como <Math display tex={"(dF)_p:T_pM\\to T_{F(p)}N"} /> es inyectiva, entonces <Math display tex={"(dF)^\\ast_{F(p)}:T_{F(p)}^\\ast N\\to T_p^\\ast M"} /> es sobreyectiva por <PreviewLink href="/chapters/teo-10#dual-inyectiva-sobreyectiva" label="dual de una transformacion inyectiva" title="Proposicion: Ejercicio" />.
+3. Como <Math tex={"(V,\\varphi=(x_1,\\ldots,x_n))"} /> es una carta suave de <Math tex={"N"} /> en <Math tex={"F(p)"} /> sucede que <Math display tex={"\\left\\{(dx_1)_{F(p)},\\ldots,(dx_n)_{F(p)}\\right\\}"} /> es base de <Math tex={"T_{F(p)}^\\ast N"} /> por <PreviewLink href="/chapters/teo-10#base-dual-coordenadas" label="base dual de las coordenadas" title="Proposicion: Base dual de las coordenadas" />. Entonces sus imágenes por <Math tex={"(dF)^\\ast_{F(p)}"} /> generan <Math tex={"T_p^\\ast M"} /> por el paso 2.
+4. Pero <Math display tex={"(dF)^\\ast_{F(p)}\\big((dx_i)_{F(p)}\\big)=d(x_i\\circ F)_p."} /> Luego los <Math tex={"d(x_i\\circ F)_p"} /> generan <Math tex={"T_p^\\ast M"} />, como queríamos.
+</Proof>
+</BookBlock>
+
+<span id="c4d494"></span>
+
+## Lema de factorización MUY IMPORTANTE
+
+<BookBlock kind="remark" title="Sobre restriccion codominio">
+Tenemos la siguiente situación:
+
+- <Math tex={"M,N"} /> y <Math tex={"P"} /> son variedades suaves.
+- <Math tex={"\\iota:P\\to N"} /> es una subvariedad de <Math tex={"N"} />, no necesariamente incrustada.
+- <Math tex={"F:M\\to N"} /> es una función suave con <Math display tex={"F(M)\\subseteq P."} />
+
+Se quiere restringir el codominio de <Math tex={"F"} /> a <Math tex={"P"} />, es decir, preguntar cuándo existe una función suave <Math display tex={"\\widehat F:M\\to P"} /> tal que <Math display tex={"F=i\\circ\\widehat F."} />
+
+En general no es cierto que restringir el codominio nos deje automáticamente una función suave.
+</BookBlock>
+
+<BookBlock kind="example" title="Ejemplo donde co-restringir no da suave">
+Consideremos el ocho. Tenemos <Math display tex={"f:\\mathbb R\\to\\mathbb R^2,\\qquad t\\mapsto \\sin t(\\cos t,1),"} /> ![Pasted image 20260429114226](/images/Pasted-image-20260429114226.png) 
+Tomemos <Math tex={"M=(\\text{Ocho},f^{-1}|_{(0,2\\pi)})"} /> y <Math tex={"N=\\mathbb{R}^2."} /> También tomamos <Math tex={"P=(\\text{Ocho},f^{-1}|_{(-\\pi,\\pi)})"} /> y <Math tex={"F=i:M\\to N."} />
+Claramente la imagen de <Math tex={"F"} /> es el conjunto dado, en particular cae en <Math tex={"P"} />.  
+La restricción del codominio de <Math tex={"F"} /> a <Math tex={"P"} />, <Math display tex={"\\widehat{F}:(\\text{Ocho},f^{-1}|_{(0,2\\pi)})\\to (\\text{Ocho},f^{-1}|_{(-\\pi,\\pi)})"} /> es la función identidad, <Math tex={"\\widehat F=\\operatorname{Id}"} />. (Que <Math tex={"\\widehat{F}=\\operatorname{Id}"} /> sale similar a <PreviewLink href="/chapters/teo-9#8ed2bd" label="Observacion" title="Observacion" /> creo, chequear)  
+Pero la identidad no puede ser continua, por que las topologias son distintas y no compatibles o usando sucesiones (Similarmente podemos afirmar que son subvariedades de <Math tex={"\\mathbb{R}^{2}"} /> no equivalentes) 
+</BookBlock>
+
+<BookBlock kind="proposition" title="Lema de factorizacion">
+Sea <Math tex={"F:M\\rightarrow N"} /> suave. Y sea <Math tex={"(P,g)"} /> subvariedad de <Math tex={"N"} /> tal que <Math tex={"F(M)\\subseteq g(P)"} />.
+Ademas sea <Math tex={"\\widehat{F}:M\\rightarrow P"} /> la funcion <Math tex={"\\widehat{F}(x)=y"} /> si <Math tex={"F(x)=g(y)"} /> la cual es la unica funcion de <Math tex={"M"} /> en <Math tex={"P"} /> que hace conmutar el diagrama
+![Pasted image 20260429160319](/images/Pasted-image-20260429160319.png)
+Entonces si <Math tex={"\\widehat{F}"} /> es continua es suave 
+<Proof title="Demostracion">
+1. Sea <Math tex={"p\\in M"} /> y veamos que <Math tex={"\\widehat F"} /> es suave en un entorno de <Math tex={"p"} />.
+2. Sea <Math tex={"q=\\widehat F(p)"} />, es decir, <Math tex={"q"} /> es el único elemento de <Math tex={"P"} /> tal que <Math display tex={"F(p)=g(q)."} />
+3. Sea <Math tex={"(V,\\psi=(y_1,\\ldots,y_n))"} /> una carta suave de <Math tex={"N"} /> alrededor de <Math tex={"F(p)"} />.
+4. Como <Math tex={"g:P\\to N"} /> es subvariedad, tenemos <Math display tex={"(dg)_q:T_qP\\to T_{g(q)}N"} /> es inyectiva, y por <PreviewLink href="/chapters/teo-11#c4d494" label="Corolario" title="Corolario" />, existe un entorno <Math tex={"W"} /> de <Math tex={"q"} /> e índices <Math tex={"i_1,\\ldots,i_k\\in\\{1,\\ldots,n\\}"} />, con <Math tex={"k=\\dim P"} />, tal que <Math display tex={"(W,\\varphi=(y_{i_1}\\circ g,\\ldots,y_{i_k}\\circ g))"} /> es carta suave de <Math tex={"P"} />.
+5. Sea <Math display tex={"\\pi:\\mathbb R^n\\to\\mathbb R^k,\\qquad (s_1,\\ldots,s_n)\\mapsto (s_{i_1},\\ldots,s_{i_k}),"} /> la cual es suave.
+6. La ventaja de introducir esta función es que podemos expresar la carta <Math tex={"(W,\\varphi)"} /> como <Math display tex={"(W,\\pi\\circ\\psi\\circ g)."} />
+7. Como <Math tex={"\\widehat F"} /> es continua, tenemos <Math display tex={"U=\\widehat F^{-1}(W)"} /> es un abierto de <Math tex={"M"} /> que contiene a <Math tex={"p"} />.
+8. Para ver que <Math tex={"\\widehat{F}"} /> es suave en <Math tex={"p"} /> alcanza ver que <Math tex={"\\widehat{F}|_{U}"} /> es suave y para esto componemos con la carta <Math tex={"\\varphi"} /> (basta componer solo a un lado por que si vemos eso luego dada carta <Math tex={"\\psi"} /> tendremos que <Math tex={"\\varphi\\circ\\widehat{F}|_{U}\\circ\\psi"} /> es composicion de suaves) <Math display tex={"\\varphi\\circ\\widehat{F}|_{U}=\\pi\\circ\\psi\\circ g\\circ\\widehat{F}|_{U}=\\pi\\circ\\psi\\circ F|_{U}"} /> esto ultimo vale por que <Math tex={"g(\\widehat{F}|_{U}(x))=g(y)=F(x)"} /> por definicion
+9. <Math tex={"\\pi"} /> es suave por definicion <Math tex={"\\psi\\circ F|_{U}"} /> es suave por que <Math tex={"F"} /> es suave entonces <Math tex={"\\varphi\\circ\\widehat{F}|_{U}"} /> resulta suave. Luego <Math tex={"\\widehat{F}"} /> es suave     
+</Proof>
+</BookBlock>
+
+<span id="1258d0"></span>
+
+<BookBlock kind="remark">
+Tenemos visto que restringir el codominio es peligroso para justificar que una función es suave.
+
+En la práctica, la proposición anterior es una gran herramienta para justificar suavidad de una función <Math display tex={"\\widehat F:M\\to P"} /> si <Math tex={"P"} /> está metida como una variedad ambiente <Math tex={"N"} /> y la función <Math display tex={"F:M\\to N"} /> que se obtiene al componer con la inclusión es más fácil de estudiar.
+</BookBlock>
+
+<BookBlock kind="proposition" title="Corestringir a un subespacio con topología heredada preserva continuidad">
+Sea <Math tex={"F:M\\to N"} /> continua y sea <Math tex={"A\\subseteq N"} /> con la topología heredada de <Math tex={"N"} />. Si <Math tex={"F(M)\\subseteq A"} />, entonces la corestricción <Math display tex={"F_A:M\\to A,\\qquad F_A(x)=F(x)"} /> es continua.
+<Proof title="Demostracion">
+10. Sea <Math tex={"W\\subseteq A"} /> abierto.
+11. Como <Math tex={"A"} /> tiene la topología heredada de <Math tex={"N"} />, existe un abierto <Math tex={"V\\subseteq N"} /> tal que <Math display tex={"W=A\\cap V."} />
+12. Queremos probar que <Math tex={"F_A^{-1}(W)"} /> es abierto en <Math tex={"M"} />.
+13. Tenemos <Math display tex={"F_A^{-1}(W)=F_A^{-1}(A\\cap V)."} />
+14. Como <Math tex={"F_A(M)\\subseteq A"} />, para todo <Math tex={"x\\in M"} /> se tiene <Math display tex={"F_A(x)\\in A."} />
+15. Entonces <Math display tex={"F_A(x)\\in A\\cap V \\iff F_A(x)\\in V."} />
+16. Como <Math tex={"F_A(x)=F(x)"} />, se sigue que <Math display tex={"F_A^{-1}(A\\cap V)=F^{-1}(V)."} />
+17. Por lo tanto <Math display tex={"F_A^{-1}(W)=F^{-1}(V)."} />
+18. Como <Math tex={"F:M\\to N"} /> es continua y <Math tex={"V\\subseteq N"} /> es abierto, entonces <Math tex={"F^{-1}(V)"} /> es abierto en <Math tex={"M"} />.
+19. Luego <Math tex={"F_A^{-1}(W)"} /> es abierto en <Math tex={"M"} />.
+20. Como esto vale para todo abierto <Math tex={"W\\subseteq A"} />, concluimos que <Math tex={"F_A:M\\to A"} /> es continua.
+</Proof>
+</BookBlock>
+
+<BookBlock kind="corollary" title="Lema de factorización para subvariedades incrustadas">
+Sean <Math tex={"M,N,P"} /> variedades suaves. Sea <Math tex={"(P,g)"} /> subvariedad **incrustada** de <Math tex={"N"} />, es decir, <Math tex={"(P,g)"} /> es subvariedad y <Math tex={"g"} /> es un homeomorfismo entre <Math tex={"P"} /> y <Math tex={"g(P)"} /> con la topología heredada de <Math tex={"N"} />.
+Sea <Math tex={"F:M\\to N"} /> suave tal que <Math tex={"F(M)\\subseteq g(P)"} />. Entonces la única función <Math tex={"\\widehat F:M\\to P"} /> que hace conmutar el diagrama
+![Pasted image 20260429171650](/images/Pasted-image-20260429171650.png)
+es continua (por lo tanto) y es suave.
+<Proof title="Demostracion">
+1. Como <Math tex={"F(M)\\subseteq g(P)"} />, para cada <Math tex={"x\\in M"} /> existe un único <Math tex={"y\\in P"} /> tal que <Math display tex={"F(x)=g(y)."} />
+2. Definimos <Math display tex={"\\widehat F:M\\to P,\\qquad \\widehat F(x)=y \\iff F(x)=g(y)."} />
+3. Entonces, por definición, <Math display tex={"g\\circ \\widehat F=F."} />
+4. Como <Math tex={"(P,g)"} /> es una subvariedad incrustada, la aplicación <Math display tex={"g:P\\to g(P)"} /> es un homeomorfismo, donde <Math tex={"g(P)"} /> tiene la topología heredada de <Math tex={"N"} />.
+5. Como <Math tex={"F:M\\to N"} /> es suave, en particular es continua.
+6. Como <Math tex={"F(M)\\subseteq g(P)"} />, podemos mirar <Math tex={"F"} /> como una función <Math display tex={"F:M\\to g(P)."} /> pero ahora esta función sigue siendo continua porque <Math tex={"g(P)"} /> tiene la topología heredada de <Math tex={"N"} />.
+7. Luego <Math display tex={"\\widehat F=g^{-1}\\circ F,"} /> con <Math tex={"g^{-1}:g(P)\\to P"} /> es continua (Por ser <Math tex={"g"} /> homeo) .
+8. Por lo tanto <Math tex={"\\widehat F"} /> es continua.
+9. Por el lema de factorización, si <Math tex={"\\widehat F"} /> es continua entonces <Math tex={"\\widehat F"} /> es suave.
+10. Luego <Math display tex={"\\widehat F:M\\to P"} /> es suave.
+</Proof>
+</BookBlock>
+
+<span id="300685"></span>
+
+<BookBlock kind="remark">
+Supongamos que <Math tex={"(A,i)"} /> es subvariedad de <Math tex={"M"} />, con <Math tex={"i"} /> la inclusión, **ojo: no necesariamente incrustada**.
+Como <Math tex={"i"} /> es suave, en particular continua, entonces si <Math tex={"U"} /> es abierto de <Math tex={"M"} />, tenemos <Math display tex={"i^{-1}(U)=U\\cap A"} /> es abierto de <Math tex={"A"} />.
+Por tanto, la topología que trae <Math tex={"A"} />, por ser variedad, es posiblemente más fina que su topología heredada del ambiente <Math tex={"M"} />.
+Un ejemplo es el ocho <Math tex={"\\left(\\text{ocho},f|_{(0,2\\pi)}^{-1}\\right)"} />, con <Math tex={"f:\\mathbb R\\to\\mathbb R^2"} />, <Math display tex={"f(t)=\\sin(t)(\\cos(t),1)."} />
+El conjunto <Math display tex={"I=f\\left(\\frac{\\pi}{2},\\frac{3\\pi}{2}\\right)"} /> es un abierto de esta variedad por la topologia que le damos que es la inducida por el homeo <Math tex={"f|_{(0,2\\pi)}"} />, pero no puede obtenerse como un abierto relativo del ocho respecto a la topología de <Math tex={"\\mathbb R^2"} />.
+![Pasted image 20260429210808](/images/Pasted-image-20260429210808.png)
+Notemos que en este caso. Los abiertos de la topologia relativa, si estan en la topologia dada por el homeo, pero ademas hay otros, como el ejemplo que di recien, a eso se refiere con que puede ser mas fina.
+</BookBlock>
+
+<span id="a7e6ec"></span>
+
+## Unicidad de subvariedad dada topologia
+
+<BookBlock kind="proposition" title="Unicidad de subvariedad via inclusion">
+Sea <Math tex={"N"} /> variedad suave y sea <Math tex={"A\\subseteq N"} />. Supongamos que <Math tex={"A"} /> tiene una topología <Math tex={"\\tau"} /> no necesariamente la topología relativa.
+Entonces existe a lo sumo una estructura de variedad diferenciable sobre <Math tex={"A"} /> compatible con <Math tex={"\\tau"} /> tal que <Math display tex={"(A,i)"} /> es subvariedad, donde <Math display tex={"i:A\\to N"} /> es la inclusión. (De hecho podria no haber ninguna) 
+<Proof title="Demostracion">
+1. Sean <Math tex={"\\mathcal F_1,\\mathcal F_2"} /> dos estructuras de variedad diferenciable sobre <Math tex={"A"} /> compatibles con la topología <Math tex={"\\tau"} />.
+2. Para ver que son iguales, alcanza con ver que <Math display tex={"\\operatorname{Id}:(A,\\mathcal F_1)\\to (A,\\mathcal F_2)"} /> <Math display tex={"\\operatorname{Id}:(A,\\mathcal F_2)\\to (A,\\mathcal F_1)"} /> es difeomorfismo.
+3. Usemos el lema de factorizacion
+![Pasted image 20260429215527](/images/Pasted-image-20260429215527.png)
+4. Como <Math tex={"F=i"} />, es claro que la (unica) <Math tex={"\\widehat{F}"} /> que cumple <PreviewLink href="/chapters/teo-11#1258d0" label="Lema de factorizacion" title="Proposicion: Lema de factorizacion" /> es <Math display tex={"\\widehat F=\\operatorname{Id}:(A,\\mathcal F_1)\\to(A,\\mathcal F_2)"} />  
+5. Como la topología que tienen <Math tex={"(A,\\mathcal F_1)"} /> y <Math tex={"(A,\\mathcal F_2)"} /> es la misma, tenemos que <Math tex={"\\widehat F=\\operatorname{Id}"} /> es continua, y por tanto <Math tex={"\\widehat F"} /> es suave.  
+6. Cambiando los roles, también tenemos que <Math tex={"\\operatorname{Id}:(A,\\mathcal F_2)\\to(A,\\mathcal F_1)"} /> es suave.
+7. Por tanto, <Math tex={"\\operatorname{Id}:(A,\\mathcal F_1)\\to(A,\\mathcal F_2)"} /> es un difeomorfismo, y entonces <Math tex={"\\mathcal F_1=\\mathcal F_2"} />
+8. Se necesita que sea difeomorfismo para comparar cartas de ambas estructuras: si <Math tex={"(U,\\varphi)\\in\\mathcal F_1"} /> y <Math tex={"(V,\\psi)\\in\\mathcal F_2"} />, entonces en la intersección el cambio de coordenadas se puede escribir usando la identidad como <Math display tex={"\\psi\\circ\\varphi^{-1}=\\psi\\circ\\operatorname{Id}\\circ\\varphi^{-1}."} /> Como <Math tex={"\\operatorname{Id}:(A,\\mathcal F_1)\\to(A,\\mathcal F_2)"} /> es suave, esta composición es suave. Cambiando los roles se obtiene la suavidad de <Math tex={"\\varphi\\circ\\psi^{-1}"} />, y por eso las cartas son compatibles.
+</Proof>
+</BookBlock>
+
+<span id="1933b9"></span>
+
+<BookBlock kind="remark">
+Notar que por lo que dijimos en <PreviewLink href="/chapters/teo-11#a7e6ec" label="Observacion" title="Observacion" /> entonces para que <Math tex={"\\iota: (A,\\tau)\\rightarrow (N,\\tilde{\\tau})"} /> sea continua automaticamente necesitamos que <Math tex={"\\tau"} /> sea un refinamiento de la <Math tex={"\\tilde{\\tau}"} /> relativa a <Math tex={"A"} />. Osea que cualquier abierto de <Math tex={"\\tilde{\\tau}"} /> intersecado con <Math tex={"A"} /> sea abierto de <Math tex={"A"} />. Al fin y al cabo <Math tex={"\\iota ^{-1}(O)=O\\cap A"} /> para cualquier <Math tex={"O \\in  \\tilde{\\tau}"} />
+</BookBlock>
+
+<BookBlock kind="example" title="Ejemplo donde no hay ninguna">
+Si consideramos la variedad ocho osea <Math tex={"(O,f^{-1}|_{(0,2\\pi)})"} /> con <Math tex={"f(t)=(\\frac{\\sin 2t}{t},\\sin t)"} /> con su topologia <Math tex={"\\tau_{1}"} />  dada por el homemorfismo <Math tex={"f"} />.
+Y luego consideramos el mismo conjunto <Math tex={"O"} /> pero con la topologia <Math tex={"\\tau_{2}"} /> dada por el homeomorfismo <Math tex={"f|_{(-\\pi,\\pi)}"} /> 
+Luego <Math display tex={"\\iota : (O,\\tau_{1})\\rightarrow (O,\\tau_{2})"} /> nunca va a ser continua por que hay abiertos en <Math tex={"\\tau_{2}"} /> que no lo son en <Math tex={"\\tau_{1}"} />
+Y esto es independientemente de que estructura le demos a <Math tex={"(O,\\tau_{2})"} />. Por que el punto es que como ya <Math tex={"\\iota"} /> no podra ser continua, tampoco va a ser suave 
+</BookBlock>
+
+<BookBlock kind="example" title="Parece pero no es contra ejemplo">
+Recordemos que las cartas <Math tex={"(\\text{ocho},f^{-1}|_{(0,2\\pi)})"} /> y <Math tex={"(\\text{ocho},f^{-1}|_{(-\\pi,\\pi)})"} /> nos dan estructuras diferenciables del ocho y luego <Math tex={"(\\text{ocho},\\iota)"} /> las hacen subvariedad de <Math tex={"\\mathbb{R}^{2}"} />
+Pero esto no contradice <PreviewLink href="/chapters/teo-11#1933b9" label="Proposicion" title="Proposicion" /> por que estos dos estructuras que le damos a los ochos tienen distintas topologias, que son las heredadas del homeomorfismo <Math tex={"f"} />.
+![Pasted image 20260429220320](/images/Pasted-image-20260429220320.png)
+son abiertos de cada topologia que no esta en la otra
+</BookBlock>
+
+## Unicidad de estructura tal que es incrustada
+
+<BookBlock kind="corollary">
+Si <Math tex={"A"} /> tiene la topología relativa de <Math tex={"N"} /> y si esta estructura admite una estructura de variedad diferenciable tal que <Math tex={"(A,i)"} /> es subvariedad de <Math tex={"N"} />, entonces tal estructura es única y <Math tex={"(A,i)"} /> es una incrustación.
+</BookBlock>
+
+<BookBlock kind="example">
+Vimos que <Math display tex={"i:S^1\\to\\mathbb R^2"} /> es una incrustación.
+
+Entonces la estructura de variedad diferencial de <Math tex={"S^2"} /> es la única estructura de variedad diferenciable sobre <Math tex={"S^{2}"} /> compatible con la topología heredada en <Math tex={"S^{2}"} /> de <Math tex={"\\mathbb R^3"} /> que la vuelve subvariedad
+</BookBlock>

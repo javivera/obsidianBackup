@@ -14,7 +14,7 @@
 >>8. Por lo tanto, para todo $t\in I$, $$\sigma'(t)=0=X_{\sigma(t)}$$
 >>9. Luego $\sigma$ es curva integral de $X$.
 >>10. Además, $\sigma(t_0)=p=\gamma(t_0)$.
->>11. Luego por [[Glosario#^c00595z]], como $\gamma$ y $\sigma$ son curvas integrales de $X$ y coinciden en el instante $t_0$, se sigue que $\gamma(t)=\sigma(t)$ para todo $t\in I$.
+>>11. Luego por [[Glosario#^c00595z|Unicidad de curvas integrales con tiempo arbitrario]], como $\gamma$ y $\sigma$ son curvas integrales de $X$ y coinciden en el instante $t_0$, se sigue que $\gamma(t)=\sigma(t)$ para todo $t\in I$.
 >>12. Como $\sigma(t)=p$ para todo $t\in I$, concluimos que $\gamma(t)=p$ para todo $t\in I$.
 >>13. Por lo tanto,
 >>$$\gamma \text{ es constante.}$$
@@ -25,8 +25,8 @@
 >Probar que no todo campo en $\mathbb R$ es completo. Encontrar el intervalo maximal de definición de una curva integral del campo contraejemplo elegido.
 >
 >>[!Proof]-
->>1. Consideremos el campo vectorial suave en $\mathbb R$ dado por $$X(x)=x^2\frac{d}{dx}$$es suave porque su función coeficiente $x\mapsto x^2$ es suave en $\mathbb R$.
->>2. Sea $\gamma$ una curva integral de $X$ con condición inicial $\gamma(0)=1$. Entonces debe satisfacer $\gamma'(t)=\gamma(t)^2$ y $\gamma(0)=1$. (recordemos que $\gamma'\in T_{\gamma(t)}\mathbb{R}$ entonces $\gamma'(t)=a\frac{\partial}{\partial x}\big|_{\gamma(t)}$ pero tambien por ser curva integral es igual a $X(\gamma(t))=\gamma(t)^{2}\frac{\partial}{\partial x}\big|_{\gamma(t)}$ por eso identificamos $\gamma'(t)=\gamma(t)^{2}$ ) 
+>>1. Consideremos el campo vectorial suave en $\mathbb R$ dado por $$X(x)=x^2\frac{d}{dx}$$ es suave porque su función coeficiente $x\mapsto x^2$ es suave en $\mathbb R$.
+>>2. Sea $\gamma$ una curva integral de $X$ con condición inicial $\gamma(0)=1$. Entonces debe satisfacer $\gamma'(t)=\gamma(t)^2$ y $\gamma(0)=1$. (recordemos que $\gamma'\in T_{\gamma(t)}\mathbb{R}$ entonces $\gamma'(t)=a\frac{\partial}{\partial x}\big|_{\gamma(t)}$ pero tambien por ser curva integral es igual a $X(\gamma(t))=\gamma(t)^{2}\frac{\partial}{\partial x}\big|_{\gamma(t)}$ por eso identificamos $\gamma'(t)=\gamma(t)^{2}$ )
 >>3. Como $\gamma(0)=1$, por continuidad existe un intervalo alrededor de $0$ donde $\gamma(t)\neq 0$.
 >>4. En ese intervalo definimos $h(t)=\frac{1}{\gamma(t)}$.
 >>5. Derivando con regla de la cadena, obtenemos $h'(t)=\left(\frac{1}{\gamma(t)}\right)'=-\frac{\gamma'(t)}{\gamma(t)^2}$.
@@ -157,6 +157,8 @@
 >>
 >>Tambien podemos verlo asi [[Glosario#^d158d2]]
 
+^ejercicio-8-pr4
+
 ### Ejercicio 8
 
 >[!Exercise]
@@ -165,31 +167,31 @@
 >
 >>[!Proof]-
 >>- **(a)**
->>	1. Primero notamos que como $\phi$ es inmersion tiene rango constante por que es inyectiva para todo $p\in M$ entonces $\dim Im(d\phi_{p})=\dim T_{p}M$ para todo $p\in M$
->>	2. Vamos a ver suavidad de forma local. Dado $p\in M$ por el teorema de rango constante, podemos tomar coordenadas $(U,\varphi=(u_{1},\dots,u_{m}))$ en $M$ y coordenadas $(V,\psi=(v_{1},\dots,v_{n}))$ en $N$ tales que $$\psi\circ\phi\circ\varphi ^{-1}(u_{1},\dots,u_{m})=(u_{1},\dots,u_{m},0,\dots,0).$$ (por inyectividad $m<n$) 
->>	3. Luego si evaluamo en $\varphi(p)=(u_{1}(p),\ldots,u_{m}(p))$ tenemos $$(v_{1}(\phi(p)),\ldots,v_{n}(\phi(p)))=\psi\circ\phi(p)=\psi\circ\phi\circ\varphi ^{-1}(\varphi(p))=(u_{1}(p),\ldots,u_{m}(p),0,\ldots,0)$$
->>	4. Con lo cual $(v_{i}(\phi(p)))=u_{i}(p)$ si $1<i<m$ y es $0$ si no y obviamente esto vale para cualquier $p\in U$ 
->>	5. Entonces podemos usar esto para calcular $$d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)$$ dado que $$d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)=\sum^{n}_{j=1}a_{j}\frac{\partial}{\partial v_{j}}\bigg|_{\phi(p)}$$ por lo tanto $$a_{j}=d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)(v_{j})=\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)(v_{j}\circ \phi)=\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)(u_{j})=\delta_{ij}$$
->>	6. Mostrando finalmente que $$d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)=\frac{\partial}{\partial v_{i}}\bigg|_{\phi(p)}$$
->>	7. Entonces si tenemos $$X_{p}=\sum^{m}_{i=1}b_{i}(p)\frac{\partial}{\partial u_{i}}\bigg|_{p}$$ luego $$(d\phi)_{p}(X_{p})=\sum^{m}_{j=1}b_{j}(p)(d\phi)_{p}\left(\frac{\partial}{\partial u_{j}}\bigg|_{p}\right)=\sum^{m}_{j=1} b_{j}(p)\frac{\partial}{\partial v_{j}}\bigg|_{\phi(p)}$$
->>	8. Por otro lado $$(d\phi)_{p}(X_{p})=Y_{\phi(p)}=\sum^{n}_{j=1}c_{j}(\phi(p))\frac{\partial}{\partial v_{j}}\bigg|_{\phi(p)}$$
->>	9. Finalmente $b_{j}(p)=c_{j}(\phi(p))$ Pero como $Y$ es suave $c_{j}$ es suave y $\phi$ es suave por definicion luego $b_{j}$ son suaves. Mostrando que $X|_{U}$ es suave.
->>	10. Como esto lo puedo hacer para cualqueir $p\in M$ entonces $X$ es suave
+>>1. Primero notamos que como $\phi$ es inmersion tiene rango constante por que es inyectiva para todo $p\in M$ entonces $\dim Im(d\phi_{p})=\dim T_{p}M$ para todo $p\in M$
+>>2. Vamos a ver suavidad de forma local. Dado $p\in M$ por el teorema de rango constante, podemos tomar coordenadas $(U,\varphi=(u_{1},\dots,u_{m}))$ en $M$ y coordenadas $(V,\psi=(v_{1},\dots,v_{n}))$ en $N$ tales que $$\psi\circ\phi\circ\varphi ^{-1}(u_{1},\dots,u_{m})=(u_{1},\dots,u_{m},0,\dots,0).$$ (por inyectividad $m<n$)
+>>3. Luego si evaluamo en $\varphi(p)=(u_{1}(p),\ldots,u_{m}(p))$ tenemos $$(v_{1}(\phi(p)),\ldots,v_{n}(\phi(p)))=\psi\circ\phi(p)=\psi\circ\phi\circ\varphi ^{-1}(\varphi(p))=(u_{1}(p),\ldots,u_{m}(p),0,\ldots,0)$$
+>>4. Con lo cual $(v_{i}(\phi(p)))=u_{i}(p)$ si $1<i<m$ y es $0$ si no y obviamente esto vale para cualquier $p\in U$
+>>5. Entonces podemos usar esto para calcular $$d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)$$ dado que $$d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)=\sum^{n}_{j=1}a_{j}\frac{\partial}{\partial v_{j}}\bigg|_{\phi(p)}$$ por lo tanto $$a_{j}=d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)(v_{j})=\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)(v_{j}\circ \phi)=\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)(u_{j})=\delta_{ij}$$
+>>6. Mostrando finalmente que $$d\phi_{p}\left(\frac{\partial}{\partial u_{i}}\bigg|_{p}\right)=\frac{\partial}{\partial v_{i}}\bigg|_{\phi(p)}$$
+>>7. Entonces si tenemos $$X_{p}=\sum^{m}_{i=1}b_{i}(p)\frac{\partial}{\partial u_{i}}\bigg|_{p}$$ luego $$(d\phi)_{p}(X_{p})=\sum^{m}_{j=1}b_{j}(p)(d\phi)_{p}\left(\frac{\partial}{\partial u_{j}}\bigg|_{p}\right)=\sum^{m}_{j=1} b_{j}(p)\frac{\partial}{\partial v_{j}}\bigg|_{\phi(p)}$$
+>>8. Por otro lado $$(d\phi)_{p}(X_{p})=Y_{\phi(p)}=\sum^{n}_{j=1}c_{j}(\phi(p))\frac{\partial}{\partial v_{j}}\bigg|_{\phi(p)}$$
+>>9. Finalmente $b_{j}(p)=c_{j}(\phi(p))$ Pero como $Y$ es suave $c_{j}$ es suave y $\phi$ es suave por definicion luego $b_{j}$ son suaves. Mostrando que $X|_{U}$ es suave.
+>>10. Como esto lo puedo hacer para cualqueir $p\in M$ entonces $X$ es suave
 >>- **(b)**
->>	1. Primero queremos ver que $Y_{\iota(p)}=Y_{p}\in \operatorname{Im}(d\iota_{p})$ 
->>	2. Recordamos de [[GS - 1er Parcial#^483e02]] que $$\operatorname{Im} ((d\iota)_{p})=(d\iota)_p(T_pS^n)=\left\{\sum_{j=1}^{n+1}a_j\frac{\partial}{\partial r_j}\bigg|_p:\sum_{j=1}^{n+1}a_jp_j=0,\ a_j\in\mathbb R\right\}.$$
->>	3. Sea $p=(x_1,y_1,\dots,x_n,y_n)\in S^{2n-1}.$ entonces $Y_{p}=(-y_{1},x_{1},\ldots,-y_{n},x_{n})$ (mirado en coordenadas) y obviamente cumple $\langle p,Y_{p}\rangle =0$ entonces $Y_{p}$ esta en la imagen como queriamos
->>	4. Entonces por (a) existe un campo $X$ que esta dado por $(d\iota)_{p}(X_{p})=Y_{p}$ 
->>	5. Entonces ahora podemos ver el flujo de $Y_{p}$. Busquemos las curvas integrales de este flujo osea $\gamma'(t)=Y_{\gamma(t)}$ y $\gamma(0)=p\in S^{2n-1}$ 
->>	6. Es decir si $$\gamma(t)=(x_{1}(t),y_{1}(t),\ldots,x_{n}(t),y_{n}(t))$$ entonces $x_{i}'(t)=-y_{i}(t)$ e $y_{i}'(t)=x_{i}(t)$ 
->>	7. Con lo cual $$x_{i}(t)=a_{i}\cos(t)-b_{i}\sin t\qquad y_{i}(t)=a_{i}\sin t+b_{i}\cos t$$
->>	8. Y como $p=\gamma(0)=(x_{1}(0),y_{1}(0),\ldots)$ entonces $a_{i}=x_{i}(0)$ y $b_{i}=y_{i}(0)$ 
->>	9. Finalmente renombrando $x_{i}(0):=x_{i}^{0}$ e $y_{i}(0)=y_{i}^{0}$  $$\gamma_{p}(t)=(x_{1}^{0} \cos t-y_{1}^{0} \sin t,x_{1}^{0} \sin t+y_{1}^{0} \cos t,\ldots,x_{n}^{0} \cos t-y_{n}^{0} \sin(t),x_{n}^{0} \sin t + y_{n}^{0} \cos t)$$ y recordamos $\phi_{t}(p)=\gamma_{p}(t)$ 
->>	10. Y si hacemos $$\lVert \gamma_{t}(p) \rVert^{2}=\sum^{n}_{i=1}(x_{i}(t)^{2}+y_{i}(t)^{2})=\sum^{n}_{i=1} (x_{i}^{0})^{2}+(y_{i}^{0})^{2}=\lVert p \rVert ^{2}=1 $$ por que recordemos $(x_{1}^{0},y_{1}^{0},\ldots)=p\in S^{2n-1}$ 
->>	11. Con lo cual $\phi_{t}(p)\in S^{2n-1}$
->>	12. Ademas dado $p=(x_{1}^{0},y_{1}^{0},\ldots,x_{n}^{0},y_{n}^{0})$ tenemos que $$Y_{p}=(-y_{1}^{0} ,x_{1}^{0} ,\ldots,-y_{n}^{0},x_{n}^{0})$$ por definicion de $Y_{p}$
->>	13. Entonces $$\phi_{t}(p)=(x_{1}^{0},y_{1}^{0},\ldots, x_{n}^{0},y_{n}^{0})\cos t + (-y_{1}^{0} ,x_{1}^{0} ,\ldots-y_{n}^{0} ,x_{n}^{0} )\sin t=p\cos t + Y_{p}\sin t$$ osea $\phi{t}(p)\in \operatorname{span} \{ p,Y_{p} \}$ que notemos son li por que son ortogonales
->>	14. Entonces $$\phi_{t}(p)\in \operatorname{span}\{ p,Y_{p} \}\cap S^{2n-1}$$ que es la interseccion de la esfera con un plano que pasa por el origen, con lo cual $\phi_{t}(p)$ esta contenida en un circulo maximo 
+>>1. Primero queremos ver que $Y_{\iota(p)}=Y_{p}\in \operatorname{Im}(d\iota_{p})$
+>>2. Recordamos de ^483e02 que $$\operatorname{Im} ((d\iota)_{p})=(d\iota)_p(T_pS^n)=\left\{\sum_{j=1}^{n+1}a_j\frac{\partial}{\partial r_j}\bigg|_p:\sum_{j=1}^{n+1}a_jp_j=0,\ a_j\in\mathbb R\right\}.$$
+>>3. Sea $p=(x_1,y_1,\dots,x_n,y_n)\in S^{2n-1}.$ entonces $Y_{p}=(-y_{1},x_{1},\ldots,-y_{n},x_{n})$ (mirado en coordenadas) y obviamente cumple $\langle p,Y_{p}\rangle =0$ entonces $Y_{p}$ esta en la imagen como queriamos
+>>4. Entonces por (a) existe un campo $X$ que esta dado por $(d\iota)_{p}(X_{p})=Y_{p}$
+>>5. Entonces ahora podemos ver el flujo de $Y_{p}$. Busquemos las curvas integrales de este flujo osea $\gamma'(t)=Y_{\gamma(t)}$ y $\gamma(0)=p\in S^{2n-1}$
+>>6. Es decir si $$\gamma(t)=(x_{1}(t),y_{1}(t),\ldots,x_{n}(t),y_{n}(t))$$ entonces $x_{i}'(t)=-y_{i}(t)$ e $y_{i}'(t)=x_{i}(t)$
+>>7. Con lo cual $$x_{i}(t)=a_{i}\cos(t)-b_{i}\sin t\qquad y_{i}(t)=a_{i}\sin t+b_{i}\cos t$$
+>>8. Y como $p=\gamma(0)=(x_{1}(0),y_{1}(0),\ldots)$ entonces $a_{i}=x_{i}(0)$ y $b_{i}=y_{i}(0)$
+>>9. Finalmente renombrando $x_{i}(0):=x_{i}^{0}$ e $y_{i}(0)=y_{i}^{0}$  $$\gamma_{p}(t)=(x_{1}^{0} \cos t-y_{1}^{0} \sin t,x_{1}^{0} \sin t+y_{1}^{0} \cos t,\ldots,x_{n}^{0} \cos t-y_{n}^{0} \sin(t),x_{n}^{0} \sin t + y_{n}^{0} \cos t)$$ y recordamos $\phi_{t}(p)=\gamma_{p}(t)$
+>>10. Y si hacemos $$\lVert \gamma_{t}(p) \rVert^{2}=\sum^{n}_{i=1}(x_{i}(t)^{2}+y_{i}(t)^{2})=\sum^{n}_{i=1} (x_{i}^{0})^{2}+(y_{i}^{0})^{2}=\lVert p \rVert ^{2}=1$$ por que recordemos $(x_{1}^{0},y_{1}^{0},\ldots)=p\in S^{2n-1}$
+>>11. Con lo cual $\phi_{t}(p)\in S^{2n-1}$
+>>12. Ademas dado $p=(x_{1}^{0},y_{1}^{0},\ldots,x_{n}^{0},y_{n}^{0})$ tenemos que $$Y_{p}=(-y_{1}^{0} ,x_{1}^{0} ,\ldots,-y_{n}^{0},x_{n}^{0})$$ por definicion de $Y_{p}$
+>>13. Entonces $$\phi_{t}(p)=(x_{1}^{0},y_{1}^{0},\ldots, x_{n}^{0},y_{n}^{0})\cos t + (-y_{1}^{0} ,x_{1}^{0} ,\ldots-y_{n}^{0} ,x_{n}^{0} )\sin t=p\cos t + Y_{p}\sin t$$ osea $\phi{t}(p)\in \operatorname{span} \{ p,Y_{p} \}$ que notemos son li por que son ortogonales
+>>14. Entonces $$\phi_{t}(p)\in \operatorname{span}\{ p,Y_{p} \}\cap S^{2n-1}$$ que es la interseccion de la esfera con un plano que pasa por el origen, con lo cual $\phi_{t}(p)$ esta contenida en un circulo maximo
 
 ^b71da3
 
@@ -204,57 +206,77 @@
 >
 >>[!Proof]-
 >>- **(a)**
->>	1. Que $V$ sea tangente a $S$ significa $V_{q}\in (d\iota)_{q}(T_{q}S)$ para todo $q\in S$
->>	2. Como $d\iota$ es inyectiva. Tenemos un unico $W_{q}\in T_{q}S$ tal que $(d\iota)_{q}(W_{q})=V_{q}$ 
->>	3. Entonces tenemos un campo suave $V\in \mathfrak{X}(M)$ tal que $V_{q}\in \operatorname{Im}((d\iota)_{q})$ para todo $q\in S$ 
->>	4. Entonces por [[GS - Pr4#^b71da3]] (a) tenemos que $W$ es un campo suave de $S$
->>	5. Luego como $p:=\gamma(t_{0})\in S$ tenemos $\sigma(t):(a(p),b(p))\rightarrow S$ curva maximal (en el campo $S$). Tal que $\sigma(0)=\gamma(t_{0})$ que recordemos por ser curva integral cumple $\sigma'(t)=W_{\sigma(t)}$ 
->>	6. Ahora podemos armar $$\beta:=\iota\circ\sigma:(a(p),b(p))\rightarrow M$$ en base a esa podemos armar  entonces $$\beta(0)=\iota\circ\sigma(0)=\iota(\gamma(t_{0}))=\gamma(t_{0})$$
->>	7. Y ademas por regla de la cadena $$\beta'(t)=(d\beta)_{t}\left(\frac{\partial}{\partial s}\bigg|_{t}\right)=d\iota_{\sigma(t)}\left(d\sigma_{t}\left(\frac{\partial}{\partial s}\bigg|_{t}\right)\right)=d\iota_{\sigma(t)}(\sigma'(t))=d\iota_{\sigma(t)}(W_{\sigma(t)})=V_{\sigma(t)}$$
->>	8. Entonces $\beta(t)$ es una curva integral en $V$ con inicio en $\gamma(t_{0})$ y además $\beta(t)\in S$  por definición 
->>	9. Por otro lado tenemos $\tilde\gamma(t)=\gamma(t+t_{0})$ que sabemos es curva maximal de $V$ con inicio en $\gamma(t_{0})$. 
->>	10. Entonces por unicidad $\tilde\gamma$ y $\beta$ coinciden en todo el dominio de $\beta$ ( que es el mismo que  $\sigma$ ) por que $\tilde{\gamma}$ es curva maximal y ambas arrrancan en el mismo punto.
->>	11. Luego $\gamma(t+t_{0})=\tilde{\gamma}(t)\in S$ para todo $t\in (a(p),b(p))$ en particular para $t\in (-\epsilon,\epsilon)\subseteq (a(p),b(p))$ 
->>	12. Como $t\in (-\epsilon,\epsilon)$ entonces $t+t_{0}\in (t_{0}-\epsilon,t_{0}+\epsilon)$. Con lo cual $$\gamma((t_{0}-\epsilon,t_{0}+\epsilon))\in S$$ 
+>>1. Que $V$ sea tangente a $S$ significa $V_{q}\in (d\iota)_{q}(T_{q}S)$ para todo $q\in S$
+>>2. Como $d\iota$ es inyectiva. Tenemos un unico $W_{q}\in T_{q}S$ tal que $(d\iota)_{q}(W_{q})=V_{q}$
+>>3. Entonces tenemos un campo suave $V\in \mathfrak{X}(M)$ tal que $V_{q}\in \operatorname{Im}((d\iota)_{q})$ para todo $q\in S$
+>>4. Entonces por [[GS - Pr4#^b71da3|Ejercicio]] (a) tenemos que $W$ es un campo suave de $S$
+>>5. Luego como $p:=\gamma(t_{0})\in S$ tenemos $\sigma(t):(a(p),b(p))\rightarrow S$ curva maximal (en el campo $S$). Tal que $\sigma(0)=\gamma(t_{0})$ que recordemos por ser curva integral cumple $\sigma'(t)=W_{\sigma(t)}$
+>>6. Ahora podemos armar $$\beta:=\iota\circ\sigma:(a(p),b(p))\rightarrow M$$ en base a esa podemos armar  entonces $$\beta(0)=\iota\circ\sigma(0)=\iota(\gamma(t_{0}))=\gamma(t_{0})$$
+>>7. Y ademas por regla de la cadena $$\beta'(t)=(d\beta)_{t}\left(\frac{\partial}{\partial s}\bigg|_{t}\right)=d\iota_{\sigma(t)}\left(d\sigma_{t}\left(\frac{\partial}{\partial s}\bigg|_{t}\right)\right)=d\iota_{\sigma(t)}(\sigma'(t))=d\iota_{\sigma(t)}(W_{\sigma(t)})=V_{\sigma(t)}$$
+>>8. Entonces $\beta(t)$ es una curva integral en $V$ con inicio en $\gamma(t_{0})$ y además $\beta(t)\in S$  por definición
+>>9. Por otro lado tenemos $\tilde\gamma(t)=\gamma(t+t_{0})$ que sabemos es curva maximal de $V$ con inicio en $\gamma(t_{0})$.
+>>10. Entonces por unicidad $\tilde\gamma$ y $\beta$ coinciden en todo el dominio de $\beta$ ( que es el mismo que  $\sigma$ ) por que $\tilde{\gamma}$ es curva maximal y ambas arrrancan en el mismo punto.
+>>11. Luego $\gamma(t+t_{0})=\tilde{\gamma}(t)\in S$ para todo $t\in (a(p),b(p))$ en particular para $t\in (-\epsilon,\epsilon)\subseteq (a(p),b(p))$
+>>12. Como $t\in (-\epsilon,\epsilon)$ entonces $t+t_{0}\in (t_{0}-\epsilon,t_{0}+\epsilon)$. Con lo cual $$\gamma((t_{0}-\epsilon,t_{0}+\epsilon))\in S$$
 >>
 >>- **(b)**
->>	1. Sea $\gamma:J\to M$ una curva integral y supongamos que $\gamma(t_0)\in S$. Consideremos $$A=\{t\in J:\gamma(t)\in S\}.$$
->>	2. El conjunto $A$ es no vacío por que contiene a $t_{0}$.
->>	3. $A=\gamma ^{-1}(S)$ es cerrado en $J$ porque $S$ es cerrado y $\gamma$ es continua entonces    
->>	4. Por la primera parte, $A$ también es abierto en $J$. Porque dado $t_{0}\in A$ tenemos que $\gamma(t_{0})\in S$, luego sabemos que existe $\epsilon>0$ tal que $\gamma(t_{0}-\epsilon,t_{0}+\epsilon)\subseteq S$ con lo cual $(t_{0}-\epsilon,t_{0}+\epsilon)\subseteq A$ y es un abierto de $J$ (en general de $\mathbb{R}$ pero tambien de $J$ por que $A\subseteq J$ entonces $(t_{0}-\epsilon,t_{0}+\epsilon)\cap J=(t_{0}-\epsilon,t_{0}+\epsilon)$) que contiene a $t_{0}$   
->>	5. Como $J$ es un intervalo, es conexo. Por lo tanto $$A=J.$$
->>	6. Así, toda la curva está contenida en $S$.
+>>1. Sea $\gamma:J\to M$ una curva integral y supongamos que $\gamma(t_0)\in S$. Consideremos $$A=\{t\in J:\gamma(t)\in S\}.$$
+>>2. El conjunto $A$ es no vacío por que contiene a $t_{0}$.
+>>3. $A=\gamma ^{-1}(S)$ es cerrado en $J$ porque $S$ es cerrado y $\gamma$ es continua entonces
+>>4. Por la primera parte, $A$ también es abierto en $J$. Porque dado $t_{0}\in A$ tenemos que $\gamma(t_{0})\in S$, luego sabemos que existe $\epsilon>0$ tal que $\gamma(t_{0}-\epsilon,t_{0}+\epsilon)\subseteq S$ con lo cual $(t_{0}-\epsilon,t_{0}+\epsilon)\subseteq A$ y es un abierto de $J$ (en general de $\mathbb{R}$ pero tambien de $J$ por que $A\subseteq J$ entonces $(t_{0}-\epsilon,t_{0}+\epsilon)\cap J=(t_{0}-\epsilon,t_{0}+\epsilon)$) que contiene a $t_{0}$
+>>5. Como $J$ es un intervalo, es conexo. Por lo tanto $$A=J.$$
+>>6. Así, toda la curva está contenida en $S$.
 >>
->>- **(c) Contraejemplo si $S$ no es cerrado.** 
->>	1. Tomemos $$M=\mathbb R,\qquad S=(0,1),\qquad V=\frac{\partial}{\partial x}.$$ donde $S$ tiene la estructura heredada de $M$ que tiene la estructura canonica
->>	2. Obviamente $\dim S=1\dim \mathbb{R}$. Entonces $$(di)_{p}:T_{p}S\rightarrow T_{p}M$$ es un isomorfismo. (Aca hay un detalle, para que $(S,\iota)$ sea suave, y poder hablar de $d\iota$ tengo que dar una estructura adecuada a $S$, en este caso la heredada de $\mathbb{R}$ que seria la canonica anda bien) 
->>	3. Luego dado $p\in S$ tenemos que $$W_{\iota(p)}=W_{p}=\frac{\partial}{\partial x}\bigg|_{p}\in T_{p}M$$ y por ser iso existe $V_{p}\in T_{p}S$ tal que $(d\iota)_{p}(V_{p})=W_{p}$ osea $W_{p}\in \operatorname{Im}(d\iota)_{p}$ para todo $p\in S$.
->>	4. Con lo cual $W\in \mathfrak{X}(M)$ es campo tangente a $S$  
->>	5. Sin embargo la curva integral $$\gamma(t)=t$$corta a $S$, ademas es una curva integral de $V$ pero no está contenida en $S$.
+>>- **(c) Contraejemplo si $S$ no es cerrado.**
+>>1. Tomemos $$M=\mathbb R,\qquad S=(0,1),\qquad V=\frac{\partial}{\partial x}.$$ donde $S$ tiene la estructura heredada de $M$ que tiene la estructura canonica
+>>2. Obviamente $\dim S=1\dim \mathbb{R}$. Entonces $$(di)_{p}:T_{p}S\rightarrow T_{p}M$$ es un isomorfismo. (Aca hay un detalle, para que $(S,\iota)$ sea suave, y poder hablar de $d\iota$ tengo que dar una estructura adecuada a $S$, en este caso la heredada de $\mathbb{R}$ que seria la canonica anda bien)
+>>3. Luego dado $p\in S$ tenemos que $$W_{\iota(p)}=W_{p}=\frac{\partial}{\partial x}\bigg|_{p}\in T_{p}M$$ y por ser iso existe $V_{p}\in T_{p}S$ tal que $(d\iota)_{p}(V_{p})=W_{p}$ osea $W_{p}\in \operatorname{Im}(d\iota)_{p}$ para todo $p\in S$.
+>>4. Con lo cual $W\in \mathfrak{X}(M)$ es campo tangente a $S$
+>>5. Sin embargo la curva integral $$\gamma(t)=t$$corta a $S$, ademas es una curva integral de $V$ pero no está contenida en $S$.
 
 ### Ejercicio 10
 
->[!Exercise] Ejercicio 10 — Extensión de campos de subvariedades
->Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que existe un campo suave $Y$ definido sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ a $S$.
+>[!Exercise] Extensión de campos de subvariedades
+>Sea $M$ una variedad suave y $S\subseteq M$ una subvariedad incrustada. Dado $X\in\mathfrak X(S)$, mostrar que hay un campo suave $Y$ sobre una vecindad de $S$ en $M$ tal que $X$ es la restricción de $Y$ sobre $S$. Mostrar que tal campo $Y$ extiende a sobre todo $M$ si y solo si $S$ es un subconjunto cerrado de $M$.
 >
 >>[!Proof]-
->>1. Sea $i:S\hookrightarrow M$ la inclusión. Como $S$ es una subvariedad incrustada de $M$, la aplicación $i$ es una inmersión.
->>2. Por el teorema de extensión local de campos, para cada $p\in S$ existen un abierto $U_p\subseteq S$ con $p\in U_p$, un abierto $V_p\subseteq M$ con $p\in V_p$ y un campo suave $Y^{(p)}\in\mathfrak X(V_p)$ tales que $$Y^{(p)}_q=(di)_qX_q,\qquad q\in U_p.$$
->>3. Como $i$ es la inclusión, $(di)_q:T_qS\to T_qM$ es también la inclusión natural. Por lo tanto, identificando $T_qS$ con su imagen en $T_qM$, se tiene $$Y^{(p)}_q=X_q,\qquad q\in U_p.$$
->>4. El conjunto $\{V_p\}_{p\in S}$ es un cubrimiento abierto de $W$. Tomamos una partición de la unidad suave $\{\rho_\alpha\}_{\alpha\in A}$ subordinada a este cubrimiento. Para cada $\alpha\in A$, existe $p_\alpha\in S$ tal que $$\operatorname{supp}(\rho_\alpha)\subseteq V_{p_\alpha}.$$
->>5. Definimos sobre $W$ el campo $$Y:=\sum_{\alpha\in A}\rho_\alpha Y^{(p_\alpha)}.$$
->>6. Esta suma está bien definida y define un campo suave porque la familia $\{\rho_\alpha\}$ es localmente finita. En efecto, para cada $q\in W$ existe un entorno $O_q$ en el cual solo una cantidad finita de funciones $\rho_\alpha$ es no nula. Por lo tanto, sobre $O_q$, el campo $Y$ es una suma finita de campos suaves.
->>7. El problema que tenemos es que podria suceder que $Y_{p}\neq X_{p}$ para algun $q\in S$. Por ejemplo si $q\in S$ y $q\in V_{p_{1}}$ y $q\in U_{p_{1}}$ pero $q\in V_{p_{2}}$ pero $q\not\in U_{p_{2}}$ entonces podriamos afirmar $Y_{q} ^{(p_{1})}=X_{q}$ pero no necesariamente $Y_{q}^{(p_{2})}=X_{q}$ entonces en esa parte la suma (solo a modo de ejemplo supongamos que son $q$ esta solamente en esos dos conjuntos)  $$Y_{q}=\rho_{1}(q)Y_{q}^{(p_{1})}+\rho_{2}(q)Y_{q}^{(p_{2})}=\frac{1}{2}X_{q}+\frac{1}{2} K$$ que podria ser distinta que $X_{q}$ 
->>8. Para solucionar esto podemos achicar cada $V_p$ (conservando la notacion por comodidad) , si es necesario, de modo que $$V_p\cap S\subseteq U_p.$$ osea que $V_{p}$ extienda a $U_{p}$ pero por fuera de $S$, dentro de $S$ coincide con $U_{p}$
->>9. En efecto esto se puede hacer porque como $U_p$ es abierto en $S$ y $S=i(S)$ tiene la topologia heredada de $M$, existe un abierto $O_p\subseteq M$ tal que $U_p=O_p\cap S$, y podemos reemplazar $V_p$ por $V_p\cap O_p$. Con lo cual $$V_{p}\cap O_{p}\cap S=V_{p}\cap U_{p}\subseteq U_{p}$$ como queriamos
->>10. Ahora si, sea $$W:=\bigcup_{p\in S}V_p.$$ Entonces $W$ es un abierto de $M$ que contiene a $S$, es decir, una vecindad abierta de $S$.
->>11. Veamos que $Y$ restringido a $S$ coincide con $X$. Sea $q\in S$. Si $\rho_\alpha(q)\neq 0$, entonces $$q\in\operatorname{supp}(\rho_\alpha)\subseteq V_{p_\alpha}.$$ Como además $q\in S$, resulta $$q\in V_{p_\alpha}\cap S\subseteq U_{p_\alpha}.$$ Por lo tanto, $$Y^{(p_\alpha)}_q=X_q.$$
->>12. En consecuencia, usando que $\{\rho_\alpha\}$ es una partición de la unidad, $$Y_q=\sum_{\alpha\in A}\rho_\alpha(q)Y^{(p_\alpha)}_q=\sum_{\alpha\in A}\rho_\alpha(q)X_q=\left(\sum_{\alpha\in A}\rho_\alpha(q)\right)X_q=X_q.$$
->>13. Así, $Y\in\mathfrak X(W)$ es un campo suave definido sobre una vecindad $W$ de $S$ y satisface $$Y|_S=X.$$
- 
+>>- **Existe dicho campo**
+>>1. Estoy asumiendo $\dim M=m$ y $\dim S=n$
+>>2. Primero notamos que por [[GS - Teo13#^8f3892|SÚPER útil: caso incrustado]] tenemos cartas $(U,\tilde\varphi)$ con $p\in U$ y $(V,\psi)$ tal que $$\iota(U)=\iota(S)\cap V$$ y es la rebanada cero de $(V,\psi=x_{1},\ldots,x_{n},x_{n+1},\ldots,x_{m})$
+>>3. Esto es lo mismo que decir que $U=S\cap V\subseteq S$ es la rebanada $0$ de $(V,\psi=(x_{1},\ldots,x_{n},x_{n+1},\ldots x_{m}))$ osea $$U=\{ q\in V:x_{n+1}(q)=\ldots=x_{m}(q)=0 \}$$
+>>4. Entonces podemos mirar $$(U,\varphi=(x_{1},\ldots x_{n}))$$ como carta de $S$
+>>5. Veamos que es carta. Tenemos que $\iota$ es homeomorfismo. Con lo cual como $S=\iota (S)$ ambas tienen la misma topologia. Y la topologia en $\iota(S)$ es la heredada de $M$
+>>6. Entonces $U=S\cap V$ es abierto relativo de $S$ por que es $V$ es abierto de $M$
+>>7. Y ademas $$\varphi=\pi\circ\psi|_{U}$$ con $\pi(x_{1},\ldots,x_{m})=(x_{1},\ldots,x_{n})$. Como ambas son homeomorfismo $\varphi$ es homeomorfismo. Probando que es carta de $S$
+>>8. Luego puedo escribir a $X|_{U}\in \mathfrak{X}(U)$ como $$X=\sum^{n}_{i=1} X^{i} \frac{\partial}{\partial x_{i}}$$ con $X^{i}:U\rightarrow\mathbb{R}$ funciones suaves
+>>9. Ahora si miramos notamos que $\pi\circ\psi:V\rightarrow\mathbb{R}^{n}$ entonces podemos mirar $$W=(\pi\circ\psi)^{-1}(\varphi(U))$$ que es **un abierto de $M$** (por que $\psi$ y $\pi$ son continuas y $\varphi(U)$ es abierto) y ademas sucede que $S\cap W=U$ **importante** (Tambien podria haber hecho algo asi [[Glosario#^fd9e9b|Corrección de los abiertos en cartas cúbicas]] algun dia reescribir esta parte usandolo)
+>>10. Luego definimos $$\widetilde{X }^{i}=(X^{i} \circ\varphi ^{-1})\circ\pi\circ\psi|_{W}:W\rightarrow \mathbb{R}$$ que es suave por ser composicion de suaves
+>>11. Ahora notamos que $(W,\psi|_{W})$ es carta de $M$ entonces podemos definir $\widetilde{X}|_{W}\in \mathfrak{X}(W)$ como $$\widetilde{X}=\sum^{n}_{i=1} \widetilde{X}^{i}\frac{\partial}{\partial x_{i}}+\sum^{m}_{j=n+1} 0.\frac{\partial}{\partial x_{j}}$$
+>>12. Veamos que extiende a $X$ si $q\in U$ entonces $(\pi\circ\psi)(q)=\varphi(q)$ luego $$\widetilde{X}^{i}(q)=(X^{i} \circ\varphi ^{-1})\circ(\pi\circ\psi|_{W})(q)=(X^{i}\circ\varphi ^{-1})(\varphi(q)) =X^{i}(q)$$
+>>13. Entonces $$\widetilde X_q =\sum_{i=1}^n X^i(q)\frac{\partial}{\partial x^i}\Big|_q$$ osea $\widetilde{X}_{q}=(d\iota)_{q}(X_{q})$ digamos que es como ver a $X_{q}$ dentro de $T_{q}M$
+>>14. Con lo cual $$\widetilde X|_{U}=X$$
+>>15. Osea recapitulando tomamos un abierto $p\in U$ miramos $X$ localmente en ese abierto y nos extendimos a otro abierto $W$. Y notamos que $p\in W$ con lo cual lo podiamos llamar $W_{p}$
+>>16. Y esto lo podemos hacer para cada $p\in S$ entonces podemos armar $\{ W_{p} \}_{p\in S}$ que cubre a $S$ y luego definir $$W=\bigcup_{p\in S}W_{p}$$ entonces $W$ es un cubrimiento de $S$ por abiertos de $M$
+>>17. Tomamos la particion de la unidad $\{ \rho_{\alpha } \}_{\alpha \in \Lambda}$ sobre $W$ subordinada al cubrimiento $\{ W_{\alpha } \}_{\alpha \in \Lambda}$ es decir $$\operatorname{supp}(\rho_{\alpha })\subseteq W_{\alpha }\qquad0\leq \rho_{\alpha }\leq 1\qquad\sum_{\alpha }\rho_{\alpha }=1$$
+>>18. Luego para cada $\alpha$ tenemos un campo local $\rho_{\alpha }\widetilde{X}_{\alpha }:=_{\text{def}}\rho_{\alpha }\widetilde{X}|_{W_{\alpha} }\in \mathfrak{X}(W_{\alpha })$ que puede ser extendido a $\mathfrak{X}(W)$ [[Glosario#^c3dcb6|Extension a todo W Ejercicio 10]]
+>>19. Luego usando estos campos extendidos $$Z_\alpha=\rho_\alpha\widetilde X_\alpha$$ definimos $$Y=\sum_{\alpha\in\Lambda}Z_\alpha.$$
+>>20. La suma es localmente finita, porque $\{\rho_\alpha\}$ es una partición de la unidad. Por tanto, localmente $Y$ es una suma finita de campos suaves. Luego $$Y\in\mathfrak X(W).$$
+>>21. Ahora veamos que $Y$ restringe a $X$ sobre $S$. Sea $q\in S$. Entonces $$Y_q=\sum_{\alpha\in\Lambda}(Z_\alpha)_q=\sum_{\alpha\in\Lambda}\rho_\alpha(q)(\widetilde X_\alpha)_q.$$
+>>22. Si $\rho_\alpha(q)\neq 0$, entonces $q\in\operatorname{supp}(\rho_\alpha)\subseteq W_\alpha$, luego $q\in S\cap W_\alpha=U_{\alpha }$. Por construcción, $$(\widetilde X_\alpha)_q=di_q(X_q).$$
+>>23. Por lo tanto,  $$Y_q=\sum_{\alpha\in\Lambda}\rho_\alpha(q)di_q(X_q).$$
+>>24. Como la suma es localmente finita y $\sum_{\alpha\in\Lambda}\rho_\alpha(q)=1$, obtenemos $$Y_q=\left(\sum_{\alpha\in\Lambda}\rho_\alpha(q)\right)di_q(X_q)=di_q(X_q).$$
+>>25. Así, $$Y_q=di_q(X_q)$$ para todo $q\in S$.
+>>26. Finalmente identificando $T_qS$ con su imagen $di_q(T_qS)\subseteq T_qM$, escribimos $$Y|_S=X.$$
+>>- **$S$ cerrado**
+>>1. Por [[GS - Teo8#^cf02ec|Función que vale 1 sobre un cerrado]] existe $f:M\rightarrow\mathbb{R}$ tal que $f|_{S}\equiv 1$ y tal que $\operatorname{supp}(f)\subseteq W$. (Una funcion de corte)
+>>2. Definimos $$\widetilde{Y}:M\rightarrow TM$$ dada por $$\widetilde{Y}_{q}=\begin{cases}f(q)Y_{q} \quad&q\in W\\ 0_{q}&q\not\in W\end{cases}$$
+>>3. Esta bien definida por que $\operatorname{supp}(f)\subseteq W$. Luego tenemos $\widetilde{Y}\in \mathfrak{X}(M)$
+>>4. Finalmente si $q\in S$ entonces $f(q)=1$ por lo tanto $\widetilde{Y}_{q}=Y_{q}=d\iota_{q}(X_{q})$
+>>5. Osea usando la identificacion de antes $\widetilde{Y}|_{S}=X$
+>>- **Tengo campo que extiende a todo $M$**
+>>1. No es cierto por ejemplo si tengo el campo $X\in \mathfrak{X}(S)$ constantemente nulo por mas que $S$ sea abierto lo puedo extender a todo $M$
+
 ^7d5d0b
-
-
 
 ### Ejercicio 11
 

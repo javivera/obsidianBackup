@@ -7,17 +7,19 @@
 >>1. Como $\{(dy_j)_p:j\in\{1,\ldots,k\}\}$ genera $T_p^\ast M$, entonces contiene una base $$\{(dy_{i_1})_p,\ldots,(dy_{i_m})_p\}$$ de $T_p^\ast M$.
 >>2. Por [[GS - Teo10#^2b23b2]], la aplicación $$\psi=(y_{i_1},\ldots,y_{i_m})$$ define una carta suave en cierto abierto de $p$.
 
+^existencia-cartas-dado-diferenciales
+
 ^49431b
 
 >[!Corollary]
->Sean $M$ y $N$ variedades suaves de dimensión $m$ y $n$, respectivamente. Sea $$F:M\to N$$ suave y supongamos que $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, y por tanto $m\le n$. (Osea $F$ es inmersion) 
+>Sean $M$ y $N$ variedades suaves de dimensión $m$ y $n$, respectivamente. Sea $$F:M\to N$$ suave y supongamos que $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, y por tanto $m\le n$. (Osea $F$ es inmersion)
 >Si $(V,\varphi=(x_1,\ldots,x_n))$ es una carta suave de $N$ en $F(p)$, entonces existen $$i_1,\ldots,i_m\in\{1,\ldots,n\}$$ tales que $$\psi=(x_{i_1}\circ F,\ldots,x_{i_m}\circ F)$$ define una carta suave de $M$ en cierto abierto de $p$.
 >
 >>[!Proof]-
->>1. Para usar el corolario anterior, alcanza con ver que $$\{d(x_1\circ F)_p,\ldots,d(x_n\circ F)_p\}$$ genera $T_p^\ast M$.
->>2. Como $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, entonces $$(dF)_p^\ast:T_{F(p)}^\ast N\to T_p^\ast M$$ es sobreyectiva.
->>3. Como $(V,\varphi=(x_1,\ldots,x_n))$ es una carta suave de $N$ en $F(p)$ sucede que $$\left\{(dx_1)_{F(p)},\ldots,(dx_n)_{F(p)}\right\}$$ es base de $T_{F(p)}^\ast N$, sus imágenes por $(dF)_p^\ast$ generan $T_p^\ast M$.
->>4. Pero $$(dF)_p^\ast\big((dx_i)_{F(p)}\big)=d(x_i\circ F)_p.$$ Luego los $d(x_i\circ F)_p$ generan $T_p^\ast M$, como queríamos.
+>>1. Para usar el [[GS - Teo11#^existencia-cartas-dado-diferenciales|resultado anterior]], alcanza con ver que $$\{d(x_1\circ F)_p,\ldots,d(x_n\circ F)_p\}$$ genera $T_p^\ast M$.
+>>2. Como $$(dF)_p:T_pM\to T_{F(p)}N$$ es inyectiva, entonces $$(dF)^\ast_{F(p)}:T_{F(p)}^\ast N\to T_p^\ast M$$ es sobreyectiva por [[GS - Teo10#^dual-inyectiva-sobreyectiva|dual de una transformacion inyectiva]].
+>>3. Como $(V,\varphi=(x_1,\ldots,x_n))$ es una carta suave de $N$ en $F(p)$ sucede que $$\left\{(dx_1)_{F(p)},\ldots,(dx_n)_{F(p)}\right\}$$ es base de $T_{F(p)}^\ast N$ por [[GS - Teo10#^base-dual-coordenadas|base dual de las coordenadas]]. Entonces sus imágenes por $(dF)^\ast_{F(p)}$ generan $T_p^\ast M$ por el paso 2.
+>>4. Pero $$(dF)^\ast_{F(p)}\big((dx_i)_{F(p)}\big)=d(x_i\circ F)_p.$$ Luego los $d(x_i\circ F)_p$ generan $T_p^\ast M$, como queríamos.
 
 ^c4d494
 
@@ -44,19 +46,19 @@
 >[!Proposition] Lema de factorizacion
 >Sea $F:M\rightarrow N$ suave. Y sea $(P,g)$ subvariedad de $N$ tal que $F(M)\subseteq g(P)$.
 >Ademas sea $\widehat{F}:M\rightarrow P$ la funcion $\widehat{F}(x)=y$ si $F(x)=g(y)$ la cual es la unica funcion de $M$ en $P$ que hace conmutar el diagrama
-> ![[Pasted image 20260429160319.png]]
->Entonces si $\widehat{F}$ es continua es suave 
+>![[Pasted image 20260429160319.png]]
+>Entonces si $\widehat{F}$ es continua es suave
 >
 >>[!Proof]-
 >>1. Sea $p\in M$ y veamos que $\widehat F$ es suave en un entorno de $p$.
 >>2. Sea $q=\widehat F(p)$, es decir, $q$ es el único elemento de $P$ tal que $$F(p)=g(q).$$
 >>3. Sea $(V,\psi=(y_1,\ldots,y_n))$ una carta suave de $N$ alrededor de $F(p)$.
->>4. Como $g:P\to N$ es subvariedad, tenemos $$(dg)_q:T_qP\to T_{g(q)}N$$ es inyectiva, y por [[GS - Teo11#^c4d494]], existe un entorno $W$ de $q$ e índices $i_1,\ldots,i_k\in\{1,\ldots,n\}$, con $k=\dim P$, tal que $$(W,\varphi=(y_{i_1}\circ g,\ldots,y_{i_k}\circ g))$$ es carta suave de $P$.
+>>4. Como $g:P\to N$ es subvariedad, tenemos $$(dg)_q:T_qP\to T_{g(q)}N$$ es inyectiva, y por [[GS - Teo11#^c4d494|Corolario]], existe un entorno $W$ de $q$ e índices $i_1,\ldots,i_k\in\{1,\ldots,n\}$, con $k=\dim P$, tal que $$(W,\varphi=(y_{i_1}\circ g,\ldots,y_{i_k}\circ g))$$ es carta suave de $P$.
 >>5. Sea $$\pi:\mathbb R^n\to\mathbb R^k,\qquad (s_1,\ldots,s_n)\mapsto (s_{i_1},\ldots,s_{i_k}),$$ la cual es suave.
 >>6. La ventaja de introducir esta función es que podemos expresar la carta $(W,\varphi)$ como $$(W,\pi\circ\psi\circ g).$$
 >>7. Como $\widehat F$ es continua, tenemos $$U=\widehat F^{-1}(W)$$ es un abierto de $M$ que contiene a $p$.
 >>8. Para ver que $\widehat{F}$ es suave en $p$ alcanza ver que $\widehat{F}|_{U}$ es suave y para esto componemos con la carta $\varphi$ (basta componer solo a un lado por que si vemos eso luego dada carta $\psi$ tendremos que $\varphi\circ\widehat{F}|_{U}\circ\psi$ es composicion de suaves) $$\varphi\circ\widehat{F}|_{U}=\pi\circ\psi\circ g\circ\widehat{F}|_{U}=\pi\circ\psi\circ F|_{U}$$ esto ultimo vale por que $g(\widehat{F}|_{U}(x))=g(y)=F(x)$ por definicion
->>9. $\pi$ es suave por definicion $\psi\circ F|_{U}$ es suave por que $F$ entonces $\varphi\circ\widehat{F}|_{U}$ resulta suave. Luego $\widehat{F}$ es suave     
+>>9. $\pi$ es suave por definicion $\psi\circ F|_{U}$ es suave por que $F$ es suave entonces $\varphi\circ\widehat{F}|_{U}$ resulta suave. Luego $\widehat{F}$ es suave
 
 ^1258d0
 
@@ -114,19 +116,20 @@
 
 ## Unicidad de subvariedad dada topologia
 
->[!Proposition]
+>[!Proposition] Unicidad de subvariedad via inclusion
 >Sea $N$ variedad suave y sea $A\subseteq N$. Supongamos que $A$ tiene una topología $\tau$ no necesariamente la topología relativa.
->Entonces existe a lo sumo una estructura de variedad diferenciable sobre $A$ compatible con $\tau$ tal que $$(A,i)$$ es subvariedad, donde $$i:A\to N$$ es la inclusión. (De hecho podria no haber ninguna) 
+>Entonces existe a lo sumo una estructura de variedad diferenciable sobre $A$ compatible con $\tau$ tal que $$(A,i)$$ es subvariedad, donde $$i:A\to N$$ es la inclusión. (De hecho podria no haber ninguna)
 >
 >>[!Proof]-
 >>1. Sean $\mathcal F_1,\mathcal F_2$ dos estructuras de variedad diferenciable sobre $A$ compatibles con la topología $\tau$.
 >>2. Para ver que son iguales, alcanza con ver que $$\operatorname{Id}:(A,\mathcal F_1)\to (A,\mathcal F_2)$$ $$\operatorname{Id}:(A,\mathcal F_2)\to (A,\mathcal F_1)$$ es difeomorfismo.
 >>3. Usemos el lema de factorizacion
 >>![[Pasted image 20260429215527.png]]
->>4. Como $F=i$, es claro que la (unica) $\widehat{F}$ que cumple [[GS - Teo11#^1258d0]] es $$\widehat F=\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$$  
->>5. Como la topología que tienen $(A,\mathcal F_1)$ y $(A,\mathcal F_2)$ es la misma, tenemos que $\widehat F=\operatorname{Id}$ es continua, y por tanto $\widehat F$ es suave.  
+>>4. Como $F=i$, es claro que la (unica) $\widehat{F}$ que cumple [[GS - Teo11#^1258d0|Lema de factorizacion]] es $$\widehat F=\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$$
+>>5. Como la topología que tienen $(A,\mathcal F_1)$ y $(A,\mathcal F_2)$ es la misma, tenemos que $\widehat F=\operatorname{Id}$ es continua, y por tanto $\widehat F$ es suave.
 >>6. Cambiando los roles, también tenemos que $\operatorname{Id}:(A,\mathcal F_2)\to(A,\mathcal F_1)$ es suave.
 >>7. Por tanto, $\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$ es un difeomorfismo, y entonces $\mathcal F_1=\mathcal F_2$
+>>8. Se necesita que sea difeomorfismo para comparar cartas de ambas estructuras: si $(U,\varphi)\in\mathcal F_1$ y $(V,\psi)\in\mathcal F_2$, entonces en la intersección el cambio de coordenadas se puede escribir usando la identidad como $$\psi\circ\varphi^{-1}=\psi\circ\operatorname{Id}\circ\varphi^{-1}.$$ Como $\operatorname{Id}:(A,\mathcal F_1)\to(A,\mathcal F_2)$ es suave, esta composición es suave. Cambiando los roles se obtiene la suavidad de $\varphi\circ\psi^{-1}$, y por eso las cartas son compatibles.
 
 ^1933b9
 
@@ -154,5 +157,6 @@
 >Vimos que $$i:S^1\to\mathbb R^2$$ es una incrustación.
 >
 >Entonces la estructura de variedad diferencial de $S^2$ es la única estructura de variedad diferenciable sobre $S^{2}$ compatible con la topología heredada en $S^{2}$ de $\mathbb R^3$ que la vuelve subvariedad
+
 
 
