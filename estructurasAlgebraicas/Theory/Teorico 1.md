@@ -23,8 +23,10 @@ tags:
 >Sea $G$ grupo. Entonces valen las siguientes propiedades:
 >1. El neutro es unico
 >2. El inverso de cada elemento $a\in G$ es unico
->>[!Proof]
->>a
+>
+>>[!Proof]-
+>>1. Supongamos que $e$ y $e'$ son elementos neutros de $G$. Como $e'$ es neutro, $e\cdot e'=e$; y como $e$ es neutro, $e\cdot e'=e'$. Por lo tanto, $e=e'$, de modo que el neutro es único.
+>>2. Sea $a\in G$ y supongamos que $b,c\in G$ son inversos de $a$. Entonces, usando la propiedad del neutro, la asociatividad y las igualdades $a\cdot c=e$ y $b\cdot a=e$, obtenemos $$b=b\cdot e=b\cdot(a\cdot c)=(b\cdot a)\cdot c=e\cdot c=c.$$ Por lo tanto, $b=c$, de modo que el inverso de $a$ es único.
 
 >[!Proposition]
 >Sea $G$ semigrupo entonces $G$ es grupo sii 

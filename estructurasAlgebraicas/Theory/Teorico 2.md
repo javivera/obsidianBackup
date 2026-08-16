@@ -41,9 +41,9 @@
 
 >[!Definition]
 >$a\in G$ entonces 
->4. $a^{n}=a^{n-1}.a$
->5. $a^{0}=e$
->6. Si $n\in \mathbb{Z}_{< 0}$ $a^{n}=(a^{-1})^{-n}=(a^{-n})^{-1}$
+>- $a^{n}=a^{n-1}.a$
+>- $a^{0}=e$
+>- Si $n\in \mathbb{Z}_{< 0}$ $a^{n}=(a^{-1})^{-n}=(a^{-n})^{-1}$
 
 >[!Lemma]
 >$a\in G$ y $n,m\in \mathbb{Z}$ entonces 

@@ -161,3 +161,23 @@ tags:
 >>5. El determinante de una matriz invertible puede tomar cualquiera de los $p-1$ valores de $\mathbb Z_p^\times$: dado $a\in\mathbb Z_p^\times$, la matriz diagonal $\operatorname{diag}(a,1,\ldots,1)$ es invertible y tiene determinante $a$.
 >>6. Sean $A,B\in\operatorname{GL}(n,\mathbb Z_p)$. Por la definición de clases laterales, $A$ y $B$ pertenecen a la misma clase lateral de $\operatorname{SL}(n,\mathbb Z_p)$ si y solo si $A^{-1}B\in\operatorname{SL}(n,\mathbb Z_p)$. Además, $$\begin{aligned}A^{-1}B\in\operatorname{SL}(n,\mathbb Z_p)&\iff\det(A^{-1}B)=1\\&\iff(\det A)^{-1}\det B=1\\&\iff\det A=\det B.\end{aligned}$$ Por tanto, hay una clase lateral por cada posible valor no nulo del determinante. Como hay $p-1$ valores posibles, $$[\operatorname{GL}(n,\mathbb Z_p):\operatorname{SL}(n,\mathbb Z_p)]=p-1.$$
 >>7. Aplicando el [[Teorico 3#^teorema-de-lagrange|teorema de Lagrange]], concluimos que $$\boxed{\left|\operatorname{SL}(n,\mathbb Z_p)\right|=\frac{1}{p-1}\prod_{i=0}^{n-1}(p^n-p^i).}$$
+
+>[!exercise] Ejercicio 9
+>Determinar si en un grupo las siguientes afirmaciones son verdaderas o falsas.
+>- **(a)** $a=a^{-1}\iff a^2=e$.
+>- **(b)** $a^m=a^n\Rightarrow n=m$.
+>- **(c)** $(ab)^{-1}=a^{-1}b^{-1}\Rightarrow ab=ba$.
+>
+>>[!Proof]-
+>>- (a) La afirmación es **verdadera**.
+>>	- **($\Rightarrow$)** Si $a=a^{-1}$, multiplicando ambos miembros por la derecha por $a$ obtenemos $$aa=a^{-1}a=e,$$ es decir, $a^2=e$.
+>>	- **($\Leftarrow$)** Si $a^2=e$, multiplicando ambos miembros por la izquierda por $a^{-1}$ obtenemos $$a^{-1}a^2=a^{-1}e,$$ y, por lo tanto, $a=a^{-1}$.
+>>- (b) La afirmación es **falsa** en general.
+>>	1. De $a^m=a^n$, multiplicando ambos miembros por $a^{-n}$, solo podemos concluir que $$a^{m-n}=e.$$
+>>	2. Esto no implica necesariamente que $m-n=0$. Por ejemplo, tomando $a=e$, se cumple $$a^1=e=a^2,$$ aunque $1\neq2$.
+>>	3. Si $a$ tiene orden infinito, entonces sí se puede concluir que $m=n$. Si $a$ tiene orden finito $r$, únicamente se concluye que $$r\mid(m-n),$$ es decir, $m\equiv n\pmod r$.
+>>- (c) La afirmación es **verdadera**.
+>>	1. Supongamos que $$(ab)^{-1}=a^{-1}b^{-1}.$$ Multiplicando ambos miembros por la derecha por $ba$, obtenemos $$\begin{aligned}(ab)^{-1}ba&=a^{-1}b^{-1}ba\\&=a^{-1}ea\\&=e.\end{aligned}$$ Por lo tanto, $ba$ es un inverso por la derecha de $(ab)^{-1}$.
+>>	2. Por otro lado, $ab$ también es un inverso por la derecha de $(ab)^{-1}$, pues $$(ab)^{-1}(ab)=e.$$
+>>	3. Por la unicidad del inverso en un grupo, concluimos que $$ba=ab.$$ Por lo tanto, $ab=ba$.
+
