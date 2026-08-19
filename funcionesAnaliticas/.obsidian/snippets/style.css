@@ -52,40 +52,6 @@
     color: rgb(var(--callout-color));
 }
 
-/* Show the callout type when Obsidian uses a custom title but Math Booster
-   has not replaced it with its generated theorem title. */
-.callout[data-callout="theorem"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Theorem. ";
-}
-
-.callout[data-callout="lemma"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Lemma. ";
-}
-
-.callout[data-callout="proposition"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Proposition. ";
-}
-
-.callout[data-callout="corollary"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Corollary. ";
-}
-
-.callout[data-callout="definition"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Definition. ";
-}
-
-.callout[data-callout="example"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Example. ";
-}
-
-.callout[data-callout="property"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Property. ";
-}
-
-.callout[data-callout="exercise"]:not(.theorem-callout) > .callout-title .callout-title-inner::before {
-    content: "Exercise. ";
-}
-
 /* ---------- Content ---------- */
 
 .theorem-callout .callout-content,

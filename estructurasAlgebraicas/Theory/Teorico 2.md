@@ -2,7 +2,7 @@
 >Sean $(G,\cdot)$ y $(H,*)$ grupos. Una aplicación $f:G\to H$ se dice **morfismo de grupos** (u **homomorfismo**) si
 >$$f(a\cdot b)=f(a)*f(b)\qquad\forall a,b\in G.$$
 >En particular, todo morfismo satisface $f(e_G)=e_H$ y $f(a^{-1})=f(a)^{-1}$ para todo $a\in G$. Si además $f$ es biyectiva, se dice que es un **isomorfismo de grupos** y se escribe $G\cong H$.
-
+uto
 >[!Remark] $G_{p}$ la categoria de grupos
 >Objetos: Los grupos $G,H,K,\ldots$
 >Morfismo: $G_{p}(G,H)=Hom_{G_{p}}(G,H) = \{ f:G\rightarrow H  \ | \ f \text{ homomorfismo} \}$. Donde 

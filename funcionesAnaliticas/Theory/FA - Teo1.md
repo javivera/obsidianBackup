@@ -406,7 +406,7 @@ con $r>0$ y $\theta\in\mathbb{R}$, definen las coordenadas polares de $z$.
 >Entonces:
 >
 >1. Si $z\in  \mathbb{C}$ tal que $|z-a|<R$, la serie converge absolutamente.
->2. Si $|z-a|>R$, los términos de la serie no están acotados y, por lo tanto, la serie diverge.
+>2. Si $z\in \mathbb{C}$ tal que $|z-a|>R$, los términos de la serie no están acotados y, por lo tanto, la serie diverge.
 >3. Si $0<r<R$, la serie converge uniformemente en
 >   $$\{z\in\mathbb{C}:|z-a|\leq r\}.$$
 >

@@ -181,3 +181,54 @@ tags:
 >>	2. Por otro lado, $ab$ también es un inverso por la derecha de $(ab)^{-1}$, pues $$(ab)^{-1}(ab)=e.$$
 >>	3. Por la unicidad del inverso en un grupo, concluimos que $$ba=ab.$$ Por lo tanto, $ab=ba$.
 
+>[!exercise] Ejercicio 10
+>Probar que si $G$ es un grupo donde se satisface la ecuación $a^2=e$ para todo $a\in G$, entonces $G$ es abeliano.
+>>[!Proof]-
+>>1. Sean $a,b\in G$. Como $b^2=e$ y $a^2=e$, podemos realizar la siguiente cadena de equivalencias: $$\begin{aligned}ab=ba&\iff a=bab&&\text{(multiplicando a izquierda por $b$)}\\&\iff e=baba&&\text{(multiplicando a derecha por $a$)}\\&\iff e=(ba)^2.\end{aligned}$$
+>>2. Por clausura, $ba\in G$ y, por la hipótesis aplicada al elemento $ba$, se cumple $(ba)^2=e$. En consecuencia, $ab=ba$. Como esto vale para todos $a,b\in G$, concluimos que $G$ es **abeliano**.
+
+>[!exercise] Ejercicio 11
+>Sea $G$ un grupo finito de orden par. Mostrar que existe $a\in G$, $a\neq e$, tal que $a^2=e$.
+>>[!Proof]-
+>>1. Supongamos, por contradicción, que no existe ningún $a\in G$, $a\neq e$, tal que $a^2=e$.
+>>2. Entonces, para todo $a\in G\setminus\{e\}$, se tiene $a\neq a^{-1}$, pues si $a=a^{-1}$, al multiplicar por $a$ obtendríamos $$a^2=e,$$ contradiciendo la suposición.
+>>3. Por lo tanto, los elementos de $G\setminus\{e\}$ pueden agruparse en pares disjuntos de la forma $$\{a,a^{-1}\}.$$
+>>4. En consecuencia, $|G\setminus\{e\}|$ es par. Como el elemento neutro $e$ queda fuera de esos pares, $$|G|=1+|G\setminus\{e\}|$$ es impar, lo que contradice la hipótesis de que $G$ tiene orden par.
+>>5. Por consiguiente, existe $a\in G$, $a\neq e$, tal que $$a^2=e.$$
+ 
+>[!exercise] Ejercicio 12
+>Sea $G$ un grupo. Probar que las siguientes afirmaciones son equivalentes.
+>- **(a)** $G$ es abeliano.
+>- **(b)** $(ab)^2=a^2b^2$, para todos $a,b\in G$.
+>- **(c)** $(ab)^{-1}=a^{-1}b^{-1}$, para todos $a,b\in G$.
+>- **(d)** $(ab)^n=a^nb^n$, para todo $n\in\mathbb Z$ y todos $a,b\in G$.
+>- **(e)** $(ab)^n=a^nb^n$, para   todos $a,b\in G$ y para tres enteros consecutivos.
+>
+>>[!Proof]-
+>>- **$(a)\Rightarrow(b)$.** Supongamos que $G$ es abeliano y sean $a,b\in G$. Como $ba=ab$, podemos intercambiar los do  factores centrales y obtenemos $$(ab)^2=abab=aabb=a^2b^2.$$
+>>- **$(b)\Rightarrow(a)$.** Supongamos que $(ab)^2=a^2b^2$ para todos $a,b\in G$. Entonces $$abab=aabb.$$ Cancelando $a$ a la izquierda resulta $bab=abb$ y, cancelando luego $b$ a la derecha, obtenemos $$ba=ab.$$ Como esto vale para todos $a,b\in G$, el grupo $G$ es abeliano. Por lo tanto, $(a)\iff(b)$.
+>>- **$(a)\iff(c)$.** Para todos $a,b\in G$, cada paso de la siguiente cadena es reversible: $$\begin{aligned}(ab)^{-1}=a^{-1}b^{-1}&\iff (ab)a^{-1}b^{-1}=e\\&\iff aba^{-1}=b\\&\iff ab=ba.\end{aligned}$$ En consecuencia, la igualdad de (c) vale para todos $a,b\in G$ si y solo si $ab=ba$ para todos $a,b\in G$, es de$cir, si y solo si $G$ es abeliano.
+>>- **$(a)\Rightarrow(d)$.** Supongamos que $G$ es abeliano  . Primero probamos por inducción que $(ab)^n=a^nb^n$ para todo $n\geq0$. Para $n=0$ se cumple $$(ab)^0=e=a^0b^0.$$ Supongamos ahora que $(ab)^n=a^nb^n$. Entonces $$\begin{aligned}(ab)^{n+1}&=(ab)^n(ab)\\&=a^nb^nab&&\text{(hipótesis inductiva)}\\&=a^nab^nb&&\text{(porque $G$ es abeliano)}\\&=a^{n+1}b^{n+1}.\end{aligned}$$ Esto prueba la igualdad para todos los enteros no negativos.
+>>- Para los exponentes negativos, sea $n=-m$, con $m>0$. Como $G$ es abeliano, $(ab)^{-1}=a^{-1}b^{-1}$; aplicando el caso positivo a $a^{-1}$ y $b^{-1}$, obtenemos $$\begin{aligned}(ab)^n&=(ab)^{-m}\\&=\big((ab)^{-1}\big)^m\\&=(a^{-1}b^{-1})^m\\&=(a^{-1})^m(b^{-1})^m\\&=a^{-m}b^{-m}\\&=a^nb^n.\end{aligned}$$ Por lo tanto, la igualdad vale para todo $n\in\mathbb Z$ y queda probado $(a)\Rightarrow(d)$.
+>>- **$(d)\Rightarrow(e)$.** Si $(ab)^n=a^nb^n$ para todo $n\in\mathbb Z$, entonces la igualdad vale, en particular, para tres enteros consecutivos. Por lo tanto, $(d)\Rightarrow(e)$.
+>>- **$(e)\Rightarrow(a)$.** 
+>>	1. Supongamos que la igualdad vale para tres enteros consecutivos $k,k+1,k+2$ y para todos $a,b\in G$. Comparando los exponentes $k$ y $k+1$, tenemos $$\begin{aligned}(a^kb^k)(ab)&=(ab)^k(ab)\\&=(ab)^{k+1}\\&=a^{k+1}b^{k+1}\\&=a^kab^kb.\end{aligned}$$
+>>	2. Cancelando $a^k$ a la izquierda y $b$ a la derecha, obtenemos $$b^ka=ab^k.\tag{1}$$
+>>	3. Repitiendo el mismo razonamiento con los exponentes $k+1$ y $k+2$, resulta $$b^{k+1}a=ab^{k+1}.\tag{2}$$
+>>	4. Usando (1) y (2), obtenemos $$b^kba=b^{k+1}a=ab^{k+1}=ab^kb=b^kab.$$ Al cancelar $b^k$ a la izquierda, concluimos que $$ba=ab.$$
+>>	5. Como esto vale para todos $a,b\in G$, el grupo $G$ es abeliano y, por lo tanto, $(e)\Rightarrow(a)$.
+
+>[!exercise] Ejercicio 13
+>Sea $p$ un número primo. Definimos $$R_p:=\left\{\frac ab\in\mathbb Q:(b,p)=1\right\},\qquad R^p:=\left\{\frac ab\in\mathbb Q:b=p^i,\text{ con }i\geq0\right\}.$$ Mostrar que $R_p$ y $R^p$ son grupos abelianos con la suma de $\mathbb Q$.
+>>[!Proof]-
+>>- **El conjunto $R_p$.** Sean $\frac ab,\frac cd\in R_p$. Como $(b,p)=(d,p)=1$, tenemos $p\nmid b$ y $p\nmid d$, por lo que $p\nmid bd$ y, en consecuencia, $(bd,p)=1$. Entonces $$\frac ab+\frac cd=\frac{ad+bc}{bd}\in R_p,$$ de modo que la operación es cerrada. El neutro es $0=\frac01\in R_p$, pues $(1,p)=1$, y el inverso aditivo de $\frac ab$ es $-\frac ab=\frac{-a}{b}\in R_p$. La asociatividad y la conmutatividad se heredan de la suma de $\mathbb Q$. Por lo tanto, $(R_p,+)$ es un grupo abeliano.
+>>- **El conjunto $R^p$.** Sean $\frac{a}{p^i},\frac{c}{p^j}\in R^p$, con $i,j\geq0$. Entonces $$\frac{a}{p^i}+\frac{c}{p^j}=\frac{ap^j+cp^i}{p^{i+j}}\in R^p,$$ pues $i+j\geq0$, de modo que la operación es cerrada. El neutro es $0=\frac0{p^0}\in R^p$, y el inverso aditivo de $\frac{a}{p^i}$ es $\frac{-a}{p^i}\in R^p$. Nuevamente, la asociatividad y la conmutatividad se heredan de la suma de $\mathbb Q$. Por lo tanto, $(R^p,+)$ es un grupo abeliano.
+
+>[!exercise] Ejercicio 14
+>Sea $G$ un grupo, y sean $a,b\in G$ y $r\in\mathbb N$. Probar que si $bab^{-1}=a^r$, entonces $$b^jab^{-j}=a^{r^j}$$ para todo $j\in\mathbb N$.
+>>[!Proof]-
+>>Procedemos por inducción sobre $j$.
+>>1. **Caso base.** Para $j=0$, se cumple $$b^0ab^{-0}=a=a^{r^0}.$$ Si se adopta la convención $\mathbb N=\{1,2,\ldots\}$, el caso $j=1$ es exactamente la hipótesis $bab^{-1}=a^r$.
+>>2. **Paso inductivo.** Supongamos que para cierto $j\geq0$ se cumple $$b^jab^{-j}=a^{r^j}.$$ Entonces $$\begin{aligned}b^{j+1}ab^{-(j+1)}&=b\left(b^jab^{-j}\right)b^{-1}\\&=ba^{r^j}b^{-1}\\&=(bab^{-1})^{r^j}\\&=(a^r)^{r^j}\\&=a^{r^{j+1}}.\end{aligned}$$
+>>3. En la tercera igualdad usamos que la conjugación preserva potencias: para todo $n\in\mathbb N$, $$ba^nb^{-1}=(bab^{-1})^n.$$
+>>4. Por el principio de inducción, $$b^jab^{-j}=a^{r^j}$$ para todo $j\in\mathbb N$.

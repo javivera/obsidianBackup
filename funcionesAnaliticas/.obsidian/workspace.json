@@ -11,18 +11,6 @@
             "id": "8b125bec92d5c01a",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Apuntes/FA-Teo2.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "FA-Teo2"
-            }
-          },
-          {
-            "id": "c3f4ae22f19c7add",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
                 "file": "Theory/FA - Teo2.md",
@@ -41,7 +29,7 @@
               "type": "markdown",
               "state": {
                 "file": "Practicos/FA-Pr1.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -49,7 +37,8 @@
               "title": "FA-Pr1"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "1bc857dcce018731",
@@ -77,6 +66,18 @@
               },
               "icon": "lucide-file-text",
               "title": "FA-Pr1"
+            }
+          },
+          {
+            "id": "5acb7306963268aa",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Practicos/FA-Pr2.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "FA-Pr2"
             }
           }
         ],
@@ -121,8 +122,8 @@
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               },
-              "icon": "lucide-search",
-              "title": "Search"
+              "icon": "lucide-ghost",
+              "title": "search"
             }
           },
           {
@@ -134,15 +135,16 @@
                 "showSearch": false,
                 "searchQuery": ""
               },
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "icon": "lucide-ghost",
+              "title": "bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "302ae48096179b39",
@@ -167,8 +169,8 @@
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
+              "icon": "lucide-ghost",
+              "title": "backlink"
             }
           },
           {
@@ -181,8 +183,8 @@
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
+              "icon": "lucide-ghost",
+              "title": "outgoing-link"
             }
           },
           {
@@ -196,8 +198,8 @@
                 "showSearch": false,
                 "searchQuery": ""
               },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              "icon": "lucide-ghost",
+              "title": "tag"
             }
           },
           {
@@ -225,8 +227,8 @@
                 "showSearch": false,
                 "searchQuery": ""
               },
-              "icon": "lucide-list",
-              "title": "Outline"
+              "icon": "lucide-ghost",
+              "title": "outline"
             }
           }
         ]
@@ -238,31 +240,28 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false,
       "obsidian-git:Open Git source control": false,
       "random-statement:Random statement": false,
       "vault-fuzzy-search:Abrir búsqueda difusa": false,
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "8b125bec92d5c01a",
+  "active": "8e93f6ffc6eca3e3",
   "lastOpenFiles": [
-    "MP Materials - Investment Analysis.md",
-    "SpaceX (SPCX) - Investment Analysis.md",
-    "Apuntes/FA-Teo2.pdf",
-    "Theory/FA - Teo1.md",
-    "Apuntes",
+    "EA - Pr2.md",
+    "EA - Pr2 1.md",
+    "Untitled.md",
     "Theory/FA - Teo2.md",
+    "Theory/FA - Teo1.md",
     "Practicos/FA-Pr1.md",
     "Practicos/FA-Pr1.pdf",
-    "Apuntes/FA-Teo1.pdf",
     "Practicos/FA-Pr2.pdf",
+    "Apuntes/FA-Teo2.pdf",
+    "MP Materials - Investment Analysis.md",
+    "SpaceX (SPCX) - Investment Analysis.md",
+    "Apuntes",
+    "Apuntes/FA-Teo1.pdf",
     "Theory/FA - Teo5.md",
     "Theory/FA - Teo4.md",
     "Theory/FA - Teo3.md",

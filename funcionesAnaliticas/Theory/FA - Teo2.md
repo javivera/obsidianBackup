@@ -17,14 +17,20 @@
 >Una función $f:G\to\mathbb{C}$ es **analítica** si es continuamente diferenciable en $G$.
 
 >[!Proposition] Reglas de derivación
->Si $f$ y $g$ son analíticas en $G$, entonces
+>Si $f$ y $g$ son analíticas en $G$, entonces $f+g$ y $f.g$ son diferenciables y cumplen:
 >$$ (f+g)'=f'+g',\qquad (fg)'=f'g+fg'.$$
->Si $g(z)\neq0$ en $G$,
+>Si $g(z)\neq0$ en $G$, $\frac{f}{g}$ es diferenciable y cumple
 >$$\left(\frac fg\right)'=\frac{f'g-fg'}{g^2}.$$
+>Por lo tanto las tres son analíticas 
+>>[!Proof]
+>>1. 
+
+
 
 >[!Theorem] Regla de la cadena
->Si $f:G\to\Omega$ y $g:\Omega\to\mathbb{C}$ son analíticas, entonces $g\circ f$ es analítica y
->$$ (g\circ f)'(z)=g'(f(z))f'(z).$$
+>Si $f:G\to\Omega$ y $g:\Omega\to\mathbb{C}$ ($G,\Omega$ abiertos) son analíticas, entonces $g\circ f$ es analítica y $$ (g\circ f)'(z)=g'(f(z))f'(z).$$
+>>[!Proof]
+>>1.
 
 >[!Example] Polinomios
 >La identidad $f(z)=z$ es analítica y $f'(z)=1$. En consecuencia, $z^n$ y todo polinomio

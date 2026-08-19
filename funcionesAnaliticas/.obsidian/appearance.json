@@ -2,7 +2,8 @@
   "cssTheme": "Border",
   "enabledCssSnippets": [
     "floating-left-sidebar",
-    "style"
+    "style",
+    "zz-math-callout-cards"
   ],
   "textFontFamily": "Fira Code",
   "interfaceFontFamily": "CMU Sans Serif",

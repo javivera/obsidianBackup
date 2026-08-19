@@ -1,0 +1,268 @@
+/* Book-style mathematical callouts for Obsidian.
+   Designed for the Border theme and readable in dark and light mode. */
+
+.theme-dark {
+    --math-callout-accent: var(--color-accent);
+    --math-callout-accent-hover: var(--color-accent-1);
+    --math-callout-surface: var(--background-primary-alt);
+    --math-callout-text: var(--text-normal);
+    --math-callout-muted: var(--text-muted);
+    --math-callout-shadow: var(--background-modifier-box-shadow);
+}
+
+.theme-light {
+    --math-callout-accent: var(--color-accent);
+    --math-callout-accent-hover: var(--color-accent-1);
+    --math-callout-surface: var(--background-primary-alt);
+    --math-callout-text: var(--text-normal);
+    --math-callout-muted: var(--text-muted);
+    --math-callout-shadow: var(--background-modifier-box-shadow);
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) {
+    --callout-color: 153, 132, 92;
+    --book-callout-accent: var(--math-callout-accent);
+    margin: 1em 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    border: 2px solid var(--book-callout-accent) !important;
+    border-radius: 9px !important;
+    background: var(--math-callout-surface) !important;
+    box-shadow: 0 3px 12px var(--math-callout-shadow) !important;
+    color: var(--math-callout-text) !important;
+    font-family: "CMU Serif", "Latin Modern Roman", "Times New Roman", serif;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-title {
+    min-height: 0;
+    margin: 0;
+    padding: 0.32em 1em 0.38em !important;
+    border: 0 !important;
+    border-bottom: 2px solid var(--book-callout-accent) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--math-callout-text) !important;
+    font-family: "CMU Serif", "Latin Modern Roman", "Times New Roman", serif;
+    line-height: 1.25;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-title .callout-title-inner {
+    color: var(--math-callout-text) !important;
+    font-size: 1.02em;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+}
+
+/* Math Booster inserts the theorem name and its subtitle as separate spans.
+   Both must inherit the high-contrast title color. */
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-title :is(
+    .theorem-callout-main-title,
+    .theorem-callout-subtitle,
+    .callout-title-inner,
+    .callout-title-inner *
+) {
+    color: var(--math-callout-text) !important;
+    opacity: 1 !important;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-title .callout-icon {
+    display: none !important;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-title .callout-fold {
+    margin-left: auto;
+    color: var(--math-callout-text) !important;
+    opacity: 0.8;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-content {
+    margin: 0 !important;
+    padding: 0.68em 1.08em 0.82em !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: var(--math-callout-surface) !important;
+    color: var(--math-callout-text) !important;
+    line-height: 1.55;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-content > :first-child {
+    margin-top: 0;
+}
+
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"],
+    [data-callout="remark"],
+    [data-callout="proof"],
+    [data-callout="warning"]
+) > .callout-content > :last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Nested proofs remain cards, but are lighter and more compact. */
+body .callout .callout-content > .callout:is([data-callout="proof"], [data-callout="remark"]) {
+    margin: 0.8em 0 0.1em !important;
+    padding: 0 !important;
+    border: 2px solid var(--book-callout-accent) !important;
+    border-radius: 7px !important;
+    box-shadow: none !important;
+}
+
+body .callout .callout-content > .callout:is([data-callout="proof"], [data-callout="remark"]) > .callout-title {
+    padding: 0.25em 0.82em 0.3em !important;
+}
+
+body .callout .callout-content > .callout:is([data-callout="proof"], [data-callout="remark"]) > .callout-content {
+    padding: 0.55em 0.86em 0.68em !important;
+}
+
+/* A restrained hover effect helps distinguish the card in dark mode. */
+body .callout:is(
+    [data-callout="theorem"],
+    [data-callout="lemma"],
+    [data-callout="definition"],
+    [data-callout="proposition"],
+    [data-callout="corollary"],
+    [data-callout="property"],
+    [data-callout="example"],
+    [data-callout="exercise"]
+):hover {
+    --book-callout-accent: var(--math-callout-accent-hover);
+}
+
+/* Live Preview wraps rendered callouts in an editable embed block. Obsidian
+   draws a second frame around that wrapper on hover; keep the edit behavior,
+   but suppress the redundant visual frame. */
+.markdown-source-view.mod-cm6
+    .cm-callout.cm-embed-block:hover {
+    box-shadow: none !important;
+}
+
+.markdown-source-view.mod-cm6
+    .cm-callout.cm-embed-block .edit-block-button {
+    display: none !important;
+}
+
+@media print {
+    body .callout:is(
+        [data-callout="theorem"],
+        [data-callout="lemma"],
+        [data-callout="definition"],
+        [data-callout="proposition"],
+        [data-callout="corollary"],
+        [data-callout="property"],
+        [data-callout="example"],
+        [data-callout="exercise"],
+        [data-callout="remark"],
+        [data-callout="proof"],
+        [data-callout="warning"]
+    ) {
+        --math-callout-surface: #ffffff;
+        --math-callout-text: #111111;
+        --math-callout-shadow: transparent;
+        break-inside: avoid;
+    }
+}
