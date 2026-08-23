@@ -188,11 +188,17 @@ source: "Clase2 (1).pdf"
 
 > [!proposition] Clasificación de las acciones transitivas
 >Si $G$ actúa transitivamente sobre $X$ y fijamos $x\in X$, entonces la aplicación $$G/G_x\longrightarrow X,\qquad gG_x\longmapsto g\cdot x$$ es una biyección compatible con la acción de $G$. Por eso, toda acción transitiva es esencialmente una acción sobre clases laterales.
+>
+>> [!Proof]-
+>>1. **Buena definición.** Si $gG_x=hG_x$, entonces $h^{-1}g\in G_x$, de modo que $(h^{-1}g)\cdot x=x$. Aplicando $h$ a ambos lados y usando la compatibilidad de la acción, obtenemos $g\cdot x=h\cdot x$. Por lo tanto, la imagen no depende del representante elegido para la clase lateral $gG_x$.
+>>2. **Sobreyectividad.** Como la acción es transitiva, para todo $y\in X$ existe $g\in G$ tal que $g\cdot x=y$; por lo tanto, $y$ es la imagen de la clase $gG_x$.
+>>3. **Inyectividad.** Si $g\cdot x=h\cdot x$, entonces $(h^{-1}g)\cdot x=x$, por lo que $h^{-1}g\in G_x$ y $gG_x=hG_x$. Así, la aplicación es biyectiva.
+>>4. **Compatibilidad con la acción.** Para todo $k\in G$, $$k\cdot(g\cdot x)=(kg)\cdot x,$$ de modo que la biyección conmuta con la acción de $G$. Ella identifica la acción transitiva sobre $X$ con la acción por traslación sobre $G/G_x$; además, el estabilizador de la clase $G_x$ es exactamente $G_x$ (pues $kG_x=G_x$ si y solo si $k\in G_x$). Por lo tanto, toda acción transitiva es esencialmente una acción sobre clases laterales.
 
 ## 5. Aplicación: teorema de Cauchy
 
-> [!theorem] Teorema de Cauchy
->Sea $G$ un grupo finito y sea $p$ un número primo. Si $p\mid |G|$, entonces existe $g\in G$ con $|g|=p$.
+>[!theorem] Teorema de Cauchy
+>Sea $G$ un grupo finito y sea $p$ un número primo. Si $p\mid |G|$, entonces existe $g\in G$ con $|g|=p$
 >
 >> [!Proof]-
 >>1. Consideremos $$X=\{(x_1,\ldots,x_p)\in G^p:x_1x_2\cdots x_p=1_G\}.$$ Para contar sus elementos, elegimos libremente $x_1,\ldots,x_{p-1}$. 
@@ -203,10 +209,14 @@ source: "Clase2 (1).pdf"
 >>6. La **operacion cumple las dos reglas**: Porque $\overline 0$ deja cada tupla fija y dos desplazamientos sucesivos se suman: $$\overline 0\cdot x=x,\qquad \overline m\cdot(\overline n\cdot x)=\overline{m+n}\cdot x.$$
 >>7. Por lo tanto, la operación está bien definida y satisface los axiomas de una acción de $\mathbb Z_p$ sobre $X$.
 >>8. Por el teorema órbita-estabilizador, para cada $x\in X$ tenemos $$|O_x|=\frac{|\mathbb Z_p|}{|(\mathbb Z_p)_x|}=\frac{p}{|(\mathbb Z_p)_x|},$$ y por lo tanto $$p=|O_x|\,|(\mathbb Z_p)_x|.$$ Así, $|O_x|\mid p$ y, como $p$ es primo, cada órbita tiene tamaño $1$ o $p$.
->>9. Por tanto, las órbitas no triviales aportan un múltiplo de $p$ al cardinal de $X$.
->>10. Una tupla está fija por el generador $\overline 1$ si y solo si es constante osea: $$(x_1,\ldots,x_p)=(g,\ldots,g).$$ Y para pertenecer a $X$ debe satisfacer $g^p=1_G$.
->>11. Como $|X|\equiv0\pmod p$, la cantidad de puntos fijos también es múltiplo de $p$. La tupla $(1_G,\ldots,1_G)$ es un punto fijo, así que no puede ser el único: existen al menos $p$ puntos fijos. Por lo tanto, existe $g\neq1_G$ tal que $g^p=1_G$.
->>12. El orden de $g$ divide a $p$ y no es $1$, luego $|g|=p$.
+>>9. Por tanto, las órbitas no triviales aportan un múltiplo de $p$ al cardinal de $X$. Y entonces podemos pensar $$|X|=(\text{cantidad de orbitas de tamaño } 1)+p(\text{cantidad de orbitas de tamaño }p):=F+pK$$   
+>>10. Ahroa notamos que las orbitas de tamaño $1$ son los puntos fijos, osea $x\in X$ tal que $g \cdot x=x$ para todo $g\in \mathbb{Z}_{p}$.
+>>11. Y notamos que si un $x\in X$ es fijo por el generador $\overline 1$ entonces es fijo por cualquier otro $z\in \mathbb{Z}_{p}$ obviamente 
+>>12. Ademas un $x\in X$ es fijo por el generador $\overline{1}$ si y solo si es constante osea: $$(x_1,x_{2},\ldots,x_p)=\overline{1} (x_{1},x_{2},\ldots,x_{p})=(x_{2},x_{3},\ldots,x_{p},x_{1}) \iff (x_{1},\ldots,x_{p})=(g,\ldots,g).$$ por ende para pertenecer a $X$ debe satisfacer $x_{i}^{p}=g^p=1_G$.
+>>13. Por 3. tenemos $p\big||X|$ luego por 9. tenemos $$F\equiv |X|-pk\equiv0\text{ mod}(p)$$  entonces la cantidad de puntos fijos (Osea es una orbita de tamaño $1$)  también es múltiplo de $p$. 
+>>14. Luego como la tupla $(1_G,\ldots,1_G)$ es un punto fijo, no puede ser el único entonces existen al menos $p$ puntos fijos. 
+>>15. Por lo tanto, existe un $(g,\ldots,g)\in X$ (por que es un punto fijo paso 12. nos dice que sus entradas son todas iguales) tal que $g\neq1_G$ (para que $(g,\ldots,g)\neq(1_{G},\ldots1_{G})$) tal que $g^p=1_G$ (para que $(g,\ldots,g)\in X$) 
+>>16. Ademas el orden de $g$ divide a $p$ (misma cuenta de siempre en general) y no es $1_{G}$, luego $|g|=p$.
 
 ### Ejemplo de examen: grupos de orden $6$
 

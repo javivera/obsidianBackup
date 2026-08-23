@@ -135,7 +135,7 @@ tags:
 >>- (ii)
 >>	1. Por inducción sobre $n$, para todo $n\in\mathbb Z_{>0}$ se cumple $(bab^{-1})^n=ba^nb^{-1}$.
 >>	2. Luego, $(bab^{-1})^n=e\iff ba^nb^{-1}=e\iff a^n=b^{-1}eb=e$.
->>	3. Como $(bab^{-1})^n=e\iff a^n=e$, se concluye que $|bab^{-1}|=|a|$.
+>>	3. Como $(bab^{-1})^n=e\iff a^n=e$, se concluye que $|bab^{-1}|=|a|$. De la misma manera que en (i)  
 >>- (iii)
 >>	1. Notemos que $ba=b(ab)b^{-1}$, por lo que $ba$ es conjugado de $ab$ mediante $b$.
 >>	2. Aplicando directamente la parte (ii) con el elemento $x=ab$, obtenemos $$|ba|=|b(ab)b^{-1}|=|ab|.$$
