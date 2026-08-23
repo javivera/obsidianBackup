@@ -78,4 +78,64 @@ tags:
 >>	3. Sean $x,y\in\bigcap_{i\in I}H_i$. Entonces, para todo $i\in I$, se cumple que $x,y\in H_i$. Como cada $H_i$ es un subgrupo, $$xy^{-1}\in H_i$$ para todo $i\in I$. Por lo tanto, $$xy^{-1}\in\bigcap_{i\in I}H_i.$$
 >>	4. Por el criterio de subgrupo, concluimos que $$\bigcap_{i\in I}H_i\leq G.$$ En particular, esto vale para la intersección de tres subgrupos. Si $I=\varnothing$, por convención $\bigcap_{i\in I}H_i=G$, que también es un subgrupo de $G$.
 >>- (c)
+>>	1. **($\Leftarrow$).** Supongamos $H_1\subseteq H_2$. Entonces $$H_1\cup H_2=H_2.$$ Como $H_2\leq G$, se sigue que $H_1\cup H_2\leq G$. El caso $H_2\subseteq H_1$ es simétrico: $$H_1\cup H_2=H_1\leq G.$$
+>>	2. **($\Rightarrow$).** Supongamos $H_1\cup H_2\leq G$, y razonemos por contradicción: supongamos que $H_1\not\subseteq H_2$ y $H_2\not\subseteq H_1$. Entonces existen testigos $$x\in H_1\setminus H_2,\qquad y\in H_2\setminus H_1.$$ En particular $x,y\in H_1\cup H_2$. Como la unión es un subgrupo, el criterio de subgrupo da $$xy^{-1}\in H_1\cup H_2.$$
+>>	3. Si $xy^{-1}\in H_2$, como $y\in H_2$ se tendría $$x=(xy^{-1})y\in H_2,$$ contradiciendo $x\notin H_2$.
+>>	4. Si $xy^{-1}\in H_1$, como $x\in H_1$ se tendría $x^{-1}\in H_1$ y $$y^{-1}=x^{-1}(xy^{-1})\in H_1.$$ Como $H_1$ es subgrupo, $y=(y^{-1})^{-1}\in H_1$, contradiciendo $y\notin H_1$.
+>>	5. Así, $xy^{-1}$ no pertenece ni a $H_1$ ni a $H_2$, de modo que $$xy^{-1}\notin H_1\cup H_2,$$ contradiciendo que $H_1\cup H_2$ es un subgrupo. Por lo tanto debe valer $H_1\subseteq H_2$ o $H_2\subseteq H_1$.
 >>- (d)
+>>	1. Para tres o más subgrupos, la comparabilidad por pares es una condición suficiente, pero no necesaria, para que la unión sea un subgrupo.
+>>	2. Sea $\{H_i\}_{i\in I}$ una familia no vacía de subgrupos de $G$ totalmente ordenada por inclusión, y sea $$H=\bigcup_{i\in I}H_i.$$ Como $e\in H_i$ para todo $i\in I$, tenemos $H\neq\varnothing$.
+>>	3. Sean $x,y\in H$. Existen $i,j\in I$ tales que $x\in H_i$ e $y\in H_j$. Como $H_i$ y $H_j$ son comparables, podemos suponer, sin pérdida de generalidad, que $H_i\subseteq H_j$. Entonces $x,y\in H_j$ y, dado que $H_j$ es un subgrupo, $$xy^{-1}\in H_j\subseteq H.$$ Por el criterio de subgrupo, $H\leq G$. Este argumento vale aunque la familia sea infinita y no tenga un elemento máximo.
+>>	4. La recíproca es falsa. En el grupo aditivo $\mathbb Z$, consideremos $H_1=\mathbb Z$, $H_2=2\mathbb Z$ y $H_3=3\mathbb Z$. Se tiene $$H_1\cup H_2\cup H_3=\mathbb Z,$$ que es un subgrupo. Sin embargo, $H_2$ y $H_3$ no son comparables, pues $$2\in 2\mathbb Z\setminus 3\mathbb Z\qquad\text{y}\qquad 3\in 3\mathbb Z\setminus 2\mathbb Z.$$ Por lo tanto, si hay tres o más subgrupos, que su unión sea un subgrupo no implica que todos los pares sean comparables.
+
+>[!exercise] Ejercicio 5
+>Probar que $$\mathcal H:=\left\{\pm\begin{pmatrix}1&0\\0&1\end{pmatrix},\ \pm\begin{pmatrix}i&0\\0&-i\end{pmatrix},\ \pm\begin{pmatrix}0&1\\-1&0\end{pmatrix},\ \pm\begin{pmatrix}0&i\\i&0\end{pmatrix}\right\}$$ es un subgrupo de $\operatorname{GL}(2,\mathbb C)$.
+>>[!Proof]-
+>>1. Denotemos $$I=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad A=\begin{pmatrix}i&0\\0&-i\end{pmatrix},\qquad B=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&i\\i&0\end{pmatrix}.$$ Entonces $\mathcal H=\{\varepsilon X:\varepsilon\in\{1,-1\},\ X\in\{I,A,B,C\}\}$, y en particular $I\in\mathcal H$.
+>>2. Los cuadrados de las tres matrices no triviales son $$A^2=B^2=C^2=-I.$$ Además, las multiplicaciones restantes dan $$\begin{aligned}AB&=C,&BA&=-C,\\AC&=-B,&CA&=B,\\BC&=A,&CB&=-A.\end{aligned}$$ Por lo tanto, para cualesquiera $X,Y\in\{I,A,B,C\}$ existen $\delta\in\{1,-1\}$ y $Z\in\{I,A,B,C\}$ tales que $XY=\delta Z$.
+>>3. Si $\varepsilon,\eta\in\{1,-1\}$ y $X,Y\in\{I,A,B,C\}$, entonces $$(\varepsilon X)(\eta Y)=\varepsilon\eta(XY)=\varepsilon\eta\delta Z\in\mathcal H.$$ Así, $\mathcal H$ es cerrada bajo el producto.
+>>4. De las igualdades anteriores se obtiene $$I^{-1}=I,\qquad A^{-1}=-A,\qquad B^{-1}=-B,\qquad C^{-1}=-C.$$ En consecuencia, $(\varepsilon X)^{-1}=\varepsilon X^{-1}\in\mathcal H$ para todo $\varepsilon X\in\mathcal H$. En particular, todas estas matrices son invertibles, de modo que $\mathcal H\subseteq\operatorname{GL}(2,\mathbb C)$.
+>>5. Como $\mathcal H$ contiene al neutro y es cerrada bajo productos e inversos, se concluye que $\mathcal H$ es un subgrupo de $\operatorname{GL}(2,\mathbb C)$.
+
+>[!exercise] Ejercicio 6
+>Probar que todos los subgrupos de $\mathbb Z$ son cíclicos.
+>>[!Proof]-
+>>6. Sea $H\leq(\mathbb Z,+)$. Si $H=\{0\}$, entonces $H=\langle0\rangle$ y, por lo tanto, $H$ es cíclico.
+>>7. Supongamos ahora que $H\neq\{0\}$. Existe $h\in H$ con $h\neq0$ y, como $H$ también contiene a $-h$, alguno de los dos es positivo. Por ello, el conjunto $H\cap\mathbb Z_{>0}$ es no vacío. Por el principio de buena ordenación, posee un elemento mínimo; lo denotamos por $m$.
+>>8. Como $m\in H$ y $H$ es un subgrupo, todo múltiplo entero de $m$ pertenece a $H$. En consecuencia, $$\langle m\rangle=m\mathbb Z\subseteq H.$$
+>>9. Para probar la inclusión contraria, sea $h\in H$. Por el algoritmo de la división, existen $q,r\in\mathbb Z$ tales que $$h=mq+r,\qquad 0\leq r<m.$$ Puesto que $h,m\in H$ y $H$ es cerrado bajo sumas e inversos, tenemos $$r=h-mq\in H.$$ Si $r>0$, entonces $r$ sería un elemento positivo de $H$ menor que $m$, lo que contradice la minimalidad de $m$. Por tanto, $r=0$ y $h=mq\in\langle m\rangle$. Así, $$H\subseteq\langle m\rangle.$$
+>>10. De ambas inclusiones se sigue que $$H=\langle m\rangle.$$ Por consiguiente, todo subgrupo de $\mathbb Z$ es cíclico.
+
+>[!exercise] Ejercicio 7
+>- **(a)** Demostrar que toda matriz real $A\in\operatorname{GL}_2(\mathbb R)$ que satisface $A^2=-I_2$ es conjugada en $\operatorname{GL}_2(\mathbb R)$ a la matriz $$C=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.$$
+>- **(b)** Demostrar que no existe ningún monomorfismo $Q_8\to\operatorname{GL}_2(\mathbb R)$.
+>>[!Proof]-
+>>- (a)
+>>	1. Elijamos cualquier vector $v\in\mathbb R^2$ no nulo. Los vectores $v$ y $Av$ son linealmente independientes: en efecto, si fueran dependientes, existiría $\lambda\in\mathbb R$ tal que $Av=\lambda v$, y entonces $$-v=A^2v=A(\lambda v)=\lambda Av=\lambda^2v.$$ Como $v\neq0$, resultaría $\lambda^2=-1$, lo cual es imposible en $\mathbb R$.
+>>	2. Definamos la matriz $P=(\,v\ \ Av\,)$ cuyas columnas son $v$ y $Av$. Por la independencia lineal anterior, $P\in\operatorname{GL}_2(\mathbb R)$. Además, $$AP=(\,Av\ \ A^2v\,)=(\,Av\ \ -v\,)=PC.$$ Por lo tanto, $$A=PCP^{-1},$$ y así $A$ es conjugada a $C$ en $\operatorname{GL}_2(\mathbb R)$.
+>>- (b)
+>>	1. Supongamos, por contradicción, que existe un monomorfismo $\varphi:Q_8\to\operatorname{GL}_2(\mathbb R)$. Denotemos $$X=\varphi(i),\qquad Y=\varphi(j),\qquad S=\varphi(-1).$$ Como $\varphi(1)=I_2$ y $\varphi$ es inyectiva, se tiene $S\neq I_2$.
+>>	2. De $i^2=-1$ y $(-1)^2=1$ obtenemos $$X^2=S,\qquad S^2=I_2.$$ Como $X$ es invertible, $$\det S=\det(X^2)=(\det X)^2>0.$$
+>>	3. Puesto que $S^2=I_2$, el polinomio minimal de $S$ divide a $t^2-1=(t-1)(t+1)$. Como este polinomio tiene raíces reales distintas, $S$ es diagonalizable y sus autovalores pertenecen a $\{1,-1\}$. Al ser $\det S>0$, ambos autovalores tienen el mismo signo. Si ambos fueran $1$, la diagonalizabilidad daría $S=I_2$, contradiciendo el paso anterior. En consecuencia, ambos son $-1$ y $$S=-I_2.$$
+>>	4. De $i^2=j^2=-1$ se sigue ahora que $$X^2=Y^2=-I_2.$$ Además, en $Q_8$ se cumple $ji=-ij=(-1)ij$, por lo que $$YX=\varphi(ji)=\varphi((-1)ij)=SXY=-XY.$$
+>>	5. Por la parte (a), existe $P\in\operatorname{GL}_2(\mathbb R)$ tal que $P^{-1}XP=C$. Definamos $\widetilde Y=P^{-1}YP$; aunque no conocemos sus entradas, el mismo cambio de base conserva las relaciones anteriores: $$\widetilde Y^2=P^{-1}Y^2P=-I_2$$ y $$\widetilde YC=(P^{-1}YP)(P^{-1}XP)=P^{-1}YXP=-P^{-1}XYP=-C\widetilde Y.$$
+>>	6. Escribamos $\widetilde Y=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. La relación $\widetilde YC=-C\widetilde Y$ da $$\begin{pmatrix}b&-a\\d&-c\end{pmatrix}=\begin{pmatrix}c&d\\-a&-b\end{pmatrix},$$ de donde $c=b$ y $d=-a$. Por consiguiente, $$\widetilde Y=\begin{pmatrix}a&b\\b&-a\end{pmatrix}.$$
+>>	7. Al elevar al cuadrado obtenemos $$\widetilde Y^2=\begin{pmatrix}a^2+b^2&0\\0&a^2+b^2\end{pmatrix}=(a^2+b^2)I_2.$$ Pero también $\widetilde Y^2=-I_2$, de modo que $a^2+b^2=-1$, lo cual es imposible para $a,b\in\mathbb R$. Esta contradicción demuestra que no existe ningún monomorfismo $Q_8\to\operatorname{GL}_2(\mathbb R)$.
+
+>[!exercise] Ejercicio 8
+>Sea $G$ un grupo y denotemos por $|a|$ al orden de $a$ en $G$. Probar que para todo $a,b\in G$ valen:
+>- **(i)** $|a|=|a^{-1}|$.
+>- **(ii)** $|a|=|bab^{-1}|$.
+>- **(iii)** $|ab|=|ba|$.
+>>[!Proof]-
+>>- (i)
+>>	1. Para todo $n\in\mathbb Z$, se tiene $(a^{-1})^n=(a^n)^{-1}$. Por consiguiente, $(a^{-1})^n=e$ si y solo si $a^n=e$.
+>>	2. Como los conjuntos $\{n\in\mathbb Z_{>0}:(a^{-1})^n=e\}$ y $\{n\in\mathbb Z_{>0}:a^n=e\}$ son idénticos, sus mínimos coinciden cuando son no vacíos, y ambos órdenes son infinitos cuando son vacíos. Por lo tanto, $|a|=|a^{-1}|$.
+>>- (ii)
+>>	1. Por inducción sobre $n$, para todo $n\in\mathbb Z_{>0}$ se cumple $(bab^{-1})^n=ba^nb^{-1}$.
+>>	2. Luego, $(bab^{-1})^n=e\iff ba^nb^{-1}=e\iff a^n=b^{-1}eb=e$.
+>>	3. Como $(bab^{-1})^n=e\iff a^n=e$, se concluye que $|bab^{-1}|=|a|$.
+>>- (iii)
+>>	1. Notemos que $ba=b(ab)b^{-1}$, por lo que $ba$ es conjugado de $ab$ mediante $b$.
+>>	2. Aplicando directamente la parte (ii) con el elemento $x=ab$, obtenemos $$|ba|=|b(ab)b^{-1}|=|ab|.$$

@@ -306,25 +306,17 @@
 >> Como la distancia es no negativa, al tomar la raíz cuadrada resulta
 >> $$\boxed{d(z,\infty)=\frac{2}{\sqrt{1+|z|^2}}}.$$
 
-> [!exercise] Ejercicio 14 - Producto de Cauchy de series absolutamente convergentes
+>[!exercise] Ejercicio 14 - Producto de Cauchy de series absolutamente convergentes
 > Sean $\sum_{n=0}^{\infty}a_n$ y $\sum_{n=0}^{\infty}b_n$ dos series absolutamente convergentes. Para cada $n\in\mathbb N$ definimos $c_n=\sum_{k=0}^n a_kb_{n-k}$. Probar que la serie $\sum_{n=0}^{\infty}c_n$ es absolutamente convergente con suma igual a $\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$.
 >
->> [!proof]-
->>
->> Sean
->> $$A=\sum_{n=0}^{\infty}a_n, \qquad B=\sum_{n=0}^{\infty}b_n, \qquad c_n=\sum_{k=0}^n a_kb_{n-k}.$$
->> Como las dos series convergen absolutamente, las cantidades $\sum_{k=0}^{\infty}|a_k|$ y $\sum_{j=0}^{\infty}|b_j|$ son finitas. Para cada $j$ fijo, $|b_j|$ es constante respecto de $k$, de modo que
->> $$\sum_{k=0}^{\infty}|a_kb_j|=|b_j|\sum_{k=0}^{\infty}|a_k|.$$
->> Al sumar ahora respecto de $j$, obtenemos que la suma de los valores absolutos del arreglo doble es finita:
->> $$\begin{aligned}\sum_{j=0}^{\infty}\sum_{k=0}^{\infty}|a_kb_j|&=\sum_{j=0}^{\infty}|b_j|\left(\sum_{k=0}^{\infty}|a_k|\right)\\&=\left(\sum_{k=0}^{\infty}|a_k|\right)\left(\sum_{j=0}^{\infty}|b_j|\right)<\infty.\end{aligned}$$
->> Por la desigualdad triangular, para cada $n$ se tiene
->> $$|c_n|=\left|\sum_{k=0}^{n}a_kb_{n-k}\right|\leq \sum_{k=0}^{n}|a_k||b_{n-k}|.$$
->> Cada término de la última suma pertenece al arreglo doble: corresponde a la posición $(k,j)$ con $j=n-k\geq0$. Como todos estos términos son no negativos, al sumar sobre $n$ podemos acotar la suma por la de todo el arreglo:
->> $$\sum_{n=0}^{\infty}|c_n|\leq\sum_{n=0}^{\infty}\sum_{k=0}^{n}|a_k||b_{n-k}|\leq\sum_{k=0}^{\infty}\sum_{j=0}^{\infty}|a_k||b_j|<\infty.$$
->> Por tanto, $\sum_{n=0}^{\infty}c_n$ converge absolutamente. Resta identificar su suma. En este punto sí usamos que el arreglo doble converge absolutamente: ello permite reordenar y reagrupar sus términos sin alterar el resultado. El cambio $j=n-k$ establece una correspondencia biyectiva entre los índices $n\geq0$, $0\leq k\leq n$, y los pares $k,j\geq0$, pues inversamente $n=k+j$. Por consiguiente,
->> $$\sum_{n=0}^{\infty}\sum_{k=0}^{n}a_kb_{n-k}=\sum_{k=0}^{\infty}\sum_{j=0}^{\infty}a_kb_j.$$
->> Finalmente, para cada $k$ fijo podemos extraer $a_k$ de la suma interior. Usando nuevamente la convergencia absoluta del arreglo doble,
->> $$\begin{aligned}\sum_{n=0}^{\infty}c_n&=\sum_{n=0}^{\infty}\sum_{k=0}^{n}a_kb_{n-k}\\&=\sum_{k=0}^{\infty}\sum_{j=0}^{\infty}a_kb_j\\&=\sum_{k=0}^{\infty}a_k\left(\sum_{j=0}^{\infty}b_j\right)\\&=B\sum_{k=0}^{\infty}a_k=AB.\end{aligned}$$
+>>[!proof]-
+>>1. Sean $$A=\sum_{n=0}^{\infty}a_n, \qquad B=\sum_{n=0}^{\infty}b_n, \qquad c_n=\sum_{k=0}^n a_kb_{n-k}.$$
+>>2. Como las dos series convergen absolutamente, las cantidades $\sum_{k=0}^{\infty}|a_k|$ y $\sum_{j=0}^{\infty}|b_j|$ son finitas. Para cada $j$ fijo, $|b_j|$ es constante respecto de $k$, de modo que $$\sum_{k=0}^{\infty}|a_kb_j|=|b_j|\sum_{k=0}^{\infty}|a_k|.$$
+>>3. Al sumar ahora respecto de $j$, obtenemos que la suma de los valores absolutos del arreglo doble es finita: $$\begin{aligned}\sum_{j=0}^{\infty}\sum_{k=0}^{\infty}|a_kb_j|&=\sum_{j=0}^{\infty}|b_j|\left(\sum_{k=0}^{\infty}|a_k|\right)\\&=\left(\sum_{k=0}^{\infty}|a_k|\right)\left(\sum_{j=0}^{\infty}|b_j|\right)<\infty.\end{aligned}$$
+>>4. Por la desigualdad triangular, para cada $n$ se tiene $$|c_n|=\left|\sum_{k=0}^{n}a_kb_{n-k}\right|\leq \sum_{k=0}^{n}|a_k||b_{n-k}|.$$
+>>5. Cada término de la última suma pertenece al arreglo doble: corresponde a la posición $(k,j)$ con $j=n-k\geq0$. Como todos estos términos son no negativos, al sumar sobre $n$ podemos acotar la suma por la de todo el arreglo: $$\sum_{n=0}^{\infty}|c_n|\leq\sum_{n=0}^{\infty}\sum_{k=0}^{n}|a_k||b_{n-k}|\leq\sum_{k=0}^{\infty}\sum_{j=0}^{\infty}|a_k||b_j|<\infty.$$por tanto, $\sum_{n=0}^{\infty}c_n$ converge absolutamente.
+>>6. Resta identificar su suma. En este punto sí usamos que el arreglo doble converge absolutamente: ello permite reordenar y reagrupar sus términos sin alterar el resultado. 
+>>7. El cambio $j=n-k$ establece una correspondencia biyectiva entre los índices $n\geq0$, $0\leq k\leq n$, y los pares $k,j\geq0$, pues inversamente $n=k+j$. Por consiguiente, $$\sum_{n=0}^{\infty}\sum_{k=0}^{n}a_kb_{n-k}=\sum_{k=0}^{\infty}\sum_{j=0}^{\infty}a_kb_j=\sum_{k=0}^{\infty}a_k\left(\sum_{j=0}^{\infty}b_j\right)$$ como queriamos $\square$ 
 
 ^babca2
 
@@ -342,8 +334,8 @@
 >>	3. Por ello la serie de coeficientes $a_n+b_n$ converge en todo disco $|z-a|<r$, así que su radio es al menos $r$, y la linealidad de las sumas parciales da $$\boxed{ \sum_{n=0}^{\infty}(a_n+b_n)(z-a)^n =\sum_{n=0}^{\infty}a_n(z-a)^n +\sum_{n=0}^{\infty}b_n(z-a)^n }.$$
 >>- (b)
 >>	1. Para el producto, definamos $$\alpha_n=a_n(z-a)^n, \qquad \beta_n=b_n(z-a)^n.$$
->>	2. El coeficiente $n$-ésimo de su producto de Cauchy es $$\widetilde{c}_{n}=\sum_{k=0}^n\alpha_k\beta_{n-k} =\left(\sum_{k=0}^n a_kb_{n-k}\right)(z-a)^n =c_n(z-a)^n.$$
->>	3. Por el [[FA-Pr1#^babca2|Ejercicio 14]], la serie $\sum_{n=0}^{\infty}\widetilde{c}_{n}$ converge absolutamente osea $$\sum_{n=0}^{\infty}\widetilde{c}_{n}=\sum_{n=0}^{\infty}c_n(z-a)^n <\infty$$ y ademas por el mismo ejercicio $$\boxed{ \sum_{n=0}^{\infty}c_n(z-a)^n =\left(\sum_{n=0}^{\infty}a_n(z-a)^n\right) \left(\sum_{n=0}^{\infty}b_n(z-a)^n\right) }.$$
+>>	2. El coeficiente $n$-ésimo de su producto de Cauchy es $$\widetilde{c}_{n}=\sum_{k=0}^n\alpha_k\beta_{n-k}=\sum_{k=0}^n a_k(z-a)^{k} b_{n-k}(z-a)^{n-k} =\left(\sum_{k=0}^n a_kb_{n-k}\right)(z-a)^n =c_n(z-a)^n.$$
+>>	3. Por el [[FA-Pr1#^babca2|Ejercicio 14]], la serie $\sum_{n=0}^{\infty}\widetilde{c}_{n}$ converge absolutamente osea $$\sum_{n=0}^{\infty}c_n(z-a)^n=\sum_{n=0}^{\infty}\widetilde{c}_{n}<\infty$$ y ademas por el mismo ejercicio $$\boxed{ \sum_{n=0}^{\infty}c_n(z-a)^n =\left(\sum_{n=0}^{\infty}a_n(z-a)^n\right) \left(\sum_{n=0}^{\infty}b_n(z-a)^n\right) }.$$
 >>	4. Como esto vale para todo $|z-a|<r$, la serie producto también tiene radio de convergencia al menos $r$.
 
 >[!exercise] Ejercicio 16 - Radios de convergencia

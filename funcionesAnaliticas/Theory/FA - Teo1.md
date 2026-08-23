@@ -435,3 +435,6 @@ con $r>0$ y $\theta\in\mathbb{R}$, definen las coordenadas polares de $z$.
 >>3. Por iteración existe $B>0$ tal que $$|a_n|r^n\leq B,$$ y entonces $$|a_nz^n|\leq B\left(\frac{|z|}{r}\right)^n.$$ La comparación con una serie geométrica muestra que $\sum|a_nz^n|$ converge.
 >>4. Si $|z|>\alpha$, elegimos $r$ con $|z|>r>\alpha$. Para $n$ suficientemente grande, $$\frac{|a_n|}{|a_{n+1}|}<r,$$ de modo que $|a_n|r^n$ es creciente a partir de cierto índice y queda acotado inferiormente por alguna constante $B>0$.
 >>5. Así, $$|a_nz^n|\geq B\left(\frac{|z|}{r}\right)^n\to\infty.$$ Los términos no tienden a cero, por lo que la serie diverge. Por unicidad, $R=\alpha$.
+
+^049a6c
+

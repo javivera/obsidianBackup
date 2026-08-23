@@ -8,6 +8,16 @@
     --math-callout-text: var(--text-normal);
     --math-callout-muted: var(--text-muted);
     --math-callout-shadow: var(--background-modifier-box-shadow);
+    --math-callout-definition-accent: #6db8b3;
+    --math-callout-definition-accent-hover: #86cbc6;
+    --math-callout-definition-rgb: 109, 184, 179;
+    --math-callout-remark-accent: #9a95c4;
+    --math-callout-remark-accent-hover: #ada8d4;
+    --math-callout-remark-rgb: 154, 149, 196;
+    --math-callout-example-accent: #c9847a;
+    --math-callout-example-accent-hover: #d49a91;
+    --math-callout-example-rgb: 201, 132, 122;
+    --math-heading-accent: var(--math-callout-accent);
 }
 
 .theme-light {
@@ -17,6 +27,16 @@
     --math-callout-text: var(--text-normal);
     --math-callout-muted: var(--text-muted);
     --math-callout-shadow: var(--background-modifier-box-shadow);
+    --math-callout-definition-accent: #2f7a75;
+    --math-callout-definition-accent-hover: #24615d;
+    --math-callout-definition-rgb: 47, 122, 117;
+    --math-callout-remark-accent: #5d5886;
+    --math-callout-remark-accent-hover: #4a466c;
+    --math-callout-remark-rgb: 93, 88, 134;
+    --math-callout-example-accent: #a85a50;
+    --math-callout-example-accent-hover: #8f4b43;
+    --math-callout-example-rgb: 168, 90, 80;
+    --math-heading-accent: var(--math-callout-accent);
 }
 
 body .callout:is(
@@ -27,6 +47,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -53,6 +74,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -78,6 +100,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -99,6 +122,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -121,6 +145,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -137,6 +162,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -155,6 +181,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -177,6 +204,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -193,6 +221,7 @@ body .callout:is(
     [data-callout="corollary"],
     [data-callout="property"],
     [data-callout="example"],
+    [data-callout="counterexample"],
     [data-callout="exercise"],
     [data-callout="remark"],
     [data-callout="proof"],
@@ -219,18 +248,154 @@ body .callout .callout-content > .callout:is([data-callout="proof"], [data-callo
     padding: 0.55em 0.86em 0.68em !important;
 }
 
+/* Definitions: teal frame and title, distinct from theorems. */
+body .callout[data-callout="definition"] {
+    --callout-color: var(--math-callout-definition-rgb);
+    --book-callout-accent: var(--math-callout-definition-accent);
+}
+
+body .callout[data-callout="definition"] > .callout-title {
+    background: color-mix(in srgb, var(--math-callout-definition-accent) 14%, transparent) !important;
+}
+
+body .callout[data-callout="definition"] > .callout-title,
+body .callout[data-callout="definition"] > .callout-title :is(
+    .theorem-callout-main-title,
+    .theorem-callout-subtitle,
+    .callout-title-inner,
+    .callout-title-inner *
+),
+body .callout[data-callout="definition"] > .callout-title .callout-fold {
+    color: var(--math-callout-definition-accent) !important;
+}
+
+/* Remarks: slate-violet frame and title. */
+body .callout[data-callout="remark"] {
+    --callout-color: var(--math-callout-remark-rgb);
+    --book-callout-accent: var(--math-callout-remark-accent);
+}
+
+body .callout[data-callout="remark"] > .callout-title {
+    background: color-mix(in srgb, var(--math-callout-remark-accent) 14%, transparent) !important;
+}
+
+body .callout[data-callout="remark"] > .callout-title,
+body .callout[data-callout="remark"] > .callout-title :is(
+    .theorem-callout-main-title,
+    .theorem-callout-subtitle,
+    .callout-title-inner,
+    .callout-title-inner *
+),
+body .callout[data-callout="remark"] > .callout-title .callout-fold {
+    color: var(--math-callout-remark-accent) !important;
+}
+
 /* A restrained hover effect helps distinguish the card in dark mode. */
 body .callout:is(
     [data-callout="theorem"],
     [data-callout="lemma"],
-    [data-callout="definition"],
     [data-callout="proposition"],
     [data-callout="corollary"],
     [data-callout="property"],
-    [data-callout="example"],
     [data-callout="exercise"]
 ):hover {
     --book-callout-accent: var(--math-callout-accent-hover);
+}
+
+body .callout[data-callout="definition"]:hover {
+    --book-callout-accent: var(--math-callout-definition-accent-hover);
+}
+
+body .callout[data-callout="remark"]:hover {
+    --book-callout-accent: var(--math-callout-remark-accent-hover);
+}
+
+/* Examples and counterexamples: dusty coral frame and title. */
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) {
+    --callout-color: var(--math-callout-example-rgb);
+    --book-callout-accent: var(--math-callout-example-accent);
+}
+
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) > .callout-title {
+    background: color-mix(in srgb, var(--math-callout-example-accent) 14%, transparent) !important;
+}
+
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) > .callout-title,
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) > .callout-title :is(
+    .theorem-callout-main-title,
+    .theorem-callout-subtitle,
+    .callout-title-inner,
+    .callout-title-inner *
+),
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) > .callout-title .callout-fold {
+    color: var(--math-callout-example-accent) !important;
+}
+
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+):hover {
+    --book-callout-accent: var(--math-callout-example-accent-hover);
+}
+
+/* Math Booster does not know this environment, so the type name is inserted here. */
+body .callout[data-callout="counterexample"] > .callout-title .callout-title-inner::before {
+    content: "Counterexample (";
+}
+
+body .callout[data-callout="counterexample"] > .callout-title .callout-title-inner::after {
+    content: ")";
+}
+
+/* Nested proofs inherit the parent example's coral accent. */
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) .callout-content > .callout[data-callout="proof"] {
+    --callout-color: var(--math-callout-example-rgb);
+    --book-callout-accent: var(--math-callout-example-accent);
+}
+
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) .callout-content > .callout[data-callout="proof"] > .callout-title {
+    background: color-mix(in srgb, var(--math-callout-example-accent) 14%, transparent) !important;
+}
+
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) .callout-content > .callout[data-callout="proof"] > .callout-title,
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) .callout-content > .callout[data-callout="proof"] > .callout-title :is(
+    .theorem-callout-main-title,
+    .theorem-callout-subtitle,
+    .callout-title-inner,
+    .callout-title-inner *
+),
+body .callout:is(
+    [data-callout="example"],
+    [data-callout="counterexample"]
+) .callout-content > .callout[data-callout="proof"] > .callout-title .callout-fold {
+    color: var(--math-callout-example-accent) !important;
 }
 
 /* Live Preview wraps rendered callouts in an editable embed block. Obsidian
@@ -246,6 +411,117 @@ body .callout:is(
     display: none !important;
 }
 
+/* H1 / H2 / H3 as callout title bars. Drop Border's colored ticks so the
+   heading itself is the framed card. */
+body:not(.heading-indicator-off) .is-live-preview .HyperMD-header-1::before,
+body:not(.heading-indicator-off) .is-live-preview .HyperMD-header-2::before,
+body:not(.heading-indicator-off) .is-live-preview .HyperMD-header-3::before,
+body:not(.heading-indicator-off) .markdown-rendered > h1::before,
+body:not(.heading-indicator-off) .markdown-rendered > h2::before,
+body:not(.heading-indicator-off) .markdown-rendered > h3::before,
+body:not(.heading-indicator-off) .markdown-preview-sizer > div > h1::before,
+body:not(.heading-indicator-off) .markdown-preview-sizer > div > h2::before,
+body:not(.heading-indicator-off) .markdown-preview-sizer > div > h3::before {
+    content: none !important;
+    display: none !important;
+}
+
+body:not(.heading-indicator-off) .markdown-rendered > :is(h1, h2, h3),
+body:not(.heading-indicator-off) .markdown-preview-sizer > div > :is(h1, h2, h3) {
+    text-indent: 0 !important;
+}
+
+/* Reading view can own the real box. Live Preview cannot: padding/margin
+   on .cm-line breaks CodeMirror's cursor map and makes Up jump to H1. */
+body .markdown-rendered > :is(h1, h2, h3),
+body .markdown-preview-sizer > div > :is(h1, h2, h3) {
+    --book-heading-accent: var(--math-heading-accent);
+    font-family: "CMU Serif", "Latin Modern Roman", "Times New Roman", serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    letter-spacing: 0.005em;
+    color: var(--math-callout-text) !important;
+    background: color-mix(in srgb, var(--book-heading-accent) 14%, var(--math-callout-surface)) !important;
+    border: 2px solid var(--book-heading-accent) !important;
+    border-radius: 9px !important;
+    box-shadow: 0 3px 12px var(--math-callout-shadow);
+    text-align: center !important;
+}
+
+body .markdown-rendered > h1,
+body .markdown-preview-sizer > div > h1 {
+    margin: 1em 0 0.85em !important;
+    padding: 0.38em 1em 0.42em !important;
+    font-size: 1.22em !important;
+    line-height: 1.25 !important;
+}
+
+body .markdown-rendered > h2,
+body .markdown-preview-sizer > div > h2 {
+    margin: 1.15em 0 0.7em !important;
+    padding: 0.3em 1em 0.34em !important;
+    font-size: 1.08em !important;
+    line-height: 1.25 !important;
+}
+
+body .markdown-rendered > h3,
+body .markdown-preview-sizer > div > h3 {
+    margin: 1em 0 0.6em !important;
+    padding: 0.26em 1em 0.3em !important;
+    font-size: 1em !important;
+    line-height: 1.25 !important;
+}
+
+body .markdown-rendered > :is(h1, h2, h3) *,
+body .markdown-preview-sizer > div > :is(h1, h2, h3) * {
+    text-align: center;
+}
+
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-1,
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2,
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-3 {
+    --book-heading-accent: var(--math-heading-accent);
+    position: relative;
+    text-align: center !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-1::after,
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2::after,
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-3::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border: 2px solid var(--book-heading-accent);
+    border-radius: 9px;
+    background: color-mix(in srgb, var(--book-heading-accent) 14%, var(--math-callout-surface));
+    box-shadow: 0 3px 12px var(--math-callout-shadow);
+}
+
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-1 :is(.cm-header-1, .cm-formatting-header),
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2 :is(.cm-header-2, .cm-formatting-header),
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-3 :is(.cm-header-3, .cm-formatting-header) {
+    font-family: "CMU Serif", "Latin Modern Roman", "Times New Roman", serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    color: var(--math-callout-text) !important;
+}
+
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-1 .cm-formatting-header,
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2 .cm-formatting-header,
+body .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-3 .cm-formatting-header {
+    color: var(--book-heading-accent) !important;
+    opacity: 0.7;
+}
+
 @media print {
     body .callout:is(
         [data-callout="theorem"],
@@ -255,11 +531,20 @@ body .callout:is(
         [data-callout="corollary"],
         [data-callout="property"],
         [data-callout="example"],
+        [data-callout="counterexample"],
         [data-callout="exercise"],
         [data-callout="remark"],
         [data-callout="proof"],
         [data-callout="warning"]
     ) {
+        --math-callout-surface: #ffffff;
+        --math-callout-text: #111111;
+        --math-callout-shadow: transparent;
+        break-inside: avoid;
+    }
+
+    body .markdown-rendered > :is(h1, h2, h3),
+    body .markdown-preview-sizer > div > :is(h1, h2, h3) {
         --math-callout-surface: #ffffff;
         --math-callout-text: #111111;
         --math-callout-shadow: transparent;

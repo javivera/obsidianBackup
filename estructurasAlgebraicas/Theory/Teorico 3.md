@@ -70,7 +70,7 @@ source: "[[2da clase.pdf]]"
 >La propiedad se representa mediante el siguiente diagrama conmutativo: $$\begin{array}{ccc}&H&\\[-2pt]{}^{g}\swarrow&&\searrow^{g_i}\\[2pt]\displaystyle\prod_{i\in I}G_i&\xrightarrow{\ p_i\ }&G_i.\end{array}$$
 >Ademas esto implica que dar un homomorfismo de $H$ al producto directo equivale a dar, para cada $i\in I$, un homomorfismo de $H$ a $G_i$. En símbolos, $$\operatorname{Hom}\left(H,\prod_{i\in I}G_i\right)\cong\prod_{i\in I}\operatorname{Hom}(H,G_i).$$
 >>[!Proof]-
->>1. La condición $p_i(g(h))=g_i(h)$ determina cada coordenada de $g(h)$, por lo que determina a $g$ de manera única. Además, $$g(hk)=(g_i(hk))_i=(g_i(h)g_i(k))_i=g(h)g(k),$$ así que $g$ es un homomorfismo.
+>>4. La condición $p_i(g(h))=g_i(h)$ determina cada coordenada de $g(h)$, por lo que determina a $g$ de manera única. Además, $$g(hk)=(g_i(hk))_i=(g_i(h)g_i(k))_i=g(h)g(k),$$ así que $g$ es un homomorfismo.
 
 >[!Proposition] Propiedad universal de la suma directa
 >Sea $H$ un grupo abeliano y sean $u_i:G_i\to H$ homomorfismos. Existe un único homomorfismo $$u:\bigoplus_{i\in I}G_i\longrightarrow H$$ tal que $u\circ\iota_i=u_i$ para todo $i\in I$. Para $g=(g_i)_i$, se define por $$u(g)=\prod_{i\in\operatorname{supp}(g)}u_i(g_i).$$
@@ -85,8 +85,8 @@ source: "[[2da clase.pdf]]"
 >[!exercise] Diferencia entre producto y suma directa infinitos
 >Decidir si $$\prod_{n\in\mathbb N}\mathbb Z\cong\bigoplus_{n\in\mathbb N}\mathbb Z.$$
 >>[!Proof]-
->>2. No son isomorfos. La suma directa es numerable: sus elementos son sucesiones enteras con soporte finito, y para cada tamaño de soporte hay solamente una unión numerable de conjuntos numerables. Osea es union de conjuntos de cardinal $\aleph^{j}$ con $j\in \mathbb{N}$ que por lo tanto tiene cardinal $\aleph$ 
->>3. En cambio, el producto directo contiene a $\{0,1\}^{\mathbb N}$, que es no numerable (por que tiene cardinal $2^{\aleph}$) . Por lo tanto, los grupos tienen distinta cardinalidad.
+>>5. No son isomorfos. La suma directa es numerable: sus elementos son sucesiones enteras con soporte finito, y para cada tamaño de soporte hay solamente una unión numerable de conjuntos numerables. Osea es union de conjuntos de cardinal $\aleph^{j}$ con $j\in \mathbb{N}$ que por lo tanto tiene cardinal $\aleph$ 
+>>6. En cambio, el producto directo contiene a $\{0,1\}^{\mathbb N}$, que es no numerable (por que tiene cardinal $2^{\aleph}$) . Por lo tanto, los grupos tienen distinta cardinalidad.
 
 ## 2. Cocientes de grupos
 

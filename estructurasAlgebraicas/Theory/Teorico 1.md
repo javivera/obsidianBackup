@@ -120,9 +120,10 @@ tags:
 >>Por lo tanto, $S_X$ es un grupo.
 
 >[!Example] El grupo de cuaterniones $Q_8$
->En los cuaterniones de Hamilton consideramos
->$$Q_8=\{1,-1,i,-i,j,-j,k,-k\},$$
->donde $$i^2=j^2=k^2=ijk=-1.$$
+>Dentro del grupo multiplicativo $\mathbb H^\times$ de los cuaterniones de Hamilton consideramos $$Q_8=\{1,-1,i,-i,j,-j,k,-k\}.$$
+>La operación en $Q_8$ es el producto de cuaterniones. El elemento $1$ es la identidad, $-u:=(-1)u$ y $$i^2=j^2=k^2=-1.$$
+>Los productos de unidades distintas en el orden cíclico son $$ij=k,\qquad jk=i,\qquad ki=j,$$ mientras que al invertir el orden cambia el signo: $$ji=-k,\qquad kj=-i,\qquad ik=-j.$$
+>Los signos se multiplican de la manera usual: para $\varepsilon,\delta\in\{1,-1\}$ y $u,v\in\{1,i,j,k\}$, $$(\varepsilon u)(\delta v)=(\varepsilon\delta)(uv).$$
 >>[!Proof]-
 >>- Este conjunto es cerrado bajo el producto de cuaterniones. 
 >>- La **asociatividad** se hereda de dicho producto

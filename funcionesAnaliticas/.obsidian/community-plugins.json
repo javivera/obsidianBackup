@@ -1,13 +1,14 @@
 [
   "obsidian-git",
-  "copilot",
-  "obsidian-latex-suite",
+  "obsidian-style-settings",
   "mathlinks",
   "math-booster",
-  "math-in-callout",
-  "random-statement",
-  "tabbar-view-actions",
-  "vault-fuzzy-search",
+  "obsidian-linter",
+  "obsidian-latex-suite",
   "pdf-color-inverter",
+  "vault-fuzzy-search",
+  "tabbar-view-actions",
+  "random-statement",
+  "math-in-callout",
   "persistent-live-preview-focus"
 ]

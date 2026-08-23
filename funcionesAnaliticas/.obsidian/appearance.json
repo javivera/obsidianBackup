@@ -1,9 +1,9 @@
 {
   "cssTheme": "Border",
   "enabledCssSnippets": [
-    "floating-left-sidebar",
     "style",
-    "zz-math-callout-cards"
+    "zz-math-callout-cards",
+    "floating-left-sidebar"
   ],
   "textFontFamily": "Fira Code",
   "interfaceFontFamily": "CMU Sans Serif",

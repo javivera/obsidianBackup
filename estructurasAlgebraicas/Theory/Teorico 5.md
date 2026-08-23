@@ -76,7 +76,8 @@ source: "Clase2 (1).pdf"
 >[!Remark]
 >Sea $H\leq G$ y sea $G/H=\{xH:x\in G\}$ el conjunto de clases laterales izquierdas. Entonces $G$ actúa sobre $G/H$ por $$g\cdot(xH)=(gx)H.$$
 >La definición no depende del representante: si $xH=yH$, entonces $y^{-1}x\in H$ y, por consiguiente, $(gy)^{-1}(gx)=y^{-1}x\in H$, de modo que $(gx)H=(gy)H$.
->Esta acción es transitiva, y el estabilizador de la clase $H$ es exactamente $H$.
+>Faltaría ver las dos propiedades de acción de grupo
+>Esta acción es transitiva (explicar que significa) , y el estabilizador de la clase $H$ es exactamente $H$.
 
 ### 2.4. Acción inducida por un homomorfismo
 
@@ -100,8 +101,8 @@ source: "Clase2 (1).pdf"
 
 ### 2.6. Acción sobre funciones por precomposición
 
->[!Remark]
->Si $\mathcal O(\mathbb H)$ denota un espacio de funciones analíticas definido sobre $\mathbb H$, $$\mathcal O(\mathbb H)=\{f :\mathbb H \rightarrow \mathbb{C}:f \text{ analíticas }\}$$   Entonces $SL_{2}(\mathbb Z)$  actúa sobre $\mathcal O(\mathbb H)$ $$\gamma\cdot f=f\circ\gamma^{-1},\qquad (\gamma\cdot f)(z)=f(\gamma^{-1}\cdot z).$$
+>[!Remark] $SL_{2}(\mathbb{Z})$ actuando sobre $\mathcal O(\mathbb H)$  
+>Si $\mathcal O(\mathbb H)$ denota un espacio de funciones analíticas definido sobre $\mathbb H$, $$\mathcal O(\mathbb H)=\{f :\mathbb H \rightarrow \mathbb{C}:f \text{ analíticas }\}.$$ Entonces $SL_{2}(\mathbb Z)$ actúa sobre $\mathcal O(\mathbb H)$ mediante $$\gamma\cdot f=f\circ\gamma^{-1},\qquad (\gamma\cdot f)(z)=f(\gamma^{-1}\cdot z).$$ Recordemos que, si $$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z),$$ entonces $$\gamma^{-1}=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$$ y su acción de Möbius sobre $z\in\mathbb H$ es $$\gamma^{-1}\cdot z=\frac{dz-b}{-cz+a}.$$ Por lo tanto, la acción sobre las funciones puede escribirse explícitamente como $$(\gamma\cdot f)(z)=f\left(\frac{dz-b}{-cz+a}\right).$$
 >El inverso es imprescindible: $$\begin{aligned}((\gamma_1\gamma_2)\cdot f)(z)&=f((\gamma_1\gamma_2)^{-1}\cdot z)\\&=f(\gamma_2^{-1}\cdot(\gamma_1^{-1}\cdot z))\\&=(\gamma_1\cdot(\gamma_2\cdot f))(z).\end{aligned}$$
 
 ### 2.7. Rotaciones del círculo
@@ -111,8 +112,9 @@ source: "Clase2 (1).pdf"
 
 ### 2.8. Matrices ortogonales
 
->[!Remark]
->El grupo $$O(3)=\{A\in GL_3(\mathbb R):A^{\mathsf T}A=I_3\}$$ actúa sobre $S^2\subseteq\mathbb R^3$ mediante $A\cdot v=Av$. La acción está bien definida porque $$\|Av\|^2=(Av)^{\mathsf T}(Av)=v^{\mathsf T}A^{\mathsf T}Av=v^{\mathsf T}v=\|v\|^2.$$
+>[!Remark] $O(3)$ actua sobre $S^{2}$ 
+>El grupo $$O(3)=\{A\in GL_3(\mathbb R):A^{\mathsf T}A=I_3\}$$ actúa sobre $S^2\subseteq\mathbb R^3$ mediante $A\cdot v=Av$. La acción está bien definida porque $$\|Av\|^2=(Av)^{\mathsf T}(Av)=v^{\mathsf T}A^{\mathsf T}Av=v^{\mathsf T}v=\|v\|^2.$$Osea si $v\in S^{2}$ entonces $A\cdot v$ está en la esfera también 
+>
 >Más generalmente, $GL(V)$ actúa sobre el espacio vectorial $V$ por evaluación, $T\cdot v=T(v)$, y $\operatorname{Diff}(M)$ actúa sobre una variedad $M$ por evaluación, $f\cdot x=f(x)$.
 
 >[!example]- Ejemplo avanzado: un subgrupo libre de $SO(3)$
@@ -136,12 +138,25 @@ source: "Clase2 (1).pdf"
 
 ### Las órbitas particionan el conjunto
 
->[!Remark]
+>[!definition] Las orbitas particionan $X$ 
 >Definimos $x\sim y$ si existe $g\in G$ tal que $g\cdot x=y$. Esta es una relación de equivalencia: es reflexiva por la identidad, simétrica porque $g\cdot x=y$ implica $g^{-1}\cdot y=x$, y transitiva por la compatibilidad de la acción. Sus clases de equivalencia son precisamente las órbitas.
 >Por ello, $X$ es unión disjunta de sus órbitas: $$X=\bigsqcup_{i\in I}O_{x_i},$$ donde se elige un representante $x_i$ de cada órbita.
 
+^c3e1b1
+
 > [!definition] Acción transitiva
->La acción es **transitiva** si tiene una sola órbita, es decir, si para cualesquiera $x,y\in X$ existe $g\in G$ tal que $g\cdot x=y$.
+>Decimos que una acción es **transitiva** si tiene una sola órbita
+
+> [!proposition] Caracterizaciones de una acción transitiva
+>Sea $G$ un grupo que actúa sobre un conjunto no vacío $X$. Son equivalentes:
+>- **(i)** La acción es transitiva.
+>- **(ii)** Para todo $x\in X$, se tiene $O_x=X$.
+>- **(iii)** Para cualesquiera $x,y\in X$, existe $g\in G$ tal que $g\cdot x=y$.
+>
+>> [!Proof]-
+>>- **(i) $\Rightarrow$ (ii).** Sea $x\in X$. Como la acción es transitiva, existe una única órbita. Además, $x=1_G\cdot x\in O_x$, así que $O_x$ es esa única órbita. Puesto [[Teorico 5#^c3e1b1|las orbitas particionan]] a $X$, necesariamente $O_x=X$.
+>>- **(ii) $\Rightarrow$ (iii).** Sean $x,y\in X$. Por hipótesis, $O_x=X$, de modo que $y\in O_x$. Por la definición de órbita, existe $g\in G$ tal que $g\cdot x=y$.
+>>- **(iii) $\Rightarrow$ (i).** Fijemos $x\in X$. Para todo $y\in X$, la hipótesis proporciona un elemento $g\in G$ tal que $g\cdot x=y$; por lo tanto, $y\in O_x$. Así, $X\subseteq O_x$, y la inclusión $O_x\subseteq X$ se sigue de la definición de acción. En consecuencia, $O_x=X$, por lo que la acción tiene una sola órbita osea es transitiva.
 
 ### Estabilizadores de puntos de una misma órbita
 
@@ -160,12 +175,16 @@ source: "Clase2 (1).pdf"
 >Sea $G$ un grupo que actúa sobre $X$ y sea $x\in X$. Existe una biyección $$G/G_x\longrightarrow O_x,\qquad gG_x\longmapsto g\cdot x.$$ Si $G$ es finito, entonces $$|O_x|=[G:G_x]=\frac{|G|}{|G_x|}.$$
 >
 >> [!Proof]-
->>1. **Buena definición.** Si $gG_x=hG_x$, entonces $h^{-1}g\in G_x$, de modo que $(h^{-1}g)\cdot x=x$ y, por tanto, $g\cdot x=h\cdot x$.
+>>1. **Buena definición.** Si $gG_x=hG_x$, entonces $h^{-1}g\in G_x$, de modo que $(h^{-1}g)\cdot x=x$. Aplicando $h$ a ambos lados y usando la compatibilidad de la acción, obtenemos $$\begin{aligned}h\cdot\bigl((h^{-1}g)\cdot x\bigr)&=h\cdot x\\\bigl(h(h^{-1}g)\bigr)\cdot x&=h\cdot x\\g\cdot x&=h\cdot x.\end{aligned}$$ Por lo tanto, la imagen no depende del representante elegido para la clase lateral $gG_x$.
 >>2. **Sobreyectividad.** Todo elemento de $O_x$ tiene la forma $g\cdot x$ para algún $g\in G$.
->>3. **Inyectividad.** Si $g\cdot x=h\cdot x$, entonces $(h^{-1}g)\cdot x=x$, por lo que $h^{-1}g\in G_x$ y $gG_x=hG_x$.
+>>3. **Inyectividad.** Si $g\cdot x=h\cdot x$, entonces $(h^{-1}g)\cdot x=x$ (misma idea usada en buena definicion) por lo que $h^{-1}g\in G_x$ y $gG_x=hG_x$.
 
 > [!corollary] Consecuencias rápidas
 >Si $G$ es finito, entonces $|O_x|$ divide a $|G|$. Además, una acción transitiva sobre un conjunto finito $X$ satisface $$|X|=[G:G_x].$$
+>
+>> [!Proof]-
+>>1. Por el teorema órbita-estabilizador, $$|G|=|O_x|\,|G_x|.$$ Como $|G_x|$ es un entero, se sigue que $|O_x|$ divide a $|G|$.
+>>2. Por el teorema de Lagrange y la igualdad $|G_x|=|G|/|O_x|$ obtenida mediante órbita-estabilizador, $$\begin{aligned}|G|&=[G:G_x]|G_x|\\&=[G:G_x]\frac{|G|}{|O_x|}.\end{aligned}$$ Como $|G|\neq 0$, podemos cancelar $|G|$ y obtenemos $|O_x|=[G:G_x]$. Finalmente, si la acción es transitiva, entonces $O_x=X$ para todo $x\in X$; por lo tanto, $$|X|=|O_x|=[G:G_x].$$
 
 > [!proposition] Clasificación de las acciones transitivas
 >Si $G$ actúa transitivamente sobre $X$ y fijamos $x\in X$, entonces la aplicación $$G/G_x\longrightarrow X,\qquad gG_x\longmapsto g\cdot x$$ es una biyección compatible con la acción de $G$. Por eso, toda acción transitiva es esencialmente una acción sobre clases laterales.
@@ -176,12 +195,18 @@ source: "Clase2 (1).pdf"
 >Sea $G$ un grupo finito y sea $p$ un número primo. Si $p\mid |G|$, entonces existe $g\in G$ con $|g|=p$.
 >
 >> [!Proof]-
->>1. Consideremos $$X=\{(x_1,\ldots,x_p)\in G^p:x_1x_2\cdots x_p=1_G\}.$$ Elegidos libremente $x_1,\ldots,x_{p-1}$, el último elemento queda determinado por $x_p=(x_1\cdots x_{p-1})^{-1}$. Por ello, $$|X|=|G|^{p-1},$$ que es divisible por $p$.
->>2. El grupo $\mathbb Z_p$ actúa sobre $X$ por desplazamiento cíclico: $$\overline m\cdot(x_1,\ldots,x_p)=(x_{m+1},\ldots,x_p,x_1,\ldots,x_m),$$ donde los índices se interpretan módulo $p$. La condición de producto se conserva: si $x_1\cdots x_p=1_G$, entonces $x_2\cdots x_px_1=x_1^{-1}(x_1\cdots x_p)x_1=1_G$, y lo mismo vale para cualquier desplazamiento.
->>3. Como $|\mathbb Z_p|=p$, cada órbita tiene tamaño $1$ o $p$. Por tanto, las órbitas no triviales aportan un múltiplo de $p$ al cardinal de $X$.
->>4. Una tupla está fija por el generador $\overline 1$ si y solo si es constante: $$(x_1,\ldots,x_p)=(g,\ldots,g).$$ Para pertenecer a $X$ debe satisfacer $g^p=1_G$.
->>5. Como $|X|\equiv0\pmod p$, la cantidad de puntos fijos también es múltiplo de $p$. La tupla $(1_G,\ldots,1_G)$ es un punto fijo, así que no puede ser el único: existen al menos $p$ puntos fijos. Por lo tanto, existe $g\neq1_G$ tal que $g^p=1_G$.
->>6. El orden de $g$ divide a $p$ y no es $1$, luego $|g|=p$.
+>>1. Consideremos $$X=\{(x_1,\ldots,x_p)\in G^p:x_1x_2\cdots x_p=1_G\}.$$ Para contar sus elementos, elegimos libremente $x_1,\ldots,x_{p-1}$. 
+>>2. Como cada uno tiene $|G|$ posibilidades, existen $|G|^{p-1}$ elecciones para estos primeros elementos. Una vez elegidos, hay una única posibilidad para el último, pues la condición $x_1\cdots x_{p-1}x_p=1_G$ obliga a que $$x_p=(x_1\cdots x_{p-1})^{-1}.$$
+>>3. Por lo tanto, $$|X|=|G|^{p-1}.$$ Como $p\mid |G|$, entonces $p||G|^{p-1}$ y entonces $p\mid |X|$.
+>>4. El grupo $\mathbb Z_p$ actúa sobre $X$ desplazando cíclicamente las coordenadas. Concretamente, $$\begin{aligned}\overline 1\cdot(x_1,x_2,\ldots,x_p)&=(x_2,x_3,\ldots,x_p,x_1),\\\overline 2\cdot(x_1,x_2,\ldots,x_p)&=(x_3,x_4,\ldots,x_p,x_1,x_2),\\\overline m\cdot(x_1,\ldots,x_p)&=(x_{m+1},\ldots,x_p,x_1,\ldots,x_m),\end{aligned}$$ donde los índices se interpretan módulo $p$. 
+>>5. Ademas podemos ver que esta accion esta bien definida. La operación es **cerrada** $X$ por que si $x_1\cdots x_p=1_G$, entonces $$x_2\cdots x_px_1=x_1^{-1}(x_1\cdots x_p)x_1=1_G,$$ y repitiendo este desplazamiento se obtiene lo mismo para cualquier $\overline m$.
+>>6. La **operacion cumple las dos reglas**: Porque $\overline 0$ deja cada tupla fija y dos desplazamientos sucesivos se suman: $$\overline 0\cdot x=x,\qquad \overline m\cdot(\overline n\cdot x)=\overline{m+n}\cdot x.$$
+>>7. Por lo tanto, la operación está bien definida y satisface los axiomas de una acción de $\mathbb Z_p$ sobre $X$.
+>>8. Por el teorema órbita-estabilizador, para cada $x\in X$ tenemos $$|O_x|=\frac{|\mathbb Z_p|}{|(\mathbb Z_p)_x|}=\frac{p}{|(\mathbb Z_p)_x|},$$ y por lo tanto $$p=|O_x|\,|(\mathbb Z_p)_x|.$$ Así, $|O_x|\mid p$ y, como $p$ es primo, cada órbita tiene tamaño $1$ o $p$.
+>>9. Por tanto, las órbitas no triviales aportan un múltiplo de $p$ al cardinal de $X$.
+>>10. Una tupla está fija por el generador $\overline 1$ si y solo si es constante osea: $$(x_1,\ldots,x_p)=(g,\ldots,g).$$ Y para pertenecer a $X$ debe satisfacer $g^p=1_G$.
+>>11. Como $|X|\equiv0\pmod p$, la cantidad de puntos fijos también es múltiplo de $p$. La tupla $(1_G,\ldots,1_G)$ es un punto fijo, así que no puede ser el único: existen al menos $p$ puntos fijos. Por lo tanto, existe $g\neq1_G$ tal que $g^p=1_G$.
+>>12. El orden de $g$ divide a $p$ y no es $1$, luego $|g|=p$.
 
 ### Ejemplo de examen: grupos de orden $6$
 

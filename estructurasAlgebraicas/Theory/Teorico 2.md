@@ -2,7 +2,7 @@
 >Sean $(G,\cdot)$ y $(H,*)$ grupos. Una aplicación $f:G\to H$ se dice **morfismo de grupos** (u **homomorfismo**) si
 >$$f(a\cdot b)=f(a)*f(b)\qquad\forall a,b\in G.$$
 >En particular, todo morfismo satisface $f(e_G)=e_H$ y $f(a^{-1})=f(a)^{-1}$ para todo $a\in G$. Si además $f$ es biyectiva, se dice que es un **isomorfismo de grupos** y se escribe $G\cong H$.
-uto
+
 >[!Remark] $G_{p}$ la categoria de grupos
 >Objetos: Los grupos $G,H,K,\ldots$
 >Morfismo: $G_{p}(G,H)=Hom_{G_{p}}(G,H) = \{ f:G\rightarrow H  \ | \ f \text{ homomorfismo} \}$. Donde 
@@ -55,12 +55,12 @@ uto
 >
 >También puede usarse el criterio equivalente: $H\neq\varnothing$ es subgrupo de $G$ si y solo si $$ab^{-1}\in H$$ para todo $a,b\in H$.
 
->[!Definition] Generador
->Sea $G$ un grupo y sea $a\in G$. Se dice que $a$ es un **generador** de $G$ si todo elemento de $G$ es una potencia entera de $a$; es decir, si $$G=\{a^n:n\in\mathbb Z\}.$$ Equivalentemente, para todo $g\in G$ existe $n\in\mathbb Z$ tal que $g=a^n$. En notación aditiva, la condición es $$G=\{na:n\in\mathbb Z\}.$$
+>[!Definition] Subgrupo generado
+>Sea $G$ un grupo y sea $S\subseteq G$ un subconjunto. El **subgrupo generado por $S$** es el menor subgrupo de $G$ que contiene a $S$: $$\langle S\rangle=\bigcap_{\substack{H\leq G\\S\subseteq H}}H.$$ Es decir, $\langle S\rangle$ es la intersección de todos los subgrupos de $G$ que contienen a $S$. Los elementos de $S$ se llaman **generadores** de $\langle S\rangle$, y se dice que $S$ es un **conjunto de generadores** de $\langle S\rangle$.
+>Equivalentemente, $\langle S\rangle$ consiste en todos los productos finitos de elementos de $S$ y de sus inversos: $$\langle S\rangle=\bigl\{s_1^{\varepsilon_1}\cdots s_k^{\varepsilon_k}:k\geq 0,\ s_i\in S,\ \varepsilon_i\in\{\pm 1\}\bigr\},$$ con el convenio de que el producto vacío es $e$. Si $S=\{a_1,\ldots,a_n\}$ es finito se escribe $\langle a_1,\ldots,a_n\rangle$.
+>Si existe $S$ finito con $G=\langle S\rangle$, se dice que $G$ es **finitamente generado**.
 
->[!Definition] Subgrupo cíclico
->Sea $G$ un grupo y sea $a\in G$. El **subgrupo cíclico generado por $a$** es
->$$\langle a\rangle=\{a^n:n\in\mathbb Z\}.$$
->Es el menor subgrupo de $G$ que contiene a $a$. Un grupo $G$ se dice **cíclico** si existe $a\in G$ tal que $G=\langle a\rangle$; en ese caso, $a$ se llama **generador** de $G$.
->Si la operación de $G$ se escribe aditivamente, entonces
->$$\langle a\rangle=\{na:n\in\mathbb Z\}.$$
+>[!Definition] Grupo cíclico
+>Un grupo $G$ se dice **cíclico** si está generado por un solo elemento: existe $a\in G$ tal que $G=\langle a\rangle$. En ese caso $a$ es un **generador** de $G$ y $$G=\langle a\rangle=\{a^n:n\in\mathbb Z\}.$$ Equivalentemente, para todo $g\in G$ existe $n\in\mathbb Z$ tal que $g=a^n$.
+>En notación aditiva, $\langle a\rangle=\{na:n\in\mathbb Z\}$.
+>Más generalmente, para $a\in G$ el subgrupo $\langle a\rangle$ se llama el **subgrupo cíclico generado por $a$**: es siempre cíclico, aunque $G$ no lo sea.
