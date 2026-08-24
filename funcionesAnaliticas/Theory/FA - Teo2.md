@@ -1,5 +1,6 @@
 # Funciones analíticas
 
+## Diferenciabilidad compleja y funciones analiticas
 >[!Definition] Derivada compleja
 >Sea $G\subseteq\mathbb{C}$ abierto y $f:G\to\mathbb{C}$. Decimos que $f$ es diferenciable en $a\in G$ si existe
 >$$f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}
@@ -95,7 +96,9 @@
 >>	El primer factor tiende a $g'(f(z_0))$ y el segundo es una subsucesión del cociente incremental de $f$, que tiende a $f'(z_0)=0$. El producto tiende a $0$.
 >>	5. Ambas subsucesiones del cociente de $g\circ f$ tienden a $0$. Por lo tanto
 >>	$$\frac{g(f(z_0+h_n))-g(f(z_0))}{h_n}\to0=g'(f(z_0))f'(z_0).$$
->>3. En ambos casos existe $(g\circ f)'(z_0)=g'(f(z_0))f'(z_0)$. El lado derecho es continuo porque $g'$, $f$ y $f'$ lo son. Luego $g\circ f$ es analítica.
+>>6. En ambos casos existe $(g\circ f)'(z_0)=g'(f(z_0))f'(z_0)$. El lado derecho es continuo porque $g'$, $f$ y $f'$ lo son. Luego $g\circ f$ es analítica.
+
+^fe9a3d
 
 >[!Remark] Analiticidad versus diferenciabilidad
 >Por definición, $f$ analítica implica $f$ diferenciable. El recíproco en $\mathbb{C}$ también vale: si $f$ es diferenciable en $G$, entonces $f'$ es continua (esto se verá más adelante). En $\mathbb{R}$ no es cierto: diferenciable no implica derivada continua.
@@ -138,6 +141,15 @@
 
 ## Series de potencias y derivación término a término
 
+>[!Remark] Limsup de un producto
+>Si $x_n\to x>0$ y $y_n\geq0$, entonces
+>$$\limsup_{n\to\infty}(x_ny_n)=x\limsup_{n\to\infty}y_n.$$
+>En general no vale que el limsup de un producto sea el producto de los limsups: si ambos factores oscilan, sus picos pueden alinearse. Por ejemplo, $x_n=1$ si $n$ es par y $2$ si $n$ es impar, e $y_n=2$ si $n$ es par y $1$ si $n$ es impar; entonces $x_ny_n=2$ para todo $n$, de modo que $\limsup(x_ny_n)=2$, mientras que $\limsup x_n\cdot\limsup y_n=2\cdot2=4$.
+>
+>>[!Proof]-
+>>1. **Desigualdad $\leq$.** Si $x_{n_k}y_{n_k}\to L\in[0,+\infty]$ a lo largo de una subsucesión, como $x_{n_k}\to x>0$, se tiene $y_{n_k}\to L/x$ a lo largo de la misma subsucesión. Por lo tanto $L/x\leq\limsup y_n$, o sea $L\leq x\limsup y_n$. Tomando el máximo sobre todas las subsucesiones, $\limsup(x_ny_n)\leq x\limsup y_n$.
+>>2. **Desigualdad $\geq$.** Sea $y_{n_k}\to\limsup y_n$ una subsucesión convergente. Entonces $x_{n_k}y_{n_k}\to x\limsup y_n$, y toda subsucesión convergente del producto acota por debajo su limsup. Así $\limsup(x_ny_n)\geq x\limsup y_n$.
+
 >[!Proposition] Derivadas de una serie de potencias
 >Sea
 >$$f(z)=\sum_{n=0}^{\infty}a_n(z-a)^n$$
@@ -151,7 +163,7 @@
 >>[!Proof]-
 >>- **(a) El radio no cambia.**
 >>	1. Podemos suponer $a=0$. La serie derivada formalmente es $$\sum_{n=1}^{\infty}na_nz^{n-1}=\sum_{n=0}^{\infty}(n+1)a_{n+1}z^n.$$
->>	2. Su radio $R'$ cumple $$\frac1{R'}=\limsup_{n\to\infty}|(n+1)a_{n+1}|^{1/n}=\limsup_{n\to\infty}(n+1)^{1/n}|a_{n+1}|^{1/n}.$$
+>>	2. Su radio $R'$ cumple $$\frac1{R'}=\limsup_{n\to\infty}|(n+1)a_{n+1}|^{1/n}=\limsup_{n\to\infty}(n+1)^{1/n}|a_{n+1}|^{1/n}.$$ Como $(n+1)^{1/n}\to1$, el remark sobre el limsup de un producto da $$\limsup_{n\to\infty}(n+1)^{1/n}|a_{n+1}|^{1/n}=\limsup_{n\to\infty}|a_{n+1}|^{1/n}.$$
 >>	3. Como $\ln(n+1)/n\to0$, se tiene $(n+1)^{1/n}\to1$. Además $$|a_{n+1}|^{1/n}=\bigl(|a_{n+1}|^{1/(n+1)}\bigr)^{(n+1)/n},$$ y como $(n+1)/n\to1$ resulta $$\limsup_{n\to\infty}|a_{n+1}|^{1/n}=\limsup_{n\to\infty}|a_n|^{1/n}=\frac1R.$$ Así $R'=R$.
 >>	4. Por inducción, la serie $k$ veces derivada formalmente tiene el mismo radio $R$.
 >>- **(b) Diferenciación término a término, caso $k=1$.**
@@ -189,6 +201,8 @@
 >>5. En particular $$f(z)=g(1)=g(0)=f(a)=w_0,$$ y por lo tanto $z\in A$ concluyendo que $B(a,\varepsilon)\subseteq A$.
 >>6. Luego $A=G$ y $f$ es constante.
 
+^bb0732
+
 >[!Remark] Por qué se necesita conexidad
 >En $G=B(0,1)\cup B(3,1)$, la función que vale $0$ en una componente y $1$ en la otra tiene derivada nula, pero no es constante en todo $G$.
 
@@ -214,11 +228,13 @@
 >5. $e^{i\theta}=\cos\theta+i\sin\theta$.
 >6. La exponencial es $2\pi i$-periódica:
 >   $$e^{z+2\pi i}=e^z.$$
->7. $|e^{i\theta}|=1$ (falta probar) 
+>7. $|e^{i\theta}|=1$ para todo $\theta\in\mathbb{R}$.
 >
 >>[!Proof]-
 >>- **1.**
->>	1. Completar usando derivada de $g(z)=e^{z}.e^{a-z}$ 
+>>	1. Directamente de la definición por serie, $$e^0=\sum_{n=0}^{\infty}\frac{0^n}{n!}=1.$$
+>>	2. Fijados $a,b\in\mathbb{C}$, definimos $g(z)=e^ze^{a+b-z}$ en $\mathbb{C}$. Por la [[FA - Teo2#^e54e60|regla del producto]], $$g'(z)=(e^z)'e^{a+b-z}+e^z(e^{a+b-z})'=e^ze^{a+b-z}-e^ze^{a+b-z}=0\qquad(z\in\mathbb{C}).$$
+>>	3. Como $\mathbb{C}$ es abierto, conexo, $g$ analitica y $g'\equiv0$, entonces por [[FA - Teo2#^bb0732|derivada nula implica constante]] tenemos que $g$ es constante. Evaluando en $z=0$ y $z=a$: $$e^{a+b}=g(0)=g(a)=e^ae^b.$$ 
 >>- **2.**
 >>	1. Los coeficientes $1/n!$ son reales, de modo que $$\overline{e^z}=\overline{\sum_{n=0}^{\infty}\frac{z^n}{n!}}=\sum_{n=0}^{\infty}\frac{\bar z^n}{n!}=e^{\bar z}.$$
 >>- **3.**
@@ -234,6 +250,8 @@
 >>	3. Así $$|e^z|=|e^x|\,|\cos y+i\sin y|=e^x=e^{\operatorname{Re}z}.$$
 >>- **6.**
 >>	1. Por los puntos 1 y 5, $$e^{z+2\pi i}=e^ze^{2\pi i}=e^z(\cos 2\pi+i\sin 2\pi)=e^z.$$
+>>- **7.**
+>>	1. Por el punto 5, si $\theta\in\mathbb{R}$, se tiene $$|e^{i\theta}|=|\cos\theta+i\sin\theta|=\sqrt{\cos^2\theta+\sin^2\theta}=1,$$ o equivalentemente por el punto 4, $$|e^{i\theta}|=e^{\operatorname{Re}(i\theta)}=e^0=1.$$
 
 >[!Definition] Seno y coseno complejos
 >$$\cos z=\sum_{k=0}^{\infty}(-1)^k\frac{z^{2k}}{(2k)!},\qquad

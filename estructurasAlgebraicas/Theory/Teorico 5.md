@@ -73,11 +73,13 @@ source: "Clase2 (1).pdf"
 
 ### 2.3. Acción sobre clases laterales
 
->[!Remark]
+>[!Remark] Accion sobre clases laterales
 >Sea $H\leq G$ y sea $G/H=\{xH:x\in G\}$ el conjunto de clases laterales izquierdas. Entonces $G$ actúa sobre $G/H$ por $$g\cdot(xH)=(gx)H.$$
 >La definición no depende del representante: si $xH=yH$, entonces $y^{-1}x\in H$ y, por consiguiente, $(gy)^{-1}(gx)=y^{-1}x\in H$, de modo que $(gx)H=(gy)H$.
 >Faltaría ver las dos propiedades de acción de grupo
 >Esta acción es transitiva (explicar que significa) , y el estabilizador de la clase $H$ es exactamente $H$.
+
+^153521
 
 ### 2.4. Acción inducida por un homomorfismo
 
@@ -136,7 +138,7 @@ source: "Clase2 (1).pdf"
 >>2. Si $g,h\in G_x$, entonces $(gh)\cdot x=g\cdot(h\cdot x)=g\cdot x=x$, luego $gh\in G_x$.
 >>3. Si $g\in G_x$, entonces $g^{-1}\cdot x=g^{-1}\cdot(g\cdot x)=(g^{-1}g)\cdot x=x$, luego $g^{-1}\in G_x$.
 
-### Las órbitas particionan el conjunto
+### 3.1 Las órbitas particionan el conjunto
 
 >[!definition] Las orbitas particionan $X$ 
 >Definimos $x\sim y$ si existe $g\in G$ tal que $g\cdot x=y$. Esta es una relación de equivalencia: es reflexiva por la identidad, simétrica porque $g\cdot x=y$ implica $g^{-1}\cdot y=x$, y transitiva por la compatibilidad de la acción. Sus clases de equivalencia son precisamente las órbitas.
@@ -144,8 +146,13 @@ source: "Clase2 (1).pdf"
 
 ^c3e1b1
 
+### 3.2 Acciona transitiva
+
 > [!definition] Acción transitiva
 >Decimos que una acción es **transitiva** si tiene una sola órbita
+
+> [!remark] Interpretación de la transitividad
+>Una acción es transitiva si, partiendo de un solo punto $x\in X$ y aplicando todos los elementos de $G$, se obtiene todo el conjunto $X$: $$G\cdot x=X.$$ En otras palabras, el grupo puede transportar cualquier punto de $X$ a cualquier otro punto.
 
 > [!proposition] Caracterizaciones de una acción transitiva
 >Sea $G$ un grupo que actúa sobre un conjunto no vacío $X$. Son equivalentes:
@@ -158,16 +165,18 @@ source: "Clase2 (1).pdf"
 >>- **(ii) $\Rightarrow$ (iii).** Sean $x,y\in X$. Por hipótesis, $O_x=X$, de modo que $y\in O_x$. Por la definición de órbita, existe $g\in G$ tal que $g\cdot x=y$.
 >>- **(iii) $\Rightarrow$ (i).** Fijemos $x\in X$. Para todo $y\in X$, la hipótesis proporciona un elemento $g\in G$ tal que $g\cdot x=y$; por lo tanto, $y\in O_x$. Así, $X\subseteq O_x$, y la inclusión $O_x\subseteq X$ se sigue de la definición de acción. En consecuencia, $O_x=X$, por lo que la acción tiene una sola órbita osea es transitiva.
 
-### Estabilizadores de puntos de una misma órbita
+^6cbdb9
 
-> [!proposition]
->Si $x=g\cdot y$, entonces $$G_x=gG_yg^{-1}.$$
+### 3.3 Estabilizadores de puntos de una misma órbita
+
+>[!proposition]
+>Si $x,y$ estan en la misma órbita, entonces exite $g\in G$ tal que $$G_x=gG_yg^{-1}.$$
 >
 >> [!Proof]-
->>Para $h\in G$, $$\begin{aligned}h\in G_x&\iff h\cdot x=x\\&\iff h\cdot(g\cdot y)=g\cdot y\\&\iff (g^{-1}hg)\cdot y=y\\&\iff g^{-1}hg\in G_y\\&\iff h\in gG_yg^{-1}.\end{aligned}$$
-
->[!Remark]
->En particular, los estabilizadores de puntos de una misma órbita son conjugados y tienen el mismo orden.
+>>1. Como $x$ y $y$ están en la misma órbita, existe $g\in G$ tal que $x=g\cdot y$.
+>>2. Probemos primero que $gG_yg^{-1}\subseteq G_x$. Sea $h\in G_y$, es decir, $h\cdot y=y$. Entonces $$\begin{aligned}(ghg^{-1})\cdot x&=(ghg^{-1})\cdot(g\cdot y)\\&=(gh)\cdot y\\&=g\cdot(h\cdot y)\\&=g\cdot y=x.\end{aligned}$$ Por lo tanto, $ghg^{-1}\in G_x$.
+>>3. Para la inclusión inversa, sea $k\in G_x$, es decir, $k\cdot x=x$. Como $x=g\cdot y$, tenemos $$\begin{aligned}(g^{-1}kg)\cdot y&=(g^{-1}kg)\cdot(g^{-1}\cdot x)\\&=(g^{-1}k)\cdot x\\&=g^{-1}\cdot(k\cdot x)\\&=g^{-1}\cdot x=y.\end{aligned}$$ Por consiguiente, $g^{-1}kg\in G_y$, y entonces $k\in gG_yg^{-1}$.
+>>4. Las dos inclusiones implican $$G_x=gG_yg^{-1}.$$ Por lo tanto, los estabilizadores de puntos de una misma órbita son conjugados. En particular, si $G$ es finito, tienen el mismo orden.
 
 ## 4. Teorema órbita-estabilizador
 
@@ -179,21 +188,17 @@ source: "Clase2 (1).pdf"
 >>2. **Sobreyectividad.** Todo elemento de $O_x$ tiene la forma $g\cdot x$ para algún $g\in G$.
 >>3. **Inyectividad.** Si $g\cdot x=h\cdot x$, entonces $(h^{-1}g)\cdot x=x$ (misma idea usada en buena definicion) por lo que $h^{-1}g\in G_x$ y $gG_x=hG_x$.
 
+^674eaa
+
+>[!Remark]
+>Otra interpretacion directa de [[Teorico 5#^674eaa]] es que $$|O_{x}|\big||G|$$ osea que la cantidad de elementos en cualquier orbitas divide a la cantidad de elementos del conjunto que actua 
+
 > [!corollary] Consecuencias rápidas
 >Si $G$ es finito, entonces $|O_x|$ divide a $|G|$. Además, una acción transitiva sobre un conjunto finito $X$ satisface $$|X|=[G:G_x].$$
 >
 >> [!Proof]-
 >>1. Por el teorema órbita-estabilizador, $$|G|=|O_x|\,|G_x|.$$ Como $|G_x|$ es un entero, se sigue que $|O_x|$ divide a $|G|$.
 >>2. Por el teorema de Lagrange y la igualdad $|G_x|=|G|/|O_x|$ obtenida mediante órbita-estabilizador, $$\begin{aligned}|G|&=[G:G_x]|G_x|\\&=[G:G_x]\frac{|G|}{|O_x|}.\end{aligned}$$ Como $|G|\neq 0$, podemos cancelar $|G|$ y obtenemos $|O_x|=[G:G_x]$. Finalmente, si la acción es transitiva, entonces $O_x=X$ para todo $x\in X$; por lo tanto, $$|X|=|O_x|=[G:G_x].$$
-
-> [!proposition] Clasificación de las acciones transitivas
->Si $G$ actúa transitivamente sobre $X$ y fijamos $x\in X$, entonces la aplicación $$G/G_x\longrightarrow X,\qquad gG_x\longmapsto g\cdot x$$ es una biyección compatible con la acción de $G$. Por eso, toda acción transitiva es esencialmente una acción sobre clases laterales.
->
->> [!Proof]-
->>1. **Buena definición.** Si $gG_x=hG_x$, entonces $h^{-1}g\in G_x$, de modo que $(h^{-1}g)\cdot x=x$. Aplicando $h$ a ambos lados y usando la compatibilidad de la acción, obtenemos $g\cdot x=h\cdot x$. Por lo tanto, la imagen no depende del representante elegido para la clase lateral $gG_x$.
->>2. **Sobreyectividad.** Como la acción es transitiva, para todo $y\in X$ existe $g\in G$ tal que $g\cdot x=y$; por lo tanto, $y$ es la imagen de la clase $gG_x$.
->>3. **Inyectividad.** Si $g\cdot x=h\cdot x$, entonces $(h^{-1}g)\cdot x=x$, por lo que $h^{-1}g\in G_x$ y $gG_x=hG_x$. Así, la aplicación es biyectiva.
->>4. **Compatibilidad con la acción.** Para todo $k\in G$, $$k\cdot(g\cdot x)=(kg)\cdot x,$$ de modo que la biyección conmuta con la acción de $G$. Ella identifica la acción transitiva sobre $X$ con la acción por traslación sobre $G/G_x$; además, el estabilizador de la clase $G_x$ es exactamente $G_x$ (pues $kG_x=G_x$ si y solo si $k\in G_x$). Por lo tanto, toda acción transitiva es esencialmente una acción sobre clases laterales.
 
 ## 5. Aplicación: teorema de Cauchy
 
@@ -208,7 +213,7 @@ source: "Clase2 (1).pdf"
 >>5. Ademas podemos ver que esta accion esta bien definida. La operación es **cerrada** $X$ por que si $x_1\cdots x_p=1_G$, entonces $$x_2\cdots x_px_1=x_1^{-1}(x_1\cdots x_p)x_1=1_G,$$ y repitiendo este desplazamiento se obtiene lo mismo para cualquier $\overline m$.
 >>6. La **operacion cumple las dos reglas**: Porque $\overline 0$ deja cada tupla fija y dos desplazamientos sucesivos se suman: $$\overline 0\cdot x=x,\qquad \overline m\cdot(\overline n\cdot x)=\overline{m+n}\cdot x.$$
 >>7. Por lo tanto, la operación está bien definida y satisface los axiomas de una acción de $\mathbb Z_p$ sobre $X$.
->>8. Por el teorema órbita-estabilizador, para cada $x\in X$ tenemos $$|O_x|=\frac{|\mathbb Z_p|}{|(\mathbb Z_p)_x|}=\frac{p}{|(\mathbb Z_p)_x|},$$ y por lo tanto $$p=|O_x|\,|(\mathbb Z_p)_x|.$$ Así, $|O_x|\mid p$ y, como $p$ es primo, cada órbita tiene tamaño $1$ o $p$.
+>>8. Por el [[Teorico 5#^674eaa|teorema órbita-estabilizador]], para cada $x\in X$ tenemos $$|O_x|=\frac{|\mathbb Z_p|}{|(\mathbb Z_p)_x|}=\frac{p}{|(\mathbb Z_p)_x|},$$ y por lo tanto $$p=|O_x|\,|(\mathbb Z_p)_x|.$$ Así, $|O_x|\mid p$ y, como $p$ es primo, cada órbita tiene tamaño $1$ o $p$.
 >>9. Por tanto, las órbitas no triviales aportan un múltiplo de $p$ al cardinal de $X$. Y entonces podemos pensar $$|X|=(\text{cantidad de orbitas de tamaño } 1)+p(\text{cantidad de orbitas de tamaño }p):=F+pK$$   
 >>10. Ahroa notamos que las orbitas de tamaño $1$ son los puntos fijos, osea $x\in X$ tal que $g \cdot x=x$ para todo $g\in \mathbb{Z}_{p}$.
 >>11. Y notamos que si un $x\in X$ es fijo por el generador $\overline 1$ entonces es fijo por cualquier otro $z\in \mathbb{Z}_{p}$ obviamente 
@@ -217,6 +222,17 @@ source: "Clase2 (1).pdf"
 >>14. Luego como la tupla $(1_G,\ldots,1_G)$ es un punto fijo, no puede ser el único entonces existen al menos $p$ puntos fijos. 
 >>15. Por lo tanto, existe un $(g,\ldots,g)\in X$ (por que es un punto fijo paso 12. nos dice que sus entradas son todas iguales) tal que $g\neq1_G$ (para que $(g,\ldots,g)\neq(1_{G},\ldots1_{G})$) tal que $g^p=1_G$ (para que $(g,\ldots,g)\in X$) 
 >>16. Ademas el orden de $g$ divide a $p$ (misma cuenta de siempre en general) y no es $1_{G}$, luego $|g|=p$.
+
+> [!proposition] Clasificación de las acciones transitivas
+>Si $G$ actúa transitivamente sobre $X$ y fijamos $x\in X$, entonces la aplicación $$\varphi:G/G_x\longrightarrow X,\qquad gG_x\longmapsto g\cdot x$$ es una biyección $G$-equivariante. Por eso, toda acción transitiva es esencialmente una acción sobre clases laterales.
+>
+>> [!Proof]-
+>>1. **Buena definición.** Si $gG_x=hG_x$, entonces $h^{-1}g\in G_x$, de modo que $(h^{-1}g)\cdot x=x$. Aplicando $h$ a ambos lados y usando la compatibilidad de la acción, obtenemos $g\cdot x=h\cdot x$. Por lo tanto, la imagen no depende del representante elegido para la clase lateral $gG_x$.
+>>2. **Sobreyectividad.** Como la acción es [[Teorico 5#^6cbdb9|transitiva]], para todo $y\in X$ existe $g\in G$ tal que $g\cdot x=y$; por lo tanto, $y$ es la imagen de la clase $gG_x$.
+>>3. **Inyectividad.** Si $g\cdot x=h\cdot x$, entonces $(h^{-1}g)\cdot x=x$, por lo que $h^{-1}g\in G_x$ y $gG_x=hG_x$. Así, la aplicación es biyectiva.
+>>4. **Compatibilidad con la acción\equivarianza** Para todo $k,g\in G$, la aplicación verifica $$\varphi\bigl(k\cdot(gG_x)\bigr)=\varphi\bigl((kg)G_x\bigr)=(kg)\cdot x=k\cdot(g\cdot x)=k\cdot\varphi(gG_x).$$ donde $k\cdot gG_{x}$ es la [[Teorico 5#^153521|accion sobre clases laterales]] 
+>>5. Es decir $\varphi$ preserva la accion $G$ es decir da igual primero actuar en las clases laterales y despues aplicar $\varphi$ que aplicar $\varphi$ primero y despues actuar en $X$, a eso le llamamos que la acciones conmuta con $\varphi$  es decir la accion sobre $G/G_{x}$ se traduce exactamente en la accion sobre $X$
+>>6. Además, el estabilizador de la clase $e_{G}G_x=G_{x}$ es exactamente $G_x$ pues $$k\cdot e_{G}G_x=e_{G}G_x \iff kG_{x}=e_{G}G_{x}\iff k\in G_x$$ Por lo tanto, toda acción transitiva es esencialmente una acción sobre clases laterales.
 
 ### Ejemplo de examen: grupos de orden $6$
 

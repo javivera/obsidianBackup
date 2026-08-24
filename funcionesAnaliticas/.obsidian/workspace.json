@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Theory/FA - Teo2.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -80,8 +80,7 @@
               "title": "FA-Pr2"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -255,9 +254,9 @@
   "active": "5acb7306963268aa",
   "lastOpenFiles": [
     "Theory/FA - Teo2.md",
-    "Practicos/FA-Pr2.md",
-    "Practicos/FA-Pr2.pdf",
     "Apuntes/FA-Teo2.pdf",
+    "Practicos/FA-Pr2.pdf",
+    "Practicos/FA-Pr2.md",
     "Theory/FA - Teo1.md",
     "Practicos/FA-Pr1.md",
     "Practicos/FA-Pr1.pdf",
