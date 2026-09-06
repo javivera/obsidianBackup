@@ -153,7 +153,7 @@ tags:
 >>[!Proof]-
 >>- (a)
 >>	1. Sean $m=\prod_{i=1}^k p_i^{\alpha_i}$ y $n=\prod_{i=1}^k p_i^{\beta_i}$ las descomposiciones en factores primos de $m$ y $n$ (con $\alpha_i,\beta_i\ge 0$). Entonces $[m,n]=\prod_{i=1}^k p_i^{\max(\alpha_i,\beta_i)}$.
->>	2. Definimos $m'=\prod_{\alpha_i\ge\beta_i} p_i^{\alpha_i}$ y $n'=\prod_{\alpha_i<\beta_i} p_i^{\beta_i}$. Por construcción se tiene que $m'\mid m$, $n'\mid n$, $\gcd(m',n')=1$ y $m'n'=[m,n]$.
+>>	2. D pefinimos $m'=\prod_{\alpha_i\ge\beta_i} p_i^{\alpha_i}$ y $n'=\prod_{\alpha_i<\beta_i} p_i^{\beta_i}$. Por construcción se tiene que $m'\mid m$, $n'\mid n$, $\gcd(m',n')=1$ y $m'n'=[m,n]$.
 >>	3. Definimos los elementos $a'=a^{m/m'}$ y $b'=b^{n/n'}$. Dado que $|a|=m$ y $|b|=n$, se cumple $|a'|=m'$ y $|b'|=n'$
 >>	4. Sea $c=a'b'=a^{\frac{m}{m'}}b^{\frac{n}{n'}}$. Como $G$ es **abeliano**, $$c^{m'n'}=(a'b')^{m'n'}=(a')^{m'n'}(b')^{m'n'}=((a')^{m'})^{n'}((b')^{n'})^{m'}=e^{n'}e^{m'}=e.$$ Por lo tanto, $|c|\mid m'n'$.
 >>	5. Recíprocamente, sea $k=|c|$. Entonces $(a'b')^k=e$, de donde $(a')^k=(b')^{-k}$. Elevando a la potencia $m'$, obtenemos $((b')^{-k})^{m'}=((a')^k)^{m'}=((a')^{m'})^k=e^k=e$, por lo que $n'\mid km'$. Como $\gcd(m',n')=1$, se deduce que $n'\mid k$. Análogamente, elevando a la potencia $n'$ se concluye que $m'\mid k$. Puesto que $\gcd(m',n')=1$, se sigue que $m'n'\mid k$.
@@ -197,10 +197,10 @@ mp
 >[!exercise] Ejercicio 11
 >Determinar los elementos del subgrupo cíclico de $\operatorname{GL}(2,\mathbb R)$ generado por $\begin{pmatrix}1&1\\-1&0\end{pmatrix}$.
 >>[!Proof]-
->>1. Sea $A=\begin{pmatrix}1&1\\-1&0\end{pmatrix}$. El subgrupo cíclico generado por $A$ es $\langle A\rangle=\{A^n:n\in\mathbb Z\}$.
->>2. Calculamos las potencias sucesivas de $A$: $$\begin{aligned}A^1&=\begin{pmatrix}1&1\\-1&0\end{pmatrix},\\A^2&=\begin{pmatrix}1&1\\-1&0\end{pmatrix}\begin{pmatrix}1&1\\-1&0\end{pmatrix}=\begin{pmatrix}0&1\\-1&-1\end{pmatrix},\\A^3&=A^2A=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}=-I,\\A^4&=-A=\begin{pmatrix}-1&-1\\1&0\end{pmatrix},\\A^5&=-A^2=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\\A^6&=(-I)^2=I.\end{aligned}$$
->>3. Como $A^6=I$ y $A^k\neq I$ para $1\le k<6$, se tiene $|A|=6$.
->>4. Por lo tanto, el subgrupo cíclico es $$\boxed{\langle A\rangle=\left\{\begin{pmatrix}1&0\\0&1\end{pmatrix},\ \begin{pmatrix}1&1\\-1&0\end{pmatrix},\ \begin{pmatrix}0&1\\-1&-1\end{pmatrix},\ \begin{pmatrix}-1&0\\0&-1\end{pmatrix},\ \begin{pmatrix}-1&-1\\1&0\end{pmatrix},\ \begin{pmatrix}0&-1\\1&1\end{pmatrix}\right\}}.$$
+>>4. Sea $A=\begin{pmatrix}1&1\\-1&0\end{pmatrix}$. El subgrupo cíclico generado por $A$ es $\langle A\rangle=\{A^n:n\in\mathbb Z\}$.
+>>5. Calculamos las potencias sucesivas de $A$: $$\begin{aligned}A^1&=\begin{pmatrix}1&1\\-1&0\end{pmatrix},\\A^2&=\begin{pmatrix}1&1\\-1&0\end{pmatrix}\begin{pmatrix}1&1\\-1&0\end{pmatrix}=\begin{pmatrix}0&1\\-1&-1\end{pmatrix},\\A^3&=A^2A=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}=-I,\\A^4&=-A=\begin{pmatrix}-1&-1\\1&0\end{pmatrix},\\A^5&=-A^2=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\\A^6&=(-I)^2=I.\end{aligned}$$
+>>6. Como $A^6=I$ y $A^k\neq I$ para $1\le k<6$, se tiene $|A|=6$.
+>>7. Por lo tanto, el subgrupo cíclico es $$\boxed{\langle A\rangle=\left\{\begin{pmatrix}1&0\\0&1\end{pmatrix},\ \begin{pmatrix}1&1\\-1&0\end{pmatrix},\ \begin{pmatrix}0&1\\-1&-1\end{pmatrix},\ \begin{pmatrix}-1&0\\0&-1\end{pmatrix},\ \begin{pmatrix}-1&-1\\1&0\end{pmatrix},\ \begin{pmatrix}0&-1\\1&1\end{pmatrix}\right\}}.$$
 
 >[!exercise] Ejercicio 12
 >Hallar todos los subgrupos de: $\mathbb Z_3$; $\mathbb Z_2\times\mathbb Z_2$; $\mathbb S_3$; $D_4$.
@@ -245,6 +245,7 @@ mp
 >>		- *No cíclicos ($\cong\mathbb Z_2\times\mathbb Z_2$):* Formados por el neutro y tres elementos de orden $2$ que conmutan entre sí (la rotación $r^2$ junto con un par de reflexiones perpendiculares): $$\langle r^2,s\rangle=\{e,r^2,s,sr^2\},$$ $$\langle r^2,sr\rangle=\{e,r^2,sr,sr^3\}.$$
 >>	6. **Orden 8:** El grupo total $D_4$.
 >>	7. En conclusión, hay $10$ subgrupos en total.
+
 >[!exercise] Ejercicio 13
 >Hallar $9$ subgrupos de $S_4$ diferentes entre sí e isomorfos a $S_2$ y $4$ subgrupos diferentes entre sí e isomorfos a $S_3$.
 >>[!Proof]-
@@ -268,9 +269,17 @@ mp
 >>1. **Cálculo de los candidatos.** Como $$A^2=-I,$$ se tiene $A^4=I$, y además $B^2=I$. Calculamos $$A^3=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad BA=\begin{pmatrix}-1&0\\0&1\end{pmatrix},\qquad BA^2=\begin{pmatrix}0&-1\\-1&0\end{pmatrix},\qquad BA^3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.$$ Por lo tanto, consideramos $$S=\{A^k,BA^k:k=0,1,2,3\}.$$
 >>2. **Cierre.** Para $i,j\in\{0,1,2,3\}$, usando $AB=BA^{-1}$, obtenemos $$\begin{aligned}A^iA^j&=A^{i+j},&A^i(BA^j)&=BA^{j-i},\\(BA^i)A^j&=BA^{i+j},&(BA^i)(BA^j)&=A^{j-i}.\end{aligned}$$ Como $A^4=I$, los exponentes se consideran módulo $4$, de modo que todas estas expresiones pertenecen a $S$. Además, $I=A^0\in S$ y $(A^i)^{-1}=A^{-i}\in S$. Para los otros elementos, como $B^{-1}=B$, se tiene $$(BA^i)^{-1}=A^{-i}B=BA^i,$$ donde usamos $A^{-i}B=BA^i$; equivalentemente, $(BA^i)^2=BA^iBA^i=A^{-i}A^i=I$. Por lo tanto, los inversos también pertenecen a $S$, y $S$ es un subgrupo.
 >>3. **Subgrupo generado.** Como ya probamos que $S$ es un subgrupo, por definición, $\langle A,B\rangle$ es el menor subgrupo de $S$ que contiene a $A$ y $B$, de modo que $$\langle A,B\rangle\subseteq S.$$ Recíprocamente, para cada $k\in\{0,1,2,3\}$ se cumple $A^k\in\langle A,B\rangle$ y $BA^k\in\langle A,B\rangle$, pues $A,B\in\langle A,B\rangle$. Por lo tanto, $S\subseteq\langle A,B\rangle$, y concluimos que $$\langle A,B\rangle=S.$$ 
+>>4. **Orden y no conmutatividad.** Las ocho matrices exhibidas en el primer paso son distintas, luego $|\langle A,B\rangle|=8$. Además, $$AB=\begin{pmatrix}1&0\\0&-1\end{pmatrix}\neq\begin{pmatrix}-1&0\\0&1\end{pmatrix}=BA,$$ por lo que $\langle A,B\rangle$ no es abeliano.
+>>5. **Isomorfismo con $D_4$.** Sea $r$ la rotación de $90^\circ$ y sea $s$ una reflexión de un cuadrado. Entonces $$D_4=\{e,r,r^2,r^3,s,sr,sr^2,sr^3\}.$$ Definimos $$\varphi\colon\langle A,B\rangle\longrightarrow D_4,\qquad \varphi(A)=r,\quad\varphi(B)=s.$$ Para probar que es un homomorfismo, observamos que en $D_4$ se verifica $sr=r^{-1}s$. Por lo tanto, los productos de los elementos $r^i$ y $sr^i$ satisfacen exactamente las mismas cuatro fórmulas que los productos de $A^i$ y $BA^i$ del paso $2$. Así, para todos $x,y\in\langle A,B\rangle$, $$\varphi(xy)=\varphi(x)\varphi(y).$$ Luego, $\varphi$ es un homomorfismo. Como $$\varphi(A^k)=r^k\qquad\text{y}\qquad\varphi(BA^k)=sr^k\quad(k=0,1,2,3),$$ las imágenes de los ocho elementos de $\langle A,B\rangle$ son distintas. Así, $\varphi$ es inyectiva. Finalmente, $$|\langle A,B\rangle|=8=|D_4|,$$ por lo que $\varphi$ es también sobreyectiva. En consecuencia, $$\langle A,B\rangle\cong D_4.$$
 
 >[!exercise] Ejercicio 16
 >Sea $p$ un número primo mayor que $2$. Probar que $$G=\left\{\begin{pmatrix}1&a&b\\0&1&c\\0&0&1\end{pmatrix}:a,b,c\in\mathbb Z_p\right\},$$ con el producto usual de matrices, es un grupo no abeliano tal que todo elemento distinto de la identidad tiene orden $p$. ¿Qué sucede si $p=2$?
+>>[!Proof]-
+>>6. **Estructura de grupo.** Para $a,b,c,a',b',c'\in\mathbb Z_p$, $$\begin{pmatrix}1&a&b\\0&1&c\\0&0&1\end{pmatrix}\begin{pmatrix}1&a'&b'\\0&1&c'\\0&0&1\end{pmatrix}=\begin{pmatrix}1&a+a'&b+b'+ac'\\0&1&c+c'\\0&0&1\end{pmatrix}\in G.$$ Por lo tanto, $G$ es cerrado bajo el producto y contiene a la identidad $I$. Además, si $$A=\begin{pmatrix}1&a&b\\0&1&c\\0&0&1\end{pmatrix},$$ entonces $$A^{-1}=\begin{pmatrix}1&-a&ac-b\\0&1&-c\\0&0&1\end{pmatrix}\in G,$$ pues el producto de $A$ por esta matriz, en cualquier orden, es $I$. Así, $G$ es un grupo.
+>>7. **No conmutatividad.** Consideremos $$X=\begin{pmatrix}1&1&0\\0&1&0\\0&0&1\end{pmatrix},\qquad Y=\begin{pmatrix}1&0&0\\0&1&1\\0&0&1\end{pmatrix}.$$ Entonces $$XY=\begin{pmatrix}1&1&1\\0&1&1\\0&0&1\end{pmatrix},\qquad YX=\begin{pmatrix}1&1&0\\0&1&1\\0&0&1\end{pmatrix},$$ de modo que $XY\neq YX$. Por consiguiente, $G$ no es abeliano.
+>>8. **Una potencia común.** Sea $A\in G$ y escribamos $A=I+N$, donde $$N=\begin{pmatrix}0&a&b\\0&0&c\\0&0&0\end{pmatrix}.$$ Como $N$ es estrictamente triangular superior de tamaño $3$, se tiene $$N^3=0.$$ Por el binomio de Newton, que puede aplicarse porque $I$ y $N$ conmutan, $$A^p=(I+N)^p=I+pN+\binom p2N^2,$$ ya que los términos con $N^k$, $k\ge3$, son nulos. En $\mathbb Z_p$ se cumple $p=0$ y, como $p>2$, $$\binom p2=\frac{p(p-1)}2=0.$$ Por lo tanto, $A^p=I$ para todo $A\in G$.
+>>9. **El orden es exactamente $p$.** Sea $A\neq I$, de modo que $N=A-I\neq0$, y sea $1\le n<p$. Nuevamente, $$A^n=(I+N)^n=I+nN+\binom n2N^2.$$ Si $N^2=0$, entonces $A^n-I=nN\neq0$, porque $n\neq0$ en $\mathbb Z_p$ y $N\neq0$. Si $N^2\neq0$, entonces $N^2$ solo puede tener una entrada no nula en la posición $(1,3)$; además, las entradas $(1,2)$ y $(2,3)$ de $N$ son no nulas. Por consiguiente, las entradas $(1,2)$ y $(2,3)$ de $A^n-I$ son respectivamente $na$ y $nc$, y ambas son no nulas porque $n\neq0$ en $\mathbb Z_p$. En ambos casos, $A^n\neq I$ para todo $1\le n<p$. Junto con $A^p=I$, concluimos que $|A|=p$ para todo $A\neq I$.
+>>10. **El caso $p=2$.** En $\mathbb Z_2$, para $A=I+N$ se tiene $$A^2=I+2N+N^2=I+N^2.$$ Si $N^2=0$ y $A\neq I$, entonces $A^2=I$, por lo que $A$ tiene orden $2$. Si $N^2\neq0$, entonces $A^2\neq I$, pero $$A^4=(I+N^2)^2=I+2N^2+N^4=I,$$ porque $N^3=0$ implica $N^4=0$. Por lo tanto, en este caso $A$ tiene orden $4$. Así, para $p=2$ el grupo sigue siendo no abeliano (mismo ejemplo que antes), pero no todos sus elementos no triviales tienen orden $2$: también aparecen elementos de orden $4$.
 
 >[!exercise] Ejercicio 17
 >Consideremos el grupo simétrico $S_n$.
@@ -281,15 +290,59 @@ mp
 >- **(e)** Probar que $S_n$ está generado por las $n-1$ transposiciones $(i\ i+1)$ con $i=1,\ldots,n-1$.
 >- **(f)** Sean $\sigma=(12)$ y $\tau=(123\ldots n)$. Calcular $\tau^i\sigma\tau^{-i}$.
 >- **(g)** Probar que $S_n$ está generado por $\sigma$ y $\tau$.
+>>[!Proof]-
+>>- (a)
+>>	1. Probaremos por inducción sobre $r\geq2$ que $$(i_1i_2\ldots i_r)=(i_1i_2)(i_2i_3)\cdots(i_{r-1}i_r).$$ Para $r=2$ la igualdad es inmediata.
+>>	2. Supongamos que la igualdad vale para cierto $r\geq2$. Como $$(i_1i_2\ldots i_ri_{r+1})=(i_1i_2\ldots i_r)(i_ri_{r+1}),$$ al aplicar la hipótesis inductiva obtenemos $$(i_1i_2\ldots i_ri_{r+1})=(i_1i_2)(i_2i_3)\cdots(i_{r-1}i_r)(i_ri_{r+1}).$$ Por inducción, la fórmula vale para todo $r\geq2$.
+>>- (b)
+>>	1. Aplicando las permutaciones de derecha a izquierda, se obtiene $$i\longmapsto1\longmapsto j\longmapsto j,\qquad j\longmapsto j\longmapsto1\longmapsto i.$$ Además, $1\mapsto i\mapsto i\mapsto1$, y todo elemento distinto de $1,i,j$ queda fijo. Por lo tanto, $$(1i)(1j)(1i)=(ij).$$
+>>- (c)
+>>	1. Sea $\pi\in S_n$. Como $\{1,\ldots,n\}$ es finito, la órbita de cualquier elemento $a$ regresa a $a$: si $m$ es el menor entero positivo tal que $\pi^m(a)=a$, dicha órbita determina el ciclo $$(a\ \pi(a)\ \pi^2(a)\ \ldots\ \pi^{m-1}(a)).$$ Repitiendo (sucesivamente) el procedimiento desde un elemento que todavía no haya aparecido, obtenemos una descomposición de $\pi$ como producto de ciclos disjuntos.
+>>	2. Por **(a)**, cada uno de esos ciclos es un producto de transposiciones. Si una transposición obtenida es $(1i)$, ya pertenece a la familia indicada; si es $(ij)$ con $i,j\neq1$, por **(b)** se cumple $$(ij)=(1i)(1j)(1i).$$ Por lo tanto, toda $\pi\in S_n$ es un producto de las transposiciones $(1i)$, con $i=2,\ldots,n$. En consecuencia, $$S_n=\langle(12),(13),\ldots,(1n)\rangle.$$
+>>- (d)
+>>	1. Aplicando las transposiciones de derecha a izquierda, obtenemos $$1\longmapsto j-1\longmapsto j\longmapsto j,\qquad j\longmapsto j\longmapsto j-1\longmapsto1.$$ Además, $j-1\mapsto1\mapsto1\mapsto j-1$, y los restantes elementos quedan fijos. Por lo tanto, $$(1\ j-1)(j-1\ j)(1\ j-1)=(1\ j).$$
+>>- (e)
+>>	1. Sea $$H=\langle(12),(23),\ldots,(n-1\ n)\rangle.$$ Probaremos por inducción sobre $j$ que $(1j)\in H$ para todo $j=2,\ldots,n$. El caso $j=2$ es inmediato, pues $(12)$ es uno de los generadores de $H$.
+>>	2. Supongamos que $(1\ j-1)\in H$ (nuestra hipotesis inductiva). Como $(j-1\ j)$ también es un generador de $H$, el resultado de **(d)** implica que $$(1j)=(1\ j-1)(j-1\ j)(1\ j-1)\in H.$$ Por inducción, $H$ contiene todas las transposiciones $(1j)$ con $j=2,\ldots,n$. Estas generan $S_n$ por **(c)**, de modo que $S_n\subseteq H$. Como además $H\subseteq S_n$ esto es trivial, porque cada elemento de los generadores esta en $S_{n}$ que es cerrado por ser grupo, entonces el generado $H$ esta en $S_{n}$
+>>	3. Finalmente concluimos que $$H=S_n.$$
+>>	4. 
+>>- (f)
+>>	1. La conjugación $\tau^i\sigma\tau^{-i}$ intercambia los elementos $\tau^i(1)$ y $\tau^i(2)$: $\tau^{-i}$ los envía respectivamente a $1$ y $2$, $\sigma$ los intercambia y $\tau^i$ vuelve a trasladarlos. Todo otro elemento queda fijo. Por lo tanto, $$\tau^i\sigma\tau^{-i}=\bigl(\tau^i(1)\ \tau^i(2)\bigr)=(i+1\ i+2),$$ donde los índices se interpretan módulo $n$ con representantes en $\{1,\ldots,n\}$.
+>>- (g)
+>>	1. Sea $K=\langle\sigma,\tau\rangle$. Para $i=0,1,\ldots,n-2$, el inciso **(f)** muestra que $$(i+1\ i+2)=\tau^i\sigma\tau^{-i}\in K.$$ Por lo tanto, $K$ contiene todas las transposiciones adyacentes $(12),(23),\ldots,(n-1\ n)$, que generan $S_n$ por **(e)**. Así, $S_n\subseteq K$; como $K\subseteq S_n$, concluimos que $$\langle\sigma,\tau\rangle=S_n.$$
 
 >[!exercise] Ejercicio 18
 >Calcular el orden y el signo de las siguientes permutaciones: $(4267)\in S_9$; $(365)(173)\in S_7$; $(13254)(35)\in S_6$.
+>>[!Proof]-
+>>2. **Cálculo de los órdenes.** Para $\sigma=(4267)$ se tiene $\sigma^2=(46)(27)$, $\sigma^3=(4762)$ y $\sigma^4=e$. Como ninguna potencia anterior es la identidad, $$|\sigma|=4.$$
+>>3. Para $\tau=(365)(173)$, componiendo de derecha a izquierda obtenemos $\tau=(17653)$. Al multiplicar sucesivamente, la primera potencia igual a la identidad es $\tau^5=e$; por lo tanto, $$|\tau|=5.$$
+>>4. Para $\rho=(13254)(35)$, componiendo de derecha a izquierda obtenemos $\rho=(134)(25)$. Sus potencias sucesivas son $\rho^2=(143)$, $\rho^3=(25)$, $\rho^4=(134)$, $\rho^5=(143)(25)$ y $\rho^6=e$. Por consiguiente, $$|\rho|=6.$$
+>>5. **Cálculo de los signos.** Como $(4267)=(42)(26)(67)$ es producto de tres transposiciones, $$\operatorname{sgn}(4267)=-1.$$
+>>6. Como $(365)(173)=(36)(56)(17)(73)$ es producto de cuatro transposiciones, $$\operatorname{sgn}\bigl((365)(173)\bigr)=1.$$
+>>7. Finalmente, $(13254)(35)=(13)(32)(25)(54)(35)$ es producto de cinco transposiciones, por lo que $$\operatorname{sgn}\bigl((13254)(35)\bigr)=-1.$$
 
 >[!exercise] Ejercicio 19
 >Decir cuáles de los siguientes grupos son isomorfos entre sí: $$\mathbb Z_2\times\mathbb Z_2\times\mathbb Z_2;\quad \mathbb Z_2\times\mathbb Z_4;\quad \mathbb Z_2\times G_4;\quad \mathbb Z_8;\quad D_4;\quad G_8;\quad \mathcal H;\quad Q_8,$$ donde $Q_8$ es el grupo de cuaterniones: $Q_8=\{\pm1,\pm i,\pm j,\pm k\}$ con la operación dada por $$i^2=j^2=k^2=-1,\qquad ij=k=-ji,$$ $(-1)i=-i$, $(-1)j=-j$ y $(-1)k=-k$.
+>>[!Proof]-
+>>8. Todos los grupos considerados tienen orden $8$. Por Lagrange, el orden de todo elemento divide a $8$, así que los únicos órdenes posibles son $1$, $2$, $4$ y $8$. Además, un isomorfismo preserva el orden de los elementos.
+>>9. En $\mathbb Z_2\times\mathbb Z_2\times\mathbb Z_2$, todo elemento satisface $2x=0$. El neutro tiene orden $1$ y los otros siete elementos tienen orden $2$. Por tanto, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&7&0&0\end{array}.$$ 
+>>10. En $\mathbb Z_2\times\mathbb Z_4$, un elemento tiene orden $4$ exactamente cuando su segunda coordenada es $[1]$ o $[3]$. Hay $2\cdot2=4$ elementos de ese tipo. Los tres elementos no neutros restantes tienen orden $2$. Por tanto, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&3&4&0\end{array}.$$ 
+>>11. Tenemos $G_4=\{1,i,-1,-i\}$, donde $1$ tiene orden $1$, $-1$ tiene orden $2$ e $i,-i$ tienen orden $4$. En el producto $\mathbb Z_2\times G_4$, hay $4$ elementos de orden $4$, pues la primera coordenada puede elegirse de $2$ formas y la segunda debe ser $i$ o $-i$. Los tres elementos restantes no neutros tienen orden $2$. Así, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&3&4&0\end{array}.$$ 
+>>12. En $\mathbb Z_8$: Las clases $[1],[3],[5],[7]$ tienen orden $8$, pues generan el grupo. Las clases $[2],[6]$ tienen orden $4$, $[4]$ tiene orden $2$ y $[0]$ tiene orden $1$. Por tanto, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&1&2&4\end{array}.$$ 
+>>13. En $G_{8}$: Sea $\zeta=e^{\pi i/4}=e^{2\pi i/8}$. Las raíces octavas de la unidad son $$G_8=\{\zeta^k:0\leq k<8\}.$$ Para calcular el orden de $\zeta^k$, observamos que $$\left(\zeta^k\right)^m=1\iff\zeta^{km}=1\iff e^{2\pi i km/8}=1.$$ Este último número es igual a $1$ si y solo si $\frac{2\pi km}{8}=2\pi r$ para algún $r\in\mathbb Z$, es decir, si y solo si $8\mid km$. Si $k$ es impar, entonces $8\mid km$ implica $8\mid m$, de modo que el menor exponente positivo que devuelve $1$ es $m=8$; por ello $\zeta,\zeta^3,\zeta^5,\zeta^7$ tienen orden $8$. Para $\zeta^2$, la condición es $8\mid2m$, equivalente a $4\mid m$, y el menor valor positivo es $m=4$; por tanto, $\zeta^2$ tiene orden $4$. Para $\zeta^6$, la condición $8\mid6m$ también obliga a que $4\mid m$, pues $\gcd(6,8)=2$ y $\gcd(3,4)=1$; como $m=4$ funciona, $\zeta^6$ tiene orden $4$. Para $\zeta^4=-1$, la condición es $8\mid4m$, equivalente a $2\mid m$, y el menor valor positivo es $m=2$. Finalmente, $\zeta^0=1$ tiene orden $1$. Por tanto, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&1&2&4\end{array}.$$ 
+>>14. En $D_4=\langle r,s\mid r^4=e,\ s^2=e,\ srs=r^{-1}\rangle$, $r$ y $r^3$ tienen orden $4$. Además, $r^2$ y las cuatro reflexiones $s,sr,sr^2,sr^3$ tienen orden $2$. Esto sale rapido usando que $sr^{k}=r^{-k}s$ que sale de $sr=srss=r^{-1}s$. Luego, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&5&2&0\end{array}.$$ 
+>>15. En $Q_8$, $1$ tiene orden $1$, $-1$ tiene orden $2$ y cada uno de los seis elementos $\pm i,\pm j,\pm k$ tiene orden $4$, porque $i^2=j^2=k^2=-1$. Por tanto, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&1&6&0\end{array}.$$ 
+>>16. En $\mathcal H$, las matrices $I$ y $-I$ tienen órdenes $1$ y $2$, respectivamente. Las seis matrices $\pm A,\pm B,\pm C$ tienen orden $4$, porque $A^2=B^2=C^2=-I$. Así, $$\begin{array}{c|cccc}\text{orden}&1&2&4&8\\\hline\text{cantidad}&1&1&6&0\end{array}.$$ 
+>>17. Comparando las tablas, los únicos grupos que podrían ser isomorfos son $\mathbb Z_2\times\mathbb Z_4$ y $\mathbb Z_2\times G_4$; $\mathbb Z_8$ y $G_8$; y $\mathcal H$ y $Q_8$. Los demás quedan descartados porque tienen distribuciones distintas.
+>>18. Definimos $$f\colon\mathbb Z_4\longrightarrow G_4,\qquad f([m])=i^m.$$ Esta aplicación está bien definida y satisface $$f([m+n])=i^{m+n}=i^mi^n=f([m])f([n]).$$ Como es biyectiva, es un isomorfismo. Por tanto, $$\mathbb Z_2\times\mathbb Z_4\cong\mathbb Z_2\times G_4,$$ mediante $(a,[m])\mapsto(a,i^m)$.
+>>19. Como $G_8=\langle\zeta\rangle$ y $\zeta$ tiene orden $8$, la aplicación $$g\colon\mathbb Z_8\longrightarrow G_8,\qquad g([m])=\zeta^m$$ es un isomorfismo. Así, $$\mathbb Z_8\cong G_8.$$
+>>20. Sean $$A=\begin{pmatrix}i&0\\0&-i\end{pmatrix},\qquad B=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&i\\i&0\end{pmatrix}.$$ Como $A^2=B^2=C^2=-I$, $AB=C=-BA$ y se cumplen las relaciones análogas por permutación cíclica, la aplicación $$h\colon Q_8\longrightarrow\mathcal H,\qquad h(1)=I,\quad h(i)=A,\quad h(j)=B,\quad h(k)=C$$ es un homomorfismo biyectivo. Por tanto, $$\mathcal H\cong Q_8.$$
+>>21. En conclusión, las clases de isomorfía son $$\boxed{\mathbb Z_2\times\mathbb Z_4\cong\mathbb Z_2\times G_4,}$$ $$\boxed{\mathbb Z_8\cong G_8,}$$ $$\boxed{\mathcal H\cong Q_8.}$$ Los grupos $\mathbb Z_2\times\mathbb Z_2\times\mathbb Z_2$ y $D_4$ no son isomorfos a ningún otro grupo de la lista.
 
 >[!exercise] Ejercicio 20
 >Mostrar que si $f\colon G\to H$ es un morfismo de grupos y $x\in G$ es tal que $|x|$ es finito, entonces $|f(x)|$ divide a $|x|$.
+>>[!Proof]-
+>>Sea $|x|=n$. Entonces $x^n=e_G$ y, como $f$ es un morfismo, $$f(x)^n=f(x^n)=f(e_G)=e_H.$$ Por definición del orden, $|f(x)|$ divide a todo exponente positivo que hace que $f(x)$ sea el neutro. En particular, $$|f(x)|\mid n=|x|,$$ como queríamos demostrar.
 
 >[!exercise] Ejercicio 21
 >Para los siguientes pares de grupos $(G,H)$, calcular $\operatorname{Hom}(G,H)$ y $\operatorname{Hom}(H,G)$:
@@ -297,6 +350,25 @@ mp
 >- **(b)** $(\mathbb Z,\mathbb Q)$.
 >- **(c)** $(\mathbb Z,\text{grupo finito})$.
 >- **(d)** $(\mathbb Z_2\times\mathbb Z_2,\mathbb Z_4)$.
+>>[!Proof]-
+>>- (a)
+>>	1. Sea $g$ un generador de $G_n$. Si $\varphi\colon G_n\to\mathbb Z$ es un homomorfismo, entonces $g^n=e$ implica $$n\varphi(g)=\varphi(g^n)=0.$$ Como el único elemento de orden finito de $(\mathbb Z,+)$ es $0$ (osea el unico elemento en $\mathbb{Z}$ que sumando "varias" veces da $0$ es el $0$), se tiene $\varphi(g)=0$. 
+>>	2. Puesto que $g$ genera $G_n$, resulta $\varphi=0$. Por lo tanto, $$\boxed{\operatorname{Hom}(G_n,\mathbb Z)=\{0\}.}$$
+>>	3. Como $(\mathbb Z,+)$ está generado por $1$, un homomorfismo $\psi\colon\mathbb Z\to G_n$ queda determinado por $\psi(1)$. 
+>>	4. Recíprocamente, cada $z\in G_n$ define un homomorfismo $$\psi_z\colon\mathbb Z\to G_n,\qquad\psi_z(m)=z^m.$$ Así, $$\boxed{\operatorname{Hom}(\mathbb Z,G_n)=\{\psi_z:z\in G_n\},}$$ y hay $n$ homomorfismos.
+>>- (b)
+>>	1. Como $\mathbb Z=\langle 1\rangle$ es cíclico infinito, todo homomorfismo $\varphi\colon\mathbb Z\to\mathbb Q$ queda determinado por la imagen del generador, $\varphi(1)$. Dado que $1$ tiene orden infinito, no impone restricciones sobre el orden de su imagen, por lo que $\varphi(1)$ puede ser cualquier $q\in\mathbb Q$. Para cada $q\in\mathbb Q$, esto define de forma única el homomorfismo $$\varphi_q\colon\mathbb Z\to\mathbb Q,\qquad\varphi_q(m)=mq.$$ Por lo tanto, $$\boxed{\operatorname{Hom}(\mathbb Z,\mathbb Q)=\{\varphi_q:q\in\mathbb Q\}.}$$ En particular, hay infinitos homomorfismos.
+>>	2. Sea $\psi\colon\mathbb Q\to\mathbb Z$ un homomorfismo. Para todo $n\geq1$, como $1=n\cdot\frac1n$, se cumple $$\psi(1)=n\psi\left(\frac1n\right).$$ Por lo tanto, el entero $\psi(1)$ es divisible por todo entero positivo $n$, de modo que $\psi(1)=0$. 
+>>	3. Entonces podemos deducir $\psi(p)=0$ para todo $p\in \mathbb{Z}$. Por ende, si $p/q\in\mathbb Q$, con $q>0$, entonces $$0=\psi(p)=q\psi\left(\frac pq\right).$$ Como $\psi\left(\frac pq\right),q\in\mathbb Z$, se sigue que $\psi\left(\frac pq\right)=0$. Por consiguiente, $$\boxed{\operatorname{Hom}(\mathbb Q,\mathbb Z)=\{0\}.}$$
+>>- (c)
+>>	1. Sea $F$ un grupo finito. Como $\mathbb{Z}$ esta generado por el $1$ entonces para cada $a\in \mathbb{F}$ podemos definir $\psi_{a}(1)=a$ o lo que es analogo, para cada $a\in F$, la aplicación que cumple   $$\varphi_a\colon\mathbb Z\to F,\qquad\varphi_a(m)=a^m$$ que es un homomorfismo. 
+>>	2. Como todo homomorfismo desde $\mathbb Z$ queda determinado por la imagen de $1$, son todos los homomorfismos posibles. Luego, $$\boxed{\operatorname{Hom}(\mathbb Z,F)=\{\varphi_a:a\in F\},}$$ y hay $|F|$ homomorfismos.
+>>	3. Si $\psi\colon F\to\mathbb Z$ es un homomorfismo y $x\in F$, entonces $x$ tiene orden finito. Por el Ejercicio 20, el orden de $\psi(x)$ divide al de $x$; como $(\mathbb Z,+)$ no tiene elementos no nulos de orden finito, $\psi(x)=0$. Así, $$\boxed{\operatorname{Hom}(F,\mathbb Z)=\{0\}.}$$
+>>- (d)
+>>	1. Sean $e_1=([1]_2,[0]_2)$ y $e_2=([0]_2,[1]_2)$. Ambos tienen orden $2$, de modo que sus imágenes por un homomorfismo hacia $\mathbb Z_4$ deben tener orden divisor de $2$. Los únicos elementos de $\mathbb Z_4$ con esta propiedad son $[0]_4$ y $[2]_4$. 
+>>	2. Por tanto, para $a,b\in\{[0]_4,[2]_4\}$, definimos $\varphi_{a,b}(e_{1})=a$ y $\varphi_{a,b}(e_{2})=b$ o mas general  $$\varphi_{a,b}\colon\mathbb Z_2\times\mathbb Z_2\to\mathbb Z_4,\qquad\varphi_{a,b}([x]_2,[y]_2)=xa+yb.$$ Estas son todas las posibilidades, pues $e_1,e_2$ generan el dominio; luego $$\boxed{\operatorname{Hom}(\mathbb Z_2\times\mathbb Z_2,\mathbb Z_4)=\{\varphi_{a,b}:a,b\in\{[0]_4,[2]_4\}\}.}$$ En particular, hay $4$ homomorfismos.
+>>	3. Todo homomorfismo desde $\mathbb Z_4$ está determinado por la imagen de $[1]_4$. (Por que es un grupo cicliclo generado por $1$) 
+>>	4. Cada elemento $v\in\mathbb Z_2\times\mathbb Z_2$ tiene orden $1$ o $2$, que divide a $4$; por ello, cada uno define un homomorfismo $$\psi_v\colon\mathbb Z_4\to\mathbb Z_2\times\mathbb Z_2,\qquad\psi_v([k]_4)=kv.$$ Así, $$\boxed{\operatorname{Hom}(\mathbb Z_4,\mathbb Z_2\times\mathbb Z_2)=\{\psi_v:v\in\mathbb Z_2\times\mathbb Z_2\},}$$ y hay $4$ homomorfismos.
 
 >[!exercise] Ejercicio 22
 >Para los siguientes grupos $G$, calcular $\operatorname{End}(G)$ y $\operatorname{Aut}(G)$:

@@ -42,7 +42,7 @@ source: "[[2da clase.pdf]]"
 ## 2. Teorema de Lagrange
 
 >[!Theorem] Teorema de Lagrange
->Si $G$ es finito y $H\leq G$, entonces $$|H|\mid|G|$$ y, más precisamente, $$|G|=[G:H]|H|,$$ donde $[G:H]$ es el número de clases laterales de $H$ en $G$. ^teorema-de-lagrange
+>Si $G$ es finito y $H \leq  G$, entonces $$|H|\mid|G|$$ y, más precisamente, $$|G|=[G:H]|H|,$$ donde $[G:H]$ es el número de clases laterales de $H$ en $G$. ^teorema-de-lagrange
 >>[!Proof]-
 >>La idea es partir $G$ en "copias" de $H$. Cada copia es una clase lateral, todas tienen el mismo tamaño $|H|$, y no se solapan. Contar esas copias da la fórmula.
 >>- **Recordatorio.**
@@ -70,6 +70,9 @@ source: "[[2da clase.pdf]]"
 >>	1. En la partición hay $n=[G:H]$ bloques, y cada uno tiene $|H|$ elementos. Por lo tanto $$|G|=n\cdot|H|=[G:H]\,|H|.$$ En particular $|H|$ divide a $|G|$.
 >>	2. El mismo argumento funciona con clases laterales **derechas** $Hg=\{hg:h\in H\}$: también particionan $G$ y cada una tiene $|H|$ elementos. Por lo tanto hay tantas clases izquierdas como derechas, y el índice no depende del lado que se elija. 
 >>	3. Ojo: eso no dice que $gH=Hg$. Eso es normalidad, y Lagrange no la usa.
+
+>[!Remark]
+>Notar que en el caso de normalidad podemos usar lagrange para afirmar $$|G/H|=[G:H]=\frac{|G|}{|H|}$$ digamos el primer igual vale siempre, pero el segundo vale cuando hay normalidad por  
 
 ### Un dibujo numérico
 
@@ -152,6 +155,22 @@ source: "[[2da clase.pdf]]"
 >>2. **Inversos.** $(nk)^{-1}=k^{-1}n^{-1}=(k^{-1}n^{-1}k)k^{-1}$. Otra vez $k^{-1}n^{-1}k\in N$, así que el inverso está en $NK$. El neutro es $e=e\cdot e\in NK$.
 >>3. Como $N\leq NK\leq G$ y $N$ ya es normal en $G$, también es normal en el subgrupo $NK$.
 
+>[!Proposition] Cardinal de $HK$
+>Sean $H,K\leq G$ subgrupos finitos. Entonces
+>$$|HK|=\frac{|H||K|}{|H\cap K|}.$$
+>>[!Proof]-
+>>1. Como $H\cap K\leq H$ y $H\cap K\leq K$, podemos considerar las clases laterales de $H\cap K$ en $H$.
+>>2. Por definición,
+>>$$HK=\{hk:h\in H,\ k\in K\}=\bigcup_{h\in H}hK.$$
+>>3. Cada $hK$ es una clase lateral izquierda de $K$. Dos clases laterales son iguales o disjuntas y, además, cada una tiene $|K|$ elementos. Por lo tanto, si $n$ es la cantidad de clases $hK$ distintas que aparecen en la unión anterior,
+>>$$|HK|=n|K|.$$
+>>4. Veamos cuántas clases distintas aparecen. Si $h,h'\in H$, entonces $$hK=h'K\iff h'^{-1}h\in K.$$pero, como $h,h'\in H$, se tiene $h'^{-1}h\in H$. Luego $$hK=h'K\iff h'^{-1}h\in H\cap K.$$
+>>5. Por el criterio de igualdad de clases laterales, $$h'^{-1}h\in H\cap K\iff h(H\cap K)=h'(H\cap K).$$
+>>6. Por lo tanto, $$hK=h'K\iff h(H\cap K)=h'(H\cap K).$$
+>>7. Así, la cantidad de clases $hK$ distintas es exactamente la cantidad de clases laterales de $H\cap K$ en $H$, es decir, $$n=[H:H\cap K].$$
+>>8. Por el teorema de Lagrange aplicado a $H$, $$|H|=[H:H\cap K]|H\cap K|,$$y por lo tanto $$[H:H\cap K]=\frac{|H|}{|H\cap K|}.$$
+>>9. Sustituyendo en el paso 3, $$|HK|=[H:H\cap K]|K|=\frac{|H|}{|H\cap K|}|K|=\boxed{\frac{|H||K|}{|H\cap K|}}.$$
+
 ### Segundo teorema de isomorfismo
 
 >[!Theorem] Segundo teorema de isomorfismo
@@ -178,11 +197,6 @@ source: "[[2da clase.pdf]]"
 >>13. El núcleo es $$\ker\overline{\varphi}=\{gK:gH=H\}=\{gK:g\in H\}=H/K.$$ En particular $H/K\trianglelefteq G/K$.
 >>14. Por el primer teorema de isomorfismo, $$ \frac{G/K}{\ker\overline{\varphi}}\cong G/H, $$ es decir $$ \frac{G/K}{H/K}\cong\frac{G}{H}. $$
 
->[!Remark] Sobre la normalidad de $K$
->En el pizarrón quedó escrito "$H\trianglelefteq G$ y $K\trianglelefteq H$". Para que $G/K$ sea un grupo hace falta $K\trianglelefteq G$, no solamente $K\trianglelefteq H$. (Hay ejemplos de $H\trianglelefteq G$ y $K\trianglelefteq H$ con $K$ no normal en $G$.) El enunciado correcto, y el que usa la demostración, es $K\trianglelefteq G$, $H\trianglelefteq G$ y $K\leq H$.
->
->La analogía útil es la cancelación de fracciones: el $K$ del "numerador" y del "denominador" se simplifica y queda $G/H$.
-
 ### Correspondencia de subgrupos
 
 >[!Corollary] Correspondencia de subgrupos
@@ -197,8 +211,6 @@ source: "[[2da clase.pdf]]"
 >El corolario dice que el retículo de subgrupos de $G/N$ es una copia del retículo de subgrupos de $G$ que contienen a $N$. Cocientar por $N$ "aplasta $N$ a un punto" y deja intacta la estructura por encima de $N$.
 
 ## 6. Producto directo interno
-
-### Criterio
 
 >[!Theorem] Criterio de producto directo interno
 >Sea $G$ un grupo y sean $H,K\leq G$ tales que

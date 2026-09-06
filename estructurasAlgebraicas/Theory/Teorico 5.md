@@ -128,7 +128,9 @@ source: "Clase2 (1).pdf"
 >Si $G$ actúa sobre $X$ y $x\in X$, la **órbita de $x$** es $$O_x=G\cdot x=\{g\cdot x:g\in G\}.$$
 
 > [!definition] Estabilizador
->El **estabilizador de $x$** es $$G_x=\operatorname{Stab}_G(x)=\{g\in G:g\cdot x=x\}.$$
+>El **estabilizador de $x$** es $$G_x=\operatorname{Stab}_G(x)=\{g\in G:g\cdot x=x\}.$$ 
+
+^982c3a
 
 > [!proposition] El estabilizador es un subgrupo
 >Para cada $x\in X$, se tiene $G_x\leq G$.
@@ -169,14 +171,25 @@ source: "Clase2 (1).pdf"
 
 ### 3.3 Estabilizadores de puntos de una misma órbita
 
->[!proposition]
->Si $x,y$ estan en la misma órbita, entonces exite $g\in G$ tal que $$G_x=gG_yg^{-1}.$$
+> [!proposition] Estabilizadores de puntos de una misma órbita
+>Si $x,y$ están en la misma órbita, entonces existe $g\in G$ tal que
+>$$G_x=gG_yg^{-1}.$$ 
+>En particular, la conjugación induce una biyección entre $G_y$ y $G_x$. Por lo tanto, $|G_x|=|G_y|$; si $G$ es finito, los estabilizadores tienen el mismo orden.
 >
 >> [!Proof]-
 >>1. Como $x$ y $y$ están en la misma órbita, existe $g\in G$ tal que $x=g\cdot y$.
 >>2. Probemos primero que $gG_yg^{-1}\subseteq G_x$. Sea $h\in G_y$, es decir, $h\cdot y=y$. Entonces $$\begin{aligned}(ghg^{-1})\cdot x&=(ghg^{-1})\cdot(g\cdot y)\\&=(gh)\cdot y\\&=g\cdot(h\cdot y)\\&=g\cdot y=x.\end{aligned}$$ Por lo tanto, $ghg^{-1}\in G_x$.
 >>3. Para la inclusión inversa, sea $k\in G_x$, es decir, $k\cdot x=x$. Como $x=g\cdot y$, tenemos $$\begin{aligned}(g^{-1}kg)\cdot y&=(g^{-1}kg)\cdot(g^{-1}\cdot x)\\&=(g^{-1}k)\cdot x\\&=g^{-1}\cdot(k\cdot x)\\&=g^{-1}\cdot x=y.\end{aligned}$$ Por consiguiente, $g^{-1}kg\in G_y$, y entonces $k\in gG_yg^{-1}$.
->>4. Las dos inclusiones implican $$G_x=gG_yg^{-1}.$$ Por lo tanto, los estabilizadores de puntos de una misma órbita son conjugados. En particular, si $G$ es finito, tienen el mismo orden.
+>>4. Las dos inclusiones implican $$G_x=gG_yg^{-1}.$$ 
+>>5. La aplicación de conjugación
+>>$$\begin{aligned}
+>>c_g:G_y&\longrightarrow G_x\\
+>>h&\longmapsto ghg^{-1}
+>>\end{aligned}$$
+>>es biyectiva, pues su inversa es $c_{g^{-1}}:k\mapsto g^{-1}kg$.
+>>6. Por consiguiente, $|G_x|=|G_y|$. En particular, si $G$ es finito, los estabilizadores tienen el mismo orden.
+
+^22e0a5
 
 ## 4. Teorema órbita-estabilizador
 
@@ -249,8 +262,11 @@ source: "Clase2 (1).pdf"
 
 ## 6. Lema de Burnside para contar órbitas
 
-> [!definition] Conjunto de puntos fijos
->Para $g\in G$, definimos $$X^g=\operatorname{Fix}(g)=\{x\in X:g\cdot x=x\}.$$
+> [!definition] Punto fijo
+>Sea $g\in G$. Decimos que $x\in X$ es un **punto fijo de $g$** si
+>$$g\cdot x=x.$$ 
+>El conjunto de puntos fijos de $g$ es
+>$$X^g=\operatorname{Fix}(g)=\{x\in X:g\cdot x=x\}.$$
 
 > [!theorem] Lema de Burnside o lema de Cauchy-Frobenius
 >Si un grupo finito $G$ actúa sobre un conjunto finito $X$ y $m$ es el número de órbitas, entonces $$m=\frac1{|G|}\sum_{g\in G}|X^g|.$$
@@ -259,8 +275,12 @@ source: "Clase2 (1).pdf"
 >>1. Contemos de dos maneras el conjunto $$S=\{(g,x)\in G\times X:g\cdot x=x\}.$$
 >>2. Si fijamos $g$, hay $|X^g|$ posibles valores de $x$, de modo que $$|S|=\sum_{g\in G}|X^g|.$$
 >>3. Si fijamos $x$, hay $|G_x|$ posibles valores de $g$, de modo que $$|S|=\sum_{x\in X}|G_x|.$$
->>4. Sea $X=O_{x_1}\sqcup\cdots\sqcup O_{x_m}$. Dentro de cada órbita, todos los estabilizadores tienen el mismo cardinal; además, $|O_{x_i}||G_{x_i}|=|G|$. Por ello, $$\sum_{x\in O_{x_i}}|G_x|=|O_{x_i}||G_{x_i}|=|G|.$$
->>5. Sumando sobre las $m$ órbitas obtenemos $|S|=m|G|$. Al comparar ambos conteos, $$m|G|=\sum_{g\in G}|X^g|,$$ y el resultado sigue al dividir por $|G|$.
+>>4. Como las órbitas particionan $X$, podemos reagrupar esta suma por órbitas. Si $X=O_{x_1}\sqcup\cdots\sqcup O_{x_m}$, entonces
+>>$$\sum_{x\in X}|G_x|=\sum_{i=1}^{m}\sum_{x\in O_{x_i}}|G_x|.$$
+>>5. Por la proposición sobre [[Teorico 5#^22e0a5|estabilizadores de puntos de una misma órbita]], si $x\in O_{x_i}$ entonces $G_x$ y $G_{x_i}$ son conjugados y, por consiguiente, tienen el mismo cardinal: $|G_x|=|G_{x_i}|$. 
+>>6. Además, por [[Teorico 5#^674eaa|órbita-estabilizador]], $|O_{x_i}||G_{x_i}|=|G|$. Por ello, para cada $i$,
+>>$$\sum_{x\in O_{x_i}}|G_x|=|O_{x_i}||G_{x_i}|=|G|.$$ 
+>>7. Sumando sobre las $m$ órbitas obtenemos $|S|=m|G|$. Al comparar ambos conteos, $$m|G|=\sum_{g\in G}|X^g|,$$ y el resultado sigue al dividir por $|G|$.
 
 > [!remark] Cuándo usar Burnside
 >Burnside aparece cuando se pregunta cuántos objetos son distintos **salvo una simetría**. El procedimiento es: identificar el grupo de simetrías, clasificar sus elementos por tipo, contar los objetos fijados por cada tipo y promediar.
@@ -278,59 +298,162 @@ source: "Clase2 (1).pdf"
 
 ### Problema del cubo coloreado
 
-> [!exercise] Colorear un cubo con $6$ colores
->Cada una de las seis caras de un cubo se pinta con uno de $6$ colores disponibles; se permiten repeticiones. Dos coloraciones se consideran iguales si una rotación del cubo lleva una a la otra. ¿Cuántas coloraciones distintas hay?
+> [!exercise] Colorear un cubo con $6$ colores distintos
+>Cada una de las seis caras de un cubo se pinta con un color distinto, utilizando exactamente una vez cada uno de los $6$ colores disponibles. Dos coloraciones se consideran iguales si una rotación del cubo lleva una a la otra. ¿Cuántas coloraciones distintas hay?
 >
->> [!Proof]-
->>1. El grupo de rotaciones del cubo tiene $24$ elementos. Aplicaremos Burnside con $k$ colores y al final sustituiremos $k=6$.
->>2. La identidad fija las $k^6$ coloraciones.
->>3. Hay $3$ rotaciones de $180^\circ$ alrededor de ejes que atraviesan caras opuestas. Cada una deja dos caras fijas e intercambia las otras cuatro en dos pares, por lo que fija $k^4$ coloraciones.
->>4. Hay $6$ rotaciones de $90^\circ$ o $270^\circ$ alrededor de esos ejes. Cada una deja dos caras fijas y forma un ciclo de longitud $4$ con las restantes, por lo que fija $k^3$ coloraciones.
->>5. Hay $8$ rotaciones de $120^\circ$ o $240^\circ$ alrededor de ejes que atraviesan vértices opuestos. Las caras forman dos ciclos de longitud $3$, por lo que se fijan $k^2$ coloraciones.
->>6. Hay $6$ rotaciones de $180^\circ$ alrededor de ejes que atraviesan aristas opuestas. Las caras forman tres pares, por lo que se fijan $k^3$ coloraciones.
->>7. Burnside da $$N(k)=\frac{k^6+3k^4+12k^3+8k^2}{24}.$$ Para $k=6$, $$N(6)=\frac{6^6+3\cdot6^4+12\cdot6^3+8\cdot6^2}{24}=2226.$$
+>> [!Proof]- Demostración mediante el lema de Burnside
+>>1. Sean $\mathcal F$ el conjunto de las seis caras del cubo y $\mathcal C$ el conjunto de los seis colores disponibles. Una coloración que utiliza cada color exactamente una vez es una biyección $c:\mathcal F\to\mathcal C$. Sea
+>>$$X=\{c:\mathcal F\to\mathcal C:c\text{ es biyectiva}\}.$$ 
+>>Como $|\mathcal F|=|\mathcal C|=6$, se tiene
+>>$$|X|=6!.$$
+>>
+>>2. Sea $R$ el grupo de rotaciones del cubo. Entonces $|R|=24$ y $R$ actúa sobre $\mathcal F$. Y por la acción inducida sobre funciones mediante precomposición, $R$ actúa sobre $X$ mediante $$ (r\cdot c)(y)=c(r^{-1}\cdot y),\qquad r\in R,\ c\in X,\ y\in\mathcal F.$$esta acción identifica coloraciones que difieren por una rotación.
+>>3. La identidad fija todas las coloraciones osea $(\operatorname{id}\cdot c)(y)=c(\operatorname{id}^{-1}\cdot y)=c(y)$ entonces $\operatorname{id}\cdot c=c$ osea $c\in X^{\operatorname{id}}$, por lo tanto:
+>>$$|X^{\operatorname{id}}|=|X|=6!.$$
+>>
+>>4. Sea $r\in R$ una rotación no trivial. Supongamos que $c\in X$ es un punto fijo de $r$. Entonces, para toda cara $y\in\mathcal F$,$$c(y)=(r\cdot c)(y)=c(r^{-1}\cdot y).$$
+>>5. Como $c$ es biyectiva, en particular es inyectiva, y por lo tanto $$y=r^{-1}\cdot y$$ osea $r\cdot y=y$ para toda cara $r\in\mathcal F$. Esto significa que $r$ fija cada cara del cubo. 
+>>6. La única rotación que fija todas las caras es la identidad, contradiciendo que $r$ es no trivial. Luego
+>>$$X^r=\varnothing\qquad\text{para toda }r\in R\setminus\{\operatorname{id}\}.$$
+>>
+>>7. Por el lema de Burnside, el número de órbitas es $$\frac{1}{|R|}\sum_{r\in R}|X^r|=\frac{1}{24}\left(6!+23\cdot0\right)=\frac{6!}{24}=30.$$
+>
+>> [!Proof]- Demostración alternativa: acción libre y órbita-estabilizador
+>>1. Usamos la misma acción del grupo $R$ de rotaciones del cubo sobre el conjunto $X$ de coloraciones con los seis colores distintos.
+>>
+>>2. La acción es libre: si una rotación fija una coloración, entonces debe enviar cada cara a otra cara del mismo color. Como todos los colores son distintos, cada cara debe quedar fija. La única rotación que fija las seis caras es la identidad.
+>>
+>>3. Por lo tanto, todo estabilizador es trivial:
+>>$$R_c=\{\operatorname{id}\}$$
+>>para toda coloración $c\in X$. Por órbita-estabilizador,
+>>$$|R\cdot c|=[R:R_c]=24.$$
+>>
+>>4. Las coloraciones se dividen en órbitas de $24$ elementos. En consecuencia, el número de coloraciones consideradas salvo rotaciones es
+>>$$\frac{|X|}{24}=\frac{6!}{24}=30.$$
 
-> [!warning] Variante frecuente
->Si el enunciado exigiera usar cada uno de los seis colores exactamente una vez, el conteo sería distinto: ninguna rotación no trivial fijaría una coloración y el resultado sería $6!/24=30$.
+> [!Remark] Variante: se permiten repeticiones
+>Si se permitieran repeticiones de colores, el conteo sería diferente. En ese caso, con $6$ colores disponibles, Burnside daría
+>$$\frac{6^6+3\cdot6^4+12\cdot6^3+8\cdot6^2}{24}=2226.$$
+
 
 ## 7. Conjugación y ecuación de clases
 
->[!Remark]
->Volvamos a la acción de $G$ sobre sí mismo por conjugación, $g\cdot x=gxg^{-1}$.
+> [!Remark]
+>Consideramos la acción de $G$ sobre sí mismo por conjugación:
+>$$g\cdot x=gxg^{-1}.$$ 
 
 > [!definition] Clase de conjugación
->La órbita de $x\in G$ es su **clase de conjugación**: $$\operatorname{Cl}_G(x)=\{gxg^{-1}:g\in G\}.$$
+>La **clase de conjugación** de $x\in G$ es el conjunto de todos los conjugados de $x$ en $G$: $$\operatorname{Cl}_G(x):=\{gxg^{-1}:g\in G\}.$$
+>Notar que, considerando la acción de $G$ sobre sí mismo por conjugación ($g\cdot y = gyg^{-1}$), la clase de conjugación coincide exactamente con la **órbita** de $x$:
+>$$\operatorname{Cl}_G(x) = \{g\cdot x:g\in G\} = G\cdot x = O_x.$$
+>Recordar [[Teorico 5#^c3e1b1]], que nos dice que entonces $Cl_{G}(x)$ particionan $G$  
 
+^ccd4c2
+
+## Centralizador y Centro
 > [!definition] Centralizador
->El estabilizador de $x$ bajo conjugación es su **centralizador**: $$C_G(x)=\{g\in G:gx=xg\}.$$ En efecto, $gxg^{-1}=x$ si y solo si $gx=xg$.
+>Sea $G$ un grupo y sea $x\in G$. El **centralizador de $x$ en $G$** es
+>$$C_G(x)=\{g\in G:gx=xg\}.$$ 
+
+> [!Remark] Centralizador como estabilizador
+>Para la acción de conjugación, el centralizador de $x$ coincide con el [[Teorico 5#^982c3a|estabilizador]] de $x$:
+>$$\begin{aligned}
+>G_x&=\{g\in G:g\cdot x=x\}\\
+>&=\{g\in G:gxg^{-1}=x\}\\
+>&=\{g\in G:gx=xg\}=C_G(x).
+>\end{aligned}$$
+
+^3763b9
+
+> [!definition] Centro de un grupo
+>Sea $G$ un grupo. El **centro de $G$** es el conjunto de elementos de $G$ que conmutan con todos los elementos de $G$:
+>$$Z(G)=\{x\in G:xg=gx\text{ para todo }g\in G\}.$$
+>Equivalentemente, para $x\in G$ se tiene
+>$$x\in Z(G)\iff C_G(x)=G.$$
+>También, $x\in Z(G)$ si y solo si su clase de conjugación tiene un único elemento.
+
+^62f0bc
+
+## Ecuacion de clase
 
 > [!corollary] Tamaño de una clase de conjugación
->Si $G$ es finito, entonces $$|\operatorname{Cl}_G(x)|=[G:C_G(x)],$$ y, por tanto, $|\operatorname{Cl}_G(x)|$ divide a $|G|$.
-
->[!Remark]
-Un elemento $x$ pertenece al centro $Z(G)$ si y solo si conmuta con todo $g\in G$, es decir, si y solo si $C_G(x)=G$. Equivalentemente, $x\in Z(G)$ si y solo si su clase de conjugación tiene un único elemento.
-
-> [!theorem] Ecuación de clases
->Sea $G$ un grupo finito. Si $x_1,\ldots,x_r$ son representantes de las clases de conjugación no centrales, entonces $$|G|=|Z(G)|+\sum_{i=1}^r[G:C_G(x_i)].$$
+>Si $G$ es finito y considerando la acción de $G$ sobre sí mismo por conjugación, entonces $$|\operatorname{Cl}_G(x)|=[G:C_G(x)],$$ y, por tanto, $|\operatorname{Cl}_G(x)|$ divide a $|G|$.
 >
 >> [!Proof]-
->>Las clases de conjugación particionan $G$. Las clases de los elementos centrales tienen cardinal $1$ y, juntas, aportan $|Z(G)|$. Cada clase no central representada por $x_i$ tiene cardinal $[G:C_G(x_i)]$ por órbita-estabilizador. Sumando los tamaños de todas las clases se obtiene la fórmula.
+>>1. Para esta acción, [[Teorico 5#^ccd4c2|la órbita de $x$ es precisamente su clase de conjugación]]: $O_x = \operatorname{Cl}_G(x)$ y ademas [[Teorico 5#^3763b9|estabilizador de $x$ coincide con su centralizador]]: $G_x = C_G(x)$ 
+>>2. Entonces por el [[Teorico 5#^674eaa|teorema órbita-estabilizador]], existe una biyección entre $G/C_G(x)$ y $\operatorname{Cl}_G(x)$, de modo que:
+>>$$|\operatorname{Cl}_G(x)| = [G : C_G(x)].$$
+>>3. Finalmente, por el [[Teorico 4#^teorema-de-lagrange|teorema de Lagrange]], $|G| = [G : C_G(x)] \cdot |C_G(x)| = |\operatorname{Cl}_G(x)| \cdot |C_G(x)|$, lo que demuestra que $|\operatorname{Cl}_G(x)|$ divide a $|G|$.
+
+>[!theorem] Ecuación de clases
+>Sea $G$ un grupo finito actuando sobe si mismo por conjugacion. Si $x_1,\ldots,x_r$ son representantes de las clases de conjugación no centrales, entonces $$|G|=|Z(G)|+\sum_{i=1}^r[G:C_G(x_i)].$$
+>
+>>[!Proof]-
+>>1. Primero recordamos [[Teorico 5#^ccd4c2|Las clases de conjugación particionan $G$]]:
+>>$$|G| = \sum_{\text{todas las clases}} |\operatorname{Cl}_G(x)|.$$
+>>
+>>2. **Clases centrales (tamaño 1):** Si $z \in Z(G)$, entonces $z$ conmuta con todo $g \in G$ ($gz = zg$). Por lo tanto, al conjugar: $$g\cdot z =gzg^{-1} = zgg^{-1} = z \cdot 1 = z\quad\forall g\in G$$esto muestra que $\operatorname{Cl}_G(z)=O_{z} = G\cdot z=\{z\}$, es decir, cada elemento del centro forma su propia clase de cardinal $1$. Sumando todas estas clases:
+>>$$\sum_{z \in Z(G)} |\operatorname{Cl}_G(z)| = \sum_{z \in Z(G)} 1 = |Z(G)|.$$
+>>
+>>3. **Clases no centrales (tamaño > 1):** Si $x \notin Z(G)$, mirando [[Teorico 5#^62f0bc|Centro de un grupo]] notamos que existe al menos un $g \in G$ tal que $gx \neq xg$ osea el centralizador es estrictamente menor que $G$ ($C_G(x) \subsetneq G$) , y por el [[Teorico 5#^674eaa|teorema órbita-estabilizador]]: $$|\operatorname{Cl}_G(x)| = [G : C_G(x)] > 1.$$sean $x_1, \ldots, x_r$ representantes de estas $r$ clases no centrales.
+>>4. **Sumando todo:** Agrupando las clases centrales y no centrales en la partición de $G$:
+>>$$|G| = \underbrace{\sum_{z \in Z(G)} 1}_{|Z(G)|} + \sum_{i=1}^r \underbrace{|\operatorname{Cl}_G(x_i)|}_{[G : C_G(x_i)]} = |Z(G)| + \sum_{i=1}^r [G : C_G(x_i)].$$
 
 ### Conjugación de subgrupos y normalizador
 
->[!Remark]
->El grupo $G$ actúa sobre el conjunto de sus subgrupos por conjugación: $$g\cdot H=gHg^{-1}.$$
-
 > [!definition] Normalizador
->El estabilizador de $H$ bajo esta acción es el **normalizador** de $H$: $$N_G(H)=\{g\in G:gHg^{-1}=H\}.$$
+>Sea $H\leq G$. El **normalizador de $H$ en $G$** es el conjunto
+>$$N_G(H)=\{g\in G:gHg^{-1}=H\}.$$ 
 
-> [!corollary]
->La cantidad de subgrupos conjugados a $H$ es $$[G:N_G(H)].$$ En particular, $H\trianglelefteq G$ si y solo si su órbita tiene un único elemento; equivalentemente, si y solo si $N_G(H)=G$.
+> [!Remark] Acción de conjugación sobre subgrupos
+>El grupo $G$ actúa sobre el conjunto de sus subgrupos por conjugación: $$g\cdot H=gHg^{-1}.$$ digamos para cada $g\in G$ tenemos el subgrupo $gHg^{-1}$ pero puede haber repetidos con distintos $g$  
+
+> [!Remark] Normalizador como estabilizador
+>Para esta acción, el normalizador de $H$ coincide con el [[Teorico 5#^982c3a|estabilizador]] de $H$:
+>$$\begin{aligned}
+>G_H&=\{g\in G:g\cdot H=H\}\\
+>&=\{g\in G:gHg^{-1}=H\}\\
+>&=N_G(H).
+>\end{aligned}$$
+
+^02c559
+
+>[!corollary]
+>La cantidad de subgrupos conjugados a $H$ (osea sin contar repeticiones $|\{ gHg^{-1}:g\in G \}|$) espero  $$[G:N_G(H)].$$ En particular, $H\trianglelefteq G$ si y solo si su órbita tiene un único elemento; equivalentemente, si y solo si $N_G(H)=G$.
+>>[!Proof]-
+>>1. Notamos que por [[Teorico 5#^674eaa]] y por [[Teorico 5#^02c559]] $$|\{ gHg^{-1}:g\in G \}|=|G\cdot H|=|O_{H}|=[G:G_{H}]=[G:N_{G}(H)]$$ 
 
 ## 8. Aplicaciones a $p$-grupos
 
-> [!definition] $p$-grupo
->Un grupo finito $G$ es un **$p$-grupo** si $|G|=p^n$ para algún primo $p$ y algún $n\geq1$.
+>[!definition] $p$-grupo
+>Dado un primo $p$, hay dos definiciones en circulación (la clase usó ambas):
+>1. (La habitual.) Un grupo finito $G$ es un **$p$-grupo** si $|G|=p^n$ para algún $n\geq 1$.
+>2. Un grupo (posiblemente infinito) cuyos elementos tienen todos orden una potencia de $p$: para cada $g\in G$ existe $a\geq 0$ con $|g|=p^a$.
+>
+>Si $G$ es finito y satisface (2), entonces satisface (1): si un primo $q\neq p$ dividiera $|G|$, el [[Teorico 5#5. Aplicación: teorema de Cauchy|teorema de Cauchy]] daría un elemento de orden $q$, contradiciendo (2). En el caso finito las dos coinciden; en estas notas usamos (1).
+
+>[!definition] Conjunto de puntos fijos de un grupo
+>Sea $G$ un $p$-grupo que actúa sobre un conjunto finito $X$. Definimos el conjunto de puntos fijos de toda la acción por $$X^G=\{x\in X:g\cdot x=x\text{ para todo }g\in G\}.$$ (que en el fondo es $\bigcap_{g\in G}X^{g}$ la interseccion de los puntos fijos de cada elemento) 
+
+>[!Theorem] Lema de los puntos fijos de un $p$-grupo
+>Entonces
+>$$|X|\equiv |X^G|\pmod p.$$
+>
+>> [!Proof]-
+>>1. Las órbitas de la acción particionan $X$:
+>>$$X=\bigsqcup_{i\in I}O_{x_i}.$$ 
+>>
+>>2. Una órbita tiene un único elemento si y solo si su representante es un punto fijo de toda la acción. En efecto,
+>>$$|O_x|=1\iff g\cdot x=x\text{ para todo }g\in G\iff x\in X^G.$$ 
+>>
+>>3. Si $|O_x|>1$, por órbita-estabilizador se tiene
+>>$$|O_x|=[G:G_x].$$
+>>Como $|G|=p^n$, el índice $[G:G_x]$ es una potencia de $p$. Puesto que es mayor que $1$, es divisible por $p$.
+>>
+>>4. Al sumar los tamaños de las órbitas, las órbitas de tamaño $1$ aportan exactamente $|X^G|$, mientras que todas las demás aportan múltiplos de $p$. Por lo tanto,
+>>$$|X|=|X^G|+\sum_{\substack{\text{órbitas }O\\|O|>1}}|O|\equiv |X^G|\pmod p.$$ 
+
+^e8cda5
 
 > [!theorem] El centro de un $p$-grupo no trivial es no trivial
 >Si $|G|=p^n$ con $n\geq1$, entonces $|Z(G)|$ es divisible por $p$ y, en particular, $Z(G)\neq\{1_G\}$.

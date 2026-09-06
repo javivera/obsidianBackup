@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Theory/FA - Teo2.md",
+                "file": "Theory/FA - Teo3.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "FA - Teo2"
+              "title": "FA - Teo3"
             }
           },
           {
@@ -33,8 +33,33 @@
               "icon": "lucide-file-text",
               "title": "FA-Teo2"
             }
+          },
+          {
+            "id": "dd8d26aeeeebe2ef",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Practicos/FA-Pr2.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "FA-Pr2"
+            }
+          },
+          {
+            "id": "44453ec8fefcf85e",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Apuntes/FA-Teo4.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "FA-Teo4"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -146,7 +171,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Theory/FA - Teo2.md",
+            "file": "Apuntes/FA-Teo4.pdf",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -197,12 +222,16 @@
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "c050a74beb6d4d61",
+  "active": "44453ec8fefcf85e",
   "lastOpenFiles": [
-    "Apuntes/FA-Teo2.pdf",
-    "Theory/FA - Teo2.md",
-    "Theory/FA - Teo1.md",
+    "Apuntes/FA-Teo3.pdf",
     "Theory/FA - Teo3.md",
+    "Theory/FA - Teo2.md",
+    "Apuntes/FA-Teo2.pdf",
+    "Practicos/practico3-2025-2026 Transformación de Möbius.pdf",
+    "Practicos/practico2-2025-2026.pdf",
+    "Practicos/FA-Pr2.pdf",
+    "Theory/FA - Teo1.md",
     "Theory/Teórico 4.md",
     "Theory/Teórico 5.md",
     "Theory/Teorico 4.md",
@@ -220,7 +249,6 @@
     "Practicos/GS - Pr5.pdf",
     "Practicos/GS - Pr2.pdf",
     "Practicos/GS - Pr2.md",
-    "Practicos/GS - Pr1.pdf",
     "Practicos/GS - Pr3.md",
     "Teoricos/GS - Teo19.md",
     "Teoricos/GS - Teo9.md",
@@ -231,11 +259,8 @@
     "Teoricos/GS - Teo13.md",
     "Teoricos/GS - Teo12.md",
     "Teoricos/GS - Teo11.md",
-    "Practicos/GS - Pr7.pdf",
-    "Practicos/GS - Pr6.pdf",
     "Pasted image 20260625161051.png",
     "Pasted image 20260603235453.png",
-    "Teoricos/XXVjr1bS",
     "Pasted image 20260518154921.png",
     "Pasted image 20260518214156.png",
     "Pasted image 20260518154922.png",
