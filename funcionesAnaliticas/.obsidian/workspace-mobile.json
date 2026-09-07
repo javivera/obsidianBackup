@@ -45,21 +45,9 @@
               "icon": "lucide-file-text",
               "title": "FA-Pr2"
             }
-          },
-          {
-            "id": "44453ec8fefcf85e",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Apuntes/FA-Teo4.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "FA-Teo4"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -222,8 +210,9 @@
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "44453ec8fefcf85e",
+  "active": "dd8d26aeeeebe2ef",
   "lastOpenFiles": [
+    "Apuntes/FA-Teo4.pdf",
     "Apuntes/FA-Teo3.pdf",
     "Theory/FA - Teo3.md",
     "Theory/FA - Teo2.md",

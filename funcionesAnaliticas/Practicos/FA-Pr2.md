@@ -1,10 +1,9 @@
 >[!Exercise]
->Demostrar que
->$$\lim_{n\to\infty}n^{1/n}=1.$$
+>Demostrar que $$\lim_{n\to\infty}n^{1/n}=1.$$
 >>[!Proof]-
 >>1. Escribimos $$n^{1/n}=e^{\frac{\log n}{n}}.$$
 >>2. Basta calcular el límite del exponente: $$\lim_{n\to\infty}\frac{\log n}{n}.$$
->>3. Considerando primero la función real correspondiente y aplicando L'Hôpital, $$\lim_{x\to\infty}\frac{\log x}{x}=\lim_{x\to\infty}\frac{1/x}{1}=\lim_{x\to\infty}\frac1x=0.$$
+>>3. Considerando primero la función real corres pondiente y aplicando L'Hôpital, $$\lim_{x\to\infty}\frac{\log x}{x}=\lim_{x\to\infty}\frac{1/x}{1}=\lim_{x\to\infty}\frac1x=0.$$
 >>4. Por lo tanto, $$\lim_{n\to\infty}\frac{\log n}{n}=0.$$
 >>5. Por continuidad de la función exponencial, $$\lim_{n\to\infty}n^{1/n}=\lim_{n\to\infty}e^{\frac{\log n}{n}}=e^0=1.$$
 
@@ -19,7 +18,7 @@
 >>		1. Si $h=t\in\mathbb{R}_{>0}$, entonces $\dfrac{|h|}{h}=1$.
 >>		2. Si $h=it$ con $t\in\mathbb{R}_{>0}$, entonces $\dfrac{|h|}{h}=\dfrac{t}{it}=-i$.
 >>		3. Los límites direccionales no coinciden, de modo que $f'(0)$ no existe.
->>	- **En $z\neq 0$.** 
+>>	- **En $z\neq 0$.**
 >>		1. Racionalizamos el numerador: $$\frac{|z+h|-|z|}{h}=\frac{|z+h|^{2}-|z|^{2}}{h\bigl(|z+h|+|z|\bigr)}.$$
 >>		2. Como $|w|^{2}=w\overline{w}$, $$|z+h|^{2}-|z|^{2}=(z+h)(\overline{z}+\overline{h})-z\overline{z}=z\overline{h}+h\overline{z}+h\overline{h} ,$$y por lo tanto $$\frac{|z+h|-|z|}{h}=\frac{z\dfrac{\overline{h}}{h}+\overline{z}+\overline{h}}{|z+h|+|z|}.$$
 >>		3. El denominador tiende a $2|z|\neq 0$ cuando $h\to 0$. El término $\overline{h}/h$ depende de la dirección, igual que en el contraejemplo de $\overline{z}$.
@@ -56,7 +55,7 @@
 >>	7. Por lo tanto, el único punto donde la derivada puede existir es el origen.
 >>	8. En $z_0=0$ tenemos $$\frac{f(h)-f(0)}{h}=\frac{|h|^2}{h}=\overline h\longrightarrow0.$$
 >>	9. Luego $$f'(0)=0,$$ por lo que $f(z)=|z|^2$ es derivable únicamente en $z=0$.
->>- (ii) 
+>>- (ii)
 >>	1. sea $z_0\in\mathbb C$. Entonces $$\frac{f(z_0+h)-f(z_0)}{h}=\frac{\overline{z_0+h}-\overline{z_0}}{h}=\frac{\overline h}{h}.$$
 >>	2. Tomando $h=t$ con $t\in\mathbb R$, obtenemos $$\frac{\overline t}{t}=1.$$
 >>	3. Tomando $h=it$ con $t\in\mathbb R$, obtenemos $$\frac{\overline{it}}{it}=-1.$$
@@ -71,11 +70,9 @@
 >>[!Proof]-
 >>Usamos las definiciones por series $$e^{w}=\sum_{n=0}^{\infty}\frac{w^{n}}{n!},\qquad\cos z=\sum_{k=0}^{\infty}(-1)^{k}\frac{z^{2k}}{(2k)!},\qquad\operatorname{sen} z=\sum_{k=0}^{\infty}(-1)^{k}\frac{z^{2k+1}}{(2k+1)!}.$$
 >>6. Para cada $k\geq 0$, $$(iz)^{2k}=i^{2k}z^{2k}=(i^{2})^{k}z^{2k}=(-1)^{k}z^{2k},$$ $$(iz)^{2k+1}=i^{2k+1}z^{2k+1}=i^{2k}\,i\,z^{2k+1}=(-1)^{k}iz^{2k+1}.$$
->>7. Separando la serie de $e^{iz}$ en términos pares e impares,
->>$$\begin{aligned}e^{iz}&=\sum_{n=0}^{\infty}\frac{(iz)^{n}}{n!}=\sum_{k=0}^{\infty}\frac{(iz)^{2k}}{(2k)!}+\sum_{k=0}^{\infty}\frac{(iz)^{2k+1}}{(2k+1)!}\\&=\sum_{k=0}^{\infty}(-1)^{k}\frac{z^{2k}}{(2k)!}+i\sum_{k=0}^{\infty}(-1)^{k}\frac{z^{2k+1}}{(2k+1)!}\\&=\cos z+i\operatorname{sen} z.\end{aligned}$$
+>>7. Separando la serie de $e^{iz}$ en términos pares e impares, $$\begin{aligned}e^{iz}&=\sum_{n=0}^{\infty}\frac{(iz)^{n}}{n!}=\sum_{k=0}^{\infty}\frac{(iz)^{2k}}{(2k)!}+\sum_{k=0}^{\infty}\frac{(iz)^{2k+1}}{(2k+1)!}\\&=\sum_{k=0}^{\infty}(-1)^{k}\frac{z^{2k}}{(2k)!}+i\sum_{k=0}^{\infty}(-1)^{k}\frac{z^{2k+1}}{(2k+1)!}\\&=\cos z+i\operatorname{sen} z.\end{aligned}$$
 >>8. Reemplazando $z$ por $-z$ (o calculando análogamente con $-iz$), y usando que $\cos$ es par y $\operatorname{sen}$ es impar, $$e^{-iz}=\cos(-z)+i\operatorname{sen}(-z)=\cos z-i\operatorname{sen} z.$$
->>9. Sumando y restando,
->>$$e^{iz}+e^{-iz}=2\cos z,\qquad e^{iz}-e^{-iz}=2i\operatorname{sen} z.$$
+>>9. Sumando y restando, $$e^{iz}+e^{-iz}=2\cos z,\qquad e^{iz}-e^{-iz}=2i\operatorname{sen} z.$$
 >>10. Dividiendo, $$\cos z=\frac{e^{iz}+e^{-iz}}{2},\qquad\operatorname{sen} z=\frac{e^{iz}-e^{-iz}}{2i}.$$
 
 >[!Exercise]
@@ -119,27 +116,22 @@
 >- **(ii)** La rama principal del logaritmo es continua en $G$.
 >>[!Proof]-
 >>- **(i)**
->>1. Como $z_n\to z$ y la función módulo es continua, $$r_n=|z_n|\longrightarrow |z|=r.$$ 
->>2. Para estudiar los argumentos, como $\theta_n\in(-\pi,\pi)$, la sucesión $(\theta_n)$ es acotada. Tomemos una subsucesión convergente $\theta_{n_j}\to\alpha$, con $\alpha\in[-\pi,\pi]$. Entonces $r_{n_j}\to r$ y, por la continuidad de la función exponencial,
->>$$z_{n_j}=r_{n_j}e^{i\theta_{n_j}}\longrightarrow re^{i\alpha}.$$
->>3. Pero $z_{n_j}\to z=re^{i\theta}$. Por unicidad del límite, $$re^{i\alpha}=re^{i\theta}.$$ 
+>>1. Como $z_n\to z$ y la función módulo es continua, $$r_n=|z_n|\longrightarrow |z|=r.$$
+>>2. Para estudiar los argumentos, como $\theta_n\in(-\pi,\pi)$, la sucesión $(\theta_n)$ es acotada. Tomemos una subsucesión convergente $\theta_{n_j}\to\alpha$, con $\alpha\in[-\pi,\pi]$. Entonces $r_{n_j}\to r$ y, por la continuidad de la función exponencial, $$z_{n_j}=r_{n_j}e^{i\theta_{n_j}}\longrightarrow re^{i\alpha}.$$
+>>3. Pero $z_{n_j}\to z=re^{i\theta}$. Por unicidad del límite, $$re^{i\alpha}=re^{i\theta}.$$
 >>4. Como $r>0$, se sigue que $$e^{i\alpha}=e^{i\theta},$$ de donde $\alpha-\theta=2k\pi$ para algún $k\in\mathbb Z$.
 >>5. Los casos $\alpha=\pi$ y $\alpha=-\pi$ son imposibles, pues entonces $$re^{i\alpha}=-r\in(-\infty,0],$$ contradiciendo que $z\in G$. Así, $\alpha\in(-\pi,\pi)$.
 >>6. Como también $\theta\in(-\pi,\pi)$, se tiene $\alpha-\theta\in(-2\pi,2\pi)$. El único múltiplo de $2\pi$ en ese intervalo es $0$, luego $\alpha=\theta$.
->>7. Hemos probado que toda subsucesión convergente de $(\theta_n)$ converge a $\theta$. Si $(\theta_n)$ no convergiera a $\theta$, existiría una subsucesión $(\theta_{n_j})$ tal que $|\theta_{n_j}-\theta|\ge\varepsilon$ para algún $\varepsilon>0$. Por Bolzano–Weierstrass, esta subsucesión tendría una subsucesión convergente, cuyo límite no podría ser $\theta$, contradiciendo el paso anterior. Por tanto, $$\theta_n\longrightarrow\theta.$$ 
->>- **(ii)** Escribimos la rama principal del logaritmo como $$\operatorname{Log}(z)=\ln|z|+i\operatorname{Arg}(z).$$ Como $r_n\to r>0$ y la función $\ln$ es continua en $(0,\infty)$, $$\ln|z_n|=\ln r_n\longrightarrow\ln r=\ln|z|.$$ Además, por (i), $$\operatorname{Arg}(z_n)=\theta_n\longrightarrow\theta=\operatorname{Arg}(z).$$ Por lo tanto,
->>$$\operatorname{Log}(z_n)=\ln r_n+i\theta_n\longrightarrow\ln r+i\theta=\operatorname{Log}(z).$$
->>Como $(z_n)$ era una sucesión arbitraria con $z_n\to z$, por el criterio secuencial de continuidad, la rama principal del logaritmo es continua en $G$.
+>>7. Hemos probado que toda subsucesión convergente de $(\theta_n)$ converge a $\theta$. Si $(\theta_n)$ no convergiera a $\theta$, existiría una subsucesión $(\theta_{n_j})$ tal que $|\theta_{n_j}-\theta|\ge\varepsilon$ para algún $\varepsilon>0$. Por Bolzano–Weierstrass, esta subsucesión tendría una subsucesión convergente, cuyo límite no podría ser $\theta$, contradiciendo el paso anterior. Por tanto, $$\theta_n\longrightarrow\theta.$$
+>>- **(ii)** Escribimos la rama principal del logaritmo como $$\operatorname{Log}(z)=\ln|z|+i\operatorname{Arg}(z).$$ Como $r_n\to r>0$ y la función $\ln$ es continua en $(0,\infty)$, $$\ln|z_n|=\ln r_n\longrightarrow\ln r=\ln|z|.$$ Además, por (i), $$\operatorname{Arg}(z_n)=\theta_n\longrightarrow\theta=\operatorname{Arg}(z).$$ Por lo tanto, $$\operatorname{Log}(z_n)=\ln r_n+i\theta_n\longrightarrow\ln r+i\theta=\operatorname{Log}(z).$$ Como $(z_n)$ era una sucesión arbitraria con $z_n\to z$, por el criterio secuencial de continuidad, la rama principal del logaritmo es continua en $G$.
 
 >[!Exercise]
 >Sean $G$ un abierto conexo, $n\in\mathbb Z$ y $f:G\to\mathbb C$ una rama del logaritmo. Probar que $$z^n=\exp(nf(z)),\qquad\text{para todo }z\in G.$$
 >>[!Proof]-
 >>1. Por definición de rama del logaritmo, para todo $z\in G$ vale $$e^{f(z)}=z.$$
 >>2. Usamos la propiedad $$e^{nw}=\left(e^{w}\right)^n,\qquad w\in\mathbb C,\ n\in\mathbb Z.$$ Vale para $n\in\mathbb N$ porque $e^{z+w}=e^z e^w$ para todo $z,w\in \mathbb{C}$. Para $n=0$ es trivial.
->>3. Para $n=-m<0$, corremos el signo a la base y aplicamos el caso positivo a $-w$:
->>$$e^{-mw}=e^{m(-w)}=\left(e^{-w}\right)^m.$$ Como $e^{w}e^{-w}=e^0=1$, se tiene $e^{-w}=(e^w)^{-1}$, luego $$\left(e^{-w}\right)^m=\left((e^w)^{-1}\right)^m=\left(e^w\right)^{-m}.$$
->>4. Aplicándola con $w=f(z)$ y usando el paso 1,
->>$$e^{nf(z)}=\left(e^{f(z)}\right)^n=z^n.$$
+>>3. Para $n=-m<0$, corremos el signo a la base y aplicamos el caso positivo a $-w$: $$e^{-mw}=e^{m(-w)}=\left(e^{-w}\right)^m.$$ Como $e^{w}e^{-w}=e^0=1$, se tiene $e^{-w}=(e^w)^{-1}$, luego $$\left(e^{-w}\right)^m=\left((e^w)^{-1}\right)^m=\left(e^w\right)^{-m}.$$
+>>4. Aplicándola con $w=f(z)$ y usando el paso 1, $$e^{nf(z)}=\left(e^{f(z)}\right)^n=z^n.$$
 
 >[!Exercise]
 >(i) Sean $X$ e $Y$ conjuntos no vacíos y sea $g:X\to Y$ una función tal que $g\circ f=\operatorname{Id}_Y$. Probar que $$\{z\in X:(f\circ g)(z)=z\}=\operatorname{Im}(f)$$
@@ -153,7 +145,7 @@
 >>	5. Por lo tanto $\{z\in X:(f\circ g)(z)=z\}=\operatorname{Im}(f)$.
 >>- **(ii)**
 >>	1. Sabemos que dado $G=\mathbb{C}\setminus(-\infty,0]$ tenemos $f:G\to\mathbb C$ es una rama del logaritmo, $$e^{f(w)}=w\qquad\text{para todo }w\in G.$$
->>	2. Ahora el problema es que si definimos $g=\exp$ cuando hacemos $f\circ g$ la imagen de $g$ quizas no cae en $G$. Entonces definimos $$D=\{z\in\mathbb C:e^z\in G\}$$ y consideramos $g=\exp|_D:D\to G$. 
+>>	2. Ahora el problema es que si definimos $g=\exp$ cuando hacemos $f\circ g$ la imagen de $g$ quizas no cae en $G$. Entonces definimos $$D=\{z\in\mathbb C:e^z\in G\}$$ y consideramos $g=\exp|_D:D\to G$.
 >>	3. La identidad del paso 1. nos dice $f(w)\in D$ para todo $w\in G$, de modo que podemos considerar $f:G\to D$. Además, $$(g\circ f)(w)=e^{f(w)}=w,$$ por lo que $g\circ f=\operatorname{Id}_G$.
 >>	4. Aplicando el inciso (i) con $X=D$ e $Y=G$, obtenemos $$\{z\in D:(f\circ g)(z)=z\}=\operatorname{Im}(f).$$
 >>	5. Para $z\in D$ se tiene $g(z)=e^z$; por consiguiente, $$\{z\in D:(f\circ g)(z)=z\}=\{z\in\mathbb C:e^z\in G\text{ y }f(e^z)=z\}.$$
@@ -184,6 +176,8 @@
 >>11. Como $g$ es analítica en $G$, $f_j$ es continua. Además, por [[FA - Teo2#^3a5482|derivada de rama de logaritmo]] tenemos $g'(z)=1/z$ entonces $$f_j'(z)=\left(\frac1n g'(z)\right)e^{\frac1n g(z)+\frac{2\pi ij}{n}}=\frac{1}{nz}f_j(z).$$ Como $z\neq0$ en $G$ y $f_j$ es continua, $f_j'$ también es continua. Por lo tanto $f_j$ es analítica.
 >>12. Finalmente, $$f_j(z)^n=e^{g(z)+2\pi ij}=e^{g(z)}e^{2\pi ij}=z.$$ Por consiguiente, todas las soluciones son exactamente $$\boxed{f_j(z)=e^{\frac{\operatorname{Log} z+2\pi ij}{n}},\qquad j=0,\ldots,n-1.}$$
 
+^1ee69b
+
 >[!Exercise]
 >Sean $A\subseteq\mathbb C$ conexo y $f:A\to\mathbb C$ analítica. Demostrar que si $f(z)$ es real para todo $z\in A$, entonces $f$ es constante.
 >>[!Proof]-
@@ -206,3 +200,47 @@
 >>12. Como esto vale para todo $y\in B(x,r)$, tenemos $$B(x,r)\subseteq S,$$ y por lo tanto $S$ es abierto en $U$.
 >>13. Entonces $S$ es no vacío, abierto y cerrado en $U$. Como $U$ es conexo, necesariamente $$S=U.$$
 >>14. Por definición de $S$, $$g(x)=g(x_0)\qquad\forall x\in U,$$ y por lo tanto $$\boxed{g\text{ es constante}.}$$
+
+>[!Exercise]
+>Para cada $r > 0$ fijo determinar el conjunto $\left\{\exp\left(\frac{1}{z}\right) : 0 < |z| < r\right\}$.
+>>[!Proof]-
+>>15. **Reformulación del conjunto.** Sea $S = \left\{\exp\left(\frac{1}{z}\right) : 0 < |z| < r\right\}$. Haciendo el cambio de variable $w = \frac{1}{z}$, la condición $0 < |z| < r$ equivale a $|w| = \frac{1}{|z|} > \frac{1}{r}$, de modo que $$S = \left\{\exp(w) : |w| > \frac{1}{r}\right\}.$$ Probaremos que $S = \mathbb{C} \setminus \{0\}$ mediante la doble inclusión.
+>>16. **Inclusión $S \subseteq \mathbb{C} \setminus \{0\}$.** Para cualquier $w = u + iv \in \mathbb{C}$ con $u, v \in \mathbb{R}$, se tiene $$|\exp(w)| = |e^{u+iv}| = e^u |\cos v + i \sin v| = e^u > 0.$$ Como el módulo es estrictamente positivo para todo $u\in\mathbb{R}$, resulta que $\exp(w) \neq 0$ para todo $w\in\mathbb{C}$. Por lo tanto $0 \notin S$, lo que demuestra que $$S \subseteq \mathbb{C} \setminus \{0\}.$$
+>>17. **Inclusión $\mathbb{C} \setminus \{0\} \subseteq S$.** Sea $c \in \mathbb{C} \setminus \{0\}$ arbitrario. Lo escribimos en forma polar como $$c = \rho e^{i\theta},\qquad \rho = |c| > 0,\quad \theta \in \mathbb{R}.$$ Buscamos un punto $w = u + iv$ tal que $\exp(w) = c$ y $|w| > \frac{1}{r}$.
+>>18. Igualando módulo y argumento en $\exp(u+iv) = e^u e^{iv} = \rho e^{i\theta}$, se obtiene $$e^u = \rho \implies u = \ln \rho,\qquad v = \theta + 2\pi k \quad (k \in \mathbb{Z}).$$
+>>19. Para cada $k \in \mathbb{Z}$, el número complejo $w_k = \ln \rho + i(\theta + 2\pi k)$ satisface $\exp(w_k) = c$. Su módulo es $$|w_k| = \sqrt{(\ln \rho)^2 + (\theta + 2\pi k)^2}.$$
+>>20. Como $|w_k| \to \infty$ cuando $k \to \infty$, podemos elegir $k \in \mathbb{Z}$ suficientemente grande tal que $$|w_k| > \frac{1}{r}.$$
+>>21. Definiendo $z = \frac{1}{w_k}$, se cumple $0 < |z| = \frac{1}{|w_k|} < r$ y además $$\exp\left(\frac{1}{z}\right) = \exp(w_k) = c.$$ Luego $c \in S$, lo que prueba que $$\mathbb{C} \setminus \{0\} \subseteq S.$$
+>>22. De ambas inclusiones se concluye que $$\boxed{\left\{\exp\left(\frac{1}{z}\right) : 0 < |z| < r\right\} = \mathbb{C} \setminus \{0\}.}$$
+
+>[!Exercise]
+>Encontrar un conjunto abierto y conexo $G\subseteq\mathbb C$ y dos funciones continuas distintas $f,g:G\to\mathbb C$ tales que $$f(z)^2=g(z)^2=1-z^2$$ para todo $z\in G$. ¿Puede tomarse $G$ maximal? ¿Son $f$ y $g$ analíticas?
+>>[!Proof]-
+>>23. Tomamos $$G:=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right).$$ El conjunto $(-\infty,-1]\cup[1,\infty)$ es cerrado, luego $G$ es abierto.
+>>24. Además, $G$ es estrellado respecto de $0$: si $z\in G$, entonces $tz\in G$ para todo $t\in[0,1]$. En efecto, si $z\notin\mathbb R$, entonces $tz\notin\mathbb R$ para $t>0$, mientras que si $z\in\mathbb R$, necesariamente $z\in(-1,1)$ y por tanto $tz\in(-1,1)$. Así, $G$ es conexo.
+>>25. Veamos que para todo $z\in G$ se tiene $$1-z^2\notin(-\infty,0].$$ En efecto, escribiendo $z=x+iy$, $$1-z^2=1-x^2+y^2-2xy\,i.$$
+>>26. Si $1-z^2\in(-\infty,0]$, entonces $-2xy=0$. Si $x=0$, resulta $1-z^2=1+y^2>0$, contradicción. Luego $y=0$, de modo que $z=x\in\mathbb R$.
+>>27. La condición $1-x^2\leq0$ implica entonces $|x|\geq1$, es decir, $$z\in(-\infty,-1]\cup[1,\infty),$$ contradiciendo que $z\in G$. Por lo tanto, $1-z^2\notin(-\infty,0]$ para todo $z\in G$.
+>>28. Por lo tanto podemos usar en $1-z^2$ lo mismo que [[FA-Pr2#^1ee69b]] con $n=2$ y $f(z)=f_{0}(z)$ y $g(z)=f_{1}(z)$, osea definimos $$f(z):=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z):=-f(z).$$
+>>29. Notamos que como $\pm1\notin G$, se tiene $1-z^2\neq0$ para todo $z\in G$, y por tanto $f(z)\neq0$. Así, $$g(z)=-f(z)\neq f(z),$$ para todo $z$ (con un $z$ alcanzaba pero en este caso es en todos) de modo que $f$ y $g$ son funciones distintas.
+>>30. Y se verifica que $$f(z)^2=\exp\left(\operatorname{Log}(1-z^2)\right)=1-z^2,$$ y $$g(z)^2=(-f(z))^2=f(z)^2=1-z^2.$$
+>>31. Tanto $f$ como $g$ son analíticas. En efecto, $z\mapsto1-z^2$ es analítica, $\operatorname{Log}$ es analítica en $\mathbb C\setminus(-\infty,0]$, y la exponencial es analítica.
+>>32. Por composición, $$f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right)$$ es analítica en $G$, y entonces $g=-f$ también lo es. En particular, ambas son continuas.
+>>33. Probemos ahora que este $G$ es maximal respecto de la inclusión entre los abiertos conexos que admiten una raíz cuadrada continua de $1-z^2$. Supongamos, por absurdo, que existe un abierto conexo $G'$ tal que $$G\subsetneq G'$$ y una función continua $h:G'\to\mathbb C$ que satisface $$h(z)^2=1-z^2$$ para todo $z\in G'$.
+>>34. Como $G\subset G'$, para $z\in G$ tenemos $$h(z)^2=1-z^2=f(z)^2.$$
+>>35. Como $f(z)\neq0$ en $G$, podemos definir $$q(z):=\frac{h(z)}{f(z)}.$$osea es continua (composicion de continua) 
+>>36. Ademas $$q(z)^2=\frac{h(z)^2}{f(z)^2}=1.$$ con lo cual $q(z)=\pm1$ 
+>>37. Pero entonces $q:G\rightarrow\{ -1,1 \}$ continua, como $G$ es conexo y $\{-1,1\}$ es discreto, $q$ debe ser constante.
+>>38. Por lo tanto, en todo $G$ ocurre una de las dos posibilidades $$h=f\qquad\text{o}\qquad h=-f.$$
+>>39. Como $G'\supsetneq G$, existe $$z_0\in G'\setminus G\subseteq(-\infty,-1]\cup[1,\infty).$$ Supongamos primero que $|z_0|>1$. Como $G'$ es abierto, para $n$ suficientemente grande los puntos $$z_n^+:=z_0+\frac{i}{n},\qquad z_n^-:=z_0-\frac{i}{n}$$ pertenecen a $G\subset G'$ y satisfacen $$z_n^+\to z_0,\qquad z_n^-\to z_0.$$
+>>40. Por otro lado, $$f(z)=|1-z^2|^{1/2}e^{\,\frac{i}{2}\operatorname{Arg}(1-z^2)}.$$ Los números $1-(z_n^+)^2$ y $1-(z_n^-)^2$ convergen al mismo número negativo $1-z_0^2$, pero uno se aproxima al semieje real negativo desde arriba y el otro desde abajo. Por lo tanto, sus argumentos principales tienden a $\pi$ y $-\pi$, respectivamente, y así los valores de $f$ tienen dos límites opuestos: $$\lim_{n\to\infty}f(z_n^+)=\pm i\sqrt{z_0^2-1},\qquad \lim_{n\to\infty}f(z_n^-) =\mp i\sqrt{z_0^2-1}.$$
+>>41. En particular, estos límites son distintos. Como $h=f$ en todo $G$ o $h=-f$ en todo $G$, los límites de $h(z_n^+)$ y $h(z_n^-)$ también son distintos. Pero ambas sucesiones convergen a $z_0\in G'$, por lo que la continuidad de $h$ en $z_0$ exigiría $$\lim_{n\to\infty}h(z_n^+)=h(z_0)=\lim_{n\to\infty}h(z_n^-),$$ contradicción.
+>>42. Queda considerar $z_0=1$ o $z_0=-1$. Supongamos primero $z_0=1$. Como $G'$ es abierto, existe $r>0$ tal que $B(1,r)\subseteq G'$. Podemos tomar $r<1$. 
+>>43. En $B(1,r)$, la función $1+z$ nunca se anula obviamente y ademas su imagen esta en $B(2,r)\subseteq \mathbb{C}\setminus (-\infty,0]$ con lo cual $Log(1+z)$ entonces por demos definir $$s(z)=\exp\left( \frac{1}{2}\log(1+z) \right)$$ osea $1+z$ tiene raiz cuadrada $$s(z)^2=1+z.$$
+>>44. Ahora definimos $$Q(z):=\frac{h(z)}{s(z)}$$ es continua (composición) en $B(1,r)$ y satisface $$Q(z)^2=\frac{1-z^2}{1+z}=1-z.$$
+>>45. Tomemos $0<\rho<r$ y la curva $$\gamma(t)=1-\rho e^{it},\qquad 0\leq t\leq2\pi.$$ Entonces $$Q(\gamma(t))^2=\rho e^{it}.$$ osea $$\left(\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\right)^{2}=\frac{Q(\gamma(t))^{2}}{\rho e^{it}}=1$$ por tanto, $$\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\in\{-1,1\}.$$
+>>46. Esta función de $t$ es continua y $[0,2\pi]$ es conexo, por lo que el signo debe ser constante. En consecuencia, $$Q(\gamma(t))=\varepsilon\sqrt{\rho}\,e^{it/2},\qquad \varepsilon\in\{-1,1\}.$$
+>>47. Pero entonces $$Q(\gamma(2\pi))=-Q(\gamma(0)),$$ mientras que $\gamma(2\pi)=\gamma(0)$, contradicción. Luego $1$ no puede pertenecer a $G'$.
+>>48. El caso $z_0=-1$ es análogo, dividiendo ahora por una raíz cuadrada continua de $1-z$ en un entorno de $-1$ y obteniendo una raíz cuadrada continua de $1+z$, lo que produce la misma contradicción.
+>>49. Hemos probado que ningún punto de $$(-\infty,-1]\cup[1,\infty)$$ puede agregarse a $G$ conservando la existencia de una raíz cuadrada continua de $1-z^2$. Por lo tanto, $G$ es maximal.
+>>50. En conclusión, podemos tomar $$\boxed{G=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right)},$$ con $$\boxed{f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z)=-f(z).}$$ Estas funciones son continuas, distintas y satisfacen $$f(z)^2=g(z)^2=1-z^2.$$ Además, este $G$ puede tomarse maximal y tanto $f$ como $g$ son analíticas en $G$.

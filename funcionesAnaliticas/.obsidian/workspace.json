@@ -29,7 +29,7 @@
               "type": "markdown",
               "state": {
                 "file": "Practicos/FA-Pr2.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       },
       {
         "id": "1bc857dcce018731",
@@ -96,6 +96,18 @@
               },
               "icon": "lucide-file-text",
               "title": "FA-Pr2"
+            }
+          },
+          {
+            "id": "767e72a493ebf93b",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Apuntes/FA-Teo3.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "FA-Teo3"
             }
           }
         ],
@@ -270,21 +282,24 @@
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "fff492a3df32d80d",
+  "active": "5acb7306963268aa",
   "lastOpenFiles": [
+    "Pasted image 20260907172840.png",
+    "Theory/FA - Teo3.md",
+    "Misc/Pasted image 20260826224209.png",
+    "Misc/Pasted image 20260826224101.png",
+    "Misc",
+    "Practicos/FA-Pr2.md",
+    "Practicos/FA-Pr2.pdf",
+    "Apuntes/FA-Teo3.pdf",
     "Apuntes/FA-Teo2.pdf",
     "Practicos/FA-Pr1.pdf",
     "Practicos/FA-Pr3.pdf",
-    "Practicos/FA-Pr2.pdf",
-    "Theory/FA - Teo3.md",
     "Theory/FA - Teo2.md",
     "Practicos/practico2-2025-2026.pdf",
     "Practicos/practico3-2025-2026 Transformación de Möbius.pdf",
-    "Practicos/FA-Pr2.md",
-    "Pasted image 20260831121707.png",
-    "Pasted image 20260827200049.png",
-    "Pasted image 20260826224209.png",
-    "Pasted image 20260826224101.png",
+    "Misc/Pasted image 20260831121707.png",
+    "Misc/Pasted image 20260827200049.png",
     "Theory/FA - Teo1.md",
     "Practicos/FA-Pr1.md",
     "Apuntes/FA-Teo1.pdf",
@@ -298,8 +313,6 @@
     "Theory/FA - Teo4.md",
     "Theory/FA - Teo1.manual.md",
     "Examenes/FA-FinalLeo.md",
-    "tmp/pdfs/test_literal.swift",
-    "tmp/pdfs/ocr/test.txt",
     "tmp/pdfs/rendered/teo5-32.jpg",
     "tmp/pdfs/rendered/teo5-31.jpg",
     "tmp/pdfs/rendered/teo5-30.jpg",
