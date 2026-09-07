@@ -216,31 +216,31 @@
 >[!Exercise]
 >Encontrar un conjunto abierto y conexo $G\subseteq\mathbb C$ y dos funciones continuas distintas $f,g:G\to\mathbb C$ tales que $$f(z)^2=g(z)^2=1-z^2$$ para todo $z\in G$. ¿Puede tomarse $G$ maximal? ¿Son $f$ y $g$ analíticas?
 >>[!Proof]-
->>23. Tomamos $$G:=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right).$$ El conjunto $(-\infty,-1]\cup[1,\infty)$ es cerrado, luego $G$ es abierto.
->>24. Además, $G$ es estrellado respecto de $0$: si $z\in G$, entonces $tz\in G$ para todo $t\in[0,1]$. En efecto, si $z\notin\mathbb R$, entonces $tz\notin\mathbb R$ para $t>0$, mientras que si $z\in\mathbb R$, necesariamente $z\in(-1,1)$ y por tanto $tz\in(-1,1)$. Así, $G$ es conexo.
->>25. Veamos que para todo $z\in G$ se tiene $$1-z^2\notin(-\infty,0].$$ En efecto, escribiendo $z=x+iy$, $$1-z^2=1-x^2+y^2-2xy\,i.$$
->>26. Si $1-z^2\in(-\infty,0]$, entonces $-2xy=0$. Si $x=0$, resulta $1-z^2=1+y^2>0$, contradicción. Luego $y=0$, de modo que $z=x\in\mathbb R$.
->>27. La condición $1-x^2\leq0$ implica entonces $|x|\geq1$, es decir, $$z\in(-\infty,-1]\cup[1,\infty),$$ contradiciendo que $z\in G$. Por lo tanto, $1-z^2\notin(-\infty,0]$ para todo $z\in G$.
->>28. Por lo tanto podemos usar en $1-z^2$ lo mismo que [[FA-Pr2#^1ee69b]] con $n=2$ y $f(z)=f_{0}(z)$ y $g(z)=f_{1}(z)$, osea definimos $$f(z):=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z):=-f(z).$$
->>29. Notamos que como $\pm1\notin G$, se tiene $1-z^2\neq0$ para todo $z\in G$, y por tanto $f(z)\neq0$. Así, $$g(z)=-f(z)\neq f(z),$$ para todo $z$ (con un $z$ alcanzaba pero en este caso es en todos) de modo que $f$ y $g$ son funciones distintas.
->>30. Y se verifica que $$f(z)^2=\exp\left(\operatorname{Log}(1-z^2)\right)=1-z^2,$$ y $$g(z)^2=(-f(z))^2=f(z)^2=1-z^2.$$
->>31. Tanto $f$ como $g$ son analíticas. En efecto, $z\mapsto1-z^2$ es analítica, $\operatorname{Log}$ es analítica en $\mathbb C\setminus(-\infty,0]$, y la exponencial es analítica.
->>32. Por composición, $$f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right)$$ es analítica en $G$, y entonces $g=-f$ también lo es. En particular, ambas son continuas.
->>33. Probemos ahora que este $G$ es maximal respecto de la inclusión entre los abiertos conexos que admiten una raíz cuadrada continua de $1-z^2$. Supongamos, por absurdo, que existe un abierto conexo $G'$ tal que $$G\subsetneq G'$$ y una función continua $h:G'\to\mathbb C$ que satisface $$h(z)^2=1-z^2$$ para todo $z\in G'$.
->>34. Como $G\subset G'$, para $z\in G$ tenemos $$h(z)^2=1-z^2=f(z)^2.$$
->>35. Como $f(z)\neq0$ en $G$, podemos definir $$q(z):=\frac{h(z)}{f(z)}.$$osea es continua (composicion de continua) 
->>36. Ademas $$q(z)^2=\frac{h(z)^2}{f(z)^2}=1.$$ con lo cual $q(z)=\pm1$ 
->>37. Pero entonces $q:G\rightarrow\{ -1,1 \}$ continua, como $G$ es conexo y $\{-1,1\}$ es discreto, $q$ debe ser constante.
->>38. Por lo tanto, en todo $G$ ocurre una de las dos posibilidades $$h=f\qquad\text{o}\qquad h=-f.$$
->>39. Como $G'\supsetneq G$, existe $$z_0\in G'\setminus G\subseteq(-\infty,-1]\cup[1,\infty).$$ Supongamos primero que $|z_0|>1$. Como $G'$ es abierto, para $n$ suficientemente grande los puntos $$z_n^+:=z_0+\frac{i}{n},\qquad z_n^-:=z_0-\frac{i}{n}$$ pertenecen a $G\subset G'$ y satisfacen $$z_n^+\to z_0,\qquad z_n^-\to z_0.$$
->>40. Por otro lado, $$f(z)=|1-z^2|^{1/2}e^{\,\frac{i}{2}\operatorname{Arg}(1-z^2)}.$$ Los números $1-(z_n^+)^2$ y $1-(z_n^-)^2$ convergen al mismo número negativo $1-z_0^2$, pero uno se aproxima al semieje real negativo desde arriba y el otro desde abajo. Por lo tanto, sus argumentos principales tienden a $\pi$ y $-\pi$, respectivamente, y así los valores de $f$ tienen dos límites opuestos: $$\lim_{n\to\infty}f(z_n^+)=\pm i\sqrt{z_0^2-1},\qquad \lim_{n\to\infty}f(z_n^-) =\mp i\sqrt{z_0^2-1}.$$
->>41. En particular, estos límites son distintos. Como $h=f$ en todo $G$ o $h=-f$ en todo $G$, los límites de $h(z_n^+)$ y $h(z_n^-)$ también son distintos. Pero ambas sucesiones convergen a $z_0\in G'$, por lo que la continuidad de $h$ en $z_0$ exigiría $$\lim_{n\to\infty}h(z_n^+)=h(z_0)=\lim_{n\to\infty}h(z_n^-),$$ contradicción.
->>42. Queda considerar $z_0=1$ o $z_0=-1$. Supongamos primero $z_0=1$. Como $G'$ es abierto, existe $r>0$ tal que $B(1,r)\subseteq G'$. Podemos tomar $r<1$. 
->>43. En $B(1,r)$, la función $1+z$ nunca se anula obviamente y ademas su imagen esta en $B(2,r)\subseteq \mathbb{C}\setminus (-\infty,0]$ con lo cual $Log(1+z)$ entonces por demos definir $$s(z)=\exp\left( \frac{1}{2}\log(1+z) \right)$$ osea $1+z$ tiene raiz cuadrada $$s(z)^2=1+z.$$
->>44. Ahora definimos $$Q(z):=\frac{h(z)}{s(z)}$$ es continua (composición) en $B(1,r)$ y satisface $$Q(z)^2=\frac{1-z^2}{1+z}=1-z.$$
->>45. Tomemos $0<\rho<r$ y la curva $$\gamma(t)=1-\rho e^{it},\qquad 0\leq t\leq2\pi.$$ Entonces $$Q(\gamma(t))^2=\rho e^{it}.$$ osea $$\left(\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\right)^{2}=\frac{Q(\gamma(t))^{2}}{\rho e^{it}}=1$$ por tanto, $$\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\in\{-1,1\}.$$
->>46. Esta función de $t$ es continua y $[0,2\pi]$ es conexo, por lo que el signo debe ser constante. En consecuencia, $$Q(\gamma(t))=\varepsilon\sqrt{\rho}\,e^{it/2},\qquad \varepsilon\in\{-1,1\}.$$
->>47. Pero entonces $$Q(\gamma(2\pi))=-Q(\gamma(0)),$$ mientras que $\gamma(2\pi)=\gamma(0)$, contradicción. Luego $1$ no puede pertenecer a $G'$.
->>48. El caso $z_0=-1$ es análogo, dividiendo ahora por una raíz cuadrada continua de $1-z$ en un entorno de $-1$ y obteniendo una raíz cuadrada continua de $1+z$, lo que produce la misma contradicción.
->>49. Hemos probado que ningún punto de $$(-\infty,-1]\cup[1,\infty)$$ puede agregarse a $G$ conservando la existencia de una raíz cuadrada continua de $1-z^2$. Por lo tanto, $G$ es maximal.
->>50. En conclusión, podemos tomar $$\boxed{G=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right)},$$ con $$\boxed{f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z)=-f(z).}$$ Estas funciones son continuas, distintas y satisfacen $$f(z)^2=g(z)^2=1-z^2.$$ Además, este $G$ puede tomarse maximal y tanto $f$ como $g$ son analíticas en $G$.
+>>1. Tomamos $$G:=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right).$$ El conjunto $(-\infty,-1]\cup[1,\infty)$ es cerrado, luego $G$ es abierto.
+>>2. Además, $G$ es estrellado respecto de $0$: si $z\in G$, entonces $tz\in G$ para todo $t\in[0,1]$. En efecto, si $z\notin\mathbb R$, entonces $tz\notin\mathbb R$ para $t>0$, mientras que si $z\in\mathbb R$, necesariamente $z\in(-1,1)$ y por tanto $tz\in(-1,1)$. Así, $G$ es conexo.
+>>3. Veamos que para todo $z\in G$ se tiene $$1-z^2\notin(-\infty,0].$$ En efecto, escribiendo $z=x+iy$, $$1-z^2=1-x^2+y^2-2xy\,i.$$
+>>4. Si $1-z^2\in(-\infty,0]$, entonces $-2xy=0$. Si $x=0$, resulta $1-z^2=1+y^2>0$, contradicción. Luego $y=0$, de modo que $z=x\in\mathbb R$.
+>>5. La condición $1-x^2\leq0$ implica entonces $|x|\geq1$, es decir, $$z\in(-\infty,-1]\cup[1,\infty),$$ contradiciendo que $z\in G$. Por lo tanto, $1-z^2\notin(-\infty,0]$ para todo $z\in G$.
+>>6. Por lo tanto podemos usar en $1-z^2$ lo mismo que [[FA-Pr2#^1ee69b]] con $n=2$ y $f(z)=f_{0}(z)$ y $g(z)=f_{1}(z)$, osea definimos $$f(z):=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z):=-f(z).$$
+>>7. Notamos que como $\pm1\notin G$, se tiene $1-z^2\neq0$ para todo $z\in G$, y por tanto $f(z)\neq0$. Así, $$g(z)=-f(z)\neq f(z),$$ para todo $z$ (con un $z$ alcanzaba pero en este caso es en todos) de modo que $f$ y $g$ son funciones distintas.
+>>8. Y se verifica que $$f(z)^2=\exp\left(\operatorname{Log}(1-z^2)\right)=1-z^2,$$ y $$g(z)^2=(-f(z))^2=f(z)^2=1-z^2.$$
+>>9. Tanto $f$ como $g$ son analíticas. En efecto, $z\mapsto1-z^2$ es analítica, $\operatorname{Log}$ es analítica en $\mathbb C\setminus(-\infty,0]$, y la exponencial es analítica.
+>>10. Por composición, $$f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right)$$ es analítica en $G$, y entonces $g=-f$ también lo es. En particular, ambas son continuas.
+>>11. Probemos ahora que este $G$ es maximal respecto de la inclusión entre los abiertos conexos que admiten una raíz cuadrada continua de $1-z^2$. Supongamos, por absurdo, que existe un abierto conexo $G'$ tal que $$G\subsetneq G'$$ y una función continua $h:G'\to\mathbb C$ que satisface $$h(z)^2=1-z^2$$ para todo $z\in G'$.
+>>12. Como $G\subset G'$, para $z\in G$ tenemos $$h(z)^2=1-z^2=f(z)^2.$$
+>>13. Como $f(z)\neq0$ en $G$, podemos definir $$q(z):=\frac{h(z)}{f(z)}.$$osea es continua (composicion de continua) 
+>>14. Ademas $$q(z)^2=\frac{h(z)^2}{f(z)^2}=1.$$ con lo cual $q(z)=\pm1$ 
+>>15. Pero entonces $q:G\rightarrow\{ -1,1 \}$ continua, como $G$ es conexo y $\{-1,1\}$ es discreto, $q$ debe ser constante.
+>>16. Por lo tanto, en todo $G$ ocurre una de las dos posibilidades $$h=f\qquad\text{o}\qquad h=-f.$$
+>>17. Como $G'\supsetneq G$, existe $$z_0\in G'\setminus G\subseteq(-\infty,-1]\cup[1,\infty).$$ Supongamos primero que $|z_0|>1$. Como $G'$ es abierto, para $n$ suficientemente grande los puntos $$z_n^+:=z_0+\frac{i}{n},\qquad z_n^-:=z_0-\frac{i}{n}$$ pertenecen a $G\subset G'$ y satisfacen $$z_n^+\to z_0,\qquad z_n^-\to z_0.$$
+>>18. Por otro lado, $$f(z)=|1-z^2|^{1/2}e^{\,\frac{i}{2}\operatorname{Arg}(1-z^2)}.$$ Los números $1-(z_n^+)^2$ y $1-(z_n^-)^2$ convergen al mismo número negativo $1-z_0^2$, pero uno se aproxima al semieje real negativo desde arriba y el otro desde abajo. Por lo tanto, sus argumentos principales tienden a $\pi$ y $-\pi$, respectivamente, y así los valores de $f$ tienen dos límites opuestos: $$\lim_{n\to\infty}f(z_n^+)=\pm i\sqrt{z_0^2-1},\qquad \lim_{n\to\infty}f(z_n^-) =\mp i\sqrt{z_0^2-1}.$$
+>>19. En particular, estos límites son distintos. Como $h=f$ en todo $G$ o $h=-f$ en todo $G$, los límites de $h(z_n^+)$ y $h(z_n^-)$ también son distintos. Pero ambas sucesiones convergen a $z_0\in G'$, por lo que la continuidad de $h$ en $z_0$ exigiría $$\lim_{n\to\infty}h(z_n^+)=h(z_0)=\lim_{n\to\infty}h(z_n^-),$$ contradicción.
+>>20. Queda considerar $z_0=1$ o $z_0=-1$. Supongamos primero $z_0=1$. Como $G'$ es abierto, existe $r>0$ tal que $B(1,r)\subseteq G'$. Podemos tomar $r<1$. 
+>>21. En $B(1,r)$, la función $1+z$ nunca se anula obviamente y ademas su imagen esta en $B(2,r)\subseteq \mathbb{C}\setminus (-\infty,0]$ con lo cual $Log(1+z)$ entonces por demos definir $$s(z)=\exp\left( \frac{1}{2}\log(1+z) \right)$$ osea $1+z$ tiene raiz cuadrada $$s(z)^2=1+z.$$
+>>22. Ahora definimos $$Q(z):=\frac{h(z)}{s(z)}$$ es continua (composición) en $B(1,r)$ y satisface $$Q(z)^2=\frac{1-z^2}{1+z}=1-z.$$
+>>23. Tomemos $0<\rho<r$ y la curva $$\gamma(t)=1-\rho e^{it},\qquad 0\leq t\leq2\pi.$$ Entonces $$Q(\gamma(t))^2=\rho e^{it}.$$ osea $$\left(\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\right)^{2}=\frac{Q(\gamma(t))^{2}}{\rho e^{it}}=1$$ por tanto, $$\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\in\{-1,1\}.$$
+>>24. Esta función de $t$ es continua y $[0,2\pi]$ es conexo, por lo que el signo debe ser constante. En consecuencia, $$Q(\gamma(t))=\varepsilon\sqrt{\rho}\,e^{it/2},\qquad \varepsilon\in\{-1,1\}.$$
+>>25. Pero entonces $$Q(\gamma(2\pi))=-Q(\gamma(0)),$$ mientras que $\gamma(2\pi)=\gamma(0)$, contradicción. Luego $1$ no puede pertenecer a $G'$.
+>>26. El caso $z_0=-1$ es análogo, dividiendo ahora por una raíz cuadrada continua de $1-z$ en un entorno de $-1$ y obteniendo una raíz cuadrada continua de $1+z$, lo que produce la misma contradicción.
+>>27. Hemos probado que ningún punto de $$(-\infty,-1]\cup[1,\infty)$$ puede agregarse a $G$ conservando la existencia de una raíz cuadrada continua de $1-z^2$. Por lo tanto, $G$ es maximal.
+>>28. En conclusión, podemos tomar $$\boxed{G=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right)},$$ con $$\boxed{f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z)=-f(z).}$$ Estas funciones son continuas, distintas y satisfacen $$f(z)^2=g(z)^2=1-z^2.$$ Además, este $G$ puede tomarse maximal y tanto $f$ como $g$ son analíticas en $G$.
