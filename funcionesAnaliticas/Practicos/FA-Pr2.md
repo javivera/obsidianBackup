@@ -216,31 +216,128 @@
 >[!Exercise]
 >Encontrar un conjunto abierto y conexo $G\subseteq\mathbb C$ y dos funciones continuas distintas $f,g:G\to\mathbb C$ tales que $$f(z)^2=g(z)^2=1-z^2$$ para todo $z\in G$. ¿Puede tomarse $G$ maximal? ¿Son $f$ y $g$ analíticas?
 >>[!Proof]-
->>1. Tomamos $$G:=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right).$$ El conjunto $(-\infty,-1]\cup[1,\infty)$ es cerrado, luego $G$ es abierto.
->>2. Además, $G$ es estrellado respecto de $0$: si $z\in G$, entonces $tz\in G$ para todo $t\in[0,1]$. En efecto, si $z\notin\mathbb R$, entonces $tz\notin\mathbb R$ para $t>0$, mientras que si $z\in\mathbb R$, necesariamente $z\in(-1,1)$ y por tanto $tz\in(-1,1)$. Así, $G$ es conexo.
->>3. Veamos que para todo $z\in G$ se tiene $$1-z^2\notin(-\infty,0].$$ En efecto, escribiendo $z=x+iy$, $$1-z^2=1-x^2+y^2-2xy\,i.$$
->>4. Si $1-z^2\in(-\infty,0]$, entonces $-2xy=0$. Si $x=0$, resulta $1-z^2=1+y^2>0$, contradicción. Luego $y=0$, de modo que $z=x\in\mathbb R$.
->>5. La condición $1-x^2\leq0$ implica entonces $|x|\geq1$, es decir, $$z\in(-\infty,-1]\cup[1,\infty),$$ contradiciendo que $z\in G$. Por lo tanto, $1-z^2\notin(-\infty,0]$ para todo $z\in G$.
->>6. Por lo tanto podemos usar en $1-z^2$ lo mismo que [[FA-Pr2#^1ee69b]] con $n=2$ y $f(z)=f_{0}(z)$ y $g(z)=f_{1}(z)$, osea definimos $$f(z):=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z):=-f(z).$$
->>7. Notamos que como $\pm1\notin G$, se tiene $1-z^2\neq0$ para todo $z\in G$, y por tanto $f(z)\neq0$. Así, $$g(z)=-f(z)\neq f(z),$$ para todo $z$ (con un $z$ alcanzaba pero en este caso es en todos) de modo que $f$ y $g$ son funciones distintas.
->>8. Y se verifica que $$f(z)^2=\exp\left(\operatorname{Log}(1-z^2)\right)=1-z^2,$$ y $$g(z)^2=(-f(z))^2=f(z)^2=1-z^2.$$
->>9. Tanto $f$ como $g$ son analíticas. En efecto, $z\mapsto1-z^2$ es analítica, $\operatorname{Log}$ es analítica en $\mathbb C\setminus(-\infty,0]$, y la exponencial es analítica.
->>10. Por composición, $$f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right)$$ es analítica en $G$, y entonces $g=-f$ también lo es. En particular, ambas son continuas.
->>11. Probemos ahora que este $G$ es maximal respecto de la inclusión entre los abiertos conexos que admiten una raíz cuadrada continua de $1-z^2$. Supongamos, por absurdo, que existe un abierto conexo $G'$ tal que $$G\subsetneq G'$$ y una función continua $h:G'\to\mathbb C$ que satisface $$h(z)^2=1-z^2$$ para todo $z\in G'$.
->>12. Como $G\subset G'$, para $z\in G$ tenemos $$h(z)^2=1-z^2=f(z)^2.$$
->>13. Como $f(z)\neq0$ en $G$, podemos definir $$q(z):=\frac{h(z)}{f(z)}.$$osea es continua (composicion de continua) 
->>14. Ademas $$q(z)^2=\frac{h(z)^2}{f(z)^2}=1.$$ con lo cual $q(z)=\pm1$ 
->>15. Pero entonces $q:G\rightarrow\{ -1,1 \}$ continua, como $G$ es conexo y $\{-1,1\}$ es discreto, $q$ debe ser constante.
->>16. Por lo tanto, en todo $G$ ocurre una de las dos posibilidades $$h=f\qquad\text{o}\qquad h=-f.$$
->>17. Como $G'\supsetneq G$, existe $$z_0\in G'\setminus G\subseteq(-\infty,-1]\cup[1,\infty).$$ Supongamos primero que $|z_0|>1$. Como $G'$ es abierto, para $n$ suficientemente grande los puntos $$z_n^+:=z_0+\frac{i}{n},\qquad z_n^-:=z_0-\frac{i}{n}$$ pertenecen a $G\subset G'$ y satisfacen $$z_n^+\to z_0,\qquad z_n^-\to z_0.$$
->>18. Por otro lado, $$f(z)=|1-z^2|^{1/2}e^{\,\frac{i}{2}\operatorname{Arg}(1-z^2)}.$$ Los números $1-(z_n^+)^2$ y $1-(z_n^-)^2$ convergen al mismo número negativo $1-z_0^2$, pero uno se aproxima al semieje real negativo desde arriba y el otro desde abajo. Por lo tanto, sus argumentos principales tienden a $\pi$ y $-\pi$, respectivamente, y así los valores de $f$ tienen dos límites opuestos: $$\lim_{n\to\infty}f(z_n^+)=\pm i\sqrt{z_0^2-1},\qquad \lim_{n\to\infty}f(z_n^-) =\mp i\sqrt{z_0^2-1}.$$
->>19. En particular, estos límites son distintos. Como $h=f$ en todo $G$ o $h=-f$ en todo $G$, los límites de $h(z_n^+)$ y $h(z_n^-)$ también son distintos. Pero ambas sucesiones convergen a $z_0\in G'$, por lo que la continuidad de $h$ en $z_0$ exigiría $$\lim_{n\to\infty}h(z_n^+)=h(z_0)=\lim_{n\to\infty}h(z_n^-),$$ contradicción.
->>20. Queda considerar $z_0=1$ o $z_0=-1$. Supongamos primero $z_0=1$. Como $G'$ es abierto, existe $r>0$ tal que $B(1,r)\subseteq G'$. Podemos tomar $r<1$. 
->>21. En $B(1,r)$, la función $1+z$ nunca se anula obviamente y ademas su imagen esta en $B(2,r)\subseteq \mathbb{C}\setminus (-\infty,0]$ con lo cual $Log(1+z)$ entonces por demos definir $$s(z)=\exp\left( \frac{1}{2}\log(1+z) \right)$$ osea $1+z$ tiene raiz cuadrada $$s(z)^2=1+z.$$
->>22. Ahora definimos $$Q(z):=\frac{h(z)}{s(z)}$$ es continua (composición) en $B(1,r)$ y satisface $$Q(z)^2=\frac{1-z^2}{1+z}=1-z.$$
->>23. Tomemos $0<\rho<r$ y la curva $$\gamma(t)=1-\rho e^{it},\qquad 0\leq t\leq2\pi.$$ Entonces $$Q(\gamma(t))^2=\rho e^{it}.$$ osea $$\left(\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\right)^{2}=\frac{Q(\gamma(t))^{2}}{\rho e^{it}}=1$$ por tanto, $$\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\in\{-1,1\}.$$
->>24. Esta función de $t$ es continua y $[0,2\pi]$ es conexo, por lo que el signo debe ser constante. En consecuencia, $$Q(\gamma(t))=\varepsilon\sqrt{\rho}\,e^{it/2},\qquad \varepsilon\in\{-1,1\}.$$
->>25. Pero entonces $$Q(\gamma(2\pi))=-Q(\gamma(0)),$$ mientras que $\gamma(2\pi)=\gamma(0)$, contradicción. Luego $1$ no puede pertenecer a $G'$.
->>26. El caso $z_0=-1$ es análogo, dividiendo ahora por una raíz cuadrada continua de $1-z$ en un entorno de $-1$ y obteniendo una raíz cuadrada continua de $1+z$, lo que produce la misma contradicción.
->>27. Hemos probado que ningún punto de $$(-\infty,-1]\cup[1,\infty)$$ puede agregarse a $G$ conservando la existencia de una raíz cuadrada continua de $1-z^2$. Por lo tanto, $G$ es maximal.
->>28. En conclusión, podemos tomar $$\boxed{G=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right)},$$ con $$\boxed{f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z)=-f(z).}$$ Estas funciones son continuas, distintas y satisfacen $$f(z)^2=g(z)^2=1-z^2.$$ Además, este $G$ puede tomarse maximal y tanto $f$ como $g$ son analíticas en $G$.
+>>1. Tomamos $$G:=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right).$$ El conjunto $(-\infty,-1]\cup[1,\infty)$ es cerrado, luego $G$ es abierto (y conexo).
+>>2. Veamos que para todo $z\in G$ se tiene $$1-z^2\notin(-\infty,0].$$ En efecto, escribiendo $z=x+iy$, $$1-z^2=1-x^2+y^2-2xy\,i.$$
+>>3. Si $1-z^2\in(-\infty,0]$, entonces $-2xy=0$. Si $x=0$, resulta $1-z^2=1+y^2>0$, contradicción. Luego $y=0$, de modo que $z=x\in\mathbb R$.
+>>4. La condición $1-x^2\leq0$ implica entonces $|x|\geq1$, es decir, $$z\in(-\infty,-1]\cup[1,\infty),$$ contradiciendo que $z\in G$. Por lo tanto, $1-z^2\notin(-\infty,0]$ para todo $z\in G$.
+>>5. Por lo tanto podemos usar en $1-z^2$ lo mismo que [[FA-Pr2#^1ee69b]] con $n=2$ y $f(z)=f_{0}(z)$ y $g(z)=f_{1}(z)$, osea definimos $$f(z):=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z):=-f(z).$$
+>>6. Notamos que como $\pm1\notin G$, se tiene $1-z^2\neq0$ para todo $z\in G$, y por tanto $f(z)\neq0$. Así, $$g(z)=-f(z)\neq f(z),$$ para todo $z$ (con un $z$ alcanzaba pero en este caso es en todos) de modo que $f$ y $g$ son funciones distintas.
+>>7. Y se verifica que $$f(z)^2=\exp\left(\operatorname{Log}(1-z^2)\right)=1-z^2,$$ y $$g(z)^2=(-f(z))^2=f(z)^2=1-z^2.$$
+>>8. Tanto $f$ como $g$ son analíticas. En efecto, $z\mapsto1-z^2$ es analítica, $\operatorname{Log}$ es analítica en $\mathbb C\setminus(-\infty,0]$, y la exponencial es analítica.
+>>9. Por composición, $$f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right)$$ es analítica en $G$, y entonces $g=-f$ también lo es. En particular, ambas son continuas.
+>>10. Probemos ahora que este $G$ es maximal respecto de la inclusión entre los abiertos conexos que admiten una raíz cuadrada continua de $1-z^2$. Supongamos, por absurdo, que existe un abierto conexo $G'$ tal que $$G\subsetneq G'$$ y una función continua $h:G'\to\mathbb C$ que satisface $$h(z)^2=1-z^2$$ para todo $z\in G'$.
+>>11. Como $G\subset G'$, para $z\in G$ tenemos $$h(z)^2=1-z^2=f(z)^2.$$
+>>12. Como $f(z)\neq0$ en $G$, podemos definir $$q(z):=\frac{h(z)}{f(z)}.$$osea es continua (composicion de continua) 
+>>13. Ademas $$q(z)^2=\frac{h(z)^2}{f(z)^2}=1.$$ con lo cual $q(z)=\pm1$ 
+>>14. Pero entonces $q:G\rightarrow\{ -1,1 \}$ continua, como $G$ es conexo y $\{-1,1\}$ es discreto, $q$ debe ser constante.
+>>15. Por lo tanto, en todo $G$ ocurre una de las dos posibilidades $$h=f\qquad\text{o}\qquad h=-f.$$
+>>16. Como $G'\supsetneq G$, existe $$z_0\in G'\setminus G\subseteq(-\infty,-1]\cup[1,\infty).$$ Supongamos primero que $|z_0|>1$. Como $G'$ es abierto, para $n$ suficientemente grande los puntos $$z_n^+:=z_0+\frac{i}{n},\qquad z_n^-:=z_0-\frac{i}{n}$$ pertenecen a $G\subset G'$ y satisfacen $$z_n^+\to z_0,\qquad z_n^-\to z_0.$$
+>>17. Por otro lado, $$f(z)=|1-z^2|^{1/2}e^{\,\frac{i}{2}\operatorname{Arg}(1-z^2)}.$$ Los números $1-(z_n^+)^2$ y $1-(z_n^-)^2$ convergen al mismo número negativo $1-z_0^2$, pero uno se aproxima al semieje real negativo desde arriba y el otro desde abajo. Por lo tanto, sus argumentos principales tienden a $\pi$ y $-\pi$, respectivamente, y así los valores de $f$ tienen dos límites opuestos: $$\lim_{n\to\infty}f(z_n^+)=\pm i\sqrt{z_0^2-1},\qquad \lim_{n\to\infty}f(z_n^-) =\mp i\sqrt{z_0^2-1}.$$
+>>18. En particular, estos límites son distintos. Como $h=f$ en todo $G$ o $h=-f$ en todo $G$, los límites de $h(z_n^+)$ y $h(z_n^-)$ también son distintos. Pero ambas sucesiones convergen a $z_0\in G'$, por lo que la continuidad de $h$ en $z_0$ exigiría $$\lim_{n\to\infty}h(z_n^+)=h(z_0)=\lim_{n\to\infty}h(z_n^-),$$ contradicción.
+>>19. Queda considerar $z_0=1$ o $z_0=-1$. Supongamos primero $z_0=1$. Como $G'$ es abierto, existe $r>0$ tal que $B(1,r)\subseteq G'$. Podemos tomar $r<1$. 
+>>20. En $B(1,r)$, la función $1+z$ nunca se anula obviamente y ademas su imagen esta en $B(2,r)\subseteq \mathbb{C}\setminus (-\infty,0]$ con lo cual $Log(1+z)$ entonces por demos definir $$s(z)=\exp\left( \frac{1}{2}\log(1+z) \right)$$ osea $1+z$ tiene raiz cuadrada $$s(z)^2=1+z.$$
+>>21. Ahora definimos $$Q(z):=\frac{h(z)}{s(z)}$$ es continua (composición) en $B(1,r)$ y satisface $$Q(z)^2=\frac{1-z^2}{1+z}=1-z.$$
+>>22. Tomemos $0<\rho<r$ y la curva $$\gamma(t)=1-\rho e^{it},\qquad 0\leq t\leq2\pi.$$ Entonces $$Q(\gamma(t))^2=\rho e^{it}.$$ osea $$\left(\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\right)^{2}=\frac{Q(\gamma(t))^{2}}{\rho e^{it}}=1$$ por tanto, $$\frac{Q(\gamma(t))}{\sqrt{\rho}\,e^{it/2}}\in\{-1,1\}.$$
+>>23. Esta función de $t$ es continua y $[0,2\pi]$ es conexo, por lo que el signo debe ser constante. En consecuencia, $$Q(\gamma(t))=\varepsilon\sqrt{\rho}\,e^{it/2},\qquad \varepsilon\in\{-1,1\}.$$
+>>24. Pero entonces $$Q(\gamma(2\pi))=-Q(\gamma(0)),$$ mientras que $\gamma(2\pi)=\gamma(0)$, contradicción. Luego $1$ no puede pertenecer a $G'$.
+>>25. El caso $z_0=-1$ es análogo, dividiendo ahora por una raíz cuadrada continua de $1-z$ en un entorno de $-1$ y obteniendo una raíz cuadrada continua de $1+z$, lo que produce la misma contradicción.
+>>26. Hemos probado que ningún punto de $$(-\infty,-1]\cup[1,\infty)$$ puede agregarse a $G$ conservando la existencia de una raíz cuadrada continua de $1-z^2$. Por lo tanto, $G$ es maximal.
+>>27. En conclusión, podemos tomar $$\boxed{G=\mathbb C\setminus\left((-\infty,-1]\cup[1,\infty)\right)},$$ con $$\boxed{f(z)=\exp\left(\frac12\operatorname{Log}(1-z^2)\right),\qquad g(z)=-f(z).}$$ Estas funciones son continuas, distintas y satisfacen $$f(z)^2=g(z)^2=1-z^2.$$ Además, este $G$ puede tomarse maximal y tanto $f$ como $g$ son analíticas en $G$.
+
+>[!Exercise]
+>Dar la rama principal de $\sqrt{1-z}$.
+>>[!Proof]-
+>>28. La rama principal de la raíz es $$\sqrt{w}=\exp\left(\frac12\operatorname{Log} w\right)$$con $w\in\mathbb C\setminus(-\infty,0]$ y $-\pi<\operatorname{Arg}(w)<\pi$.
+>>29. Poniendo $w=1-z$, se exige $1-z\notin(-\infty,0]$.
+>>30. Escribiendo $z=x+iy$, $1-z=1-x-iy\in(-\infty,0]$ si y solo si $y=0$ y $1-x\le 0$, es decir $y=0$ y $x\ge 1$.
+>>31. Luego el conjunto prohibido es $[1,+\infty)$ y el dominio es $$\boxed{D=\mathbb C\setminus[1,+\infty)}.$$
+>>32. La rama principal es $$\boxed{f(z)=\exp\left(\frac12\operatorname{Log}(1-z)\right),\qquad -\pi<\operatorname{Arg}(1-z)<\pi.}$$
+>>33. En efecto, $f(z)^2=\exp(\operatorname{Log}(1-z))=1-z$, y $f$ es analítica en $D$ por composición de funciones analíticas.
+
+>[!Exercise]
+>Sea $\log : G \to \mathbb{C}$ una rama del logaritmo y sea $\tilde{G} = \log(G)$ y sean $f, g : G \to \mathbb{C}$ las correspondientes ramas de $z^a$ y $z^b$.
+>- **(i)** Demostrar que $fg$ es una rama de $z^{a+b}$ y que $f/g$ es una rama de $z^{a-b}$.
+>- **(ii)** Demostrar que si $f(G) \subset G$ y $g(G) \subset G$ entonces $g \circ f$ y $f \circ g$ son ramas de $z^{ab}$.
+>- **(iii)** Mostrar con un ejemplo que $g \circ f$ no es necesariamente una rama de $z^{ab}$.
+>>[!Proof]-
+>>- **(i)**
+>>	1. Por la [[FA - Teo2#^7d48e2|definición de ramas de potencias]], fijada la rama $\log$ del logaritmo, $f(z)=e^{a\log z}$ y $g(z)=e^{b\log z}$ para todo $z\in G$.
+>>	2. Para el producto, multiplicando punto a punto y usando la regla aditiva de la exponencial ($e^{u}e^{w}=e^{u+w}$), se tiene $$(fg)(z)=f(z)g(z)=e^{a\log z}e^{b\log z}=e^{(a+b)\log z},$$ que por definición es la rama de $z^{a+b}$ correspondiente a $\log$.
+>>	3. Para el cociente, usando la regla del cociente ($e^{u}/e^{w}=e^{u-w}$), se tiene $$\left(\frac fg\right)(z)=\frac{f(z)}{g(z)}=\frac{e^{a\log z}}{e^{b\log z}}=e^{(a-b)\log z},$$ que por definición es la rama de $z^{a-b}$ correspondiente a $\log$.
+>>- **(ii)**
+>>	1. Como $f(G)\subseteq G$, para todo $z\in G$ se cumple $f(z)\in G$, de modo que la composición $g\circ f:G\to\mathbb C$ está bien definida en todo $G$ y viene dada por $$(g\circ f)(z)=g(f(z))=e^{b\log(f(z))}=e^{b\log(e^{a\log z})}.$$
+>>	2. Por el [[FA-Pr2#^1ee69b|Ejercicio 11(ii)]], para la rama $\log:G\to\mathbb C$ con imagen $\tilde{G}=\log(G)$ se tiene $$\{u\in\mathbb C:\log(e^u)=u\}=\operatorname{Im}(\log)=\tilde{G}.$$
+>>	3. Como $a\log(G)\subseteq\tilde{G}$ (la invariancia del dominio al nivel del logaritmo), para todo $z\in G$ se tiene $a\log z\in\tilde{G}$, y por el Ejercicio 11(ii) se deduce que $$\log(f(z))=\log(e^{a\log z})=a\log z.$$
+>>	4. Sustituyendo esta igualdad en la composición se obtiene $$(g\circ f)(z)=e^{b(a\log z)}=e^{ab\log z},$$ que coincide con la definición de la rama de $z^{ab}$ correspondiente a $\log$.
+>>	5. Análogamente, usando que $g(G)\subseteq G$ y $b\log(G)\subseteq\tilde{G}$, por simetría se concluye que $$(f\circ g)(z)=e^{a\log(g(z))}=e^{a(b\log z)}=e^{ab\log z}.$$
+>>	6. *Nota sobre la constante de periodicidad:* En general, $e^{\log(f(z))}=f(z)=e^{a\log z}$ implica $\log(f(z))-a\log z\in 2\pi i\mathbb Z$, y por conexidad existe $k\in\mathbb Z$ constante tal que $\log(f(z))=a\log z+2\pi ik$, de modo que $(g\circ f)(z)=e^{ab\log z}e^{2\pi i bk}$. Para que esto sea una rama de $z^{ab}$ para cualesquiera exponentes $a,b\in\mathbb C$ se requiere $k=0$, lo cual equivale a $a\log z\in\tilde{G}$ según el Ejercicio 11(ii).
+>>- **(iii)**
+>>	1. Para mostrar que $g\circ f$ no es necesariamente una rama de $z^{ab}$, tomamos el abierto conexo $G=\mathbb C\setminus(-\infty,0]$ con la rama principal del logaritmo $\log=\operatorname{Log}$, y elegimos los exponentes $$a=2,\qquad b=\frac12.$$
+>>	2. **Aclaración sobre potencias enteras:** Para $a=2\in\mathbb Z$, la potencia no es ambigua; en efecto, para todo $m\in\mathbb Z$ y cualquier rama del logaritmo vale $$e^{m\log z}=\bigl(e^{\log z}\bigr)^m=z^m,$$ por lo que el cálculo es directo y $f(z)=e^{2\operatorname{Log} z}=z^2$ coincide con la potencia usual.
+>>	3. El producto de los exponentes es $ab=2\cdot\frac12=1\in\mathbb Z$. Como el exponente $1$ es entero, la única rama de $z^1$ en $G$ es la función identidad $$z^1=e^{1\cdot\operatorname{Log} z}=e^{\operatorname{Log} z}=z.$$ Por lo tanto, para que $g\circ f$ fuese una rama de $z^{ab}=z^1$, debería cumplirse $(g\circ f)(z)=z$ para todo punto donde esté definida.
+>>	4. Por su parte, para $b=1/2$ (no entero), la función $g(w)=e^{\frac12\operatorname{Log} w}$ es la rama principal de la raíz cuadrada, y debe evaluarse rigurosamente mediante el logaritmo.
+>>	5. Tomamos el punto $z_0=-1+i\in G$. Evaluando $f$ se tiene directamente $$f(z_0)=z_0^2=(-1+i)^2=1-2i-1=-2i\in G.$$
+>>	6. Evaluamos explícitamente $g(-2i)=e^{\frac12\operatorname{Log}(-2i)}$: el número $w=-2i$ tiene módulo $|-2i|=2$ y argumento principal $\operatorname{Arg}(-2i)=-\frac{\pi}{2}$, de modo que $\operatorname{Log}(-2i)=\ln 2-i\frac{\pi}{2}$. Multiplicando por $b=1/2$ resulta $\frac12\operatorname{Log}(-2i)=\ln(\sqrt{2})-i\frac{\pi}{4}$, y aplicando la exponencial se obtiene $$g(-2i)=e^{\ln(\sqrt{2})-i\pi/4}=\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right)+i\sin\left(-\frac{\pi}{4}\right)\right)=\sqrt{2}\left(\frac{\sqrt{2}}{2}-i\frac{\sqrt{2}}{2}\right)=1-i.$$
+>>	7. Comparando con $z_0$, se tiene $$(g\circ f)(z_0)=g(f(-1+i))=g(-2i)=1-i\neq -1+i=z_0.$$ De hecho, $(g\circ f)(z_0)=-z_0\neq z_0$.
+>>	8. Como la única rama de $z^{ab}=z^1$ en $G$ es la identidad $z$, y $(g\circ f)(z_0)\neq z_0$, concluimos que $g\circ f$ no es una rama de $z^{ab}$. (Notar además que para $z=i\in G$ se tiene $f(i)=i^2=-1\notin G$, lo que muestra que $f(G)\not\subseteq G$ y que $g\circ f$ ni siquiera está definida en todo $G$).
+
+>[!Exercise] Ejercicio 19
+>- **(i)** Para cada $z\in\mathbb C\setminus\{0\}$ definimos $\arg(z)$ como el único $\theta\in[0,2\pi)$ tal que $z=r\operatorname{cis}(\theta)$ para algún $r>0$. Demostrar que $\arg$ no es continua.
+>- **(ii)** Deducir que no existe una rama del logaritmo definida en $\mathbb C\setminus\{0\}$.
+>>[!Proof]-
+>>- **(i)**
+>>	1. Consideramos las sucesiones $z_n^+=1+i/n$ y $z_n^-=1-i/n$, con $n\geq1$. Ambas convergen a $1$, y $\arg(1)=0$.
+>>	2. Como $z_n^+$ está en el primer cuadrante y $z_n^-$ en el cuarto, la elección de argumentos en $[0,2\pi)$ da $$\arg(z_n^+)=\arctan(1/n),\qquad \arg(z_n^-)=2\pi+\arctan(-1/n).$$ En la segunda expresión sumamos una vuelta completa porque $\arctan(-1/n)<0$.
+>>	3. Por continuidad de $\arctan$ en $0$ y porque $\arctan(0)=0$, obtenemos $$\lim_{n\to\infty}\arg(z_n^+)=0,\qquad \lim_{n\to\infty}\arg(z_n^-)=2\pi.$$
+>>	4. En particular, $z_n^-\to1$ pero $\arg(z_n^-)\not\to\arg(1)$. Por el criterio secuencial, $\arg$ no es continua en $1$.
+>>- **(ii)**
+>>	1. Supongamos, por contradicción, que existe una rama $f:\mathbb C\setminus\{0\}\to\mathbb C$ del logaritmo. Por definición, $f$ es continua y $e^{f(z)}=z$ para todo $z\neq0$.
+>>	2. Escribimos $f(z)=u(z)+iv(z)$, donde $u=\operatorname{Re}f$ y $v=\operatorname{Im}f$ son continuas. Comparando módulos y argumentos en $e^{u(z)}e^{iv(z)}=|z|e^{i\arg(z)}$, resulta $$u(z)=\ln|z|,\qquad v(z)+2\pi k(z)=\arg(z)$$ para un entero $k(z)\in\mathbb Z$ que, en principio, puede depender de $z$.
+>>	3. Restringimos al abierto conexo $G_0=\mathbb C\setminus[0,\infty)$. Allí $\arg$ coincide con $\operatorname{Arg}_0\in(0,2\pi)$ y es continua por los resultados de [[FA - Teo2#^aea005]] componiendo $im(f_{0,0})=Arg_{0}(z)$ debe ser continua. Por tanto, $$k(z)=\frac{\arg(z)-v(z)}{2\pi}$$ es continua en $G_0$.
+>>	4. Como $G_0$ es conexo, su imagen por $k$ es conexa; al estar contenida en $\mathbb Z$, debe ser un solo punto. Luego existe un entero fijo $k$ tal que $$v(z)=\arg(z)-2\pi k\qquad(z\in G_0).$$
+>>	5. Las dos sucesiones del inciso (i) están en $G_0$, de modo que usamos el mismo entero $k$ para ambas. Por los límites ya calculados, $$\lim_{n\to\infty}v(z_n^+)=-2\pi k,\qquad \lim_{n\to\infty}v(z_n^-)=2\pi-2\pi k.$$
+>>	6. Pero $1$ pertenece al dominio de $f$, y $v$ es continua en $1$. Como ambas sucesiones convergen a $1$, sus imágenes por $v$ deben converger a lo mismo. Esto exigiría $$-2\pi k=v(1)=2\pi-2\pi k,$$ lo cual es imposible.
+>>	7. La contradicción prueba que no existe una rama del logaritmo en $\mathbb C\setminus\{0\}$.
+
+>[!Exercise] Ejercicio 20
+>Verificar que las siguientes funciones son armónicas en sus dominios y hallar una armónica conjugada cuando sea posible:
+>- **(a)** $u(x,y)=2x(1-y)$.
+>- **(b)** $u(x,y)=\operatorname{senh}(x)\operatorname{sen}(y)$.
+>- **(c)** $u(x,y)=\dfrac{y}{x^2+y^2}$.
+>>[!Proof]-
+>>- **(a)**
+>>	1. El dominio es $\mathbb R^2$ y $u$ es de clase $C^\infty$. Sus derivadas son $$u_x=2-2y,\qquad u_y=-2x,\qquad u_{xx}=0,\qquad u_{yy}=0.$$ Por tanto, $u_{xx}+u_{yy}=0$ y $u$ es armónica.
+>>	2. Buscamos $v$ tal que $f=u+iv$ sea analítica. Las ecuaciones de Cauchy–Riemann exigen $$v_x=-u_y=2x,\qquad v_y=u_x=2-2y.$$
+>>	3. Integrando la primera ecuación respecto de $x$, obtenemos $v(x,y)=x^2+C(y)$. Al derivar respecto de $y$ e imponer la segunda ecuación, resulta $$C'(y)=2-2y,\qquad C(y)=2y-y^2+C.$$
+>>	4. Luego podemos tomar $$\boxed{v(x,y)=x^2+2y-y^2+C,\qquad C\in\mathbb R.}$$ Sus parciales son continuas y satisfacen Cauchy–Riemann en todo $\mathbb R^2$, de modo que $u+iv$ es analítica. Además, $v_{xx}+v_{yy}=2-2=0$. Entonces es armonica
+>>- **(b)**
+>>	1. El dominio es $\mathbb R^2$ y $u$ es de clase $C^\infty$. Calculamos $$u_x=\cosh(x)\operatorname{sen}(y),\qquad u_y=\operatorname{senh}(x)\cos(y),\qquad u_{xx}=\operatorname{senh}(x)\operatorname{sen}(y),\qquad u_{yy}=-\operatorname{senh}(x)\operatorname{sen}(y).$$ Así, $u_{xx}+u_{yy}=0$ y $u$ es armónica.
+>>	2. Las ecuaciones de Cauchy–Riemann requieren $$v_x=-\operatorname{senh}(x)\cos(y),\qquad v_y=\cosh(x)\operatorname{sen}(y).$$ Integrando la primera respecto de $x$, queda $v(x,y)=-\cosh(x)\cos(y)+C(y)$.
+>>	3. Derivando respecto de $y$ e imponiendo la segunda ecuación, obtenemos $\cosh(x)\operatorname{sen}(y)+C'(y)=\cosh(x)\operatorname{sen}(y)$, de donde $C'(y)=0$. Por tanto, $$\boxed{v(x,y)=-\cosh(x)\cos(y)+C,\qquad C\in\mathbb R.}$$
+>>	4. Las parciales de $u$ y $v$ son continuas y satisfacen Cauchy–Riemann en todo $\mathbb R^2$, por lo que $u+iv$ es analítica. También $v_{xx}+v_{yy}=-\cosh(x)\cos(y)+\cosh(x)\cos(y)=0$ Entonces es armonica
+>>- **(c)**
+>>	1. El dominio es $D=\mathbb R^2\setminus\{(0,0)\}$, donde $u$ es de clase $C^\infty$. Sus primeras derivadas son $$u_x=-\frac{2xy}{(x^2+y^2)^2},\qquad u_y=\frac{x^2-y^2}{(x^2+y^2)^2}.$$
+>>	2. Derivando nuevamente, $$u_{xx}=\frac{2y(3x^2-y^2)}{(x^2+y^2)^3},\qquad u_{yy}=-\frac{2y(3x^2-y^2)}{(x^2+y^2)^3}.$$ Luego $u_{xx}+u_{yy}=0$ en $D$, y $u$ es armónica.
+>>	3. Para hallar una conjugada, observamos que $$\frac{i}{z}=\frac{i(x-iy)}{x^2+y^2}=\frac{y}{x^2+y^2}+i\frac{x}{x^2+y^2}.$$ Como $f(z)=i/z$ es analítica en $\mathbb C\setminus\{0\}$ y su parte real es $u$, podemos tomar $$\boxed{v(x,y)=\frac{x}{x^2+y^2}+C,\qquad C\in\mathbb R.}$$
+>>	4. En efecto, $$v_x=\frac{y^2-x^2}{(x^2+y^2)^2}=-u_y,\qquad v_y=-\frac{2xy}{(x^2+y^2)^2}=u_x.$$ Además, $v_{xx}+v_{yy}=0$ (osea $v$ es armonica), pues $v_{xx}=2x(x^2-3y^2)/(x^2+y^2)^3$ y $v_{yy}=-v_{xx}$
+>>	5. La conjugada está definida en todo $D$: aunque este dominio no es simplemente conexo, en este caso sí existe una conjugada global.
+
+>[!Exercise] Ejercicio 21
+>Sea $G=\mathbb R^2\setminus\{(0,0)\}$ y sea $u:G\to\mathbb R$ definida por $u(x,y)=\log\sqrt{x^2+y^2}$.
+>- **(i)** Demostrar que $u$ es armónica.
+>- **(ii)** Demostrar que $u$ no tiene conjugada armónica en $G$.
+>- **(iii)** Demostrar que si $G=\mathbb R_{>0}\times\mathbb R$, entonces $u$ sí tiene conjugada armónica $v$ y encontrarla siguiendo la fórmula de la demostración del Teorema 2.30 del Capítulo III del Conway. ¿Qué función analítica es $u+iv$?
+>>[!Proof]-
+>>- **(i)**
+>>	1. Escribimos $u(x,y)=\frac12\log(x^2+y^2)$. Esta función es de clase $C^\infty$ en $G$, pues $x^2+y^2>0$ en todo su dominio.
+>>	2. Las derivadas primeras son $$u_x=\frac{x}{x^2+y^2},\qquad u_y=\frac{y}{x^2+y^2}.$$
+>>	3. Derivando nuevamente, $$u_{xx}=\frac{y^2-x^2}{(x^2+y^2)^2},\qquad u_{yy}=\frac{x^2-y^2}{(x^2+y^2)^2}.$$ Por tanto, $u_{xx}+u_{yy}=0$ en $G$, y $u$ es armónica.
+>>- **(ii)**
+>>	1. Supongamos, por contradicción, que existe una función armónica $v:G\to\mathbb R$ tal que $u+iv$ es analítica en todo $G$. Las ecuaciones de Cauchy–Riemann imponen $$v_x=-u_y=-\frac{y}{x^2+y^2},\qquad v_y=u_x=\frac{x}{x^2+y^2}.$$
+>>	2. Comprobar la armonicidad de $v$ no produce una contradicción: estas expresiones dan $$v_{xx}=\frac{2xy}{(x^2+y^2)^2},\qquad v_{yy}=-\frac{2xy}{(x^2+y^2)^2},\qquad v_{xx}+v_{yy}=0.$$ Esta compatibilidad no garantiza la existencia de una misma función $v$ en todo $G$.
+>>	3. Consideramos la circunferencia $\gamma(t)=(\cos t,\sin t)$, con $t\in[0,2\pi]$, que está contenida en $G$. La función compuesta $h(t)=v(\cos t,\sin t)$ satisface, por la regla de la cadena, $$\begin{aligned}h'(t)&=-\sin t\,v_x(\cos t,\sin t)+\cos t\,v_y(\cos t,\sin t)\\&=\sin^2t+\cos^2t=1.\end{aligned}$$
+>>	4. Por el teorema fundamental del cálculo, $$h(2\pi)-h(0)=\int_0^{2\pi}h'(t)\,dt=\int_0^{2\pi}1\,dt=2\pi.$$ Integramos la derivada de la función compuesta: el resultado es la diferencia de los valores de esa función, no de sus derivadas.
+>>	5. Sin embargo, $\gamma(0)=\gamma(2\pi)=(1,0)$, de modo que $$h(2\pi)-h(0)=v(1,0)-v(1,0)=0.$$ Esto contradice el paso anterior. Por tanto, $u$ no tiene conjugada armónica definida en todo $G$.
+>>- **(iii)**
+>>	1. Pendiente.
+

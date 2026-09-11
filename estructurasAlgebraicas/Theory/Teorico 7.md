@@ -36,9 +36,9 @@ source: "[[EA-Teorico-7-4sept.pdf]]"
 
 >[!theorem] Reconocimiento del producto semidirecto
 >Sean $P,Q\leq G$. Si
->1. $Q\trianglelefteq G$;
->2. $P\cap Q=\{e\}$;
->3. $QP=G$;
+>- $Q\trianglelefteq G$;
+>- $P\cap Q=\{e\}$;
+>- $QP=G$;
 >
 >entonces existe una acción $\varphi\colon P\to\operatorname{Aut}(Q)$ tal que $$G\cong Q\rtimes_\varphi P.$$
 >
@@ -49,15 +49,17 @@ source: "[[EA-Teorico-7-4sept.pdf]]"
 >>4. **Inyectividad.** Si $qx=q'x'$, entonces $q'^{-1}q=x'x^{-1}$. El miembro izquierdo pertenece a $Q$ y el derecho a $P$; como $P\cap Q=\{e\}$, ambos son $e$. Luego $q=q'$ y $x=x'$.
 >>5. **Compatibilidad con el producto.** Para $q,r\in Q$ y $x,y\in P$, $$\begin{aligned}\Psi\bigl((q,x)(r,y)\bigr)&=\Psi\bigl(q\varphi(x)(r),xy\bigr)\\&=q\,xrx^{-1}xy\\&=qxry\\&=\Psi(q,x)\Psi(r,y).\end{aligned}$$así, $\Psi$ es un isomorfismo.
 
+^32193a
+
 >[!lemma] La acción es única respecto de la identificación natural
 >El teorema garantiza *existencia* de $\varphi$. Más aún: si fijamos los subgrupos $Q,P\leq G$ y exigimos que la identificación sea el mapa natural $$\Psi(q,x)=qx,$$ entonces la acción es **única** y es la conjugación: no hay otra $\psi\colon P\to\operatorname{Aut}(Q)$ con $G\cong Q\rtimes_\psi P$ vía ese mismo $\Psi$. (Sin fijar la identificación, la unicidad es falsa: otras acciones pueden dar grupos isomorfos vía isomorfismos que mueven los factores.)
 >>[!Proof]-
->>1. Sea $\psi\colon P\to\operatorname{Aut}(Q)$ una acción cualquiera tal que el mapa $$\Psi\colon Q\rtimes_\psi P\longrightarrow G,\qquad \Psi(q,x)=qx$$ es un morfismo de grupos. Basta pedir morfismo; la sobreyectividad e inyectividad no intervienen.
->>2. Tomemos $r\in Q$ y $x\in P$. En $Q\rtimes_\psi P$, el producto de las copias es $$(e_Q,x)(r,e_P)=\bigl(\psi(x)(r),\,x\bigr).$$ Aplicando $\Psi$ a ambos miembros: $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\psi(x)(r)\,x.$$
->>3. Por otra parte, como $\Psi$ es morfismo, $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\Psi(e_Q,x)\,\Psi(r,e_P)=x\,r.$$
->>4. Igualando los pasos 2 y 3: $$\psi(x)(r)\,x=x\,r,$$ y cancelando $x$ a derecha (en el grupo $G$) se obtiene $$\psi(x)(r)=xrx^{-1}\qquad\text{para todo }r\in Q,\ x\in P.$$
->>5. Por lo tanto $\psi$ coincide con la acción por conjugación del teorema. Como $r$ y $x$ eran arbitrarios, no hay ninguna otra opción: la acción es única respecto de $\Psi(q,x)=qx$.
->>6. El cómputo es interno al producto externo y vale igualmente allí: $$ (e_Q,x)(q,e_P)(e_Q,x^{-1})=(\psi(x)(q),e_P), $$ (que es internamente como decir $xqx^{-1}=\psi(x)(q)$) de modo que la acción se recupera conjugando las copias canónicas: el dato externo $\psi$ y la operación interna de conjugación contienen la misma información.
+>>6. Sea $\psi\colon P\to\operatorname{Aut}(Q)$ una acción cualquiera tal que el mapa $$\Psi\colon Q\rtimes_\psi P\longrightarrow G,\qquad \Psi(q,x)=qx$$ es un morfismo de grupos. Basta pedir morfismo; la sobreyectividad e inyectividad no intervienen.
+>>7. Tomemos $r\in Q$ y $x\in P$. En $Q\rtimes_\psi P$, el producto de las copias es $$(e_Q,x)(r,e_P)=\bigl(\psi(x)(r),\,x\bigr).$$ Aplicando $\Psi$ a ambos miembros: $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\psi(x)(r)\,x.$$
+>>8. Por otra parte, como $\Psi$ es morfismo, $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\Psi(e_Q,x)\,\Psi(r,e_P)=x\,r.$$
+>>9. Igualando los pasos 2 y 3: $$\psi(x)(r)\,x=x\,r,$$ y cancelando $x$ a derecha (en el grupo $G$) se obtiene $$\psi(x)(r)=xrx^{-1}\qquad\text{para todo }r\in Q,\ x\in P.$$
+>>10. Por lo tanto $\psi$ coincide con la acción por conjugación del teorema. Como $r$ y $x$ eran arbitrarios, no hay ninguna otra opción: la acción es única respecto de $\Psi(q,x)=qx$.
+>>11. El cómputo es interno al producto externo y vale igualmente allí: $$ (e_Q,x)(q,e_P)(e_Q,x^{-1})=(\psi(x)(q),e_P), $$ (que es internamente como decir $xqx^{-1}=\psi(x)(q)$) de modo que la acción se recupera conjugando las copias canónicas: el dato externo $\psi$ y la operación interna de conjugación contienen la misma información.
 
 >[!Remark] ¿Por qué aparecen dos 'mundos' en el producto semidirecto?
 >El teorema de reconocimiento compara dos formas distintas de describir la misma estructura de grupo.
@@ -84,14 +86,18 @@ source: "[[EA-Teorico-7-4sept.pdf]]"
 ## Ejemplos
 
 >[!example] Grupos de orden $pq$
->Sean $p,q\in\mathbb N$ primos, $p<q$, y sea $G$ un grupo con $|G|=pq$.
->1. Sea $n_q$ la cantidad de $q$-subgrupos de Sylow. Por [[Teorico 6#^sylow|Sylow]], $n_q\equiv 1\pmod{q}$ y $n_q\mid p$. Como $p$ es primo, $n_q\in\{1,p\}$. Si $n_q=p$, entonces $p\equiv 1\pmod{q}$, es decir $q\mid(p-1)$. Pero $p<q$ fuerza $0<p-1<q$, imposible. Luego $n_q=1$.
->2. El único $q$-Sylow $C_q$ es cíclico de orden $q$ (Cauchy) y es normal en $G$.
->3. Sea $C_p\leq G$ un $p$-Sylow. Si $C_p\cap C_q$ tuviera un elemento distinto de $e$, su orden dividiría a $p$ y a $q$, luego sería $1$. Así $C_p\cap C_q=\{e\}$.
->4. $|C_p C_q|=|C_p||C_q|/|C_p\cap C_q|=pq=|G|$, de modo que $C_p C_q=G$.
->5. Por el teorema de reconocimiento, $$G\cong C_q\rtimes C_p.$$
+>Sean $p,q\in\mathbb N$ primos, $p<q$, y sea $G$ un grupo con $|G|=pq$. Entonces existen subgrupos cíclicos $C_q,C_p\leq G$, de órdenes $q$ y $p$ respectivamente, tales que $$G\cong C_q\rtimes C_p.$$  
+>>[!Proof]-
+>>1. Sea $n_q$ la cantidad de $q$-subgrupos de Sylow. Por [[Teorico 6#^sylow|Sylow]], $n_q\equiv 1\pmod{q}$ y $n_q\mid p$. 
+>>2. Como $p$ es primo, $n_q\in\{1,p\}$. Si $n_q=p$, entonces $p\equiv 1\pmod{q}$, es decir $q\mid(p-1)$. 
+>>3. Pero $p<q$ fuerza $0<p-1<q$, imposible. Luego $n_q=1$.
+>>4. Denotemos por $C_q$ al único $q$-Sylow de $G$. Por [[Teorico 6#^sylow|Sylow]], tiene orden $q$. Por [[Teorico 5#^4bed2b|Cauchy]], existe en $C_q$ un elemento de orden $q$, que entonces genera todo el subgrupo. Así, $C_q$ es cíclico de orden $q$.
+>>5. Ademas es normal, por que para todo $g\in G$, el conjugado $gC_qg^{-1}$ es un subgrupo de orden $q$, pues la aplicación $C_q\to gC_qg^{-1}$, $x\mapsto gxg^{-1}$, es biyectiva. Por lo tanto, $gC_qg^{-1}$ también es un $q$-Sylow y, como hay uno solo, $gC_qg^{-1}=C_q$. Esto vale para todo $g\in G$, luego $C_q\trianglelefteq G$.
+>>6. Sea $C_p\leq G$ un $p$-Sylow. Si $C_p\cap C_q$ tuviera un elemento distinto de $e$, su orden dividiría a $p$ y a $q$ (por que dicho elemento genera un subgrupo de ambos y por [[Teorico 4#^teorema-de-lagrange]] tiene que dividir al orden de ambos), luego sería $1$, absurdo. Así $C_p\cap C_q=\{e\}$.
+>>7. Recordamos la formula de [[Teorico 4#^c6bad9|Cardinal de HK]] entonces $$|C_p C_q|=|C_p||C_q|/|C_p\cap C_q|=pq=|G|$$de modo que $C_p C_q=G$.
+>>8. Por el [[Teorico 7#^32193a|Teorema de reconocimiento]], $$G\cong C_q\rtimes C_p.$$
 
->[!remark]
+>[!remark]- GPT
 >El pizarrón escribió $n\equiv 1\pmod{q}$ y $n\mid p\Rightarrow n=1$ sin explicitar por qué $n\neq p$. La hipótesis $p<q$ es la que lo impide. No se clasificó la acción $C_p\to\operatorname{Aut}(C_q)$: eso decide si $G$ es cíclico o no abeliano.
 
 >[!example] $\mathbb Z_4$ no es un producto semidirecto $\mathbb Z_2\rtimes\mathbb Z_2$

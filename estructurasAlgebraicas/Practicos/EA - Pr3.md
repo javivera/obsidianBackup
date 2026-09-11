@@ -69,3 +69,66 @@ tags:
 >>11. Sea ahora $g\in G$. Como $\varphi$ es sobreyectiva, existe $h\in H$ tal que $$gK=hK.$$
 >>12. La igualdad de clases laterales implica $h^{-1}g\in K$. Si definimos $k=h^{-1}g\in K$, entonces $$g=hk\in HK.$$
 >>13. Como $g\in G$ era arbitrario, $G\subseteq HK$. Además, como $H,K\leq G$, se tiene trivialmente $HK\subseteq G$. Por lo tanto, $$\boxed{G=HK}.$$
+
+>[!exercise] Ejercicio 5
+>Mostrar que $\mathbb Q/{\sim}=\mathbb Q/\mathbb Z$, donde $\mathbb Q/{\sim}$ es el grupo dado en el Ejercicio 32 del Práctico 2 y $\mathbb Q/\mathbb Z$ es el grupo cociente del grupo $(\mathbb Q,+)$ por el subgrupo $(\mathbb Z,+)$.
+>>[!Proof]-
+>>1. Recordemos que $q\sim r$ si y solo si $q-r\in\mathbb Z$. Para cada $q\in\mathbb Q$, probaremos por doble inclusión que $[q]=q+\mathbb Z$.
+>>2. Si $r\in[q]$, entonces $q-r\in\mathbb Z$, de modo que $r-q\in\mathbb Z$. Por lo tanto, $r=q+(r-q)\in q+\mathbb Z$. Así, $[q]\subseteq q+\mathbb Z$.
+>>3. Recíprocamente, si $r\in q+\mathbb Z$, existe $z\in\mathbb Z$ tal que $r=q+z$. Entonces $q-r=-z\in\mathbb Z$, por lo que $r\in[q]$. Así, $q+\mathbb Z\subseteq[q]$.
+>>4. En consecuencia, $[q]=q+\mathbb Z$ para todo $q\in\mathbb Q$, y ambos cocientes tienen los mismos elementos. Además, como $(\mathbb Q,+)$ es abeliano, $\mathbb Z$ es un subgrupo normal y el grupo cociente está definido.
+>>5. Las operaciones también coinciden: en $\mathbb Q/{\sim}$ se define $[q]+[r]=[q+r]$, mientras que en $\mathbb Q/\mathbb Z$ se define $(q+\mathbb Z)+(r+\mathbb Z)=(q+r)+\mathbb Z$. Por lo probado, $[q+r]=(q+r)+\mathbb Z$.
+>>6. Por lo tanto, ambos cocientes tienen el mismo conjunto subyacente y la misma operación, de modo que $\mathbb Q/{\sim}=\mathbb Q/\mathbb Z$ como grupos.
+
+>[!exercise] Ejercicio 6
+>Sean $G$ un grupo y $N\leq G$. Probar que si $[G:N]=2$, entonces $N\trianglelefteq G$.
+>>[!Proof]-
+>>1. Como $[G:N]=2$, hay exactamente dos clases laterales izquierdas y dos derechas, pues la cantidad de clases izquierdas coincide con la de derechas.
+>>2. Una clase de cada tipo es $N$, ya que $eN=Ne=N$. Como las clases izquierdas forman una partición de $G$, la otra clase izquierda es $G\setminus N$. Por el mismo argumento, la otra clase derecha también es $G\setminus N$.
+>>3. Sea $g\in G$. Si $g\in N$, entonces $gN=N=Ng$.
+>>4. Si $g\notin N$, como $e\in N$, tenemos $g=ge\in gN$ y $g=eg\in Ng$. Por lo tanto, ninguna de estas clases puede ser $N$, pues contienen a $g\notin N$. Ambas deben ser la clase restante, de modo que $gN=G\setminus N=Ng$.
+>>5. En ambos casos, $gN=Ng$. Como $g\in G$ era arbitrario, concluimos que $N\trianglelefteq G$.
+
+>[!exercise] Ejercicio 7
+>Sea $G$ un grupo y sea $Z(G)$ el centro de $G$: $$Z(G):=\{a\in G:ab=ba\text{ para todo }b\in G\}.$$
+>- **(a)** Probar que $Z(G)$ es un subgrupo normal abeliano de $G$.
+>- **(b)** ¿Es $G/Z(G)$ abeliano?
+>- **(c)** Probar que si $f:G\to H$ es un epimorfismo, entonces $f(Z(G))\subseteq Z(H)$, y si $f$ es un isomorfismo se da la igualdad.
+>- **(d)** ¿Es necesaria la hipótesis de que $f$ sea un epimorfismo?
+>>[!Proof]-
+>>- (a)
+>>	1. Como $eg=g=ge$ para todo $g\in G$, se tiene $e\in Z(G)$; en particular, $Z(G)\neq\varnothing$.
+>>	2. Sean $u,v\in Z(G)$. Para todo $g\in G$, de $vg=gv$ se obtiene $gv^{-1}=v^{-1}g$ multiplicando a izquierda y derecha por $v^{-1}$. Por lo tanto, $$(uv^{-1})g=u(v^{-1}g)=u(gv^{-1})=(ug)v^{-1}=(gu)v^{-1}=g(uv^{-1}).$$ Así, $uv^{-1}\in Z(G)$ y, por el criterio de subgrupo, $Z(G)\leq G$.
+>>	3. Para cualquier $a\in G$ y $b\in Z(G)$, como $b$ conmuta con $a^{-1}$, se cumple $aba^{-1}=aa^{-1}b=b$. En consecuencia, $$aZ(G)a^{-1}=\{aba^{-1}:b\in Z(G)\}=\{b:b\in Z(G)\}=Z(G).$$ Por lo tanto, $Z(G)\trianglelefteq G$.
+>>	4. Si $u,v\in Z(G)$, entonces $uv=vu$, pues $u$ conmuta con todo elemento de $G$, en particular con $v$. Luego $Z(G)$ es abeliano.
+>>- (b)
+>>	1. No. Por ejemplo, $Z(S_3)=\{e\}$, de modo que $S_3/Z(S_3)\cong S_3$, que no es abeliano: $(1\ 2)(2\ 3)\neq(2\ 3)(1\ 2)$.
+>>- (c)
+>>	1. Sea $x\in f(Z(G))$. Existe $\tilde x\in Z(G)$ tal que $f(\tilde x)=x$. Para cualquier $b\in H$, la sobreyectividad de $f$ proporciona $\tilde b\in G$ tal que $f(\tilde b)=b$.
+>>	2. Como $\tilde x\in Z(G)$, se cumple $\tilde x\tilde b=\tilde b\tilde x$. Por lo tanto, $$xb=f(\tilde x)f(\tilde b)=f(\tilde x\tilde b)=f(\tilde b\tilde x)=f(\tilde b)f(\tilde x)=bx.$$ Como $b\in H$ era arbitrario, $x\in Z(H)$. Así, $f(Z(G))\subseteq Z(H)$.
+>>	3. Supongamos ahora que $f$ es un isomorfismo. Para probar la inclusión recíproca, sea $x\in Z(H)$. Por sobreyectividad, existe $\tilde x\in G$ tal que $f(\tilde x)=x$.
+>>	4. Sea $\tilde b\in G$ arbitrario. Como $x\in Z(H)$, tenemos $$f(\tilde x\tilde b)=xf(\tilde b)=f(\tilde b)x=f(\tilde b\tilde x).$$ Por inyectividad de $f$, resulta $\tilde x\tilde b=\tilde b\tilde x$.
+>>	5. Puesto que $\tilde b\in G$ era arbitrario, $\tilde x\in Z(G)$. Luego $x=f(\tilde x)\in f(Z(G))$, lo que prueba $Z(H)\subseteq f(Z(G)).$ En consecuencia, $f(Z(G))=Z(H).$
+
+>[!exercise] Ejercicio 8
+>Sea $G$ un grupo y sea $\{N_i : i \in I\}$ una familia de subgrupos normales de $G$. Probar que $\bigcap_{i\in I} N_i \trianglelefteq G$.
+>>[!Proof]-
+>>1. Como cada $N_i\leq G$, el elemento neutro cumple $e\in N_i$ para todo $i\in I$. Por lo tanto, $e\in\bigcap_{i\in I} N_i$, de modo que $\bigcap_{i\in I} N_i\neq\varnothing$.
+>>2. Sean $x,y\in\bigcap_{i\in I} N_i$. Entonces $x,y\in N_i$ para todo $i\in I$. Como cada $N_i$ es un subgrupo de $G$, se tiene $xy^{-1}\in N_i$ para todo $i\in I$. Por consiguiente, $xy^{-1}\in\bigcap_{i\in I} N_i$. Por el criterio de subgrupo, $\bigcap_{i\in I} N_i\leq G$.
+>>3. Sean $g\in G$ y $n\in\bigcap_{i\in I} N_i$. Por definición de intersección, $n\in N_i$ para todo $i\in I$. 
+>>4. Puesto que cada $N_i\trianglelefteq G$, se cumple $gng^{-1}\in N_i$ para todo $i\in I$. En consecuencia, $gng^{-1}\in\bigcap_{i\in I} N_i$.
+>>5. De los pasos anteriores concluimos que $\bigcap_{i\in I} N_i\trianglelefteq G$.
+
+>[!exercise] Ejercicio 9
+>Si $G$ es abeliano, entonces todo subgrupo es normal. Mostrar que la recíproca no es cierta (ayuda: considerar el grupo de los cuaterniones).
+>>[!Proof]-
+>>1. **Implicación directa.** Supongamos que $G$ es abeliano y sea $H\leq G$. Para cualquier $g\in G$ y cualquier $h\in H$, como los elementos de $G$ conmutan, se cumple $$ghg^{-1}=gg^{-1}h=eh=h\in H.$$ Por lo tanto, $gHg^{-1}\subseteq H$ para todo $g\in G$, lo que demuestra que $H\trianglelefteq G$.
+>>2. **Falsedad de la recíproca (contraejemplo).** Consideremos el grupo de los cuaterniones $Q_8=\{\pm 1,\pm i,\pm j,\pm k\}$, con la operación usual dada por $i^2=j^2=k^2=-1$, $ij=k=-ji$, $jk=i=-kj$, $ki=j=-ik$, y donde $-1$ conmuta con todos los elementos.
+>>3. El grupo $Q_8$ no es abeliano, pues $ij=k\neq -k=ji$.
+>>4. Para verificar que todo subgrupo de $Q_8$ es normal, analizamos los órdenes posibles de subgrupos. Como $|Q_8|=8$, por el teorema de Lagrange el orden de cualquier subgrupo debe ser $1$, $2$, $4$ u $8$.
+>>5. Los subgrupos de orden $1$ y de orden $8$ son $\{1\}$ y $Q_8$, que son trivialmente normales.
+>>6. El único elemento de orden $2$ en $Q_8$ es $-1$, ya que $(\pm i)^2=(\pm j)^2=(\pm k)^2=-1\neq 1$. Por lo tanto, el único subgrupo de orden $2$ es $\langle -1\rangle=\{1,-1\}$. Como $-1$ conmuta con todo elemento de $Q_8$, se tiene que $\{1,-1\}=Z(Q_8)$ es el centro del grupo, y en consecuencia $\{1,-1\}\trianglelefteq Q_8$.
+>>7. Todo subgrupo de orden $4$ en $Q_8$ debe ser cíclico (pues el grupo de Klein requeriría tres elementos de orden $2$ y $Q_8$ posee solo uno), por lo que los únicos subgrupos de orden $4$ son $\langle i\rangle$, $\langle j\rangle$ y $\langle k\rangle$. Como cada uno de ellos tiene índice $[Q_8:H]=8/4=2$ en $Q_8$, y todo subgrupo de índice $2$ es normal (Ejercicio 6), se concluye que todos los subgrupos de orden $4$ son normales en $Q_8$.
+>>8. En conclusión, todo subgrupo de $Q_8$ es normal en $Q_8$, pero $Q_8$ no es abeliano, lo que prueba que la recíproca no es cierta.
+
+

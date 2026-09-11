@@ -64,6 +64,8 @@ source: "Clase2 (1).pdf"
 > [!theorem] Teorema de Cayley
 >Todo grupo $G$ es isomorfo a un subgrupo de $S_G$. Si $G$ es finito y $|G|=n$, entonces $G$ es isomorfo a un subgrupo de $S_n$.
 
+^297bb3
+
 ### 2.2. Acción por conjugación
 
 >[!example]
@@ -235,6 +237,8 @@ source: "Clase2 (1).pdf"
 >>14. Luego como la tupla $(1_G,\ldots,1_G)$ es un punto fijo, no puede ser el único entonces existen al menos $p$ puntos fijos. 
 >>15. Por lo tanto, existe un $(g,\ldots,g)\in X$ (por que es un punto fijo paso 12. nos dice que sus entradas son todas iguales) tal que $g\neq1_G$ (para que $(g,\ldots,g)\neq(1_{G},\ldots1_{G})$) tal que $g^p=1_G$ (para que $(g,\ldots,g)\in X$) 
 >>16. Ademas el orden de $g$ divide a $p$ (misma cuenta de siempre en general) y no es $1_{G}$, luego $|g|=p$.
+
+^4bed2b
 
 > [!proposition] Clasificación de las acciones transitivas
 >Si $G$ actúa transitivamente sobre $X$ y fijamos $x\in X$, entonces la aplicación $$\varphi:G/G_x\longrightarrow X,\qquad gG_x\longmapsto g\cdot x$$ es una biyección $G$-equivariante. Por eso, toda acción transitiva es esencialmente una acción sobre clases laterales.

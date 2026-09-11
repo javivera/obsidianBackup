@@ -171,6 +171,8 @@ source: "[[2da clase.pdf]]"
 >>8. Por el teorema de Lagrange aplicado a $H$, $$|H|=[H:H\cap K]|H\cap K|,$$y por lo tanto $$[H:H\cap K]=\frac{|H|}{|H\cap K|}.$$
 >>9. Sustituyendo en el paso 3, $$|HK|=[H:H\cap K]|K|=\frac{|H|}{|H\cap K|}|K|=\boxed{\frac{|H||K|}{|H\cap K|}}.$$
 
+^c6bad9
+
 ### Segundo teorema de isomorfismo
 
 >[!Theorem] Segundo teorema de isomorfismo

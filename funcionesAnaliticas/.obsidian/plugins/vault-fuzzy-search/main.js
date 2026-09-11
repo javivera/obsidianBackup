@@ -416,17 +416,25 @@ class FuzzySearchModal extends Modal {
   }
 
   async openResult(result, newLeaf) {
+    this.close();
     const leaf = newLeaf ? this.app.workspace.getLeaf("tab") : this.app.workspace.getLeaf(false);
     await leaf.openFile(result.file, { active: true });
-    if (result.line !== null) {
+    this.app.workspace.setActiveLeaf(leaf, { focus: true });
+
+    const focusAndScroll = () => {
       const view = leaf.view;
       if (view?.editor) {
-        const line = Math.min(result.line, Math.max(0, view.editor.lineCount() - 1));
-        view.editor.setCursor({ line, ch: 0 });
-        view.editor.scrollIntoView({ from: { line, ch: 0 }, to: { line, ch: 0 } }, true);
+        if (result.line !== null) {
+          const line = Math.min(result.line, Math.max(0, view.editor.lineCount() - 1));
+          view.editor.setCursor({ line, ch: 0 });
+          view.editor.scrollIntoView({ from: { line, ch: 0 }, to: { line, ch: 0 } }, true);
+        }
+        view.editor.focus();
       }
-    }
-    this.close();
+    };
+
+    focusAndScroll();
+    window.setTimeout(focusAndScroll, 50);
   }
 
   onClose() {

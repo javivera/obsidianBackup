@@ -404,6 +404,8 @@
 >>6. Como $e^{i(\theta_n-\theta_0)}\to1$ y $|\theta_n-\theta_0|<\pi$, se tiene $\theta_n-\theta_0\to0$.
 >>7. Como $k$ es fijo, el término $2\pi ik$ se cancela al restar. Por tanto, $$|f_{\alpha,k}(z_{n})-f_{\alpha,k}(z_0)|=\left|\ln(r_{n}/r_0)+i(\theta_{n}-\theta_0)\right|\leq\left|\ln(r_{n}/r_0)\right|+|\theta_{n}-\theta_0|\longrightarrow0.$$ Por el criterio secuencial de continuidad, $f_{\alpha,k}$ es continua en $G_\alpha$.
 
+^aea005
+
 >[!Corollary]
 >Para cada $\alpha\in\mathbb{R}$ y $k\in\mathbb{Z}$, $f_{\alpha,k}$ es una rama del logaritmo en $G_\alpha$.
 >>[!Proof]-

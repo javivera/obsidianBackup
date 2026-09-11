@@ -51,10 +51,8 @@ source: "[[EA-Teorico-5-2sept.pdf]]"
 
 ## Los tres teoremas de Sylow
 
->[!Remark]
->Sea $G$ un grupo finito, $p\in\mathbb N$ primo y $$|G|=p^nk,\qquad (p,k)=1,\quad k\geq 1.$$
-
 >[!theorem] Teoremas de Sylow
+>Sea $G$ un grupo finito, $p\in\mathbb N$ primo y $$|G|=p^nk,\qquad (p,k)=1,\quad k\geq 1.$$
 >- (a)  $G$ posee al menos un subgrupo de orden $p^n$. A tales subgrupos se los llama **$p$-subgrupos de Sylow**.
 >- (b) Dos $p$-subgrupos de Sylow son conjugados.
 >- (c) Si $n_p$ denota la cantidad de $p$-subgrupos de Sylow de $G$, entonces $n_p\equiv 1\pmod{p}$ y $n_p\mid k$.

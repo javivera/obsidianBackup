@@ -146,11 +146,11 @@
 >- **(d)** Sean $z_2,z_3,z_4$ distintos en $\mathbb{C}_\infty$ con $z_4=\infty$. Buscamos $S:\mathbb{C}_\infty\to\mathbb{C}_\infty$ tal que $S(z_2)=1$, $S(z_3)=0$ y $S(z_4)=\infty$. Entonces $$S(z)=\frac{z-z_3}{z_2-z_3}.$$
 
 >[!Definition] Razón armónica
->Dados $z_1,z_2,z_3,z_4$ puntos distintos en $\mathbb{C}_\infty$. Llamamos razón armónica de $z_1,z_2,z_3,z_4$, que denotamos $(z_1,z_2,z_3,z_4)$, a la imagen de $z_1$ bajo la única transformación de Möbius que envía $z_2\mapsto1$, $z_3\mapsto0$ y $z_4\mapsto\infty$.
+>Dados $z,z_2,z_3,z_4$ puntos distintos en $\mathbb{C}_\infty$. Llamamos razón armónica de $z,z_2,z_3,z_4$, que denotamos $(z,z_2,z_3,z_4)$, a la imagen de $z$ bajo la única transformación de Möbius que envía $z_2\mapsto1$, $z_3\mapsto0$ y $z_4\mapsto\infty$.
 
 >[!Example] Fórmula de la razón armónica
->Si $z_1,z_2,z_3,z_4$ son puntos distintos en $\mathbb{C}_\infty$ y $S$ satisface $S(z_2)=1$, $S(z_3)=0$ y $S(z_4)=\infty$ como en la parte (a) del ejemplo anterior, es decir $$S(z)=\frac{z-z_3}{z-z_4}\cdot\frac{z_2-z_4}{z_2-z_3},$$ entonces $$(z_1,z_2,z_3,z_4)=S(z_1)=\frac{(z_1-z_3)(z_2-z_4)}{(z_1-z_4)(z_2-z_3)}.$$
->En particular, $(z_2,z_2,z_3,z_4)=1$ y $(z,1,0,\infty)=z$. Si $z_4=\infty$, $$S(z)=(z,z_2,z_3,\infty)=\frac{z-z_3}{z_2-z_3}.$$
+>Si $z,z_2,z_3,z_4$ son puntos distintos en $\mathbb{C}_\infty$ y $S$ satisface $S(z_2)=1$, $S(z_3)=0$ y $S(z_4)=\infty$ como en la parte (a) del ejemplo anterior, es decir $$S(z)=\frac{z-z_3}{z-z_4}\cdot\frac{z_2-z_4}{z_2-z_3},$$ entonces $$(z,z_2,z_3,z_4)=S(z)=\frac{(z-z_3)(z_2-z_4)}{(z-z_4)(z_2-z_3)}.$$
+>En particular, $(z_2,z_2,z_3,z_4)=1$ y $(z,1,0,\infty)=z$. 
 
 >[!Proposition] Las T.M. mandan rectas o circunferencias en rectas o circunferencias
 >Una transformación de Möbius manda rectas o circunferencias en rectas o circunferencias.

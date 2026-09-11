@@ -5,10 +5,10 @@
   "math-booster",
   "obsidian-linter",
   "obsidian-latex-suite",
-  "vault-fuzzy-search",
   "tabbar-view-actions",
   "random-statement",
   "persistent-live-preview-focus",
   "math-in-callout",
-  "pdf-color-inverter"
+  "pdf-color-inverter",
+  "vault-fuzzy-search"
 ]
