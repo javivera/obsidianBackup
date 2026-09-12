@@ -89,6 +89,8 @@ tags:
 >>4. Si $g\notin N$, como $e\in N$, tenemos $g=ge\in gN$ y $g=eg\in Ng$. Por lo tanto, ninguna de estas clases puede ser $N$, pues contienen a $g\notin N$. Ambas deben ser la clase restante, de modo que $gN=G\setminus N=Ng$.
 >>5. En ambos casos, $gN=Ng$. Como $g\in G$ era arbitrario, concluimos que $N\trianglelefteq G$.
 
+^6d69d8
+
 >[!exercise] Ejercicio 7
 >Sea $G$ un grupo y sea $Z(G)$ el centro de $G$: $$Z(G):=\{a\in G:ab=ba\text{ para todo }b\in G\}.$$
 >- **(a)** Probar que $Z(G)$ es un subgrupo normal abeliano de $G$.
@@ -128,7 +130,7 @@ tags:
 >>4. Para verificar que todo subgrupo de $Q_8$ es normal, analizamos los órdenes posibles de subgrupos. Como $|Q_8|=8$, por el teorema de Lagrange el orden de cualquier subgrupo debe ser $1$, $2$, $4$ u $8$.
 >>5. Los subgrupos de orden $1$ y de orden $8$ son $\{1\}$ y $Q_8$, que son trivialmente normales.
 >>6. El único elemento de orden $2$ en $Q_8$ es $-1$, ya que $(\pm i)^2=(\pm j)^2=(\pm k)^2=-1\neq 1$. Por lo tanto, el único subgrupo de orden $2$ es $\langle -1\rangle=\{1,-1\}$. Como $-1$ conmuta con todo elemento de $Q_8$, se tiene que $\{1,-1\}=Z(Q_8)$ es el centro del grupo, y en consecuencia $\{1,-1\}\trianglelefteq Q_8$.
->>7. Todo subgrupo de orden $4$ en $Q_8$ debe ser cíclico (pues el grupo de Klein requeriría tres elementos de orden $2$ y $Q_8$ posee solo uno), por lo que los únicos subgrupos de orden $4$ son $\langle i\rangle$, $\langle j\rangle$ y $\langle k\rangle$. Como cada uno de ellos tiene índice $[Q_8:H]=8/4=2$ en $Q_8$, y todo subgrupo de índice $2$ es normal (Ejercicio 6), se concluye que todos los subgrupos de orden $4$ son normales en $Q_8$.
+>>7. Si un subgrupo $H\leq Q_8$ tiene orden $4$, su índice es $[Q_8:H]=8/4=2$. Como todo subgrupo de índice $2$ es normal (por el [[EA - Pr3#^6d69d8|ejercicio 6]]), se concluye que cualquier subgrupo de orden $4$ es automáticamente normal en $Q_8$.
 >>8. En conclusión, todo subgrupo de $Q_8$ es normal en $Q_8$, pero $Q_8$ no es abeliano, lo que prueba que la recíproca no es cierta.
 
 

@@ -286,6 +286,8 @@ source: "Clase2 (1).pdf"
 >>$$\sum_{x\in O_{x_i}}|G_x|=|O_{x_i}||G_{x_i}|=|G|.$$ 
 >>7. Sumando sobre las $m$ órbitas obtenemos $|S|=m|G|$. Al comparar ambos conteos, $$m|G|=\sum_{g\in G}|X^g|,$$ y el resultado sigue al dividir por $|G|$.
 
+^8a6f4a
+
 > [!remark] Cuándo usar Burnside
 >Burnside aparece cuando se pregunta cuántos objetos son distintos **salvo una simetría**. El procedimiento es: identificar el grupo de simetrías, clasificar sus elementos por tipo, contar los objetos fijados por cada tipo y promediar.
 
@@ -315,24 +317,24 @@ source: "Clase2 (1).pdf"
 >>3. La identidad fija todas las coloraciones osea $(\operatorname{id}\cdot c)(y)=c(\operatorname{id}^{-1}\cdot y)=c(y)$ entonces $\operatorname{id}\cdot c=c$ osea $c\in X^{\operatorname{id}}$, por lo tanto:
 >>$$|X^{\operatorname{id}}|=|X|=6!.$$
 >>
->>4. Sea $r\in R$ una rotación no trivial. Supongamos que $c\in X$ es un punto fijo de $r$. Entonces, para toda cara $y\in\mathcal F$,$$c(y)=(r\cdot c)(y)=c(r^{-1}\cdot y).$$
->>5. Como $c$ es biyectiva, en particular es inyectiva, y por lo tanto $$y=r^{-1}\cdot y$$ osea $r\cdot y=y$ para toda cara $r\in\mathcal F$. Esto significa que $r$ fija cada cara del cubo. 
->>6. La única rotación que fija todas las caras es la identidad, contradiciendo que $r$ es no trivial. Luego
->>$$X^r=\varnothing\qquad\text{para toda }r\in R\setminus\{\operatorname{id}\}.$$
+>>4. Sea $r\in R$ una rotación no trivial. Supongo $X^{r}\neq\varnothing$ entonces existe $c\in X$ un punto fijo de $r$. Osea $r\cdot c=c$
+>>5. Entonces, para toda cara $y\in\mathcal F$,$$c(y)=(r\cdot c)(y)=c(r^{-1}\cdot y).$$
+>>6. Como $c$ es biyectiva, en particular es inyectiva, y por lo tanto $$y=r^{-1}\cdot y$$ osea por propiedades de accion $r\cdot y=y$ para toda cara $y\in\mathcal F$. 
+>>7. Esto significa que $r$ fija cada cara del cubo, pero la única rotación que fija todas las caras es la identidad, contradiciendo que $r$ es no trivial. Luego $$X^r=\varnothing\qquad\text{para toda }r\in R\setminus\{\operatorname{id}\}.$$
 >>
->>7. Por el lema de Burnside, el número de órbitas es $$\frac{1}{|R|}\sum_{r\in R}|X^r|=\frac{1}{24}\left(6!+23\cdot0\right)=\frac{6!}{24}=30.$$
+>>8. Por el [[Teorico 5#^8a6f4a|Lema de Burnside]], el número de órbitas es $$\frac{1}{|R|}\sum_{r\in R}|X^r|=\frac{1}{24}\left(6!+23\cdot0\right)=\frac{6!}{24}=30.$$
 >
 >> [!Proof]- Demostración alternativa: acción libre y órbita-estabilizador
->>1. Usamos la misma acción del grupo $R$ de rotaciones del cubo sobre el conjunto $X$ de coloraciones con los seis colores distintos.
+>>9. Usamos la misma acción del grupo $R$ de rotaciones del cubo sobre el conjunto $X$ de coloraciones con los seis colores distintos.
 >>
->>2. La acción es libre: si una rotación fija una coloración, entonces debe enviar cada cara a otra cara del mismo color. Como todos los colores son distintos, cada cara debe quedar fija. La única rotación que fija las seis caras es la identidad.
+>>10. La acción es libre: si una rotación fija una coloración, entonces debe enviar cada cara a otra cara del mismo color. Como todos los colores son distintos, cada cara debe quedar fija. La única rotación que fija las seis caras es la identidad.
 >>
->>3. Por lo tanto, todo estabilizador es trivial:
+>>11. Por lo tanto, todo estabilizador es trivial:
 >>$$R_c=\{\operatorname{id}\}$$
 >>para toda coloración $c\in X$. Por órbita-estabilizador,
 >>$$|R\cdot c|=[R:R_c]=24.$$
 >>
->>4. Las coloraciones se dividen en órbitas de $24$ elementos. En consecuencia, el número de coloraciones consideradas salvo rotaciones es
+>>12. Las coloraciones se dividen en órbitas de $24$ elementos. En consecuencia, el número de coloraciones consideradas salvo rotaciones es
 >>$$\frac{|X|}{24}=\frac{6!}{24}=30.$$
 
 > [!Remark] Variante: se permiten repeticiones
@@ -440,7 +442,7 @@ source: "Clase2 (1).pdf"
 >Sea $G$ un $p$-grupo que actúa sobre un conjunto finito $X$. Definimos el conjunto de puntos fijos de toda la acción por $$X^G=\{x\in X:g\cdot x=x\text{ para todo }g\in G\}.$$ (que en el fondo es $\bigcap_{g\in G}X^{g}$ la interseccion de los puntos fijos de cada elemento) 
 
 >[!Theorem] Lema de los puntos fijos de un $p$-grupo
->Entonces
+>Sea $G$ un $p$-Grupo entonces
 >$$|X|\equiv |X^G|\pmod p.$$
 >
 >> [!Proof]-

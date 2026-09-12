@@ -113,6 +113,8 @@ tags:
 >>9. Para probar la inclusión contraria, sea $h\in H$. Por el algoritmo de la división, existen $q,r\in\mathbb Z$ tales que $$h=mq+r,\qquad 0\leq r<m.$$ Puesto que $h,m\in H$ y $H$ es cerrado bajo sumas e inversos, tenemos $$r=h-mq\in H.$$ Si $r>0$, entonces $r$ sería un elemento positivo de $H$ menor que $m$, lo que contradice la minimalidad de $m$. Por tanto, $r=0$ y $h=mq\in\langle m\rangle$. Así, $$H\subseteq\langle m\rangle.$$
 >>10. De ambas inclusiones se sigue que $$H=\langle m\rangle.$$ Por consiguiente, todo subgrupo de $\mathbb Z$ es cíclico.
 
+^df1cfa
+
 >[!exercise] Ejercicio 7
 >- **(a)** Demostrar que toda matriz real $A\in\operatorname{GL}_2(\mathbb R)$ que satisface $A^2=-I_2$ es conjugada en $\operatorname{GL}_2(\mathbb R)$ a la matriz $$C=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.$$
 >- **(b)** Demostrar que no existe ningún monomorfismo $Q_8\to\operatorname{GL}_2(\mathbb R)$.

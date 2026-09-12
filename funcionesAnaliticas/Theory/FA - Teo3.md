@@ -72,13 +72,21 @@
 >Una aplicación de la forma $$S(z)=\frac{az+b}{cz+d}$$ con $a,b,c,d\in\mathbb{C}$ y $ad-bc\neq0$ se llama transformación de Möbius (T.M.).
 
 >[!Proposition] Propiedades básicas
->1. $S$ es conforme en $\mathbb{C}\setminus\{-d/c\}$.
->2. $$S'(z)=\frac{ad-cb}{(cz+d)^2}\neq0\quad\forall z\in\mathbb{C}\setminus\{-d/c\}.$$
->3. $$\frac{(\lambda a)z+(\lambda b)}{(\lambda c)z+(\lambda d)}=\frac{\lambda(az+b)}{\lambda(cz+d)}=S(z),\quad\forall\lambda\in\mathbb{C}\setminus\{0\}.$$
+>Sea $S(z)=\frac{az+b}{cz+d}$ una transformación de Möbius, con $ad-bc\neq0$. Su dominio de valores finitos es $$D=\{z\in\mathbb C:cz+d\neq0\}=\begin{cases}\mathbb C\setminus\{-d/c\},&c\neq0,\\\mathbb C,&c=0.\end{cases}$$
+>- **(a)** $S$ es conforme en $D$.
+>- **(b)** $$S'(z)=\frac{ad-bc}{(cz+d)^2}\neq0\quad\forall z\in D.$$
+>- **(c)** Multiplicar todos los coeficientes por un mismo escalar no nulo no cambia la transformación: $$\frac{(\lambda a)z+(\lambda b)}{(\lambda c)z+(\lambda d)}=\frac{\lambda(az+b)}{\lambda(cz+d)}=S(z),\quad\forall z\in D,\quad\forall\lambda\in\mathbb C\setminus\{0\}.$$
 >>[!Proof]-
->>1. Sea $z\in\mathbb{C}$, $z\neq-d/c$. Veamos que $S$ es analítica en $z$.
->>2. Se tiene $$S'(z)=\frac{ad-cb}{(cz+d)^2},$$ que es continua $\forall z\in\mathbb{C}$, $z\neq-d/c$ y $S'(z)\neq0$.
->>3. Luego $S$ es conforme en $\mathbb{C}\setminus\{-d/c\}$.
+>>- (a) Conformidad
+>>	1. **Analiticidad y dominio.** El numerador $az+b$ y el denominador $cz+d$ son polinomios, luego son analíticos. Su cociente $S$ es analítico en el abierto $D$, donde el denominador no se anula. Si $c=0$, la condición $ad-bc=ad\neq0$ implica $d\neq0$, de modo que $D=\mathbb C$.
+>>	2. **Criterio de conformidad.** Como se verifica explícitamente en (b), $S'(z)\neq0$ para todo $z\in D$. Una función analítica con derivada no nula es conforme en cada punto de su dominio. Por lo tanto, $S$ es conforme en $D$.
+>>- (b) Derivada no nula
+>>	1. **Regla del cociente.** Para $z\in D$, $$\begin{aligned}S'(z)&=\frac{a(cz+d)-c(az+b)}{(cz+d)^2}\\&=\frac{acz+ad-acz-bc}{(cz+d)^2}\\&=\frac{ad-bc}{(cz+d)^2}.\end{aligned}$$
+>>	2. **No se anula.** El numerador $ad-bc$ es no nulo por la definición de transformación de Möbius, y el denominador es no nulo porque $z\in D$. Por eso $S'(z)\neq0$ en todo $D$. En particular, si $c=0$, la fórmula se reduce a $S'(z)=a/d\neq0$.
+>>- (c) Multiplicación por un escalar
+>>	1. **Los nuevos coeficientes siguen definiendo una T.M.** Sea $\lambda\neq0$. Su determinante es $$(\lambda a)(\lambda d)-(\lambda b)(\lambda c)=\lambda^2(ad-bc)\neq0.$$
+>>	2. **El dominio y los valores finitos no cambian.** Como $\lambda\neq0$, se tiene $\lambda(cz+d)\neq0$ si y solo si $cz+d\neq0$. En ese dominio común podemos cancelar $\lambda$: $$\frac{(\lambda a)z+\lambda b}{(\lambda c)z+\lambda d}=\frac{\lambda(az+b)}{\lambda(cz+d)}=\frac{az+b}{cz+d}=S(z).$$
+>>	3. **También coincide la extensión a la esfera.** Si $c\neq0$, el polo sigue siendo $-\lambda d/(\lambda c)=-d/c$, su imagen sigue siendo $\infty$ y el valor en $\infty$ sigue siendo $\lambda a/(\lambda c)=a/c$. Si $c=0$, ambas expresiones representan la misma función afín y envían $\infty$ a $\infty$. Así, el escalar tampoco cambia la transformación en $\mathbb C_\infty$.
 
 >[!Exercise] Unicidad de los coeficientes salvo escalar
 >Sean $S(z)=\frac{az+b}{cz+d}$ y $T(z)=\frac{\alpha z+\beta}{\gamma z+\delta}$ dos transformaciones de Möbius tales que $S=T$. Entonces existe $\lambda\in\mathbb{C}$ tal que $a=\lambda\alpha$, $b=\lambda\beta$, $c=\lambda\gamma$ y $d=\lambda\delta$.
@@ -88,12 +96,35 @@
 >>3. Igualando coeficientes se obtiene $a\gamma=c\alpha$, $a\delta+b\gamma=d\alpha+c\beta$ y $b\delta=d\beta$, de donde $(a,b,c,d)=\lambda(\alpha,\beta,\gamma,\delta)$.
 
 >[!Proposition] Inversa, composición y grupo
->1. Existe $$S^{-1}(w)=\frac{dw-b}{-cw+a}.$$
->2. Si $S$ y $T$ son T.M., entonces $S\circ T$ también lo es.
->3. $S(z)=z$ ($a=1,b=0,c=0,d=1$) es T.M. En consecuencia, el conjunto $\{T.M.\}$ es un grupo.
+>- **(a)** Sea $S$ una T.M existe $$S^{-1}(w)=\frac{dw-b}{-cw+a}.$$ (osea la inversa de una T.M es T.M) 
+>- **(b)** Si $S$ y $T$ son T.M., entonces $S\circ T$ también lo es.
+>- **(c)** $S(z)=z$ ($a=1,b=0,c=0,d=1$) es T.M. En consecuencia, el conjunto $\{T.M.\}$ es un grupo.
 >>[!Proof]-
->>1. Ejercicio: verificar que $SS^{-1}(w)=w=S^{-1}S(w)$.
->>2. La composición de funciones de la forma $(az+b)/(cz+d)$ vuelve a ser de la misma forma con determinante no nulo.
+>>- (a) Inversa
+>>	1. **Despejamos la preimagen.** Sea $S(z)=\frac{az+b}{cz+d}$ con $\Delta=ad-bc\neq0$. Para valores finitos donde las expresiones están definidas, $$w=\frac{az+b}{cz+d}\iff cwz+dw=az+b\iff(a-cw)z=dw-b.$$ Esto sugiere definir $$R(w)=\frac{dw-b}{-cw+a}.$$
+>>	2. **La candidata es Möbius.** Sus coeficientes son $d,-b,-c,a$, cuyo determinante es $$da-(-b)(-c)=ad-bc=\Delta\neq0.$$ Por lo tanto, $R$ es una transformación de Möbius.
+>>	3. **Verificamos ambas composiciones.** Sustituyendo y simplificando, $$\begin{aligned}S(R(w))&=\frac{a\frac{dw-b}{-cw+a}+b}{c\frac{dw-b}{-cw+a}+d}=\frac{a(dw-b)+b(-cw+a)}{c(dw-b)+d(-cw+a)}=\frac{\Delta w}{\Delta}=w,\\R(S(z))&=\frac{d\frac{az+b}{cz+d}-b}{-c\frac{az+b}{cz+d}+a}=\frac{d(az+b)-b(cz+d)}{-c(az+b)+a(cz+d)}=\frac{\Delta z}{\Delta}=z.\end{aligned}$$
+>>	4. **Valores excepcionales y dominio del grupo.** Para considerar estas funciones como un grupo de aplicaciones sobre un mismo conjunto, trabajamos en $\mathbb C_\infty$ con sus valores extendidos. Si $c\neq0$, las fórmulas dan $$S(-d/c)=\infty,\qquad R(\infty)=-d/c,\qquad S(\infty)=a/c,\qquad R(a/c)=\infty.$$ Así, ambas composiciones son la identidad también en los puntos excluidos del cálculo anterior. Si $c=0$, entonces $a,d\neq0$, ambas funciones son afines y ambas fijan $\infty$. Concluimos que $$\boxed{S^{-1}(w)=R(w)=\frac{dw-b}{-cw+a}.}$$
+>>- (b) Composición
+>>	1. **Calculamos los coeficientes.** Sean $$S(z)=\frac{az+b}{cz+d},\qquad T(z)=\frac{\alpha z+\beta}{\gamma z+\delta},\qquad ad-bc\neq0,\quad\alpha\delta-\beta\gamma\neq0.$$ Entonces $$\begin{aligned}(S\circ T)(z)&=\frac{a\frac{\alpha z+\beta}{\gamma z+\delta}+b}{c\frac{\alpha z+\beta}{\gamma z+\delta}+d}\\&=\frac{(a\alpha+b\gamma)z+(a\beta+b\delta)}{(c\alpha+d\gamma)z+(c\beta+d\delta)}.\end{aligned}$$
+>>	2. **El nuevo determinante no se anula.** Desarrollando y agrupando, $$\begin{aligned}&(a\alpha+b\gamma)(c\beta+d\delta)-(a\beta+b\delta)(c\alpha+d\gamma)\\&\qquad=ad(\alpha\delta-\beta\gamma)+bc(\beta\gamma-\alpha\delta)\\&\qquad=(ad-bc)(\alpha\delta-\beta\gamma)\neq0.\end{aligned}$$ Por lo tanto, la fórmula obtenida es una transformación de Möbius.
+>>	3. **Qué falta comprobar.** Llamamos $F$ a la transformación de Möbius definida por los coeficientes obtenidos: $$F(z)=\frac{(a\alpha+b\gamma)z+(a\beta+b\delta)}{(c\alpha+d\gamma)z+(c\beta+d\delta)}.$$ El cálculo del paso 1 demuestra $F(z)=S(T(z))$ cuando $z$, $T(z)$ y $S(T(z))$ son finitos: allí todas las divisiones son ordinarias. La fórmula de $F$, interpretada en la esfera, también tiene valores en los demás puntos, pero debemos comprobar que coinciden con aplicar primero $T$ y después $S$.
+>>	- **Caso 1: $z_0$ es finito, pero $T(z_0)=\infty$.**
+>>		1. **Qué punto estamos tomando.** Este es el punto finito donde el denominador de $T$ vale cero: $$\gamma z_0+\delta=0,\qquad z_0=-\delta/\gamma.$$ Existe cuando $\gamma\neq0$. El numerador $\alpha z_0+\beta$ no es cero, porque una T.M. no puede tener numerador y denominador simultáneamente nulos. El cálculo del paso 1 no cubría este punto porque utilizaba la fracción de $T$ como una división ordinaria.
+>>		2. **Resultado de aplicar primero $T$ y después $S$.** El recorrido es $$z_0\xrightarrow{T}\infty\xrightarrow{S}S(\infty).$$ Por la definición de $S$ en el infinito (por ser T.M), ya sabemos que $$S(T(z_0))=\begin{cases}a/c,&c\neq0,\\\infty,&c=0.\end{cases}$$
+>>		3. **Resultado de evaluar la fórmula $F$.** Sustituimos ese mismo $z_0$ en el numerador y denominador de $F$. Usando $\gamma z_0+\delta=0$, quedan $$\begin{aligned}a(\alpha z_0+\beta)+b(\gamma z_0+\delta)&=a(\alpha z_0+\beta),\\c(\alpha z_0+\beta)+d(\gamma z_0+\delta)&=c(\alpha z_0+\beta).\end{aligned}$$ Si $c\neq0$, cancelamos el factor no nulo $\alpha z_0+\beta$ y obtenemos $F(z_0)=a/c$. Si $c=0$, el denominador vale cero y el numerador no, así que la definición en la esfera da $F(z_0)=\infty$. En ambos casos, $$F(z_0)=S(T(z_0)).$$
+>>	- **Caso 2: $z_0$ y $T(z_0)$ son finitos, pero $S(T(z_0))=\infty$.**
+>>		1. **Qué punto estamos tomando y qué debe dar la composición.** Escribimos $w_0=T(z_0)$. Aquí la primera aplicación no da infinito; es la segunda la que lo hace: $$z_0\xrightarrow{T}w_0\xrightarrow{S}\infty.$$ Esto significa que $\gamma z_0+\delta\neq0$ y $cw_0+d=0$. Por lo tanto, sabemos que $S(T(z_0))=\infty$. Este punto quedó fuera del cálculo ordinario porque el denominador de la fracción de $S$, al evaluarla en $w_0$, es cero.
+>>		2. **Resultado de evaluar la fórmula $F$.** Como $w_0=\frac{\alpha z_0+\beta}{\gamma z_0+\delta}$, el denominador de $F$ en $z_0$ es $$c(\alpha z_0+\beta)+d(\gamma z_0+\delta)=(\gamma z_0+\delta)(cw_0+d)=0.$$ Su numerador es $$(\gamma z_0+\delta)(aw_0+b)\neq0,$$ porque ambos factores son no nulos: el primero porque $T(z_0)$ es finito, y el segundo porque $cw_0+d=0$ y los dos términos de la fracción de $S$ no pueden anularse simultáneamente. Por la definición en la esfera, $$F(z_0)=\infty=S(T(z_0)).$$
+>>	- **Caso 3: el punto inicial es $z_0=\infty$.**
+>>		1. **Qué debemos comparar.** Ahora no partimos de un punto finito: queremos comparar el recorrido $$\infty\xrightarrow{T}T(\infty)\xrightarrow{S}S(T(\infty))$$ con el valor $F(\infty)$. El paso 1 no verificaba este punto porque allí $z$ era un número complejo finito. Por la definición de una Möbius en el infinito, la fórmula nueva da $$F(\infty)=\begin{cases}\displaystyle\frac{a\alpha+b\gamma}{c\alpha+d\gamma},&c\alpha+d\gamma\neq0,\\\infty,&c\alpha+d\gamma=0.\end{cases}$$ Falta comparar este valor con el resultado del recorrido.
+>>		2. **Si la primera aplicación da un valor finito.** En este caso $T(\infty)=\alpha/\gamma$ con $\gamma\neq0$. Aplicando después $S$, si el resultado es finito obtenemos $$S(T(\infty))=\frac{a\frac\alpha\gamma+b}{c\frac\alpha\gamma+d}=\frac{a\alpha+b\gamma}{c\alpha+d\gamma}=F(\infty).$$ Si $c\alpha+d\gamma=0$, la definición de $S$ da $S(T(\infty))=\infty$, y la definición de $F$ también da $F(\infty)=\infty$. Por lo tanto, coinciden.
+>>		3. **Si la primera aplicación también da infinito.** Aquí $T(\infty)=\infty$, lo que corresponde a $\gamma=0$ y $\alpha\neq0$. El recorrido termina en $S(\infty)$: vale $a/c$ si $c\neq0$ e $\infty$ si $c=0$. En la fórmula de $F(\infty)$, los coeficientes se reducen a $a\alpha$ y $c\alpha$, por lo que da exactamente lo mismo: $a\alpha/(c\alpha)=a/c$ si $c\neq0$, e $\infty$ si $c=0$. Así, también en este caso $$F(\infty)=S(T(\infty)).$$ Estas dos posibilidades solo describen adónde envía $T$ el punto inicial $\infty$; ambas pertenecen al mismo caso $z_0=\infty$.
+>>	4. **Conclusión.** El cálculo del paso 1 y las verificaciones anteriores cubren todos los puntos de $\mathbb C_\infty$. Por lo tanto, $F=S\circ T$ en toda la esfera y, como $F$ es Möbius por el paso 2, la composición también lo es.
+>>- (c) Estructura de grupo
+>>	1. **Clausura y asociatividad.** La composición de dos transformaciones de Möbius es Möbius por (b). Además, la composición de funciones es asociativa: $$(S\circ T)\circ U=S\circ(T\circ U).$$
+>>	2. **Elemento neutro.** La identidad $I(z)=z$ es Möbius, con coeficientes $a=d=1$, $b=c=0$ y determinante $1$. Fija también $\infty$ y satisface $$I\circ S=S=S\circ I.$$
+>>	3. **Inversos.** Por (a), cada transformación $S$ tiene una inversa $S^{-1}$ que también es Möbius y cumple $$S\circ S^{-1}=I=S^{-1}\circ S.$$ Se verifican así todos los axiomas: las transformaciones de Möbius de $\mathbb C_\infty$ forman un grupo bajo la composición.
 
 >[!Proposition] Extensión a la esfera de Riemann
 >Podemos extender las transformaciones de Möbius a $\mathbb{C}_\infty$. Escribiendo $\mathbb{C}_\infty=(\mathbb{C}\setminus\{-d/c\})\cup\{-d/c\}\cup\{\infty\}$, sea $S^*:\mathbb{C}_\infty\to\mathbb{C}_\infty$ dada por $$S^*(z)=\begin{cases}S(z),&\text{si }z\in\mathbb{C}\setminus\{-d/c\},\\\infty,&\text{si }z=-d/c,\\a/c,&\text{si }z=\infty,\end{cases}$$ pues $\lim_{z\to\infty}S(z)=a/c$.

@@ -1,0 +1,240 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{titlesec}
+\usepackage{needspace}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{7pt}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Acciones de grupos y conteo}\\[6pt]
+{\large Ejercicio 1: incisos (a) y (b)}
+\end{center}
+\medskip
+\section*{(a) Un coeficiente binomial no divisible por $p$}
+
+\textbf{Enunciado.} Sean $p$ primo, $k\geq1$ y $n\geq0$, con $\gcd(p,k)=1$. Demostrar que
+\[
+p\nmid\binom{p^nk}{p^n}.
+\]
+
+\textbf{Demostración.} Si $n=0$, el coeficiente binomial es $\binom{k}{1}=k$, y el resultado es inmediato. Supongamos $n\geq1$.
+
+\section*{1. Elección del grupo y del conjunto}
+Tomamos
+\[
+G=\mathbb Z/p^n\mathbb Z,\qquad X=G\times\{1,\ldots,k\}.
+\]
+Un elemento de $X$ es un par $(x,i)$, con $x\in G$ y $1\leq i\leq k$. Por lo tanto,
+\[
+|G|=p^n,\qquad |X|=|G|k=p^nk.
+\]
+Podemos elegir este conjunto particular porque la cantidad de subconjuntos de un tamaño dado depende solamente del cardinal del conjunto que los contiene.
+
+Definimos
+\[
+\Omega=\{S\subseteq X:|S|=p^n\}.
+\]
+Es decir, cada elemento $S$ de $\Omega$ es un subconjunto de $X$ con $p^n$ elementos. Por la interpretación combinatoria del coeficiente binomial,
+\[
+\boxed{|\Omega|=\binom{p^nk}{p^n}}.
+\]
+
+\section*{2. La acción sobre los subconjuntos}
+Consideramos la acción de $G$ sobre $X$ dada por
+\[
+g\cdot(x,i)=(g+x,i).
+\]
+La suma tiene sentido porque $g$ y $x$ pertenecen al mismo grupo $G$, cuya operación es la suma módulo $p^n$.
+
+Sobre $\Omega$ consideramos la acción inducida
+\[
+g\cdot S=\{(g+x,i):(x,i)\in S\}.
+\]
+Ya sabemos que esta regla define una acción de $G$ sobre $\Omega$.
+
+\newpage
+\section*{3. Los puntos fijos que queremos determinar}
+Por definición,
+\[
+\Omega^G:=\{S\in\Omega:g\cdot S=S\text{ para todo }g\in G\}.
+\]
+Aquí un punto fijo es un \emph{subconjunto} $S$ que permanece igual como conjunto bajo la acción de todo $g\in G$. Sus elementos individuales pueden cambiar de lugar.
+
+Para cada $i\in\{1,\ldots,k\}$, escribimos
+\[
+B_i:=G\times\{i\}.
+\]
+La igualdad que debemos demostrar es
+\[
+\Omega^G=\{B_1,\ldots,B_k\}.
+\]
+La probamos mediante las dos inclusiones.
+
+\section*{4. Primera inclusión: $\{B_1,\ldots,B_k\}\subseteq\Omega^G$}
+Fijemos $i\in\{1,\ldots,k\}$. Como hay exactamente un par $(x,i)$ por cada $x\in G$,
+\[
+|B_i|=|G\times\{i\}|=|G|\cdot1=p^n.
+\]
+Además, $B_i\subseteq X$, de modo que $B_i\in\Omega$.
+
+Sea $g\in G$. Veamos que $g\cdot B_i=B_i$:
+\begin{itemize}
+\item Todo elemento de $g\cdot B_i$ tiene la forma $(g+x,i)$, con $x\in G$. Como $g+x\in G$, pertenece a $B_i$. Así,
+\[
+g\cdot B_i\subseteq B_i.
+\]
+\item Recíprocamente, sea $(y,i)\in B_i$. Como $y-g\in G$, tenemos $(y-g,i)\in B_i$, y entonces
+\[
+(y,i)=g\cdot(y-g,i)\in g\cdot B_i.
+\]
+Por lo tanto,
+\[
+B_i\subseteq g\cdot B_i.
+\]
+\end{itemize}
+Las dos inclusiones prueban que $g\cdot B_i=B_i$. Como esto vale para todo $g\in G$, resulta $B_i\in\Omega^G$.
+
+Dado que $i$ era arbitrario, concluimos
+\[
+\{B_1,\ldots,B_k\}\subseteq\Omega^G.
+\]
+Esto prueba que los subconjuntos indicados son fijos; todavía debemos descartar que existan otros.
+
+\newpage
+\section*{5. Segunda inclusión: $\Omega^G\subseteq\{B_1,\ldots,B_k\}$}
+Sea $S\in\Omega^G$ arbitrario. Por definición,
+\[
+S\subseteq X,\qquad |S|=p^n,\qquad g\cdot S=S\quad\text{para todo }g\in G.
+\]
+Como $|S|>0$, elegimos un elemento $(x,i)\in S$. Vamos a demostrar que $S=B_i$.
+
+Sea $y\in G$ arbitrario. Tomando $g=y-x\in G$, obtenemos
+\[
+(y,i)=(g+x,i)=g\cdot(x,i)\in g\cdot S=S.
+\]
+Como esto vale para todo $y\in G$, se sigue que
+\[
+B_i=G\times\{i\}\subseteq S.
+\]
+Ambos conjuntos tienen $p^n$ elementos:
+\begin{itemize}
+\item $|B_i|=|G|=p^n$, porque su segunda coordenada es fija;
+\item $|S|=p^n$, porque $S\in\Omega$ y así se definió $\Omega$.
+\end{itemize}
+Una inclusión entre dos conjuntos finitos del mismo cardinal es una igualdad. Por consiguiente,
+\[
+S=B_i.
+\]
+Esto muestra que todo $S\in\Omega^G$ pertenece a $\{B_1,\ldots,B_k\}$, es decir,
+\[
+\Omega^G\subseteq\{B_1,\ldots,B_k\}.
+\]
+La igualdad $S=B_i$ es la que permite concluir que no hay otros subconjuntos fijos.
+
+\section*{6. Cantidad de puntos fijos}
+Las dos inclusiones anteriores prueban
+\[
+\Omega^G=\{B_1,\ldots,B_k\}.
+\]
+Estos $k$ subconjuntos son distintos: si $i\neq j$, entonces $(0,i)\in B_i$ pero $(0,i)\notin B_j$, pues la segunda coordenada de todos los elementos de $B_j$ es $j$. Por lo tanto,
+\[
+\boxed{|\Omega^G|=k}.
+\]
+
+\section*{7. Aplicación del lema de puntos fijos}
+Por el lema de los puntos fijos,
+\[
+|\Omega|\equiv|\Omega^G|\pmod p.
+\]
+Sustituyendo los cardinales calculados,
+\[
+\binom{p^nk}{p^n}\equiv k\pmod p.
+\]
+Como $\gcd(p,k)=1$, tenemos $k\not\equiv0\pmod p$. En consecuencia,
+\[
+\boxed{p\nmid\binom{p^nk}{p^n}}.
+\]
+\hfill$\square$
+\newpage
+\section*{(b) Coloraciones de las caras del cubo}
+\textbf{Enunciado.} Explicar, mediante acciones de grupos y la fórmula de Burnside, el conteo de coloraciones de las caras del cubo con seis colores, utilizando cada color exactamente una vez y considerando equivalentes las coloraciones que difieren por una rotación.
+
+\textbf{Demostración.}
+\section*{1. El conjunto de coloraciones}
+Sean $\mathcal F$ el conjunto de las seis caras del cubo y $\mathcal C$ el conjunto de los seis colores disponibles. Una coloración que utiliza cada color exactamente una vez es una biyección $c:\mathcal F\to\mathcal C$. Sea
+\[
+X=\{c:\mathcal F\to\mathcal C:c\text{ es biyectiva}\}.
+\]
+Como $|\mathcal F|=|\mathcal C|=6$, se tiene
+\[
+|X|=6!.
+\]
+
+\section*{2. La acción de las rotaciones}
+Sea $R$ el grupo de rotaciones del cubo. Entonces $|R|=24$ y $R$ actúa sobre $\mathcal F$. Por la acción inducida sobre funciones mediante precomposición, $R$ actúa sobre $X$ mediante
+\[
+(r\cdot c)(y)=c(r^{-1}\cdot y),
+\qquad r\in R,\ c\in X,\ y\in\mathcal F.
+\]
+Las órbitas de esta acción agrupan las coloraciones que difieren por una rotación.
+
+\section*{3. Coloraciones fijas por la identidad}
+La identidad fija todas las coloraciones: para todo $c\in X$ y toda cara $y\in\mathcal F$,
+\[
+(\operatorname{id}\cdot c)(y)
+=c(\operatorname{id}^{-1}\cdot y)=c(y).
+\]
+Entonces $\operatorname{id}\cdot c=c$, es decir, $c\in X^{\operatorname{id}}$. Por lo tanto,
+\[
+|X^{\operatorname{id}}|=|X|=6!.
+\]
+
+\newpage
+\section*{4. Ninguna rotación no trivial fija una coloración}
+Sea $r\in R$ una rotación no trivial. Supongamos, por contradicción, que $X^r\neq\varnothing$. Entonces existe $c\in X^r$, es decir, una coloración $c\in X$ tal que
+\[
+r\cdot c=c.
+\]
+
+Evaluando esta igualdad en cada cara $y\in\mathcal F$ y usando la definición de la acción, obtenemos
+\[
+c(y)=(r\cdot c)(y)=c(r^{-1}\cdot y).
+\]
+
+Como $c$ es biyectiva, en particular es inyectiva, y por lo tanto
+\[
+y=r^{-1}\cdot y.
+\]
+Por las propiedades de la acción,
+\[
+r\cdot y=r\cdot(r^{-1}\cdot y)
+=(rr^{-1})\cdot y=\operatorname{id}\cdot y=y.
+\]
+Así, $r\cdot y=y$ para toda cara $y\in\mathcal F$.
+
+Esto significa que $r$ fija cada cara del cubo. Pero la única rotación que fija todas las caras es la identidad, contradiciendo que $r$ es no trivial. Luego
+\[
+X^r=\varnothing
+\qquad\text{para toda }r\in R\setminus\{\operatorname{id}\}.
+\]
+
+\section*{5. Aplicación del lema de Burnside}
+Por el lema de Burnside, el número de órbitas es
+\[
+\frac{1}{|R|}\sum_{r\in R}|X^r|
+=\frac{1}{24}\left(6!+23\cdot0\right)
+=\frac{6!}{24}
+=\boxed{30}.
+\]
+\hfill$\square$
+\end{document}
