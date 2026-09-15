@@ -125,6 +125,14 @@
 >>	3. **Verificación de las imágenes.** Por las igualdades del paso 1, $$\begin{aligned}T(z_2)&=R^{-1}(S(z_2))=R^{-1}(1)=w_2,\\T(z_3)&=R^{-1}(S(z_3))=R^{-1}(0)=w_3,\\T(z_4)&=R^{-1}(S(z_4))=R^{-1}(\infty)=w_4.\end{aligned}$$ Esto demuestra la existencia.
 >>	4. **Unicidad.** Si $U$ es otra transformación de Möbius con $U(z_j)=w_j$ para $j=2,3,4$, entonces $U$ y $T$ coinciden en los tres puntos distintos $z_2,z_3,z_4$. Por la Proposición 21 (determinación por tres puntos), $U=T$. Por lo tanto, existe una única transformación de Möbius con las imágenes prescritas.
 
+>[!Exercise] Ejercicio 7
+>Dar los puntos fijos de dilataciones, traslaciones e inversiones en $\mathbb C_\infty=\mathbb C\cup\{\infty\}$.
+>>[!Proof]- Resolución
+>>1. **Traslaciones.** Sea $T_b(z)=z+b$. Un punto finito $z$ es fijo si $z+b=z$, lo cual equivale a $b=0$. Además, $T_b(\infty)=\infty$. Por tanto, si $b\neq0$, el único punto fijo es $\infty$; si $b=0$, la transformación es la identidad y todos los puntos de $\mathbb C_\infty$ son fijos.
+>>2. **Dilataciones.** Sea $D_a(z)=az$, con $a\neq0$. Un punto finito $z$ es fijo si $az=z$, es decir, $(a-1)z=0$. Además, $D_a(\infty)=\infty$. Por tanto, si $a\neq1$, los puntos fijos son $0$ e $\infty$; si $a=1$, todos los puntos de $\mathbb C_\infty$ son fijos.
+>>3. **Rotaciones.** Una rotación $R_\theta(z)=e^{i\theta}z$ es un caso particular de dilatación. Si $e^{i\theta}\neq1$, sus puntos fijos son $0$ e $\infty$; si $e^{i\theta}=1$, es la identidad y todos los puntos son fijos.
+>>4. **Inversión.** Sea $I(z)=1/z$, extendida mediante $I(0)=\infty$ e $I(\infty)=0$. Para $z\in\mathbb C\setminus\{0\}$, la condición de punto fijo es $1/z=z$, equivalente a $z^2=1$, cuyas soluciones son $z=1$ y $z=-1$. Como $0$ e $\infty$ se intercambian, no son fijos. Por tanto, los únicos puntos fijos de la inversión son $1$ y $-1$.
+
 >[!Exercise] Ejercicio 8
 >Evaluar las siguientes razones cruzadas:
 >- **(a)** $(7+i,1,0,\infty)$,
@@ -146,3 +154,139 @@
 >>- **(d)**
 >>	1. Aquí $z=i-1$, $z_2=\infty$, $z_3=1+i$, $z_4=0$. Aplicamos el caso $z_2=\infty$: $$(i-1,\infty,1+i,0)=\frac{(i-1)-(1+i)}{(i-1)-0}=\frac{-2}{i-1}.$$
 >>	2. Multiplicamos numerador y denominador por $i+1$: $$\frac{-2(i+1)}{(i-1)(i+1)}=\frac{-2(i+1)}{i^2-1}=\frac{-2(i+1)}{-2}=i+1.$$ Por tanto, $$\boxed{(i-1,\infty,1+i,0)=1+i.}$$
+
+>[!exercise] Ejercicio 9
+>Sean $T(z)=\dfrac{az+b}{cz+d}$, $S(z)=\dfrac{a'z+b'}{c'z+d'}$ transformaciones de Möbius, y sea $$\Gamma=\{z\in\mathbb C:|z|=1\}.$$
+>- **(i)** Encontrar $z_2,z_3,z_4$ (en términos de $a,b,c,d$) tales que $T(z)=(z,z_2,z_3,z_4)$.
+>- **(ii)** Probar que $T(\mathbb R_{\infty})=\mathbb R_{\infty}$ si y sólo si $a,b,c$ y $d$ pueden ser elegidos para ser reales.
+>- **(iii)** Dar condiciones necesarias y suficientes para que $T(\Gamma)=\Gamma$.
+>- **(iv)** Dar condiciones necesarias y suficientes para que $T(D)=D$.
+>- **(v)** Si $z_1,z_2$ son puntos fijos de $T$, probar que $S^{-1}TS$ tiene puntos fijos $S^{-1}(z_1),S^{-1}(z_2)$.
+>
+>>[!Proof]- Resolución
+>>- **(i)**
+>>	1. Sea $$f(z)=(z,z_2,z_3,z_4)=\frac{z-z_3}{z-z_4}\cdot\frac{z_2-z_4}{z_2-z_3},$$ con $z_2,z_3,z_4$ distintos en $\mathbb C_{\infty}$. Entonces $f$ es Möbius en $z$, y $$f(z_3)=0,\qquad f(z_4)=\infty,\qquad f(z_2)=1.$$ Así $f$ es la única Möbius que manda $z_3\mapsto 0$, $z_4\mapsto\infty$, $z_2\mapsto 1$.
+>>	2. Una Möbius queda determinada por la imagen de $3$ puntos distintos. Luego $T\equiv f$ si y sólo si $$T(z_3)=0,\qquad T(z_4)=\infty,\qquad T(z_2)=1.$$
+>>	3. $T(z_3)=0$ entonces debe anularse el numerador sin anularse el denominador (para no tener $0/0$). Si $a\neq 0$, proponemos $$\boxed{z_3=-b/a}$$ finito. Entonces $az_3+b=0$ y el denominador vale $$cz_3+d=c(-b/a)+d=\frac{ad-bc}{a}\neq 0,$$ pues $ad-bc\neq 0$. Luego $T(z_3)=0/\text{no nulo}=0$. 
+>>	4. Si $a=0$, entonces $b\neq 0$ y $c\neq 0$ (si no $ad-bc=-bc=0$). Aquí $$T(z_{3})=b/(cz_{3}+d)$$ no se anula en ningún punto finito; su cero está en $\infty$ entonces ponemos $$\boxed{z_3=\infty},$$
+>>	5. $T(z_4)=\infty$: debe anularse el denominador sin anularse el numerador osea $cz_{4}+d=0$ y $az_{4}+b\neq0$ 
+>>	6. Si $c\neq 0$, proponemos $$\boxed{z_4=-d/c}$$ finito y el numerador valdria $$az_4+b=a(-d/c)+b=\frac{bc-ad}{c}=-\frac{ad-bc}{c}\neq 0.$$ Luego $T(z_4)=\text{no nulo}/0=\infty$.
+>>	7. Si $c=0$, entonces $d\neq 0$ (si no $ad-bc=0$). Aquí $T(z_{4})=(az_{4}+b)/d$. Entonces no queda otra que $$\boxed{z_4=\infty},$$
+>>	8. $T(z_2)=1$: numerador y denominador deben ser iguales y no nulos. Si $a\neq c$, proponemos $$\boxed{z_2=\frac{d-b}{a-c}}$$ finito. Entonces $(a-c)z_2-(d-b)=0$, o sea $az_2+b=cz_2+d$. Además el denominador común vale $$cz_2+d=c\frac{d-b}{a-c}+d=\frac{ad-bc}{a-c}\neq 0,$$ así que no es $0/0$ y el cociente es $1$. 
+>>	9. Si $a=c$, entonces $a=c\neq 0$ (si no $ad-bc=0$) y $d\neq b$ (si no $ad-bc=a(d-b)=0$). Entonces tenemos $$1= T(z_{2})=\frac{az_{2}+b}{az_{2}+c}$$ la unica forma es que $$\boxed{z_2=\infty},$$
+>>- **(ii)**
+>>	- **($\Rightarrow$)** Supongamos que $T(\mathbb R_\infty)=\mathbb R_\infty$.
+>>		1. Como $0,1,\infty\in\mathbb R_\infty=T(\mathbb R_\infty)$, existen $z_2,z_3,z_4\in\mathbb R_\infty$ tales que $$T(z_2)=1,\qquad T(z_3)=0,\qquad T(z_4)=\infty.$$ Estos puntos son distintos porque una transformación de Möbius es inyectiva y sus imágenes son distintas.
+>>		2. Como $$T(z_2)=1,\qquad T(z_3)=0,\qquad T(z_4)=\infty,$$ por la definición de la razón cruzada tenemos directamente $$T(z)=(z,z_2,z_3,z_4).$$ Si $z_2,z_3,z_4$ son finitos, ponemos $$k=\frac{z_2-z_4}{z_2-z_3}\in\mathbb R.$$ Entonces $$T(z)=k\frac{z-z_3}{z-z_4}=\frac{kz-kz_3}{z-z_4},$$ que tiene los coeficientes reales $$A=k,\qquad B=-kz_3,\qquad C=1,\qquad D=-z_4.$$ Además, $AD-BC=k(z_3-z_4)\neq0$ porque los tres puntos son distintos.
+>>		3. Si uno de los puntos es $\infty$, usamos las fórmulas correspondientes de la razón cruzada. Si $z_2=\infty$, $$T(z)=\frac{z-z_3}{z-z_4},$$ con coeficientes reales $(A,B,C,D)=(1,-z_3,1,-z_4)$. 
+>>		4. Si $z_3=\infty$, $$T(z)=\frac{z_2-z_4}{z-z_4},$$ con coeficientes reales $(A,B,C,D)=(0,z_2-z_4,1,-z_4)$. 
+>>		5. Si $z_4=\infty$, $$T(z)=\frac{z-z_3}{z_2-z_3},$$ con coeficientes reales $(A,B,C,D)=(1,-z_3,0,z_2-z_3)$. 
+>>		6. En cada caso el determinante es no nulo porque los puntos finitos involucrados son distintos.
+>>		7. Por tanto, en todos los casos $T$ admite una representación $$T(z)=\frac{Az+B}{Cz+D}$$ con $A,B,C,D\in\mathbb R$.
+>>	- **($\Leftarrow$)** Supongamos que $a,b,c,d$ fueron elegidos reales.
+>>		1. Primero probamos $T(\mathbb R_\infty)\subseteq\mathbb R_\infty$. Si $c\neq0$ y $x\in\mathbb R\setminus\{-d/c\}$, entonces $ax+b$ y $cx+d$ son reales y $cx+d\neq0$, por lo que $T(x)\in\mathbb R$. En los puntos excepcionales, $$T(-d/c)=\infty,\qquad T(\infty)=a/c\in\mathbb R.$$ Si $c=0$, de $ad-bc=ad\neq0$ resulta que $a,d\neq0$; para todo $x\in\mathbb R$ tenemos $$T(x)=\frac{ax+b}{d}\in\mathbb R,$$ mientras que $T(\infty)=\infty$. En ambos casos, queda probada la inclusión.
+>>		2. Para la inclusión contraria, fijamos $\widetilde z\in\mathbb R_\infty$. Si $\widetilde z$ es finito y $a-c\widetilde z\neq0$, definimos $$z=\frac{d\widetilde z-b}{a-c\widetilde z}\in\mathbb R.$$ Entonces $$cz+d=\frac{ad-bc}{a-c\widetilde z}\neq0,$$ y una sustitución da $T(z)=\widetilde z$. Si $a-c\widetilde z=0$, necesariamente $c\neq0$ y $\widetilde z=a/c=T(\infty)$. Finalmente, si $\widetilde z=\infty$, una preimagen real extendida es $-d/c$ cuando $c\neq0$, y es $\infty$ cuando $c=0$. Por tanto, $\mathbb R_\infty\subseteq T(\mathbb R_\infty)$.
+>>		3. Combinando ambas inclusiones, concluimos que $$T(\mathbb R_\infty)=\mathbb R_\infty.$$
+>>- **(iii)** Afirmamos que $$T(\Gamma)=\Gamma\iff a\overline b=c\overline d\quad\text{y}\quad |a|^2+|b|^2=|c|^2+|d|^2.$$
+>>	- **($\Rightarrow$)** Supongamos que $T(\Gamma)=\Gamma$.
+>>		1. Primero verificamos que el denominador no se anula sobre $\Gamma$. El caso $c=0$ está permitido y no presenta ningún problema: como $ad-bc=ad\neq0$, tenemos $d\neq0$, de modo que $cz+d=d$ para todo $z\in\Gamma$. Si $c\neq0$ y existiera $z\in\Gamma$ tal que $cz+d=0$, entonces $z=-d/c$ y la extensión daría $T(z)=\infty$, pero $\infty\notin\Gamma$, contradiciendo $T(\Gamma)=\Gamma$. Por tanto, en ambos casos, $$cz+d\neq0\qquad\text{para todo }z\in\Gamma.$$
+>>		2. Ahora sí podemos usar el cociente. Para todo $z\in\Gamma$, tenemos $T(z)\in\Gamma$ y, por tanto, $$1=|T(z)|=\frac{|az+b|}{|cz+d|};$$ equivalentemente, $$|az+b|=|cz+d|.$$ Al elevar ambos miembros al cuadrado obtenemos $$|az+b|^2=|cz+d|^2,$$
+>>		3. Como $|z|=1$, tenemos $z\overline z=1$. Al desarrollar los módulos al cuadrado obtenemos $$\begin{aligned}|az+b|^2&=|a|^2+|b|^2+a\overline b\,z+\overline a b\,\overline z,\\|cz+d|^2&=|c|^2+|d|^2+c\overline d\,z+\overline c d\,\overline z.\end{aligned}$$ Restando ambas expresiones y usando $\overline z=1/z$, resulta $$ (a\overline b-c\overline d)z^2+\bigl(|a|^2+|b|^2-|c|^2-|d|^2\bigr)z+(\overline a b-\overline c d)=0 $$ para todo $z\in\Gamma$.
+>>		4. El polinomio anterior se anula en los infinitos puntos de $\Gamma$, por lo que es el polinomio nulo. Así, $$a\overline b=c\overline d,\qquad |a|^2+|b|^2=|c|^2+|d|^2.$$ La igualdad dada por el término constante es la conjugada de la primera.
+>>	- **($\Leftarrow$)** Supongamos que $$a\overline b=c\overline d\quad\text{y}\quad |a|^2+|b|^2=|c|^2+|d|^2.$$
+>>		1. Para cualquier $z\in\Gamma$, desarrollamos como en 3. $$\begin{aligned}|az+b|^2-|cz+d|^2&=\bigl(|a|^2+|b|^2-|c|^2-|d|^2\bigr)\\&\quad +(a\overline b-c\overline d)z+(\overline a b-\overline c d)\overline z=0.\end{aligned}$$en consecuencia, $$|az+b|=|cz+d|.$$
+>>		2. Probamos ahora que el denominador no puede anularse sobre $\Gamma$. Si $cz+d=0$ para algún $z\in\Gamma$, la igualdad anterior fuerza $az+b=0$. Multiplicando la primera igualdad por $c$, la segunda por $a$ y restando, obtenemos $$c(az+b)-a(cz+d)=bc-ad=0,$$ es decir, $ad-bc=0$, contradicción. Por tanto, $$cz+d\neq0\qquad\text{para todo }z\in\Gamma.$$
+>>		3. Ya podemos dividir: para todo $z\in\Gamma$, $$|T(z)|=\frac{|az+b|}{|cz+d|}=1.$$ Por consiguiente, $$T(\Gamma)\subseteq\Gamma.$$
+>>		4. Las transformaciones de Möbius mandan rectas o circunferencias en rectas o circunferencias. Como $T(\Gamma)\subseteq\Gamma$, la imagen no puede ser una recta y debe ser una circunferencia contenida en $\Gamma$. Dos circunferencias distintas se cortan en como máximo dos puntos; por ello una circunferencia completa contenida en $\Gamma$ debe coincidir con $\Gamma$. Concluimos que $$T(\Gamma)=\Gamma.$$
+>>- **(iv)** Afirmamos que $$T(D)=D\iff a\overline b=c\overline d,\quad |a|^2+|b|^2=|c|^2+|d|^2\quad\text{y}\quad |b|<|d|.$$
+>>	- **($\Rightarrow$)** Supongamos que $T(D)=D$.
+>>		1. Como una transformación de Möbius es un homeomorfismo de $\mathbb C_\infty$, preserva fronteras. Por tanto, $$T(\Gamma)=T(\partial D)=\partial T(D)=\partial D=\Gamma.$$ Aplicando **(iii)** obtenemos $$a\overline b=c\overline d,\qquad |a|^2+|b|^2=|c|^2+|d|^2.$$
+>>		2. Como $0\in D$ y $T(D)=D$, tenemos $T(0)\in D$. Esto descarta $d=0$, pues en ese caso $T(0)=\infty\notin D$. Así, $$T(0)=\frac bd$$ entonces $$\left|\frac bd\right|=|T(0)|<1$$ lo cual equivale a $$|b|<|d|.$$
+>>	- **($\Leftarrow$)** Supongamos que $$a\overline b=c\overline d,\qquad |a|^2+|b|^2=|c|^2+|d|^2,\qquad |b|<|d|.$$
+>>		1. Por las dos primeras condiciones y **(iii)**, $$T(\Gamma)=\Gamma.$$ Denotemos por $$E=\{z:|z|>1\}\cup\{\infty\}=D^{c}$$ la región exterior.
+>>		2. Como $D$ es conexo y $T$ es continua, $T(D)$ es conexo. Si $T(D)$ contuviera un punto de $D$ y otro de $E$, tendría que intersectar la frontera común $\Gamma$. Pero esto es imposible: si $z\in D$ y $T(z)\in\Gamma$, de $T(\Gamma)=\Gamma$ existiría $w\in\Gamma$ con $T(w)=T(z)$, y la inyectividad de $T$ daría $w=z$, contradicción. Por tanto, $$T(D)\subseteq D\quad\text{o}\quad T(D)\subseteq E.$$
+>>		3. El mismo argumento aplicado a la componente conexa $E$ muestra que $T(E)$ también está contenido enteramente en $D$ o enteramente en $E$. Como $T$ es sobreyectiva y $T(\Gamma)=\Gamma$, todos los puntos de $D\cup E$ deben ser imágenes de puntos de $D\cup E$. Por ello $T(D)$ y $T(E)$ no pueden quedar en la misma componente: una es toda $D$ y la otra es toda $E$. En particular, $$T(D)=D\quad\text{o}\quad T(D)=E.$$
+>>		4. La desigualdad $|b|<|d|$ implica $d\neq0$ y $$|T(0)|=\left|\frac bd\right|<1,$$ de modo que $T(0)\in D$. Como $0\in D$, la posibilidad $T(D)=E$ queda descartada. En consecuencia, $$T(D)=D.$$
+
+>[!Exercise] Ejercicio 10
+>Sea $T$ una transformación de Möbius. Probar:
+>- **(i)** $T$ tiene a $0$ y a $\infty$ como sus únicos puntos fijos si y sólo si $T$ es una homotecia distinta de la identidad.
+>- **(ii)** $T$ tiene a $\infty$ como su único punto fijo si y sólo si es una traslación distinta de la identidad.
+>- **(iii)** $T(0)=\infty$ y $T(\infty)=0$ si y sólo si $T(z)=\lambda z^{-1}$ para algún $\lambda\in\mathbb C\setminus\{0\}$.
+>
+>>[!Proof]- Resolución
+>>En todo el ejercicio, $T$ denota la extensión de la transformación a $\mathbb C_{\infty}$: si $c\neq 0$, vale $T(-d/c)=\infty$ y $T(\infty)=a/c$; si $c=0$, la fórmula del cociente vale en todo $\mathbb C$ y $T(\infty)=\infty$.
+>>- **(i)**
+>>	- **($\Rightarrow$)** Supongamos que los únicos puntos fijos de $T$ son $0$ y $\infty$.
+>>		1. Escribimos $$T(z)=\frac{az+b}{cz+d},\qquad ad-bc\neq0.$$ Como $T(\infty)=\infty$, necesariamente $c=0$: si $c\neq0$, la extensión daría $T(\infty)=a/c\in\mathbb C$, contradicción. Entonces $ad\neq0$, de modo que $a,d\neq0$.
+>>		2. Como $T(0)=0$ y $d\neq0$, $$0=T(0)=\frac bd,$$ por lo que $b=0$. En consecuencia, $$T(z)=\frac adz.$$ Por tanto, $T$ es una homotecia.
+>>		3. Esta homotecia es distinta de la identidad: si $a/d=1$, entonces $T(z)=z$ y todos los puntos de $\mathbb C_\infty$ serían fijos, contradiciendo que solamente $0$ y $\infty$ lo son.
+>>	- **($\Leftarrow$)** Supongamos que $T(z)=kz$, con $k\in\mathbb C\setminus\{0,1\}$.
+>>		1. Se tiene $T(0)=0$ y $T(\infty)=\infty$, por lo que ambos son puntos fijos.
+>>		2. Si un punto finito $z\neq0$ también fuera fijo, entonces $$kz=z,$$ de donde $(k-1)z=0$. Como $z\neq0$, esto implicaría $k=1$, contradicción. Por tanto, $0$ y $\infty$ son los únicos puntos fijos de $T$.
+>>- **(ii)**
+>>	- **($\Rightarrow$)** Supongamos que $\infty$ es el único punto fijo de $T$.
+>>		1. Escribimos $$T(z)=\frac{az+b}{cz+d},\qquad ad-bc\neq0.$$ Como $T(\infty)=\infty$, necesariamente $c=0$: si $c\neq0$, la extensión daría $T(\infty)=a/c\in\mathbb C$. Entonces $ad\neq0$, de modo que $a,d\neq0$, y $$T(z)=\frac adz+\frac bd.$$
+>>		2. Si $a\neq d$, la ecuación de punto fijo para $z\in\mathbb C$ da $$\frac adz+\frac bd=z\iff az+b=dz\iff z=\frac{b}{d-a},$$ por lo que existiría un punto fijo finito, contradiciendo la hipótesis. Por tanto, $a=d$.
+>>		3. En consecuencia, $$T(z)=z+\frac bd,$$ así que $T$ es una traslación. Además, $b/d\neq0$: si $b/d=0$, entonces $T$ sería la identidad y todos los puntos serían fijos.
+>>	- **($\Leftarrow$)** Supongamos que $T(z)=z+\beta$, con $\beta\in\mathbb C\setminus\{0\}$.
+>>		1. Como toda traslación, $T(\infty)=\infty$, así que $\infty$ es un punto fijo.
+>>		2. Si algún $z\in\mathbb C$ fuera fijo, entonces $$z+\beta=z,$$ lo que implicaría $\beta=0$, contradicción. Por tanto, $\infty$ es el único punto fijo de $T$.
+>>- **(iii)**
+>>	- **($\Rightarrow$)** Supongamos que $T(0)=\infty$ y $T(\infty)=0$.
+>>		1. Escribimos $$T(z)=\frac{az+b}{cz+d},\qquad ad-bc\neq0.$$ Si $c=0$, entonces $T(\infty)=\infty$, contradiciendo $T(\infty)=0$. Por tanto, $c\neq 0$.
+>>		2. Con $c\neq 0$, la extensión vale $\infty$ exactamente en el polo $z=-d/c$. Como $T(0)=\infty$, debe ser $0=-d/c$, es decir $d=0$; entonces $ad-bc=-bc\neq0$, de modo que $b,c\neq0$.
+>>		3. Como $c\neq 0$, $$0=T(\infty)=\frac ac,$$ por lo que $a=0$. En consecuencia, $$T(z)=\frac{b}{cz}=\frac bc\,z^{-1}.$$ Además, $\lambda=b/c\neq0$, pues $b=0$ contradiría $ad-bc\neq0$.
+>>	- **($\Leftarrow$)** Supongamos que $T(z)=\lambda/z$, con $\lambda\in\mathbb C\setminus\{0\}$.
+>>		1. En la forma general, sus coeficientes son $a=0$, $b=\lambda$, $c=1$, $d=0$, con determinante $ad-bc=-\lambda\neq0$, así que $T$ es de Möbius.
+>>		2. El polo es $-d/c=0$, por lo que la extensión da $T(0)=\infty$. Además, $$T(\infty)=\frac ac=\frac01=0.$$ Por tanto, $T(0)=\infty$ y $T(\infty)=0$.
+
+>[!Exercise] Ejercicio 11
+>Sean $T$ y $S$ transformaciones de Möbius distintas de la identidad. Probar que $T$ y $S$ conmutan si y sólo si $T$ y $S$ tienen los mismos puntos fijos.
+>
+>>[!Proof]-
+>>- **Observación.** La implicación $\Leftarrow$ es verdadera, pero $\Rightarrow$ es falsa en general: hay pares que conmutan con distintos fijos (paso 14). Vale con la hipótesis adicional de que ninguna sea involución (paso 15).
+>>- **Idea clave (Estrategia por conjugación).** Todo el ejercicio se reduce a conjugar mediante una transformación de Möbius auxiliar $R$, definiendo las conjugadas $T_1=RTR^{-1}$ y $S_1=RSR^{-1}$. En ambas implicaciones se usan dos propiedades fundamentales: por un lado, los puntos fijos se trasladan directamente por $R$: $$w\in\mathrm{Fix}(T_1)\iff RTR^{-1}(w)=w\iff T(R^{-1}(w))=R^{-1}(w)\iff R^{-1}(w)\in\mathrm{Fix}(T)\iff w\in R(\mathrm{Fix}(T)),$$ de modo que $\mathrm{Fix}(T_1)=R(\mathrm{Fix}(T))$ y $\mathrm{Fix}(S_1)=R(\mathrm{Fix}(S))$; por otro lado, conmutar en las funciones originales equivale a conmutar en las conjugadas: $$TS=ST\iff (RTR^{-1})(RSR^{-1})=(RSR^{-1})(RTR^{-1})\iff T_1S_1=S_1T_1.$$ De esta manera, el problema con puntos fijos arbitrarios se traslada directamente a las formas canónicas del Ejercicio 10 (donde los puntos fijos son $\{\infty\}$ o $\{0,\infty\}$).
+>>- **($\Rightarrow$)** Supongamos $TS=ST$ en $\mathbb C_{\infty}$.
+>>	1. **Preservación mutua.** Si $T(p)=p$ entonces $$T(S(p))=S(T(p))=S(p),$$ o sea $S$ preserva $\mathrm{Fix}(T)$; simétricamente $T$ preserva $\mathrm{Fix}(S)$.
+>>	2. **Fondo.** Toda Möbius $\neq\mathrm{id}$ tiene a lo sumo 2 fijos; la identidad tiene infinitos.
+>>	3. **Caso un solo fijo.** Supongamos $\mathrm{Fix}(T)=\{p\}$, o sea $|\mathrm{Fix}(T)|=1$. Por el paso 1, $S$ preserva $\mathrm{Fix}(T)$, o sea $S(p)\in\mathrm{Fix}(T)=\{p\}$, luego $S(p)=p$ y $p\in\mathrm{Fix}(S)$. 
+>>	4. Por paso 2. como $S\neq\mathrm{id}$, o bien $\mathrm{Fix}(S)=\{p\}$, o bien $\mathrm{Fix}(S)=\{p,q\}$ con $q\neq p$;
+>>	5. Descartamos lo segundo por absurdo. En efecto, como $T$ preserva $Fix(S)=\{p,q\}$, luego $T(q)\in\{p,q\}$, pero $T(q)\neq p$ porque $T$ es inyectiva y $T(p)=p$, así que $T(q)=q$. Esto daría $|\mathrm{Fix}(T)|= 2$, contra $|\mathrm{Fix}(T)|=1$. 
+>>	6. Luego $\mathrm{Fix}(S)=\{p\}$. Mostrando que $S,T$ tienen los mismos puntos fijos
+>>	7. **Caso dos fijos.** Sea $\mathrm{Fix}(T)=\{p_1,p_2\}$. Definimos una Möbius auxiliar $R$ que mande $p_1$ a $0$ y $p_2$ a $\infty$ (el tercer punto a donde se quiera y queda definida). Con $T_1=RTR^{-1}$ y $S_1=RSR^{-1}$, se tiene $$w\in\mathrm{Fix}(T_1)\iff RTR^{-1}(w)=w\iff T(R^{-1}(w))=R^{-1}(w)\iff R^{-1}(w)\in\mathrm{Fix}(T)\iff w\in R(\mathrm{Fix}(T)),$$ por lo que $\mathrm{Fix}(T_1)=R(\mathrm{Fix}(T))$, y análogamente $\mathrm{Fix}(S_1)=R(\mathrm{Fix}(S))$.
+>>	8. Por tanto, $\mathrm{Fix}(T_1)=R(\{p_1,p_2\})=\{R(p_1),R(p_2)\}=\{0,\infty\}$; además $T_1S_1=S_1T_1$ pues $TS=ST$.
+>>	9. **Forma de $T_1$.** Como $T\neq\mathrm{id}$, $T_1\neq\mathrm{id}$ (si $RTR^{-1}=\mathrm{id}$ entonces $T=\mathrm{id}$). Luego $|\mathrm{Fix}(T_1)|\leq 2$ y $$\mathrm{Fix}(T_1)=\{0,\infty\}.$$ Por el ejercicio 10 (i), $$T_1(z)=kz,\qquad k\neq 0,1.$$
+>>	10. **Formas de $S_1$.** Como $S$ preserva $\{p_1,p_2\}$, y  $S_1(0)=R(S(p_1))\in\{0,\infty\}$ y $S_1(\infty)=R(S(p_2))\in\{0,\infty\}$, o sea $S_1$ preserva $\{0,\infty\}$; 
+>>	11. **Subcaso $S_{1}$ fija**: Como $S\neq\mathrm{id}$ también $S_1\neq\mathrm{id}$; si fija ambos, $\mathrm{Fix}(S_1)=\{0,\infty\}$ y por 10(i) $$S_1(z)=az.$$ En este subcaso $T_1S_1=S_1T_1$ siempre y $\mathrm{Fix}(S_1)=\{0,\infty\}=\mathrm{Fix}(T_1)$; 
+>>	12. Como $\mathrm{Fix}(S_1)=R(\mathrm{Fix}(S))$ osea $R^{-1}(\mathrm{Fix}(S_{1}))=\mathrm{Fix}(S)$ y $R^{-1}(0)=p_1$, $R^{-1}(\infty)=p_2$, resulta $\mathrm{Fix}(S)=\{p_1,p_2\}=\mathrm{Fix}(T)$.
+>>	13. Subcaso intercambia: si $S_1(0)=\infty$ y $S_1(\infty)=0$, por 10(iii) $$S_1(z)=c/z,\qquad c\neq 0.$$ Además $$T_1(S_1(z))=kc/z,\qquad S_1(T_1(z))=c/(kz),$$ luego conmutan para todo $z$ si y sólo si $k^2=1$; como $k\neq 1$, queda $k=-1$.
+>>	14. **Fijos del intercambio.** Con $S_1(z)=c/z$, los puntos $0$ e $\infty$ se intercambian, no se fijan; los fijos finitos resuelven $$c/z=z\iff z^2=c,$$ dos soluciones finitas no nulas. Luego $\mathrm{Fix}(S_1)=\{\sqrt c,-\sqrt c\}\neq\{0,\infty\}=\mathrm{Fix}(T_1)$.
+>>	15. **Contraejemplo.** Con $R=\mathrm{id}$, $T(z)=-z$ y $S(z)=1/z$ cumplen $$TS(z)=ST(z)=-1/z\quad\forall z,$$ con $\mathrm{Fix}(T)=\{0,\infty\}$ y $\mathrm{Fix}(S)=\{1,-1\}$. Conmutan con distintos fijos.
+>>	16. **Versión corregida.** Si además se supone que $T$ (o $S$) no es involución, es decir $k\neq -1$ en la normalización, el intercambio es imposible y $\Rightarrow$ sí vale.
+>>- **($\Leftarrow$)** Supongamos que $\mathrm{Fix}(T)=\mathrm{Fix}(S)$ y $T,S\neq\mathrm{id}$.
+>>	1. **Puntos fijos por conjugación.** Para cualquier transformación de Möbius biyectiva $R$, si definimos $T_1=RTR^{-1}$, se tiene $$w\in\mathrm{Fix}(T_1)\iff RTR^{-1}(w)=w\iff T(R^{-1}(w))=R^{-1}(w)\iff R^{-1}(w)\in\mathrm{Fix}(T)\iff w\in R(\mathrm{Fix}(T)),$$ por lo que $\mathrm{Fix}(T_1)=R(\mathrm{Fix}(T))$, y análogamente $\mathrm{Fix}(S_1)=R(\mathrm{Fix}(S))$.
+>>	2. **Caso un solo fijo común $\mathrm{Fix}(T)=\{p\}=\mathrm{Fix}(S)$.** Definimos una Möbius auxiliar $R$ que mande $p$ a $\infty$ (los otros dos puntos a donde se quiera y queda definida).
+>>	3. Tenemos que $\mathrm{Fix}(T_1)=R(\mathrm{Fix}(T))=R(\{p\})=\{R(p)\}=\{\infty\}$. Análogo con $\mathrm{Fix}(S_1)=\{\infty\}$.
+>>	4. Por el Ejercicio 10(ii), toda transformación de Möbius cuyo único punto fijo sea $\infty$ es una traslación no nula: existen $b_1,b_2\in\mathbb C\setminus\{0\}$ tales que $$T_1(z)=z+b_1,\qquad S_1(z)=z+b_2.$$
+>>	5. Como las traslaciones conmutan, $$T_1(S_1(z))=(z+b_2)+b_1=z+b_1+b_2=S_1(T_1(z))\implies T_1S_1=S_1T_1.$$
+>>	6. Conjugando de vuelta, $$TS=(R^{-1}T_1R)(R^{-1}S_1R)=R^{-1}(T_1S_1)R=R^{-1}(S_1T_1)R=ST.$$
+>>	7. **Caso dos fijos comunes $\mathrm{Fix}(T)=\{p_1,p_2\}=\mathrm{Fix}(S)$.** Definimos una Möbius auxiliar $R$ que mande $p_1$ a $0$ y $p_2$ a $\infty$ (el tercer punto a donde se quiera y queda definida).
+>>	8. Tenemos que $\mathrm{Fix}(T_1)=R(\mathrm{Fix}(T))=R(\{p_1,p_2\})=\{R(p_1),R(p_2)\}=\{0,\infty\}$. Análogo con $\mathrm{Fix}(S_1)=\{0,\infty\}$.
+>>	9. Por el Ejercicio 10(i), toda transformación de Möbius cuyos únicos puntos fijos sean $0$ e $\infty$ es una homotecia distinta de la identidad: existen $k,a\in\mathbb C\setminus\{0,1\}$ tales que $$T_1(z)=kz,\qquad S_1(z)=az.$$
+>>	10. Como las homotecias conmutan, $$T_1(S_1(z))=k(az)=(ka)z=(ak)z=a(kz)=S_1(T_1(z))\implies T_1S_1=S_1T_1.$$
+>>	11. Conjugando de vuelta, $$TS=R^{-1}(T_1S_1)R=R^{-1}(S_1T_1)R=ST.$$
+
+>[!Exercise] Ejercicio 12
+>Sea $G$ un subconjunto abierto y conexo de $\mathbb{C}$ y $f : G \to \mathbb{C}$ una función analítica. Probar que si $f(G)$ es un subconjunto de un círculo entonces $f$ es constante.
+>
+>>[!Proof]-
+>>1. Como $f(G)$ está contenido en un círculo, por lo tanto, para todo $z\in G$ se tiene $$|f(z)-a|=r.$$
+>>2. Escribiendo $z=x+iy$ y descomponiendo $f(x+iy)=u(x,y)+iv(x,y)$, la condición $|f(z)-a|^2=r^2$ se traduce en $$(u(x,y)-a_1)^2+(v(x,y)-a_2)^2=r^2.$$
+>>3. Derivando esta relación respecto de $x$ y dividiendo por $2$, obtenemos $$(u-a_1)u_x+(v-a_2)v_x=0.$$ Aplicando la ecuación de Cauchy-Riemann $v_x=-u_y$, resulta $$(u-a_1)u_x-(v-a_2)u_y=0.$$
+>>4. De manera análoga, derivando respecto de $y$ y dividiendo por $2$, obtenemos $$(u-a_1)u_y+(v-a_2)v_y=0.$$ Aplicando la ecuación de Cauchy-Riemann $v_y=u_x$, resulta $$(v-a_2)u_x+(u-a_1)u_y=0.$$
+>>5. Las ecuaciones anteriores forman un sistema lineal homogéneo para las derivadas parciales de $u$: $$\begin{pmatrix} u-a_1 & -(v-a_2) \\ v-a_2 & u-a_1 \end{pmatrix}\begin{pmatrix} u_x \\ u_y \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \end{pmatrix}.$$
+>>6. El determinante de la matriz de coeficientes es $$(u-a_1)^2+(v-a_2)^2=r^2>0.$$ Como el determinante es estrictamente positivo en todo $G$, el sistema admite únicamente la solución trivial: $$u_x(x,y)=0\qquad\text{y}\qquad u_y(x,y)=0.$$
+>>7. Por las ecuaciones de Cauchy-Riemann, se deduce también que $v_x=-u_y=0$ y $v_y=u_x=0$. En consecuencia, el diferencial satisface $Df\equiv 0$ en todo $G$ (o equivalentemente, $f'(z)=0$ para todo $z\in G$).
+>>8. Como $G$ es un conjunto abierto y conexo de $\mathbb C$ y el diferencial $Df$ se anula idénticamente en $G$, la función $f$ es constante.
+

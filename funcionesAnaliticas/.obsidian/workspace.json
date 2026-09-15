@@ -4,86 +4,115 @@
     "type": "split",
     "children": [
       {
-        "id": "25eee61a1c76eddc",
-        "type": "tabs",
+        "id": "18265c7921af18b5",
+        "type": "split",
         "children": [
           {
-            "id": "8b125bec92d5c01a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Theory/FA - Teo1.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
+            "id": "25eee61a1c76eddc",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "8b125bec92d5c01a",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Theory/FA - Teo1.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA - Teo1"
+                }
               },
-              "icon": "lucide-file",
-              "title": "FA - Teo1"
-            }
+              {
+                "id": "624f56a891ffe927",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Theory/FA - Teo3.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA - Teo3"
+                }
+              },
+              {
+                "id": "b7fd9489c3d475b3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Theory/FA - Teo2.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA - Teo2"
+                }
+              }
+            ],
+            "currentTab": 1
           },
           {
-            "id": "624f56a891ffe927",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Theory/FA - Teo3.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+            "id": "c5f3d6c3c65c54b1",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "09dda27c9535c47a",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Practicos/FA-Pr2.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA-Pr2"
+                }
               },
-              "icon": "lucide-file",
-              "title": "FA - Teo3"
-            }
-          },
-          {
-            "id": "c2892458af46e69e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Practicos/FA-Pr3 - Transformaciones afines.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+              {
+                "id": "c2892458af46e69e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Practicos/FA-Pr3 - Transformaciones afines.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA-Pr3 - Transformaciones afines"
+                }
               },
-              "icon": "lucide-file",
-              "title": "FA-Pr3 - Transformaciones afines"
-            }
+              {
+                "id": "cc137426ae1db94b",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Practicos/FA-Pr2.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA-Pr2"
+                }
+              }
+            ],
+            "currentTab": 2
           }
         ],
-        "currentTab": 2
-      },
-      {
-        "id": "1bc857dcce018731",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d55ad1fc996bdb4a",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Practicos/FA-Pr3.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "FA-Pr3"
-            }
-          },
-          {
-            "id": "09dda27c9535c47a",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Apuntes/FA-Teo4.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "FA-Teo4"
-            }
-          }
-        ]
+        "direction": "vertical"
       }
     ],
     "direction": "vertical"
@@ -254,32 +283,33 @@
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "c2892458af46e69e",
+  "active": "624f56a891ffe927",
   "lastOpenFiles": [
-    "Theory/FA - Teo3.md",
-    "Practicos/FA-Pr3 - Transformaciones afines.md",
-    "Untitled 3.md",
     "Practicos/FA-Pr2.md",
-    "Practicos/FA-Pr3.pdf",
-    "Apuntes/FA-Teo4.pdf",
-    "Untitled 2.md",
-    "Practicos/FA-Pr4.pdf",
+    "Practicos/FA-Pr3 - Transformaciones afines.md",
     "Theory/FA - Teo2.md",
+    "Apuntes/FA-Teo2.pdf",
+    "Apuntes/FA-Teo4.pdf",
+    "Theory/FA - Teo3.md",
+    "Untitled.md",
+    "Practicos/FA-Pr3.pdf",
+    "Apuntes/FA-Teo3.pdf",
+    "Practicos/FA-Pr4.pdf",
+    "Practicos/FA-Pr4-II.pdf",
+    "Practicos/FA-Pr5.pdf",
+    "Practicos/FA-Pr3.md",
+    "Pasted image 20260907172840.png",
+    "Misc/Prob9-Mobius-i.md",
+    "Practicos/FA-Pr5-2026.pdf",
+    "Untitled 3.md",
+    "Untitled 2.md",
     "Untitled 1.md",
     "Misc/Gastos.md",
-    "Apuntes/FA-Teo3.pdf",
-    "Practicos/FA-Pr3.md",
     "Apuntes/Conway_Functions_of_one_complex_variable.pdf",
     "Practicos/FA-Pr2.pdf",
-    "Untitled.md",
     "AGENTS.md",
-    "Pasted image 20260907172840.png",
     "Misc/Pasted image 20260826224209.png",
     "Misc/Pasted image 20260826224101.png",
-    "Misc",
-    "Apuntes/FA-Teo2.pdf",
-    "Practicos/FA-Pr1.pdf",
-    "Practicos/practico2-2025-2026.pdf",
     "Misc/Pasted image 20260831121707.png",
     "Misc/Pasted image 20260827200049.png",
     "Theory/FA - Teo1.md",

@@ -33,7 +33,7 @@ source: "[[2da clase.pdf]]"
 ## 1. Producto directo y suma directa
 
 >[!Definition] Producto directo de una familia de grupos
->Sea $(G_i)_{i\in I}$ una familia de grupos. Su **producto directo** es $$\prod_{i\in I}G_i=\left\{f:I\longrightarrow\bigcup_{i\in I}G_i:f(i)\in G_i\text{ para todo }i\in I\right\}.$$
+>Sea $(G_i)_{i\in I}$ una familia de grupos. Su **producto directo** es $$\prod_{i\in I}G_i=\left\{g:I\longrightarrow\bigcup_{i\in I}G_i:g(i)\in G_i\text{ para todo }i\in I\right\}.$$
 >Es habitual escribir sus elementos como tuplas indexadas: $$(g_i)_{i\in I}=\underbrace{(g(1),g(2),\ldots)}_{\lvert I\rvert\text{ elementos}}.$$
 >La operación se define coordenada a coordenada: $$(g_i)_{i\in I}(h_i)_{i\in I}=(g_ih_i)_{i\in I}=\underbrace{(g(1)h(1),g(2)h(2),\ldots)}_{\lvert I\rvert\text{ elementos}}.$$
 >Con esta operación, $\prod_{i\in I}G_i$ es un grupo. Su neutro es $(e_i)_{i\in I}$ y $$(g_i)_{i\in I}^{-1}=(g_i^{-1})_{i\in I}.$$

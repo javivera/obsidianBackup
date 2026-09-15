@@ -313,6 +313,8 @@ mp
 >>- (g)
 >>	1. Sea $K=\langle\sigma,\tau\rangle$. Para $i=0,1,\ldots,n-2$, el inciso **(f)** muestra que $$(i+1\ i+2)=\tau^i\sigma\tau^{-i}\in K.$$ Por lo tanto, $K$ contiene todas las transposiciones adyacentes $(12),(23),\ldots,(n-1\ n)$, que generan $S_n$ por **(e)**. Así, $S_n\subseteq K$; como $K\subseteq S_n$, concluimos que $$\langle\sigma,\tau\rangle=S_n.$$
 
+^18c19a
+
 >[!exercise] Ejercicio 18
 >Calcular el orden y el signo de las siguientes permutaciones: $(4267)\in S_9$; $(365)(173)\in S_7$; $(13254)(35)\in S_6$.
 >>[!Proof]-

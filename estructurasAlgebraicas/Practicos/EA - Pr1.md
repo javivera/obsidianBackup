@@ -232,3 +232,21 @@ tags:
 >>2. **Paso inductivo.** Supongamos que para cierto $j\geq0$ se cumple $$b^jab^{-j}=a^{r^j}.$$ Entonces $$\begin{aligned}b^{j+1}ab^{-(j+1)}&=b\left(b^jab^{-j}\right)b^{-1}\\&=ba^{r^j}b^{-1}\\&=(bab^{-1})^{r^j}\\&=(a^r)^{r^j}\\&=a^{r^{j+1}}.\end{aligned}$$
 >>3. En la tercera igualdad usamos que la conjugación preserva potencias: para todo $n\in\mathbb N$, $$ba^nb^{-1}=(bab^{-1})^n.$$
 >>4. Por el principio de inducción, $$b^jab^{-j}=a^{r^j}$$ para todo $j\in\mathbb N$.
+
+>[!exercise] Ejercicio 15
+>Sea $A$ una figura del plano, esto es, un subconjunto del plano. Sea $G$ el conjunto de transformaciones rígidas $T$ del plano que preservan a $A$, es decir, tales que $T(A)=A$.
+>- **(a)** Probar que $G$ con la composición es un grupo.
+>- **(b)** Dar ejemplos en los que este grupo es trivial, finito e infinito.
+>- **(c)** Dar ejemplos en los que $G$ es abeliano y otros en los que $G$ no es abeliano.
+>- **(d)** Si $A=A_n$, polígono regular de $n$ lados, $G$ es el grupo diedral $D_n$.
+>- **(e)** Describir $D_n$, distinguiendo los casos $n$ par y $n$ impar.
+
+>[!exercise] Ejercicio 16
+>Sean $X$ un conjunto no vacío y $(G,*)$ un grupo. Definamos $F(X,G):=\{f:X\to G\}$, el conjunto de todas las funciones de $X$ en $G$, y consideremos en $F(X,G)$ la operación $\mathbin{\bullet}$ definida por $(f\mathbin{\bullet}g)(x)=f(x)*g(x)$. Mostrar que $(F(X,G),\mathbin{\bullet})$ es un grupo. Más aún, si $G$ es abeliano, entonces $F(X,G)$ también lo es.
+
+>[!exercise] Ejercicio 17
+>Sea $G$ un grupo abeliano finito y sea $S_G=\sum_{g\in G}g$.
+>- **(a)** Probar que $S_G=\sum_{g\in G:\,2g=0}g$.
+>- **(b)** Calcular $S_G$ para $G=\mathbb Z_n$.
+>- **(c)** Calcular $S_G$ para $G=G_n$.
+>Considere la situación en el caso no abeliano para los grupos $S_3$ y $D_4$.

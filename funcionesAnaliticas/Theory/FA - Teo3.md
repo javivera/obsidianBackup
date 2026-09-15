@@ -89,7 +89,7 @@
 >>	3. **También coincide la extensión a la esfera.** Si $c\neq0$, el polo sigue siendo $-\lambda d/(\lambda c)=-d/c$, su imagen sigue siendo $\infty$ y el valor en $\infty$ sigue siendo $\lambda a/(\lambda c)=a/c$. Si $c=0$, ambas expresiones representan la misma función afín y envían $\infty$ a $\infty$. Así, el escalar tampoco cambia la transformación en $\mathbb C_\infty$.
 
 >[!Exercise] Unicidad de los coeficientes salvo escalar
->Sean $S(z)=\frac{az+b}{cz+d}$ y $T(z)=\frac{\alpha z+\beta}{\gamma z+\delta}$ dos transformaciones de Möbius tales que $S=T$. Entonces existe $\lambda\in\mathbb{C}$ tal que $a=\lambda\alpha$, $b=\lambda\beta$, $c=\lambda\gamma$ y $d=\lambda\delta$.
+>Sean $$S(z)=\frac{az+b}{cz+d}\qquad T(z)=\frac{\alpha z+\beta}{\gamma z+\delta}$$dos transformaciones de Möbius tales que $S=T$. Entonces existe $\lambda\in\mathbb{C}$ tal que $a=\lambda\alpha$, $b=\lambda\beta$, $c=\lambda\gamma$ y $d=\lambda\delta$.
 >>[!Proof]-
 >>1. De $\frac{az+b}{cz+d}=\frac{\alpha z+\beta}{\gamma z+\delta}$ se deduce $(az+b)(\gamma z+\delta)=(\alpha z+\beta)(cz+d)$.
 >>2. Expandiendo, $$a\gamma z^2+(a\delta+b\gamma)z+b\delta=c\alpha z^2+(d\alpha+c\beta)z+d\beta.$$
@@ -127,9 +127,14 @@
 >>	3. **Inversos.** Por (a), cada transformación $S$ tiene una inversa $S^{-1}$ que también es Möbius y cumple $$S\circ S^{-1}=I=S^{-1}\circ S.$$ Se verifican así todos los axiomas: las transformaciones de Möbius de $\mathbb C_\infty$ forman un grupo bajo la composición.
 
 >[!Proposition] Extensión a la esfera de Riemann
->Podemos extender las transformaciones de Möbius a $\mathbb{C}_\infty$. Escribiendo $\mathbb{C}_\infty=(\mathbb{C}\setminus\{-d/c\})\cup\{-d/c\}\cup\{\infty\}$, sea $S^*:\mathbb{C}_\infty\to\mathbb{C}_\infty$ dada por $$S^*(z)=\begin{cases}S(z),&\text{si }z\in\mathbb{C}\setminus\{-d/c\},\\\infty,&\text{si }z=-d/c,\\a/c,&\text{si }z=\infty,\end{cases}$$ pues $\lim_{z\to\infty}S(z)=a/c$.
+>Podemos extender las transformaciones de Möbius a $\mathbb{C}_\infty$. Si $c\neq0$, escribiendo $\mathbb{C}_\infty=(\mathbb{C}\setminus\{-d/c\})\cup\{-d/c\}\cup\{\infty\}$, sea $S^*:\mathbb{C}_\infty\to\mathbb{C}_\infty$ dada por $$S^*(z)=\begin{cases}S(z),&\text{si }z\in\mathbb{C}\setminus\{-d/c\},\\\infty,&\text{si }z=-d/c,\\a/c,&\text{si }z=\infty.\end{cases}$$ Si $c=0$, entonces $ad\neq0$, de modo que $d\neq0$ y el denominador $cz+d=d$ no se anula en ningún punto de $\mathbb C$; en este caso la extensión queda dada por $S^*(z)=S(z)$ para $z\in\mathbb C$ y $S^*(\infty)=\infty$.
 >>[!Proof]-
->>1. Ejercicio: ver que $S^*$ es un homeomorfismo. Solo falta ver que $S^{-1}$ es continua.
+>>1. **Continuidad en los puntos ordinarios cuando $c\neq0$.** En $\mathbb C\setminus\{-d/c\}$, la función $S^*$ coincide con la función racional $S(z)=\frac{az+b}{cz+d}$, que es continua porque su denominador no se anula.
+>>2. **Continuidad en $z_0=-d/c$.** Como $$az_0+b=-\frac{ad}{c}+b=\frac{bc-ad}{c}\neq0,$$ se tiene $$\lim_{z\to z_0}\frac{1}{S(z)}=\lim_{z\to z_0}\frac{cz+d}{az+b}=0.$$ Por lo tanto, $S(z)\to\infty=S^*(z_0)$ cuando $z\to z_0$, de modo que $S^*$ es continua en $z_0$.
+>>3. **Continuidad en $\infty$ cuando $c\neq0$.** Se cumple $$S(z)-\frac ac=\frac{c(az+b)-a(cz+d)}{c(cz+d)}=\frac{bc-ad}{c(cz+d)}\xrightarrow[z\to\infty]{}0.$$ Luego $S(z)\to a/c=S^*(\infty)$, por lo que $S^*$ es continua en $\infty$.
+>>4. **Caso $c=0$.** Como $ad\neq0$, se tiene $a,d\neq0$ y $$S(z)=\frac adz+\frac bd.$$ Esta función es continua en $\mathbb C$ y además $$\frac1{S(z)}=\frac d{az+b}\xrightarrow[z\to\infty]{}0.$$ Por consiguiente, $S(z)\to\infty=S^*(\infty)$ y $S^*$ también es continua en toda $\mathbb C_\infty$ en este caso.
+>>5. **Inversa.** Definimos $$R(w)=\frac{dw-b}{-cw+a}.$$ Sus coeficientes tienen determinante $da-(-b)(-c)=ad-bc\neq0$, así que $R$ también es una transformación de Möbius. Por la proposición anterior, sus extensiones satisfacen $$R^*\circ S^*=\operatorname{Id}_{\mathbb C_\infty}=S^*\circ R^*,$$ por lo que $R^*=(S^*)^{-1}$ y $S^*$ es biyectiva.
+>>6. **Conclusión.** Aplicando a $R^*$ el mismo argumento de los pasos anteriores, vemos que $(S^*)^{-1}=R^*$ es continua. Por lo tanto, $S^*$ es biyectiva, continua y tiene inversa continua; es decir, $S^*$ es un homeomorfismo de $\mathbb C_\infty$.
 
 >[!Definition] Aplicaciones elementales
 >- Traslación: $S(z)=z+b$ ($a=1$, $b\in\mathbb{C}$, $c=0$, $d=1$).
@@ -175,6 +180,13 @@
 >- **(b)** Sean $z_2,z_3,z_4$ distintos en $\mathbb{C}_\infty$ con $z_2=\infty$. Buscamos $S:\mathbb{C}_\infty\to\mathbb{C}_\infty$ tal que $S(z_2)=1$, $S(z_3)=0$ y $S(z_4)=\infty$. Como $S(\infty)=a/c=1$, se tiene $a=c$. Luego $$S(z)=\frac{z-z_3}{z-z_4}.$$ Lo mismo, $S$ es única con tal propiedad.
 >- **(c)** Sean $z_2,z_3,z_4$ distintos en $\mathbb{C}_\infty$ con $z_3=\infty$. Buscamos $S:\mathbb{C}_\infty\to\mathbb{C}_\infty$ tal que $S(z_2)=1$, $S(z_3)=0$ y $S(z_4)=\infty$. Entonces $$S(z)=\frac{z_2-z_4}{z-z_4}.$$
 >- **(d)** Sean $z_2,z_3,z_4$ distintos en $\mathbb{C}_\infty$ con $z_4=\infty$. Buscamos $S:\mathbb{C}_\infty\to\mathbb{C}_\infty$ tal que $S(z_2)=1$, $S(z_3)=0$ y $S(z_4)=\infty$. Entonces $$S(z)=\frac{z-z_3}{z_2-z_3}.$$
+>>[!Proof]-
+>>- (b)
+>>	1. Sea $S^*$ la extensión de $S(z)=(az+b)/(cz+d)$ dada en la proposición anterior, que por abuso denotamos $S$; como $z_2=\infty$ y $z_2,z_3,z_4$ son distintos, $z_3,z_4\in\mathbb C$ son finitos y $z_3\ne z_4$.
+>>	2. Si $c=0$ entonces $S^*(\infty)=\infty\ne 1$ y ningún $z$ finito cumple $S^*(z)=\infty$, lo que contradice $S^*(\infty)=1$ y $S^*(z_4)=\infty$ con $z_4$ finito; luego $c\ne 0$, $S^*(\infty)=a/c=1$ y $a=c\ne 0$, pues si $a=c=0$ sería $ad-bc=0$.
+>>	3. Como $S^*(z_3)=0\ne\infty$, $z_3$ no es el polo $-d/c$ donde $S^*$ vale $\infty$; luego vale la fórmula finita $$S(z_3)=\frac{az_3+b}{cz_3+d}=0,$$ de donde $b=-az_3$.
+>>	4. Como $z_4$ es finito, $c\ne 0$ y $S^*(z_4)=\infty$, $z_4$ tiene que ser el único polo $-d/c$; luego $d=-cz_4=-az_4$.
+>>	5. Sustituyendo queda $$S(z)=\frac{az-az_3}{az-az_4}=\frac{z-z_3}{z-z_4},$$ que corresponde a $a=c=1$, $b=-z_3$, $d=-z_4$ con $ad-bc=z_3-z_4\ne 0$ y cumple $S(\infty)=1$, $S(z_3)=0$, $S(z_4)=\infty$; como toda $S$ con esa propiedad es necesariamente de esta forma, es única.
 
 >[!Definition] Razón armónica
 >Dados $z,z_2,z_3,z_4$ puntos distintos en $\mathbb{C}_\infty$. Llamamos razón armónica de $z,z_2,z_3,z_4$, que denotamos $(z,z_2,z_3,z_4)$, a la imagen de $z$ bajo la única transformación de Möbius que envía $z_2\mapsto1$, $z_3\mapsto0$ y $z_4\mapsto\infty$.
