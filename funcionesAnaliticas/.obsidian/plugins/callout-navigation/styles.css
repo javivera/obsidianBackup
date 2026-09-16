@@ -1,0 +1,14 @@
+/* Callout Navigation: highlight the currently selected outer callout.
+   High specificity + !important so theme/snippet callout styles (gold
+   borders, custom shadows) can't swallow the focus ring. */
+body .markdown-reading-view .callout.cn-selected {
+  outline: 3px solid var(--interactive-accent) !important;
+  outline-offset: 2px;
+  border-radius: var(--callout-radius);
+  box-shadow: 0 0 16px 4px var(--interactive-accent) !important;
+  background-color: color-mix(in srgb, var(--interactive-accent) 10%, transparent);
+  scroll-margin-top: 12px;
+}
+body .markdown-reading-view .callout.cn-selected > .callout-title {
+  background-color: color-mix(in srgb, var(--interactive-accent) 20%, transparent);
+}

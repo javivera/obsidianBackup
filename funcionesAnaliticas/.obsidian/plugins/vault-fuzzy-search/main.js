@@ -272,9 +272,21 @@ class FuzzySearchModal extends Modal {
     this.modalEl.addClass("vault-fuzzy-search-modal");
     this.plugin.openModals.add(this);
     this.renderShell();
+    this.inputEl.value = this.plugin.lastQuery || "";
     await this.plugin.ensureIndex();
     this.updateStatus();
     this.runSearch();
+    this.restoreState();
+  }
+
+  restoreState() {
+    const saved = this.plugin.lastState;
+    if (!saved) return;
+    if (this.results.length) {
+      this.selectedIndex = Math.min(Math.max(0, saved.selectedIndex | 0), this.results.length - 1);
+      this.refreshSelection();
+    }
+    this.resultsEl.scrollTop = saved.scrollTop || 0;
   }
 
   renderShell() {
@@ -379,7 +391,7 @@ class FuzzySearchModal extends Modal {
         this.selectedIndex = index;
         this.refreshSelection();
       });
-      row.addEventListener("click", (event) => this.openResult(result, event.metaKey || event.ctrlKey));
+      row.addEventListener("click", (event) => this.openResult(result, event.metaKey || event.ctrlKey ? "right" : "left"));
     });
     this.updateStatus(`${this.results.length}${this.results.length === MAX_RESULTS ? "+" : ""} resultados`);
   }
@@ -404,7 +416,8 @@ class FuzzySearchModal extends Modal {
       this.refreshSelection();
     } else if (event.key === "Enter" && this.results[this.selectedIndex]) {
       event.preventDefault();
-      void this.openResult(this.results[this.selectedIndex], event.metaKey || event.ctrlKey);
+      const target = event.metaKey || event.ctrlKey ? "right" : "left";
+      void this.openResult(this.results[this.selectedIndex], target);
     } else if (event.key === "Escape") {
       if (this.inputEl.value) {
         event.preventDefault();
@@ -415,30 +428,125 @@ class FuzzySearchModal extends Modal {
     }
   }
 
-  async openResult(result, newLeaf) {
-    this.close();
-    const leaf = newLeaf ? this.app.workspace.getLeaf("tab") : this.app.workspace.getLeaf(false);
-    await leaf.openFile(result.file, { active: true });
-    this.app.workspace.setActiveLeaf(leaf, { focus: true });
+  modalDocument() {
+    if (this.inputEl && this.inputEl.ownerDocument) return this.inputEl.ownerDocument;
+    return typeof document !== "undefined" ? document : null;
+  }
 
-    const focusAndScroll = () => {
-      const view = leaf.view;
-      if (view?.editor) {
-        if (result.line !== null) {
-          const line = Math.min(result.line, Math.max(0, view.editor.lineCount() - 1));
-          view.editor.setCursor({ line, ch: 0 });
-          view.editor.scrollIntoView({ from: { line, ch: 0 }, to: { line, ch: 0 } }, true);
-        }
-        view.editor.focus();
+  // Leaves of the main area in the window that holds the search modal.
+  // Popout windows live under workspace.floatingSplit; sidebars are never visited.
+  // NOTE: this walks the tree with plain recursion. Do NOT collect via
+  // iterateRootLeaves with an expression callback: Obsidian halts that
+  // iteration as soon as the callback returns a truthy value (e.g. push()'s length).
+  windowLeaves() {
+    const workspace = this.app.workspace;
+    const doc = this.modalDocument();
+    const ordered = [];
+    const walk = (node) => {
+      if (!node) return;
+      // WorkspaceLeaf has getViewState/openFile; splits and tab groups do not.
+      if (typeof node.getViewState === "function" && typeof node.openFile === "function") {
+        ordered.push(node);
+        return;
       }
+      if (Array.isArray(node.children)) node.children.forEach(walk);
     };
+    walk(workspace.rootSplit);
+    const floating = workspace.floatingSplit;
+    if (floating && Array.isArray(floating.children)) floating.children.forEach(walk);
+    if (!doc) return ordered;
+    return ordered.filter((leaf) => {
+      const el = leaf.containerEl;
+      return el && el.ownerDocument === doc;
+    });
+  }
 
-    focusAndScroll();
-    window.setTimeout(focusAndScroll, 50);
+  targetAnchor(target) {
+    const workspace = this.app.workspace;
+    const leaves = this.windowLeaves();
+    if (target === "right") {
+      if (leaves.length > 1) return { anchor: leaves[leaves.length - 1], fresh: false };
+      const base = leaves[0] || workspace.getLeaf(false);
+      return { anchor: workspace.createLeafBySplit(base, "vertical"), fresh: true };
+    }
+    return { anchor: leaves[0] || workspace.getLeaf(false), fresh: false };
+  }
+
+  newTabInGroup(group) {
+    const workspace = this.app.workspace;
+    try {
+      return workspace.createLeafInParent(group, group.children.length);
+    } catch (error) {
+      workspace.setActiveLeaf(group.children[group.children.length - 1], { focus: false });
+      return workspace.getLeaf("tab");
+    }
+  }
+
+  targetGroup(target) {
+    const leaves = this.windowLeaves();
+    if (!leaves.length) return null;
+    if (target === "right" && leaves.length > 1) return leaves[leaves.length - 1].parent;
+    return leaves[0].parent;
+  }
+
+  findOpenLeaf(filePath, target) {
+    // Each key only sees its own pane: Enter -> left pane, Cmd/Ctrl+Enter -> right pane.
+    const group = this.targetGroup(target);
+    const matches = group
+      ? this.windowLeaves().filter((leaf) => leaf.parent === group && leaf.view?.file?.path === filePath)
+      : [];
+    if (!matches.length) return null;
+    return matches.find((leaf) => leaf.parent?.currentTab === leaf) || matches[matches.length - 1];
+  }
+
+  positionLine(leaf, line) {
+    if (line === null || line === undefined) return;
+    // setEphemeralState is mode-aware: Reading view scrolls to the line and
+    // highlights it; edit/Live Preview views move the cursor and scroll.
+    const place = () => {
+      if (!leaf.view) return false;
+      leaf.setEphemeralState?.({ line, focus: true });
+      const editor = leaf.view.editor;
+      if (!editor) return true;
+      const at = Math.min(line, Math.max(0, editor.lineCount() - 1));
+      editor.setCursor({ line: at, ch: 0 });
+      editor.scrollIntoView({ from: { line: at, ch: 0 }, to: { line: at, ch: 0 } }, true);
+      return true;
+    };
+    if (!place()) {
+      window.setTimeout(place, 100);
+      window.setTimeout(place, 300);
+    }
+  }
+
+  async openResult(result, target = "left") {
+    // Already open anywhere in the main area: reuse that tab instead of duplicating it.
+    const openLeaf = this.findOpenLeaf(result.file.path, target);
+    if (openLeaf) {
+      await this.app.workspace.revealLeaf(openLeaf);
+      this.app.workspace.setActiveLeaf(openLeaf, { focus: true });
+      this.positionLine(openLeaf, result.line);
+      this.close();
+      return;
+    }
+    const { anchor, fresh } = this.targetAnchor(target);
+    // A pane that already exists gets a NEW TAB so the open note is never replaced.
+    const leaf = fresh ? anchor : this.newTabInGroup(anchor.parent);
+    const openState = result.line === null
+      ? { active: true }
+      : { active: true, eState: { line: result.line, ch: 0 } };
+    await leaf.openFile(result.file, openState);
+    this.positionLine(leaf, result.line);
+    this.close();
   }
 
   onClose() {
     window.clearTimeout(this.searchTimer);
+    this.plugin.lastQuery = this.inputEl ? this.inputEl.value : this.plugin.lastQuery || "";
+    this.plugin.lastState = {
+      selectedIndex: this.selectedIndex,
+      scrollTop: this.resultsEl ? this.resultsEl.scrollTop : 0,
+    };
     this.plugin.openModals.delete(this);
     this.contentEl.empty();
   }
@@ -451,6 +559,8 @@ module.exports = class VaultFuzzySearchPlugin extends Plugin {
     this.indexPromise = null;
     this.reindexTimers = new Map();
     this.openModals = new Set();
+    this.lastQuery = "";
+    this.lastState = null;
 
     this.addRibbonIcon("scan-search", "Abrir búsqueda difusa", () => this.openSearch());
     this.addCommand({

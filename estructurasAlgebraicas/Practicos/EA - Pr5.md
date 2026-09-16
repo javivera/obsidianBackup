@@ -64,15 +64,41 @@ tags:
 
 >[!exercise] Ejercicio 12
 >Sean $G$ un $p$-grupo finito y $H\triangleleft G$, con $H$ no trivial. Probar que $H\cap C(G)\neq\{e\}$.
+>>[!Proof]-
+>>1. Como $H$ es un subgrupo no trivial de $G$, por el teorema de Lagrange existe $m\geq 1$ tal que $|H|=p^m$. Consideramos la acción de $G$ sobre $H$ dada por conjugación, $g\cdot h=ghg^{-1}$. Esta acción está bien definida porque $H\triangleleft G$.
+>>2. Recordamos $$H^G=\{h\in H:g\cdot h=h\ \text{para todo }g\in G\}$$por el [[Teorico 5#^e8cda5|lema de puntos fijos]], aplicado a la acción de $G$ sobre $H$, se tiene $$|H|\equiv |H^G|\pmod p$$osea $|H|-|H^{G}|$ es divisible por $p$ y como $|H|=p^m$, resulta que $|H^G|$ es divisible por $p$
+>>3. El elemento $e$ pertenece a $H^G$, ya que $g e g^{-1}=e$ para todo $g\in G$ osea no tiene orden $0$
+>>4. Como $|H^G|$ es divisible por el primo $p$, no puede ser $|H^G|=1$; por consiguiente tiene orden mayor que $1$ analogamente existe $h\in H^G$ con $h\neq e$.
+>>5. Finalmente, $h\in H^G$ significa que $ghg^{-1}=h$ para todo $g\in G$, o equivalentemente, $gh=hg$ para todo $g\in G$. Así, $h\in C(G)$ y, como también $h\in H$, se concluye que $h\in H\cap C(G)$ con $h\neq e$. Por lo tanto, $H\cap C(G)\neq\{e\}$.
 
 >[!exercise] Ejercicio 13
 >Sean $P$ un $p$-subgrupo de Sylow normal de un grupo finito $G$ y $f\in\operatorname{End}(G)$. Probar que $f(P)<P$.
+>>[!Proof]-
+>>1. Escribamos $|G|=p^nk$, donde $p$ no divide a $k$. Como $P$ es un $p$-subgrupo de Sylow, $|P|=p^n$. Sea $H=f(P)$. La restricción $f|_P:P\to G$ es un homomorfismo, por lo que $H$ es un subgrupo de $G$. 
+>>2. Como la imagen de un homomorfismo entre grupos finitos tiene orden que divide al orden del dominio tenemos que $|H|=p^a$ para algún entero $0\leq a\leq n$. Por lo tanto, $H$ es un $p$-subgrupo (no necesariamente Sylow) de $G$.
+>>3. Como $P\triangleleft G$, para cada $h\in H$ se tiene $hPh^{-1}=P$. Multiplicando ambos conjuntos a derecha por $h$, obtenemos $hP=Ph$. Por lo tanto, $$HP=\bigcup_{h\in H}hP=\bigcup_{h\in H}Ph=PH.$$
+>>4. Probemos que $HP$ es un subgrupo de $G$. Es no vacío porque $e_G=e_Ge_G\in HP$. Sean $x=h_1p_1$ e $y=h_2p_2$ elementos de $HP$, con $h_1,h_2\in H$ y $p_1,p_2\in P$. Entonces $$xy^{-1}=h_1p_1p_2^{-1}h_2^{-1}.$$ Como $p_1p_2^{-1}\in P$, $h_2^{-1}\in H$ y $PH=HP$, existen $h_3\in H$ y $p_3\in P$ tales que $p_1p_2^{-1}h_2^{-1}=h_3p_3$. Luego $$xy^{-1}=h_1h_3p_3\in HP.$$ Por el criterio de subgrupo, $HP\leq G$.
+>>5. Como $H\cap P\leq H$ y $|H|=p^a$, existe un entero $b$ con $0\leq b\leq a$ tal que $|H\cap P|=p^b$. La fórmula para el cardinal del producto de dos subgrupos da $$|HP|=\frac{|H|\,|P|}{|H\cap P|}.$$por tanto, $$|HP|=\frac{p^{a+n}}{p^b}=p^{a+n-b}$$así, $HP$ es un $p$-subgrupo de $G$.
+>>6. Como $P\leq HP$, por lagrange $$p^{n}=|P|\,\big|\,|HP|$$puesto que $|G|=p^nk$ y $(p:k)=1$, el exponente de $p$ en $|HP|$ no puede exceder a $n$. En consecuencia, $$|HP|=p^n=|P|$$
+>>7. La inclusión $P\leq HP$ entre grupos finitos del mismo orden implica $HP=P$. Asimismo, $H\leq HP$, pues $h=he_G\in HP$ para todo $h\in H$. Por lo tanto, $$f(P)=H\leq HP=P.$$ Es decir, $f(P)<P$ con la notación del enunciado.
 
 >[!exercise] Ejercicio 14
 >Sea $G$ un grupo finito. Si cada $p$-subgrupo de Sylow de $G$ es normal para cada primo $p$, entonces $G$ es el producto de sus subgrupos de Sylow.
+>>[!Proof]-
+>>1. Sea $|G|=p_1^{a_1}\cdots p_r^{a_r}$ la factorización de $|G|$ en potencias de primos distintos y, para cada $i\in\{1,\dots,r\}$, sea $P_i\in\operatorname{Syl}_{p_i}(G)$. Entonces $|P_i|=p_i^{a_i}$ y, por hipótesis, $P_i\trianglelefteq G$. Probaremos que $G=P_1P_2\cdots P_r$.
+>>2. Definimos $H_m=P_1P_2\cdots P_m$ para $1\leq m\leq r$. Demostraremos por inducción que $H_m\leq G$ y que $|H_m|=\prod_{i=1}^{m}|P_i|$. Para $m=1$, se tiene $H_1=P_1\leq G$ y la igualdad de órdenes es inmediata.
+>>3. Supongamos que $H_m\leq G$ y $|H_m|=\prod_{i=1}^{m}|P_i|$. Como $P_{m+1}\trianglelefteq G$ y $H_m\leq G$, la [[Teorico 4#El producto $NK$|Proposición 11]], da directamente $$H_{m+1}=H_mP_{m+1}=P_{m+1}H_m\leq G.$$
+>>4. Por Lagrange, $|H_m\cap P_{m+1}|$ divide tanto a $|H_m|=\prod_{i=1}^{m}p_i^{a_i}$ como a $|P_{m+1}|=p_{m+1}^{a_{m+1}}$. Estos dos números son coprimos, de modo que $|H_m\cap P_{m+1}|=1$ y $H_m\cap P_{m+1}=\{e_G\}$. La fórmula del cardinal del producto da $$|H_{m+1}|\,|H_m\cap P_{m+1}|=|H_m|\,|P_{m+1}|,$$ y por ello $$|H_{m+1}|=|H_m|\,|P_{m+1}|=\prod_{i=1}^{m+1}|P_i|.$$ Esto completa el paso inductivo.
+>>5. En consecuencia, $H_r=P_1P_2\cdots P_r$ es un subgrupo de $G$ y $$|H_r|=\prod_{i=1}^{r}|P_i|=\prod_{i=1}^{r}p_i^{a_i}=|G|.$$ Como $H_r\leq G$ y ambos grupos finitos tienen el mismo orden, se concluye que $$G=P_1P_2\cdots P_r.$$ Por lo tanto, $G$ es el producto de sus subgrupos de Sylow.
 
 >[!exercise] Ejercicio 15
 >Si $|G|=p^nq$, con $p>q$ primos, entonces $G$ contiene un único subgrupo normal de índice $q$.
+>>[!Proof]-
+>>1. Por el primer teorema de Sylow, existe $P\in\operatorname{Syl}_p(G)$. Como $|G|=p^nq$ y $p\neq q$, se tiene $|P|=p^n$. Por lo tanto, $|G|=q|P|$ y, en consecuencia, $[G:P]=q$.
+>>2. Sea $n_p$ la cantidad de $p$-subgrupos de Sylow de $G$. Por el tercer teorema de Sylow, $n_p\mid q$ y $n_p\equiv1\pmod p$. Como $q$ es primo, la primera condición implica que $n_p\in\{1,q\}$.
+>>3. Si $n_p=q$, entonces $q\equiv1\pmod p$, de modo que existe $k\in\mathbb Z$ tal que $q-1=kp$. Sin embargo, como $p>q>1$, se cumple $0<q-1<p$, y ningún entero estrictamente comprendido entre $0$ y $p$ es múltiplo de $p$. Esto es una contradicción. Por consiguiente, $n_p=1$ y $P$ es el único $p$-subgrupo de Sylow de $G$.
+>>4. Probemos que $P$ es normal. Fijados $g\in G$ y $x\in P$, consideremos la conjugación $c_g:P\to gPg^{-1}$ dada por $c_g(x)=gxg^{-1}$. Esta aplicación es biyectiva, pues su inversa es $c_{g^{-1}}:gPg^{-1}\to P$, dada por $c_{g^{-1}}(h)=g^{-1}hg$, y se verifica que $$c_{g^{-1}}(c_g(x))=g^{-1}(gxg^{-1})g=x$$ para todo $x\in P$ y que $$c_g(c_{g^{-1}}(h))=g(g^{-1}hg)g^{-1}=h$$ para todo $h\in gPg^{-1}$. Por ello, $|gPg^{-1}|=|P|=p^n$, así que $gPg^{-1}$ también es un $p$-subgrupo de Sylow. La unicidad de $P$ implica que $gPg^{-1}=P$ para todo $g\in G$; por tanto, $P\trianglelefteq G$.
+>>5. Finalmente, sea $H\trianglelefteq G$ un subgrupo de índice $q$. Entonces $|G|=q|H|$ y, como $|G|=p^nq$, resulta $|H|=p^n$. Por ello, $H$ es un $p$-subgrupo de Sylow de $G$. Como $P$ es el único, necesariamente $H=P$. En conclusión, $P$ es el único subgrupo normal de índice $q$ de $G$.
 
 >[!exercise] Ejercicio 16
 >Cada grupo de orden $12$, $28$, $56$ y $200$ debe contener un subgrupo de Sylow normal, y, por lo tanto, no es simple.

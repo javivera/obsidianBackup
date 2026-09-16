@@ -4,115 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "18265c7921af18b5",
-        "type": "split",
+        "id": "25eee61a1c76eddc",
+        "type": "tabs",
         "children": [
           {
-            "id": "25eee61a1c76eddc",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "8b125bec92d5c01a",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Theory/FA - Teo1.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "FA - Teo1"
-                }
+            "id": "8b125bec92d5c01a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Theory/FA - Teo1.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
               },
-              {
-                "id": "624f56a891ffe927",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Theory/FA - Teo3.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "FA - Teo3"
-                }
-              },
-              {
-                "id": "b7fd9489c3d475b3",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Theory/FA - Teo2.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "FA - Teo2"
-                }
-              }
-            ],
-            "currentTab": 1
+              "icon": "lucide-file",
+              "title": "FA - Teo1"
+            }
           },
           {
-            "id": "c5f3d6c3c65c54b1",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "09dda27c9535c47a",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Practicos/FA-Pr2.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "FA-Pr2"
-                }
+            "id": "624f56a891ffe927",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Theory/FA - Teo4.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
               },
-              {
-                "id": "c2892458af46e69e",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Practicos/FA-Pr3 - Transformaciones afines.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "FA-Pr3 - Transformaciones afines"
-                }
-              },
-              {
-                "id": "cc137426ae1db94b",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Practicos/FA-Pr2.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "FA-Pr2"
-                }
-              }
-            ],
-            "currentTab": 2
+              "icon": "lucide-file",
+              "title": "FA - Teo4"
+            }
           }
         ],
-        "direction": "vertical"
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -283,50 +209,108 @@
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "624f56a891ffe927",
+  "floating": {
+    "id": "6495349fc6af0d03",
+    "type": "floating",
+    "children": [
+      {
+        "id": "7ad0482b7e231235",
+        "type": "window",
+        "children": [
+          {
+            "id": "ac977def2f018bde",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "e459e2d00e6324cf",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Practicos/FA-Pr4.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA-Pr4"
+                }
+              },
+              {
+                "id": "c2892458af46e69e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Practicos/FA-Pr4.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "FA-Pr4"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical",
+        "x": 1285,
+        "y": 33,
+        "width": 1270,
+        "height": 1401,
+        "maximize": false,
+        "zoom": -0.5
+      }
+    ]
+  },
+  "active": "c2892458af46e69e",
   "lastOpenFiles": [
-    "Practicos/FA-Pr2.md",
+    "Theory/FA - Teo4.md",
+    "Theory/FA - Teo3.md",
+    "Practicos/FA-Pr4.md",
     "Practicos/FA-Pr3 - Transformaciones afines.md",
+    "Theory/FA - Teo1.md",
+    "Apuntes/FA-Teo1.pdf",
     "Theory/FA - Teo2.md",
+    "Practicos/FA-Pr4-II.md",
+    "Misc/Pasted image 20260916101504.png",
+    "Practicos/FA-Pr4-II.pdf",
+    "Misc/Pasted image 20260916101431.png",
+    "Untitled.md",
+    "Pasted image 20260916101407.png",
+    "Pasted image 20260916101404.png",
+    "Practicos/FA-Pr1.md",
+    "Practicos/FA-Pr1.pdf",
+    "Practicos/FA-Pr2.md",
+    "Practicos/FA-Pr2.pdf",
+    "Practicos/FA-Pr3.pdf",
+    "Misc/FA-Pr4-II-Ej4-curvas.png",
+    "Misc/FA-Pr4-II-Ej3-curva.png",
     "Apuntes/FA-Teo2.pdf",
     "Apuntes/FA-Teo4.pdf",
-    "Theory/FA - Teo3.md",
-    "Untitled.md",
-    "Practicos/FA-Pr3.pdf",
     "Apuntes/FA-Teo3.pdf",
     "Practicos/FA-Pr4.pdf",
-    "Practicos/FA-Pr4-II.pdf",
     "Practicos/FA-Pr5.pdf",
     "Practicos/FA-Pr3.md",
     "Pasted image 20260907172840.png",
     "Misc/Prob9-Mobius-i.md",
-    "Practicos/FA-Pr5-2026.pdf",
     "Untitled 3.md",
     "Untitled 2.md",
     "Untitled 1.md",
     "Misc/Gastos.md",
-    "Apuntes/Conway_Functions_of_one_complex_variable.pdf",
-    "Practicos/FA-Pr2.pdf",
     "AGENTS.md",
     "Misc/Pasted image 20260826224209.png",
     "Misc/Pasted image 20260826224101.png",
     "Misc/Pasted image 20260831121707.png",
-    "Misc/Pasted image 20260827200049.png",
-    "Theory/FA - Teo1.md",
-    "Practicos/FA-Pr1.md",
     "EA - Pr2.md",
     "EA - Pr2 1.md",
     "MP Materials - Investment Analysis.md",
     "SpaceX (SPCX) - Investment Analysis.md",
     "Theory/FA - Teo5.md",
-    "Theory/FA - Teo4.md",
     "Theory/FA - Teo1.manual.md",
     "Examenes/FA-FinalLeo.md",
-    "tmp/pdfs/rendered/teo5-32.jpg",
-    "tmp/pdfs/rendered/teo5-31.jpg",
-    "tmp/pdfs/rendered/teo5-30.jpg",
-    "tmp/pdfs/rendered/teo5-29.jpg",
-    "tmp/pdfs/rendered/teo5-28.jpg",
     "Theory/GS - Teo4.md"
   ]
 }

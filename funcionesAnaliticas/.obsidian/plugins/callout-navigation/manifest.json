@@ -1,0 +1,9 @@
+{
+  "id": "callout-navigation",
+  "name": "Callout Navigation",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Use Up/Down to jump between outer callouts and Left/Right to collapse/expand nested Proof callouts. Reading view only. ",
+  "author": "Local",
+  "isDesktopOnly": false
+}

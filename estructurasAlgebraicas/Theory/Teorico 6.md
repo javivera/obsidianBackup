@@ -89,3 +89,23 @@ source: "[[EA-Teorico-5-2sept.pdf]]"
 >>1. $G$ actúa sobre $Y$ por conjugación. Por (2) la acción es transitiva.
 >>2. El estabilizador de $P\in Y$ es $N_G(P)$. Por órbita-estabilizador, $$n_p=|Y|=[G:N_G(P)].$$
 >>3. Como $P\leq N_G(P)\leq G$, el índice $[G:N_G(P)]$ divide a $[G:P]=k$. Luego $n_p\mid k$.
+
+## Producto de subgrupos
+
+>[!proposition] Criterio del producto de subgrupos
+>Sean $H,K\leq G$. Entonces $$HK\leq G\quad\Longleftrightarrow\quad HK=KH.$$
+>
+>>[!Proof]-
+>>1. Supongamos que $HK\leq G$. Como todo subgrupo es cerrado bajo inversos, $HK=(HK)^{-1}$. Además, $$(HK)^{-1}=\{(hk)^{-1}:h\in H,\ k\in K\}=\{k^{-1}h^{-1}:h\in H,\ k\in K\}=KH,$$ porque $H$ y $K$ son cerrados bajo inversos. Por lo tanto, $HK=KH$.
+>>2. Recíprocamente, supongamos que $HK=KH$. El conjunto $HK$ es no vacío, pues $e_G=e_Ge_G\in HK$. Sean $x=h_1k_1$ e $y=h_2k_2$ elementos de $HK$. Entonces $$xy^{-1}=h_1k_1k_2^{-1}h_2^{-1}.$$ Como $k_1k_2^{-1}\in K$, $h_2^{-1}\in H$ y $KH=HK$, existen $h_3\in H$ y $k_3\in K$ tales que $k_1k_2^{-1}h_2^{-1}=h_3k_3$. En consecuencia, $$xy^{-1}=h_1h_3k_3\in HK.$$ Por el criterio de subgrupo, $HK\leq G$.
+
+>[!proposition] Normalidad y producto de subgrupos
+>Sean $H,K\leq G$. Si $H\trianglelefteq G$ o $K\trianglelefteq G$, entonces $$HK=KH,$$ y, en consecuencia, $HK\leq G$.
+>
+>>[!Proof]-
+>>1. Supongamos que $K\trianglelefteq G$. Para cada $h\in H$ se tiene $hKh^{-1}=K$. Multiplicando ambos conjuntos a la derecha por $h$, obtenemos $hK=Kh$. Por lo tanto, $$HK=\bigcup_{h\in H}hK=\bigcup_{h\in H}Kh=KH.$$
+>>2. Si $H\trianglelefteq G$, el mismo argumento, intercambiando los papeles de $H$ y $K$, demuestra que $HK=KH$. 
+>>3. En cualquiera de los dos casos, el criterio del producto de subgrupos implica que $HK\leq G$.
+
+>[!remark] La recíproca no vale
+>La igualdad $HK=KH$ no implica que alguno de los dos subgrupos sea normal en $G$. Por ejemplo, en $S_3$ tomemos $H=K=\langle(12)\rangle$. Entonces $HK=H=KH$, pero $H$ no es normal en $S_3$, pues $(123)(12)(123)^{-1}=(23)\notin H$.

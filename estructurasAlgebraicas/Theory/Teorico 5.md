@@ -442,7 +442,7 @@ source: "Clase2 (1).pdf"
 >Sea $G$ un $p$-grupo que actúa sobre un conjunto finito $X$. Definimos el conjunto de puntos fijos de toda la acción por $$X^G=\{x\in X:g\cdot x=x\text{ para todo }g\in G\}.$$ (que en el fondo es $\bigcap_{g\in G}X^{g}$ la interseccion de los puntos fijos de cada elemento) 
 
 >[!Theorem] Lema de los puntos fijos de un $p$-grupo
->Sea $G$ un $p$-Grupo entonces
+>Sea $G$ un $p$-grupo entonces
 >$$|X|\equiv |X^G|\pmod p.$$
 >
 >> [!Proof]-
@@ -452,9 +452,10 @@ source: "Clase2 (1).pdf"
 >>2. Una órbita tiene un único elemento si y solo si su representante es un punto fijo de toda la acción. En efecto,
 >>$$|O_x|=1\iff g\cdot x=x\text{ para todo }g\in G\iff x\in X^G.$$ 
 >>
->>3. Si $|O_x|>1$, por órbita-estabilizador se tiene
->>$$|O_x|=[G:G_x].$$
->>Como $|G|=p^n$, el índice $[G:G_x]$ es una potencia de $p$. Puesto que es mayor que $1$, es divisible por $p$.
+>>3. Como el estabilizador $G_x$ es un subgrupo de $G$, por Lagrange se tiene
+>>$$|G|=[G:G_x]\cdot |G_x|.$$
+>>Como $|G|=p^n$, el índice $[G:G_x]$ divide a $p^n$ y por lo tanto es una potencia de $p$: existe $k\geq 0$ con $[G:G_x]=p^k$.
+>>Si $|O_x|>1$, por órbita-estabilizador $|O_x|=[G:G_x]=p^k$ con $k\geq 1$, de modo que $p$ divide a $|O_x|$.
 >>
 >>4. Al sumar los tamaños de las órbitas, las órbitas de tamaño $1$ aportan exactamente $|X^G|$, mientras que todas las demás aportan múltiplos de $p$. Por lo tanto,
 >>$$|X|=|X^G|+\sum_{\substack{\text{órbitas }O\\|O|>1}}|O|\equiv |X^G|\pmod p.$$ 
@@ -469,6 +470,8 @@ source: "Clase2 (1).pdf"
 >>2. Cada índice $[G:C_G(x_i)]$ divide a $|G|=p^n$, por lo que es una potencia de $p$. Como $x_i$ no es central, el índice es mayor que $1$ y, por tanto, es divisible por $p$.
 >>3. Al reducir la ecuación módulo $p$, obtenemos $$|G|\equiv|Z(G)|\pmod p.$$ Como $p\mid|G|$, resulta $p\mid|Z(G)|$.
 >>4. Además, $1_G\in Z(G)$, así que el centro no es vacío. Su cardinal es, como mínimo, $p$.
+
+^932f50
 
 ### Clasificación de los grupos de orden $p^2$
 

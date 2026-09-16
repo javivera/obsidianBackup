@@ -62,8 +62,11 @@
 >>	4. Como los límites por ambos caminos son distintos, $$\lim_{h\to0}\frac{\overline h}{h}\text{ no existe}.$$
 >>	5. Por lo tanto, $$f(z)=\overline z\text{ no es derivable en ningún punto de }\mathbb C.$$
 
->[!Exercise]
->[[FA - Teo2#^e54e60]]
+>[!Exercise] Ejercicio 4
+>Sean $f$ y $g$ funciones diferenciables (analíticas). Probar que:
+>- **(i)** $f+g$ es diferenciable (analítica) y $(f+g)'(z)=f'(z)+g'(z)$.
+>- **(ii)** $fg$ es diferenciable (analítica) y $(fg)'(z)=f'(z)g(z)+f(z)g'(z)$.
+>- **(iii)** Si $g\ne0$, entonces $f/g$ es diferenciable (analítica) y $$\left(\frac fg\right)'(z)=\frac{f'(z)g(z)-f(z)g'(z)}{(g(z))^2}.$$
 
 >[!Exercise]
 >Probar que $$\cos(z)=\frac12\bigl(e^{iz}+e^{-iz}\bigr)\qquad\text{y}\qquad\operatorname{sen}(z)=\frac1{2i}\bigl(e^{iz}-e^{-iz}\bigr).$$
