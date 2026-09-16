@@ -1,4 +1,0 @@
-interface:
-  display_name: "Formato LaTeX para Obsidian"
-  short_description: "Formatea matemática para apuntes de Obsidian"
-  default_prompt: "Usa $latex-obsidian-format para revisar y corregir el formato LaTeX de esta nota de Obsidian."
