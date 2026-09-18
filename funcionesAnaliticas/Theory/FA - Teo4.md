@@ -30,12 +30,12 @@
 >Sea $\gamma:[a,b]\to\mathbb{C}$ de variación acotada y $f:[a,b]\to\mathbb{C}$ continua. Entonces existe $I\in\mathbb{C}$ tal que $\forall\varepsilon>0$, $\exists\delta>0$ tal que si $P=\{a=t_0<\dots<t_m=b\}$ es una partición de $[a,b]$ con $\|P\|<\delta$, entonces $$\left|I-\sum_{k=1}^{m}f(\tau_k)(\gamma(t_k)-\gamma(t_{k-1}))\right|<\varepsilon$$ para cualquier $\tau_k\in[t_{k-1},t_k]$.
 >>[!Proof]-
 >>1. Como $f$ es continua en $[a,b]$, $f$ es uniformemente continua en $[a,b]$.
->>2. Para cada $m\in\mathbb{N}$ tomamos $\varepsilon=1/m$: existe $\delta_m>0$, con $\delta_m\geq\delta_{m+1}$, tal que $$|s-t|<\delta_m\implies|f(s)-f(t)|<\frac{1}{m}.\tag{\star}$$
+>>2. Para cada $m\in\mathbb{N}$ tomamos $\varepsilon=1/m$: existe $\delta_m>0$, con $\delta_m\geq\delta_{m+1}$, tal que $$|s-t|<\delta_m\implies|f(s)-f(t)|<\frac{1}{m}.\qquad (\star)$$
 >>3. Sea $$P_m=\{P\text{ partición de }[a,b]:\|P\|<\delta_m\}.$$ Por $(\star)$ tenemos que $P_{m+1}\subseteq P_m$.
 >>4. Sea $$\mathcal{F}_m=\left\{\sum_{k=1}^{n}f(\tau_k)[\gamma(t_k)-\gamma(t_{k-1})]:P\in P_m\ y\ \tau_k\in[t_{k-1},t_k]\right\}.$$ Así, $\mathcal{F}_{m+1}\subseteq\mathcal{F}_m$ y la familia $\{\mathcal{F}_m\}$ tiene la propiedad de intersección finita.
 >>5. Veamos que $\forall m$ existe $R$ tal que $\mathcal{F}_m\subseteq\overline{B(0,R)}$. Sean $m\in\mathbb{N}$ y $z=\sum_{k=1}^{n}f(\tau_k)[\gamma(t_k)-\gamma(t_{k-1})]\in\mathcal{F}_m$, y sea $$M=\sup\{|f(t)|:t\in[a,b]\}.$$ Entonces $$|z|\leq\sum_{k=1}^{n}|f(\tau_k)|\,|\gamma(t_k)-\gamma(t_{k-1})|\leq M\sum_{k=1}^{n}|\gamma(t_k)-\gamma(t_{k-1})|\leq M\operatorname{Var}(\gamma)=R.$$
 >>6. Por lo tanto $\mathcal{F}_m\subseteq\overline{B(0,R)}$ (compacto) y $\{\mathcal{F}_m\}$ tiene la propiedad de intersección finita, de modo que $$\bigcap_{m=1}^{\infty}\mathcal{F}_m\neq\emptyset.$$
->>7. Supongamos por un momento que $$\operatorname{diam}(\mathcal{F}_m)\leq\frac{2}{m}\operatorname{Var}(\gamma).\tag{\star\star}$$
+>>7. Supongamos por un momento que $$\operatorname{diam}(\mathcal{F}_m)\leq\frac{2}{m}\operatorname{Var}(\gamma).\qquad (\star\star)$$
 >>8. Sea $I\in\bigcap_{m=1}^{\infty}\mathcal{F}_m$ y sea $\varepsilon>0$. Tomamos $m$ con $\frac{2}{m}\operatorname{Var}(\gamma)<\varepsilon$ y $\delta=\delta_m$. Si $P=\{a=t_0<\dots<t_m=b\}$ es una partición de $[a,b]$ con $\|P\|<\delta$, entonces $I\in\mathcal{F}_m$ y $\sum_{k=1}^{m}f(\tau_k)(\gamma(t_k)-\gamma(t_{k-1}))\in\mathcal{F}_m$, luego $$\left|I-\sum_{k=1}^{m}f(\tau_k)(\gamma(t_k)-\gamma(t_{k-1}))\right|\leq\operatorname{diam}\mathcal{F}_m<\frac{2}{m}\operatorname{Var}(\gamma)<\varepsilon.$$
 >>9. Notemos que $I$ es único (Ejercicio fácil).
 >>10. Falta ver $(\star\star)$: $$\operatorname{diam}\mathcal{F}_m=\sup\{|z-z'|:z,z'\in\mathcal{F}_m\}<\frac{2}{m}\operatorname{Var}(\gamma).$$ Fijamos $m\geq1$ y llamamos $$z(P)=\sum_{k=1}^{n}f(\tau_k)(\gamma(t_k)-\gamma(t_{k-1})),\qquad P=\{a=t_0<\dots<t_n=b\}\in P_m,$$ y sea $Q\in P_m$ otra partición. Veamos que $$|z(P)-z(Q)|<\frac{2}{m}\operatorname{Var}(\gamma).$$
@@ -66,7 +66,7 @@
 >>6. Sea $\delta=\min\{\delta_1,\delta_2\}$ y sea $P$ una partición de $[a,b]$ con $\|P\|<\delta$; en (3) y en (4) elegimos $\tau_k=\xi_k$, con lo cual las dos sumas coinciden. Entonces $$\left|\int_a^b f\,d\gamma-\int_a^b f(t)\gamma'(t)\,dt\right|\leq\text{(3)}+\text{(4)}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.$$
 
 >[!Definition] Integral de línea
->Sea $\gamma:[a,b]\to\mathbb{C}$ una curva de variación acotada y sea $f:G\subseteq\mathbb{C}\to\mathbb{C}$, con $G$ abierto, tal que $\operatorname{Imagen}(\gamma)\subseteq G$ y $f\circ\gamma:[a,b]\to\mathbb{C}$ es continua. Definimos $$\int_a^b(f\circ\gamma)\,d\gamma=:\int_\gamma f\,d\gamma=\int_\gamma f(z)\,dz,$$ la integral de línea definida a lo largo de $\gamma$. Si en particular $\gamma$ es suave a trozos, entonces $$\int_\gamma f\,d\gamma=\int_a^b(f\circ\gamma)(t)\gamma'(t)\,dt.$$
+>Sea $\gamma:[a,b]\to\mathbb{C}$ una curva de variación acotada y sea $f:G\subseteq\mathbb{C}\to\mathbb{C}$, con $G$ abierto, tal que $\operatorname{Imagen}(\gamma)\subseteq G$ y $f\circ\gamma:[a,b]\to\mathbb{C}$ es continua. Definimos $$\int_\gamma f(z)\,dz:=\int_a^b(f\circ\gamma)\,d\gamma.$$ También escribimos $$\int_\gamma f\,d\gamma:=\int_\gamma f(z)\,dz,$$ la integral de línea definida a lo largo de $\gamma$. Si en particular $\gamma$ es suave a trozos, entonces $$\int_\gamma f\,d\gamma=\int_a^b(f\circ\gamma)(t)\gamma'(t)\,dt.$$
 
 >[!Example]
 >Sean $\gamma:[0,2\pi]\to\mathbb{C}$, $t\mapsto e^{it}$, y $f(z)=1/z$ con $z\neq0$. Entonces $$\int_\gamma\frac{1}{z}\,dz=i\int_0^{2\pi}\frac{1}{e^{it}}e^{it}\,dt=2\pi i.$$
@@ -110,7 +110,7 @@
 >Si $f$ es continua sobre $\gamma$, $f:G\subseteq\mathbb{C}\to\mathbb{C}$, tiene sentido $$\int_a^b f\circ\gamma\,d|\gamma|$$ (Riemann–Stieltjes). Así definimos $$\int_\gamma f(z)\,|dz|:=\int_a^b f\circ\gamma\,d|\gamma|.$$
 
 >[!Remark]
->Supongamos $\gamma$ diferenciable (por secciones). Entonces $$|\gamma|(t)=\int_a^t|\gamma'(s)|\,ds\implies|\gamma|'(t)=|\gamma'(t)|.$$ Así, $$\int_\gamma f(z)\,|dz|=\int_a^b(f\circ\gamma)\,d|\gamma|=\int_a^b(f\circ\gamma)(t)(|\gamma|)'(t)\,dt=\int_a^b(f\circ\gamma)(t)|\gamma'(t)|\,dt.$$
+>Supongamos $\gamma$ diferenciable (por secciones). Entonces $$|\gamma|(t)=\operatorname{Var}(\gamma|_{[a,t]})=\int_a^t|\gamma'(s)|\,ds\implies|\gamma|'(t)=|\gamma'(t)|.$$ Así, $$\int_\gamma f(z)\,|dz|=\int_a^b(f\circ\gamma)\,d|\gamma|=\int_a^b(f\circ\gamma)(t)(|\gamma|)'(t)\,dt=\int_a^b(f\circ\gamma)(t)|\gamma'(t)|\,dt.$$
 
 >[!Proposition] Propiedades de la integral de línea
 >Sea $\gamma:[a,b]\to\mathbb{C}$ una curva rectificable y $f$ una función continua sobre $\{\gamma\}=$ traza de $\gamma$. Llamamos $-\gamma:[-b,-a]\to\mathbb{C}$, $t\mapsto\gamma(-t)$. Entonces:
@@ -175,8 +175,8 @@
 >>4. Veamos su radio de convergencia (el de $F$): $$R'=\limsup\left(\frac{|a_m|}{m+1}\right)^{1/m}=\limsup\left(\frac{1}{m+1}\right)^{1/m}|a_m|^{1/m}\geq R.$$
 >>5. Así, $F'(z)=f(z)$ para todo $z\in B(a,R)$; por el teorema de Barrow, $$\int_\gamma f=0.$$
 
->[!Example]
->$$\int_{\gamma=e^{it}}\frac{e^z-e^{-z}}{z^m}\,dz,\qquad m\geq1.$$ Por la fórmula de la integral de Cauchy, con $f(z)=e^z-e^{-z}$, $$\int_\gamma\frac{f(z)}{(z-0)^m}\,dz=\frac{2\pi i}{(m-1)!}f^{(m-1)}(0),$$ y $$f^{(k)}(0)=\begin{cases}0,&k\text{ impar},\\2,&k\text{ par}.\end{cases}$$
+>[!example]
+>Por la fórmula de la integral de Cauchy, con $f(z)=e^z-e^{-z}$, $$\int_{\gamma=e^{it}}\frac{e^z-e^{-z}}{z^m}\,dz=\int_\gamma\frac{f(z)}{(z-0)^m}\,dz=\frac{2\pi i}{(m-1)!}f^{(m-1)}(0),,\qquad m\geq1.$$ y $$f^{(k)}(0)=\begin{cases}0,&k\text{ impar},\\2,&k\text{ par}.\end{cases}$$
 
 ## Ceros de funciones analíticas
 

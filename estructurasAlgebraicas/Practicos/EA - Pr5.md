@@ -66,7 +66,7 @@ tags:
 >Sean $G$ un $p$-grupo finito y $H\triangleleft G$, con $H$ no trivial. Probar que $H\cap C(G)\neq\{e\}$.
 >>[!Proof]-
 >>1. Como $H$ es un subgrupo no trivial de $G$, por el teorema de Lagrange existe $m\geq 1$ tal que $|H|=p^m$. Consideramos la acción de $G$ sobre $H$ dada por conjugación, $g\cdot h=ghg^{-1}$. Esta acción está bien definida porque $H\triangleleft G$.
->>2. Recordamos $$H^G=\{h\in H:g\cdot h=h\ \text{para todo }g\in G\}$$por el [[Teorico 5#^e8cda5|lema de puntos fijos]], aplicado a la acción de $G$ sobre $H$, se tiene $$|H|\equiv |H^G|\pmod p$$osea $|H|-|H^{G}|$ es divisible por $p$ y como $|H|=p^m$, resulta que $|H^G|$ es divisible por $p$
+>>2. Recordamos $$H^G=\{h\in H:g\cdot h=h\ \text{para todo }g\in G\}$$por el [[Teorico 6#^e8cda5|lema de puntos fijos]], aplicado a la acción de $G$ sobre $H$, se tiene $$|H|\equiv |H^G|\pmod p$$osea $|H|-|H^{G}|$ es divisible por $p$ y como $|H|=p^m$, resulta que $|H^G|$ es divisible por $p$
 >>3. El elemento $e$ pertenece a $H^G$, ya que $g e g^{-1}=e$ para todo $g\in G$ osea no tiene orden $0$
 >>4. Como $|H^G|$ es divisible por el primo $p$, no puede ser $|H^G|=1$; por consiguiente tiene orden mayor que $1$ analogamente existe $h\in H^G$ con $h\neq e$.
 >>5. Finalmente, $h\in H^G$ significa que $ghg^{-1}=h$ para todo $g\in G$, o equivalentemente, $gh=hg$ para todo $g\in G$. Así, $h\in C(G)$ y, como también $h\in H$, se concluye que $h\in H\cap C(G)$ con $h\neq e$. Por lo tanto, $H\cap C(G)\neq\{e\}$.
@@ -102,9 +102,42 @@ tags:
 
 >[!exercise] Ejercicio 16
 >Cada grupo de orden $12$, $28$, $56$ y $200$ debe contener un subgrupo de Sylow normal, y, por lo tanto, no es simple.
+>>[!Proof]-
+>>- Orden $12$.
+>>	1. La idea es exhibir un $p$-subgrupo de Sylow normal propio no trivial, pues entonces $G$ no puede ser simple. Se tiene $12=2^2\cdot 3$, de modo que un $3$-subgrupo de Sylow tiene orden $3$ y un $2$-subgrupo de Sylow tiene orden $4$, y ambos existen por el primer teorema de Sylow.
+>>	2. Por el segundo teorema de Sylow, dos $p$-subgrupos de Sylow para el mismo $p$ son conjugados en $G$. De aquí un $p$-subgrupo de Sylow $P$ es normal si y solo si es único: si $P$ es único y $g\in G$, entonces $gPg^{-1}$ es un $p$-subgrupo de Sylow y por unicidad $gPg^{-1}=P$; recíprocamente, si $P\triangleleft G$ y $Q$ es otro $p$-subgrupo de Sylow, existe $g\in G$ con $Q=gPg^{-1}=P$.
+>>	3. Por el tercer teorema de Sylow, $n_3\equiv 1\pmod 3$ y $n_3$ divide a $4$, pues $12=3\cdot 4$ con $3\nmid 4$; los divisores positivos de $4$ son $1,2,4$, y $1=0\cdot 3+1$ y $4=1\cdot 3+1$ mientras $2\equiv 2\pmod 3$, de modo que $n_3\in\{1,4\}$. Análogamente, $n_2\equiv 1\pmod 2$ y $n_2$ divide a $3$, pues $12=4\cdot 3$ con $2\nmid 3$; los divisores positivos de $3$ son $1,3$, y $1=0\cdot 2+1$ y $3=1\cdot 2+1$, de modo que $n_2\in\{1,3\}$.
+>>	4. Por Lagrange, el orden de todo elemento divide al orden del subgrupo que lo contiene. Si $|H|=3$ y $a\in H$ con $a\neq e$, entonces $|a|\in\{1,3\}$ y por lo tanto $|a|=3$. Si $|Q|=4$ y $b\in Q$, entonces $|b|\in\{1,2,4\}$; en particular $Q$ no contiene ningún elemento de orden $3$.
+>>	5. Sean $H\neq K$ dos subgrupos de orden $3$. Entonces $H\cap K\leq H$, luego $|H\cap K|\in\{1,3\}$. Si $|H\cap K|=3$, entonces $H\cap K\subseteq H$ con el mismo cardinal finito $3$, luego $H\cap K=H$, y del mismo modo $H\cap K=K$, de donde $H=K$, contra la hipótesis. Por lo tanto $H\cap K=\{e\}$. Cada $H$ aporta exactamente $2$ elementos distintos de $e$, todos de orden $3$ por el paso anterior, y dos $H$ distintos no comparten ninguno de ellos.
+>>	6. Si $n_3=1$, el único $3$-subgrupo de Sylow es normal por el paso 2 y se termina. Supongamos $n_3=4$. Por el paso 5 los cuatro $3$-subgrupos aportan $4\cdot 2=8$ elementos distintos de orden $3$, disjuntos dos a dos salvo en $e$; junto con $e$ son $8+1=9$ elementos distintos de $G$. Como $|G|=12$, quedan $12-9=3$ elementos distintos de $e$ fuera de ellos, es decir, el complemento de esos $8$ elementos en $G$ es un conjunto $R$ con $4$ elementos que contiene a $e$. Sea $Q\leq G$ con $|Q|=4$. Por el paso 4, $Q$ no contiene elementos de orden $3$, luego $Q\cap\{\text{los 8 elementos de orden 3}\}=\varnothing$ y por lo tanto $Q\subseteq R$. Como $Q\subseteq R$ con $|Q|=4=|R|$, se tiene $Q=R$. Así hay un único $2$-subgrupo de Sylow, es decir $n_2=1$, que es normal por el paso 2.
+>>	7. En todos los casos $G$ posee un subgrupo de Sylow normal: si $n_3=1$ es el de orden $3$, y si $n_3=4$ es el de orden $4$. Como $3\neq 1,12$ y $4\neq 1,12$, dicho subgrupo normal es propio y no trivial, de modo que $G$ no es simple.
+>>- Orden $28$.
+>>	1. Se tiene $28=7\cdot 4$ con $7\nmid 4$, de modo que un $7$-subgrupo de Sylow tiene orden $7$ y existe por el primer teorema de Sylow.
+>>	2. Por el tercer teorema de Sylow, $n_7\equiv 1\pmod 7$ y $n_7$ divide a $4$; los divisores positivos de $4$ son $1,2,4$, y $1=0\cdot 7+1$ mientras $2\equiv 2\pmod 7$ y $4\equiv 4\pmod 7$, de modo que $n_7=1$.
+>>	3. Por el mismo criterio del Orden $12$, un $p$-subgrupo de Sylow es normal si y solo si es único, pues dos $p$-subgrupos de Sylow son conjugados. Como $n_7=1$, el único $7$-subgrupo de Sylow cumple $gPg^{-1}=P$ para todo $g\in G$, es decir $P\triangleleft G$. Como $7\neq 1,28$, es propio y no trivial, luego $G$ no es simple.
+>>- Orden $56$.
+>>	1. Se tiene $56=7\cdot 8$ con $7\nmid 8$, de modo que un $7$-subgrupo de Sylow tiene orden $7$ y un $2$-subgrupo de Sylow tiene orden $8$, y ambos existen por el primer teorema de Sylow.
+>>	2. Por el tercer teorema de Sylow, $n_7\equiv 1\pmod 7$ y $n_7$ divide a $8$; los divisores positivos de $8$ son $1,2,4,8$, y $1=0\cdot 7+1$ y $8=1\cdot 7+1$ mientras $2\equiv 2\pmod 7$ y $4\equiv 4\pmod 7$, de modo que $n_7\in\{1,8\}$.
+>>	3. Por Lagrange, el orden de todo elemento divide al orden del subgrupo que lo contiene. Si $|H|=7$ y $a\in H$ con $a\neq e$, entonces $|a|\in\{1,7\}$ y por lo tanto $|a|=7$. Si $|Q|=8$ y $b\in Q$, entonces $|b|\in\{1,2,4,8\}$; en particular $Q$ no contiene ningún elemento de orden $7$.
+>>	4. Sean $H\neq K$ dos subgrupos de orden $7$. Entonces $H\cap K\leq H$ y $|H|=7$ es primo, luego $|H\cap K|\in\{1,7\}$; si fuera $7$ se tendría $H\cap K=H=K$ por igualdad de cardinales finitos, contra la hipótesis, así $H\cap K=\{e\}$. Cada $H$ aporta exactamente $6$ elementos distintos de $e$, todos de orden $7$ por el paso anterior, disjuntos de los de otro $K$ salvo en $e$.
+>>	5. Si $n_7=1$, el único $7$-subgrupo de Sylow es normal por unicidad y se termina. Supongamos $n_7=8$. Por el paso anterior los ocho $7$-subgrupos aportan $8\cdot 6=48$ elementos distintos de orden $7$; junto con $e$ son $48+1=49$ elementos distintos de $G$. Como $|G|=56$, quedan $56-49=7$ elementos distintos de $e$ fuera de ellos, es decir, el complemento de esos $48$ elementos en $G$ es un conjunto $R$ con $8$ elementos que contiene a $e$. Sea $Q\leq G$ con $|Q|=8$. Por el paso 3, $Q$ no contiene elementos de orden $7$, luego $Q\subseteq R$, y como $|Q|=8=|R|$ se tiene $Q=R$. Así hay un único $2$-subgrupo de Sylow, es decir $n_2=1$, que es normal por unicidad.
+>>	6. En todos los casos $G$ posee un subgrupo de Sylow normal: si $n_7=1$ es el de orden $7$, y si $n_7=8$ es el de orden $8$. Como $7\neq 1,56$ y $8\neq 1,56$, dicho subgrupo es propio y no trivial, luego $G$ no es simple.
+>>- Orden $200$.
+>>	1. Se tiene $200=25\cdot 8$ con $5\nmid 8$, de modo que un $5$-subgrupo de Sylow tiene orden $25$ y existe por el primer teorema de Sylow.
+>>	2. Por el tercer teorema de Sylow, $n_5\equiv 1\pmod 5$ y $n_5$ divide a $8$; los divisores positivos de $8$ son $1,2,4,8$, y $1=0\cdot 5+1$ mientras $2\equiv 2\pmod 5$, $4\equiv 4\pmod 5$ y $8=1\cdot 5+3$, de modo que $n_5=1$.
+>>	3. Por el mismo criterio anterior, un $p$-subgrupo de Sylow es normal si y solo si es único, pues dos $p$-subgrupos de Sylow son conjugados. Como $n_5=1$, el único $5$-subgrupo de Sylow cumple $gPg^{-1}=P$ para todo $g\in G$, es decir $P\triangleleft G$. Como $25\neq 1,200$, es propio y no trivial, luego $G$ no es simple.
 
 >[!exercise] Ejercicio 17
 >¿Cuántos elementos de orden $7$ existen en un grupo simple de orden $168$?
+>>[!Proof]-
+>>1. Se tiene $168=2^{3}\cdot 3\cdot 7$, de modo que un $7$-subgrupo de Sylow de $G$ tiene orden $7$ y existe por el primer teorema de Sylow.
+>>2. Por el segundo teorema de Sylow, dos $7$-subgrupos de Sylow son conjugados en $G$, de modo que un $7$-subgrupo de Sylow es normal si y solo si es único.
+>>3. Por el tercer teorema de Sylow, $n_{7}\equiv 1\pmod 7$ y $n_{7}$ divide a $24$; como $24=2^{3}\cdot 3$, sus divisores positivos son $1,2,3,4,6,8,12,24$, y entre ellos solo $1$ y $8$ son congruentes con $1$ módulo $7$, de modo que $n_{7}\in\{1,8\}$.
+>>4. Si $n_{7}=1$, el único $7$-subgrupo de Sylow sería normal por el paso 2, propio y no trivial por tener orden $7$, contra la simplicidad de $G$. Por lo tanto $n_{7}=8$.
+>>5. Por Lagrange, si $|H|=7$ y $a\in H$ con $a\neq e$, entonces $|a|$ divide a $7$, luego $|a|=7$. Así cada $7$-subgrupo de Sylow contiene exactamente $6$ elementos de orden $7$ además de $e$.
+>>6. Sean $H\neq K$ dos subgrupos de orden $7$. Entonces $H\cap K\leq H$, luego $|H\cap K|\in\{1,7\}$; si fuera $7$, la igualdad de cardinales finitos daría $H\cap K=H=K$, contra la hipótesis, así $H\cap K=\{e\}$. Por lo tanto los ocho $7$-subgrupos aportan $8\cdot 6=48$ elementos distintos de orden $7$.
+>>7. Sea $x\in G$ con $|x|=7$. Entonces $|\langle x\rangle|=7$, de modo que $\langle x\rangle$ es ya un $7$-subgrupo de Sylow de $G$ y coincide con uno de los ocho anteriores. En consecuencia no hay elementos de orden $7$ fuera de su unión.
+>>8. Por lo tanto $G$ contiene exactamente $48$ elementos de orden $7$.
 
 >[!exercise] Ejercicio 18
 >Sea $G$ un grupo.

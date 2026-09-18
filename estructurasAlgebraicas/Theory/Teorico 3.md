@@ -262,8 +262,8 @@ source: "[[2da clase.pdf]]"
 >Así, conceptualmente,
 >$$\boxed{B=\text{traslaciones}\rtimes\text{dilataciones}.}$$
 
->[!Remark] Reconocimiento de un producto semidirecto interno LEER
->Si un grupo $K$ contiene subgrupos $H,N$ tales que $H\trianglelefteq K$, $H\cap N=\{e\}$ y $HN=K$, entonces $$K\cong H\rtimes_\varphi N,$$ donde $\varphi(n)(h)=nhn^{-1}$. Esta es la forma práctica de detectar productos semidirectos dentro de un grupo conocido.
+>[!Remark] Reconocimiento de un producto semidirecto interno — enunciado; prueba en Teórico 8
+>Si un grupo $K$ contiene subgrupos $H,N$ tales que $H\trianglelefteq K$, $H\cap N=\{e\}$ y $HN=K$, entonces $$K\cong H\rtimes_\varphi N,$$ donde $\varphi(n)(h)=nhn^{-1}$. Esta es la forma práctica de detectar productos semidirectos dentro de un grupo conocido. La prueba, la unicidad de $\varphi$ respecto de $\Psi(q,x)=qx$, y los ejemplos $pq$, $\mathbb Z_{4}$ no partido y $E(n)$ están en [[Teorico 8]]. Acá el semidirecto es sólo la construcción externa más $D_{n}$ y $B$; allá es el teorema interno.
 
  
 
@@ -273,5 +273,5 @@ source: "[[2da clase.pdf]]"
 1. Para demostrar que un cociente $G/H$ es un grupo, primero verificá $H\trianglelefteq G$; sin normalidad, la multiplicación de clases puede no estar bien definida.
 2. Para calcular un cociente, buscá un homomorfismo sobreyectivo cuyo núcleo sea exactamente $H$ y aplicá el primer teorema de isomorfismo.
 3. Para distinguir una suma directa de un producto directo infinito, compará el soporte de sus elementos, la cardinalidad o alguna propiedad algebraica preservada por isomorfismos.
-4. Para reconocer un producto semidirecto, identificá un subgrupo normal $H$, un complemento $N$, la intersección $H\cap N$ y la acción por conjugación de $N$ sobre $H$.
+4. Para reconocer un producto semidirecto, identificá un subgrupo normal $H$, un complemento $N$, la intersección $H\cap N$ y la acción por conjugación de $N$ sobre $H$. El criterio completo y sus ejemplos difíciles están en [[Teorico 8]].
 5. Para probar que un cociente es abeliano, verificá que el subgrupo conmutador esté contenido en el subgrupo por el cual se toma el cociente.

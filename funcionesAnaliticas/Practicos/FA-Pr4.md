@@ -4,6 +4,11 @@
 >Sea $\gamma:[a,b]\to\mathbb C$ una curva $C^1$ a trozos y supongamos que $f$ es una función continua sobre $\{\gamma\}$.
 >- **(i)** Probar que $\int_\gamma f=-\int_{\gamma^-}f$, donde $(\gamma^-)(t)=\gamma(-t)$, $t\in[-b,-a]$.
 >- **(ii)** Probar que $\int_\gamma f(z)\,dz=\int_{\gamma+c}f(z-c)\,dz$, donde $c\in\mathbb C$ y $(\gamma+c)(t)=\gamma(t)+c$.
+>>[!Proof]-
+>>- **(i)** Sea $h(t)=-t$ en $[-b,-a]$, de modo que $\gamma^-=\gamma\circ h$. Como $\gamma$ es $C^1$ a trozos y $h$ es suave, $\gamma^-$ es $C^1$ a trozos; además $\operatorname{Imagen}(\gamma^-)=\operatorname{Imagen}(\gamma)$ y $f\circ\gamma^-$ es continua, luego la Definición 11 aplica a $\gamma^-$. Por la regla de la cadena, $$(\gamma^-)'(t)=\gamma'(h(t))\,h'(t)=-\gamma'(-t).$$
+>>	1. **Aplicación de la definición.** Por Theory/FA - Teo4.md, Definición 11 (Integral de línea), literal: si en particular $\gamma$ es suave a trozos, entonces $$\int_\gamma f\,d\gamma=\int_a^b(f\circ\gamma)(t)\gamma'(t)\,dt.$$ Aplicándola a $\gamma^-$ y usando la regla de la cadena, $$\int_{\gamma^-}f\,d\gamma^-=\int_{-b}^{-a}f(\gamma(-t))\,(-\gamma'(-t))\,dt=-\int_{-b}^{-a}f(\gamma(-t))\,\gamma'(-t)\,dt.$$
+>>	2. **Cambio de variable.** Con $s=-t$, de modo que $dt=-ds$, $t=-b\mapsto s=b$ y $t=-a\mapsto s=a$, $$-\int_{-b}^{-a}f(\gamma(-t))\,\gamma'(-t)\,dt=-\int_b^a f(\gamma(s))\,\gamma'(s)\,(-ds)=\int_b^a f(\gamma(s))\,\gamma'(s)\,ds.$$
+>>	3. **Inversión de los límites.** Finalmente, $$\int_b^a f(\gamma(s))\,\gamma'(s)\,ds=-\int_a^b f(\gamma(s))\,\gamma'(s)\,ds=-\int_\gamma f\,d\gamma,$$ donde la última igualdad es otra vez la Definición 11. Por lo tanto, $$\int_\gamma f=-\int_{\gamma^-}f.$$
 
 >[!exercise] Ejercicio 2
 >Demostrar que $\gamma:[0,1]\to\mathbb C$ definida por $\gamma(t)=t+it\operatorname{sen}(1/t)$ para $t\ne0$, y $\gamma(0)=0$, no es un camino $C^1$ a trozos. Dar el bosquejo del camino.
@@ -56,6 +61,13 @@
 >- **(b)** $\int_\gamma\frac{dz}{z-a}$, $\gamma(t)=a+re^{it}$, $0\le t\le2\pi$.
 >- **(c)** $\int_\gamma\frac{\operatorname{sen}z}{z^3}\,dz$, $\gamma(t)=e^{it}$, $0\le t\le2\pi$.
 >- **(d)** $\int_\gamma\frac{\log z}{z^n}\,dz$, $\gamma(t)=1+\frac12e^{it}$, $0\le t\le2\pi$.
+>>[!Proof]-
+>>- (a)
+>>	1. **Idea.** El cálculo directo por $(F\circ\gamma)(t)\gamma'(t)$ no es elemental; escribimos $e^{iz}$ en serie y usamos convergencia uniforme sobre el compacto $\{\gamma\}$ más Barrow término a término, todo ya dado en Teo 4.
+>>	2. **Curva.** Sea $F(z)=e^{iz}/z^{2}$. $\gamma(t)=0+1\cdot e^{it}$, $t\in[0,2\pi]$, es suave con $\gamma'(t)=ie^{it}$ continua; por Theory/FA - Teo4.md, Proposition 5 (Las curvas suaves por secciones son de variación acotada), literal: Sea $\gamma:[a,b]\to\mathbb{C}$ suave por secciones. Entonces $\gamma$ es de variación acotada y $$\text{Var}(\gamma)=\int_{a}^{b}|\gamma'(t)|dt.$$ Además $|\gamma(t)|=1$, luego $\{\gamma\}\subset G=\mathbb{C}\setminus\{0\}$ abierto y $F\circ\gamma$ continua, por lo que la Definición 11 legitima $\int_{\gamma}F(z)dz$.
+>>	3. **Sumas parciales.** Por Teo 2, $e^{w}=\sum_{n=0}^{\infty}w^{n}/n!$ en $\mathbb{C}$; con $w=iz$, $g_{N}(z)=\sum_{n=0}^{N}(iz)^{n}/n!=\sum_{n=0}^{N}i^{n}z^{n}/n!$ y $F_{N}(z)=g_{N}(z)/z^{2}=\sum_{n=0}^{N}(i^{n}/n!)z^{n-2}$ para $z\neq 0$; la convergencia $F_{N}\to F$ es uniforme sobre $\{\gamma\}$ por M-test ($1/n!$ sumable).
+>>	4. **Paso al límite.** Por Theory/FA - Teo4.md, Lemma (Paso al límite bajo la integral), si $F_{N},F$ son continuas sobre $\{\gamma\}$ y $F_{N}\to F$ uniformemente ahí, entonces $$\int_{\gamma}F_{N}\to\int_{\gamma}F.$$ Luego $$\int_{\gamma}F_{N}=\sum_{n=0}^{N}(i^{n}/n!)\int_{\gamma}z^{n-2}dz\to\int_{\gamma}F$$ por linealidad para sumas finitas.
+>>	5. **Uso explícito de los valores.** Para $N\geq 1$, $$\int_{\gamma}F_{N}=(i^{0}/0!)\int_{\gamma}z^{-2}dz+(i^{1}/1!)\int_{\gamma}z^{-1}dz+\sum_{n=2}^{N}(i^{n}/n!)\int_{\gamma}z^{n-2}dz$$ por el paso 4; por Theory/FA - Teo4.md, Regla de Barrow y Corolario para cerradas, si $k\neq -1$ entonces $$\int_{\gamma}z^{k}dz=0,$$ luego el primer término es $0$ ($k=-2$) y cada término con $n\geq 2$ es $0$ ($k=n-2\geq 0$); por el Example de Teo 4, $$\int_{\gamma}z^{-1}dz=2\pi i,$$ con coeficiente $i^{1}/1!=i$; por tanto $$\begin{aligned}\int_{\gamma}F_{N}&=0+i\cdot 2\pi i+0\\&=-2\pi\end{aligned}$$ para todo $N\geq 1$, y por el paso 4 concluimos $$\int_{\gamma}e^{iz}/z^{2}dz=-2\pi.$$
 
 >[!exercise] Ejercicio 16
 >Evaluar las siguientes integrales ($0\le t\le2\pi$ y $n\in\mathbb N$):

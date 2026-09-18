@@ -1,187 +1,120 @@
 ---
-dateCreated: 2026-09-10
+dateCreated: 2026-09-04
 tags:
   - AlgebraicStructures
-  - Rings
-  - Ideals
-  - RingHomomorphisms
-  - FreeAlgebras
-source: "[[EA-Teorico-8-10sept.pdf]]"
+  - Groups
+  - SemidirectProduct
+source: "[[EA-Teorico-7-4sept.pdf]]"
 ---
 
-# Teórico 8 — Centro, productos, anillos libres, ideales y teoremas de isomorfismo
+# Teórico 8 — Producto semidirecto interno
 
-## Tarea y repaso
+>[!remark] Dónde está cada parte
+> La definición externa y los ejemplos básicos ($D_{k}$, $B$) están en [[Teorico 3#5. Producto semidirecto|Teórico 3 §5]]. Acá va la dirección contraria: reconocimiento interno, unicidad de la acción, y ejemplos $pq$, $\mathbb Z_{4}$ no parte, $E(k)$.
 
->[!exercise] Tarea para el final
->- **(a)** Demostrar que $p\nmid \binom{p^n k}{p^n}$ con $p$ primo y $\gcd(p,k)=1$.
->- **(b)** Dar la explicación del conteo de coloraciones de las caras del cubo con $6$ colores usando acciones de grupos (fórmula de Burnside).
+
+## Del producto semidirecto externo al interno
+
+>[!definition] Producto semidirecto externo
+>Sean $P$ y $Q$ grupos y sea un morfismo $$\varphi\colon P\longrightarrow\operatorname{Aut}(Q).$$ El **producto semidirecto** de $Q$ por $P$ asociado a $\varphi$ es el conjunto $Q\times P$ con la operación $$ (q,x)(r,y)=\bigl(q\,\varphi(x)(r),xy\bigr). $$ Se denota $Q\rtimes_\varphi P$.
+
+>[!Remark] Acción y conjugación en un producto semidirecto
+>En todo producto semidirecto $Q\rtimes_\varphi P$, la acción $\varphi:P\to\operatorname{Aut}(Q)$ se recupera mediante conjugación de las copias canónicas de $P$ y $Q$: $$(e_Q,x)(q,e_P)(e_Q,x^{-1})=(\varphi(x)(q),e_P).$$ Por lo tanto, bajo la identificación canónica $q\equiv(q,e_P)$ y $x\equiv(e_Q,x)$, podemos escribir simplemente $$\varphi(x)(q)=xqx^{-1}.$$ En el producto semidirecto externo primero se da $\varphi$ y luego se construye el grupo; en el teorema de reconocimiento ocurre al revés: a partir de $P,Q\leq G$ se recupera $\varphi$ usando la conjugación en $G$.
+
+>[!proposition] Propiedades de las copias canónicas
+>En $Q\rtimes_\varphi P$ consideramos las aplicaciones $$\iota_Q\colon Q\longrightarrow Q\rtimes_\varphi P,\qquad q\longmapsto(q,e_P),$$ $$\iota_P\colon P\longrightarrow Q\rtimes_\varphi P,\qquad x\longmapsto(e_Q,x).$$ Ambas son inyecciones y morfismos de grupos; identificamos entonces $Q$ y $P$ con las copias canónicas $$Q_0:=Q\times\{e_P\},\qquad P_0:=\{e_Q\}\times P.$$ Bajo estas identificaciones:
+>1. $Q_0$ es un subgrupo normal de $Q\rtimes_\varphi P$.
+>2. $P_0\cap Q_0=\{(e_Q,e_P)\}$.
+>3. $Q_0P_0=Q\rtimes_\varphi P$.
 >>[!Proof]-
->>- (a)
->>	1. Escribimos el coeficiente binomial como $$\binom{p^n k}{p^n} = \frac{p^n k}{p^n}\binom{p^n k - 1}{p^n - 1} = k \prod_{j=1}^{p^n-1}\frac{p^n k - j}{p^n - j}.$$
->>	2. Para cada $1\leq j < p^n$, la mayor potencia de $p$ que divide a $p^n k - j$ coincide con la mayor potencia de $p$ que divide a $j$, pues $j<p^n$: en términos de la valuación $p$-ádica, $v_p(p^n k - j) = v_p(j) = v_p(p^n - j)$.
->>	3. En consecuencia, $v_p\left(\frac{p^n k - j}{p^n - j}\right) = v_p(p^n k - j) - v_p(p^n - j) = 0$ para todo factor del producto.
->>	4. Por lo tanto, $v_p\left(\binom{p^n k}{p^n}\right) = v_p(k) + \sum_{j=1}^{p^n-1} v_p\left(\frac{p^n k - j}{p^n - j}\right) = v_p(k) = 0$, ya que $\gcd(p,k)=1$. Esto prueba que $p\nmid\binom{p^n k}{p^n}$.
->>- (b)
->>	1. El grupo de rotaciones propias del cubo es $G\cong S_4$, de orden $|G|=24$, actuando sobre el conjunto $X$ de las $6^6$ formas de asignar un color a cada una de las $6$ caras.
->>	2. Por el lema de Burnside, la cantidad de coloraciones no equivalentes bajo rotación es el número de órbitas $|X/G| = \frac{1}{|G|}\sum_{g\in G}|X^g|$.
->>	3. Clasificando las 24 rotaciones por tipo de eje geométrico: la identidad fija las $6^6$ coloraciones; las 6 rotaciones de $90^\circ$ fijan $6^3$ coloraciones; las 3 rotaciones de $180^\circ$ por caras opuestas fijan $6^4$; las 8 rotaciones de $120^\circ$ por diagonales fijan $6^2$; y las 6 rotaciones de $180^\circ$ por aristas opuestas fijan $6^3$.
->>	4. Sumando los puntos fijos se obtiene $|X/G| = \frac{1}{24}(6^6 + 6\cdot 6^3 + 3\cdot 6^4 + 8\cdot 6^2 + 6\cdot 6^3) = \frac{1}{24}(46656 + 1296 + 3888 + 288 + 1296) = \frac{53424}{24} = 2226$.
+>>1. Las aplicaciones $\iota_Q$ y $\iota_P$ son morfismos de grupos porque $$\iota_Q(q)\iota_Q(r)=(q,e_P)(r,e_P)=(qr,e_P)=\iota_Q(qr)$$ y $$\iota_P(x)\iota_P(y)=(e_Q,x)(e_Q,y)=(e_Q,xy)=\iota_P(xy),$$ usando $\varphi(e_P)=\operatorname{id}_Q$ y $\varphi(x)(e_Q)=e_Q$.
+>>2. Ambas aplicaciones son inyectivas porque conservan las coordenadas: $\iota_Q(q)=(q,e_P)$ y $\iota_P(x)=(e_Q,x)$ determinan $q$ y $x$. Por lo tanto $Q_0$ y $P_0$ son subgrupos de $Q\rtimes_\varphi P$.
+>>3. Para (1), sea $x\in P$ y $q\in Q$. Usando la regla del producto dos veces, $$ (e_Q,x)(q,e_P)(e_Q,x^{-1})=(\varphi(x)(q),e_P)\in Q_0. $$
+>>4. La conjugación por $(e_Q,x)$ es una biyección (su inversa es la conjugación por $(e_Q,x^{-1})$), así que la inclusión del paso 3 implica $(e_Q,x)Q_0(e_Q,x^{-1})=Q_0$ para todo $x\in P$. Como todo $g\in Q\rtimes_\varphi P$ se escribe $g=(q,e_P)(e_Q,x)$, la conjugación por $g$ es composición de dos conjugaciones que preservan $Q_0$; por lo tanto $Q_0\trianglelefteq Q\rtimes_\varphi P$.
+>>5. Para (2), si $(q,e_P)=(e_Q,x)$, entonces la segunda coordenada da $e_P=x$ y la primera da $q=e_Q$; luego $P_0\cap Q_0=\{(e_Q,e_P)\}$.
+>>6. Para (3), $$ (q,e_P)(e_Q,x)=(q,x), $$ de modo que todo elemento de $Q\rtimes_\varphi P$ pertenece a $Q_0P_0$.
 
->[!remark] Repaso: Álgebra de grupo $R[G]$
->Si $R$ es un anillo y $G$ un grupo, el álgebra de grupo es $$R[G]=\bigoplus_{g\in G} R\cdot g,$$ es decir, el $R$-módulo libre con base indexada por los elementos de $G$. Sus elementos son sumas formales finitas $\sum_{g\in G} r_g g$ con $r_g\in R$.
->La multiplicación se define distribuyendo y utilizando el producto del grupo en la base: $$\left(\sum_{g\in G} r_g g\right)\left(\sum_{h\in G} s_h h\right) = \sum_{g,h\in G}(r_g s_h)(gh).$$ El neutro multiplicativo es $1_R\cdot e_G$.
+>[!remark] Relación con el reconocimiento interno
+>Esta proposición da las propiedades que aparecen como hipótesis en el teorema de reconocimiento: el primer factor es normal, la intersección de los factores es trivial y todo elemento del producto se descompone como un elemento de $Q_0$ seguido de uno de $P_0$.
 
-## Centro, dominios íntegros y anillos de división
-
->[!definition] Centro de un anillo
->Sea $R$ un anillo. El **centro** de $R$ es el conjunto $$Z(R)=\{r\in R\mid rx=xr\ \forall x\in R\}.$$
-
->[!remark] Conmutatividad
->Un anillo $R$ es conmutativo si y sólo si $R=Z(R)$. En general, $Z(R)$ es un subanillo conmutativo de $R$.
-
->[!exercise] Centro del anillo de matrices $M_n(R)$
->Demostrar que para cualquier anillo $R$, el centro del anillo de matrices $M_n(R)$ está formado por los múltiplos escalares de la matriz identidad cuyos coeficientes están en el centro de $R$: $$Z(M_n(R)) = \{\lambda I_n\mid \lambda\in Z(R)\}.$$
->>[!Proof]-
->>1. Denotemos por $E_{ij}\in M_n(R)$ a la matriz con un $1$ en la posición $(i,j)$ y ceros en las demás. Toda matriz $A=(a_{kl})\in M_n(R)$ cumple $(AE_{ij})_{kl} = a_{ki}\delta_{jl}$ y $(E_{ij}A)_{kl} = \delta_{ik}a_{jl}$.
->>2. Si $A\in Z(M_n(R))$, entonces $AE_{ij} = E_{ij}A$ para todos los índices $1\leq i,j\leq n$.
->>3. Mirando la fila $i$ y la columna $j$ en ambos productos: para $i\neq j$, la igualdad $(AE_{ii})_{ii} = (E_{ii}A)_{ii}$ da $a_{ii} = a_{ii}$, pero en la posición $(k,i)$ con $k\neq i$ se tiene $(AE_{ii})_{ki} = a_{ki}$ mientras que $(E_{ii}A)_{ki} = 0$, lo que fuerza $a_{ki}=0$. Por ende, $A$ es una matriz diagonal.
->>4. Comparando las matrices diagonales con $E_{ij}$: la igualdad $AE_{ij}=E_{ij}A$ implica que la fila $i$ de $AE_{ij}$ tiene a $a_{ii}$ en la columna $j$, mientras que la fila $i$ de $E_{ij}A$ tiene a $a_{jj}$ en la columna $j$; luego $a_{ii}=a_{jj}$ para todo $i,j$. Así, $A=\lambda I_n$ para algún $\lambda\in R$.
->>5. Finalmente, conmutar con matrices escalares $\mu I_n$ (o con $\mu E_{11}$) exige que $\lambda \mu = \mu \lambda$ para todo $\mu\in R$, lo que significa $\lambda\in Z(R)$. Recíprocamente, toda matriz de la forma $\lambda I_n$ con $\lambda\in Z(R)$ conmuta con cualquier matriz de $M_n(R)$.
-
->[!definition] Dominio íntegro
->Un anillo $R$ se dice **dominio íntegro** (o simplemente dominio si no es conmutativo) si $1\neq 0$ y no posee divisores de cero; es decir, para todos $a,b\in R$: $$ab=0 \implies a=0\text{ ó }b=0.$$ Equivalentemente, si $a\neq 0$, entonces $ax=0\implies x=0$ y $xa=0\implies x=0$.
-
->[!definition] Anillo de división y cuerpo
->Un anillo $R$ con $1\neq 0$ se dice **anillo de división** (o *cuerpo alabeado*) si todo elemento no nulo es inversible: $$\forall x\in R\setminus\{0\},\quad \exists y\in R\quad\text{tal que}\quad xy=yx=1.$$
->Un **cuerpo** es un anillo de división que además es conmutativo.
-
->[!example] Ejemplos
->1. Si $X$ es un espacio topológico, el conjunto de funciones continuas $$C(X)=\{f\colon X\to\mathbb R\mid f\text{ es continua}\}$$ es un anillo conmutativo con las operaciones puntuales $(f+g)(x)=f(x)+g(x)$ y $(fg)(x)=f(x)g(x)$. No es un dominio íntegro si $X$ admite funciones continuas con soportes disjuntos no vacíos.
->2. Si $\mathbb k$ es un cuerpo, el **cuerpo de funciones racionales** en una indeterminada es $$\mathbb k(x)=\left\{\frac{g(x)}{f(x)}\Bigm| g,f\in\mathbb k[x],\ f\neq 0\right\}.$$ Es el cuerpo de fracciones del dominio de polinomios $\mathbb k[x]$.
-
-## Producto y suma directa de anillos
-
->[!definition] Producto de anillos
->Sea $I$ un conjunto de índices y $\{R_i\}_{i\in I}$ una familia de anillos. El **producto directo** es el conjunto cartesiano $$\prod_{i\in I} R_i = \left\{f\colon I\to\bigcup_{i\in I}R_i\Bigm| f(i)\in R_i\ \forall i\in I\right\}.$$
->Se le da estructura de anillo definiendo las operaciones coordenada a coordenada:
->1. Suma: $(f+g)(i) = f(i)+g(i)$ para todo $i\in I$, con neutro aditivo $0(i)=0_{R_i}$.
->2. Producto: $(f\cdot g)(i) = f(i)g(i)$ para todo $i\in I$.
->3. Unidad: el neutro multiplicativo es la función $1(i)=1_{R_i}$ para todo $i\in I$.
-
->[!lemma] Propiedad universal del producto de anillos
->1. El producto $\prod_{i\in I} R_i$ es un anillo, y para cada $j\in I$, la proyección canónica $$\pi_j\colon \prod_{i\in I} R_i\longrightarrow R_j,\qquad f\longmapsto f(j),$$ es un epimorfismo (morfismo sobreyectivo) de anillos.
->2. **Propiedad universal:** Si $S$ es un anillo y $\{\varphi_j\colon S\to R_j\}_{j\in I}$ es una familia de morfismos de anillos, entonces existe un **único** morfismo de anillos $\hat{\varphi}\colon S\to\prod_{i\in I}R_i$ tal que $\pi_j\circ\hat{\varphi}=\varphi_j$ para todo $j\in I$.
->$$\begin{aligned}\begin{array}{ccc} & & \prod_{i\in I} R_i \\ & \overset{\hat{\varphi}}{\nearrow} & \Big\downarrow \pi_j \\ S & \underset{\varphi_j}{\longrightarrow} & R_j \end{array}\end{aligned}$$
->>[!Proof]-
->>1. Las operaciones en $\prod_{i\in I} R_i$ se definen coordenada a coordenada; como cada $R_i$ satisface la asociatividad, distributividades y existencia de elementos neutros $0_{R_i}$ y $1_{R_i}$, estas identidades se heredan puntualmente en el producto.
->>2. Cada proyección $\pi_j$ satisface $\pi_j(f+g)=f(j)+g(j)=\pi_j(f)+\pi_j(g)$, $\pi_j(fg)=f(j)g(j)=\pi_j(f)\pi_j(g)$ y $\pi_j(1)=1(j)=1_{R_j}$, de modo que es un morfismo de anillos. Además es sobreyectivo porque dado $r\in R_j$, la función $f$ con $f(j)=r$ y $f(i)=0_{R_i}$ para $i\neq j$ cumple $\pi_j(f)=r$.
->>3. Para la existencia de $\hat{\varphi}$, definimos para cada $s\in S$ la función $\hat{\varphi}(s)\in\prod_{i\in I}R_i$ dada por $(\hat{\varphi}(s))(i)=\varphi_i(s)$ para cada $i\in I$.
->>4. Comprobamos que $\hat{\varphi}$ es morfismo de anillos: $(\hat{\varphi}(s+s'))(i)=\varphi_i(s+s')=\varphi_i(s)+\varphi_i(s')=(\hat{\varphi}(s))(i)+(\hat{\varphi}(s'))(i)$, $(\hat{\varphi}(ss'))(i)=\varphi_i(ss')=\varphi_i(s)\varphi_i(s')=(\hat{\varphi}(s))(i)(\hat{\varphi}(s'))(i)$, y $(\hat{\varphi}(1_S))(i)=\varphi_i(1_S)=1_{R_i}$. Además conmuta con las proyecciones: $(\pi_j\circ\hat{\varphi})(s)=(\hat{\varphi}(s))(j)=\varphi_j(s)$.
->>5. Para la unicidad, si $\psi\colon S\to\prod_{i\in I}R_i$ satisface $\pi_j\circ\psi = \varphi_j$ para todo $j\in I$, entonces para cada $s\in S$ y cada $j\in I$ se tiene $(\psi(s))(j) = (\pi_j\circ\psi)(s) = \varphi_j(s) = (\hat{\varphi}(s))(j)$, lo que fuerza $\psi(s)=\hat{\varphi}(s)$ para todo $s\in S$.
-
->[!exercise] ¿Se puede definir un producto semidirecto de anillos?
->En grupos, el producto semidirecto $N\rtimes_\varphi H$ se construye dotando al producto cartesiano de una multiplicación que involucra la acción de $H$ sobre $N$ por automorfismos. ¿Existe una noción análoga para anillos?
->>[!remark]- Discusión teórica
->>En teoría de anillos, no es suficiente tener una acción por automorfismos porque la distributividad impone restricciones severas sobre la suma y el producto cruzado. La construcción análoga al producto semidirecto en álgebra de anillos surge cuando se toma un anillo $R$ y un $(R,R)$-bimódulo $M$: se define el **producto semidirecto** (o *extensión de cuadrado cero*, o extensión trivial de Dorroh) $R\ltimes M$ sobre el grupo aditivo $R\oplus M$ mediante $$(r,m)\cdot(r',m') = (rr',\, rm' + mr').$$ En esta estructura, $M\cong \{0\}\times M$ es un ideal bilátero cuyo producto con sí mismo es nulo ($M^2=0$), jugando el rol del núcleo normal.
-
-## Anillo libre generado por un conjunto
-
->[!definition] Anillo libre $\mathbb Z\langle X\rangle$
->Sea $X$ un conjunto de variables o símbolos no conmutativos.
->1. Sea $\widehat{X}$ el monoide libre de todas las palabras finitas con letras en $X$: $$\widehat{X}=\{x_1 x_2 \dots x_m\mid m\in\mathbb N_0,\ x_i\in X\}\cup\{1\},$$ donde la palabra vacía de longitud $0$ actúa como el neutro multiplicativo $1$ y la operación es la concatenación de palabras.
->2. El **anillo libre** generado por $X$, denotado $\mathcal F(X) = \mathbb Z\langle X\rangle$, es el álgebra de monoide $\mathbb Z[\widehat{X}]$: $$\mathbb Z\langle X\rangle = \bigoplus_{w\in\widehat{X}}\mathbb Z\cdot w.$$
->3. Un elemento típico es un polinomio con coeficientes enteros en variables que no conmutan: sumas finitas de la forma $\sum \lambda_w w$ con $\lambda_w\in\mathbb Z$ y $w\in\widehat{X}$.
->4. El producto se define multiplicando los coeficientes en $\mathbb Z$ y concatenando las palabras: $$(\lambda\, u)\cdot(\mu\, v) = (\lambda\mu)\,(uv),\qquad\text{por ejemplo:}\quad (2\,xyz)\cdot(3\,xy^2) = 6\,xyzxy^2.$$
-
->[!theorem] Propiedad universal del anillo libre
->Existe una función canónica inyectiva $\iota\colon X\hookrightarrow\mathbb Z\langle X\rangle$ (que identifica cada letra $x\in X$ con la palabra de longitud uno $1\cdot x$) con la siguiente propiedad universal:
->Para todo anillo $R$ y toda función $f\colon X\to R$, existe un **único** morfismo de anillos $\widetilde{f}\colon \mathbb Z\langle X\rangle\to R$ tal que conmuta el diagrama:
->$$\begin{aligned}\begin{array}{ccc} X & \overset{\iota}{\hookrightarrow} & \mathbb Z\langle X\rangle \\ & \underset{f}{\searrow} & \Big\downarrow \widetilde{f} \\ & & R \end{array}\end{aligned}$$
->>[!Proof]-
->>1. Para la existencia, como $\widetilde{f}$ debe preservar la unidad y la multiplicación, la imagen de una palabra $w=x_1\dots x_m\in\widehat{X}$ está obligada a ser $\widetilde{f}(w)=f(x_1)\dots f(x_m)\in R$, con $\widetilde{f}(1)=1_R$.
->>2. Como $\widetilde{f}$ debe preservar la suma y el producto por enteros (propiedad de morfismo de grupos aditivos), la imagen de un elemento general $\sum_{w\in\widehat{X}}\lambda_w w$ queda definida de forma única por $$\widetilde{f}\left(\sum_{w\in\widehat{X}}\lambda_w w\right) = \sum_{w\in\widehat{X}}\lambda_w f(x_{w,1})\dots f(x_{w,m}).$$
->>3. Se verifica directamente que esta asignación respeta la suma, el producto y la unidad, y que $(\widetilde{f}\circ\iota)(x)=\widetilde{f}(x)=f(x)$ para todo $x\in X$.
->>4. La unicidad es inmediata porque $X$ genera a $\mathbb Z\langle X\rangle$ como anillo unital: cualquier otro morfismo que coincida con $f$ sobre $X$ debe coincidir con $\widetilde{f}$ sobre todas las palabras y sus combinaciones lineales.
-
-## Ideales y anillos cocientes
-
->[!definition] Ideales
->Sea $R$ un anillo y sea $I\subseteq R$ un subgrupo aditivo de $(R,+)$.
->1. $I$ es un **ideal a derecha** si para todo $x\in R$ y todo $r\in I$ se tiene $rx\in I$ (es decir, $IR\subseteq I$).
->2. $I$ es un **ideal a izquierda** si para todo $x\in R$ y todo $r\in I$ se tiene $xr\in I$ (es decir, $RI\subseteq I$).
->3. $I$ es un **ideal bilátero** (o simplemente un **ideal** de $R$) si es simultáneamente ideal a izquierda y a derecha; es decir, $RI\subseteq I$ e $IR\subseteq I$.
-
->[!proposition] Buena definición del producto en el cociente
->Sea $R$ un anillo y sea $I\subseteq R$ un subgrupo aditivo. En el grupo cociente $(R/I,+)$, cuyas clases denotamos $[r]=r+I$, se quiere definir la multiplicación por $$[r][s] = [rs],\qquad\text{con}\quad [1]=1_{R/I}.$$
->Esta multiplicación está bien definida si y sólo si $I$ es un **ideal bilátero**.
->>[!Proof]-
->>1. Para que la multiplicación $[r][s]=[rs]$ no dependa de la elección de los representantes, debemos exigir que si $[r]=[r']$ y $[s]=[s']$, entonces $[rs]=[r's']$.
->>2. La condición $[r]=[r']$ significa $r-r'\in I$, y $[s]=[s']$ significa $s-s'\in I$. La diferencia de los productos se descompone como $$r's' - rs = r'(s'-s) + (r'-r)s.$$
->>3. Si fijamos $s=s'$, la condición se reduce a que $(r'-r)s\in I$ para todo $r'-r\in I$ y todo $s\in R$. Esto exige que $I$ sea un ideal a derecha ($IR\subseteq I$).
->>4. Si fijamos $r=r'$, la condición se reduce a que $r'(s'-s)\in I$ para todo $s'-s\in I$ y todo $r'\in R$. Esto exige que $I$ sea un ideal a izquierda ($RI\subseteq I$).
->>5. Recíprocamente, si $I$ es bilátero, entonces tanto $r'(s'-s)\in RI\subseteq I$ como $(r'-r)s\in IR\subseteq I$; como $I$ es subgrupo aditivo, su suma pertenece a $I$, luego $[rs]=[r's']$. Por lo tanto, el producto está bien definido si y sólo si $I$ es bilátero.
-
->[!lemma] El anillo cociente
->Sea $R$ un anillo e $I\subseteq R$ un ideal bilátero. Entonces $R/I$ es un anillo con las operaciones inducidas, y la proyección canónica $$\pi\colon R\longrightarrow R/I,\qquad r\longmapsto [r],$$ es un epimorfismo de anillos con $\operatorname{Ker}(\pi)=I$.
->>[!Proof]-
->>1. Como $I$ es subgrupo del grupo abeliano $(R,+)$, $(R/I,+)$ es un grupo abeliano bien definido.
->>2. Por la proposición anterior, el producto $[r][s]=[rs]$ está bien definido en $R/I$.
->>3. La asociatividad y distributividad del producto en $R/I$ se heredan directamente de las de $R$: $$[r]([s][t]) = [r][st] = [r(st)] = [(rs)t] = [rs][t] = ([r][s])[t],$$ y análogamente $[r]([s]+[t]) = [r][s+t] = [r(s+t)] = [rs+rt] = [rs]+[rt] = [r][s]+[r][t]$.
->>4. El elemento $[1]$ cumple $[1][r]=[1\cdot r]=[r]$ y $[r][1]=[r\cdot 1]=[r]$ para todo $[r]\in R/I$, luego es la unidad de $R/I$.
->>5. La aplicación $\pi$ preserva sumas, productos y la unidad por construcción de las operaciones en $R/I$, y es claramente sobreyectiva con $\operatorname{Ker}(\pi)=\{r\in R\mid [r]=[0]\}=\{r\in R\mid r\in I\}=I$.
-
->[!theorem] Primer teorema de isomorfismo para anillos
->Sean $R, S$ anillos y $f\colon R\to S$ un morfismo de anillos. Entonces:
->1. $\operatorname{Im}(f)\subseteq S$ es un subanillo de $S$.
->2. $\operatorname{Ker}(f)\subseteq R$ es un ideal bilátero de $R$, y existe un único isomorfismo de anillos $$\varphi\colon R/\operatorname{Ker}(f)\xrightarrow{\ \sim\ }\operatorname{Im}(f)\qquad\text{tal que}\quad \varphi([r])=f(r).$$
->3. Si $J\subseteq \operatorname{Ker}(f)$ es un ideal bilátero de $R$, existe un **único** morfismo de anillos $\widehat{f}\colon R/J\to S$ tal que $\widehat{f}\circ\pi = f$:
->$$\begin{aligned}\begin{array}{ccc} R & \overset{f}{\longrightarrow} & S \\ \Big\downarrow \pi & \nearrow \widehat{f} & \\ R/J & & \end{array}\end{aligned}$$
->>[!Proof]-
->>1. Para (1), como $f$ es morfismo de anillos, $1_S = f(1_R)\in\operatorname{Im}(f)$, y para $f(a),f(b)\in\operatorname{Im}(f)$ se tiene $f(a)-f(b)=f(a-b)\in\operatorname{Im}(f)$ y $f(a)f(b)=f(ab)\in\operatorname{Im}(f)$; por ende $\operatorname{Im}(f)$ es un subanillo de $S$.
->>2. Para (2), el núcleo aditivo $\operatorname{Ker}(f)=\{x\in R\mid f(x)=0\}$ es un subgrupo de $(R,+)$. Para $x\in\operatorname{Ker}(f)$ y $r\in R$: $$f(rx)=f(r)f(x)=f(r)\cdot 0=0\implies rx\in\operatorname{Ker}(f),$$ y $$f(xr)=f(x)f(r)=0\cdot f(r)=0\implies xr\in\operatorname{Ker}(f).$$ Luego $\operatorname{Ker}(f)$ es un ideal bilátero.
->>3. Definimos $\varphi\colon R/\operatorname{Ker}(f)\to\operatorname{Im}(f)$ por $\varphi([r])=f(r)$. Está bien definida porque si $[r]=[s]$, entonces $r-s\in\operatorname{Ker}(f)$, de donde $f(r-s)=0$ y $f(r)=f(s)$.
->>4. Es morfismo porque hereda las operaciones de $f$, y es sobreyectiva por definición de $\operatorname{Im}(f)$.
->>5. Es inyectiva porque si $\varphi([r])=0$, entonces $f(r)=0$, de donde $r\in\operatorname{Ker}(f)$ y por tanto $[r]=[0]$. Así, $\varphi$ es un isomorfismo.
->>6. Para (3), definimos obligadamente $\widehat{f}([x])=f(x)$ para satisfacer $\widehat{f}(\pi(x))=f(x)$. Si $[x]=[y]$, entonces $x-y\in J\subseteq\operatorname{Ker}(f)$, por lo que $f(x-y)=0$ y $f(x)=f(y)$, asegurando la buena definición. La unicidad se sigue de que las clases cubren todo $R/J$.
-
->[!definition] Ideal generado por un conjunto
->Sea $R$ un anillo y $X\subseteq R$ un subconjunto arbitrario.
->1. El **ideal a izquierda generado por $X$** es el conjunto de combinaciones lineales finitas con coeficientes en $R$ a izquierda: $$RX = \left\{\sum_{i=1}^m r_i x_i\Bigm| m\in\mathbb N_0,\ r_i\in R,\ x_i\in X\right\}.$$
->2. El **ideal a derecha generado por $X$** es: $$XR = \left\{\sum_{i=1}^m x_i r_i\Bigm| m\in\mathbb N_0,\ r_i\in R,\ x_i\in X\right\}.$$
->3. El **ideal bilátero generado por $X$** es: $$RXR = \langle X\rangle = \left\{\sum_{i=1}^m r_i x_i s_i\Bigm| m\in\mathbb N_0,\ r_i,s_i\in R,\ x_i\in X\right\}.$$
-
->[!remark] Caso conmutativo
->Si el anillo $R$ es conmutativo, $r_i x_i s_i = (r_i s_i)x_i$, por lo que los ideales a izquierda, a derecha y bilátero coinciden: $$RX = XR = RXR = \langle X\rangle.$$
-
-## Ejemplos de cocientes y morfismos
-
->[!example] Morfismo de evaluación y $\mathbb k[x]/\langle x-\lambda\rangle\cong\mathbb k$
->Sea $\mathbb k$ un cuerpo y sea $\lambda\in\mathbb k$ un elemento fijado. Consideramos el morfismo de evaluación: $$\operatorname{Ev}_\lambda\colon\mathbb k[x]\longrightarrow\mathbb k,\qquad P(x)\longmapsto P(\lambda).$$
->1. $\operatorname{Ev}_\lambda$ es un morfismo de anillos sobreyectivo (para cualquier $c\in\mathbb k$, el polinomio constante $c$ evalúa en $c$).
->2. El núcleo es el conjunto de polinomios que tienen a $\lambda$ como raíz: por el algoritmo de división por el polinomio mónico $x-\lambda$, todo $P(x)$ se escribe $P(x)=q(x)(x-\lambda)+P(\lambda)$; luego $P(\lambda)=0\iff P(x)\in\langle x-\lambda\rangle$.
->3. Por el primer teorema de isomorfismo, $$\mathbb k[x]/\langle x-\lambda\rangle \cong \mathbb k.$$
-
->[!example] Álgebra libre vs. Álgebra conmutativa de polinomios
->Sea $\mathbb k$ un cuerpo. El álgebra libre en dos variables es $\mathbb k\langle x,y\rangle$, donde $xy\neq yx$.
->Si cocientamos por el ideal bilátero generado por el conmutador $[x,y]=xy-yx$: $$\mathbb k[x,y]\cong \mathbb k\langle x,y\rangle/\langle xy-yx\rangle.$$
->En el anillo cociente se impone la relación $\overline{xy-yx}=0$, es decir, $\bar{x}\bar{y}=\bar{y}\bar{x}$.
->Por ejemplo: la palabra $\overline{xyx^2y^3}$ en el cociente se reordena usando conmutatividad como $$\overline{xyx^2y^3} = \bar{x}\bar{y}\bar{x}^2\bar{y}^3 = \bar{x}^3\bar{y}^4,$$ recuperando exactamente el álgebra de polinomios conmutativos usual.
-
->[!example] Variedades algebraicas y puntos: $\mathbb C[x,y]/\langle x^2+y^2-1\rangle$
->Consideramos el anillo cociente $R=\mathbb C[x,y]/\langle x^2+y^2-1\rangle$ y nos proponemos determinar todos los morfismos de anillos de $R$ en el cuerpo $\mathbb C$: $$\operatorname{Hom}_{\mathrm{Ring}}\left(\mathbb C[x,y]/\langle x^2+y^2-1\rangle,\ \mathbb C\right).$$
->1. Por la propiedad universal del álgebra de polinomios y del cociente, dar un morfismo $f\colon R\to\mathbb C$ equivale a elegir los valores $a=f(\bar{x})\in\mathbb C$ y $b=f(\bar{y})\in\mathbb C$ tales que anulen el generador del ideal: $$f(\bar{x}^2+\bar{y}^2-1) = a^2+b^2-1=0.$$
->2. Si nos restringimos a puntos reales $(a,b)\in\mathbb R^2$, la condición $a^2+b^2=1$ describe exactamente la circunferencia unidad $S^1$.
->3. Cada punto $z=(a,b)$ en la curva define un morfismo de evaluación $P_z\colon \mathbb C[x,y]\to\mathbb C$, $p\mapsto p(a,b)$, que se anula sobre $\langle x^2+y^2-1\rangle$ y por tanto factoriza de forma única a través del cociente:
->$$\begin{aligned}\begin{array}{ccc} \mathbb C[x,y] & \overset{P_z}{\longrightarrow} & \mathbb C \\ \Big\downarrow \pi & \nearrow \widehat{P}_z & \\ \mathbb C[x,y]/\langle x^2+y^2-1\rangle & & \end{array}\end{aligned}$$
->4. Se obtiene así una biyección entre los puntos de la curva geométrica y los morfismos de anillos: $$\operatorname{Hom}_{\mathrm{Ring}}\left(\mathbb C[x,y]/\langle x^2+y^2-1\rangle,\ \mathbb C\right) \longleftrightarrow \{(a,b)\in\mathbb C^2\mid a^2+b^2=1\}.$$
-
->[!remark] Filosofía geométrica: Dualidad entre espacios y anillos
->Este ejemplo ilustra el puente fundamental entre la geometría y el álgebra abstracta (la base de la geometría algebraica y la dualidad de Gelfand):
+>[!theorem] Reconocimiento del producto semidirecto
+>Sean $P,Q\leq G$. Si
+>- $Q\trianglelefteq G$;
+>- $P\cap Q=\{e\}$;
+>- $QP=G$;
 >
->| Espacios geométricos / topológicos | Anillos de funciones |
->| :--- | :--- |
->| Espacio $X$ | Anillo de funciones $C(X)$, $\mathcal O(X)$ o $\mathbb k[X]$ |
->| Puntos de $X$ | Morfismos al cuerpo base $\operatorname{Hom}_{\mathrm{Ring}}(R,\mathbb C)$ |
+>entonces existe una acción $\varphi\colon P\to\operatorname{Aut}(Q)$ tal que $$G\cong Q\rtimes_\varphi P.$$
 >
->Conocer el anillo de coordenadas $R$ de una variedad es equivalente a conocer los puntos geométricos del espacio y las funciones sobre él.
+>>[!Proof]-
+>>1. Como $Q\trianglelefteq G$, la conjugación por elementos de $P\subseteq G$ preserva $Q$ (osea $xqx^{-1}\in Q$ para todo $p\in P$). Por lo tanto está bien definida la acción $$\varphi\colon P\longrightarrow\operatorname{Aut}(Q),\qquad \varphi(x)(q)=xqx^{-1}.$$que es un morfismo porque $\varphi(xy)(q)=xyq(xy)^{-1}=\varphi(x)(\varphi(y)(q)).$
+>>2. Definimos $$\Psi\colon Q\rtimes_\varphi P\longrightarrow G,\qquad \Psi(q,x)=qx.$$
+>>3. **Sobreyectividad.** Se sigue directamente de $QP=G$.
+>>4. **Inyectividad.** Si $qx=q'x'$, entonces $q'^{-1}q=x'x^{-1}$. El miembro izquierdo pertenece a $Q$ y el derecho a $P$; como $P\cap Q=\{e\}$, ambos son $e$. Luego $q=q'$ y $x=x'$.
+>>5. **Compatibilidad con el producto.** Para $q,r\in Q$ y $x,y\in P$, $$\begin{aligned}\Psi\bigl((q,x)(r,y)\bigr)&=\Psi\bigl(q\varphi(x)(r),xy\bigr)\\&=q\,xrx^{-1}xy\\&=qxry\\&=\Psi(q,x)\Psi(r,y).\end{aligned}$$así, $\Psi$ es un isomorfismo.
+
+^32193a
+
+>[!lemma] La acción es única respecto de la identificación natural
+>El teorema garantiza *existencia* de $\varphi$. Más aún: si fijamos los subgrupos $Q,P\leq G$ y exigimos que la identificación sea el mapa natural $$\Psi(q,x)=qx,$$ entonces la acción es **única** y es la conjugación: no hay otra $\psi\colon P\to\operatorname{Aut}(Q)$ con $G\cong Q\rtimes_\psi P$ vía ese mismo $\Psi$. (Sin fijar la identificación, la unicidad es falsa: otras acciones pueden dar grupos isomorfos vía isomorfismos que mueven los factores.)
+>>[!Proof]-
+>>6. Sea $\psi\colon P\to\operatorname{Aut}(Q)$ una acción cualquiera tal que el mapa $$\Psi\colon Q\rtimes_\psi P\longrightarrow G,\qquad \Psi(q,x)=qx$$ es un morfismo de grupos. Basta pedir morfismo; la sobreyectividad e inyectividad no intervienen.
+>>7. Tomemos $r\in Q$ y $x\in P$. En $Q\rtimes_\psi P$, el producto de las copias es $$(e_Q,x)(r,e_P)=\bigl(\psi(x)(r),\,x\bigr).$$ Aplicando $\Psi$ a ambos miembros: $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\psi(x)(r)\,x.$$
+>>8. Por otra parte, como $\Psi$ es morfismo, $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\Psi(e_Q,x)\,\Psi(r,e_P)=x\,r.$$
+>>9. Igualando los pasos 2 y 3: $$\psi(x)(r)\,x=x\,r,$$ y cancelando $x$ a derecha (en el grupo $G$) se obtiene $$\psi(x)(r)=xrx^{-1}\qquad\text{para todo }r\in Q,\ x\in P.$$
+>>10. Por lo tanto $\psi$ coincide con la acción por conjugación del teorema. Como $r$ y $x$ eran arbitrarios, no hay ninguna otra opción: la acción es única respecto de $\Psi(q,x)=qx$.
+>>11. El cómputo es interno al producto externo y vale igualmente allí: $$ (e_Q,x)(q,e_P)(e_Q,x^{-1})=(\psi(x)(q),e_P), $$ (que es internamente como decir $xqx^{-1}=\psi(x)(q)$) de modo que la acción se recupera conjugando las copias canónicas: el dato externo $\psi$ y la operación interna de conjugación contienen la misma información.
+
+>[!Remark] ¿Por qué aparecen dos 'mundos' en el producto semidirecto?
+>El teorema de reconocimiento compara dos formas distintas de describir la misma estructura de grupo.
+>- **Mundo interno.** 
+>	1. Partimos de un grupo $G$ que ya contiene subgrupos $Q,P\leq G$ tales que $$Q\trianglelefteq G,\qquad Q\cap P=\{e\},\qquad QP=G.$$
+>	2. Como $Q\trianglelefteq G$, la conjugación por cualquier $x\in P$ preserva $Q$: $$xqx^{-1}\in Q\qquad\text{para todo }q\in Q.$$
+>	3. Por lo tanto podemos definir $$\varphi:P\longrightarrow\operatorname{Aut}(Q),\qquad \varphi(x)(q)=xqx^{-1}.$$
+>	4. Hasta este punto todo ocurre dentro de $G$: los elementos $q,x$ son literalmente elementos de los subgrupos $Q,P\leq G$.
+>- **Mundo externo.** 
+>	1. Usando solamente los grupos $Q$, $P$ y la acción $\varphi$, construimos un nuevo grupo $$Q\rtimes_\varphi P,$$ cuyo conjunto subyacente es $Q\times P$ y cuya operación es $$(q,x)(r,y)=\bigl(q\varphi(x)(r),xy\bigr).$$
+>	2. Este grupo no es literalmente $G$. Sus elementos son pares $(q,x)$, mientras que los elementos de $G$ no tienen por qué ser pares.
+>	3. El teorema afirma que ambos grupos tienen la misma estructura, es decir, $$G\cong Q\rtimes_\varphi P.$$
+>Para relacionar ambos mundos definimos el mapa $$\Psi:Q\rtimes_\varphi P\longrightarrow G,\qquad \Psi(q,x)=qx.$$
+>Las hipótesis $QP=G$ y $Q\cap P=\{e\}$ hacen que todo elemento de $G$ pueda escribirse de manera única como $qx$. Por eso $\Psi$ es biyectiva.
+>Además, la elección de la acción por conjugación hace que la operación del producto semidirecto reproduzca exactamente la multiplicación de $G$: $$\Psi\bigl((q,x)(r,y)\bigr)=\Psi\bigl(q\varphi(x)(r),xy\bigr)=q(xrx^{-1})xy=qxry.$$
+>Por lo tanto $\Psi$ es un isomorfismo y podemos pensar que $$\boxed{G\text{ está construido a partir de }Q,\ P\text{ y la forma en que }P\text{ actúa sobre }Q.}$$
+>Dentro del producto semidirecto externo aparecen además las copias canónicas $$Q_0=Q\times\{e_P\},\qquad P_0=\{e_Q\}\times P.$$ Estas solamente sirven para ver dentro de $Q\rtimes_\varphi P$ los grupos originales $Q$ y $P$. Bajo $\Psi$ se corresponden exactamente con los subgrupos $Q,P\leq G$: $$\Psi(q,e_P)=q,\qquad \Psi(e_Q,x)=x.$$
+>En resumen, $$\boxed{\underbrace{G,\ Q,P}_{\text{descripción interna}}\quad\xleftrightarrow{\ \Psi\ }\quad\underbrace{Q\rtimes_\varphi P}_{\text{descripción externa}}}$$ y la acción $\varphi$ registra cómo los elementos de $P$ conjugan a los elementos de $Q$ dentro de $G$.
+
+>[!remark] Relación con el cociente
+>Bajo las hipótesis del teorema, la proyección canónica $\pi\colon G\to G/Q$ restringida a $P$ es un isomorfismo $$\pi|_P\colon P\xrightarrow{\sim}G/Q.$$ Por eso puede pensarse a $P$ como una copia de $G/Q$ dentro de $G$. Sin embargo, para un subgrupo normal arbitrario $Q\trianglelefteq G$ no siempre existe tal copia: encontrarla equivale a que la extensión parta.
+
+
+## Ejemplos
+
+>[!example] Grupos de orden $pq$
+>Sean $p,q\in\mathbb N$ primos, $p<q$, y sea $G$ un grupo con $|G|=pq$. Entonces existen subgrupos cíclicos $C_q,C_p\leq G$, de órdenes $q$ y $p$ respectivamente, tales que $$G\cong C_q\rtimes C_p.$$  
+>>[!Proof]-
+>>1. Sea $n_q$ la cantidad de $q$-subgrupos de Sylow. Por [[Teorico 7#^sylow|Sylow]], $n_q\equiv 1\pmod{q}$ y $n_q\mid p$. 
+>>2. Como $p$ es primo, $n_q\in\{1,p\}$. Si $n_q=p$, entonces $p\equiv 1\pmod{q}$, es decir $q\mid(p-1)$. 
+>>3. Pero $p<q$ fuerza $0<p-1<q$, imposible. Luego $n_q=1$.
+>>4. Denotemos por $C_q$ al único $q$-Sylow de $G$. Por [[Teorico 7#^sylow|Sylow]], tiene orden $q$. Por [[Teorico 6#^4bed2b|Cauchy]], existe en $C_q$ un elemento de orden $q$, que entonces genera todo el subgrupo. Así, $C_q$ es cíclico de orden $q$.
+>>5. Ademas es normal, por que para todo $g\in G$, el conjugado $gC_qg^{-1}$ es un subgrupo de orden $q$, pues la aplicación $C_q\to gC_qg^{-1}$, $x\mapsto gxg^{-1}$, es biyectiva. Por lo tanto, $gC_qg^{-1}$ también es un $q$-Sylow y, como hay uno solo, $gC_qg^{-1}=C_q$. Esto vale para todo $g\in G$, luego $C_q\trianglelefteq G$.
+>>6. Sea $C_p\leq G$ un $p$-Sylow. Si $C_p\cap C_q$ tuviera un elemento distinto de $e$, su orden dividiría a $p$ y a $q$ (por que dicho elemento genera un subgrupo de ambos y por [[Teorico 4#^teorema-de-lagrange]] tiene que dividir al orden de ambos), luego sería $1$, absurdo. Así $C_p\cap C_q=\{e\}$.
+>>7. Recordamos la formula de [[Teorico 4#^c6bad9|Cardinal de HK]] entonces $$|C_p C_q|=|C_p||C_q|/|C_p\cap C_q|=pq=|G|$$de modo que $C_p C_q=G$.
+>>8. Por el [[Teorico 8#^32193a|Teorema de reconocimiento]], $$G\cong C_q\rtimes C_p.$$
+
+>[!remark]- GPT
+>El pizarrón escribió $n\equiv 1\pmod{q}$ y $n\mid p\Rightarrow n=1$ sin explicitar por qué $n\neq p$. La hipótesis $p<q$ es la que lo impide. No se clasificó la acción $C_p\to\operatorname{Aut}(C_q)$: eso decide si $G$ es cíclico o no abeliano.
+
+>[!example] $\mathbb Z_4$ no es un producto semidirecto $\mathbb Z_2\rtimes\mathbb Z_2$
+>El ejemplo anterior falla si $p=q$. Tomar $p=q=2$ y $G=\mathbb Z_4=\langle g\rangle=\{1,g,g^2,g^3\}$. El único subgrupo de orden $2$ es $N=\{1,g^2\}\cong\mathbb Z_2$, y $\mathbb Z_4/N=\{[1],[g]\}\cong\mathbb Z_2$.
+>No hay complemento: $N$ es el único subgrupo de orden $2$, así que no existen $P\leq\mathbb Z_4$ con $P\cong\mathbb Z_2$, $P\cap N=\{1\}$ y $PN=\mathbb Z_4$.
+>Una sección conjuntista $\delta\colon\mathbb Z_4/N\to\mathbb Z_4$ es $\delta([1])=1$, $\delta([g])=g$. **No** es morfismo de grupos: $\delta([g])\delta([g])=g^2\neq 1=\delta([g][g])$.
+>El $2$-cociclo $\sigma\colon(\mathbb Z_4/N)\times(\mathbb Z_4/N)\to N$ mide ese fallo, $\delta(x)\delta(y)=\sigma(x,y)\,\delta(xy)$: $$\sigma(x,y)=\begin{cases}1&\text{si }x=1\text{ o }y=1,\\ g^2&\text{si }x=y=[g].\end{cases}$$ Así $\mathbb Z_4\cong\mathbb Z_2\times_\sigma\mathbb Z_2$, extensión *no partida*. El producto semidirecto correspondería a $\sigma$ trivial; el único grupo de orden $4$ que es $\mathbb Z_2\rtimes\mathbb Z_2$ es $\mathbb Z_2\times\mathbb Z_2$ (Klein).
+
+>[!remark] Moraleja
+>Si $N\trianglelefteq G$ y $G$ no es simple, $G$ se reconstruye a partir de $N$ y $G/N$, pero no siempre como producto semidirecto. El dato extra es una clase en $H^2(G/N,N)$.
+
+>[!example] Isometrías de $\mathbb R^n$
+>Sea $$E(n)=\bigl\{f\colon\mathbb R^n\to\mathbb R^n:\ \|f(x)-f(y)\|=\|x-y\|\text{ para todo }x,y\bigr\}$$ el grupo de isometrías afines (la clase lo tomó como dato: toda $f\in E(n)$ es $f(x)=Ax+b$ con $A\in O(n)$ y $b\in\mathbb R^n$).
+>Si $f(x)=Ax+b$ y $g(x)=\widetilde Ax+\widetilde b$, entonces $$f\circ g(x)=A(\widetilde Ax+\widetilde b)+b=A\widetilde Ax+A\widetilde b+b.$$ Identificando $f\leftrightarrow(b,A)$, el producto que reproduce $f\circ g$ es $$(b,A)(\widetilde b,\widetilde A)=(b+A\widetilde b,\,A\widetilde A).$$ Eso es el producto semidirecto $(\mathbb R^n,+)\rtimes_\varphi O(n)$ con $$\varphi\colon O(n)\to\operatorname{Aut}(\mathbb R^n,+),\qquad \varphi(A)(x)=Ax.$$ Luego $$E(n)\cong\mathbb R^n\rtimes_\varphi O(n).$$
+
+>[!remark]
+>Misma receta que el grupo triangular $B\cong(\mathbb R,+)\rtimes\mathbb R^\times$ de [[Teorico 3#5. Producto semidirecto|Teórico 3]]: traslaciones por el lineal. En el pizarrón el producto de pares apareció también en el orden opuesto $(\widetilde b,\widetilde A)\cdot(b,A)=(\widetilde b+\widetilde Ab,\widetilde AA)$, que corresponde a $g\circ f$. La identificación $f\leftrightarrow(b,A)$ con $f(x)=Ax+b$ pide el orden de $f\circ g$ escrito arriba.

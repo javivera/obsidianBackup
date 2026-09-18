@@ -10,6 +10,6 @@
   "persistent-live-preview-focus",
   "math-in-callout",
   "pdf-color-inverter",
-  "vault-fuzzy-search",
-  "callout-navigation"
+  "callout-navigation",
+  "vault-fuzzy-search"
 ]

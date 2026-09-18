@@ -133,6 +133,7 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     ) {
       return;
     }
+    if (e.repeat) return;
     if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return;
 
     const target = e.target;
@@ -189,8 +190,11 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     } else {
       // Left/Right: only hijack when the selected block actually contains a
       // proof callout; otherwise leave normal behavior untouched.
+      const remembered = this.recall(view, outers);
       const current =
-        this.recall(view, outers) || this.nearest(outers) || outers[0];
+        remembered && !this.isOffScreen(remembered)
+          ? remembered
+          : this.topmostVisible(outers) || outers[0];
       const proofs = this.findProofs(current);
       if (proofs.length === 0) return;
       this.select(view, outers, current, false);
@@ -202,21 +206,38 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
 
   onPointerDown(e) {
     if (!this.isElement(e.target)) return;
-    const callout = e.target.closest(".callout");
-    if (!callout) return;
     const view = this.viewForEvent(e.target);
-    if (!view || !view.contentEl || !view.contentEl.contains(callout)) return;
+    if (!view || !view.contentEl) return;
     if (!this.isReadingMode(view)) return;
-    // Track the outermost block so Up/Down continue from the clicked exercise.
-    let outer = callout;
-    while (
-      outer.parentElement &&
-      outer.parentElement.closest(".callout") &&
-      view.contentEl.contains(outer.parentElement.closest(".callout"))
-    ) {
-      outer = outer.parentElement.closest(".callout");
+    const outers = this.getOuterCallouts(view);
+    if (outers.length === 0) return;
+    const callout = e.target.closest(".callout");
+    if (callout && view.contentEl.contains(callout)) {
+      // Track the outermost block so Up/Down continue from the clicked exercise.
+      let outer = callout;
+      while (
+        outer.parentElement &&
+        outer.parentElement.closest(".callout") &&
+        view.contentEl.contains(outer.parentElement.closest(".callout"))
+      ) {
+        outer = outer.parentElement.closest(".callout");
+      }
+      this.select(view, outers, outer, false);
+      return;
     }
-    this.select(view, this.getOuterCallouts(view), outer, false);
+    // Clicked back on plain text between blocks: resync so Up/Down continue
+    // from here instead of jumping from a stale off-screen highlight.
+    if (!view.contentEl.contains(e.target)) return;
+    const y = e.clientY;
+    let best = null;
+    if (typeof y === "number") {
+      for (const el of outers) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= y) best = el;
+        else break;
+      }
+    }
+    this.select(view, outers, best || this.topmostVisible(outers) || outers[0], false);
   }
 
   // ---------- commands (same logic, usable from palette / remapping) ----------
@@ -300,11 +321,14 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     const key = view && this.viewKey(view);
     const saved = key != null ? this.memory.get(key) : undefined;
     if (saved == null || outers.length === 0) return null;
-    return outers[Math.min(saved, outers.length - 1)] || null;
+    if (saved < 0 || saved >= outers.length) return null;
+    return outers[saved] || null;
   }
 
-  // Re-highlight the remembered callout when coming back to a tab.
-  // No scrolling: the pane already kept its scroll position.
+  // Re-highlight the remembered callout when coming back to a tab, but only
+  // while it is still what the reader is looking at. Highlighting an
+  // off-screen block after a focus change is what made the next Down/Up jump
+  // to an apparently random place.
   restoreOnReturn() {
     const view = this.app.workspace.getActiveViewOfType(MarkdownView);
     if (!view || !this.isReadingMode(view)) return;
@@ -312,19 +336,64 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     if (outers.length === 0) return;
     if (this.current(outers)) return;
     const el = this.recall(view, outers);
-    if (el) this.select(view, outers, el, false);
+    if (el && !this.isOffScreen(el)) this.select(view, outers, el, false);
+    else this.clearHighlight();
   }
 
   neighbor(view, outers, direction) {
-    const cur = this.recall(view, outers);
+    let cur = this.recall(view, outers);
+    // Only trust the stored position while it is actually on screen.
+    if (cur && this.isOffScreen(cur)) cur = null;
     if (!cur) {
-      // First jump: Down starts at the top, Up starts near the viewport.
-      if (direction > 0) return outers[0];
-      return this.nearest(outers) || outers[outers.length - 1];
+      // Anchor to the first callout in the viewport, so the first keypress
+      // after a focus change or a mouse scroll continues from what is seen.
+      const top = this.topmostVisible(outers);
+      if (!top) return direction > 0 ? outers[0] : outers[outers.length - 1];
+      if (direction > 0) {
+        const i = outers.indexOf(top);
+        const n = outers.length;
+        return outers[(((i + direction) % n) + n) % n];
+      }
+      return top;
     }
     const i = outers.indexOf(cur);
     const n = outers.length;
+    // Defensive: an unmatchable element must never collapse to index 0.
+    if (i < 0) return this.topmostVisible(outers) || outers[0];
     return outers[(((i + direction) % n) + n) % n];
+  }
+
+  // First callout that is at least partly inside the viewport.
+  topmostVisible(outers) {
+    for (const el of outers) {
+      try {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < this.viewportHeight(el)) return el;
+      } catch (_error) {
+        // skip
+      }
+    }
+    return null;
+  }
+
+  viewportHeight(el) {
+    try {
+      const doc = el && el.ownerDocument ? el.ownerDocument : null;
+      const win = doc ? doc.defaultView : null;
+      if (win && win.innerHeight) return win.innerHeight;
+    } catch (_error) {
+      // fall through
+    }
+    return (typeof window !== "undefined" && window.innerHeight) || 800;
+  }
+
+  isOffScreen(el) {
+    try {
+      const rect = el.getBoundingClientRect();
+      return rect.bottom <= 0 || rect.top >= this.viewportHeight(el);
+    } catch (_error) {
+      return false;
+    }
   }
 
   nearest(outers) {
@@ -404,6 +473,14 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
         // scrollIntoView options unsupported: ignore
       }
     }
+  }
+
+  // Drop the ring but keep the remembered position.
+  clearHighlight() {
+    if (this.selected) {
+      this.selected.classList.remove("cn-selected");
+    }
+    this.selected = null;
   }
 
   clearSelection() {

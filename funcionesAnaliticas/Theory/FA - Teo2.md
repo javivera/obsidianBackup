@@ -494,7 +494,7 @@
 >Sea $f:G\to\mathbb C$ diferenciable en $z_0\in G$, con $G$ abierto, y sean $u,v:\mathbb R^2\to\mathbb R$ dadas por $$u(x,y)=\operatorname{Re}f(z),\qquad v(x,y)=\operatorname{Im}f(z),$$donde $z=x+iy$. Sabemos que $$\exists\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}=f'(z_0).$$por lo tanto, $$\exists\lim_{h\to0}\frac{f(z_0+h)-f(z_0)}{h}=f'(z_0),$$para $h\in\mathbb R$ y para $h$ imaginario. 
 >Supongamos primero que $h\neq0$ y $h\in\mathbb R$. Si $z_0=x+iy$, entonces $$f(z_0+h)=f((x+h)+iy)=u(x+h,y)+iv(x+h,y),$$y por consiguiente $$f'(z_0)=\lim_{h\to0}\frac{f(z_0+h)-f(z_0)}{h}=\lim_{h\to0}\left(\frac{u(x+h,y)-u(x,y)}{h}+i\frac{v(x+h,y)-v(x,y)}{h}\right).$$luego, $$\boxed{f'(z_0)=u_x(x,y)+iv_x(x,y)}\quad(*)$$
 >Ahora supongamos que $h\neq0$ y que $h$ es imaginario puro entonces $$\begin{align}f'(z_0)&=\lim_{h\to0}\frac{f(z_0+ih)-f(z_0)}{ih}\\&=\lim_{h\to0}\left(\frac{u(x,y+h)-u(x,y)}{ih}+i\frac{v(x,y+h)-v(x,y)}{ih}\right).\end{align}$$usando que $\frac{1}{i}=-i$, $$\begin{align}f'(z_0)&=\lim_{h\to0}\left(-i\frac{u(x,y+h)-u(x,y)}{h}+\frac{v(x,y+h)-v(x,y)}{h}\right)\\&=v_y(x,y)-iu_y(x,y).\end{align}$$
->Es decir, $$\boxed{f'(z_0)=v_y(x,y)-iu_y(x,y)}\tag{2}\quad(**)$$
+>Es decir, $$\boxed{f'(z_0)=v_y(x,y)-iu_y(x,y)}\qquad (2)\quad(**)$$
 >Combinando $(*)$ con $(**)$ $$u_x(x,y)+iv_x(x,y)=v_y(x,y)-iu_y(x,y).$$como dos números complejos son iguales si y sólo si sus partes reales e imaginarias son iguales, se sigue que $$\boxed{\begin{align}u_x(x,y)&=v_y(x,y),\\v_x(x,y)&=-u_y(x,y).\end{align}}$$estas se llaman **ecuaciones de Cauchy-Riemann**.
 
 >[!Remark]

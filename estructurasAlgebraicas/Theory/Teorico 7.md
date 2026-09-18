@@ -1,177 +1,134 @@
 ---
-dateCreated: 2026-09-04
+dateCreated: 2026-09-02
 tags:
   - AlgebraicStructures
   - Groups
-  - SemidirectProduct
-  - Rings
-source: "[[EA-Teorico-7-4sept.pdf]]"
+  - SylowTheorems
+source: "[[EA-Teorico-5-2sept.pdf]]"
 ---
 
-# Teórico 7 — Producto semidirecto interno. Anillos
+# Teórico 7 — Teoremas de Sylow
 
-## Del producto semidirecto externo al interno
-
->[!definition] Producto semidirecto externo
->Sean $P$ y $Q$ grupos y sea un morfismo $$\varphi\colon P\longrightarrow\operatorname{Aut}(Q).$$ El **producto semidirecto** de $Q$ por $P$ asociado a $\varphi$ es el conjunto $Q\times P$ con la operación $$ (q,x)(r,y)=\bigl(q\,\varphi(x)(r),xy\bigr). $$ Se denota $Q\rtimes_\varphi P$.
-
->[!Remark] Acción y conjugación en un producto semidirecto
->En todo producto semidirecto $Q\rtimes_\varphi P$, la acción $\varphi:P\to\operatorname{Aut}(Q)$ se recupera mediante conjugación de las copias canónicas de $P$ y $Q$: $$(e_Q,x)(q,e_P)(e_Q,x^{-1})=(\varphi(x)(q),e_P).$$ Por lo tanto, bajo la identificación canónica $q\equiv(q,e_P)$ y $x\equiv(e_Q,x)$, podemos escribir simplemente $$\varphi(x)(q)=xqx^{-1}.$$ En el producto semidirecto externo primero se da $\varphi$ y luego se construye el grupo; en el teorema de reconocimiento ocurre al revés: a partir de $P,Q\leq G$ se recupera $\varphi$ usando la conjugación en $G$.
-
->[!proposition] Propiedades de las copias canónicas
->En $Q\rtimes_\varphi P$ consideramos las aplicaciones $$\iota_Q\colon Q\longrightarrow Q\rtimes_\varphi P,\qquad q\longmapsto(q,e_P),$$ $$\iota_P\colon P\longrightarrow Q\rtimes_\varphi P,\qquad x\longmapsto(e_Q,x).$$ Ambas son inyecciones y morfismos de grupos; identificamos entonces $Q$ y $P$ con las copias canónicas $$Q_0:=Q\times\{e_P\},\qquad P_0:=\{e_Q\}\times P.$$ Bajo estas identificaciones:
->1. $Q_0$ es un subgrupo normal de $Q\rtimes_\varphi P$.
->2. $P_0\cap Q_0=\{(e_Q,e_P)\}$.
->3. $Q_0P_0=Q\rtimes_\varphi P$.
->>[!Proof]-
->>1. Las aplicaciones $\iota_Q$ y $\iota_P$ son morfismos de grupos porque $$\iota_Q(q)\iota_Q(r)=(q,e_P)(r,e_P)=(qr,e_P)=\iota_Q(qr)$$ y $$\iota_P(x)\iota_P(y)=(e_Q,x)(e_Q,y)=(e_Q,xy)=\iota_P(xy),$$ usando $\varphi(e_P)=\operatorname{id}_Q$ y $\varphi(x)(e_Q)=e_Q$.
->>2. Ambas aplicaciones son inyectivas porque conservan las coordenadas: $\iota_Q(q)=(q,e_P)$ y $\iota_P(x)=(e_Q,x)$ determinan $q$ y $x$. Por lo tanto $Q_0$ y $P_0$ son subgrupos de $Q\rtimes_\varphi P$.
->>3. Para (1), sea $x\in P$ y $q\in Q$. Usando la regla del producto dos veces, $$ (e_Q,x)(q,e_P)(e_Q,x^{-1})=(\varphi(x)(q),e_P)\in Q_0. $$
->>4. La conjugación por $(e_Q,x)$ es una biyección (su inversa es la conjugación por $(e_Q,x^{-1})$), así que la inclusión del paso 3 implica $(e_Q,x)Q_0(e_Q,x^{-1})=Q_0$ para todo $x\in P$. Como todo $g\in Q\rtimes_\varphi P$ se escribe $g=(q,e_P)(e_Q,x)$, la conjugación por $g$ es composición de dos conjugaciones que preservan $Q_0$; por lo tanto $Q_0\trianglelefteq Q\rtimes_\varphi P$.
->>5. Para (2), si $(q,e_P)=(e_Q,x)$, entonces la segunda coordenada da $e_P=x$ y la primera da $q=e_Q$; luego $P_0\cap Q_0=\{(e_Q,e_P)\}$.
->>6. Para (3), $$ (q,e_P)(e_Q,x)=(q,x), $$ de modo que todo elemento de $Q\rtimes_\varphi P$ pertenece a $Q_0P_0$.
-
->[!remark] Relación con el reconocimiento interno
->Esta proposición da las propiedades que aparecen como hipótesis en el teorema de reconocimiento: el primer factor es normal, la intersección de los factores es trivial y todo elemento del producto se descompone como un elemento de $Q_0$ seguido de uno de $P_0$.
-
->[!theorem] Reconocimiento del producto semidirecto
->Sean $P,Q\leq G$. Si
->- $Q\trianglelefteq G$;
->- $P\cap Q=\{e\}$;
->- $QP=G$;
->
->entonces existe una acción $\varphi\colon P\to\operatorname{Aut}(Q)$ tal que $$G\cong Q\rtimes_\varphi P.$$
->
->>[!Proof]-
->>1. Como $Q\trianglelefteq G$, la conjugación por elementos de $P\subseteq G$ preserva $Q$ (osea $xqx^{-1}\in Q$ para todo $p\in P$). Por lo tanto está bien definida la acción $$\varphi\colon P\longrightarrow\operatorname{Aut}(Q),\qquad \varphi(x)(q)=xqx^{-1}.$$que es un morfismo porque $\varphi(xy)(q)=xyq(xy)^{-1}=\varphi(x)(\varphi(y)(q)).$
->>2. Definimos $$\Psi\colon Q\rtimes_\varphi P\longrightarrow G,\qquad \Psi(q,x)=qx.$$
->>3. **Sobreyectividad.** Se sigue directamente de $QP=G$.
->>4. **Inyectividad.** Si $qx=q'x'$, entonces $q'^{-1}q=x'x^{-1}$. El miembro izquierdo pertenece a $Q$ y el derecho a $P$; como $P\cap Q=\{e\}$, ambos son $e$. Luego $q=q'$ y $x=x'$.
->>5. **Compatibilidad con el producto.** Para $q,r\in Q$ y $x,y\in P$, $$\begin{aligned}\Psi\bigl((q,x)(r,y)\bigr)&=\Psi\bigl(q\varphi(x)(r),xy\bigr)\\&=q\,xrx^{-1}xy\\&=qxry\\&=\Psi(q,x)\Psi(r,y).\end{aligned}$$así, $\Psi$ es un isomorfismo.
-
-^32193a
-
->[!lemma] La acción es única respecto de la identificación natural
->El teorema garantiza *existencia* de $\varphi$. Más aún: si fijamos los subgrupos $Q,P\leq G$ y exigimos que la identificación sea el mapa natural $$\Psi(q,x)=qx,$$ entonces la acción es **única** y es la conjugación: no hay otra $\psi\colon P\to\operatorname{Aut}(Q)$ con $G\cong Q\rtimes_\psi P$ vía ese mismo $\Psi$. (Sin fijar la identificación, la unicidad es falsa: otras acciones pueden dar grupos isomorfos vía isomorfismos que mueven los factores.)
->>[!Proof]-
->>6. Sea $\psi\colon P\to\operatorname{Aut}(Q)$ una acción cualquiera tal que el mapa $$\Psi\colon Q\rtimes_\psi P\longrightarrow G,\qquad \Psi(q,x)=qx$$ es un morfismo de grupos. Basta pedir morfismo; la sobreyectividad e inyectividad no intervienen.
->>7. Tomemos $r\in Q$ y $x\in P$. En $Q\rtimes_\psi P$, el producto de las copias es $$(e_Q,x)(r,e_P)=\bigl(\psi(x)(r),\,x\bigr).$$ Aplicando $\Psi$ a ambos miembros: $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\psi(x)(r)\,x.$$
->>8. Por otra parte, como $\Psi$ es morfismo, $$\Psi\bigl((e_Q,x)(r,e_P)\bigr)=\Psi(e_Q,x)\,\Psi(r,e_P)=x\,r.$$
->>9. Igualando los pasos 2 y 3: $$\psi(x)(r)\,x=x\,r,$$ y cancelando $x$ a derecha (en el grupo $G$) se obtiene $$\psi(x)(r)=xrx^{-1}\qquad\text{para todo }r\in Q,\ x\in P.$$
->>10. Por lo tanto $\psi$ coincide con la acción por conjugación del teorema. Como $r$ y $x$ eran arbitrarios, no hay ninguna otra opción: la acción es única respecto de $\Psi(q,x)=qx$.
->>11. El cómputo es interno al producto externo y vale igualmente allí: $$ (e_Q,x)(q,e_P)(e_Q,x^{-1})=(\psi(x)(q),e_P), $$ (que es internamente como decir $xqx^{-1}=\psi(x)(q)$) de modo que la acción se recupera conjugando las copias canónicas: el dato externo $\psi$ y la operación interna de conjugación contienen la misma información.
-
->[!Remark] ¿Por qué aparecen dos 'mundos' en el producto semidirecto?
->El teorema de reconocimiento compara dos formas distintas de describir la misma estructura de grupo.
->- **Mundo interno.** 
->	1. Partimos de un grupo $G$ que ya contiene subgrupos $Q,P\leq G$ tales que $$Q\trianglelefteq G,\qquad Q\cap P=\{e\},\qquad QP=G.$$
->	2. Como $Q\trianglelefteq G$, la conjugación por cualquier $x\in P$ preserva $Q$: $$xqx^{-1}\in Q\qquad\text{para todo }q\in Q.$$
->	3. Por lo tanto podemos definir $$\varphi:P\longrightarrow\operatorname{Aut}(Q),\qquad \varphi(x)(q)=xqx^{-1}.$$
->	4. Hasta este punto todo ocurre dentro de $G$: los elementos $q,x$ son literalmente elementos de los subgrupos $Q,P\leq G$.
->- **Mundo externo.** 
->	1. Usando solamente los grupos $Q$, $P$ y la acción $\varphi$, construimos un nuevo grupo $$Q\rtimes_\varphi P,$$ cuyo conjunto subyacente es $Q\times P$ y cuya operación es $$(q,x)(r,y)=\bigl(q\varphi(x)(r),xy\bigr).$$
->	2. Este grupo no es literalmente $G$. Sus elementos son pares $(q,x)$, mientras que los elementos de $G$ no tienen por qué ser pares.
->	3. El teorema afirma que ambos grupos tienen la misma estructura, es decir, $$G\cong Q\rtimes_\varphi P.$$
->Para relacionar ambos mundos definimos el mapa $$\Psi:Q\rtimes_\varphi P\longrightarrow G,\qquad \Psi(q,x)=qx.$$
->Las hipótesis $QP=G$ y $Q\cap P=\{e\}$ hacen que todo elemento de $G$ pueda escribirse de manera única como $qx$. Por eso $\Psi$ es biyectiva.
->Además, la elección de la acción por conjugación hace que la operación del producto semidirecto reproduzca exactamente la multiplicación de $G$: $$\Psi\bigl((q,x)(r,y)\bigr)=\Psi\bigl(q\varphi(x)(r),xy\bigr)=q(xrx^{-1})xy=qxry.$$
->Por lo tanto $\Psi$ es un isomorfismo y podemos pensar que $$\boxed{G\text{ está construido a partir de }Q,\ P\text{ y la forma en que }P\text{ actúa sobre }Q.}$$
->Dentro del producto semidirecto externo aparecen además las copias canónicas $$Q_0=Q\times\{e_P\},\qquad P_0=\{e_Q\}\times P.$$ Estas solamente sirven para ver dentro de $Q\rtimes_\varphi P$ los grupos originales $Q$ y $P$. Bajo $\Psi$ se corresponden exactamente con los subgrupos $Q,P\leq G$: $$\Psi(q,e_P)=q,\qquad \Psi(e_Q,x)=x.$$
->En resumen, $$\boxed{\underbrace{G,\ Q,P}_{\text{descripción interna}}\quad\xleftrightarrow{\ \Psi\ }\quad\underbrace{Q\rtimes_\varphi P}_{\text{descripción externa}}}$$ y la acción $\varphi$ registra cómo los elementos de $P$ conjugan a los elementos de $Q$ dentro de $G$.
-
->[!remark] Relación con el cociente
->Bajo las hipótesis del teorema, la proyección canónica $\pi\colon G\to G/Q$ restringida a $P$ es un isomorfismo $$\pi|_P\colon P\xrightarrow{\sim}G/Q.$$ Por eso puede pensarse a $P$ como una copia de $G/Q$ dentro de $G$. Sin embargo, para un subgrupo normal arbitrario $Q\trianglelefteq G$ no siempre existe tal copia: encontrarla equivale a que la extensión parta.
-
-
-## Ejemplos
-
->[!example] Grupos de orden $pq$
->Sean $p,q\in\mathbb N$ primos, $p<q$, y sea $G$ un grupo con $|G|=pq$. Entonces existen subgrupos cíclicos $C_q,C_p\leq G$, de órdenes $q$ y $p$ respectivamente, tales que $$G\cong C_q\rtimes C_p.$$  
->>[!Proof]-
->>1. Sea $n_q$ la cantidad de $q$-subgrupos de Sylow. Por [[Teorico 6#^sylow|Sylow]], $n_q\equiv 1\pmod{q}$ y $n_q\mid p$. 
->>2. Como $p$ es primo, $n_q\in\{1,p\}$. Si $n_q=p$, entonces $p\equiv 1\pmod{q}$, es decir $q\mid(p-1)$. 
->>3. Pero $p<q$ fuerza $0<p-1<q$, imposible. Luego $n_q=1$.
->>4. Denotemos por $C_q$ al único $q$-Sylow de $G$. Por [[Teorico 6#^sylow|Sylow]], tiene orden $q$. Por [[Teorico 5#^4bed2b|Cauchy]], existe en $C_q$ un elemento de orden $q$, que entonces genera todo el subgrupo. Así, $C_q$ es cíclico de orden $q$.
->>5. Ademas es normal, por que para todo $g\in G$, el conjugado $gC_qg^{-1}$ es un subgrupo de orden $q$, pues la aplicación $C_q\to gC_qg^{-1}$, $x\mapsto gxg^{-1}$, es biyectiva. Por lo tanto, $gC_qg^{-1}$ también es un $q$-Sylow y, como hay uno solo, $gC_qg^{-1}=C_q$. Esto vale para todo $g\in G$, luego $C_q\trianglelefteq G$.
->>6. Sea $C_p\leq G$ un $p$-Sylow. Si $C_p\cap C_q$ tuviera un elemento distinto de $e$, su orden dividiría a $p$ y a $q$ (por que dicho elemento genera un subgrupo de ambos y por [[Teorico 4#^teorema-de-lagrange]] tiene que dividir al orden de ambos), luego sería $1$, absurdo. Así $C_p\cap C_q=\{e\}$.
->>7. Recordamos la formula de [[Teorico 4#^c6bad9|Cardinal de HK]] entonces $$|C_p C_q|=|C_p||C_q|/|C_p\cap C_q|=pq=|G|$$de modo que $C_p C_q=G$.
->>8. Por el [[Teorico 7#^32193a|Teorema de reconocimiento]], $$G\cong C_q\rtimes C_p.$$
-
->[!remark]- GPT
->El pizarrón escribió $n\equiv 1\pmod{q}$ y $n\mid p\Rightarrow n=1$ sin explicitar por qué $n\neq p$. La hipótesis $p<q$ es la que lo impide. No se clasificó la acción $C_p\to\operatorname{Aut}(C_q)$: eso decide si $G$ es cíclico o no abeliano.
-
->[!example] $\mathbb Z_4$ no es un producto semidirecto $\mathbb Z_2\rtimes\mathbb Z_2$
->El ejemplo anterior falla si $p=q$. Tomar $p=q=2$ y $G=\mathbb Z_4=\langle g\rangle=\{1,g,g^2,g^3\}$. El único subgrupo de orden $2$ es $N=\{1,g^2\}\cong\mathbb Z_2$, y $\mathbb Z_4/N=\{[1],[g]\}\cong\mathbb Z_2$.
->No hay complemento: $N$ es el único subgrupo de orden $2$, así que no existen $P\leq\mathbb Z_4$ con $P\cong\mathbb Z_2$, $P\cap N=\{1\}$ y $PN=\mathbb Z_4$.
->Una sección conjuntista $\delta\colon\mathbb Z_4/N\to\mathbb Z_4$ es $\delta([1])=1$, $\delta([g])=g$. **No** es morfismo de grupos: $\delta([g])\delta([g])=g^2\neq 1=\delta([g][g])$.
->El $2$-cociclo $\sigma\colon(\mathbb Z_4/N)\times(\mathbb Z_4/N)\to N$ mide ese fallo, $\delta(x)\delta(y)=\sigma(x,y)\,\delta(xy)$: $$\sigma(x,y)=\begin{cases}1&\text{si }x=1\text{ o }y=1,\\ g^2&\text{si }x=y=[g].\end{cases}$$ Así $\mathbb Z_4\cong\mathbb Z_2\times_\sigma\mathbb Z_2$, extensión *no partida*. El producto semidirecto correspondería a $\sigma$ trivial; el único grupo de orden $4$ que es $\mathbb Z_2\rtimes\mathbb Z_2$ es $\mathbb Z_2\times\mathbb Z_2$ (Klein).
-
->[!remark] Moraleja
->Si $N\trianglelefteq G$ y $G$ no es simple, $G$ se reconstruye a partir de $N$ y $G/N$, pero no siempre como producto semidirecto. El dato extra es una clase en $H^2(G/N,N)$.
-
->[!example] Isometrías de $\mathbb R^n$
->Sea $$E(n)=\bigl\{f\colon\mathbb R^n\to\mathbb R^n:\ \|f(x)-f(y)\|=\|x-y\|\text{ para todo }x,y\bigr\}$$ el grupo de isometrías afines (la clase lo tomó como dato: toda $f\in E(n)$ es $f(x)=Ax+b$ con $A\in O(n)$ y $b\in\mathbb R^n$).
->Si $f(x)=Ax+b$ y $g(x)=\widetilde Ax+\widetilde b$, entonces $$f\circ g(x)=A(\widetilde Ax+\widetilde b)+b=A\widetilde Ax+A\widetilde b+b.$$ Identificando $f\leftrightarrow(b,A)$, el producto que reproduce $f\circ g$ es $$(b,A)(\widetilde b,\widetilde A)=(b+A\widetilde b,\,A\widetilde A).$$ Eso es el producto semidirecto $(\mathbb R^n,+)\rtimes_\varphi O(n)$ con $$\varphi\colon O(n)\to\operatorname{Aut}(\mathbb R^n,+),\qquad \varphi(A)(x)=Ax.$$ Luego $$E(n)\cong\mathbb R^n\rtimes_\varphi O(n).$$
+## Construcciones de grupos (ejercicios 30 y 31)
 
 >[!remark]
->Misma receta que el grupo triangular $B\cong(\mathbb R,+)\rtimes\mathbb R^\times$ de [[Teorico 3#5. Producto semidirecto|Teórico 3]]: traslaciones por el lineal. En el pizarrón el producto de pares apareció también en el orden opuesto $(\widetilde b,\widetilde A)\cdot(b,A)=(\widetilde b+\widetilde Ab,\widetilde AA)$, que corresponde a $g\circ f$. La identificación $f\leftrightarrow(b,A)$ con $f(x)=Ax+b$ pide el orden de $f\circ g$ escrito arriba.
+>La pregunta de esos ejercicios es: ¿cómo se reconstruye $G$ sabiendo $G/N$ y $N$? Aparece un producto semidirecto $G\cong N\rtimes_\alpha H$ donde $\alpha$ es una acción y, en general, un $2$-cociclo $\sigma$. La idea es ver las construcciones de grupos.
+>Concretamente, $\sigma\colon G/N\times G/N\to N$ y $\sigma\in H^2(G/N,N)$. Cuando $\sigma=1$, se obtiene el [[Teorico 3#5. Producto semidirecto|producto semidirecto]].
 
-## Anillos
+## Preparación para Sylow
 
->[!remark]
->El pizarrón titula “Anillos y módulos”. En esta clase sólo se definió anillo y se listaron ejemplos; módulos no aparecieron.
+>[!remark] Analogía
+>Así como $\mathbb Z_n\cong\prod_i\mathbb Z_{p_i^{\alpha_i}}$ cuando $n=\prod_i p_i^{\alpha_i}$ (cada factor cíclico de orden $p_i^{\alpha_i}$), Sylow descompone la aritmética de $|G|$ en sus potencias primas, ahora sin pedir abelianidad.
 
->[!definition] Anillo
->Un **anillo** $R$ consiste en:
->1. un grupo $(R,+)$, con neutro $0\in R$;
->2. una operación $\cdot\colon R\times R\to R$ asociativa, con neutro $1\in R$;
->3. distributividad a izquierda y a derecha: $$a(b+c)=ab+ac,\qquad (a+b)c=ac+bc.$$
->No se pide que $\cdot$ sea conmutativa.
+>[!lemma] Coeficiente binomial libre de $p$
+>Sea $p\in\mathbb N$ primo y $n\in\mathbb N$ con $(p,n)=1$. Entonces $$p\nmid\binom{np^a}{p^a}$$ para todo $a\in\mathbb N_{\geq 0}$.
+>
+>>[!Proof]- Demostración (ejercicio de la clase)
+>>1. Si $a=0$, entonces $\binom{n}{1}=n$ y $p\nmid n$ por hipótesis.
+>>2. Sea $a\geq 1$. Basta ver que la valuación $p$-ádica de $\binom{np^a}{p^a}$ es cero. Escribimos $$\binom{np^a}{p^a}=\frac{(np^a)(np^a-1)\cdots(np^a-p^a+1)}{p^a!}.$$
+>>3. El factor $np^a$ del numerador aporta exactamente $v_p(n)+a=a$, porque $p\nmid n$. El factor $p^a$ del denominador aporta $a$. Resta comparar, para cada $1\leq j\leq p^a-1$, los factores $np^a-j$ y $j$.
+>>4. Como $1\leq j<p^a$, se tiene $v_p(j)<a$, y por lo tanto $v_p(np^a-j)=v_p(j)$: restar $j$ no cambia los primeros $a$ dígitos $p$-ádicos de $np^a$. Así, los factores $1,\ldots,p^a-1$ del numerador cancelan exactamente $p^a!/p^a$ en el denominador.
+>>5. Queda $v_p\bigl(\binom{np^a}{p^a}\bigr)=0$, es decir $p\nmid\binom{np^a}{p^a}$.
 
-^anillo
+>[!definition] Normalizador
+>Sea $G$ un grupo y $H\leq G$. El **normalizador** de $H$ en $G$ es $$N_G(H)=\{g\in G:gHg^{-1}=H\}.$$ Es un subgrupo de $G$. Además $H\leq N_G(H)$ y $H\trianglelefteq N_G(H)$. (Ya apareció como estabilizador de la acción por conjugación sobre subgrupos: [[Teorico 6#^02c559]].)
 
->[!lemma] $(R,+)$ es abeliano
->En un anillo, la suma es conmutativa.
+>[!lemma] Congruencia del índice del normalizador
+>Sea $G$ un grupo finito, $H\leq G$ y $|H|=p^a$ con $p$ primo. Entonces $$[N_G(H):H]\equiv[G:H]\pmod{p}.$$
 >
 >>[!Proof]-
->>Se expande $(1+1)(x+y)$ de dos maneras. Por distributividad a izquierda, $$(1+1)(x+y)=(1+1)x+(1+1)y=x+x+y+y.$$ Por distributividad a derecha, $$(1+1)(x+y)=1(x+y)+1(x+y)=x+y+x+y.$$ Igualando y cancelando un $x$ a izquierda y un $y$ a derecha (el grupo $(R,+)$ admite cancelación), queda $x+y=y+x$.
+>>1. Sea $S=G/H$ el conjunto de clases laterales izquierdas. El subgrupo $H$ actúa sobre $S$ por traslación: $$h\cdot(gH)=(hg)H.$$
+>>2. $H$ es un $p$-grupo, así que el [[Teorico 6#^e8cda5|lema de puntos fijos de un $p$-grupo]] da $$|S|\equiv|S^H|\pmod{p},$$ donde $S^H=\{s\in S:h\cdot s=s\text{ para todo }h\in H\}$.
+>>3. Sea $gH\in S^H$. Entonces $hgH=gH$ para todo $h\in H$, es decir $g^{-1}hg\in H$ para todo $h\in H$. Equivalentemente $g^{-1}Hg\subseteq H$. Como ambos tienen el mismo cardinal, $g^{-1}Hg=H$, o sea $g\in N_G(H)$.
+>>4. Recíprocamente, si $g\in N_G(H)$ entonces $g^{-1}Hg=H$, luego $hgH=gH$ para todo $h\in H$ y $gH\in S^H$.
+>>5. Por lo tanto $S^H$ es el conjunto de clases $gH$ con $g\in N_G(H)$, es decir $S^H=N_G(H)/H$. Luego $|S^H|=[N_G(H):H]$ y $|S|=[G:H]$, y la congruencia del paso 2 es la enunciada.
 
->[!remark]
->Eso prueba que **la suma** es conmutativa, no que el anillo lo sea. $M_n(\mathbb R)$ y $\mathbb H$ son anillos no conmutativos. Algunos textos piden $(R,+)$ abeliano en la definición; acá se deduce de la unidad y las dos distributividades.
+>[!corollary]
+>Sea $H\leq G$ con $|H|=p^a$, $p$ primo, y supongamos $p\mid[G:H]$. Entonces $N_G(H)\neq H$.
+>
+>>[!Proof]-
+>>Por el lema, $[N_G(H):H]\equiv[G:H]\equiv 0\pmod{p}$. En particular $[N_G(H):H]\neq 1$, así que $H\subsetneq N_G(H)$.
 
->[!definition] Morfismo de anillos
->Si $R$ y $S$ son anillos, un **morfismo de anillos** $f\colon R\to S$ cumple
->1. $f$ es homomorfismo de grupos $(R,+)\to(S,+)$: $f(0)=0$ y $f(a+b)=f(a)+f(b)$;
->2. $f(1)=1$ y $f(ab)=f(a)f(b)$ para todo $a,b\in R$.
+## Los tres teoremas de Sylow
 
-### Ejemplos
+>[!theorem] Teoremas de Sylow
+>Sea $G$ un grupo finito, $p\in\mathbb N$ primo y $$|G|=p^nk,\qquad (p,k)=1,\quad k\geq 1.$$
+>- (a)  $G$ posee al menos un subgrupo de orden $p^n$. A tales subgrupos se los llama **$p$-subgrupos de Sylow**.
+>- (b) Dos $p$-subgrupos de Sylow son conjugados.
+>- (c) Si $n_p$ denota la cantidad de $p$-subgrupos de Sylow de $G$, entonces $n_p\equiv 1\pmod{p}$ y $n_p\mid k$.
+>
+>>[!Proof]- 
+>>- (a)
+>>	1. Sea $X=\{A\subseteq G:|A|=p^n\}$ el conjunto de **subconjuntos** (no necesariamente subgrupos) de $G$ con $p^n$ elementos. Entonces $$|X|=\binom{|G|}{p^n}=\binom{p^nk}{p^n}.$$ Por el lema del coeficiente binomial, $p\nmid|X|$.
+>>	2. $G$ actúa sobre $X$ por traslación a izquierda: si $A\subseteq G$ y $g\in G$, $$g\cdot A=gA=\{ga:a\in A\}.$$ La aplicación $A\mapsto gA$ es biyectiva sobre $X$ (inversa $A\mapsto g^{-1}A$) y conserva el cardinal, así que la acción está bien definida.
+>>	3. Como $p\nmid|X|$, no todas las órbitas pueden tener cardinal divisible por $p$. Existe entonces $A\in X$ tal que $p\nmid|O_A|$.
+>>	4. Por [[Teorico 6#^674eaa|órbita-estabilizador]], $|O_A|=[G:G_A]=|G|/|G_A|=p^nk/|G_A|$. Que $p$ no divida este índice fuerza $p^n\mid|G_A|$.
+>>	5. Fijemos $a\in A$. La evaluación $G_A\to A$, $g\mapsto ga$, aterriza en $A$ porque $G_A\cdot a\subseteq A$. Es inyectiva: $ga=ha$ implica $g=h$, pues la multiplicación a izquierda en $G$ es libre. Por lo tanto $|G_A|\leq|A|=p^n$.
+>>	6. Junto con $p^n\mid|G_A|$ se obtiene $|G_A|=p^n$. El estabilizador $G_A$ es un subgrupo, luego es un $p$-subgrupo de Sylow.
+>>- (b)
+>>	1. Sean $H,\widetilde H\leq G$ dos $p$-subgrupos de Sylow. Hacemos actuar $\widetilde H$ sobre $G/H$ por traslación: para $h\in\widetilde H$, $$h\cdot(gH)=hgH.$$
+>>	2. $\widetilde H$ es un $p$-grupo, así que el lema de puntos fijos da $$[G:H]\equiv\bigl|(G/H)^{\widetilde H}\bigr|\pmod{p}.$$ Aquí $[G:H]=k\not\equiv 0\pmod{p}$, luego $(G/H)^{\widetilde H}\neq\varnothing$. Tomemos $xH$ fijo.
+>>	3. Que $xH$ sea invariante significa: para todo $h\in\widetilde H$, $hxH=xH$, es decir $x^{-1}hx\in H$. Como vale para todo $h\in\widetilde H$, se tiene $x^{-1}\widetilde Hx\subseteq H$.
+>>	4. Como $|H|=|\widetilde H|=p^n$, la inclusión es igualdad: $x^{-1}\widetilde Hx=H$. Así $H$ y $\widetilde H$ son conjugados.
+>>- (c)
+>>	1. Sea $Y=\{H\leq G:H\text{ es un }p\text{-subgrupo de Sylow}\}$. Fijemos $P\in Y$ y hagamos actuar $P$ sobre $Y$ por conjugación: para $g\in P$ y $H\in Y$, $$g\cdot H=gHg^{-1}.$$
+>>	2. $P$ es un $p$-grupo, así que $|Y|\equiv|Y^P|\pmod{p}$, donde $Y^P=\{H\in Y:gHg^{-1}=H\text{ para todo }g\in P\}$. Basta ver que $|Y^P|=1$.
+>>	3. Sea $H\in Y^P$. Entonces $gHg^{-1}=H$ para todo $g\in P$, es decir $P\subseteq N_G(H)$. Tanto $H$ como $P$ son subgrupos de $N_G(H)$ de orden $p^n$. Como $|N_G(H)|$ divide a $|G|=p^nk$, ambos son $p$-subgrupos de Sylow de $N_G(H)$. Además $H\trianglelefteq N_G(H)$.
+>>	4. Por (2) aplicado en $N_G(H)$, $P$ y $H$ son conjugados en $N_G(H)$. Pero $H$ es normal ahí, así que su única conjugada es él mismo: $P=H$. (Si un Sylow es normal, es el único: todas las conjugadas coinciden con él.)
+>>	5. Por lo tanto $Y^P=\{P\}$ y $|Y^P|=1$. Luego $n_p=|Y|\equiv 1\pmod{p}$.
 
->[!example] Cuerpos y matrices
->1. $\mathbb Z$, $\mathbb Q$, $\mathbb R$, $\mathbb C$.
->2. $M_n(\mathbb Z)$, $M_n(\mathbb Q)$, y en general $M_n(R)$ si $R$ es un anillo.
+^sylow
 
->[!example] Endomorfismos aditivos
->Si $(R,+)$ es el grupo aditivo de un anillo, $$\operatorname{End}(R,+)=\{\,f\colon R\to R:\ f\text{ es homomorfismo de grupos aditivos}\,\}$$ es un anillo con $$(f+g)(r)=f(r)+g(r),\qquad (fg)(r)=f(g(r)).$$ El pizarrón escribió “endomorfismo de anillos” y usó $(f,g)$ para la suma (abuso de notación). Con esas operaciones, lo que cierra es $\operatorname{End}(R,+)$, no el conjunto de morfismos de anillos: la suma puntual de dos morfismos unitales no es un morfismo de anillos.
+>[!remark] ¿Por qué funciona el lema de puntos fijos aquí?
+>En el fondo se usa [[Teorico 6#^674eaa|órbita-estabilizador]]: $O_x\cong G/G_x$. Las órbitas de un $p$-grupo tienen tamaño $1$ o múltiplo de $p$, y las de tamaño $1$ son exactamente los puntos fijos.
 
->[!example] Funciones continuas
->Si $X$ es un espacio topológico, $C(X)=\{f\colon X\to\mathbb R\text{ continuas}\}$ es un anillo con operaciones puntuales $$(f+g)(x)=f(x)+g(x),\qquad (fg)(x)=f(x)g(x).$$ Además es un $\mathbb R$-espacio vectorial: $(\lambda f)(x)=\lambda f(x)$.
->Observación de la clase: si se conoce el anillo $C(X)$, se puede recuperar $X$ (para $X$ compacto de Hausdorff).
+>[!exercise] Completar (3): $n_p\mid k$
+>Sea $G$ un grupo finito con $|G|=p^nk$, $(p,k)=1$, y sea $$Y=\{H\leq G:H\text{ es un }p\text{-subgrupo de Sylow}\}.$$ Verificar que $|Y|\mid k$.
+>
+>>[!Proof]-
+>>1. $G$ actúa sobre $Y$ por conjugación. Por (2) la acción es transitiva.
+>>2. El estabilizador de $P\in Y$ es $N_G(P)$. Por órbita-estabilizador, $$n_p=|Y|=[G:N_G(P)].$$
+>>3. Como $P\leq N_G(P)\leq G$, el índice $[G:N_G(P)]$ divide a $[G:P]=k$. Luego $n_p\mid k$.
 
->[!example] Funciones $C^\infty$
->Si $M$ es una variedad diferenciable, $C^\infty(M)=\{f\colon M\to\mathbb R\text{ de clase }C^\infty\}$ es un anillo puntual. Una $f\colon M\to N$ de clase $C^\infty$ induce un morfismo de anillos en sentido contrario $$f^*\colon C^\infty(N)\to C^\infty(M),\qquad f^*(\varphi)=\varphi\circ f.$$
+## Producto de subgrupos
 
->[!example] Álgebra de grupo
->Sea $R$ un anillo y $G$ un grupo. El **álgebra de grupo** es $$R[G]=\bigoplus_{g\in G}R\cdot g$$ (suma directa de copias de $R$, una por cada $g\in G$). Un elemento es una suma finita $\sum_{g\in G}r_g g$ con $r_g\in R$ y $r_g=0$ salvo para finitos $g$.
->Suma: $$\Bigl(\sum r_g g\Bigr)+\Bigl(\sum s_g g\Bigr)=\sum(r_g+s_g)g.$$ Producto, definido en generadores por el producto de $G$ y extendido: $$(r_g g)(s_h h)=(r_g s_h)\,gh,$$ de modo que $$\Bigl(\sum r_g g\Bigr)\Bigl(\sum s_h h\Bigr)=\sum_{g,h}(r_g s_h)\,gh.$$ El neutro multiplicativo es $1_R\cdot e_G$. Chequeo de la clase: $(1\cdot x^{-1})(1\cdot x)=1\cdot e_G$.
+>[!proposition] Criterio del producto de subgrupos
+>Sean $H,K\leq G$. Entonces $$HK\leq G\quad\Longleftrightarrow\quad HK=KH.$$
+>
+>>[!Proof]-
+>>1. Supongamos que $HK\leq G$. Como todo subgrupo es cerrado bajo inversos, $HK=(HK)^{-1}$. Además, $$(HK)^{-1}=\{(hk)^{-1}:h\in H,\ k\in K\}=\{k^{-1}h^{-1}:h\in H,\ k\in K\}=KH,$$ porque $H$ y $K$ son cerrados bajo inversos. Por lo tanto, $HK=KH$.
+>>2. Recíprocamente, supongamos que $HK=KH$. El conjunto $HK$ es no vacío, pues $e_G=e_Ge_G\in HK$. Sean $x=h_1k_1$ e $y=h_2k_2$ elementos de $HK$. Entonces $$xy^{-1}=h_1k_1k_2^{-1}h_2^{-1}.$$ Como $k_1k_2^{-1}\in K$, $h_2^{-1}\in H$ y $KH=HK$, existen $h_3\in H$ y $k_3\in K$ tales que $k_1k_2^{-1}h_2^{-1}=h_3k_3$. En consecuencia, $$xy^{-1}=h_1h_3k_3\in HK.$$ Por el criterio de subgrupo, $HK\leq G$.
 
->[!example] $R[\mathbb Z]$ y $R[\mathbb Z_n]$
->Si $R=\mathbb Z$, identificando $n\in\mathbb Z$ con $x^n$ se tiene $\mathbb Z[\mathbb Z]\cong\mathbb Z[x,x^{-1}]$ (polinomios de Laurent). El pizarrón escribió, por ejemplo, $$2\cdot 1+2\cdot 2+7\cdot 3\qquad\longleftrightarrow\qquad 2x+2x^2+7x^3.$$ Para $R[\mathbb Z_n]$ los representantes son polinomios de grado a lo sumo $n-1$ (es $R[x]/(x^n-1)$).
+>[!proposition] Normalidad y producto de subgrupos
+>Sean $H,K\leq G$. Si $H\trianglelefteq G$ o $K\trianglelefteq G$, entonces $$HK=KH,$$ y, en consecuencia, $HK\leq G$.
+>
+>>[!Proof]-
+>>1. Supongamos que $K\trianglelefteq G$. Para cada $h\in H$ se tiene $hKh^{-1}=K$. Multiplicando ambos conjuntos a la derecha por $h$, obtenemos $hK=Kh$. Por lo tanto, $$HK=\bigcup_{h\in H}hK=\bigcup_{h\in H}Kh=KH.$$
+>>2. Si $H\trianglelefteq G$, el mismo argumento, intercambiando los papeles de $H$ y $K$, demuestra que $HK=KH$. 
+>>3. En cualquiera de los dos casos, el criterio del producto de subgrupos implica que $HK\leq G$.
 
->[!example] Series formales
->$\mathbb C[[x]]=\bigl\{\sum_{n\geq 0}a_n x^n:a_n\in\mathbb C\bigr\}$, sin pedir soporte finito.
+>[!remark] La recíproca no vale
+>La igualdad $HK=KH$ no implica que alguno de los dos subgrupos sea normal en $G$. Por ejemplo, en $S_3$ tomemos $H=K=\langle(12)\rangle$. Entonces $HK=H=KH$, pero $H$ no es normal en $S_3$, pues $(123)(12)(123)^{-1}=(23)\notin H$.
 
->[!example] Funciones meromorfas
->Si $M$ es una variedad compleja **conexa**, $\mathcal M(M)=\{f\colon M\to\mathbb C\text{ meromorfas}\}$ es un cuerpo: toda $f\not\equiv 0$ tiene inversa meromorfa $1/f$. El pizarrón dijo “toda $f$ es invertible”; el $0$ no lo es, y sin conexidad hay idempotentes.
 
->[!example] Cuaterniones
->$\mathbb H=\{a+bi+cj+dk:a,b,c,d\in\mathbb R\}$ con $$i^2=j^2=k^2=-1,\qquad ij=k,\quad ki=j,\quad jk=i.$$ Si $z=a+bi+cj+dk$, el conjugado es $\overline z=a-bi-cj-dk$ y $|z|=\sqrt{a^2+b^2+c^2+d^2}$. La inversa es $$z^{-1}=\frac{\overline z}{|z|^2}\qquad(z\neq 0).$$ Es un anillo de división no conmutativo. En el pizarrón el denominador apareció como $|z|$; la identidad $z\overline z=|z|^2$ pide el cuadrado.
+## Apéndice — repaso de grupos (venía en Teórico 8)
+
+>[!remark] Por qué está acá
+> Este repaso es de grupos (binomial de Sylow y Burnside del cubo), no de anillos. Se movió desde el archivo de anillos para no mezclar mundos.
+
+### Tarea y repaso (grupos)
+
+>[!exercise] Tarea para el final
+>- **(a)** Demostrar que $p\nmid \binom{p^n k}{p^n}$ con $p$ primo y $\gcd(p,k)=1$.
+>- **(b)** Dar la explicación del conteo de coloraciones de las caras del cubo con $6$ colores usando acciones de grupos (fórmula de Burnside).
+>>[!Proof]-
+>>- (a)
+>>	1. Escribimos el coeficiente binomial como $$\binom{p^n k}{p^n} = \frac{p^n k}{p^n}\binom{p^n k - 1}{p^n - 1} = k \prod_{j=1}^{p^n-1}\frac{p^n k - j}{p^n - j}.$$
+>>	2. Para cada $1\leq j < p^n$, la mayor potencia de $p$ que divide a $p^n k - j$ coincide con la mayor potencia de $p$ que divide a $j$, pues $j<p^n$: en términos de la valuación $p$-ádica, $v_p(p^n k - j) = v_p(j) = v_p(p^n - j)$.
+>>	3. En consecuencia, $v_p\left(\frac{p^n k - j}{p^n - j}\right) = v_p(p^n k - j) - v_p(p^n - j) = 0$ para todo factor del producto.
+>>	4. Por lo tanto, $v_p\left(\binom{p^n k}{p^n}\right) = v_p(k) + \sum_{j=1}^{p^n-1} v_p\left(\frac{p^n k - j}{p^n - j}\right) = v_p(k) = 0$, ya que $\gcd(p,k)=1$. Esto prueba que $p\nmid\binom{p^n k}{p^n}$.
+>>- (b)
+>>	1. El grupo de rotaciones propias del cubo es $G\cong S_4$, de orden $|G|=24$, actuando sobre el conjunto $X$ de las $6^6$ formas de asignar un color a cada una de las $6$ caras.
+>>	2. Por el lema de Burnside, la cantidad de coloraciones no equivalentes bajo rotación es el número de órbitas $|X/G| = \frac{1}{|G|}\sum_{g\in G}|X^g|$.
+>>	3. Clasificando las 24 rotaciones por tipo de eje geométrico: la identidad fija las $6^6$ coloraciones; las 6 rotaciones de $90^\circ$ fijan $6^3$ coloraciones; las 3 rotaciones de $180^\circ$ por caras opuestas fijan $6^4$; las 8 rotaciones de $120^\circ$ por diagonales fijan $6^2$; y las 6 rotaciones de $180^\circ$ por aristas opuestas fijan $6^3$.
+>>	4. Sumando los puntos fijos se obtiene $|X/G| = \frac{1}{24}(6^6 + 6\cdot 6^3 + 3\cdot 6^4 + 8\cdot 6^2 + 6\cdot 6^3) = \frac{1}{24}(46656 + 1296 + 3888 + 288 + 1296) = \frac{53424}{24} = 2226$.

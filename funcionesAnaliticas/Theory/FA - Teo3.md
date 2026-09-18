@@ -16,8 +16,8 @@
 >>2. Sea $\sigma=f\circ\gamma$. Entonces $$\sigma'(t_0)=f'(\gamma(t_0))\cdot\gamma'(t_0)=f'(z_0)\cdot\gamma'(t_0).$$
 >>3. Así $$\arg\sigma'(t_0)=\arg f'(z_0)+\arg\gamma'(t_0),$$ es decir $$\arg((f\circ\gamma)'(t_0))=\arg f'(z_0)+\arg\gamma'(t_0).$$
 >>4. Entonces $$\arg((f\circ\gamma)'(t_0))-\arg\gamma'(t_0)=\arg f'(z_0),$$ y esto vale para toda curva $\gamma$ que pasa por $z_0$ tal que $\gamma(t_0)=z_0$ y $\gamma'(t_0)\neq0$.
->>5. Si tenemos dos curvas $\gamma_1$ y $\gamma_2$ tales que $\gamma_1(t_1)=z_0=\gamma_2(t_2)$ y $\gamma_1'(t_1),\gamma_2'(t_2)\neq0$, se tiene $$\arg((f\circ\gamma_1)'(t_1))-\arg\gamma_1'(t_1)=\arg f'(z_0)\tag{1}.$$
->>6. Análogamente, $$\arg((f\circ\gamma_2)'(t_2))-\arg\gamma_2'(t_2)=\arg f'(z_0)\tag{2}.$$
+>>5. Si tenemos dos curvas $\gamma_1$ y $\gamma_2$ tales que $\gamma_1(t_1)=z_0=\gamma_2(t_2)$ y $\gamma_1'(t_1),\gamma_2'(t_2)\neq0$, se tiene $$\arg((f\circ\gamma_1)'(t_1))-\arg\gamma_1'(t_1)=\arg f'(z_0)\qquad (1).$$
+>>6. Análogamente, $$\arg((f\circ\gamma_2)'(t_2))-\arg\gamma_2'(t_2)=\arg f'(z_0)\qquad (2).$$
 >>7. Restando $(1)-(2)$ se llega a que $$\arg((f\circ\gamma_1)'(t_1))-\arg((f\circ\gamma_2)'(t_2))=\arg\gamma_1'(t_1)-\arg\gamma_2'(t_2),$$ es decir $$\measuredangle_{f(z_0)}(f(\gamma_1),f(\gamma_2))=\measuredangle_{z_0}(\gamma_1,\gamma_2).$$
 
 >[!Remark] Criterio para preservar ángulos
@@ -37,7 +37,7 @@
 >Las funciones $f$ diferenciables tales que $f'(z)\neq0$ $\forall z\in G$ son aplicaciones conformes, pues cumplen $(2)$ por ser diferenciables y preservan ángulos por el teorema anterior.
 
 >[!Proposition] Significado del factor de dilatación
->Supongamos que $f$ es derivable como función de dos variables reales y supongamos que $$\exists\lim_{z\to z_0}\frac{|f(z)-f(z_0)|}{|z-z_0|}=L\tag{*}.$$
+>Supongamos que $f$ es derivable como función de dos variables reales y supongamos que $$\exists\lim_{z\to z_0}\frac{|f(z)-f(z_0)|}{|z-z_0|}=L\qquad (*).$$
 >Entonces para toda curva derivable $\gamma$ en $G$ con $\gamma(t_0)=z_0$ y $\gamma'(t_0)\neq0$ se tiene $$\frac{|(f\circ\gamma)'(t_0)|}{|\gamma'(t_0)|}=L.$$
 >>[!Proof]-
 >>1. Sea $\gamma$ una curva derivable en $G$ con $\gamma(t_0)=z_0$ y $\gamma'(t_0)\neq0$. Como $(*)$ existe y es igual a $L$, la igualdad seguirá valiendo para todas las rectas o curvas, es decir $$L=\lim_{z\to z_0}\frac{|f(z)-f(z_0)|}{|z-z_0|}=\lim_{t\to t_0}\frac{|f(\gamma(t))-f(\gamma(t_0))|}{|\gamma(t)-\gamma(t_0)|}.$$
@@ -206,6 +206,6 @@
 >>- **(b) Caso $S(z)=1/z$.**
 >>	1. La ecuación $$\alpha z\bar z+\beta z+\bar\beta\bar z+\gamma=0$$ con $\alpha,\gamma\in\mathbb{R}$, $\alpha\neq0$ y $\beta\in\mathbb{C}$ con $\beta\bar\beta>\alpha\gamma$ es la ecuación de una circunferencia de centro $z_0=-\bar\beta/\alpha$ y radio $r_0^2=(|\beta|^2-\alpha\gamma)/\alpha^2$.
 >>	2. Si $\alpha=0$, la ecuación $$\beta z+\bar\beta\bar z+\gamma=0$$ es la ecuación de una recta.
->>	3. Sea $z\neq0$ que cumple $$\alpha z\bar z+\beta z+\bar\beta\bar z+\gamma=0,\quad\alpha,\gamma\in\mathbb{R},\ \beta\in\mathbb{C},\ \beta\bar\beta>\alpha\gamma\tag{*}.$$
+>>	3. Sea $z\neq0$ que cumple $$\alpha z\bar z+\beta z+\bar\beta\bar z+\gamma=0,\quad\alpha,\gamma\in\mathbb{R},\ \beta\in\mathbb{C},\ \beta\bar\beta>\alpha\gamma\qquad (*).$$
 >>	4. Sacamos $z\bar z$ factor común en $(*)$: $$z\bar z\left(\alpha+\frac{\beta}{\bar z}+\frac{\bar\beta}{z}+\frac{\gamma}{z\bar z}\right)=0\implies\alpha+\frac{1}{z}\bar\beta+\frac{1}{\bar z}\beta+\frac{1}{z\bar z}\gamma=0.$$
 >>	5. Poniendo $w=1/z$, se obtiene una ecuación del mismo tipo en $w$. Según los casos: si $\alpha\neq0$ y $\gamma\neq0$ manda círculo en círculo; si $\alpha=0$ y $\gamma\neq0$ manda recta en círculo; si $\alpha=0$ y $\gamma=0$ manda recta en recta; si $\alpha\neq0$ y $\gamma=0$ manda círculo en recta.

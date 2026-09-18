@@ -1,0 +1,279 @@
+{
+  "users": {
+    "jvera": {
+      "username": "Jvera",
+      "salt": "4b0366cff5cf61b0a2869188113b7a1f",
+      "passwordHash": "aa882bd2809f4c23d017e62c08f78298e77b81db512c24049555b5bd07068ff7a7498fc82d81aff7aaef53472d8d6dfdc1ef145e9edbbb5303361844e03a647a",
+      "createdAt": "2026-06-16T03:09:37.950Z",
+      "data": {
+        "history": [
+          {
+            "id": "1785105615121-0547e5cf9a65d",
+            "date": "2026-07-26T22:40:15.121Z",
+            "correct": 2,
+            "total": 2,
+            "skipped": 1,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-17:0",
+                "kind": "theorem",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-11:9",
+                "kind": "proposition",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-21:11",
+                "kind": "theorem",
+                "correct": true
+              }
+            ]
+          },
+          {
+            "id": "1784473585914-494eb032acc538",
+            "date": "2026-07-19T15:06:25.914Z",
+            "correct": 2,
+            "total": 3,
+            "skipped": 0,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-17:0",
+                "kind": "theorem",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-19:13",
+                "kind": "proposition",
+                "correct": false
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-19:4",
+                "kind": "proposition",
+                "correct": true
+              }
+            ]
+          },
+          {
+            "id": "1784410038196-7c7ac5e73b1a58",
+            "date": "2026-07-18T21:27:18.197Z",
+            "correct": 3,
+            "total": 3,
+            "skipped": 0,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-19:16",
+                "kind": "proposition",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-10:10",
+                "kind": "proposition",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-6:3",
+                "kind": "proposition",
+                "correct": true
+              }
+            ]
+          },
+          {
+            "id": "1784403796651-6cee683d3ab638",
+            "date": "2026-07-18T19:43:16.651Z",
+            "correct": 2,
+            "total": 2,
+            "skipped": 1,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-17:5",
+                "kind": "theorem",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-17:4",
+                "kind": "lemma",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-22:6",
+                "kind": "proposition",
+                "correct": null
+              }
+            ]
+          },
+          {
+            "id": "1784331253919-2d3aee4859ef98",
+            "date": "2026-07-17T23:34:13.919Z",
+            "correct": 1,
+            "total": 1,
+            "skipped": 2,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-15:0",
+                "kind": "proposition",
+                "correct": true
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-21:11",
+                "kind": "theorem",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-18:7",
+                "kind": "theorem",
+                "correct": null
+              }
+            ]
+          },
+          {
+            "id": "1784324412083-95bb21fd2240d8",
+            "date": "2026-07-17T21:40:12.083Z",
+            "correct": 1,
+            "total": 1,
+            "skipped": 2,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-24:14",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-21:18",
+                "kind": "theorem",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-5:8",
+                "kind": "proposition",
+                "correct": true
+              }
+            ]
+          },
+          {
+            "id": "1784251641661-de4ded9c6ed1b8",
+            "date": "2026-07-17T01:27:21.661Z",
+            "correct": 0,
+            "total": 0,
+            "skipped": 10,
+            "kinds": [
+              "heart"
+            ],
+            "fileLabel": "Todos los archivos",
+            "results": [
+              {
+                "questionId": "/geo-math-book/chapters/teo-17:5",
+                "kind": "theorem",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-19:5",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-14:10",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-17:4",
+                "kind": "lemma",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-19:14",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-14:1",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-23:12",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-23:14",
+                "kind": "theorem",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-21:14",
+                "kind": "proposition",
+                "correct": null
+              },
+              {
+                "questionId": "/geo-math-book/chapters/teo-15:0",
+                "kind": "proposition",
+                "correct": null
+              }
+            ]
+          }
+        ],
+        "mastery": {
+          "/geo-math-book/chapters/teo-17:4": 2,
+          "/geo-math-book/chapters/teo-18:4": 1,
+          "/geo-math-book/chapters/teo-5:8": 1,
+          "/geo-math-book/chapters/teo-15:0": 1,
+          "/geo-math-book/chapters/teo-19:4": 2,
+          "/geo-math-book/chapters/teo-19:7": 1,
+          "/geo-math-book/chapters/teo-17:5": 1,
+          "/geo-math-book/chapters/teo-19:16": 1,
+          "/geo-math-book/chapters/teo-10:10": 1,
+          "/geo-math-book/chapters/teo-6:3": 1,
+          "/geo-math-book/chapters/teo-17:0": 1,
+          "/geo-math-book/chapters/teo-19:13": -1,
+          "/geo-math-book/chapters/teo-11:9": 1,
+          "/geo-math-book/chapters/teo-21:11": 1,
+          "/geo-math-book/chapters/teo-21:14": 1
+        },
+        "disabled": [],
+        "titles": {},
+        "filters": {
+          "tester": {
+            "kinds": [
+              "theorem",
+              "exercise",
+              "heart"
+            ],
+            "range": "all",
+            "files": [],
+            "practiceGroups": [],
+            "excludeOptional": false,
+            "length": 3
+          }
+        }
+      },
+      "updatedAt": "2026-07-27T14:13:12.605Z"
+    }
+  }
+}

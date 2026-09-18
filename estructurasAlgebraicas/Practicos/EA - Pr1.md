@@ -160,7 +160,7 @@ tags:
 >>4. Multiplicando las cantidades de opciones para las $n$ columnas, obtenemos $$\boxed{\left|\operatorname{GL}(n,\mathbb Z_p)\right|=\prod_{i=0}^{n-1}(p^n-p^i)=(p^n-1)(p^n-p)\cdots(p^n-p^{n-1}).}$$
 >>5. El determinante de una matriz invertible puede tomar cualquiera de los $p-1$ valores de $\mathbb Z_p^\times$: dado $a\in\mathbb Z_p^\times$, la matriz diagonal $\operatorname{diag}(a,1,\ldots,1)$ es invertible y tiene determinante $a$.
 >>6. Sean $A,B\in\operatorname{GL}(n,\mathbb Z_p)$. Por la definición de clases laterales, $A$ y $B$ pertenecen a la misma clase lateral de $\operatorname{SL}(n,\mathbb Z_p)$ si y solo si $A^{-1}B\in\operatorname{SL}(n,\mathbb Z_p)$. Además, $$\begin{aligned}A^{-1}B\in\operatorname{SL}(n,\mathbb Z_p)&\iff\det(A^{-1}B)=1\\&\iff(\det A)^{-1}\det B=1\\&\iff\det A=\det B.\end{aligned}$$ Por tanto, hay una clase lateral por cada posible valor no nulo del determinante. Como hay $p-1$ valores posibles, $$[\operatorname{GL}(n,\mathbb Z_p):\operatorname{SL}(n,\mathbb Z_p)]=p-1.$$
->>7. Aplicando el [[Teorico 3#^teorema-de-lagrange|teorema de Lagrange]], concluimos que $$\boxed{\left|\operatorname{SL}(n,\mathbb Z_p)\right|=\frac{1}{p-1}\prod_{i=0}^{n-1}(p^n-p^i).}$$
+>>7. Aplicando el [[Teorico 4#^teorema-de-lagrange|teorema de Lagrange]], concluimos que $$\boxed{\left|\operatorname{SL}(n,\mathbb Z_p)\right|=\frac{1}{p-1}\prod_{i=0}^{n-1}(p^n-p^i).}$$
 
 >[!exercise] Ejercicio 9
 >Determinar si en un grupo las siguientes afirmaciones son verdaderas o falsas.
