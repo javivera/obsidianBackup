@@ -14,6 +14,7 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     // resumes where you left off instead of restarting at the top.
     this.memory = new Map();
     this.hookedDocs = new WeakSet();
+    this.searchRequest = 0;
 
     // Bound once so every window document (main + pop-outs) shares them.
     this.keyHandler = (e) => this.onKeyDown(e);
@@ -29,6 +30,11 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     );
     this.registerEvent(
       this.app.workspace.on("active-leaf-change", () => this.restoreOnReturn()),
+    );
+    this.registerEvent(
+      this.app.workspace.on("vault-fuzzy-search:result-opened", (leaf, line) =>
+        this.selectAtSearchLine(leaf, line),
+      ),
     );
 
     this.addCommand({
@@ -133,7 +139,6 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     ) {
       return;
     }
-    if (e.repeat) return;
     if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return;
 
     const target = e.target;
@@ -154,11 +159,30 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     // its header/chrome, or the unfocused body. Anything focused in another
     // pane (file explorer, search, another leaf) keeps default keys.
     const isDoc = !!target && target.nodeType === 9;
-    const inNote =
+    let inNote =
       isDoc ||
       (this.isElement(target) &&
         view.containerEl &&
         view.containerEl.contains(target));
+    if (!inNote && this.isElement(target)) {
+      // After the fuzzy-search modal closes, focus lands on BODY (outside any
+      // leaf). Treat that unfocused-body case as belonging to the active note
+      // so Up/Down continue from the search-picked callout.
+      let outsideLeaf = false;
+      try {
+        outsideLeaf = !target.closest(
+          ".workspace-leaf, .modal, .prompt, .suggestion-container, .menu",
+        );
+      } catch (_error) {
+        outsideLeaf = false;
+      }
+      if (
+        outsideLeaf &&
+        this.app.workspace.getActiveViewOfType(MarkdownView) === view
+      ) {
+        inNote = true;
+      }
+    }
     if (!inNote) return;
 
     const outers = this.getOuterCallouts(view);
@@ -184,19 +208,18 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
               : -PAGE_JUMP;
       const next = this.neighbor(view, outers, delta);
       if (!next) return;
+      this.searchRequest += 1;
       this.select(view, outers, next, true);
       e.preventDefault();
       e.stopPropagation();
     } else {
       // Left/Right: only hijack when the selected block actually contains a
       // proof callout; otherwise leave normal behavior untouched.
-      const remembered = this.recall(view, outers);
       const current =
-        remembered && !this.isOffScreen(remembered)
-          ? remembered
-          : this.topmostVisible(outers) || outers[0];
+        this.recall(view, outers) || this.nearest(outers) || outers[0];
       const proofs = this.findProofs(current);
       if (proofs.length === 0) return;
+      this.searchRequest += 1;
       this.select(view, outers, current, false);
       this.applyFold(proofs, e.key === "ArrowRight");
       e.preventDefault();
@@ -206,38 +229,62 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
 
   onPointerDown(e) {
     if (!this.isElement(e.target)) return;
-    const view = this.viewForEvent(e.target);
-    if (!view || !view.contentEl) return;
-    if (!this.isReadingMode(view)) return;
-    const outers = this.getOuterCallouts(view);
-    if (outers.length === 0) return;
     const callout = e.target.closest(".callout");
-    if (callout && view.contentEl.contains(callout)) {
-      // Track the outermost block so Up/Down continue from the clicked exercise.
-      let outer = callout;
-      while (
-        outer.parentElement &&
-        outer.parentElement.closest(".callout") &&
-        view.contentEl.contains(outer.parentElement.closest(".callout"))
-      ) {
-        outer = outer.parentElement.closest(".callout");
-      }
-      this.select(view, outers, outer, false);
-      return;
+    if (!callout) return;
+    const view = this.viewForEvent(e.target);
+    if (!view || !view.contentEl || !view.contentEl.contains(callout)) return;
+    if (!this.isReadingMode(view)) return;
+    // Track the outermost block so Up/Down continue from the clicked exercise.
+    let outer = callout;
+    while (
+      outer.parentElement &&
+      outer.parentElement.closest(".callout") &&
+      view.contentEl.contains(outer.parentElement.closest(".callout"))
+    ) {
+      outer = outer.parentElement.closest(".callout");
     }
-    // Clicked back on plain text between blocks: resync so Up/Down continue
-    // from here instead of jumping from a stale off-screen highlight.
-    if (!view.contentEl.contains(e.target)) return;
-    const y = e.clientY;
-    let best = null;
-    if (typeof y === "number") {
-      for (const el of outers) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= y) best = el;
-        else break;
-      }
+    this.searchRequest += 1;
+    this.select(view, this.getOuterCallouts(view), outer, false);
+  }
+
+  // Map the search result's zero-based source line to the outer callout in
+  // reading view. Scroll coordinates are unreliable during Obsidian's animation.
+  async selectAtSearchLine(leaf, line) {
+    const request = ++this.searchRequest;
+    const file = leaf?.view?.file;
+    if (!file || !Number.isInteger(line) || line < 0) return;
+    const source = await this.app.vault.cachedRead(file);
+    if (request !== this.searchRequest) return;
+    const starts = [];
+    source.split(/\r\n?|\n/).forEach((text, index) => {
+      // A second > starts a nested callout, not a new navigation target.
+      if (/^\s*>\s*\[![^\]]+\]/.test(text)) starts.push(index);
+    });
+    if (!starts.length) return;
+    let index = 0;
+    while (index + 1 < starts.length && starts[index + 1] <= line) index += 1;
+    // Remember the search target even if the note isn't in reading view yet
+    // (new tabs open in Live Preview by default). Up/Down and restoreOnReturn
+    // resume from here once reading view renders.
+    try {
+      this.memory.set(file.path, index);
+    } catch (_error) {
+      // ignore
     }
-    this.select(view, outers, best || this.topmostVisible(outers) || outers[0], false);
+
+    const highlight = (attempt) => {
+      if (request !== this.searchRequest) return;
+      const view = leaf.view;
+      if (view?.file?.path !== file.path || !this.isReadingMode(view)) return;
+      const outers = this.getOuterCallouts(view);
+      if (outers[index]) this.select(view, outers, outers[index], false);
+      // A freshly opened note can render its callouts after the scroll begins;
+      // reapply the ring if Obsidian replaces the preview DOM in that time.
+      if (attempt < 4) {
+        window.setTimeout(() => highlight(attempt + 1), [50, 150, 300, 500][attempt]);
+      }
+    };
+    highlight(0);
   }
 
   // ---------- commands (same logic, usable from palette / remapping) ----------
@@ -248,7 +295,10 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     const outers = this.getOuterCallouts(view);
     if (outers.length === 0) return;
     const next = this.neighbor(view, outers, direction);
-    if (next) this.select(view, outers, next, true);
+    if (next) {
+      this.searchRequest += 1;
+      this.select(view, outers, next, true);
+    }
   }
 
   setProofs(expand) {
@@ -259,6 +309,7 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     const current = this.recall(view, outers) || outers[0];
     const proofs = this.findProofs(current);
     if (proofs.length === 0) return;
+    this.searchRequest += 1;
     this.select(view, outers, current, false);
     this.applyFold(proofs, expand);
   }
@@ -321,14 +372,11 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     const key = view && this.viewKey(view);
     const saved = key != null ? this.memory.get(key) : undefined;
     if (saved == null || outers.length === 0) return null;
-    if (saved < 0 || saved >= outers.length) return null;
-    return outers[saved] || null;
+    return outers[Math.min(saved, outers.length - 1)] || null;
   }
 
-  // Re-highlight the remembered callout when coming back to a tab, but only
-  // while it is still what the reader is looking at. Highlighting an
-  // off-screen block after a focus change is what made the next Down/Up jump
-  // to an apparently random place.
+  // Re-highlight the remembered callout when coming back to a tab.
+  // No scrolling: the pane already kept its scroll position.
   restoreOnReturn() {
     const view = this.app.workspace.getActiveViewOfType(MarkdownView);
     if (!view || !this.isReadingMode(view)) return;
@@ -336,64 +384,21 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     if (outers.length === 0) return;
     if (this.current(outers)) return;
     const el = this.recall(view, outers);
-    if (el && !this.isOffScreen(el)) this.select(view, outers, el, false);
-    else this.clearHighlight();
+    if (el) this.select(view, outers, el, false);
   }
 
   neighbor(view, outers, direction) {
-    let cur = this.recall(view, outers);
-    // Only trust the stored position while it is actually on screen.
-    if (cur && this.isOffScreen(cur)) cur = null;
+    const cur = this.recall(view, outers);
     if (!cur) {
-      // Anchor to the first callout in the viewport, so the first keypress
-      // after a focus change or a mouse scroll continues from what is seen.
-      const top = this.topmostVisible(outers);
-      if (!top) return direction > 0 ? outers[0] : outers[outers.length - 1];
-      if (direction > 0) {
-        const i = outers.indexOf(top);
-        const n = outers.length;
-        return outers[(((i + direction) % n) + n) % n];
-      }
-      return top;
+      // First jump: Down starts at the top, Up starts near the viewport.
+      if (direction > 0) return outers[0];
+      return this.nearest(outers) || outers[outers.length - 1];
     }
     const i = outers.indexOf(cur);
-    const n = outers.length;
-    // Defensive: an unmatchable element must never collapse to index 0.
-    if (i < 0) return this.topmostVisible(outers) || outers[0];
-    return outers[(((i + direction) % n) + n) % n];
-  }
-
-  // First callout that is at least partly inside the viewport.
-  topmostVisible(outers) {
-    for (const el of outers) {
-      try {
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom > 0 && rect.top < this.viewportHeight(el)) return el;
-      } catch (_error) {
-        // skip
-      }
-    }
-    return null;
-  }
-
-  viewportHeight(el) {
-    try {
-      const doc = el && el.ownerDocument ? el.ownerDocument : null;
-      const win = doc ? doc.defaultView : null;
-      if (win && win.innerHeight) return win.innerHeight;
-    } catch (_error) {
-      // fall through
-    }
-    return (typeof window !== "undefined" && window.innerHeight) || 800;
-  }
-
-  isOffScreen(el) {
-    try {
-      const rect = el.getBoundingClientRect();
-      return rect.bottom <= 0 || rect.top >= this.viewportHeight(el);
-    } catch (_error) {
-      return false;
-    }
+    let j = i + direction;
+    if (j < 0) j = 0;
+    if (j >= outers.length) j = outers.length - 1;
+    return outers[j];
   }
 
   nearest(outers) {
@@ -473,14 +478,6 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
         // scrollIntoView options unsupported: ignore
       }
     }
-  }
-
-  // Drop the ring but keep the remembered position.
-  clearHighlight() {
-    if (this.selected) {
-      this.selected.classList.remove("cn-selected");
-    }
-    this.selected = null;
   }
 
   clearSelection() {

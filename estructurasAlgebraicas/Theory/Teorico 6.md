@@ -473,17 +473,24 @@ source: "Clase2 (1).pdf"
 
 ^932f50
 
-### Clasificación de los grupos de orden $p^2$
-
-> [!theorem]
->Si $G$ es un grupo de orden $p^2$, entonces $$G\cong\mathbb Z_{p^2}\qquad\text{o}\qquad G\cong\mathbb Z_p\times\mathbb Z_p.$$ En particular, todo grupo de orden $p^2$ es abeliano.
+> [!theorem] Si $G/Z(G)$ es cíclico entonces $G$ es abeliano
+>Sea $G$ un grupo tal que el cociente $G/Z(G)$ es cíclico. Entonces $G$ es abeliano.
 >
 >> [!Proof]-
->>1. Por el resultado anterior, $|Z(G)|$ es divisible por $p$. Como $|Z(G)|$ divide a $p^2$, se tiene $|Z(G)|=p$ o $p^2$.
->>2. Si $|Z(G)|=p^2$, entonces $Z(G)=G$ y $G$ es abeliano.
->>3. La posibilidad $|Z(G)|=p$ también fuerza que $G/Z(G)$ tenga orden $p$ y sea cíclico. Si $G/Z(G)=\langle gZ(G)\rangle$, todo elemento de $G$ tiene la forma $g^kz$ con $z\in Z(G)$; dos elementos de esa forma conmutan. Por lo tanto, $G$ sería abeliano, lo que implicaría $Z(G)=G$, contradicción. Así, necesariamente $Z(G)=G$.
->>4. Si existe $g\in G$ con $|g|=p^2$, entonces $G=\langle g\rangle\cong\mathbb Z_{p^2}$.
->>5. Si no existe tal elemento, todo elemento no trivial tiene orden $p$. Elegimos $x\neq1_G$ y $y\notin\langle x\rangle$. Entonces $\langle x\rangle\cap\langle y\rangle=\{1_G\}$ y, como $G$ es abeliano, todos los productos $x^iy^j$ con $0\leq i,j\leq p-1$ son distintos. Hay $p^2$ de ellos, de modo que $$G=\langle x\rangle\times\langle y\rangle\cong\mathbb Z_p\times\mathbb Z_p.$$
+>>1. Como se prueba en el Ejercicio 7(a) del Práctico 3, $Z(G)\trianglelefteq G$, de modo que el cociente $G/Z(G)$ es un grupo. Por hipótesis es cíclico, de modo que existe $g\in G$ tal que $$G/Z(G)=\langle gZ(G)\rangle.$$
+>>2. Sea $x\in G$. Como $xZ(G)\in G/Z(G)$, existe $m\in\mathbb Z$ tal que $$xZ(G)=(gZ(G))^m=g^mZ(G),$$ de donde existe $z_1\in Z(G)$ tal que $$x=g^mz_1.$$ Análogamente, para $y\in G$ existen $n\in\mathbb Z$ y $z_2\in Z(G)$ tales que $$y=g^nz_2.$$
+>>3. Como $z_1,z_2\in Z(G)$, conmutan con todo elemento de $G$; en particular $$z_1g^n=g^nz_1,\qquad z_2g^m=g^mz_2,\qquad z_1z_2=z_2z_1.$$ Además las potencias de $g$ conmutan entre sí, pues $$g^mg^n=g^{m+n}=g^ng^m.$$ Por lo tanto, $$xy=(g^mz_1)(g^nz_2)=g^m(z_1g^n)z_2=g^m(g^nz_1)z_2=g^{m+n}z_1z_2.$$
+>>4. Del mismo modo, $$yx=(g^nz_2)(g^mz_1)=g^n(z_2g^m)z_1=g^n(g^mz_2)z_1=g^{n+m}z_2z_1=g^{m+n}z_1z_2.$$
+>>5. De los pasos 3 y 4 resulta $xy=yx$. Como $x,y\in G$ eran arbitrarios, $G$ es abeliano.
+
+### Clasificación de los grupos de orden $p^2$
+
+>[!theorem]
+>Si $G$ es un grupo de orden $p^2$, entonces $$G\cong\mathbb Z_{p^2}\qquad\text{o}\qquad G\cong\mathbb Z_p\times\mathbb Z_p.$$
+>En particular, todo grupo de orden $p^2$ es abeliano.
+>
+>> [!Proof]-
+>>[[EA - Pr5#^916dbd]]
 
 ## 9. Mapa de conexiones
 

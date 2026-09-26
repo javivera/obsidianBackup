@@ -100,6 +100,8 @@ tags:
 >>4. Probemos que $P$ es normal. Fijados $g\in G$ y $x\in P$, consideremos la conjugación $c_g:P\to gPg^{-1}$ dada por $c_g(x)=gxg^{-1}$. Esta aplicación es biyectiva, pues su inversa es $c_{g^{-1}}:gPg^{-1}\to P$, dada por $c_{g^{-1}}(h)=g^{-1}hg$, y se verifica que $$c_{g^{-1}}(c_g(x))=g^{-1}(gxg^{-1})g=x$$ para todo $x\in P$ y que $$c_g(c_{g^{-1}}(h))=g(g^{-1}hg)g^{-1}=h$$ para todo $h\in gPg^{-1}$. Por ello, $|gPg^{-1}|=|P|=p^n$, así que $gPg^{-1}$ también es un $p$-subgrupo de Sylow. La unicidad de $P$ implica que $gPg^{-1}=P$ para todo $g\in G$; por tanto, $P\trianglelefteq G$.
 >>5. Finalmente, sea $H\trianglelefteq G$ un subgrupo de índice $q$. Entonces $|G|=q|H|$ y, como $|G|=p^nq$, resulta $|H|=p^n$. Por ello, $H$ es un $p$-subgrupo de Sylow de $G$. Como $P$ es el único, necesariamente $H=P$. En conclusión, $P$ es el único subgrupo normal de índice $q$ de $G$.
 
+^43d943
+
 >[!exercise] Ejercicio 16
 >Cada grupo de orden $12$, $28$, $56$ y $200$ debe contener un subgrupo de Sylow normal, y, por lo tanto, no es simple.
 >>[!Proof]-
@@ -136,7 +138,7 @@ tags:
 >>4. Si $n_{7}=1$, el único $7$-subgrupo de Sylow sería normal por el paso 2, propio y no trivial por tener orden $7$, contra la simplicidad de $G$. Por lo tanto $n_{7}=8$.
 >>5. Por Lagrange, si $|H|=7$ y $a\in H$ con $a\neq e$, entonces $|a|$ divide a $7$, luego $|a|=7$. Así cada $7$-subgrupo de Sylow contiene exactamente $6$ elementos de orden $7$ además de $e$.
 >>6. Sean $H\neq K$ dos subgrupos de orden $7$. Entonces $H\cap K\leq H$, luego $|H\cap K|\in\{1,7\}$; si fuera $7$, la igualdad de cardinales finitos daría $H\cap K=H=K$, contra la hipótesis, así $H\cap K=\{e\}$. Por lo tanto los ocho $7$-subgrupos aportan $8\cdot 6=48$ elementos distintos de orden $7$.
->>7. Sea $x\in G$ con $|x|=7$. Entonces $|\langle x\rangle|=7$, de modo que $\langle x\rangle$ es ya un $7$-subgrupo de Sylow de $G$ y coincide con uno de los ocho anteriores. En consecuencia no hay elementos de orden $7$ fuera de su unión.
+>>7. Sea $x\in G$ con $|x|=7$. Entonces $|\langle x\rangle|=7$, de modo que $\langle x\rangle$ es ya un $7$-subgrupo de Sylow de $G$ y coincide con uno de los ocho anteriores. En consecuencia no hay elementos de orden $7$ fuera de los $8$ $Syl(7)$ que ya contamos 
 >>8. Por lo tanto $G$ contiene exactamente $48$ elementos de orden $7$.
 
 >[!exercise] Ejercicio 18
@@ -147,20 +149,93 @@ tags:
 >- **(d)** Caracterizar todos los grupos de orden $p^2$.
 >- **(e)** Dar un ejemplo de un grupo $G$ no abeliano tal que $G/C(G)$ sea abeliano.
 
+^9d391e
+
 >[!exercise] Ejercicio 19
 >Sea $G$ un grupo de orden $p^3$, con $p$ primo.
 >- **(a)** Si $G$ posee más de un subgrupo normal de orden $p$, entonces $G$ es abeliano y no cíclico.
 >- **(b)** Si $G$ es no abeliano, entonces $|C(G)|=p$.
 
 >[!exercise] Ejercicio 20
->Calcular todos los $p$-subgrupos de Sylow de:
->$$\mathbb{Z}_{12},\qquad \mathbb{Z}_{21}\oplus\mathbb{Z}_{15},\qquad S_3\times\mathbb{Z}_3,\qquad S_3\times S_3.$$
+>Calcular todos los $p$-subgrupos de Sylow de: $$\mathbb{Z}_{12},\qquad \mathbb{Z}_{21}\oplus\mathbb{Z}_{15},\qquad S_3\times\mathbb{Z}_3,\qquad S_3\times S_3.$$
+>>[!Proof]-
+>>- **Observación previa.** Si $(a,b)$ pertenece a un producto directo, entonces $\operatorname{ord}(a,b)=\operatorname{mcm}(\operatorname{ord}(a),\operatorname{ord}(b))$; en particular, el orden de cada coordenada divide al orden del par.
+>>- **Subgrupos de un grupo cíclico.** Si $G=\langle g\rangle$ tiene orden $n$ y $d\mid n$, entonces $G$ posee un único subgrupo de orden $d$, a saber $\langle g^{n/d}\rangle$.
+>>	1. Sea $m=n/d$, de modo que $n=dm$. Entonces $(g^m)^d=g^{md}=g^n=e$, por lo que $\operatorname{ord}(g^m)\mid d$. 
+>>	2. Si $1\leq k<d$ cumple $(g^m)^k=e$, entonces $g^{mk}=e$, luego $n\mid mk$, es decir $dm\mid mk$ y por tanto $d\mid k$, lo cual es imposible pues $1\leq k<d$. 
+>>	3. Así, $d$ es el menor exponente positivo que anula a $g^m$, es decir $\operatorname{ord}(g^{n/d})=d$. Por lo tanto, $\langle g^{n/d}\rangle$ es un subgrupo de orden $d$.
+>>	4. Si $H\leq G$ tiene orden $d$, como todo subgrupo de un cíclico es cíclico, $H=\langle g^k\rangle$ para algún $k$. Con $e=\gcd(k,n)$ se tiene $\langle g^k\rangle=\langle g^e\rangle$, y $|\langle g^e\rangle|=n/e$ pues $e\mid n$. 
+>>	5. Como $|H|=d$, resulta $e=n/d$, de donde $H=\langle g^{n/d}\rangle$.
+>>- **(a)** $\mathbb{Z}_{12}$.
+>>	1. Se tiene $|\mathbb{Z}_{12}|=12=2^2\cdot3$. Como $\mathbb{Z}_{12}$ es cíclico, posee un único subgrupo de cada orden divisor de $12$. Por lo tanto, el único $2$-subgrupo de Sylow, que debe tener orden $4$, es $\langle[3]\rangle=\{[0],[3],[6],[9]\}$, y el único $3$-subgrupo de Sylow, que debe tener orden $3$, es $\langle[4]\rangle=\{[0],[4],[8]\}$.
+>>- **(b)** $G=\mathbb{Z}_{21}\oplus\mathbb{Z}_{15}$.
+>>	1. Se tiene $|G|=21\cdot15=3^2\cdot5\cdot7$. En $\mathbb{Z}_{21}$, el único subgrupo de orden $3$ es $\langle[7]\rangle$, y en $\mathbb{Z}_{15}$, el único subgrupo de orden $3$ es $\langle[5]\rangle$. Por ello, $P_3=\langle([7],[0]),([0],[5])\rangle=\langle[7]\rangle\oplus\langle[5]\rangle$ tiene orden $3\cdot3=9$, luego es un $3$-subgrupo de Sylow.
+>>	2. Para probar que $P_3$ es el único, sea $Q$ otro $3$-subgrupo de Sylow y sea $(a,b)\in Q$. Por Lagrange, $\operatorname{ord}(a,b)\mid9$; por la observación previa, $\operatorname{ord}(a)\mid\operatorname{ord}(a,b)\mid9$ y $\operatorname{ord}(b)\mid\operatorname{ord}(a,b)\mid9$. Además, $\operatorname{ord}(a)\mid21$ y $\operatorname{ord}(b)\mid15$, luego $\operatorname{ord}(a)\mid\gcd(9,21)=3$ y $\operatorname{ord}(b)\mid\gcd(9,15)=3$. Como $\mathbb{Z}_{21}$ y $\mathbb{Z}_{15}$ son cíclicos, sus únicos subgrupos de orden $3$ son, respectivamente, $\langle[7]\rangle$ y $\langle[5]\rangle$; por tanto, $a\in\langle[7]\rangle$ y $b\in\langle[5]\rangle$, de donde $Q\subseteq P_3$. Como ambos subgrupos tienen orden $9$, $Q=P_3$.
+>>	3. En $\mathbb{Z}_{15}$, el único subgrupo de orden $5$ es $\langle[3]\rangle$, mientras que $\mathbb{Z}_{21}$ no tiene subgrupos de orden $5$. Por lo tanto, $P_5=\langle([0],[3])\rangle$ tiene orden $5$. 
+>>	4. Si $Q$ es otro $5$-subgrupo de Sylow y $(a,b)\in Q$, por Lagrange $\operatorname{ord}(a,b)\mid5$, y por la observación previa $\operatorname{ord}(a)\mid5$ y $\operatorname{ord}(b)\mid5$. 
+>>	5. Además, $\operatorname{ord}(a)\mid21$ y $\operatorname{ord}(b)\mid15$, luego $\operatorname{ord}(a)\mid\gcd(5,21)=1$ y $\operatorname{ord}(b)\mid\gcd(5,15)=5$, por lo que $a=[0]$ y, como $\mathbb{Z}_{15}$ es cíclico y su único subgrupo de orden $5$ es $\langle[3]\rangle$, se tiene $b\in\langle[3]\rangle$. 
+>>	6. Entonces $Q\subseteq P_5$ y, como ambos tienen orden $5$, $Q=P_5$
+>>	7. En $\mathbb{Z}_{21}$, el único subgrupo de orden $7$ es $\langle[3]\rangle$, mientras que $\mathbb{Z}_{15}$ no tiene subgrupos de orden $7$. Por lo tanto, $P_7=\langle([3],[0])\rangle$ tiene orden $7$.
+>>	8. Si $Q$ es otro $7$-subgrupo de Sylow y $(a,b)\in Q$, por Lagrange $\operatorname{ord}(a,b)\mid7$, y por la observación previa $\operatorname{ord}(a)\mid7$ y $\operatorname{ord}(b)\mid7$. 
+>>	9. Además, $\operatorname{ord}(a)\mid21$ y $\operatorname{ord}(b)\mid15$, luego $\operatorname{ord}(a)\mid\gcd(7,21)=7$ y $\operatorname{ord}(b)\mid\gcd(7,15)=1$, por lo que $a\in\langle[3]\rangle$ y $b=[0]$. 
+>>	10. Así, $Q\subseteq P_7$ y, como ambos tienen orden $7$, $Q=P_7$.
+>>- **(c)** $G=S_3\times\mathbb{Z}_3$.
+>>	1. Se tiene $|G|=6\cdot3=2\cdot3^2$. Sus $2$-subgrupos de Sylow tienen orden $2$. Sea $Q$ uno de ellos y sea $(\sigma,[a])$ su elemento no neutro. Entonces $\operatorname{ord}(\sigma,[a])=2$.
+>>	2. Por la observación previa, $\operatorname{ord}([a])\mid2$; como también $\operatorname{ord}([a])\mid3$ por lagrange entonces se tiene $\operatorname{ord}([a])=1$ y, por lo tanto, $[a]=[0]$. 
+>>	3. Como $\operatorname{ord}(\sigma)$ divide a $\operatorname{ord}(\sigma,[a])=2$ y también divide a $|S_3|=6$, se tiene $\operatorname{ord}(\sigma)\mid\gcd(2,6)=2$. Además, $\sigma\neq e$, pues $(\sigma,[a])$ no es el neutro; por lo tanto, $\operatorname{ord}(\sigma)=2$. 
+>>	4. Las únicas permutaciones de $S_3$ de orden $2$ son las transposiciones. Por lo tanto, los $2$-subgrupos de Sylow son exactamente $P_{\tau}=\langle(\tau,[0])\rangle$, donde $\tau\in\{(12),(13),(23)\}$, y hay tres.
+>>	5. El subgrupo $P_3=\langle((123),[0]),(e,[1])\rangle=\langle(123)\rangle\times\mathbb{Z}_3$ tiene orden $9$, luego es un $3$-subgrupo de Sylow. Por el tercer teorema de Sylow, $n_3\mid2$ y $n_3\equiv1\pmod3$, de modo que $n_3=1$; por lo tanto, $P_3$ es el único $3$-subgrupo de Sylow.
+>>- **(d)** $G=S_3\times S_3$.
+>>	1. Se tiene $|G|=36=2^2\cdot3^2$. El subgrupo $P_3=\langle((123),e),(e,(123))\rangle=\langle(123)\rangle\times\langle(123)\rangle$ tiene orden $9$, luego es un $3$-subgrupo de Sylow. 
+>>	2. Veamos que es único, sea $Q$ otro $3$-subgrupo de Sylow y sea $(\sigma,\tau)\in Q$. Por Lagrange, $\operatorname{ord}(\sigma,\tau)\mid9$; por la observación previa, $\operatorname{ord}(\sigma)\mid9$ y $\operatorname{ord}(\tau)\mid9$.
+>>	3. Además, $\operatorname{ord}(\sigma)\mid6$ y $\operatorname{ord}(\tau)\mid6$, luego $\operatorname{ord}(\sigma)\mid\gcd(9,6)=3$ y $\operatorname{ord}(\tau)\mid\gcd(9,6)=3$. Como $\langle(123)\rangle$ es el único subgrupo de orden $3$ de $S_3$, se tiene $\sigma,\tau\in\langle(123)\rangle$, de modo que $(\sigma,\tau)\in P_3$. Así, $Q\subseteq P_3$ y, como ambos tienen orden $9$, $Q=P_3$.
+>>	4. Los $2$-subgrupos de Sylow tienen orden $4$ y son $P_{\tau,\rho}=\langle(\tau,e),(e,\rho)\rangle=\langle\tau\rangle\times\langle\rho\rangle$, donde $\tau,\rho\in\{(12),(13),(23)\}$. Hay $3\cdot3=9$ elecciones y, por tanto, nueve $2$-subgrupos de Sylow distintos.
+>>	5. Para ver que son todos, por el tercer teorema de Sylow $n_2\mid9$ y $n_2\equiv1\pmod2$, de modo que $n_2\in\{1,3,9\}$. Como ya exhibimos nueve $2$-subgrupos de Sylow distintos, $n_2=9$ y la lista anterior es completa.
 
 >[!exercise] Ejercicio 21
 >Sean $p$ y $q$ primos. Probar que ningún grupo $G$ de orden $p^2q$ es simple.
+>>[!Proof]-
+>>- **Criterio previo.** Por el segundo teorema de Sylow, dos $p$-subgrupos de Sylow para el mismo primo son conjugados en $G$. De aquí un $p$-subgrupo de Sylow $P$ es normal si y solo si es único: si $P$ es único y $g\in G$, entonces $gPg^{-1}$ es un $p$-subgrupo de Sylow y por unicidad $gPg^{-1}=P$; recíprocamente, si $P\triangleleft G$ y $Q$ es otro $p$-subgrupo de Sylow, existe $g\in G$ con $Q=gPg^{-1}=P$. Un testigo de no-simplicidad debe ser normal, propio y no trivial. Por Lagrange, el orden de todo elemento y de todo subgrupo divide a $|G|$.
+>>- **Caso $p=q$.**
+>>	1. Por sustitución directa $|G|=p^3$. Por [[EA - Pr5#^9d391e|Ejercicio 18 (a)]] se tiene $Z(G)\neq\{e\}$
+>>	2. Además $Z(G)\triangleleft G$, pues conjugar un elemento central lo deja fijo: $gzg^{-1}=z$ para todo $z\in Z(G)$ y $g\in G$.
+>>	3. Si $Z(G)\neq G$, entonces $Z(G)$ mismo es normal propio no trivial y $G$ no es simple.
+>>	4. Si $Z(G)=G$, entonces $G$ es abeliano y todo subgrupo es obviamente normal por conmutación. 
+>>	5. Como $p\mid |G|$, por el teorema de Cauchy existe $g\in G$ con $|g|=p$. Entonces $|\langle g\rangle|=|g|=p$, y como $1<p<p^3=|G|$ resulta $\langle g\rangle$ propio y no trivial; al ser $G$ abeliano es normal. Luego $G$ no es simple.
+>>	6. En ambos subcasos $G$ no es simple cuando $p=q$.
+>>- **Caso $p\neq q$ con $p>q$.**
+>>	1. Se tiene $|G|=p^2q$ con $p>q$ primos distintos. Por [[EA - Pr5#^43d943]] con $n=2$, $G$ posee un único subgrupo normal de índice $q$.
+>>	2. Por Lagrange dicho subgrupo tiene orden $p^2$. Como $q\geq 2$ es primo, $1<p^2<p^2q=|G|$, de modo que es propio y no trivial. Luego $G$ no es simple.
+>>- **Caso $p\neq q$ con $q>p$.**
+>>	1. Por Lagrange, un $p$-subgrupo de Sylow tiene orden $p^2$ y un $q$-subgrupo de Sylow tiene orden $q$; ambos órdenes son $>1$ y $<p^2q$ pues $p,q\geq 2$, de modo que un Sylow único sería un testigo propio no trivial si además es normal por el criterio previo.
+>>	2. Escribiendo $|G|=p^2\cdot q$ con $p\nmid q$, el tercer teorema da $n_p\mid q$ y $n_p\equiv 1\pmod p$. Como $q$ es primo, $n_p\in\{1,q\}$.
+>>	3. Escribiendo $|G|=q\cdot p^2$ con $q\nmid p^2$, el tercer teorema da $n_q\mid p^2$ y $n_q\equiv 1\pmod q$. Los divisores positivos de $p^2$ son $1,p,p^2$. El valor $p$ es imposible: $p\equiv 1\pmod q$ significaría $q\mid(p-1)$, pero $1\leq p-1<q$ pues $p<q$, y ningún entero entre $1$ y $q-1$ es múltiplo de $q$. Luego $n_q\in\{1,p^2\}$.
+>>	4. Si $n_p=1$ o $n_q=1$, el único Sylow correspondiente es normal por el criterio previo, propio y no trivial por el paso 1, y $G$ no es simple. Supongamos por contradicción que $G$ fuera simple en este subcaso. Entonces ningún Sylow puede ser único, de modo que $n_p>1$ y $n_q>1$, es decir $n_p=q$ y $n_q=p^2$.
+>>	5. Sean $Q_1,\dots,Q_{p^2}$ los $q$-Sylow. Por Lagrange, dos distintos de orden primo $q$ se cortan solo en $\{e\}$; aportan $p^2(q-1)$ elementos distintos de orden $q$.
+>>	6. Sea $E_q$ su unión y $R=G\setminus E_q$ como conjunto: por resta directa $$|R|=p^2q-p^2(q-1)=p^2$$, y $e\in R$.
+>>	7. Sea $P$ un $p$-Sylow arbitrario: tiene orden $p^2$ y por Lagrange sus elementos no neutros tienen orden $p$ o $p^2\neq q$, luego $P\cap E_q=\varnothing$ por lo tanto $P\subseteq R$. 
+>>	8. Como $|P|=|R|=p^2$ finitos, $P=R$ entonces $n_p=1$.
+>>	9. Esto contradice $n_p=q>1$ ($q$ primo es $>1$) del paso 4. El supuesto de simplicidad es imposible en este subcaso: $G$ no es simple cuando $q>p$.
+>>- **Conclusión.** Los casos $p=q$, $p>q$ y $q>p$ son exhaustivos y en cada uno se exhibe un subgrupo normal propio no trivial. Por lo tanto ningún grupo de orden $p^2q$ es simple.
 
 >[!exercise] Ejercicio 22
 >Probar que no existen grupos simples de los siguientes órdenes: $30$, $36$, $56$, $96$.
+>>[!Proof]-
+>>- **Criterio previo.** Por el segundo teorema de Sylow, dos $p$-subgrupos de Sylow son conjugados. De aquí un $p$-Sylow $P$ es normal si y solo si es único: la conjugación $c_g(x)=gxg^{-1}$ es biyectiva de inversa $c_{g^{-1}}$ y preserva productos, luego $|gPg^{-1}|=|P|$ y $gPg^{-1}$ es un $p$-Sylow; si $P$ es único, $gPg^{-1}=P$ para todo $g$; recíprocamente, si $P\triangleleft G$ y $Q$ es otro $p$-Sylow, existe $g$ con $Q=gPg^{-1}=P$. Un testigo de no-simplicidad debe ser normal, propio y no trivial. El núcleo de todo homomorfismo es normal: si $f(k)=e$ entonces $f(gkg^{-1})=e$.
+>>- **Orden $30$.**
+>>	1. Se tiene $|G|=30=2\cdot 3\cdot 5$. Un $3$-Sylow tiene orden $3$ y un $5$-Sylow tiene orden $5$. Por el tercer teorema, $n_3\mid 10$ y $n_3\equiv 1\pmod 3$; los divisores de $10$ son $1,2,5,10$, y solo $1$ y $10$ son congruentes con $1$ módulo $3$, luego $n_3\in\{1,10\}$. Análogamente, $n_5\mid 6$ y $n_5\equiv 1\pmod 5$; los divisores de $6$ son $1,2,3,6$, y solo $1$ y $6$ son congruentes con $1$ módulo $5$, luego $n_5\in\{1,6\}$.
+>>	2. Si $n_3=1$ o $n_5=1$, el único Sylow correspondiente es normal por el criterio previo, de orden $3$ o $5$, y $1<3,5<30$, luego propio y no trivial. Así $G$ no es simple.
+>>	3. Sean $H\neq K$ dos subgrupos de orden primo $p$. Entonces $H\cap K\leq H$, luego $|H\cap K|\in\{1,p\}$; si fuera $p$, la igualdad de cardinales finitos daría $H\cap K=H=K$, contra la hipótesis, así $H\cap K=\{e\}$. Si $|H|=3$ y $a\in H$ con $a\neq e$, entonces $|a|\mid 3$ y $|a|=3$; si $|H|=5$ y $a\neq e$, entonces $|a|=5$.
+>>	4. Si $n_3=10$ y $n_5=6$, los diez $3$-Sylow aportan $10\cdot 2=20$ elementos distintos de orden $3$, y los seis $5$-Sylow aportan $6\cdot 4=24$ elementos distintos de orden $5$, disjuntos dos a dos salvo en $e$ por el paso anterior. Serían $44$ elementos no neutros distintos, pero $|G|-1=29$. Como $44>29$, esto es imposible.
+>>	5. En consecuencia no puede ocurrir $n_3=10$ y $n_5=6$ a la vez, y el paso 2 da siempre un Sylow normal propio no trivial. Ningún grupo de orden $30$ es simple.
+>>- **Orden $56$.** Por el Ejercicio 16, todo grupo de orden $56$ posee un subgrupo de Sylow normal (de orden $7$ u $8$), propio y no trivial pues $1<7,8<56$. Luego ningún grupo de orden $56$ es simple.
+>>- **Orden $36$.**
+>>	1. Se tiene $|G|=36=4\cdot 9$ con $3\nmid 4$, de modo que un $3$-Sylow tiene orden $9$. Por el tercer teorema, $n_3\mid 4$ y $n_3\equiv 1\pmod 3$; los divisores de $4$ son $1,2,4$, y solo $1$ y $4$ son congruentes con $1$ módulo $3$, luego $n_3\in\{1,4\}$.
+>>	2. Si $n_3=1$, el único $3$-Sylow es normal por el criterio previo, de orden $9$, y $1<9<36$, luego propio y no trivial.
+>>	3. Supongamos $n_3=4$. Sea $X=\{P_1,P_2,P_3,P_4\}$ el conjunto de los $3$-Sylow. Para $g\in G$ y $P\in X$ ponemos $g\cdot P=gPg^{-1}$. Como $c_g$ es biyectiva, $|gPg^{-1}|=|P|=9$ y es subgrupo, luego otro $3$-Sylow; así $g\cdot P\in X$. Se verifican $1\cdot P=P$ y $(gh)\cdot P=g\cdot(h\cdot P)$, de modo que es una acción. Sea $\varphi:G\to\mathrm{Sym}(X)\cong S_4$ dada por $\varphi(g)(P)=g\cdot P$, y $K=\ker\varphi=\{g:gPg^{-1}=P\ \forall P\in X\}$, normal por ser núcleo.
+>>	4. Por Lagrange en $G$, $|G|=|K|\cdot|G/K|$, luego $|G/K|$ divide a $36$. Por el primer teorema de isomorfismo, $G/K\cong\mathrm{im}\,\varphi\leq S_4$ con $|S_4|=24$; por Lagrange en $S_4$, $|\mathrm{im}\,\varphi|$ divide a $24$, luego $|G/K|$ divide a $24$. Así $|G/K|$ divide a $\gcd(36,24)=12$, de donde $|G/K|\leq 12$ y $|K|=36/|G/K|\geq 3$; en particular $K\neq\{e\}$ (si $K=\{e\}$ entonces $36=|G/K|$ dividiría a $24$, imposible).
+>>	5. Si $K=G$, fijado $P\in X$ se tendría $gPg^{-1}=P$ para todo $g$, es decir $P\triangleleft G$, luego $P$ sería único y $n_3=1$, contra $n_3=4$. Así $K\neq G$. Por tanto $K$ es normal, propio y no trivial, y $G$ no es simple en este caso tampoco.
+>>- **Orden $96$.** Pendiente.
 
 >[!exercise] Ejercicio 23
 >Sea $G$ un grupo, $|G|=pq$, $p>q$ primos tales que $q$ no divide a $p-1$. Probar que $G$ es cíclico.

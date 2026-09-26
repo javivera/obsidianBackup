@@ -507,10 +507,15 @@ class FuzzySearchModal extends Modal {
       if (!leaf.view) return false;
       leaf.setEphemeralState?.({ line, focus: true });
       const editor = leaf.view.editor;
-      if (!editor) return true;
+      if (!editor) {
+        this.app.workspace.trigger("vault-fuzzy-search:result-opened", leaf, line);
+        return true;
+      }
       const at = Math.min(line, Math.max(0, editor.lineCount() - 1));
       editor.setCursor({ line: at, ch: 0 });
       editor.scrollIntoView({ from: { line: at, ch: 0 }, to: { line: at, ch: 0 } }, true);
+      // Pass the source line, not the animated viewport position.
+      this.app.workspace.trigger("vault-fuzzy-search:result-opened", leaf, line);
       return true;
     };
     if (!place()) {
@@ -536,6 +541,11 @@ class FuzzySearchModal extends Modal {
       ? { active: true }
       : { active: true, eState: { line: result.line, ch: 0 } };
     await leaf.openFile(result.file, openState);
+    try {
+      this.app.workspace.setActiveLeaf(leaf, { focus: true });
+    } catch (_error) {
+      // ignore
+    }
     this.positionLine(leaf, result.line);
     this.close();
   }

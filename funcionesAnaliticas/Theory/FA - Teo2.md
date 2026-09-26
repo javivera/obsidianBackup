@@ -17,6 +17,8 @@
 >[!Definition] Función analítica
 >Una función $f:G\to\mathbb{C}$ es **analítica** si es continuamente diferenciable en $G$.
 
+^9f31ac
+
 >[!Proposition] Reglas de derivación
 >Si $f$ y $g$ son analíticas en $G$, entonces $f+g$ y $f.g$ son diferenciables y cumplen:
 >$$ (f+g)'=f'+g',\qquad (fg)'=f'g+fg'.$$
@@ -116,6 +118,8 @@
 >[!Remark]
 >Toda función analítica es infinitamente diferenciable y, además, tiene un desarrollo en serie de potencias alrededor de cada punto de su dominio. Por lo tanto la derivada compleja no es una simple generalización de la derivada en $\mathbb{R}$.
 
+^6fedda
+
 >[!Remark] Diferenciabilidad real versus compleja
 >Hay funciones $f:G\subseteq\mathbb{C}\to\mathbb{C}$ diferenciables como funciones de dos variables reales en todo $\mathbb{R}^2\simeq\mathbb{C}$, pero no diferenciables en sentido complejo.
 >
@@ -182,13 +186,15 @@
 >>	$$f^{(k)}(z)=\sum_{n=k}^{\infty}n(n-1)\cdots(n-k+1)a_n(z-a)^{n-k}.$$
 >>	2. Evaluando en $z=a$, el único término no nulo es el de índice $n=k$, que vale $k!a_k$. Por lo tanto $$a_k=\frac{f^{(k)}(a)}{k!}.$$
 
->[!Corollary] Analiticidad de la suma
+>[!Corollary] Las series de potencias son analiticas
 >Cualquier función definida por una serie de potencias es analítica en su disco de convergencia.
 >
 >>[!Proof]-
 >>1. Por la proposición anterior, $f$ es diferenciable en $B(a,R)$ y $f'$ coincide con una serie de potencias de radio $R$.
 >>2. Toda serie de potencias converge uniformemente en compactos del disco (teorema de Abel), de modo que $f'$ es continua en $B(a,R)$.
 >>3. Luego $f$ es continuamente diferenciable, es decir, analítica.
+
+^63c6c5
 
 >[!Proposition] Derivada nula
 >Si $G$ es abierto y conexo y $f:G\to\mathbb{C}$ es analítica con $f'(z)=0$ para todo $z\in G$, entonces $f$ es constante.
@@ -496,6 +502,8 @@
 >Ahora supongamos que $h\neq0$ y que $h$ es imaginario puro entonces $$\begin{align}f'(z_0)&=\lim_{h\to0}\frac{f(z_0+ih)-f(z_0)}{ih}\\&=\lim_{h\to0}\left(\frac{u(x,y+h)-u(x,y)}{ih}+i\frac{v(x,y+h)-v(x,y)}{ih}\right).\end{align}$$usando que $\frac{1}{i}=-i$, $$\begin{align}f'(z_0)&=\lim_{h\to0}\left(-i\frac{u(x,y+h)-u(x,y)}{h}+\frac{v(x,y+h)-v(x,y)}{h}\right)\\&=v_y(x,y)-iu_y(x,y).\end{align}$$
 >Es decir, $$\boxed{f'(z_0)=v_y(x,y)-iu_y(x,y)}\qquad (2)\quad(**)$$
 >Combinando $(*)$ con $(**)$ $$u_x(x,y)+iv_x(x,y)=v_y(x,y)-iu_y(x,y).$$como dos números complejos son iguales si y sólo si sus partes reales e imaginarias son iguales, se sigue que $$\boxed{\begin{align}u_x(x,y)&=v_y(x,y),\\v_x(x,y)&=-u_y(x,y).\end{align}}$$estas se llaman **ecuaciones de Cauchy-Riemann**.
+
+^44d2e7
 
 >[!Remark]
 >- Si $f$ es diferenciable en $z_0=x+iy$ y $f(z)=u(x,y)+iv(x,y)$, entonces $u$ y $v$ cumplen las ecuaciones de Cauchy-Riemann: $$\begin{align}u_x(x,y)&=v_y(x,y),\\v_x(x,y)&=-u_y(x,y).\end{align}$$además, $$f'(z_0)=u_x(x,y)+iv_x(x,y)=v_y(x,y)-iu_y(x,y).$$

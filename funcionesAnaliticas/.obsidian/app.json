@@ -2,7 +2,7 @@
   "promptDelete": false,
   "showLineNumber": false,
   "readableLineLength": false,
-  "showInlineTitle": true,
+  "showInlineTitle": false,
   "vimMode": true,
   "spellcheck": false,
   "strictLineBreaks": false,
