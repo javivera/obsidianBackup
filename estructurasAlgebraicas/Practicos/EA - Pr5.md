@@ -148,6 +148,38 @@ tags:
 >- **(c)** Probar que si $|G|=p^2$ con $p$ primo, entonces $G$ es abeliano.
 >- **(d)** Caracterizar todos los grupos de orden $p^2$.
 >- **(e)** Dar un ejemplo de un grupo $G$ no abeliano tal que $G/C(G)$ sea abeliano.
+>>[!Proof]-
+>>- (a)
+>>	1. Consideremos la acción de $G$ sobre sí mismo por conjugación, $g\cdot x=gxg^{-1}$. Un elemento $x$ es fijo para toda la acción si y solo si $gxg^{-1}=x$ para todo $g\in G$, lo cual equivale, multiplicando a derecha por $g$, a $gx=xg$ para todo $g\in G$. Por lo tanto el conjunto de puntos fijos es exactamente $C(G)$.
+>>	2. Como $|G|=p^n$ con $n\geq1$, al aplicar [[Teorico 6#^e8cda5|lema de los puntos fijos]] a esta acción se obtiene $$|C(G)|\equiv |G|=p^n\equiv0\pmod p$$
+>>	3. Así, $|C(G)|$ es un múltiplo positivo de $p$ (Porque $p$ divide a $p^{n}$): es positivo porque $e_G\in C(G)$, y por ello $|C(G)|\geq p>1$. En consecuencia, $C(G)\neq\{e_G\}$.
+>>- (b)
+>>	1. Como $G/C(G)$ es cíclico, existe $a\in G$ tal que $G/C(G)=\langle aC(G)\rangle$. Dados $x,y\in G$, existen $m,n\in\mathbb Z$ con $xC(G)=a^mC(G)$ e $yC(G)=a^nC(G)$. De la primera igualdad, $a^{-m}x\in C(G)$, y de la segunda, $a^{-n}y\in C(G)$; por lo tanto podemos escribir $x=a^mz$ e $y=a^nw$ con $z,w\in C(G)$.
+>>	2. Por definición de centro, $z$ conmuta con $a^n$ y con $w$, y $w$ conmuta con $a^m$ 
+>>	3. Además, las potencias de un mismo elemento conmutan, pues $a^ma^n=a^{m+n}=a^{n+m}=a^na^m$. En consecuencia, $$xy=a^mza^nw=a^ma^nzw=a^na^mwz=a^nwa^mz=yx$$
+>>	4. Como $x$ e $y$ eran arbitrarios, $G$ es abeliano.
+>>- (c)
+>>	1. Por (a), $C(G)$ tiene más de un elemento. Como $C(G)\leq G$, [[Teorico 4#^teorema-de-lagrange|Lagrange]] implica que $|C(G)|$ divide a $p^2$. Los únicos divisores positivos son $1,p,p^2$, de modo que $|C(G)|=p$ o $|C(G)|=p^2$.
+>>	2. Si $|C(G)|=p^2$, entonces $C(G)=G$ y $G$ es abeliano. 
+>>	3. Si $|C(G)|=p$, el cociente $G/C(G)$ tiene orden $p$; 
+>>	4. Elijamos una clase distinta de la identidad. Su orden divide a $p$ por [[Teorico 4#^teorema-de-lagrange|Lagrange]] y no es $1$ esto es por que $<aC(G)>$ es subgrupo de $G/C(G)$. osea su orden es $p$ y genera el cociente. 
+>>	5. Por (b), $G$ también es abeliano en este caso.
+>>- (d)
+>>	1. Por (c), $G$ es abeliano. Para cualquier $x\in G$, el orden de $x$ divide a $p^2$ por [[Teorico 4#^teorema-de-lagrange|Lagrange]] aplicado a $\langle x\rangle$, así que solo puede ser $1,p$ o $p^2$.
+>>	2. Si existe $x$ de orden $p^2$, entonces $|\langle x\rangle|=|G|$ y $G=\langle x\rangle\cong\mathbb Z_{p^2}$, mediante $[i]\mapsto x^i$.
+>>	3. Si no existe tal elemento, todo elemento distinto de $e_G$ tiene orden $p$.
+>>	4. Elijamos $x\neq e_G$; entonces $|\langle x\rangle|=p<p^2$, por lo que existe $y\notin\langle x\rangle$, también de orden $p$. La intersección $\langle x\rangle\cap\langle y\rangle$ es un subgrupo de $\langle x\rangle$ y su orden divide a $p$ por [[Teorico 4#^teorema-de-lagrange|Lagrange]]. 
+>>	5. No puede tener orden $p$, pues entonces $\langle y\rangle=\langle x\rangle$ y $y\in\langle x\rangle$; por tanto es $\{e_G\}$.
+>>	6. La aplicación $\varphi:\mathbb Z_p\oplus\mathbb Z_p\to G$ dada por $\varphi([i],[j])=x^iy^j$ está bien definida porque $x^p=y^p=e_G$, y es homomorfismo porque $G$ es abeliano: $$(x^iy^j)(x^ky^\ell)=x^{i+k}y^{j+\ell}$$ 
+>>	7. Si $x^iy^j=e_G$, entonces $x^i=y^{-j}\in\langle x\rangle\cap\langle y\rangle=\{e_G\}$, de modo que $x^i=y^j=e_G$. 
+>>	8. Como $x$ e $y$ tienen orden $p$, existen $k,\ell\in\mathbb Z$ tales que $i=kp$ y $j=\ell p$; por lo tanto $[i]=[0]$ y $[j]=[0]$ en $\mathbb Z_p$, aunque $i$ y $j$ no tengan por qué ser cero como enteros. Así, $\ker\varphi=\{([0],[0])\}$. Es inyectiva y, como dominio y codominio tienen $p^2$ elementos, también es sobreyectiva. Por tanto $G\cong\mathbb Z_p\oplus\mathbb Z_p$.
+>>	9. Ambas posibilidades existen y no son isomorfas: $\mathbb Z_{p^2}$ tiene un elemento de orden $p^2$, mientras que en $\mathbb Z_p\oplus\mathbb Z_p$ se cumple $p([i],[j])=([0],[0])$ para todo par, de modo que ninguno tiene orden $p^2$. Estos son, pues, todos los grupos de orden $p^2$ salvo isomorfismo.
+>>- (e)
+>>	1. Tomemos $G=D_4=\langle r,s\mid r^4=e,\ s^2=e,\ sr=r^{-1}s\rangle$, el grupo de simetrías del cuadrado, donde $r$ es una rotación de un cuarto de vuelta y $s$ una reflexión. Sus ocho elementos distintos son $r^k$ y $r^ks$ para $0\leq k<4$; en particular, $r^2\neq e$. Como $sr=r^3s\neq rs$, $G$ no es abeliano.
+>>	2. El elemento $r^2$ conmuta con $r$ por ser una potencia de $r$, y también con $s$, ya que $sr^2=(sr)r=r^{-1}(sr)=r^{-2}s=r^2s$. Como $r$ y $s$ generan $G$, $r^2\in C(G)$. Además, $e\in C(G)$.
+>>	3. Ninguna otra rotación es central: para $k=1$ se tiene $sr=r^{-1}s$, y para $k=3$ se obtiene $sr^3=(sr^2)r=r^2(sr)=r^2r^{-1}s=rs=r^{-3}s$; en ambos casos $r^{-k}s\neq r^ks$ porque $r^{2k}=r^2\neq e$. Ninguna reflexión $r^ks$ es central: $(r^ks)r=r^{k-1}s$, mientras que $r(r^ks)=r^{k+1}s$, y estos elementos son distintos porque $r^2\neq e$. Por lo tanto $C(G)=\{e,r^2\}$.
+>>	4. En $G/C(G)$, las clases $rC(G)$ y $sC(G)$ generan el cociente y conmutan: $(sC(G))(rC(G))=srC(G)=r^{-1}sC(G)=rsC(G)=(rC(G))(sC(G))$, pues $r^{-1}C(G)=rC(G)$ al ser $r^{-1}=r^3=rr^2$. 
+>>	5. Como cada elemento del cociente es un producto de potencias de estas dos clases, dos elementos cualesquiera conmutan al reordenar dichas potencias. Así, $G/C(G)$ es abeliano aunque $G$ no lo sea.
 
 ^9d391e
 
@@ -155,8 +187,24 @@ tags:
 >Sea $G$ un grupo de orden $p^3$, con $p$ primo.
 >- **(a)** Si $G$ posee más de un subgrupo normal de orden $p$, entonces $G$ es abeliano y no cíclico.
 >- **(b)** Si $G$ es no abeliano, entonces $|C(G)|=p$.
+>>[!Proof]-
+>>- (a)
+>>	1. Sean $H$ y $K$ dos subgrupos normales distintos de orden $p$. Si $h\in H$ no es neutro, Lagrange da $|h|\mid p$ y, como $|h|>1$, se tiene $|h|=p$, por lo que $H=\langle h\rangle$; lo mismo vale para $K$. Su intersección, que es un subgrupo de ambos, tiene orden $1$ o $p$ por Lagrange. Si tuviera orden $p$, tendríamos $H=H\cap K=K$; por lo tanto $H\cap K=\{e\}$.
+>>	2. Veamos que $H\subseteq C(G)$. Sea $h\in H$ con $h\neq e$. Como $H$ es normal, $ghg^{-1}\in H$ para todo $g\in G$; además $ghg^{-1}\neq e$, pues si fuera $e$ tendríamos $h=e$. Así, $\operatorname{Cl}_G(h)\subseteq H\setminus\{e\}$ y $1\leq|\operatorname{Cl}_G(h)|\leq p-1$. (Porque $H$ tiene $p$ elementos entonces $H\setminus\{ e \}$ tiene $p-1$) 
+>>	3. Por [[Teorico 6#^d8b70e|tamaño de una clase de conjugación]], $|\operatorname{Cl}_G(h)|$ divide a $|G|=p^3$, de modo que es una de $1,p,p^2,p^3$. La cota anterior obliga a $|\operatorname{Cl}_G(h)|=1$; 
+>>	4. Como $h\in\operatorname{Cl}_G(h)$, resulta $ghg^{-1}=h$ para todo $g\in G$, o sea $h\in C(G)$. También $e\in C(G)$, por lo que $H\subseteq C(G)$. 
+>>	5. El mismo argumento aplicado a $K$ da $K\subseteq C(G)$.
+>>	6. Si $h\in H$, $k\in K$ y $g\in G$, entonces $g(hk)=(gh)k=(hg)k=h(gk)=h(kg)=(hk)g$, pues $h,k\in C(G)$; así $HK\subseteq C(G)$. Además, si $x=h_1k_1$ e $y=h_2k_2$ pertenecen a $HK$, entonces $xy^{-1}=h_1k_1k_2^{-1}h_2^{-1}=(h_1h_2^{-1})(k_1k_2^{-1})\in HK$, ya que $h_2^{-1}$ conmuta con $k_1k_2^{-1}$ (Por estar en el centro). Como $HK$ no es vacío ($e=ee\in HK$), el criterio $xy^{-1}\in HK$ prueba que $HK\leq C(G)$.
+>>	7. Además, cada elemento de $HK$ admite exactamente una expresión $hk$ con $h\in H$ y $k\in K$: si $hk=h'k'$, entonces $h'^{-1}h=k'k^{-1}\in H\cap K=\{e\}$, de modo que $h=h'$ y $k=k'$. Por lo tanto $|HK|=p^2$, y Lagrange da $p^2\mid |C(G)|\mid p^3$. Así $|C(G)|$ es $p^2$ o $p^3$.
+>>	8. Si $|C(G)|=p^2$, el cociente $G/C(G)$ tiene orden $p$ y es cíclico por [[Teorico 4#^a9e43b|grupos de orden primo]]. Sea $xC(G)$ su generador. Dados $a,b\in G$, podemos escribir $a=x^iz$ y $b=x^jw$ con $i,j\in\mathbb Z$ y $z,w\in C(G)$. Como $z$ y $w$ conmutan con todos los elementos de $G$, y $x^ix^j=x^{i+j}=x^jx^i$, resulta $$ab=x^izx^jw=x^{i+j}zw=x^{j+i}wz=x^jwx^iz=ba$$osea $G$ abeliano
+>>	9. Si $|C(G)|=p^3$, entonces $C(G)=G$ y también es abeliano.
+>>	10. Si $G$ fuera cíclico de orden $p^3$, digamos $G=\langle x\rangle$, todo subgrupo de orden $p$ sería $\langle x^{p^2}\rangle$: en efecto, si $\langle x^m\rangle$ tiene orden $p$, entonces $(x^m)^p=e$, luego $p^3$ divide a $mp$ y $p^2$ divide a $m$; escribiendo $m=p^2t$, se tiene $x^m=(x^{p^2})^t$. Como $x^m$ tiene orden $p$ y $\langle x^{p^2}\rangle$ también tiene orden $p$ (pues $(x^{p^2})^p=e$ y $x^{p^2}\neq e$), ambos generan el mismo subgrupo $\langle x^{p^2}\rangle$. Esto contradice $H\neq K$. Luego $G$ no es cíclico.
+>>- (b)
+>>	1. Por [[EA - Pr5#^9d391e|Ejercicio 18 (a)]], $C(G)\neq\{e\}$. Por Lagrange, su orden divide a $p^3$, así que $|C(G)|\in\{p,p^2,p^3\}$.
+>>	2. Si $|C(G)|=p^3$, entonces $C(G)=G$ y $G$ es abeliano, contra la hipótesis.
+>>	3. Si $|C(G)|=p^2$, el cociente $G/C(G)$ tiene orden $p$ y es cíclico por [[Teorico 4#^a9e43b|grupos de orden primo]]; el cálculo del paso 8 de (a) vuelve a mostrar que $G$ es abeliano. Por lo tanto solo queda $|C(G)|=p$.
 
->[!exercise] Ejercicio 20
+>[!Exercise] Ejercicio 20
 >Calcular todos los $p$-subgrupos de Sylow de: $$\mathbb{Z}_{12},\qquad \mathbb{Z}_{21}\oplus\mathbb{Z}_{15},\qquad S_3\times\mathbb{Z}_3,\qquad S_3\times S_3.$$
 >>[!Proof]-
 >>- **Observación previa.** Si $(a,b)$ pertenece a un producto directo, entonces $\operatorname{ord}(a,b)=\operatorname{mcm}(\operatorname{ord}(a),\operatorname{ord}(b))$; en particular, el orden de cada coordenada divide al orden del par.
@@ -239,6 +287,12 @@ tags:
 
 >[!exercise] Ejercicio 23
 >Sea $G$ un grupo, $|G|=pq$, $p>q$ primos tales que $q$ no divide a $p-1$. Probar que $G$ es cíclico.
+>>[!Proof]-
+>>1. Por [[Teorico 7#^sylow|Sylow]], existe un subgrupo $P$ de orden $p$, y la cantidad $n_p$ de tales subgrupos satisface $n_p\mid q$ y $n_p\equiv1\pmod p$. Como $q$ es primo, $n_p\in\{1,q\}$; dado que $q<p$, no puede ser $n_p=q$. Por lo tanto $n_p=1$. Para todo $g\in G$, $gPg^{-1}$ también tiene orden $p$, luego $gPg^{-1}=P$ por unicidad y $P\triangleleft G$.
+>>2. De igual modo, existe un subgrupo $Q$ de orden $q$, y [[Teorico 7#^sylow|Sylow]] da $n_q\mid p$ y $n_q\equiv1\pmod q$. Así, $n_q\in\{1,p\}$; la posibilidad $n_q=p$ implicaría $q\mid(p-1)$, contra la hipótesis. Entonces $n_q=1$, y el mismo argumento de conjugación muestra que $Q\triangleleft G$.
+>>3. Como $P\cap Q$ es subgrupo de ambos, [[Teorico 4#^teorema-de-lagrange|Lagrange]] implica que $|P\cap Q|$ divide tanto a $p$ como a $q$. Al ser primos distintos, $P\cap Q=\{e\}$. Por [[Teorico 4#^c6bad9|cardinal del producto]], $|PQ|\,|P\cap Q|=|P||Q|=pq$, de donde $|PQ|=|G|$ y, puesto que $PQ\subseteq G$, resulta $G=PQ$.
+>>4. Fijemos $x\in P$ e $y\in Q$. Por la normalidad de $Q$, $xyx^{-1}\in Q$, así que $xyx^{-1}y^{-1}\in Q$. Por la normalidad de $P$, $yx^{-1}y^{-1}\in P$, así que $xyx^{-1}y^{-1}=x(yx^{-1}y^{-1})\in P$. Como $P\cap Q=\{e\}$, se tiene $xyx^{-1}y^{-1}=e$, es decir, $xy=yx$.
+>>5. Por [[Teorico 4#^a9e43b|grupos de orden primo]], elijamos generadores $a$ de $P$ y $b$ de $Q$, de órdenes $p$ y $q$. Como conmutan, $(ab)^m=a^mb^m$ para todo entero positivo $m$. Si $(ab)^m=e$, entonces $a^m=b^{-m}\in P\cap Q=\{e\}$, por lo que $p\mid m$ y $q\mid m$; al ser primos distintos, $pq\mid m$. Además, $(ab)^{pq}=a^{pq}b^{pq}=e$. Por lo tanto $ab$ tiene orden $pq=|G|$, y $G=\langle ab\rangle$ es cíclico.
 
 ## Ejercicios adicionales
 

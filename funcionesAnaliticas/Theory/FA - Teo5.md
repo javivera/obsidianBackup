@@ -34,6 +34,8 @@
 >>12. Si $$f=g,$$ entonces $$\{z\in G:f(z)=g(z)\}=G.$$ Como $G$ es abierto, todo $a\in G$ es punto de acumulación de $G$: existe $r>0$ con $B(a,r)\subseteq G$ y la sucesión $$z_n=a+\frac{r}{2n}$$ es de puntos distintos de $G$ con $$z_n\to a.$$
 >>13. Recíprocamente, si $$\{z\in G:f(z)=g(z)\}$$ tiene un punto de acumulación en $G$, entonces $$\{z\in G:h(z)=0\}$$ tiene un punto de acumulación en $G.$ Por el teorema de identidad, $$h\equiv 0,$$ es decir, $$f=g.$$
 
+^8d43c1
+
 >[!Example] Propiedad de la exponencial
 >Para todo $w,z\in\mathbb{C}$ se cumple $$e^{w+z}=e^we^z.$$
 >>[!Proof]-
@@ -74,7 +76,6 @@
 
 ^4c39b6
 
-
 >[!Theorem] Teorema del módulo máximo
 >Sea $G$ una región y sea $f:G\to\mathbb{C}$ analítica. Si existe $a\in G$ tal que $$|f(z)|\leq|f(a)|\qquad\forall z\in G,$$ entonces $f$ es constante.
 >>[!Proof]-
@@ -85,22 +86,5 @@
 >>5. Como esto vale para todo $r$ suficientemente pequeño, $|f|$ es constante en un disco alrededor de $a$ tenemos que $f$ [[FA - Teo5#^4c39b6|es constante en ese disco]]; 
 >>6. Sea $c$ esa constante. La función $f-c$ es analítica en $G$ y se anula en todo un disco alrededor de $a$, así que sus ceros tienen un punto de acumulación en $G$. Por el [[FA - Teo5#^6ef1c1|teorema de identidad]] tenemos $$f-c\equiv0$$en $G$. Por lo tanto, $f$ es constante en todo $G$.
 
-## Índice de una curva
+^c912ed
 
->[!Example] Índice de una circunferencia
->Sea $\gamma:[0,2\pi]\to\mathbb{C}$, dada por $$\gamma(t)=a+e^{int},\qquad n\in\mathbb{Z}.$$ Entonces $$\int_\gamma\frac{1}{z-a}\,dz=\int_0^{2\pi}\frac{1}{e^{int}}\,ine^{int}\,dt=2\pi in.$$
-
->[!Definition] Índice de una curva respecto de un punto
->Sea $\gamma$ una curva cerrada rectificable y sea $a\notin\{\gamma\}$. Definimos el **índice de $\gamma$ respecto de $a$** como $$n(\gamma,a):=\frac{1}{2\pi i}\int_\gamma\frac{dz}{z-a}.$$
-
->[!Theorem] El índice es entero
->Sea $\gamma:[\alpha,\beta]\to\mathbb{C}$ una curva cerrada rectificable y sea $a\notin\{\gamma\}$. Entonces $$n(\gamma,a)=\frac{1}{2\pi i}\int_\gamma\frac{dz}{z-a}\in\mathbb{Z}.$$
->>[!Proof]- pedir la original dada en clase
->>1. Asumimos el lema de aproximación: existe una sucesión de curvas cerradas $\sigma_{j}$ de clase $C^{1}$ a trozos con $a\notin\{\sigma_{j}\}$ tales que $$\int_{\sigma_{j}}\frac{dz}{z-a}\xrightarrow[j\to\infty]{}\int_{\gamma}\frac{dz}{z-a}.$$
->>2. Por (1), basta probar el teorema para $\gamma$ de clase $C^{1}$ a trozos, pues entonces cada $n(\sigma_{j},a)$ es entero y una sucesión de enteros convergente en $\mathbb{C}$ es eventualmente constante ya que si $p,q\in\mathbb{Z}$ con $p\neq q$ entonces $|p-q|\geq 1$, de modo que su límite $n(\gamma,a)$ es entero.
->>3. Idea: el integrando es la derivada logarítmica de $z-a$; definimos su primitiva a lo largo de la curva como $$F(t)=\int_{\alpha}^{t}\frac{\gamma'(s)}{\gamma(s)-a}\,ds,$$ de modo que $F(\alpha)=0$ y $F(\beta)=\int_{\gamma}\frac{dz}{z-a}$, y corregimos $\gamma(t)-a$ con $e^{-F(t)}$ para obtener una función constante.
->>4. Sea $\varphi(t)=e^{-F(t)}(\gamma(t)-a)$; donde $\gamma$ es derivable vale $F'(t)=\frac{\gamma'(t)}{\gamma(t)-a}$ y $\frac{d}{dt}e^{-F(t)}=-F'(t)e^{-F(t)}$, luego $$\varphi'(t)=-F'(t)e^{-F(t)}(\gamma(t)-a)+e^{-F(t)}\gamma'(t)=e^{-F(t)}\left[-\frac{\gamma'(t)}{\gamma(t)-a}(\gamma(t)-a)+\gamma'(t)\right]=e^{-F(t)}\left[-\gamma'(t)+\gamma'(t)\right]=0.$$
->>5. Así $\varphi$ es constante en cada subintervalo $C^{1}$ y por continuidad es globalmente constante en $[\alpha,\beta]$, y como $F(\alpha)=0$ se tiene $\varphi(\alpha)=\gamma(\alpha)-a$, luego $\varphi(\alpha)=\varphi(\beta)$ es $$(\gamma(\alpha)-a)=e^{-F(\beta)}(\gamma(\beta)-a).$$
->>6. Como $\gamma$ es cerrada se tiene $\gamma(\alpha)=\gamma(\beta)$ con $\gamma(\alpha)-a\neq 0$, luego cancelando queda $e^{-F(\beta)}=1$ y por $e^{w+z}=e^{w}e^{z}$ se obtiene $$e^{F(\beta)}=1.$$
->>7. Escribiendo $F(\beta)=u+iv$ con $u,v\in\mathbb{R}$ se tiene $e^{u}(\cos v+i\sin v)=1$, luego tomando módulo $e^{u}=1$ y por lo tanto $u=0$, de donde $\cos v=1$ y $\sin v=0$, así que existe $k\in\mathbb{Z}$ tal que $$v=k\cdot 2\pi.$$
->>8. Por lo tanto $F(\beta)=k\cdot(2\pi i)$ y por definición $$n(\gamma,a)=\frac{1}{2\pi i}F(\beta)=k\in\mathbb{Z}.$$

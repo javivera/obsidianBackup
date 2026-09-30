@@ -11,10 +11,6 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 
 # Teórico 10 — Centro, productos, anillos libres, ideales y teoremas de isomorfismo
 
->[!remark] Repaso: Álgebra de grupo $R[G]$
->Si $R$ es un anillo y $G$ un grupo, el álgebra de grupo es $$R[G]=\bigoplus_{g\in G} R\cdot g,$$ es decir, el $R$-módulo libre con base indexada por los elementos de $G$. Sus elementos son sumas formales finitas $\sum_{g\in G} r_g g$ con $r_g\in R$.
->La multiplicación se define distribuyendo y utilizando el producto del grupo en la base: $$\left(\sum_{g\in G} r_g g\right)\left(\sum_{h\in G} s_h h\right) = \sum_{g,h\in G}(r_g s_h)(gh).$$ El neutro multiplicativo es $1_R\cdot e_G$.
-
 ## Centro, dominios íntegros y anillos de división
 
 >[!definition] Centro de un anillo
@@ -24,7 +20,7 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >Un anillo $R$ es conmutativo si y sólo si $R=Z(R)$. En general, $Z(R)$ es un subanillo conmutativo de $R$.
 
 >[!exercise] Centro del anillo de matrices $M_n(R)$
->Demostrar que para cualquier anillo $R$, el centro del anillo de matrices $M_n(R)$ está formado por los múltiplos escalares de la matriz identidad cuyos coeficientes están en el centro de $R$: $$Z(M_n(R)) = \{\lambda I_n\mid \lambda\in Z(R)\}.$$
+>Para cualquier anillo $R$, el centro del anillo de matrices $M_n(R)$ está formado por los múltiplos escalares de la matriz identidad cuyos coeficientes están en el centro de $R$: $$Z(M_n(R)) = \{\lambda I_n\mid \lambda\in Z(R)\}.$$
 >>[!Proof]-
 >>1. Denotemos por $E_{ij}\in M_n(R)$ a la matriz con un $1$ en la posición $(i,j)$ y ceros en las demás. Toda matriz $A=(a_{kl})\in M_n(R)$ cumple $(AE_{ij})_{kl} = a_{ki}\delta_{jl}$ y $(E_{ij}A)_{kl} = \delta_{ik}a_{jl}$.
 >>2. Si $A\in Z(M_n(R))$, entonces $AE_{ij} = E_{ij}A$ para todos los índices $1\leq i,j\leq n$.
@@ -38,10 +34,13 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >[!definition] Anillo de división y cuerpo
 >Un anillo $R$ con $1\neq 0$ se dice **anillo de división** (o *cuerpo alabeado*) si todo elemento no nulo es inversible: $$\forall x\in R\setminus\{0\},\quad \exists y\in R\quad\text{tal que}\quad xy=yx=1.$$
 >Un **cuerpo** es un anillo de división que además es conmutativo.
+## Ejemplos de anillos
 
->[!example] Ejemplos
->1. Si $X$ es un espacio topológico, el conjunto de funciones continuas $$C(X)=\{f\colon X\to\mathbb R\mid f\text{ es continua}\}$$ es un anillo conmutativo con las operaciones puntuales $(f+g)(x)=f(x)+g(x)$ y $(fg)(x)=f(x)g(x)$. No es un dominio íntegro si $X$ admite funciones continuas con soportes disjuntos no vacíos.
->2. Si $\mathbb k$ es un cuerpo, el **cuerpo de funciones racionales** en una indeterminada es $$\mathbb k(x)=\left\{\frac{g(x)}{f(x)}\Bigm| g,f\in\mathbb k[x],\ f\neq 0\right\}.$$ Es el cuerpo de fracciones del dominio de polinomios $\mathbb k[x]$.
+>[!example] Ejemplo de un anillo no de dominio integro
+>Si $X$ es un espacio topológico, el conjunto de funciones continuas $$C(X)=\{f\colon X\to\mathbb R\mid f\text{ es continua}\}$$ es un anillo conmutativo con las operaciones puntuales $(f+g)(x)=f(x)+g(x)$ y $(fg)(x)=f(x)g(x)$. No es un dominio íntegro si $X$ admite funciones continuas con soportes disjuntos no vacíos.
+
+>[!Example] ejemplo de cuerpo
+>Si $\mathbb k$ es un cuerpo, el **cuerpo de funciones racionales** en una indeterminada es $$\mathbb k(x)=\left\{\frac{g(x)}{f(x)}\Bigm| g,f\in\mathbb k[x],\ f\neq 0\right\}.$$ Es el cuerpo de fracciones del dominio de polinomios $\mathbb k[x]$ (que no es integro)
 
 ## Producto y suma directa de anillos
 
@@ -54,7 +53,7 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 
 >[!lemma] Propiedad universal del producto de anillos
 >1. El producto $\prod_{i\in I} R_i$ es un anillo, y para cada $j\in I$, la proyección canónica $$\pi_j\colon \prod_{i\in I} R_i\longrightarrow R_j,\qquad f\longmapsto f(j),$$ es un epimorfismo (morfismo sobreyectivo) de anillos.
->2. **Propiedad universal:** Si $S$ es un anillo y $\{\varphi_j\colon S\to R_j\}_{j\in I}$ es una familia de morfismos de anillos, entonces existe un **único** morfismo de anillos $\hat{\varphi}\colon S\to\prod_{i\in I}R_i$ tal que $\pi_j\circ\hat{\varphi}=\varphi_j$ para todo $j\in I$.
+>2. **Propiedad universal:** Si $S$ es un anillo y $$\{\varphi_j\colon S\to R_j\}_{j\in I}$$ es una familia de morfismos de anillos, entonces existe un **único** morfismo de anillos $\hat{\varphi}\colon S\to\prod_{i\in I}R_i$ tal que $\pi_j\circ\hat{\varphi}=\varphi_j$ para todo $j\in I$.
 >$$\begin{aligned}\begin{array}{ccc} & & \prod_{i\in I} R_i \\ & \overset{\hat{\varphi}}{\nearrow} & \Big\downarrow \pi_j \\ S & \underset{\varphi_j}{\longrightarrow} & R_j \end{array}\end{aligned}$$
 >>[!Proof]-
 >>1. Las operaciones en $\prod_{i\in I} R_i$ se definen coordenada a coordenada; como cada $R_i$ satisface la asociatividad, distributividades y existencia de elementos neutros $0_{R_i}$ y $1_{R_i}$, estas identidades se heredan puntualmente en el producto.
@@ -73,7 +72,7 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >[!definition] Anillo libre $\mathbb Z\langle X\rangle$
 >Sea $X$ un conjunto de variables o símbolos no conmutativos.
 >1. Sea $\widehat{X}$ el monoide libre de todas las palabras finitas con letras en $X$: $$\widehat{X}=\{x_1 x_2 \dots x_m\mid m\in\mathbb N_0,\ x_i\in X\}\cup\{1\},$$ donde la palabra vacía de longitud $0$ actúa como el neutro multiplicativo $1$ y la operación es la concatenación de palabras.
->2. El **anillo libre** generado por $X$, denotado $\mathcal F(X) = \mathbb Z\langle X\rangle$, es el álgebra de monoide $\mathbb Z[\widehat{X}]$: $$\mathbb Z\langle X\rangle = \bigoplus_{w\in\widehat{X}}\mathbb Z\cdot w.$$
+>2. El **anillo libre** generado por $X$, denotado $\mathbb Z\langle X\rangle$, es el álgebra de monoide $\mathbb Z[\widehat{X}]$: $$\mathbb Z\langle X\rangle = \bigoplus_{w\in\widehat{X}}\mathbb Z\cdot w.$$
 >3. Un elemento típico es un polinomio con coeficientes enteros en variables que no conmutan: sumas finitas de la forma $\sum \lambda_w w$ con $\lambda_w\in\mathbb Z$ y $w\in\widehat{X}$.
 >4. El producto se define multiplicando los coeficientes en $\mathbb Z$ y concatenando las palabras: $$(\lambda\, u)\cdot(\mu\, v) = (\lambda\mu)\,(uv),\qquad\text{por ejemplo:}\quad (2\,xyz)\cdot(3\,xy^2) = 6\,xyzxy^2.$$
 
@@ -82,10 +81,11 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >Para todo anillo $R$ y toda función $f\colon X\to R$, existe un **único** morfismo de anillos $\widetilde{f}\colon \mathbb Z\langle X\rangle\to R$ tal que conmuta el diagrama:
 >$$\begin{aligned}\begin{array}{ccc} X & \overset{\iota}{\hookrightarrow} & \mathbb Z\langle X\rangle \\ & \underset{f}{\searrow} & \Big\downarrow \widetilde{f} \\ & & R \end{array}\end{aligned}$$
 >>[!Proof]-
->>1. Para la existencia, como $\widetilde{f}$ debe preservar la unidad y la multiplicación, la imagen de una palabra $w=x_1\dots x_m\in\widehat{X}$ está obligada a ser $\widetilde{f}(w)=f(x_1)\dots f(x_m)\in R$, con $\widetilde{f}(1)=1_R$.
->>2. Como $\widetilde{f}$ debe preservar la suma y el producto por enteros (propiedad de morfismo de grupos aditivos), la imagen de un elemento general $\sum_{w\in\widehat{X}}\lambda_w w$ queda definida de forma única por $$\widetilde{f}\left(\sum_{w\in\widehat{X}}\lambda_w w\right) = \sum_{w\in\widehat{X}}\lambda_w f(x_{w,1})\dots f(x_{w,m}).$$
->>3. Se verifica directamente que esta asignación respeta la suma, el producto y la unidad, y que $(\widetilde{f}\circ\iota)(x)=\widetilde{f}(x)=f(x)$ para todo $x\in X$.
->>4. La unicidad es inmediata porque $X$ genera a $\mathbb Z\langle X\rangle$ como anillo unital: cualquier otro morfismo que coincida con $f$ sobre $X$ debe coincidir con $\widetilde{f}$ sobre todas las palabras y sus combinaciones lineales.
+>>1. La definición $\mathbb Z\langle X\rangle=\bigoplus_{w\in\widehat X}\mathbb Z\cdot w$ proporciona una función $j\colon\widehat X\to\mathbb Z\langle X\rangle$ dada por $j(w)=1\cdot w$; su restricción a $X$ es $\iota$, pero $j$ también recibe palabras de cualquier longitud. Por la definición del producto del anillo libre $\mathbb Z\langle X\rangle$ dada en el punto 4, para cualesquiera palabras $u,v$ se cumple $j(u)j(v)=(1\cdot u)(1\cdot v)=1\cdot(uv)=j(uv)$, y $j(1_{\widehat X})=1\cdot 1_{\widehat X}=1_{\mathbb Z\langle X\rangle}$.
+>>2. Así, $j$ es un morfismo de monoides (no de anillos, pues $\widehat X$ no tiene suma) y, para $w=x_1\dots x_m$, se obtiene $j(w)=j(x_1)\dots j(x_m)$. Si $\widetilde f$ es un morfismo con $\widetilde f\circ\iota=f$, entonces, usando sucesivamente que $j$ preserva la concatenación, que $j|_X=\iota$, que $\widetilde f$ preserva el producto y que $\widetilde f\circ\iota=f$, obtenemos $$\begin{aligned}(\widetilde f\circ j)(w)&=\widetilde f(j(w))\\&=\widetilde f(j(x_1)\dots j(x_m))\\&=\widetilde f(\iota(x_1)\dots\iota(x_m))\\&=\widetilde f(\iota(x_1))\dots\widetilde f(\iota(x_m))\\&=f(x_1)\dots f(x_m).\end{aligned}$$ Para la palabra vacía $1_{\widehat X}$ se tiene $\widetilde f(j(1_{\widehat X}))=1_R$; en toda la cadena, $f$ solo recibe letras.
+>>3. Definimos $F\colon\widehat X\to R$ por $F(x_1\dots x_m)=f(x_1)\dots f(x_m)$ y $F(1_{\widehat X})=1_R$. Como un elemento del anillo es una suma finita de términos $\lambda_w\cdot w$, la aditividad obliga a definir $$\widetilde f\left(\sum_{w\in\widehat X}\lambda_w\cdot w\right)=\sum_{w\in\widehat X}\lambda_w F(w),$$ donde $\lambda_w F(w)$ denota el múltiplo entero en el grupo aditivo de $R$.
+>>4. Esta definición preserva la suma. Para $a=\sum_u\lambda_u\cdot u$ y $b=\sum_v\mu_v\cdot v$, se tiene $F(uv)=F(u)F(v)$ por concatenación y asociatividad del producto en $R$; por tanto $$\widetilde f(ab)=\sum_{u,v}(\lambda_u\mu_v)F(uv)=\left(\sum_u\lambda_u F(u)\right)\left(\sum_v\mu_v F(v)\right)=\widetilde f(a)\widetilde f(b).$$ Además, $\widetilde f(1\cdot 1_{\widehat X})=1_R$ y $(\widetilde f\circ\iota)(x)=\widetilde f(1\cdot x)=f(x)$ para todo $x\in X$.
+>>5. Si otro morfismo $h$ satisface $h\circ\iota=f$, entonces para cada $w=x_1\dots x_m$ se tiene $h(1\cdot w)=h(1\cdot x_1)\dots h(1\cdot x_m)=F(w)$, y $h(1\cdot 1_{\widehat X})=1_R$. La aditividad determina entonces $h\left(\sum_w\lambda_w\cdot w\right)=\sum_w\lambda_w F(w)=\widetilde f\left(\sum_w\lambda_w\cdot w\right)$.
 
 ## Ideales y anillos cocientes
 
@@ -148,8 +148,11 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >[!example] Álgebra libre vs. Álgebra conmutativa de polinomios
 >Sea $\mathbb k$ un cuerpo. El álgebra libre en dos variables es $\mathbb k\langle x,y\rangle$, donde $xy\neq yx$.
 >Si cocientamos por el ideal bilátero generado por el conmutador $[x,y]=xy-yx$: $$\mathbb k[x,y]\cong \mathbb k\langle x,y\rangle/\langle xy-yx\rangle.$$
->En el anillo cociente se impone la relación $\overline{xy-yx}=0$, es decir, $\bar{x}\bar{y}=\bar{y}\bar{x}$.
->Por ejemplo: la palabra $\overline{xyx^2y^3}$ en el cociente se reordena usando conmutatividad como $$\overline{xyx^2y^3} = \bar{x}\bar{y}\bar{x}^2\bar{y}^3 = \bar{x}^3\bar{y}^4,$$ recuperando exactamente el álgebra de polinomios conmutativos usual.
+>Concretamente, el anillo de polinomios conmutativos es $$\mathbb k[x,y]=\left\{\sum_{(m,n)\in F}c_{m,n}x^my^n\mid F\subseteq\mathbb N_0^2\text{ finito},\ c_{m,n}\in\mathbb k\right\},$$ donde $xy=yx$ y el orden no importa.
+>En cambio, sea $X=\{x,y\}$ y sea $\widehat X$ el monoide libre de todas las palabras finitas con letras en $X$: $$\widehat X=\{x_1x_2\cdots x_m\mid m\in\mathbb N_0,\ x_i\in X\}\cup\{1\},$$ donde $1$ es la palabra vacía. El álgebra libre es el conjunto de sumas finitas de esas palabras con coeficientes en $\mathbb k$: $$\mathbb k\langle x,y\rangle=\left\{\sum_{i=1}^{n}c_iw_i\mid n\in\mathbb N_0,\ c_i\in\mathbb k,\ w_i\in\widehat X\right\}.$$ Allí $xy$ e $yx$ son palabras distintas; al cocientar por $\langle xy-yx\rangle$ se identifican las palabras que difieren solo en el orden de sus letras.
+>El ideal bilátero generado por $xy-yx$ es $$\langle xy-yx\rangle=\left\{\sum_{i=1}^{m}a_i(xy-yx)b_i\mid m\in\mathbb N_0,\ a_i,b_i\in\mathbb k\langle x,y\rangle\right\}.$$ En el cociente, dos polinomios representan la misma clase si y solo si su diferencia pertenece a este ideal.
+>En particular, para cualesquiera palabras $u,v\in\widehat X$, $$u(xy)v-u(yx)v=u(xy-yx)v\in\langle xy-yx\rangle;$$ por lo tanto, $\overline{u(xy)v}=\overline{u(yx)v}$. Esto permite intercambiar $x$ e $y$ en cualquier posición de una palabra. 
+>Por ejemplo, $xyx-xxy=x(yx-xy)=-x(xy-yx)\in\langle xy-yx\rangle$, así que $\overline{xyx}=\overline{x^2y}$. Repitiendo los intercambios, toda palabra queda con todas las $x$ antes que las $y$ recuperando el álgebra de polinomios conmutativos usual.
 
 >[!example] Variedades algebraicas y puntos: $\mathbb C[x,y]/\langle x^2+y^2-1\rangle$
 >Consideramos el anillo cociente $R=\mathbb C[x,y]/\langle x^2+y^2-1\rangle$ y nos proponemos determinar todos los morfismos de anillos de $R$ en el cuerpo $\mathbb C$: $$\operatorname{Hom}_{\mathrm{Ring}}\left(\mathbb C[x,y]/\langle x^2+y^2-1\rangle,\ \mathbb C\right).$$

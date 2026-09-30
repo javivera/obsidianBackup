@@ -68,10 +68,14 @@
 >>28. Sea $\delta=\min\{\delta_1,\delta_2\}$ y sea $P$ una partición de $[a,b]$ con $\|P\|<\delta$; en (3) y en (4) elegimos $\tau_k=\xi_k$, con lo cual las dos sumas coinciden. Entonces $$\left|\int_a^b f\,d\gamma-\int_a^b f(t)\gamma'(t)\,dt\right|\leq\text{(3)}+\text{(4)}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.$$
 
 >[!Definition] Integral de línea
->Sea $\gamma:[a,b]\to\mathbb{C}$ una curva de variación acotada y sea $f:G\subseteq\mathbb{C}\to\mathbb{C}$, con $G$ abierto, tal que $\operatorname{Imagen}(\gamma)\subseteq G$ y $f\circ\gamma:[a,b]\to\mathbb{C}$ es continua. Definimos $$\int_\gamma f(z)\,dz:=\int_a^b(f\circ\gamma)\,d\gamma.$$ También escribimos $$\int_\gamma f\,d\gamma:=\int_\gamma f(z)\,dz,$$ la integral de línea definida a lo largo de $\gamma$. Si en particular $\gamma$ es suave a trozos, entonces $$\int_\gamma f\,d\gamma=\int_a^b(f\circ\gamma)(t)\gamma'(t)\,dt.$$
+>Sea $\gamma:[a,b]\to\mathbb{C}$ una curva de variación acotada y sea $f:G\subseteq\mathbb{C}\to\mathbb{C}$, con $G$ abierto, tal que $\operatorname{Imagen}(\gamma)\subseteq G$ y $f\circ\gamma:[a,b]\to\mathbb{C}$ es continua. Definimos $$\int_\gamma f(z)\,dz:=\int_a^b(f\circ\gamma)\,d\gamma.$$ También escribimos $$\int_\gamma f\,d\gamma:=\int_\gamma f(z)\,dz,$$ la integral de línea definida a lo largo de $\gamma$. Si en particular $\gamma$ es suave a trozos, entonces $$\int_\gamma f\,d\gamma=\int_a^b(f\circ\gamma)(t)\gamma'(t)\,dt.$$ 
+
+^4c8e10
 
 >[!Example]
->Sean $\gamma:[0,2\pi]\to\mathbb{C}$, $t\mapsto e^{it}$, y $f(z)=1/z$ con $z\neq0$. Entonces $$\int_\gamma\frac{1}{z}\,dz=i\int_0^{2\pi}\frac{1}{e^{it}}e^{it}\,dt=2\pi i.$$
+>Sean $\gamma:[0,2\pi]\to\mathbb{C}$, $t\mapsto e^{it}$, y $f(z)=1/z$ con $z\neq0$. Entonces $$\int_\gamma\frac{1}{z}\,dz=i\int_0^{2\pi}\frac{1}{e^{it}}e^{it}\,dt=2\pi i.$$ 
+
+^7ac103
 
 >[!Definition] Cambio de parametrización
 >Decimos que $\varphi:[c,d]\to[a,b]$ es un cambio de parametrización de $\gamma:[a,b]\to\mathbb{C}$ si $\varphi$ es continua, creciente, $\varphi(c)=a$ y $\varphi(d)=b$ (en particular, es sobreyectiva).
@@ -142,7 +146,9 @@
 >Sea $\gamma$ una curva rectificable en $\mathbb{C}$ y supongamos que $F_n$ y $F$ son funciones continuas sobre $\{\gamma\}=\operatorname{Imagen}(\gamma)$. Si $F_n\to F$ uniformemente sobre $\{\gamma\}$, entonces $$\int_\gamma F_n(z)\,dz\xrightarrow[n\to\infty]{}\int_\gamma F(z)\,dz.$$
 >>[!Proof]-
 >>38. Dado $\varepsilon>0$, existe $N$ tal que si $n\geq N$ se tiene que $$|F_n(z)-F(z)|<\frac{\varepsilon}{\operatorname{Var}(\gamma)}\quad\forall z\in\{\gamma\}.$$
->>39. Entonces $$\left|\int_\gamma F_n(z)-F(z)\,dz\right|\leq\int_\gamma|F_n(z)-F(z)|\,|dz|=\frac{\varepsilon}{\operatorname{Var}(\gamma)}\int_\gamma|dz|=\frac{\varepsilon}{\operatorname{Var}(\gamma)}\operatorname{Var}(\gamma)=\varepsilon.$$
+>>39. Entonces $$\left|\int_\gamma F_n(z)-F(z)\,dz\right|\leq\int_\gamma|F_n(z)-F(z)|\,|dz|=\frac{\varepsilon}{\operatorname{Var}(\gamma)}\int_\gamma|dz|=\frac{\varepsilon}{\operatorname{Var}(\gamma)}\operatorname{Var}(\gamma)=\varepsilon.$$ 
+
+^5d2a91
 
 >[!Lemma] Integral de la exponencial sobre la circunferencia unidad
 >$$\int_0^{2\pi}\frac{e^{is}}{e^{is}-z}\,ds=2\pi\qquad\forall|z|<1.$$
@@ -163,14 +169,18 @@
 >>	2. Definimos $$g:G_1\to\mathbb{C},\qquad w\mapsto f(wr+a).$$ Por el Caso 1, si $\tilde{w}\in G_1$ es tal que $|\tilde{w}|<1$, sabemos que $$\frac{1}{2\pi i}\int_{\gamma=e^{it}}\frac{g(w)}{w-\tilde{w}}\,dw=g(\tilde{w}).$$
 >>	3. Observemos que si $\gamma=re^{it}$, entonces $$\int_{\partial B}h\left(\frac{w}{r}\right)dw=\int_0^{2\pi}h\left(\frac{re^{it}}{r}\right)ire^{it}\,dt=r\int_0^{2\pi}h(e^{it})ie^{it}\,dt=r\int_\gamma h(w)\,dw;$$ así, $$\frac{1}{r}\int_{\partial B_r}h\left(\frac{w}{r}\right)dw=\int_{\partial B_1}h(w)\,dw$$ para $h$ continua.
 >>	4. Entonces $$\begin{aligned}\frac{1}{2\pi i}\int_{\gamma_1}\frac{g(w)}{w-\tilde{w}}\,dw&=\frac{1}{2\pi ir}\int_\gamma\frac{g(w/r)}{(w/r)-\tilde{w}}\,dw=\frac{1}{2\pi ir}\int_{\partial B(a,r)}\frac{g((w-a)/r)}{((w-a)/r)-\tilde{w}}\,dw\\&=\frac{1}{2\pi i}\int_{\partial B(a,r)}\frac{f(w)}{w-a-r\tilde{w}}\,dw=\frac{1}{2\pi i}\int_{\partial B(a,r)}\frac{f(w)}{w-(r\tilde{w}+a)}\,dw=g(\tilde{w})=f(r\tilde{w}+a).\end{aligned}$$
->>	5. Como $|\tilde{w}|<1$, se tiene $|z-a|=|r\tilde{w}+a-a|=r|\tilde{w}|<r$. Escribiendo $z=r\tilde{w}+a$, resulta $$f(z)=\frac{1}{2\pi i}\int_{\gamma_{a+r}}\frac{f(w)}{w-z}\,dw.$$
+>>	5. Como $|\tilde{w}|<1$, se tiene $|z-a|=|r\tilde{w}+a-a|=r|\tilde{w}|<r$. Escribiendo $z=r\tilde{w}+a$, resulta $$f(z)=\frac{1}{2\pi i}\int_{\gamma_{a+r}}\frac{f(w)}{w-z}\,dw.$$ 
+
+^a61f2c
 
 >[!Theorem] Fórmula de la cota de Cauchy
 >Sea $f:G\to\mathbb{C}$ analítica y supongamos que $|f(w)|\leq M$ para todo $w\in B(a,R)$. Entonces $$|f^{(m)}(a)|\leq\frac{M\,m!}{R^{m}}\qquad\forall m\geq1.$$
 >>[!Proof]-
 >>6. Por el teorema de la integral de Cauchy, $$f^{(m)}(a)=\frac{m!}{2\pi i}\int_{\gamma=a+re^{it}}\frac{f(w)}{(w-a)^{m+1}}\,dw.$$
 >>7. Entonces $$\begin{aligned}|f^{(m)}(a)|&=\left|\frac{m!}{2\pi i}\int_{\gamma=a+re^{it}}\frac{f(w)}{(w-a)^{m+1}}\,dw\right|\leq\frac{m!}{2\pi}\int_{\gamma=a+re^{it}}\frac{|f(w)|}{|(w-a)^{m+1}|}\,|dw|\\&\leq\frac{m!\,M}{2\pi r^{m+1}}\int_{\gamma=a+re^{it}}|dw|=\frac{m!\,M}{2\pi r^{m+1}}\operatorname{Var}(\gamma)=\frac{m!\,M}{r^{m}}\qquad\forall r<R.\end{aligned}$$
->>8. Por lo tanto, tomando límite, $$|f^{(m)}(a)|\leq\frac{M\,m!}{R^{m}}.$$
+>>8. Por lo tanto, tomando límite, $$|f^{(m)}(a)|\leq\frac{M\,m!}{R^{m}}.$$ 
+
+^1b7e4c
 
 >[!Proposition]
 >Si $f$ es analítica en $\overline{B(a,R)}$ y $\gamma$ es una curva cerrada rectificable en $B(a,R)$, entonces $$\int_\gamma f=0.$$
@@ -179,10 +189,12 @@
 >>10. Por hipótesis, $$f(z)=\sum_{m\geq0}a_m(z-a)^m\qquad\text{en }B(a,R).$$
 >>11. Sea $$F(z)=\sum_{m\geq0}\frac{a_m}{m+1}(z-a)^{m+1},$$ que es primitiva de $f$ en $B(a,R)$.
 >>12. Veamos su radio de convergencia (el de $F$): $$R'=\limsup\left(\frac{|a_m|}{m+1}\right)^{1/m}=\limsup\left(\frac{1}{m+1}\right)^{1/m}|a_m|^{1/m}\geq R.$$
->>13. Así, $F'(z)=f(z)$ para todo $z\in B(a,R)$; por el teorema de Barrow, $$\int_\gamma f=0.$$
+>>13. Así, $F'(z)=f(z)$ para todo $z\in B(a,R)$; por el teorema de Barrow, $$\int_\gamma f=0.$$ 
+
+^a71c9e
 
 >[!example]
->Por la fórmula de la integral de Cauchy, con $f(z)=e^z-e^{-z}$, $$\int_{\gamma=e^{it}}\frac{e^z-e^{-z}}{z^m}\,dz=\int_\gamma\frac{f(z)}{(z-0)^m}\,dz=\frac{2\pi i}{(m-1)!}f^{(m-1)}(0),,\qquad m\geq1.$$ y $$f^{(k)}(0)=\begin{cases}0,&k\text{ impar},\\2,&k\text{ par}.\end{cases}$$
+>Por la fórmula de la integral de Cauchy, con $f(w)=e^w-e^{-w}$, $$\int_{\gamma=e^{it}}\frac{e^w-e^{-w}}{w^m}\,dz=\int_\gamma\frac{f(w)}{(w-0)^m}\,dw=\frac{2\pi i}{(m-1)!}f^{(m-1)}(0),,\qquad m\geq1.$$ y $$f^{(k)}(0)=\begin{cases}0,&k\text{ impar},\\2,&k\text{ par}.\end{cases}$$
 
 ## Ceros de funciones analíticas
 

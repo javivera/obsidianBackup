@@ -138,6 +138,8 @@ source: "[[2da clase.pdf]]"
 >>2. **Simplicidad.** Por Lagrange, el orden de cualquier subgrupo divide a $p$, así que los únicos subgrupos de $G$ son $\{e\}$ y $G$. A fortiori, los únicos subgrupos normales son esos dos. Por lo tanto $G$ es simple.
 >>En particular, los grupos cíclicos de orden primo son, salvo isomorfismo, los únicos grupos simples abelianos. Cualquier otro grupo simple (por ejemplo $A_{n}$ para $n\geq 5$) es no abeliano.
 
+^a9e43b
+
 >[!Remark] Cómo usar esto
 >En cuanto un grupo tiene orden primo, su estructura queda completamente determinada: es cíclico, generado por cualquier elemento no trivial. No hay "dos grupos distintos de orden $7$"; hay uno solo, $\mathbb Z_{7}$.
 

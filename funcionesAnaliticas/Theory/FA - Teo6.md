@@ -2,14 +2,25 @@
 
 ## Índice de una curva
 
->[!Definition] Índice de una curva respecto de un punto
->Sea $\gamma$ una curva cerrada rectificable y sea $a\notin\{\gamma\}$. Definimos el **índice de $\gamma$ respecto de $a$** como
->$$n(\gamma,a):=\frac{1}{2\pi i}\int_{\gamma}\frac{dz}{z-a}.$$
+>[!Example] Índice de una circunferencia
+>Sea $\gamma:[0,2\pi]\to\mathbb{C}$, dada por $$\gamma(t)=a+e^{int},\qquad n\in\mathbb{Z}.$$ Entonces $$\int_\gamma\frac{1}{z-a}\,dz=\int_0^{2\pi}\frac{1}{e^{int}}\,ine^{int}\,dt=2\pi in.$$
 
->[!Proposition] El índice es entero
->Sea $\gamma$ una curva cerrada rectificable y sea $a\notin\{\gamma\}$. Entonces
->$$n(\gamma,a)\in\mathbb{Z}.$$
->Ver demostración en [[FA - Teo5|Teo 5]].
+>[!Definition] Índice de una curva respecto de un punto
+>Sea $\gamma$ una curva cerrada rectificable y sea $a\notin\{\gamma\}$. Definimos el **índice de $\gamma$ respecto de $a$** como $$n(\gamma,a):=\frac{1}{2\pi i}\int_\gamma\frac{dz}{z-a}.$$
+
+^1e9a3c
+
+>[!Theorem] El índice es entero
+>Sea $\gamma:[\alpha,\beta]\to\mathbb{C}$ una curva cerrada rectificable y sea $a\notin\{\gamma\}$. Entonces $$n(\gamma,a)=\frac{1}{2\pi i}\int_\gamma\frac{dz}{z-a}\in\mathbb{Z}.$$
+>>[!Proof]- pedir la original dada en clase
+>>1. Asumimos el lema de aproximación: existe una sucesión de curvas cerradas $\sigma_{j}$ de clase $C^{1}$ a trozos con $a\notin\{\sigma_{j}\}$ tales que $$\int_{\sigma_{j}}\frac{dz}{z-a}\xrightarrow[j\to\infty]{}\int_{\gamma}\frac{dz}{z-a}.$$
+>>2. Por (1), basta probar el teorema para $\gamma$ de clase $C^{1}$ a trozos, pues entonces cada $n(\sigma_{j},a)$ es entero y una sucesión de enteros convergente en $\mathbb{C}$ es eventualmente constante ya que si $p,q\in\mathbb{Z}$ con $p\neq q$ entonces $|p-q|\geq 1$, de modo que su límite $n(\gamma,a)$ es entero.
+>>3. Idea: el integrando es la derivada logarítmica de $z-a$; definimos su primitiva a lo largo de la curva como $$F(t)=\int_{\alpha}^{t}\frac{\gamma'(s)}{\gamma(s)-a}\,ds,$$ de modo que $F(\alpha)=0$ y $F(\beta)=\int_{\gamma}\frac{dz}{z-a}$, y corregimos $\gamma(t)-a$ con $e^{-F(t)}$ para obtener una función constante.
+>>4. Sea $\varphi(t)=e^{-F(t)}(\gamma(t)-a)$; donde $\gamma$ es derivable vale $F'(t)=\frac{\gamma'(t)}{\gamma(t)-a}$ y $\frac{d}{dt}e^{-F(t)}=-F'(t)e^{-F(t)}$, luego $$\varphi'(t)=-F'(t)e^{-F(t)}(\gamma(t)-a)+e^{-F(t)}\gamma'(t)=e^{-F(t)}\left[-\frac{\gamma'(t)}{\gamma(t)-a}(\gamma(t)-a)+\gamma'(t)\right]=e^{-F(t)}\left[-\gamma'(t)+\gamma'(t)\right]=0.$$
+>>5. Así $\varphi$ es constante en cada subintervalo $C^{1}$ y por continuidad es globalmente constante en $[\alpha,\beta]$, y como $F(\alpha)=0$ se tiene $\varphi(\alpha)=\gamma(\alpha)-a$, luego $\varphi(\alpha)=\varphi(\beta)$ es $$(\gamma(\alpha)-a)=e^{-F(\beta)}(\gamma(\beta)-a).$$
+>>6. Como $\gamma$ es cerrada se tiene $\gamma(\alpha)=\gamma(\beta)$ con $\gamma(\alpha)-a\neq 0$, luego cancelando queda $e^{-F(\beta)}=1$ y por $e^{w+z}=e^{w}e^{z}$ se obtiene $$e^{F(\beta)}=1.$$
+>>7. Escribiendo $F(\beta)=u+iv$ con $u,v\in\mathbb{R}$ se tiene $e^{u}(\cos v+i\sin v)=1$, luego tomando módulo $e^{u}=1$ y por lo tanto $u=0$, de donde $\cos v=1$ y $\sin v=0$, así que existe $k\in\mathbb{Z}$ tal que $$v=k\cdot 2\pi.$$
+>>8. Por lo tanto $F(\beta)=k\cdot(2\pi i)$ y por definición $$n(\gamma,a)=\frac{1}{2\pi i}F(\beta)=k\in\mathbb{Z}.$$
 
 >[!Proposition] Propiedades del índice
 >Sea $\gamma:[0,1]\to\mathbb{C}$ curva cerrada rectificable.
@@ -20,15 +31,22 @@
 >entonces
 >$$n(\alpha+\beta,a)=n(\alpha,a)+n(\beta,a)\qquad\forall a\notin\{\alpha\}\cup\{\beta\}.$$
 >>[!Proof]-
->>Ejercicio.
+>>- (a)
+>>	1. Fijemos $a\notin\{\gamma\}$ y pongamos $h(z)=(z-a)^{-1}$. Como $\gamma$ es rectificable, la integral de línea puede escribirse como integral de Riemann–Stieltjes: $\int_\gamma h(z)\,dz=\int_0^1h(\gamma(t))\,d\gamma(t)$.
+>>	2. Al invertir el parámetro, los incrementos de $\gamma(1-t)$ tienen signo opuesto a los de $\gamma(t)$ y aparecen en orden inverso; al pasar al límite en las sumas de Riemann–Stieltjes resulta $$\int_{-\gamma}h(z)\,dz=\int_0^1h(\gamma(1-t))\,d[\gamma(1-t)]=-\int_0^1h(\gamma(t))\,d\gamma(t)=-\int_\gamma h(z)\,dz.$$
+>>	3. Por [[FA - Teo6#^1e9a3c|índice de una curva]], $$n(-\gamma,a)=\frac{1}{2\pi i}\int_{-\gamma}\frac{dz}{z-a}=-\frac{1}{2\pi i}\int_\gamma\frac{dz}{z-a}=-n(\gamma,a).$$
+>>- (b)
+>>	1. Fijemos $a\notin\{\alpha\}\cup\{\beta\}$ y pongamos $h(z)=(z-a)^{-1}$. Por la definición de $\alpha+\beta$, su integral se separa en las dos mitades del intervalo: $$\int_{\alpha+\beta}h(z)\,dz=\int_0^{1/2}h(\alpha(2t))\,d[\alpha(2t)]+\int_{1/2}^1h(\beta(2t-1))\,d[\beta(2t-1)].$$
+>>	2. En la primera integral hacemos $s=2t$ y en la segunda $s=2t-1$. Ambas reparametrizaciones preservan la orientación, de modo que $$\int_{\alpha+\beta}h(z)\,dz=\int_0^1h(\alpha(s))\,d\alpha(s)+\int_0^1h(\beta(s))\,d\beta(s)=\int_\alpha h(z)\,dz+\int_\beta h(z)\,dz.$$
+>>	3. Por [[FA - Teo6#^1e9a3c|índice de una curva]], $$\begin{aligned}n(\alpha+\beta,a)&=\frac{1}{2\pi i}\int_{\alpha+\beta}\frac{dz}{z-a}\\&=\frac{1}{2\pi i}\int_\alpha\frac{dz}{z-a}+\frac{1}{2\pi i}\int_\beta\frac{dz}{z-a}=n(\alpha,a)+n(\beta,a).\end{aligned}$$
 
 ## Por qué cuenta número de vueltas
 
->[!Observation] La circunferencia recorrida $n$ veces
+>[!remark] La circunferencia recorrida $n$ veces
 >Sea $\gamma(t)=a+e^{in2\pi t}$, con $t\in[0,1]$. Vimos que
 >$$n(\gamma,a)=n.$$
 
->[!Observation] Estabilidad dentro del disco
+>[!proposition] Estabilidad dentro del disco
 >Sea $b$ tal que $|b-a|<1$. Entonces $n(\gamma,b)=n=n(\gamma,a)$.
 >>[!Proof]-
 >>1. Por definición,
@@ -36,10 +54,10 @@
 >>2. Vimos que $\int_{0}^{1}\frac{e^{is}}{e^{is}-z}\,ds=2\pi$ si $|z|<1$. Haciendo el cambio correspondiente (ejercicio: hacer el cambio de variable) se obtiene que la integral vale $n$.
 >>3. Por lo tanto $n(\gamma,b)=n=n(\gamma,a)$.
 
->[!Observation] Fuera del disco el índice es cero
+>[!remark] Fuera del disco el índice es cero
 >Si $|b-a|>1$, entonces $n(\gamma,b)=0$, porque $\frac{1}{z-b}$ es analítica en un entorno de $\{\gamma\}$ y la integral da $0$.
 
->[!Observation] La primitiva natural es el logaritmo
+>[!remark] La primitiva natural es el logaritmo
 >Si $a\notin\{\gamma\}$,
 >$$n(\gamma,a)=\int_{\gamma}\frac{dz}{z-a},$$
 >y la primitiva natural de $\frac{1}{z-a}$ es $\log(z-a)$.
@@ -83,10 +101,6 @@
 
 ## Fórmula integral de Cauchy (v1)
 
->[!Theorem] Fórmula de la integral de Cauchy (v1)
->Sea $G$ abierto en $\mathbb{C}$ y $f:G\to\mathbb{C}$ analítica. Si $\gamma$ es curva cerrada rectificable en $G$ tal que $n(\gamma,a)=0$ para todo $a\in\mathbb{C}\setminus G$, y si $a\in G\setminus\{\gamma\}$, entonces
->$$n(\gamma,a)f(a)=\frac{1}{2\pi i}\int_{\gamma}\frac{f(w)}{w-a}\,dw.$$
-
 >[!Lemma] Integrales de tipo Cauchy
 >Si $\gamma$ es curva rectificable y $\varphi$ es función continua sobre $\{\gamma\}$, y definimos para cada $m\geq1$
 >$$F_{m}(z)=\int_{\gamma}\frac{\varphi(w)}{(w-z)^{m}}\,dw$$
@@ -104,24 +118,16 @@
 >>$$F_{m}'(a)=\lim_{z\to a}\frac{F_{m}(z)-F_{m}(a)}{z-a}=\lim_{z\to a}\sum_{k=1}^{m}\int_{\gamma}\frac{\varphi(w)}{(w-z)^{m-k+1}(w-a)^{k}}\,dw$$
 >>$$=\sum_{k=1}^{m}\int_{\gamma}\frac{\varphi(w)}{(w-a)^{m+1}}\,dw=mF_{m+1}(a).$$
 
->[!Proof] Demostración del teorema
->1. Definimos $\varphi:G\times G\to\mathbb{C}$ por
->$$\varphi(z,w)=\begin{cases}\dfrac{f(z)-f(w)}{z-w},&z\neq w,\\[6pt]f'(z),&z=w,\end{cases}$$
->donde pedimos $f$ analítica.
->2. Ejercicio: $\varphi$ es continua (usar que $f$ es analítica) y para cada $w$ fijo la función $z\mapsto\varphi(w,z)$ es analítica.
->3. Sea $H=\{w:n(\gamma,w)=0\}$. $H$ es abierto en $G$ pues $w\mapsto n(\gamma,w)$ es continua y todo punto de $\mathbb{Z}$ es abierto. Por hipótesis $\mathbb{C}\setminus G\subseteq H$, de modo que $\mathbb{C}=H\cup G$.
->4. Definimos $g:\mathbb{C}\to\mathbb{C}$ por
->$$g(z)=\begin{cases}\displaystyle\int_{\gamma}\varphi(z,w)\,dw,&z\in G,\\[8pt]\displaystyle\int_{\gamma}\frac{f(w)}{w-z}\,dw,&z\in H.\end{cases}$$
->5. Veamos que está bien definida en $H\cap G$. Sea $z\in H\cap G$. Como $z\in G$,
->$$g(z)=\int_{\gamma}\varphi(z,w)\,dw=\int_{\gamma}\frac{f(z)-f(w)}{z-w}\,dw=f(z)\int_{\gamma}\frac{1}{z-w}\,dw-\int_{\gamma}\frac{f(w)}{w-z}\,dw.$$
->Aquí $z\neq w$ pues $z\in G\cap H$ implica $z\in H$, luego $z$ no puede estar en la curva (pues en la curva el índice no está definido). El primer término es $-n(\gamma,z)=0$ por estar $z\in H$. Así coincide con la segunda definición:
->$$g(z)=\int_{\gamma}\frac{f(w)}{w-z}\,dw.$$
->Luego $g$ está bien definida en $G\cap H$.
->6. Ahora $g|_{H}$ es analítica (es $F_{1}$ del lema) y $g|_{G}=\int_{\gamma}\varphi(z,w)\,dw$ es analítica (ejercicio: versión de Leibniz para $\{\gamma\}\times G$, ver pág. 74 ej. 2). Por lo tanto $g$ es entera.
->7. Veamos que $\lim_{z\to\infty}g(z)=0$: $H$ contiene la componente no acotada de $\mathbb{C}\setminus\{\gamma\}$, que contiene $B(0,R)^{c}$ para $R$ suficientemente grande. Luego $H$ es entorno de $\infty$ ($H$ es abierto). En $H$,
->$$\lim_{z\to\infty}g(z)=\lim_{z\to\infty}\int_{\gamma}\frac{f(w)}{w-z}\,dw=0$$
->(ejercicio: tomar $\varepsilon$, poner módulo y sale).
->8. Así $g$ es entera con límite $0$ en $\infty$, luego $g$ es acotada y por Liouville es constante. Como el límite es $0$, se tiene $g(z)=0$ para todo $z\in\mathbb{C}$.
->9. Tomando $a\in G\setminus\{\gamma\}$,
->$$0=g(a)=\int_{\gamma}\varphi(a,w)\,dw=\int_{\gamma}\frac{f(w)-f(a)}{w-a}\,dw=\int_{\gamma}\frac{f(w)}{w-a}\,dw-f(a)\int_{\gamma}\frac{dw}{w-a},$$
->donde $\int_{\gamma}\frac{dw}{w-a}=2\pi i\,n(\gamma,a)$. Despejando se obtiene la fórmula.
+>[!Theorem] Fórmula de la integral de Cauchy (v1)
+>Sea $G$ abierto en $\mathbb{C}$ y $f:G\to\mathbb{C}$ analítica. Si $\gamma$ es curva cerrada rectificable en $G$ tal que $n(\gamma,a)=0$ para todo $a\in\mathbb{C}\setminus G$, y si $a\in G\setminus\{\gamma\}$, entonces $$n(\gamma,a)f(a)=\frac{1}{2\pi i}\int_{\gamma}\frac{f(w)}{w-a}\,dw.$$
+>>[!Proof]-
+>>1. Definimos $\varphi:G\times G\to\mathbb{C}$ por $$\varphi(z,w)=\begin{cases}\dfrac{f(z)-f(w)}{z-w},&z\neq w,\\[6pt]f'(z),&z=w,\end{cases}$$donde pedimos $f$ analítica.
+>>2. Ejercicio: $\varphi$ es continua (usar que $f$ es analítica) y para cada $w$ fijo la función $z\mapsto\varphi(w,z)$ es analítica.
+>>3. Sea $H=\{w:n(\gamma,w)=0\}$. $H$ es abierto en $G$ pues $w\mapsto n(\gamma,w)$ es continua y todo punto de $\mathbb{Z}$ es abierto. Por hipótesis $\mathbb{C}\setminus G\subseteq H$, de modo que $\mathbb{C}=H\cup G$.
+>>4. Definimos $g:\mathbb{C}\to\mathbb{C}$ por $$g(z)=\begin{cases}\displaystyle\int_{\gamma}\varphi(z,w)\,dw,&z\in G,\\[8pt]\displaystyle\int_{\gamma}\frac{f(w)}{w-z}\,dw,&z\in H.\end{cases}$$
+>>5. Veamos que está bien definida en $H\cap G$. Sea $z\in H\cap G$. Como $z\in G$, $$g(z)=\int_{\gamma}\varphi(z,w)\,dw=\int_{\gamma}\frac{f(z)-f(w)}{z-w}\,dw=f(z)\int_{\gamma}\frac{1}{z-w}\,dw-\int_{\gamma}\frac{f(w)}{w-z}\,dw.$$
+>>6. Aquí $z\neq w$ pues $z\in G\cap H$ implica $z\in H$, luego $z$ no puede estar en la curva (pues en la curva el índice no está definido). El primer término es $-n(\gamma,z)=0$ por estar $z\in H$. Así coincide con la segunda definición: $$g(z)=\int_{\gamma}\frac{f(w)}{w-z}\,dw.$$luego $g$ está bien definida en $G\cap H$.
+>>7. Ahora $g|_{H}$ es analítica (es $F_{1}$ del lema) y $g|_{G}=\int_{\gamma}\varphi(z,w)\,dw$ es analítica (ejercicio: versión de Leibniz para $\{\gamma\}\times G$, ver pág. 74 ej. 2). Por lo tanto $g$ es entera.
+>>8. Veamos que $\lim_{z\to\infty}g(z)=0$: $H$ contiene la componente no acotada de $\mathbb{C}\setminus\{\gamma\}$, que contiene $B(0,R)^{c}$ para $R$ suficientemente grande. Luego $H$ es entorno de $\infty$ ($H$ es abierto). En $H$, $$\lim_{z\to\infty}g(z)=\lim_{z\to\infty}\int_{\gamma}\frac{f(w)}{w-z}\,dw=0$$(ejercicio: tomar $\varepsilon$, poner módulo y sale).
+>>9. Así $g$ es entera con límite $0$ en $\infty$, luego $g$ es acotada y por Liouville es constante. Como el límite es $0$, se tiene $g(z)=0$ para todo $z\in\mathbb{C}$.
+>>10. Tomando $a\in G\setminus\{\gamma\}$, $$0=g(a)=\int_{\gamma}\varphi(a,w)\,dw=\int_{\gamma}\frac{f(w)-f(a)}{w-a}\,dw=\int_{\gamma}\frac{f(w)}{w-a}\,dw-f(a)\int_{\gamma}\frac{dw}{w-a},$$donde $\int_{\gamma}\frac{dw}{w-a}=2\pi i\,n(\gamma,a)$. Despejando se obtiene la fórmula.

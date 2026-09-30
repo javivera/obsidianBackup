@@ -7,6 +7,30 @@ const PROOF_TYPES = new Set(["proof", "dem", "demostracion", "demostración"]);
 // How many callouts RePág/AvPág (PageUp/PageDown) jump per press.
 const PAGE_JUMP = 3;
 
+function topLevelCalloutLines(source) {
+  const starts = [];
+  let fence = null;
+  source.split(/\r\n?|\n/).forEach((text, index) => {
+    // Ignore callout-looking examples inside fenced code blocks; otherwise
+    // their phantom starts shift source-line indexes against rendered DOM.
+    const markdown = text.replace(/^\s*(?:>\s*)*/, "");
+    const marker = markdown.match(/^\s{0,3}(`{3,}|~{3,})/);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char && marker[1].length >= fence.length) {
+        fence = null;
+      }
+      return;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      return;
+    }
+    // A second > starts a nested callout, not a new navigation target.
+    if (/^\s*>\s*\[![^\]]+\]/.test(text)) starts.push(index);
+  });
+  return starts;
+}
+
 module.exports = class CalloutNavigationPlugin extends Plugin {
   async onload() {
     this.selected = null;
@@ -255,11 +279,7 @@ module.exports = class CalloutNavigationPlugin extends Plugin {
     if (!file || !Number.isInteger(line) || line < 0) return;
     const source = await this.app.vault.cachedRead(file);
     if (request !== this.searchRequest) return;
-    const starts = [];
-    source.split(/\r\n?|\n/).forEach((text, index) => {
-      // A second > starts a nested callout, not a new navigation target.
-      if (/^\s*>\s*\[![^\]]+\]/.test(text)) starts.push(index);
-    });
+    const starts = topLevelCalloutLines(source);
     if (!starts.length) return;
     let index = 0;
     while (index + 1 < starts.length && starts[index + 1] <= line) index += 1;

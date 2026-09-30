@@ -301,15 +301,15 @@
 
 ## Inyectividad y sobreyectividad en la exponencial compleja
 
->[!Remark] La exponencial compleja no es inyectiva
+>[!proposition] La exponencial compleja no es inyectiva
 >A diferencia de la exponencial real, la función $e^z:\mathbb{C}\to\mathbb{C}$ no es inyectiva.
 >
 >>[!Proof]-
 >>Como $0\neq2\pi i$ y $$e^0=1=e^{2\pi i},$$ existen dos números complejos distintos con la misma imagen. Por tanto, $e^z$ no es inyectiva en $\mathbb{C}$.
 
->[!Remark] Una restricción inyectiva de la exponencial
+>[!lemma] Una restricción inyectiva de la exponencial
 >Para cada $\alpha\in\mathbb{R}$, la restricción de $e^z$ a $$S_\alpha=\{z\in\mathbb{C}:\alpha\leq\operatorname{Im}(z)<\alpha+2\pi\}$$ es inyectiva.
->Como función de $S_\alpha$ en $\mathbb{C}$, no es sobreyectiva, ya que $e^z\neq0$ para todo $z\in\mathbb{C}$. En cambio, vista como función $S_\alpha\to\mathbb{C}\setminus\{0\}$, es biyectiva.
+>Como función de $S_\alpha$ en $\mathbb{C}$, no es sobreyectiva, ya que $e^z\neq0$ para todo $z\in\mathbb{C}$. En cambio, vista como función $$\exp: S_\alpha\to\mathbb{C}\setminus\{0\}$$es biyectiva.
 >
 >>[!Proof]-
 >>- **Inyectiva:** 
@@ -366,7 +366,7 @@
 >>7. Luego $$f(z)-g(z)=2k\pi i$$ para todo $z\in G$, es decir, $$f=g+2k\pi i.$$
 
 >[!Remark] Consecuencia
->Una vez elegida una rama, todas las demás solo difieren en una constante de la forma $2k\pi i$. En particular, todas tienen la misma derivada.
+>Una vez elegida una rama, osea una vez fijado donde miramos el argumento (osea con un dominio en particular), todas las demás (con el mismo dominio) solo difieren en una constante de la forma $2k\pi i$. En particular, todas tienen la misma derivada.
 
 >[!Remark] No existe una rama en un dominio que contenga al origen
 >Si $0\in G$, la igualdad $e^{f(0)}=0$ sería imposible, pues la exponencial nunca se anula.
@@ -379,7 +379,7 @@
 >[!Remark] Construcción de una rama del logaritmo
 >Queremos construir una funcion que cumpla que es rama del logaritmos. Por definicion una rama $f(z):=\log z$ tiene que satisfacer $e^{f(z)}=z$ por definicion.
 >Entonces por [[FA - Teo2#^8420b1]] tiene que ser de la forma $$f(z)=\ln|z|+i(\arg z+2k\pi),\qquad k\in\mathbb{Z},$$
->El problema es que asi $f$ no estaria bien defnida porque para cada $k$ tendria una imagen, entonces hacemos lo siguiente, nos restringimos a un lugar donde el argumento sea unico
+>El $k$ lo podemos fijar y salvamos esa part, el problema es que asi $f$ no estaria bien defnida por que el argumento puede tener muchos valores entonces nos tenemos que restringir a un conjunto de tamaño $2\pi$, una vez fijado uno estaria tentado elegirlo abierto de un lado y cerrado del otro, pero no tendriamos continuiad por que tendriamos $z_{n}$ y $z_{j}$ dos sucesiones tendiendo a lo mismo pero su argumento uno tendiendo al borde cerrado otro al borde abierto, ahi es cuando uno se da cuenta que el dominio de los $z$ no puede ser $\mathbb{C}-\{ 0 \}$ hay que sacarle toda una semirrecta, para que no tengamos este problema con el argumento, osea para que todos los $z$ en el dominio cumplan que $arg(z)$ cae en el abierto $(-\alpha ,2\pi -\alpha )$      
 
 ^98e0f5
 
@@ -529,18 +529,17 @@
 >>4. Por el Teorema del Valor Medio en una variable, existen $s_1$ entre $s$ y $0$, y $t_1$ entre $t$ y $0$, tales que
 >>$$u(x_0+s,y_0+t)-u(x_0,y_0)=u_x(x_0+s_1,y_0+t)s+u_y(x_0,y_0+t_1)t.$$
 >>5. Luego, $$\frac{u(x_0+s,y_0+t)-u(x_0,y_0)}{s+it}=\frac{u_x(x_0+s_1,y_0+t)s+u_y(x_0,y_0+t_1)t}{s+it}.$$
->>6. Definimos $$\begin{align}\psi(s,t)&:=u(x_0+s,y_0+t)-u(x_0,y_0)-u_x(x_0,y_0)s-u_y(x_0,y_0)t.\\&=s\left(u_x(x_0+s_1,y_0+t)-u_x(x_0,y_0)\right)+t\left(u_y(x_0,y_0+t_1)-u_y(x_0,y_0)\right),\end{align}$$ (el segundo igual. es por 4.) 
+>>6. Definimos el resto $$\psi(s,t):=u(x_0+s,y_0+t)-u(x_0,y_0)-u_x(x_0,y_0)s-u_y(x_0,y_0)t.$$ Por el paso 4, $$\psi(s,t)=s\left(u_x(x_0+s_1,y_0+t)-u_x(x_0,y_0)\right)+t\left(u_y(x_0,y_0+t_1)-u_y(x_0,y_0)\right).$$
 >>7. Entonces,$$\frac{\psi(s,t)}{s+it}=\left(u_x(x_0+s_1,y_0+t)-u_x(x_0,y_0)\right)\frac{s}{s+it}+\left(u_y(x_0,y_0+t_1)-u_y(x_0,y_0)\right)\frac{t}{s+it}.$$notemos que $|s|\leq|s+it|$ y $|t|\leq|s+it|$. Por lo tanto, $$\begin{align}\left|\frac{\psi(s,t)}{s+it}\right|&\leq\left|u_x(x_0+s_1,y_0+t)-u_x(x_0,y_0)\right|\frac{|s|}{|s+it|}+\left|u_y(x_0,y_0+t_1)-u_y(x_0,y_0)\right|\frac{|t|}{|s+it|}\\&\leq\left|u_x(x_0+s_1,y_0+t)-u_x(x_0,y_0)\right|+\left|u_y(x_0,y_0+t_1)-u_y(x_0,y_0)\right|.\end{align}$$
 >>8. Como $s+it\to0\iff s,t\to0$, y $s_1$ está entre $s$ y $0$, se tiene que $s_1\to0$. Luego, por la continuidad de $u_x$, $$u_x(x_0+s_1,y_0+t)-u_x(x_0,y_0)\longrightarrow0.$$de manera análoga, como $t_1$ está entre $t$ y $0$, se tiene que $t_1\to0$ y, por la continuidad de $u_y$, $$u_y(x_0,y_0+t_1)-u_y(x_0,y_0)\longrightarrow0.$$por lo tanto,$$\boxed{\frac{\psi(s,t)}{s+it}\longrightarrow0\qquad\text{cuando }s+it\to0.}$$
 >>9. Notemos que $$\psi(s,t)=u(x_0+s,y_0+t)-u(x_0,y_0)-u_x(x_0,y_0)s-u_y(x_0,y_0)t.$$entonces el término $(1)$ puede escribirse en terminos. de $\psi(s,t)$ como $$\frac{u(x_0+s,y_0+t)-u(x_0,y_0)}{s+it}=\frac{\psi(s,t)+u_x(x_0,y_0)s+u_y(x_0,y_0)t}{s+it}$$
 >>10. Análogamente, definiendo $$\varphi(s,t)=v(x_0+s,y_0+t)-v(x_0,y_0)-v_x(x_0,y_0)s-v_y(x_0,y_0)t,$$se obtiene $$\frac{\varphi(s,t)}{s+it}\longrightarrow0,$$y ademas el termino $(2)$ lo podemos escribir en terminos de $\varphi(s,t)$ como $$\frac{v(x_0+s,y_0+t)-v(x_0,y_0)}{s+it}=\frac{\varphi(s,t)+v_x(x_0,y_0)s+v_y(x_0,y_0)t}{s+it}$$
->>11. Por lo tanto recordando paso 2., $$\lim_{s+it\to0}\frac{f(z_0+(s+it))-f(z_0)}{s+it}=\lim_{s+it\to0}\left((1)+i(2)\right).$$
->>12. Como $s+it\to0$ implica $s,t\to0$, también $t-is\to0$. 
->>13. Además, por lo demostrado anteriormente, $$\frac{\psi(s,t)}{s+it}\longrightarrow0,\qquad \frac{\varphi(s,t)}{t-is}\longrightarrow0.$$
->>14. Entonces usando [[FA - Teo2#^578d47]] , $$\begin{align}\lim_{s+it\to0}\frac{f(z_0+(s+it))-f(z_0)}{s+it}&=\lim_{s+it\to0}\left(u_x(x_0,y_0)+iv_x(x_0,y_0)+\frac{\psi(s,t)}{s+it}+\frac{\varphi(s,t)}{t-is}\right)\\&=u_x(x_0,y_0)+iv_x(x_0,y_0).\end{align}$$
->>15. Por lo tanto existe $f'(z_0)$ y $$\boxed{f'(z_0)=u_x(x_0,y_0)+iv_x(x_0,y_0)}.$$
+>>11. Retomando la descomposición del paso 2 y las expresiones de los pasos 9 y 10, agrupamos los términos: $$(1)+i(2)=\frac{(u_x+iv_x)s+(u_y+iv_y)t+\psi(s,t)+i\varphi(s,t)}{s+it},$$ donde todas las derivadas parciales se evalúan en $(x_0,y_0)$.
+>>12. Por Cauchy–Riemann en $(x_0,y_0)$, $u_y=-v_x$ y $v_y=u_x$. En consecuencia, $$u_y+iv_y=-v_x+iu_x=i(u_x+iv_x).$$
+>>13. Al sustituir esta igualdad en el paso 11 y factorizar, obtenemos $$(1)+i(2)=\frac{(u_x+iv_x)(s+it)+\psi(s,t)+i\varphi(s,t)}{s+it}=u_x+iv_x+\frac{\psi(s,t)}{s+it}+i\frac{\varphi(s,t)}{s+it}.$$
+>>14. Por los pasos 8 y 10, los dos cocientes de los restos tienden a $0$ cuando $s+it\to0$. Así, el cociente incremental del paso 2 converge y $$\boxed{f'(z_0)=u_x(x_0,y_0)+iv_x(x_0,y_0)}.$$
 
->[!Remark]- Cálculo auxiliar
+>[!Remark]- Cálculo auxiliar (opcional; la demostración anterior no lo necesita)
 >Usando las expresiones obtenidas para $(1)$ y $(2)$,$$\begin{align}(1)+i(2)&=\frac{\psi(s,t)+u_x(x_0,y_0)s+u_y(x_0,y_0)t}{s+it}+i\frac{\varphi(s,t)+v_x(x_0,y_0)s+v_y(x_0,y_0)t}{s+it}\\&=\frac{(u_x(x_0,y_0)+iv_x(x_0,y_0))s+(u_y(x_0,y_0)+iv_y(x_0,y_0))t+\psi(s,t)+i\varphi(s,t)}{s+it}.\end{align}$$
 >Por las ecuaciones de Cauchy-Riemann, $$u_x=v_y,\qquad v_x=-u_y.$$
 >Luego, $$u_y+iv_y=-v_x+iu_x=i(u_x+iv_x).$$
@@ -567,6 +566,8 @@
 >>19. Por lo tanto
 >>$$\frac{f(z_0+h)-f(z_0)}{h}=u_x+iv_x+(\varepsilon_1+i\varepsilon_2)\frac{|h|}{h}.$$
 >>20. Como $\bigl||h|/h\bigr|=1$ y $\varepsilon_1,\varepsilon_2\to0$, el resto tiende a $0$. Luego $f$ es diferenciable en $z_0$ y $f'(z_0)=u_x+iv_x$.
+
+^a4c12e
 
 >[!Theorem] Caracterización de analiticidad
 >Si $u$ y $v$ tienen derivadas parciales continuas en $G$, entonces

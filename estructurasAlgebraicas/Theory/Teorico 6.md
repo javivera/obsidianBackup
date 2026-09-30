@@ -391,6 +391,8 @@ source: "Clase2 (1).pdf"
 >>$$|\operatorname{Cl}_G(x)| = [G : C_G(x)].$$
 >>3. Finalmente, por el [[Teorico 4#^teorema-de-lagrange|teorema de Lagrange]], $|G| = [G : C_G(x)] \cdot |C_G(x)| = |\operatorname{Cl}_G(x)| \cdot |C_G(x)|$, lo que demuestra que $|\operatorname{Cl}_G(x)|$ divide a $|G|$.
 
+^d8b70e
+
 >[!theorem] Ecuación de clases
 >Sea $G$ un grupo finito actuando sobe si mismo por conjugacion. Si $x_1,\ldots,x_r$ son representantes de las clases de conjugación no centrales, entonces $$|G|=|Z(G)|+\sum_{i=1}^r[G:C_G(x_i)].$$
 >
