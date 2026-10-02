@@ -115,10 +115,13 @@
 >>$$f'(x)=\begin{cases}2x\sin(1/x)-\cos(1/x),&x\neq0,\\0,&x=0.\end{cases}$$
 >>4. Como $\cos(1/x)$ no tiene límite cuando $x\to0$, $f'$ no es continua en $0$.
 
->[!Remark]
->Toda función analítica es infinitamente diferenciable y, además, tiene un desarrollo en serie de potencias alrededor de cada punto de su dominio. Por lo tanto la derivada compleja no es una simple generalización de la derivada en $\mathbb{R}$.
+>[!theorem] Desarollo de series Taylor
+>Sea $f:G\to\mathbb{C}$ analítica en el abierto $G$ y sea $a\in G$. Entonces $f$ es infinitamente diferenciable y su serie de Taylor $$\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(z-a)^n$$ coincide con $f(z)$ en $B(a,d)$, donde $d=\operatorname{dist}(a,\partial G)$ (y $d=\infty$ si $G=\mathbb{C}$). El radio de convergencia $R$ satisface $R\geq d$
 
 ^6fedda
+
+>[!Remark]
+>En [[FA - Teo2#^6fedda]] no necesariamente $R=d$: por ejemplo, si $G=B(0,1)$ y $f(z)=1$, la serie centrada en $0$ tiene $R=\infty$, mientras que $d=1$. Por lo tanto, la derivada compleja no es una simple generalización de la derivada en $\mathbb{R}$.
 
 >[!Remark] Diferenciabilidad real versus compleja
 >Hay funciones $f:G\subseteq\mathbb{C}\to\mathbb{C}$ diferenciables como funciones de dos variables reales en todo $\mathbb{R}^2\simeq\mathbb{C}$, pero no diferenciables en sentido complejo.

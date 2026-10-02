@@ -41,7 +41,7 @@
 >>	1. Tal como está escrito, $|f(G)|=1$ significa que la imagen $f(G)$ tiene un único elemento. Por lo tanto, $f$ es constante y la afirmación es verdadera; no hacen falta ni la analiticidad ni la conexidad.
 >>	2. Si la intención era afirmar $|f(z)|=1$ para todo $z\in G$, también es verdadera: aplicando [[FA - Teo5#^4c39b6|función analítica de módulo constante]] con $C=1$, resulta que $f$ es constante.
 >>- (b)
->>	1. Tomamos $G=\mathbb C\setminus\{0\}$, que es abierto, conexo y satisface las hipótesis. Supongamos que existe una rama continua $L:G\to\mathbb C$ del logaritmo.
+>>	1. Tomamos $G=\mathbb C\setminus\{0\}$, que es abierto, conexo y satisface las hipótesis. Supongamos que existe una rama continua $L:G\to\mathbb C$ del logaritmo. Entonces sigue siendo una rama continua del logaritmo cuando restrinjo a $U=\mathbb C\setminus(-\infty,0]$ 
 >>	2. En $U=\mathbb C\setminus(-\infty,0]$, la rama principal $\operatorname{Log}$ está definida. Como $e^{L(z)}=e^{\operatorname{Log}z}=z$, para cada $z\in U$ se tiene $L(z)-\operatorname{Log}z\in2\pi i\mathbb Z$. La diferencia es continua en el conexo $U$ y toma valores en el conjunto discreto $2\pi i\mathbb Z$; por tanto, existe un único $k\in\mathbb Z$ tal que $L(z)=\operatorname{Log}z+2\pi ik$ para todo $z\in U$.
 >>	3. Al aproximarse a $-1$ desde el semiplano superior y el inferior, respectivamente, los límites de $\operatorname{Log}z+2\pi ik$ son $i\pi+2\pi ik$ y $-i\pi+2\pi ik$. Son distintos, aunque ambos caminos convergen a $-1\in G$. Esto contradice la continuidad de $L$ en $-1$. Por lo tanto, no existe tal rama y la afirmación es falsa.
 >>- (c)
@@ -72,20 +72,48 @@
 
 ## Problema 4 (15 puntos)
 
-Sea $\mathbb{D}=\{z\in\mathbb{C}:|z|<1\}$ y $S$ transformación de Möbius tal que $S(\mathbb{D})=\mathbb{D}$. Demostrar que si $S(0)=0$, entonces $S$ es una rotación.
+>[!exercise] Problema 4
+>Sea $\mathbb{D}=\{z\in\mathbb{C}:|z|<1\}$ y $S$ transformación de Möbius tal que $S(\mathbb{D})=\mathbb{D}$. Demostrar que si $S(0)=0$, entonces $S$ es una rotación.
+>>[!Proof]-
+>>1. Escribimos $S(z)=(az+b)/(cz+d)$, con $ad-bc\ne0$. Como $S(0)=0$, tenemos $d\ne0$ y $b=0$; en particular, $a\ne0$ y $S(z)=az/(cz+d)$.
+>>2. Sea $|\delta|=1$ y tomemos una sucesión $z_n\in\mathbb D$ tal que $z_n\to\delta$. Como $S(z_n)\in\mathbb D$, se cumple $|az_n|/|cz_n+d|=|S(z_n)|<1$; el denominador no se anula porque $S$ está definida en $\mathbb D$. Entonces obtenemos $$|az_n|<|cz_n+d|$$ con lo cual usando límite, $$|a|\le|c\delta+d|$$
+>>3. Como $a\ne0$ por $ad-bc\ne0$ y $b=0$, resulta $c\delta+d\ne0$, de modo que $S(\delta)$ está definida y $|S(\delta)|\le1$.
+>>4. Si $|S(\delta)|<1$, entonces $S(\delta)\in\mathbb D$ y tendríamos $\delta=S^{-1}(S(\delta))\in\mathbb D$, porque $S^{-1}(\mathbb D)=\mathbb D$, una contradicción con $|\delta|=1$.
+>>5. Por tanto, $|S(\delta)|=1$ para todo $|\delta|=1$, es decir, $|a|=|c\delta+d|$. Al elevar al cuadrado, $$|a|^2=|c|^2+|d|^2+2\operatorname{Re}(c\overline d\,\delta).$$
+>>6. Sustituimos directamente $\delta=1,-1,i,-i$ en la igualdad anterior: $$\begin{aligned}\delta=1:&\quad |a|^2=|c|^2+|d|^2+2\operatorname{Re}(c\overline d),\\\delta=-1:&\quad |a|^2=|c|^2+|d|^2-2\operatorname{Re}(c\overline d),\\\delta=i:&\quad |a|^2=|c|^2+|d|^2-2\operatorname{Im}(c\overline d),\\\delta=-i:&\quad |a|^2=|c|^2+|d|^2+2\operatorname{Im}(c\overline d).\end{aligned}$$las dos primeras igualdades dan $4\operatorname{Re}(c\overline d)=0$ y las dos últimas dan $4\operatorname{Im}(c\overline d)=0$ por tanto, $c\overline d=0$ y, como $d\ne0$, resulta $c=0$.
+>>7. La misma igualdad se reduce a $|a|=|d|$. Por tanto, $S(z)=(a/d)z$ con $|a/d|=1$, es decir, existe $\theta\in\mathbb R$ tal que $a/d=e^{i\theta}$ y $S(z)=e^{i\theta}z$. En consecuencia, $S$ es una rotación.
 
 ## Problema 5 (15 puntos)
 
-a) Considere ahora los caminos $\gamma_1(t)=t(1+i)$ con $0\le t\le 1$, y $\gamma_2=[0,1,1+i]$, es decir, $\gamma_2$ es el camino poligonal que une $0$ con $1$ y luego $1$ con $1+i$. Calcular $\int_{\gamma_1}\overline{z}\,dz$ y $\int_{\gamma_2}\overline{z}\,dz$.
-
-b) Sea ahora $g(z)=z^2+1$. Sin parametrizar el camino, calcular $\int_\sigma g(z)\,dz$, donde $\sigma$ es cualquier camino suave a trozos que une $0$ con $1+i$. Explique por qué en este caso la integral no depende del camino elegido.
+>[!exercise] Problema 5
+>- **(a)** Considere los caminos $\gamma_1(t)=t(1+i)$ con $0\le t\le 1$, y $\gamma_2=[0,1,1+i]$, es decir, el camino poligonal que une $0$ con $1$ y luego $1$ con $1+i$. Calcular $\int_{\gamma_1}\overline{z}\,dz$ y $\int_{\gamma_2}\overline{z}\,dz$.
+>- **(b)** Sea $g(z)=z^2+1$. Sin parametrizar el camino, calcular $\int_\sigma g(z)\,dz$, donde $\sigma$ es cualquier camino suave a trozos que une $0$ con $1+i$. Explique por qué en este caso la integral no depende del camino elegido.
+>>[!Proof]-
+>>- (a)
+>>	1. Para $\gamma_1(t)=t(1+i)$, se tiene $\overline{\gamma_1(t)}=t(1-i)$ y $\gamma_1'(t)=1+i$. Por tanto, $$\int_{\gamma_1}\overline z\,dz=\int_0^1t(1-i)(1+i)\,dt=\int_0^1 2t\,dt=1.$$
+>>	2. Separamos $\gamma_2$ en el segmento $\alpha(t)=t$, de $0$ a $1$, y el segmento $\beta(t)=1+it$, de $1$ a $1+i$, ambos con $0\le t\le1$. En el primero, $$\int_\alpha\overline z\,dz=\int_0^1t\,dt=\frac12.$$ En el segundo, $$\int_\beta\overline z\,dz=\int_0^1(1-it)i\,dt=\int_0^1(t+i)\,dt=\frac12+i.$$
+>>	3. Por aditividad, $$\int_{\gamma_2}\overline z\,dz=\int_\alpha\overline z\,dz+\int_\beta\overline z\,dz=1+i.$$ En particular, las integrales sobre $\gamma_1$ y $\gamma_2$ difieren aunque los caminos tienen los mismos extremos.
+>>- (b)
+>>	1. La función $F(z)=\frac{z^3}{3}+z$ es una primitiva de $g$ en $\mathbb C$, pues $F'(z)=z^2+1=g(z)$.
+>>	2. Por [[FA - Teo4#^c8a124|regla de Barrow para integrales de línea]], $$\int_\sigma g(z)\,dz=F(1+i)-F(0).$$ Como $(1+i)^3=-2+2i$, resulta $$\int_\sigma g(z)\,dz=\frac{-2+2i}{3}+1+i=\frac13+\frac53i.$$ La expresión sólo depende de los extremos, no del camino $\sigma$ elegido.
 
 ## Problema 6 (15 puntos)
 
-Considere la rama principal del logaritmo $\operatorname{Log}:\mathbb{C}\setminus(-\infty,0]\longrightarrow\mathbb{C}$ y sea $a=1+i$.
 
-a) Sin calcular todavía los coeficientes, determine el mayor disco centrado en $a$ en el cual $\operatorname{Log}z$ admite un desarrollo en serie de potencias. Justifique.
-
-b) Encuentre el desarrollo en serie de potencias de $\operatorname{Log}z$ centrado en $a$.
-
-c) ¿Qué ocurriría con el radio de convergencia si se eligiera otra rama del logaritmo definida en un dominio que contenga a $a$?
+>[!exercise] Problema 6
+>Considere la rama principal del logaritmo $\operatorname{Log}:\mathbb{C}\setminus(-\infty,0]\longrightarrow\mathbb{C}$ y sea $a=1+i$.
+>- **(a)** Sin calcular todavía los coeficientes, determine el mayor disco centrado en $a$ en el cual $\operatorname{Log}z$ admite un desarrollo en serie de potencias. Justifique.
+>- **(b)** Encuentre el desarrollo en serie de potencias de $\operatorname{Log}z$ centrado en $a$.
+>- **(c)** ¿Qué ocurriría con el radio de convergencia si se eligiera otra rama del logaritmo definida en un dominio que contenga a $a$?
+>>[!Proof]-
+>>- (a)
+>>	1. El punto de la frontera $\partial G=(-\infty,0]$ más cercano a $a=1+i$ es $0$, por lo que $\operatorname{dist}(a,\partial G)=|1+i|=\sqrt2$. Por [[FA - Teo2#^6fedda|desarrollo de Taylor y distancia al borde]], la serie de Taylor centrada en $a$ representa a $\operatorname{Log}$ en $B(a,\sqrt2)$ y su radio de convergencia satisface $R\geq\sqrt2$.
+>>	2. Si el radio fuera mayor que $\sqrt2$, la suma de la serie estaría definida y sería continua en $0$, así que sus valores en $i/n\to0$ tendrían que converger al valor finito de la serie en $0$. Para todo $n\geq1$, $i/n\in B(a,\sqrt2)$, pues $|i/n-a|^2=1+(1-1/n)^2<2$; allí la suma coincide con $\operatorname{Log}(i/n)=\ln(1/n)+i\pi/2=-\ln n+i\pi/2$. La parte real de estos valores tiende a $-\infty$, de modo que no convergen a ningún número complejo finito, contradiciendo la continuidad de la suma en $0$.
+>>	3. El radio es exactamente $\sqrt2$ y el disco pedido es $B(1+i,\sqrt2)$.
+>>- (b)
+>>	1. Por [[FA - Teo2#^2f6d2c|derivada de una rama del logaritmo]], $f'(z)=1/z$. Por inducción, para $n\geq1$, $$f^{(n)}(z)=(-1)^{n-1}(n-1)!/z^n$$
+>>	2. Por la fórmula de los coeficientes de Taylor, $c_n=f^{(n)}(a)/n!$, el desarrollo es $$\operatorname{Log}z=\operatorname{Log}(1+i)+\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n(1+i)^n}(z-(1+i))^n=\ln\sqrt2+\frac{\pi i}{4}+\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}\left(\frac{z-(1+i)}{1+i}\right)^n,$$ con radio de convergencia $\sqrt2$
+>>- (c)
+>>	1. Sea $L$ otra rama definida en un dominio que contiene a $a=1+i$. Por [[FA - Teo2#^2f6d2c|derivada de una rama del logaritmo]], $L'(z)=1/z$, igual que para la rama principal. Por tanto, sus derivadas de todo orden positivo en $a$ coinciden y sus coeficientes de Taylor $c_n$ coinciden para todo $n\geq1$; el término constante es $L(a)$, que puede diferir del de la rama principal.
+>>	2. Para $n\geq1$, $|c_n/c_{n+1}|=|a|(n+1)/n\to|a|=\sqrt2$. Por el criterio del cociente, el radio de convergencia es $\sqrt2$, igual que para la rama principal.
+>>	3. Hay que distinguir entre convergencia de la serie e igualdad con la rama elegida. Si $G$ es el dominio de $L$ y $d=\operatorname{dist}(a,\partial G)$, por [[FA - Teo2#^6fedda|desarrollo de Taylor y distancia al borde]], la serie coincide con $L$ en $B(a,d)$. En particular, si $G=\mathbb C\setminus S$ para una semirrecta $S$ que pasa cerca de $a$, entonces $d=\operatorname{dist}(a,S)$ puede ser menor que $\sqrt2$: el mayor disco centrado en $a$ contenido en el dominio de la rama se achica a $B(a,d)$, pero el disco de convergencia sigue siendo $B(a,\sqrt2)$. La suma de la serie está definida incluso sobre el corte; fuera de $B(a,d)$ no se puede afirmar que coincida con la rama original en todos los puntos donde esta esté definida.
