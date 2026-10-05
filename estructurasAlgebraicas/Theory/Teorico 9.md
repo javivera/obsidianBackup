@@ -12,18 +12,35 @@ source: "[[EA-Teorico-7-4sept.pdf]]"
 
 >[!definition] Anillo
 >Un **anillo** $R$ consiste en:
->1. un grupo $(R,+)$, con neutro $0\in R$;
->2. una operación $\cdot\colon R\times R\to R$ asociativa, con neutro $1\in R$;
+>1. un grupo abeliano $(R,+)$, con neutro $0\in R$;
+>2. una operación $\cdot\colon R\times R\to R$ asociativa;
 >3. distributividad a izquierda y a derecha: $$a(b+c)=ab+ac,\qquad (a+b)c=ac+bc.$$
->No se pide que $\cdot$ sea conmutativa.
 
 ^anillo
+
+>[!definition] Subanillo
+>Sea $R$ un anillo y sea $S\subseteq R$. Decimos que $S$ es un **subanillo** si, con la suma y el producto restringidos de $R$, es a su vez un anillo. Para probarlo, basta verificar explícitamente estas tres condiciones:
+>1. **Contiene al cero:** $0_R\in S$.
+>2. **Cierre bajo diferencias:** para todos $a,b\in S$, $a-b\in S$.
+>3. **Cierre bajo productos:** para todos $a,b\in S$, $ab\in S$.
+>
+>No hace falta volver a probar asociatividad ni distributividad: se heredan de $R$. Las dos primeras condiciones garantizan que $(S,+)$ es un subgrupo: $-a=0_R-a\in S$ y $a+b=a-(-b)\in S$.
+>Esta convención no exige que $S$ tenga identidad. **Si exigimos un subanillo con la misma unidad**, hay que verificar además que $1_R\in S$; entonces $1_R$ es también la identidad de $S$. Algunos textos incluyen esta última exigencia en la palabra «subanillo».
+
+^d09a31
 
 >[!proposition] Criterio de subanillo con unidad
 >Sea $R$ un anillo y sea $T\subseteq R$. Entonces $T$, con las operaciones restringidas de $R$ y la misma unidad $1_R$, es un subanillo de $R$ si y sólo si $1_R\in T$ y, para todos $a,b\in T$, se tiene $a-b\in T$ y $ab\in T$.
 >>[!Proof]-
 >>1. Si $T$ es un subanillo con la misma unidad, contiene $1_R$ y es cerrado bajo la resta y el producto.
 >>2. Recíprocamente, $1_R\in T$ y el cierre bajo resta dan $0_R=1_R-1_R\in T$. Para cada $a\in T$ se obtiene $-a=0_R-a\in T$; para $a,b\in T$, también $a+b=a-(-b)\in T$. Por tanto, las operaciones de suma, opuesto y producto quedan definidas en $T$, y $1_R$ es su unidad. La asociatividad y las dos distributividades se heredan de $R$; luego $T$ es un subanillo con unidad.
+
+>[!example] Un anillo con identidad y un subanillo sin identidad: $\mathbb Z$ y $2\mathbb Z$
+>Si usamos la convención de **subanillo sin exigir que contenga la unidad**, $2\mathbb Z=\{2k:k\in\mathbb Z\}$ es un subanillo de $\mathbb Z$ sin identidad propia, mientras que $\mathbb Z$ tiene identidad $1$. Con la convención de **subanillo con la misma unidad** del criterio anterior, $2\mathbb Z$ no es subanillo de $\mathbb Z$, pues $1\notin2\mathbb Z$.
+>
+>>[!Proof]-
+>>1. $2\mathbb Z$ contiene a $0$ y es cerrado bajo diferencias y productos: para $a,b\in\mathbb Z$, $$2a-2b=2(a-b),\qquad (2a)(2b)=2(2ab).$$ Las demás propiedades de anillo se heredan de $\mathbb Z$.
+>>2. Supongamos que $e\in2\mathbb Z$ fuera una identidad propia. Existe $k\in\mathbb Z$ con $e=2k$. Como $2\in2\mathbb Z$, debería cumplirse $$e\cdot2=2\quad\Longrightarrow\quad4k=2\quad\Longrightarrow\quad2k=1,$$ donde el último paso usa cancelación en $\mathbb Z$. Esto es imposible, pues $2k$ es par y $1$ es impar. Luego $2\mathbb Z$ no tiene identidad.
 
 >[!lemma] $(R,+)$ es abeliano
 >En un anillo, la suma es conmutativa.
@@ -73,3 +90,5 @@ source: "[[EA-Teorico-7-4sept.pdf]]"
 
 >[!example] Cuaterniones
 >$\mathbb H=\{a+bi+cj+dk:a,b,c,d\in\mathbb R\}$ con $$i^2=j^2=k^2=-1,\qquad ij=k,\quad ki=j,\quad jk=i.$$ Si $z=a+bi+cj+dk$, el conjugado es $\overline z=a-bi-cj-dk$ y $|z|=\sqrt{a^2+b^2+c^2+d^2}$. La inversa es $$z^{-1}=\frac{\overline z}{|z|^2}\qquad(z\neq 0).$$ Es un anillo de división no conmutativo. En el pizarrón el denominador apareció como $|z|$; la identidad $z\overline z=|z|^2$ pide el cuadrado.
+
+^c91e04

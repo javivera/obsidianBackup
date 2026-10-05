@@ -43,10 +43,10 @@ tags:
 >>- (e)
 >>	1. **Clausura y grupo abeliano aditivo.** Los elementos son sumas formales: la igualdad se verifica coeficiente a coeficiente. Sea $e$ el neutro de $G$. Si $\alpha=\sum_g a_g g$ y $\beta=\sum_h b_h h$, la fórmula del producto debe leerse como $$\alpha\beta=\sum_{t\in G}\left(\sum_{gh=t}a_gb_h\right)t.$$ Sólo contribuyen pares de los soportes finitos de $\alpha$ y $\beta$, por lo que el producto tiene soporte finito. La suma también tiene soporte finito y forma un grupo abeliano por las propiedades de $(R,+)$, con neutro la suma nula e inverso $-\alpha=\sum_g(-a_g)g$.
 >>	2. **Asociatividad del producto y distributividad.** Para $\gamma=\sum_k c_k k$, el coeficiente de cada $t\in G$ satisface $$\begin{aligned}((\alpha\beta)\gamma)_t&=\sum_{uk=t}\left(\sum_{gh=u}a_gb_h\right)c_k=\sum_{(gh)k=t}(a_gb_h)c_k\\&=\sum_{g(hk)=t}a_g(b_hc_k)=\sum_{gv=t}a_g\left(\sum_{hk=v}b_hc_k\right)=(\alpha(\beta\gamma))_t.\end{aligned}$$ Usamos las asociatividades de $R$ y $G$ y las distributividades de $R$; todas las sumas involucradas son finitas. Además, $$\begin{aligned}(\alpha(\beta+\gamma))_t&=\sum_{gh=t}a_g(b_h+c_h)=\sum_{gh=t}a_gb_h+\sum_{gh=t}a_gc_h,\\((\alpha+\beta)\gamma)_t&=\sum_{gh=t}(a_g+b_g)c_h=\sum_{gh=t}a_gc_h+\sum_{gh=t}b_gc_h.\end{aligned}$$ Por tanto, $R[G]$ es un anillo.
->>	3. **Conmutatividad del producto.** Para elementos con un único coeficiente, $(ag)(bh)=(ab)(gh)$. Si $R[G]$ es conmutativo, $(ae)(be)=(be)(ae)$ implica $ab=ba$, de modo que $R$ es conmutativo. Si existen $a,b$ con $ab\neq 0$, la igualdad $(ag)(bh)=(bh)(ag)$ obliga a $gh=hg$ para cualesquiera $g,h$: de otro modo las dos sumas formales tienen su coeficiente no nulo en posiciones distintas. Recíprocamente, si $R$ y $G$ son conmutativos, $$\alpha\beta=\sum_{g,h}(a_gb_h)(gh)=\sum_{h,g}(b_ha_g)(hg)=\beta\alpha.$$ Si todos los productos de $R$ son cero, todos los de $R[G]$ también lo son, cualquiera sea $G$. En conclusión, $R[G]$ es conmutativo si y sólo si $R$ es conmutativo y, además, $G$ es abeliano o el producto de $R$ es idénticamente nulo. En particular, para $R$ con $1_R\neq 0$, es conmutativo si y sólo si $R$ es conmutativo y $G$ es abeliano.
->>	4. **Existencia de identidad multiplicativa.** Si $R$ tiene identidad, $1_Re$ es identidad de $R[G]$, pues $(1_Re)\alpha=\sum_g(1_Ra_g)g=\alpha$ y $\alpha(1_Re)=\sum_g(a_g1_R)g=\alpha$. Recíprocamente, si $u=\sum_g u_g g$ es identidad, comparando el coeficiente de $e$ en $u(ae)=ae=(ae)u$ obtenemos $u_ea=a=au_e$ para todo $a\in R$. Por tanto, $R[G]$ tiene identidad si y sólo si $R$ la tiene.
->>	5. **Divisores de cero provenientes de los coeficientes.** La existencia de divisores de cero depende de $R$ y $G$. Si $a,b\neq 0$ y $ab=0$ en $R$, los elementos no nulos $ae,be$ satisfacen $(ae)(be)=0$, así que los divisores de cero de $R$ producen divisores de cero en $R[G]$. Si $R=\{0\}$, entonces $R[G]=\{0\}$ y no los hay.
->>	6. **Divisores de cero provenientes del grupo.** Incluso si $R$ no tiene divisores de cero, el grupo puede introducirlos. Supongamos $1_R\neq 0$ y que $g\in G$ tiene orden finito $m\geq 2$. Las potencias $e,g,\ldots,g^{m-1}$ son distintas: una igualdad $g^i=g^j$ con $0\leq i<j<m$ daría $g^{j-i}=e$, contradiciendo la minimalidad de $m$. Por tanto, $\alpha=1_Re-1_Rg$ y $\beta=\sum_{j=0}^{m-1}1_Rg^j$ son no nulos. En ambos órdenes, $$\alpha\beta=\sum_{j=0}^{m-1}1_Rg^j-\sum_{j=0}^{m-1}1_Rg^{j+1}=1_Re-1_Rg^m=0=\beta\alpha.$$ En particular, $\mathbb Z[C_2]$ tiene divisores de cero, aunque $\mathbb Z$ no los tiene.
+>>	3. **Conmutatividad del producto.** Si $R[G]$ es conmutativo, $$(ab)e=(ae)(be)=(be)(ae)=(ba)e,$$ y comparar coeficientes en $e$ da $ab=ba$; luego $R$ es conmutativo. Si existen $a,b\in R$ con $ab\neq 0$, para cualesquiera $g,h\in G$ tenemos $$(ab)(gh)=(ag)(bh)=(bh)(ag)=(ba)(hg).$$ Si $gh\neq hg$, comparar coeficientes en $gh$ daría $ab=0$, pues el miembro derecho tiene coeficiente cero allí. Por tanto, $gh=hg$ para todos $g,h$, y $G$ es abeliano. Recíprocamente, si $R$ y $G$ son conmutativos, $$\alpha\beta=\sum_{g,h}(a_gb_h)(gh)=\sum_{g,h}(b_ha_g)(hg)=\beta\alpha.$$ Si todos los productos de $R$ son cero, también lo son los de $R[G]$, cualquiera sea $G$. Así, $R[G]$ es conmutativo si y sólo si $R$ es conmutativo y, además, $G$ es abeliano o el producto de $R$ es idénticamente nulo. Para $R$ con $1_R\neq 0$, esta última alternativa queda excluida porque $1_R1_R\neq 0$.
+>>	4. **Existencia de identidad multiplicativa.** Si $R$ tiene identidad, $1_Re$ es identidad de $R[G]$, pues $(1_Re)\alpha=\sum_g(1_Ra_g)g=\alpha$ y $\alpha(1_Re)=\sum_g(a_g1_R)g=\alpha$. Recíprocamente, si $u=\sum_g u_g g$ es identidad de $R[G]$, para todo $a\in R$ tenemos $$ae=u(ae)=\sum_g(u_ga)g,\qquad ae=(ae)u=\sum_g(au_g)g$$ Los coeficientes en $e$ de estas sumas son $u_ea$ y $au_e$, respectivamente, mientras que el de $ae$ es $a$. Por tanto, $u_ea=a=au_e$ para todo $a\in R$, es decir, $u_e$ es identidad de $R$. Así, $R[G]$ tiene identidad si y sólo si $R$ la tiene.
+>>	5. **Divisores de cero provenientes de los coeficientes.** Tomemos $R=\mathbb Z_6$ y cualquier grupo $G$, con identidad $e$. Los elementos $\overline{2}e$ y $\overline{3}e$ de $R[G]$ son no nulos porque sus coeficientes en $e$ son no nulos. Sin embargo, $$(\overline{2}e)(\overline{3}e)=(\overline{2}\,\overline{3})(ee)=\overline{6}e=\overline{0}e=0.$$ El producto en el orden inverso también es cero, pues $\overline{3}\,\overline{2}=\overline{0}$. Aquí los divisores de cero ya estaban en el anillo de coeficientes $\mathbb Z_6$, no los introduce el grupo. En general, si $a,b\neq 0$ y $ab=0$ en $R$, los elementos no nulos $ae,be$ satisfacen $(ae)(be)=(ab)e=0$. Si $R=\{0\}$, entonces $R[G]=\{0\}$ y no hay divisores de cero.
+>>	6. **Divisores de cero provenientes del grupo, aunque los coeficientes no los tengan.** Tomemos ahora $R=\mathbb Z$, que no tiene divisores de cero, y el grupo de dos elementos $G=\{e,g\}$, donde $e$ es la identidad, $g\neq e$ y $g^2=e$. Este grupo se llama $C_2$. En $\mathbb Z[G]$, los elementos $\alpha=1e-1g$ y $\beta=1e+1g$ son no nulos: como $e$ y $g$ son elementos distintos del grupo, sus coeficientes no se suman entre sí, y el coeficiente en $e$ de ambos elementos es $1\neq 0$. Escribiendo $e$ y $g$ en lugar de $1e$ y $1g$, calculamos ambos productos: $$\begin{aligned}\alpha\beta&=(e-g)(e+g)=ee+eg-ge-gg=e+g-g-e=0,\\\beta\alpha&=(e+g)(e-g)=ee-eg+ge-gg=e-g+g-e=0.\end{aligned}$$ Por tanto, $\mathbb Z[G]=\mathbb Z[C_2]$ tiene divisores de cero aunque $\mathbb Z$ no los tenga; en este ejemplo, los introduce la relación $g^2=e$ del grupo.
 >>	7. **Ejemplos sin divisores de cero.** Por otro lado, $R[\{e\}]$ se identifica con $R$ mediante $ae\mapsto a$, que preserva suma y producto; así, $\mathbb Z[\{e\}]$ no tiene divisores de cero. También hay ejemplos con grupo no trivial sin divisores de cero: para el grupo infinito cíclico $\langle t\rangle$, cada elemento de $\mathbb Z[\langle t\rangle]$ es una suma finita $\sum_{i\in\mathbb Z}a_it^i$. Si dos elementos son no nulos y $r,s$ son sus mayores exponentes con coeficientes no nulos, el coeficiente de $t^{r+s}$ en el producto es $a_rb_s\neq 0$: cualquier otro par de exponentes del soporte tiene suma menor que $r+s$. Por tanto su producto no es cero. Estos ejemplos muestran que, sin más hipótesis sobre $R$ y $G$, no puede darse una respuesta uniforme sobre divisores de cero.
 
 >[!exercise] Ejercicio 2
@@ -56,6 +56,24 @@ tags:
 >- **(c)** Dominios íntegros que no son anillos de división.
 >- **(d)** Anillos con identidad con subanillos sin identidad.
 >- **(e)** Anillos de división que no son cuerpos.
+>
+>>[!Proof]-
+>>- **(a)**
+>>	1. Tomamos $2\mathbb Z=\{2m:m\in\mathbb Z\}$ con la suma y el producto usuales. Contiene $0=2\cdot0$ y, para $m,n\in\mathbb Z$, se cumple $2m+2n=2(m+n)\in2\mathbb Z$ y $-(2m)=2(-m)\in2\mathbb Z$. La asociatividad y la conmutatividad de la suma se heredan de $\mathbb Z$; por tanto, $(2\mathbb Z,+)$ es un grupo abeliano.
+>>	2. El producto es cerrado porque $(2m)(2n)=2(2mn)\in2\mathbb Z$. La asociatividad del producto y ambas distributividades se heredan de $\mathbb Z$. Así, $2\mathbb Z$ es un anillo.
+>>	3. Si $e\in2\mathbb Z$ fuera identidad multiplicativa, como $2\in2\mathbb Z$ tendríamos $e\cdot2=2$. Entonces $2(e-1)=0$ y, puesto que en $\mathbb Z$ un producto es cero sólo si alguno de sus factores es cero y $2\neq0$, resulta $e-1=0$, es decir, $e=1$. Esto contradice $1\notin2\mathbb Z$. Por tanto, $2\mathbb Z$ no tiene identidad multiplicativa.
+>>- **(b)**
+>>	1. Tomamos el anillo $\mathbb Z_n$ para cualquier entero compuesto $n\geq2$. Por ser compuesto, existen enteros $p,q$ tales que $n=pq$, $1<p<n$ y $1<q<n$.
+>>	2. Las clases $\overline p$ y $\overline q$ son distintas de $\overline0$: si, por ejemplo, $\overline p=\overline0$, existiría $j\in\mathbb Z$ con $p=jn$; como $p>0$, tendríamos $j\geq1$ y entonces $p\geq n$, contradicción. El mismo argumento vale para $q$. Sin embargo, $$\overline p\,\overline q=\overline{pq}=\overline n=\overline0.$$ Así, $\mathbb Z_n$ tiene divisores de cero y no es un dominio íntegro. En particular, en $\mathbb Z_6$ se cumple $\overline2\,\overline3=\overline0$, con ambos factores no nulos.
+>>- **(c)**
+>>	1. Tomamos $\mathbb Z$ con las operaciones usuales. Es un anillo conmutativo con identidad $1\neq0$. Si $a,b\in\mathbb Z$ son no nulos, entonces $|a|\geq1$ y $|b|\geq1$, de modo que $|ab|=|a||b|\geq1$ y $ab\neq0$. Por tanto, no tiene divisores de cero y es un dominio íntegro.
+>>	2. No es un anillo de división: el elemento no nulo $2$ no tiene inverso multiplicativo en $\mathbb Z$, pues para cualquier $b\in\mathbb Z$, $2b$ es par y no puede ser $1$. Por tanto, no existe $b\in\mathbb Z$ tal que $2b=b2=1$.
+>>- **(e)**
+>>	1. Tomamos el anillo de [[Teorico 9#^c91e04|cuaterniones]] $\mathbb H=\{a+bi+cj+dk:a,b,c,d\in\mathbb R\}$, con identidad $1$. Su producto es bilineal sobre $\mathbb R$; en particular, los escalares reales conmutan con todos sus elementos. Las reglas de multiplicación son $$i^2=j^2=k^2=-1,\qquad ij=k,\quad ji=-k,\quad jk=i,\quad kj=-i,\quad ki=j,\quad ik=-j.$$
+>>	2. Sea $q=a+bi+cj+dk\neq0$. Definimos su **conjugado** cambiando el signo de las tres componentes no reales: $$\overline q=a-bi-cj-dk.$$ Escribiendo $v=bi+cj+dk$, las reglas anteriores dan $$\begin{aligned}v^2&=b^2i^2+c^2j^2+d^2k^2+bc(ij+ji)+bd(ik+ki)+cd(jk+kj)\\&=-b^2-c^2-d^2.\end{aligned}$$
+>>	3. Como $a$ es un escalar real, $av=va$. Por tanto, $$\begin{aligned}q\overline q&=(a+v)(a-v)=a^2-av+va-v^2=a^2+b^2+c^2+d^2,\\\overline q q&=(a-v)(a+v)=a^2+av-va-v^2=a^2+b^2+c^2+d^2.\end{aligned}$$ Denotamos este número real por $N$. Como $q\neq0$, al menos uno de sus coeficientes es no nulo, de modo que $N>0$.
+>>	4. Como $\mathbb R$ es un cuerpo y $N\neq0$, existe $t\in\mathbb R$ tal que $tN=Nt=1$. Definimos $p=t\overline q\in\mathbb H$, sin usar notación de fracción. Por asociatividad y porque $t$ conmuta con $q$, $$qp=q(t\overline q)=t(q\overline q)=tN=1,\qquad pq=(t\overline q)q=t(\overline q q)=tN=1.$$ Así, todo cuaternión no nulo tiene inversa por ambos lados y $\mathbb H$ es un anillo de división.
+>>	5. No es un cuerpo porque su producto no es conmutativo: $ij=k$ mientras que $ji=-k$, y $k\neq-k$ porque sus coeficientes en la componente $k$ son respectivamente $1$ y $-1$.
 
 >[!exercise] Ejercicio 3
 >Decir en cada caso si $S$ es subanillo de $R$ o no, y en caso afirmativo decir si es ideal o no.
@@ -64,21 +82,93 @@ tags:
 >- **(c)** $R=M_n(\mathbb{C})$ y $S=\operatorname{GL}_n(\mathbb{C})$.
 >- **(d)** $R=M_n(\mathbb{Z})$ y $S=2M_n(\mathbb{Z})$.
 >- **(e)** $R=\mathbb{C}$ y $S=\mathbb{Z}[i]$.
->- **(f)** $R=\mathbb{Z}[x]$ y $S=\{p:p(0)=0\}$.
+>- **(f)** $R=\mathbb{Z}[x]$ y $S=\{p\in \mathbb{Z}[x]:p(0)=0\}$.
+>
+>>[!Proof]-
+>>- **(a)**
+>>	1. Verificamok .os las tres condiciones de [[Teorico 9#^d09a31|subanillo]] para $\mathbb Z\subseteq\mathbb R$. Se tiene $0\in\mathbb Z$ y, para cualesquiera $a,b\in\mathbb Z$, tanto $a-b$ como $ab$ son enteros. Por tanto, $\mathbb Z$ es un subanillo de $\mathbb R$. Además, contiene a $1$, así que también es un subanillo con la misma unidad.
+>>	2. No es un ideal de $\mathbb R$: tomando $s=1\in\mathbb Z$ y $r=0{,}5\in\mathbb R$, obtenemos $$rs=0{,}5\cdot1=0{,}5\notin\mathbb Z.$$ Falla la absorción por elementos del anillo ambiente requerida en [[Teorico 10#^a7d291|ideales]]. Como $\mathbb R$ es conmutativo, falla tanto por la izquierda como por la derecha.
+>>- **(b)**
+>>	1. $\mathbb N$ no es un subanillo de $\mathbb Z$: los elementos $1,2\in\mathbb N$ satisfacen $$1-2=-1\notin\mathbb N.$$ Por tanto, falla el cierre bajo diferencias de [[Teorico 9#^d09a31|subanillo]]. El argumento vale tanto si se incluye al $0$ en $\mathbb N$ como si no.
+>>	2. Tampoco es un ideal de $\mathbb Z$, porque no es un subgrupo aditivo, condición necesaria en [[Teorico 10#^a7d291|ideales]].
+>>- **(c)**
+>>	1. El producto sí es cerrado: si $A,B\in\operatorname{GL}_n(\mathbb C)$, entonces $\det(A)\neq0$ y $\det(B)\neq0$. Por la multiplicatividad del determinante, $$\det(AB)=\det(A)\det(B)\neq0,$$ porque $\mathbb C$ no tiene divisores de cero. Por tanto, $AB$ es invertible y pertenece a $\operatorname{GL}_n(\mathbb C)$.
+>>	2. Sin embargo, la suma no es cerrada. Las matrices $I_n$ y $-I_n$ son invertibles, pues $$I_nI_n=I_n,\qquad(-I_n)(-I_n)=I_n,$$ pero $$I_n+(-I_n)=0.$$ La matriz cero no es invertible: para cualquier matriz $B$, $0B=B0=0\neq I_n$.
+>>	3. En particular, $0\notin\operatorname{GL}_n(\mathbb C)$, y también falla el cierre bajo diferencias, pues $I_n-I_n=0$. Por [[Teorico 9#^d09a31|subanillo]], $\operatorname{GL}_n(\mathbb C)$ no es un subanillo de $M_n(\mathbb C)$. Tampoco es un ideal, ya que no es un subgrupo aditivo, condición necesaria en [[Teorico 10#^a7d291|ideales]].
+>>- **(d)**
+>>	1. El conjunto $2M_n(\mathbb Z)=\{2A:A\in M_n(\mathbb Z)\}$ consiste exactamente en las matrices cuyas entradas son todas pares. Contiene a la matriz cero, pues $0=2\cdot0$.
+>>	2. Es cerrado bajo diferencias: para $A,B\in M_n(\mathbb Z)$, $$2A-2B=2(A-B)\in2M_n(\mathbb Z).$$
+>>	3. También es cerrado bajo productos. Entrada por entrada, $$((2A)(2B))_{ij}=\sum_{k=1}^n(2a_{ik})(2b_{kj})=4\sum_{k=1}^na_{ik}b_{kj}=4(AB)_{ij}.$$ Por tanto, $$(2A)(2B)=4AB=2(2AB)\in2M_n(\mathbb Z),$$ porque $2AB\in M_n(\mathbb Z)$. Por [[Teorico 9#^d09a31|subanillo]], $2M_n(\mathbb Z)$ es un subanillo de $M_n(\mathbb Z)$ con la convención que no exige contener la unidad.
+>>	4. No es un subanillo con la misma unidad, pues $I_n\notin2M_n(\mathbb Z)$: sus entradas diagonales son $1$, que no es par.
+>>	5. Además, es un ideal bilátero. Sean $C,A\in M_n(\mathbb Z)$. Para cada entrada, $$\begin{aligned}(C(2A))_{ij}&=\sum_{k=1}^nc_{ik}(2a_{kj})=2(CA)_{ij},\\((2A)C)_{ij}&=\sum_{k=1}^n(2a_{ik})c_{kj}=2(AC)_{ij}.\end{aligned}$$ Así, $$C(2A)=2(CA)\in2M_n(\mathbb Z),\qquad(2A)C=2(AC)\in2M_n(\mathbb Z).$$ Junto con el cierre aditivo probado en los pasos 1 y 2, esto verifica [[Teorico 10#^a7d291|ideales]] por ambos lados, sin suponer que las matrices conmuten.
+>>- **(e)**
+>>	1. El conjunto $\mathbb Z[i]=\{a+bi:a,b\in\mathbb Z\}$ consiste en los complejos cuyas partes real e imaginaria son enteras. Contiene a $0=0+0i$.
+>>	2. Para $a,b,c,d\in\mathbb Z$, es cerrado bajo diferencias: $$(a+bi)-(c+di)=(a-c)+(b-d)i\in\mathbb Z[i].$$
+>>	3. También es cerrado bajo productos: usando $i^2=-1$, $$\begin{aligned}(a+bi)(c+di)&=ac+adi+bci+bdi^2\\&=(ac-bd)+(ad+bc)i\in\mathbb Z[i],\end{aligned}$$ porque $ac-bd$ y $ad+bc$ son enteros. 
+>>	4. Entonces por [[Teorico 9#^d09a31|subanillo]], $\mathbb Z[i]$ es un subanillo de $\mathbb C$. 
+>>	5. Además, $1=1+0i\in\mathbb Z[i]$, de modo que contiene la misma unidad.
+>>	6. **No es un ideal de $\mathbb C$.** Para serlo, debe absorber productos por cualquier elemento de $\mathbb C$, no solamente por elementos de $\mathbb Z[i]$. Tomamos $s=1\in\mathbb Z[i]$ y $r=0{,}5\in\mathbb C$. Entonces $$rs=sr=0{,}5\notin\mathbb Z[i],$$ porque su parte real no es entera. Por [[Teorico 10#^a7d291|ideales]], falla la absorción por ambos lados: no es ideal a izquierda, a derecha ni bilátero.
+>>- **(f)**
+>>	1. $S$ consiste en los polinomios de $\mathbb Z[x]$ que tienen a $0$ como raíz. El polinomio cero pertenece a $S$.
+>>	2. Sean $p,q\in S$ no nulos. Escribimos $p(x)=x^j r(x)$ y $q(x)=x^k s(x)$, con $j,k\geq1$ y $r,s\in\mathbb Z[x]$. Su diferencia es explícitamente $$p(x)-q(x)=x^j r(x)-x^k s(x).$$ Al evaluar en $0$, ambos sumandos se anulan: $$(p-q)(0)=0^j r(0)-0^k s(0)=0-0=0.$$ Por tanto, $p-q\in S$. Si $p=0$, la diferencia es $-q$, que también se anula en $0$; si $q=0$, la diferencia es $p\in S$. Esto incluye el caso en que ambos son cero.
+>>	3. Si $p,q\in S$ son no nulos, podemos escribir $p(x)=x^m u(x)$ y $q(x)=x^n v(x)$, con $m,n\geq1$ y $u,v\in\mathbb Z[x]$. Entonces $$p(x)q(x)=x^{m+n}u(x)v(x),$$ que también tiene a $0$ como raíz. Si alguno de los factores es el polinomio cero, el producto es cero y también pertenece a $S$. Por [[Teorico 9#^d09a31|subanillo]], $S$ es un subanillo de $\mathbb Z[x]$ con la convención que no exige contener la unidad. No contiene a $1$, pues $1(0)=1\neq0$.
+>>	4. Además, es un ideal bilátero. Si $h\in\mathbb Z[x]$ es cualquiera y $q\in S$ es no nulo, escribimos $q(x)=x^n v(x)$ con $n\geq1$. Entonces $$h(x)q(x)=x^n\bigl(h(x)v(x)\bigr),$$ que sigue teniendo a $0$ como raíz, de modo que $hq\in S$. Si $q=0$, también $hq=0\in S$. Como el producto en $\mathbb Z[x]$ es conmutativo, $qh=hq\in S$. Junto con los pasos 1 y 2, esto verifica [[Teorico 10#^a7d291|ideales]] por ambos lados.
 
 >[!exercise] Ejercicio 4
 >Un anillo de Boole es un anillo $R$ tal que $a^2=a$ para todo $a\in R$. Probar que todo anillo de Boole es conmutativo y $a+a=0$ para todo $a\in R$. Identificar algún anillo de Boole entre los anillos del primer ejercicio.
+>
+>>[!Proof]-
+>>- **Suma de un elemento consigo mismo.**
+>>	1. Para $a\in R$, por la condición de Boole y distributividad, $$a+a=(a+a)^2=a^2+a^2+a^2+a^2=a+a+a+a.$$ Cancelando $a+a$, resulta $a+a=0$.
+>>- **Conmutatividad.**
+>>	1. Para $a,b\in R$, $$a+b=(a+b)^2=a^2+ab+ba+b^2=a+ab+ba+b.$$ Cancelando $a+b$ en el grupo aditivo abeliano, resulta $ab+ba=0$.
+>>	2. Por la primera parte, $ba+ba=0$. Luego $$ab=ab+(ba+ba)=(ab+ba)+ba=ba.$$ Por tanto, $R$ es conmutativo.
+>>- **Ejemplos del ejercicio 1.**
+>>	1. **(a)** Si $G\neq\{0\}$, elegimos $g\neq0$: entonces $g^2=0\neq g$, por lo que no es de Boole. Si $G=\{0\}$, sí lo es, pues $0^2=0$.
+>>	2. **(b)** Sí es de Boole: para todo $B\subseteq X$, $B\cap B=B$.
+>>	3. **(c)** Los casos no conmutativos de $M_n(A)$ no son de Boole, por la conmutatividad demostrada arriba.
+>>	4. **Casos particulares de (c).** Para $n=1$, si $A$ es de Boole, $M_1(A)$ también lo es: $(a)^2=(a^2)=(a)$ para todo $a\in A$.
 
->[!exercise] Ejercicio 5
+>[!Exercise] Ejercicio 5
 >En cada caso, decir si $f$ es homomorfismo de anillos o no.
 >- **(a)** $f:\mathbb{Z}[x]\to\mathbb{Z}$, $f(p)=p(1)$.
 >- **(b)** $f:\mathbb{C}\to\mathbb{C}$, $f(z)=\overline{z}$.
 >- **(c)** $f:M_n(\mathbb{R})\to\mathbb{R}$, $f(A)=\det(A)$.
 >- **(d)** $f:\mathbb{Z}_p\to\mathbb{Z}_p$, $f(a)=a^p$ ($p$ primo).
+>
+>>[!Proof]-
+>>- **(a)**
+>>	1. **Suma.** Para cualesquiera $p,q\in\mathbb Z[x]$, por la definición de suma de polinomios, $$f(p+q)=(p+q)(1)=p(1)+q(1)=f(p)+f(q).$$ Además, $f(0)=0$, por lo que $f$ es un homomorfismo de los grupos aditivos.
+>>	2. **Producto.** Por la definición de producto de polinomios, $$f(pq)=(pq)(1)=p(1)q(1)=f(p)f(q).$$
+>>	3. **Unidad.** El polinomio constante $1$ satisface $f(1)=1(1)=1$. Por tanto, $f$ es un homomorfismo de anillos.
+>>- **(b)**
+>>	1. **Suma.** Sean $z=x+iy$ y $w=u+iv$, con $x,y,u,v\in\mathbb R$. Entonces $$f(z+w)=\overline{(x+u)+i(y+v)}=(x+u)-i(y+v)=(x-iy)+(u-iv)=f(z)+f(w).$$ Además, $f(0)=\overline{0}=0$, por lo que $f$ es un homomorfismo de los grupos aditivos.
+>>	2. **Producto.** Por un lado, $$f(zw)=\overline{(xu-yv)+i(xv+yu)}=(xu-yv)-i(xv+yu).$$ Por otro lado, $$f(z)f(w)=(x-iy)(u-iv)=(xu-yv)-i(xv+yu).$$ Por tanto, $f(zw)=f(z)f(w)$.
+>>	3. **Unidad.** Se tiene $f(1)=\overline{1}=1$. Por tanto, $f$ es un homomorfismo de anillos.
+>>- **(c)**
+>>	1. **Si $n\geq2$.** Tomamos $A=B=I_n$. Como $2I_n$ es diagonal, su determinante es el producto de sus entradas diagonales: $$f(A+B)=\det(2I_n)=2^n,\qquad f(A)+f(B)=\det(I_n)+\det(I_n)=1+1=2.$$ Puesto que $n\geq2$, se tiene $2^n\geq4>2$. Por tanto, $f$ no preserva la suma y no es un homomorfismo de anillos.
+>>	2. **Si $n=1$.** Toda matriz es de la forma $(a)$, con $a\in\mathbb R$, y $f((a))=a$. Así, $$f((a)+(b))=f((a+b))=a+b=f((a))+f((b))$$ y $$f((a)(b))=f((ab))=ab=f((a))f((b)).$$ Además, $f((1))=1$ y $f((0))=0$. Por tanto, en este caso $f$ sí es un homomorfismo de anillos.
+>>- **(d)**
+>>	1. **Suma.** Por el pequeño teorema de Fermat, $a^p=a$ en $\mathbb Z_p$ para todo $a\in\mathbb Z_p$, incluido $a=0$. Por tanto, para cualesquiera $a,b\in\mathbb Z_p$, $$f(a+b)=(a+b)^p=a+b=a^p+b^p=f(a)+f(b).$$ Además, $f(0)=0^p=0$, por lo que $f$ es un homomorfismo de los grupos aditivos.
+>>	2. **Producto.** Como la multiplicación en $\mathbb Z_p$ es conmutativa, los factores de $(ab)^p$ pueden reagruparse, y obtenemos $$f(ab)=(ab)^p=a^pb^p=f(a)f(b).$$
+>>	3. **Unidad.** Se tiene $f(1)=1^p=1$. Por tanto, $f$ es un homomorfismo de anillos; de hecho, por el paso 1, es la identidad de $\mathbb Z_p$.
 
->[!exercise] Ejercicio 6
+>[!Exercise] Ejercicio 6
 >- **(a)** Si $R$ es un anillo finito con más de un elemento y sin divisores de cero, entonces $R$ es un anillo de división.¹
 >- **(b)** Si $R$ es un dominio íntegro finito, entonces $R$ es un cuerpo.
+>
+>>[!Proof]-
+>>- **(a)** Demostración suponiendo, como acordamos, que $R$ tiene identidad multiplicativa $1$. Esta prueba no demuestra la existencia de identidad si se adopta la convención de anillo sin unidad.
+>>	1. **Construcción.** Como $R$ tiene más de un elemento, existe un elemento no nulo. Fijamos un $a\in R\setminus\{0\}$ arbitrario y definimos $$f\colon R\longrightarrow R,\qquad f(x)=ax.$$ La función está bien definida porque el producto de dos elementos de $R$ pertenece a $R$.
+>>	2. **Primero, homomorfismo aditivo.** Para cualesquiera $u,v\in R$, por distributividad, $$f(u+v)=a(u+v)=au+av=f(u)+f(v).$$ Además, $f(0)=0$ y $f(-v)=-f(v)$, pues $f(v)+f(-v)=f(v-v)=f(0)=0$. En particular, $$f(u-v)=f(u)-f(v).$$ Así, $f$ es un homomorfismo de grupos aditivos; no afirmamos que sea un morfismo de anillos.
+>>	3. **Después, inyectividad: aquí usamos que no hay divisores de cero.** Sean $u,v\in R$ tales que $f(u)=f(v)$. Por la definición de $f$ y porque ya probamos que es un homomorfismo aditivo, $$a(u-v)=f(u-v)=f(u)-f(v)=0.$$ Como $R$ no tiene divisores de cero, de $a(u-v)=0$ se sigue que $a=0$ o $u-v=0$. Pero fijamos $a\neq0$, por lo que $u-v=0$ y, por tanto, $u=v$. Así, $f$ es inyectiva.
+>>	4. **Sobreyectividad por finitud.** Si $R$ tiene $n$ elementos, la inyectividad implica que sus $n$ imágenes son distintas. Como todas pertenecen a $R$, la imagen tiene $n$ elementos y coincide con $R$. Por tanto, $f$ es sobreyectiva, y es un epimorfismo de grupos aditivos.
+>>	5. **Inversa a derecha.** Aplicando la sobreyectividad a $1\in R$, existe $x\in R$ tal que $$f(x)=1,\qquad ax=1.$$
+>>	6. **Inversa bilateral, sin usar conmutatividad.** Por asociatividad, la igualdad anterior y las propiedades de la identidad, $$f(xa)=a(xa)=(ax)a=1a=a=a1=f(1).$$ Como $f$ es inyectiva, $xa=1$. Así, $ax=xa=1$.
+>>	7. **Conclusión.** Como $a\neq0$ era arbitrario, todo elemento no nulo de $R$ tiene inversa bilateral. Además, $1\neq0$: si $1=0$, para todo $r\in R$ tendríamos $r=1r=0r=0$, contradiciendo que $R$ tiene más de un elemento. Por tanto, $R$ es un anillo de división.
+>>- **(b)**
+>>	1. Como $R$ es un dominio íntegro finito, tiene identidad $1\neq0$ y no tiene divisores de cero. Por **(a)**, $R$ es un anillo de división.
+>>	2. Además, por ser un dominio íntegro, $R$ es conmutativo. Por tanto, $R$ es un cuerpo.
 
 >[!exercise] Ejercicio 7
 >Sea $R$ un anillo con más de un elemento y supongamos que para todo $a\in R$, con $a\neq 0$, existe un único $b\in R$ tal que $aba=a$. Probar que:

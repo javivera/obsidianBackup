@@ -95,6 +95,8 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >2. $I$ es un **ideal a izquierda** si para todo $x\in R$ y todo $r\in I$ se tiene $xr\in I$ (es decir, $RI\subseteq I$).
 >3. $I$ es un **ideal bilátero** (o simplemente un **ideal** de $R$) si es simultáneamente ideal a izquierda y a derecha; es decir, $RI\subseteq I$ e $IR\subseteq I$.
 
+^a7d291
+
 >[!proposition] Buena definición del producto en el cociente
 >Sea $R$ un anillo y sea $I\subseteq R$ un subgrupo aditivo. En el grupo cociente $(R/I,+)$, cuyas clases denotamos $[r]=r+I$, se quiere definir la multiplicación por $$[r][s] = [rs],\qquad\text{con}\quad [1]=1_{R/I}.$$
 >Esta multiplicación está bien definida si y sólo si $I$ es un **ideal bilátero**.

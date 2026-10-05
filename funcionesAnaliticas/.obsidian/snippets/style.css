@@ -370,9 +370,11 @@ body:not(.is-mobile) .status-bar {
     display: none !important;
 }
 
-/* Let link previews shrink to their actual content instead of keeping an
-   empty fixed-height area below short notes or block references. */
+/* Let link previews use their natural content width, while never exceeding
+   the desktop window's available width. */
 body:not(.is-mobile) .popover.hover-popover {
+    width: max-content !important;
+    max-width: calc(100vw - 32px) !important;
     height: fit-content !important;
     min-height: 0 !important;
     max-height: min(400px, calc(100vh - 32px)) !important;

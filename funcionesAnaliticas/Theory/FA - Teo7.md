@@ -8,7 +8,8 @@
 ^a7e91c
 
 >[!Theorem] Fórmula integral de Cauchy (v1.5)
->Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$. Si $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad(w\in\mathbb C\setminus G),$$ entonces, para $a\in G\setminus\bigcup_{j=1}^{N}\{\gamma_j\}$, $$f(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{1}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{z-a}\,dz.$$
+>Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$, con $N\ge1$. Si $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad(w\in\mathbb C\setminus G),$$ entonces, para $a\in G\setminus\bigcup_{j=1}^{N}\{\gamma_j\}$, $$f(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{1}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{z-a}\,dz.$$
+>
 >>[!Proof]- Esquema de la demostración de clase
 >>1. Se repite la construcción de la prueba de [[FA - Teo7#^a7e91c|FIC v1]], reemplazando cada integral sobre $\gamma$ por la suma de las integrales sobre $\gamma_j$ y poniendo $H=\{w\in\mathbb C\setminus\bigcup_j\{\gamma_j\}:\sum_j n(\gamma_j,w)=0\}$. La hipótesis da $\mathbb C\setminus G\subseteq H$.
 >>2. Para $z\in G$ se usa $\varphi(z,w)=(f(z)-f(w))/(z-w)$, prolongada por $f'(z)$ cuando $z=w$. En $G\cap H$ las dos expresiones $$\sum_j\int_{\gamma_j}\varphi(z,w)\,dw\quad\text{y}\quad\sum_j\int_{\gamma_j}\frac{f(w)}{w-z}\,dw$$ coinciden porque el término adicional es $f(z)\sum_j n(\gamma_j,z)=0$ (con el factor $2\pi i$ correspondiente).
@@ -17,14 +18,16 @@
 ^b4d2a0
 
 >[!Theorem] Teorema de Cauchy (v1, varias curvas)
->Con las hipótesis de [[FA - Teo7#^b4d2a0|FIC v1.5]], $$\sum_{j=1}^{N}\int_{\gamma_j}f(z)\,dz=0.$$
+>Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$, con $N\ge1$. Supongamos que $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad\text{para todo }w\in\mathbb C\setminus G.$$ Entonces $$\sum_{j=1}^{N}\int_{\gamma_j}f(z)\,dz=0.$$
+>
 >>[!Proof]-
 >>1. Fijamos $a\in G\setminus\bigcup_j\{\gamma_j\}$ y aplicamos [[FA - Teo7#^b4d2a0|FIC v1.5]] a la función analítica $z\mapsto(z-a)f(z)$; en cada integrando el factor $z-a$ cancela el denominador, y el lado izquierdo vale $0$ al evaluar esa función en $a$.
 
 ^c9f031
 
 >[!Theorem] Fórmula de Cauchy para las derivadas
->Bajo las hipótesis de [[FA - Teo7#^b4d2a0|FIC v1.5]], para cada entero $k\geq1$ y cada $a\in G\setminus\bigcup_j\{\gamma_j\}$ se tiene $$f^{(k)}(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{k!}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{(z-a)^{k+1}}\,dz.$$
+>Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$, con $N\ge1$. Supongamos que $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad\text{para todo }w\in\mathbb C\setminus G.$$ Entonces, para cada entero $k\geq1$ y cada $a\in G\setminus\bigcup_{j=1}^{N}\{\gamma_j\}$, se tiene $$f^{(k)}(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{k!}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{(z-a)^{k+1}}\,dz.$$
+>
 >>[!Proof]- El caso $k=1$
 >>1. Para cada $j$ definimos $F_j(z)=\int_{\gamma_j}f(w)/(w-z)\,dw$ fuera de la curva. Si $a$ no está en $\{\gamma_j\}$, entonces $\frac{F_j(z)-F_j(a)}{z-a}=\int_{\gamma_j}\frac{f(w)}{(w-z)(w-a)}\,dw$; como la curva está a distancia positiva de $a$, el integrando converge uniformemente sobre ella al tender $z$ a $a$. Por [[FA - Teo4#^5d2a91|paso al límite bajo la integral]], $F_j'(a)=\int_{\gamma_j}f(w)/(w-a)^2\,dw$.
 >>2. Por [[FA - Teo7#^b4d2a0|FIC v1.5]], $f(z)\sum_jn(\gamma_j,z)=(2\pi i)^{-1}\sum_jF_j(z)$. Cerca de $a$ cada índice $n(\gamma_j,z)$ es constante: $a$ y $z$ pertenecen a la misma componente conexa del complemento de $\{\gamma_j\}$.
