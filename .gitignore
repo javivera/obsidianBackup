@@ -1,3 +1,6 @@
+# Personal vault excluded from backups
+/General/
+
 # Copilot-related folders
 copilot-conversations/
 copilot-custom-prompts/
