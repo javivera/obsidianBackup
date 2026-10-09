@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Examenes/FA - Primer parcial 2026.md",
-                "mode": "source",
+                "file": "Theory/FA - Teo8.md",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "FA - Primer parcial 2026"
+              "title": "FA - Teo8"
             }
           },
           {
@@ -82,8 +82,7 @@
               "title": "FA-Pr4-II"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,7 +194,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Examenes/FA - Primer parcial 2026.md",
+            "file": "Theory/FA - Teo7.md",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -246,15 +245,19 @@
       "pdf-color-inverter:Invertir colores de los PDF": false
     }
   },
-  "active": "1a54ebd48fa399bd",
+  "active": "c050a74beb6d4d61",
   "lastOpenFiles": [
+    "Theory/FA - Teo4.md",
+    "Theory/FA - Teo7.md",
+    "Theory/FA - Teo8.md",
+    "Theory/FA - Teo10.md",
+    "Apuntes/FA - Clase 2026-10-08.pdf",
+    "Theory/FA - Teo9.md",
+    "Examenes/FA - Primer parcial 2026.md",
     "Practicos/FA-Pr4-II.md",
     "Theory/FA - Teo2.md",
     "Theory/FA - Teo3.md",
-    "Theory/FA - Teo4.md",
-    "Examenes/FA - Primer parcial 2026.md",
     "Theory/FA - Teo5.md",
-    "Theory/FA - Teo7.md",
     "Theory/FA - Teo6.md",
     "Practicos/FA-Pr5.md",
     "Practicos/FA-Pr4.md",
@@ -278,7 +281,6 @@
     "Misc/Pasted image 20260831121707.png",
     "Misc",
     "Pasted image 20260907172840.png",
-    "Practicos/practico3-2025-2026 Transformación de Möbius.pdf",
     "Theory/Teórico 4.md",
     "Theory/Teórico 5.md",
     "Theory/Teorico 4.md",
@@ -286,9 +288,6 @@
     "Theory/Teorico 2.md",
     "Practicos/EA - Pr1.md",
     "GS - Resultados utiles del practico.md",
-    "Teoricos/Teoremas Corazon.md",
-    "Examenes/GS - Ejercicios sueltos.md",
-    "Examenes/GS - 1er Final.md",
     "Pasted image 20260625161051.png",
     "Pasted image 20260603235453.png",
     "Pasted image 20260518154921.png",

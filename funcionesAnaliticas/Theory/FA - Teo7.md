@@ -29,9 +29,9 @@
 >Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$, con $N\ge1$. Supongamos que $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad\text{para todo }w\in\mathbb C\setminus G.$$ Entonces, para cada entero $k\geq1$ y cada $a\in G\setminus\bigcup_{j=1}^{N}\{\gamma_j\}$, se tiene $$f^{(k)}(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{k!}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{(z-a)^{k+1}}\,dz.$$
 >
 >>[!Proof]- El caso $k=1$
->>1. Para cada $j$ definimos $F_j(z)=\int_{\gamma_j}f(w)/(w-z)\,dw$ fuera de la curva. Si $a$ no está en $\{\gamma_j\}$, entonces $\frac{F_j(z)-F_j(a)}{z-a}=\int_{\gamma_j}\frac{f(w)}{(w-z)(w-a)}\,dw$; como la curva está a distancia positiva de $a$, el integrando converge uniformemente sobre ella al tender $z$ a $a$. Por [[FA - Teo4#^5d2a91|paso al límite bajo la integral]], $F_j'(a)=\int_{\gamma_j}f(w)/(w-a)^2\,dw$.
->>2. Por [[FA - Teo7#^b4d2a0|FIC v1.5]], $f(z)\sum_jn(\gamma_j,z)=(2\pi i)^{-1}\sum_jF_j(z)$. Cerca de $a$ cada índice $n(\gamma_j,z)$ es constante: $a$ y $z$ pertenecen a la misma componente conexa del complemento de $\{\gamma_j\}$.
->>3. Derivando en $a$ obtenemos $$f'(a)\sum_jn(\gamma_j,a)=\frac{1}{2\pi i}\sum_jF_j'(a)=\frac{1}{2\pi i}\sum_j\int_{\gamma_j}\frac{f(w)}{(w-a)^2}\,dw.$$
+>>1. Para cada $j$ definimos $F_j(z)=\int_{\gamma_j}f(w)/(w-z)\,dw$ fuera de la curva. Si $a$ no está en $\{\gamma_j\}$, entonces $$\frac{F_j(z)-F_j(a)}{z-a}=\int_{\gamma_j}\frac{f(w)}{(w-z)(w-a)}\,dw$$; como la curva está a distancia positiva de $a$, el integrando converge uniformemente sobre ella al tender $z$ a $a$. Por [[FA - Teo4#^5d2a91|paso al límite bajo la integral]], $$F_j'(a)=\int_{\gamma_j}f(w)/(w-a)^2\,dw$$
+>>2. Ademas por [[FA - Teo7#^b4d2a0|FIC v1.5]], $$f(z)\sum_jn(\gamma_j,z)=(2\pi i)^{-1}\sum_jF_j(z)$$
+>>3. Cerca de $a$, los puntos $a$ y $z$ pertenecen a la misma componente conexa del complemento de $\{\gamma_j\}$; por [[FA - Teo6#^c6a183|constancia del índice en cada componente]] , entonces, derivando en $a$, obtenemos $$f'(a)\sum_jn(\gamma_j,a)=\frac{1}{2\pi i}\sum_jF_j'(a)=\frac{1}{2\pi i}\sum_j\int_{\gamma_j}\frac{f(w)}{(w-a)^2}\,dw.$$
 >>4. Para $k>1$, iterar el mismo argumento y la identidad $\frac{d}{dz}\int_{\gamma_j}f(w)(w-z)^{-m}\,dw=m\int_{\gamma_j}f(w)(w-z)^{-m-1}\,dw$; la clase deja la inducción como ejercicio.
 
 ^d2e7aa
@@ -44,7 +44,7 @@
 >>1. Fijamos $a\in G$ y $R>0$ tales que $B(a,R)\subseteq G$. Como el disco es convexo, para $z\in B(a,R)$ está definido $$F(z)=\int_{[a,z]}f(w)\,dw,$$ donde $[a,z]$ denota el segmento orientado de $a$ a $z$.
 >>2. Sean $z_0,z\in B(a,R)$. El triángulo formado por $[a,z]$, $[z,z_0]$ y $[z_0,a]$ está en $B(a,R)$; por hipótesis, $$0=\int_{[a,z]}f+\int_{[z,z_0]}f+\int_{[z_0,a]}f=F(z)-\int_{[z_0,z]}f-F(z_0).$$ Por tanto, $F(z)-F(z_0)=\int_{[z_0,z]}f(w)\,dw$.
 >>3. Parametrizamos $w(t)=z_0+t(z-z_0)$, $0\leq t\leq1$. La igualdad anterior da $$\frac{F(z)-F(z_0)}{z-z_0}-f(z_0)=\int_0^1\bigl(f(z_0+t(z-z_0))-f(z_0)\bigr)\,dt.$$
->>4. Dado $\varepsilon>0$, por continuidad de $f$ en $z_0$ existe $\delta>0$ tal que $|w-z_0|<\delta$ implica $|f(w)-f(z_0)|<\varepsilon$. Si $|z-z_0|<\delta$, entonces $|z_0+t(z-z_0)-z_0|\leq|z-z_0|<\delta$ para todo $t\in[0,1]$, y el módulo de la integral de (3) es menor que $\varepsilon$.
+>>4. Dado $\varepsilon>0$, por continuidad de $f$ en $z_0$ existe $\delta>0$ tal que $|w-z_0|<\delta$ implica $|f(w)-f(z_0)|<\varepsilon$. Si $|z-z_0|<\delta$, entonces $$|w-z_0|=|z_0+t(z-z_0)-z_0|\leq|z-z_0|<\delta$$ para todo $t\in[0,1]$, y el módulo de la integral de 3. es menor que $\varepsilon$.
 >>5. Luego $F'(z_0)=f(z_0)$. Así $f$ tiene una primitiva analítica en cada disco $B(a,R)$; aplicando la existencia de derivadas sucesivas de funciones analíticas que expresa [[FA - Teo7#^d2e7aa|fórmula para las derivadas]], $f=F'$ es analítica cerca de cada $a\in G$ y, por tanto, en $G$.
 
 ^e4b901

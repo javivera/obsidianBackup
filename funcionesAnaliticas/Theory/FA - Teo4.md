@@ -127,6 +127,8 @@
 >>[!Proof]-
 >>35. Ejercicio.
 
+^e4b092
+
 >[!Theorem] Regla de Barrow para integrales de línea
 >Sea $G$ abierto en $\mathbb{C}$ y $\gamma:[a,b]\to\mathbb{C}$ una curva rectificable en $G$ con $\gamma(a)=\alpha$ y $\gamma(b)=\beta$. Si $f$ es continua en $G$ con primitiva $F$ (o sea $F'=f$), entonces $$\int_\gamma f(z)\,dz=F(\beta)-F(\alpha).$$
 >>[!Proof]-
@@ -154,6 +156,8 @@
 >$$\int_0^{2\pi}\frac{e^{is}}{e^{is}-z}\,ds=2\pi\qquad\forall|z|<1.$$
 >>[!Proof]-
 >>[[FA-Pr4#^db3f2d]]
+
+^c7e20a
 
 >[!Theorem] Teorema de la integral de Cauchy (primera versión, local)
 >Sea $f:G\to\mathbb{C}$ analítica con $G$ abierto y supongamos que existe $r$ tal que $\overline{B(a,r)}\subseteq G$; sea $\gamma(t)=a+re^{it}$ con $t\in[0,2\pi]$. Entonces $$f(z)=\frac{1}{2\pi i}\int_\gamma\frac{f(w)}{w-z}\,dw$$ para todo $z$ tal que $|z-a|<r$.

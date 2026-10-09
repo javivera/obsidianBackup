@@ -13,7 +13,7 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 
 ## 1. Ideales maximales y anillos de división
 
->[!definition] Ideal maximal a izquierda
+>[!definition] Ideal maximal
 >Un ideal a izquierda $M$ de un anillo $R$ es **maximal a izquierda** si $M\neq R$ y no existe un ideal a izquierda $I$ tal que $M\subsetneq I\subsetneq R$. Análogamente se define maximal a derecha. En un anillo conmutativo ambas nociones coinciden y hablamos de **ideal maximal**.
 
 ^e11001
@@ -23,8 +23,8 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >
 >>[!Proof]-
 >>- **($\Rightarrow$)**
->>	1. Sea $I$ un ideal a izquierda no nulo. Existe $x\in I$ con $x\neq0$; como $R$ es un anillo de división, $x$ tiene inversa y $1=x^{-1}x\in I$.
->>	2. Para todo $r\in R$, $r=r1\in I$. Luego $I=R$.
+>>	1. Sea $I$ un ideal a izquierda, si $I=\{ 0 \}$ entonces ya es valido, si no existe $x\in I$ con $x\neq0$; como $R$ es un anillo de división, $x$ tiene inversa y $1=x^{-1}x\in I$.
+>>	2. Como $1\in I$ suede que para todo $r\in R$, $r=r1\in I$. Luego $I=R$.
 >>- **($\Leftarrow$)**
 >>	1. Sea $r\neq0$. El conjunto $Rr=\{ar:a\in R\}$ es un ideal a izquierda: $(ar)-(br)=(a-b)r$ y $c(ar)=(ca)r$. Contiene a $r=1r$, por lo que es no nulo y necesariamente $Rr=R$.
 >>	2. Así, existe $s\in R$ con $sr=1$. Falta justificar que $rs=1$: una inversa por un solo lado no basta en un anillo arbitrario.
@@ -102,9 +102,18 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >[!remark] La duda de la hoja
 >En las fotos se intenta justificar la inclusión $L_V\subseteq I$ tomando el subespacio generado por las filas de las matrices de $I$. Los pasos 3 a 6 completan ese argumento. No alcanza con observar que cada matriz de $I$ anula a $V$: eso prueba solamente $I\subseteq L_V$.
 
-## 3. Ideales maximales y primos en anillos conmutativos
+## 3. Ideales primos y maximalidad
 
->[!definition] Ideal primo
+>[!definition] Ideal primo en un anillo no necesariamente conmutativo
+>Sea $R$ un anillo, sin suponer conmutatividad. Un subconjunto $P\subseteq R$ es un **ideal primo** si satisface las siguientes condiciones:
+>1. $P$ es un [[Teorico 10#^a7d291|ideal bilátero]] de $R$.
+>2. $P$ es propio: $P\neq R$.
+>3. Para cualesquiera ideales biláteros $I,J$ de $R$, $$IJ\subseteq P\quad\Longrightarrow\quad I\subseteq P\ \text{o}\ J\subseteq P.$$
+>El producto de ideales se define mediante sumas finitas: $$IJ=\left\{\sum_{k=1}^{m}x_k y_k:m\geq0,\ x_k\in I,\ y_k\in J\right\},$$ donde la suma vacía representa el cero. La condición de primalidad se añade a la de ser un ideal bilátero propio; no la reemplaza.
+
+^46a9c2
+
+>[!definition] Ideal primo en un anillo conmutativo
 >Sea $R$ un anillo conmutativo. Un ideal $P\subsetneq R$ es **primo** si, para cualesquiera $a,b\in R$, $ab\in P$ implica $a\in P$ o $b\in P$.
 
 ^e11007
