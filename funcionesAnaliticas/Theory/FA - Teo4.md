@@ -6,6 +6,8 @@
 >[!Definition] Curva de variación acotada
 >$\gamma:[a,b]\to\mathbb{C}$ curva es de **variación acotada** si $\exists M>0$ tal que $\forall P=\{a=t_0<\dots<t_m=b\}$ partición de $[a,b]$ se cumple que $$\operatorname{Var}(P,\gamma):=\sum_{i=1}^{m}|\gamma(t_i)-\gamma(t_{i-1})|\leq M.$$ Si $\gamma$ es de variación acotada, definimos $$\operatorname{Var}(\gamma)=\sup_{P\text{ part.}}\operatorname{Var}(P,\gamma).$$
 
+^a91c04
+
 >[!Exercise] Variación acotada de una suma y de una función creciente
 >- **(a)** Si $\gamma=\gamma_1+\gamma_2$, entonces $\gamma$ es de variación acotada si $\gamma_i$ lo es.
 >- **(b)** Si $\gamma:[a,b]\to\mathbb{R}$ es creciente y de variación acotada, entonces $$\operatorname{Var}(\gamma)=\gamma(b)-\gamma(a).$$
@@ -44,6 +46,8 @@
 >>20. **Caso 1: $Q=P\cup\{t^*\}$ con $t^*\in(t_{p-1},t_p)$.** Entonces $$z(P)=\sum_{k\neq p}f(\tau_k)(\gamma(t_k)-\gamma(t_{k-1}))+f(\tau_p)(\gamma(t_p)-\gamma(t_{p-1})),$$ y $$z(Q)=\sum_{k\neq p}f(\sigma_k)(\gamma(t_k)-\gamma(t_{k-1}))+f(\sigma')(\gamma(t^*)-\gamma(t_{p-1}))+f(\sigma'')(\gamma(t_p)-\gamma(t^*)).$$ Restando, $$\begin{aligned}z(Q)-z(P)&=f(\sigma')(\gamma(t^*)-\gamma(t_{p-1}))+f(\sigma'')(\gamma(t_p)-\gamma(t^*))-f(\tau_p)(\gamma(t_p)-\gamma(t_{p-1}))\\&\quad+\sum_{k\neq p}[f(\sigma_k)-f(\tau_k)](\gamma(t_k)-\gamma(t_{k-1}))+f(\tau_p)\gamma(t^*)-f(\tau_p)\gamma(t^*)\\&=(f(\tau_p)-f(\sigma''))\gamma(t^*)+(f(\tau_p)-f(\sigma'))\gamma(t_{p-1})+(f(\sigma'')-f(\tau_p))\gamma(t_p)+(f(\sigma')-f(\tau_p))\gamma(t^*)+\sum_{k\neq p}[f(\sigma_k)-f(\tau_k)](\gamma(t_k)-\gamma(t_{k-1})).\end{aligned}$$ Luego $$\begin{aligned}|z(Q)-z(P)|&\leq|f(\tau_p)-f(\sigma'')|\,|\gamma(t^*)-\gamma(t_p)|+|f(\sigma')-f(\tau_p)|\,|\gamma(t^*)-\gamma(t_{p-1})|\\&\quad+\sum_{k\neq p}|f(\sigma_k)-f(\tau_k)|\,|\gamma(t_k)-\gamma(t_{k-1})|.\end{aligned}$$ Como $P,Q\in P_m$, todos los puntos involucrados distan menos de $\delta_m$, de modo que cada factor $|f(\cdot)-f(\cdot)|$ es $<1/m$; por lo tanto $$|z(Q)-z(P)|\leq\frac{1}{m}\left(|\gamma(t^*)-\gamma(t_p)|+|\gamma(t^*)-\gamma(t_{p-1})|+\sum_{k\neq p}|\gamma(t_k)-\gamma(t_{k-1})|\right)=\frac{1}{m}\operatorname{Var}(\gamma,Q)\leq\frac{1}{m}\operatorname{Var}(\gamma)<\frac{2}{m}\operatorname{Var}(\gamma).$$
 >>21. Notemos que si $Q$ es tal que le agregamos a $P$ una cantidad finita de puntos, vale la desigualdad anterior.
 >>22. **Caso 2: $P,Q\in P_m$ y $R=P\cup Q$.** Entonces $$|z(P)-z(Q)|\leq|z(P)-z(R)|+|z(Q)-z(R)|<\frac{\operatorname{Var}(\gamma)}{m}+\frac{\operatorname{Var}(\gamma)}{m}=\frac{2\operatorname{Var}(\gamma)}{m}.$$ Así queda probado $(\star\star)$ y, con el paso 8, el teorema.
+
+^4c8e11
 
 >[!Definition] Notación: integral de Riemann–Stieltjes
 >Al número $I$ del teorema anterior lo denotamos $$I:=\int_a^b f\,d\gamma.$$
@@ -109,6 +113,8 @@
 >[!Definition] Curva rectificable
 >$\gamma$ se dice rectificable si $\gamma$ es de variación acotada y continua.
 
+^d4e81a
+
 >[!Definition] Función longitud de arco
 >Sea $\gamma:[a,b]\to\mathbb{C}$ un camino rectificable y sea $t\in[a,b]$. Definimos $$|\gamma|(t):=\operatorname{Var}(\gamma|_{[a,t]}),$$ que es creciente (propiedad del supremo) y cumple $|\gamma|(t)\leq\operatorname{Var}(\gamma)$ para todo $t\in[a,b]$; por lo tanto $|\gamma|(t)$ es de variación acotada.
 
@@ -139,7 +145,7 @@
 ^c8a124
 
 >[!Corollary] Integral sobre curvas cerradas
->Si $\gamma$ es cerrada, entonces $$\int_\gamma f=0.$$
+>Sea $G\subseteq\mathbb{C}$ abierto y sea $f:G\to\mathbb{C}$ continua con una primitiva $F$ en $G$ (es decir, $F'=f$). Si $\gamma:[a,b]\to G$ es una curva cerrada rectificable, entonces $$\int_\gamma f(z)\,dz=0.$$
 
 >[!Example] En $\mathbb{C}$ no toda función continua tiene primitiva
 >Si $f:[a,b]\to\mathbb{R}$, entonces $F(t)=\int_a^t f(s)\,ds$ es primitiva de $f$. En $\mathbb{C}$ esto no es cierto: sea $f(z)=|z|^2=x^2+y^2$. La función $f$ es continua y supongamos que existe $F$ tal que $F'=f$; entonces $F$ es analítica y $F=u+iv$ cumple Cauchy–Riemann ($u_x=v_y$, $u_y=-v_x$). Como $$F'(z)=f(z)=u_x(x,y)+iv_x(x,y)$$ y $f(z)\in\mathbb{R}$, resulta $v_x(x,y)=0$ y por lo tanto $u_y(x,y)=0$: ¡absurdo!

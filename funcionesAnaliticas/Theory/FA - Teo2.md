@@ -14,6 +14,8 @@
 >>1. Para $z\neq a$, $$|f(z)-f(a)|=\left|\frac{f(z)-f(a)}{z-a}\right||z-a|.$$
 >>2. Al hacer $z\to a$, el primer factor tiende a $|f'(a)|$ y el segundo a $0$; por lo tanto, $$|f(z)-f(a)|\longrightarrow |f'(a)|\cdot0=0.$$
 
+^c8a4f2
+
 >[!Definition] Función analítica
 >Una función $f:G\to\mathbb{C}$ es **analítica** si es continuamente diferenciable en $G$.
 

@@ -6,7 +6,7 @@
 
 ^a10d01
 
->[!Definition] Singularidad evitable
+>[!definition] Singularidad evitable
 >Una singularidad aislada $a$ de $f$ es **evitable** si existe una función $g:B(a,R)\to\mathbb C$ analítica tal que $$g(z)=f(z)\qquad\text{para }0<|z-a|<R.$$ La función $g$ se llama **extensión analítica** de $f$ al disco.
 
 ^a10d02
@@ -30,8 +30,8 @@
 >
 >>[!Proof]-
 >>1. Para $z\neq0$, $$\begin{aligned}\frac{\sin z}{z}&=\frac1z\sum_{k=0}^{\infty}\frac{(-1)^kz^{2k+1}}{(2k+1)!}\\&=\sum_{k=0}^{\infty}\frac{(-1)^kz^{2k}}{(2k+1)!}\\&=1-\frac{z^2}{3!}+\frac{z^4}{5!}-\frac{z^6}{7!}+\cdots.\end{aligned}$$
->>2. La última serie converge para todo $z\in\mathbb C$: para $z\neq0$, el cociente de los módulos de dos términos sucesivos es $$\frac{|z|^2}{(2k+3)(2k+2)}\xrightarrow[k\to\infty]{}0,$$ y en $z=0$ solo queda el término constante. Por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], su suma $g$ es entera.
->>3. Para $z\neq0$, $g(z)=f(z)$, y en el origen $$g(0)=1.$$ Por tanto, $0$ es una singularidad evitable de $f$.
+>>2. **Radio de convergencia mediante el criterio del cociente.** Para cada $z\neq0$ fijo, aplicamos el criterio del cociente a los términos $a_n(z)=\frac{(-1)^nz^{2n}}{(2n+1)!}$. El término siguiente es $a_{n+1}(z)=\frac{(-1)^{n+1}z^{2n+2}}{(2n+3)!}$, por lo que $$\begin{aligned}\frac{|a_{n+1}(z)|}{|a_n(z)|}&=\frac{|z|^{2n+2}}{(2n+3)!}\frac{(2n+1)!}{|z|^{2n}}\\&=|z|^2\frac{(2n+1)!}{(2n+3)!}\\&=\frac{|z|^2}{(2n+3)(2n+2)}\xrightarrow[n\to\infty]{}0<1.\end{aligned}$$así, la serie converge absolutamente para cada $z\neq0$ y en $z=0$ solo queda el término constante. Como converge para todo $z\in\mathbb C$, su radio de convergencia es $R=\infty$. Por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], su suma $g$ es entera.
+>>3. Para $z\neq0$, $g(z)=f(z)$, y la serie da $g(0)=1$. Este es el único valor posible para una extensión analítica al origen: como $g$ es analítica, es continua en $0$, y por ello $$\lim_{z\to0}\frac{\sin z}{z}=\lim_{z\to0}g(z)=g(0)=1.$$ Asignar otro valor en $0$ impediría la continuidad y, por tanto, la analiticidad.
 
 ^a10e02
 
@@ -42,7 +42,8 @@
 >
 >>[!Proof]-
 >>1. Sea $g$ la extensión. Como $\gamma$ no pasa por $a$, $$\int_\gamma f(z)\,dz=\int_\gamma g(z)\,dz.$$
->>2. La homotopía $$H(s,t)=(1-s)\gamma(t)+sa$$ contrae $\gamma$ a $a$ dentro del disco, porque $$|H(s,t)-a|=(1-s)|\gamma(t)-a|<R.$$ Aplicamos [[FA - Teo8#^8a0012|Cauchy v2]] a $g$ y obtenemos la integral nula.
+>>2. La homotopía $$H(s,t)=(1-t)\gamma(s)+ta,\qquad s,t\in[0,1],$$ donde $s$ recorre la curva y $t$ selecciona la curva intermedia, contrae $\gamma$ a $a$: $$H(s,0)=\gamma(s),\qquad H(s,1)=a.$$ Permanece dentro del disco, porque $$|H(s,t)-a|=(1-t)|\gamma(s)-a|<R.$$ Además, $H(0,t)=H(1,t)$ porque $\gamma$ es cerrada. Por ende $\gamma\simeq_{B(a,R)}0$ 
+>>3. Entoces aplicamos [[FA - Teo8#^8a0012|Cauchy v2]] a $g$ y obtenemos la integral nula.
 
 ^a10b01
 
@@ -59,20 +60,18 @@
 >>2. **Construcción para la recíproca.** Supongamos $(*)$ y definamos $$g(z)=\begin{cases}(z-a)f(z),&z\neq a,\\0,&z=a.\end{cases}$$ Por $(*)$, $g$ es continua en $a$; fuera de $a$ es analítica por [[FA - Teo2#^e54e60|reglas de derivación]]. Probaremos que $g$ es analítica también en $a$.
 >>3. **Objetivo de la prueba.** Sea $\Delta\subset B(a,R)$ un triángulo cerrado no degenerado y sea $T=\partial\Delta$ su borde orientado positivamente. Vamos a comprobar $$\int_T g(z)\,dz=0.$$ Los triángulos degenerados dan integral nula por cancelación de segmentos recorridos en sentidos opuestos.
 >>4. **Caso 1: $a\notin\Delta$.** El compacto convexo $\Delta$ tiene un entorno abierto convexo $U$ contenido en $B(a,R)\setminus\{a\}$. En efecto, basta engrosar $\Delta$ con discos de un radio menor que sus distancias a $a$ y al complemento de $B(a,R)$. En $U$, $g$ es analítica y $T$ se contrae a un punto mediante segmentos; por [[FA - Teo8#^8a0012|Cauchy v2]], $$\int_T g(z)\,dz=0.$$
->>5. **Caso 2: $a$ es un vértice.** Escribimos $T=[a,b]+[b,c]+[c,a]$. Para $0<t<1$, elegimos $$x=a+t(b-a),\qquad y=a+t(c-a).$$ Sean $T_t=[a,x]+[x,y]+[y,a]$ y $Q_t=[x,b]+[b,c]+[c,y]+[y,x]$. Al sumar las integrales, los segmentos $[x,y]$ y $[y,x]$ se cancelan y los segmentos sobre cada lado se concatenan, de modo que $$\int_T g=\int_{Q_t}g+\int_{T_t}g.$$
+>>5. **Caso 2: $a$ es un vértice.** Escribimos $T=[a,b]+[b,c]+[c,a]$. Para $0<t<1$, elegimos $$x=a+t(b-a),\qquad y=a+t(c-a).\quad\text{notar que}\ \ x\in [a,b],y\in [a,c]$$ Sean $T_t=[a,x]+[x,y]+[y,a]$ y $Q_t=[x,b]+[b,c]+[c,y]+[y,x]$. Al sumar las integrales, los segmentos $[x,y]$ y $[y,x]$ se cancelan y los segmentos sobre cada lado se concatenan, de modo que $$\int_T g=\int_{Q_t}g+\int_{T_t}g.$$
 >>6. **El cuadrilátero evita el punto singular.** El cuadrilátero cerrado limitado por $Q_t$ es compacto, convexo y no contiene a $a$. Como en el paso 4, tiene un entorno abierto convexo contenido en $B(a,R)\setminus\{a\}$, donde $g$ es analítica. Por [[FA - Teo8#^8a0012|Cauchy v2]], $$\int_{Q_t}g=0,\qquad\int_T g=\int_{T_t}g.$$
->>7. **Estimación en el triángulo pequeño.** Sea $L=\ell(T)>0$ y fijemos $\varepsilon>0$. Como $g(z)\to0$ cuando $z\to a$, existe $\delta>0$ tal que $|g(z)|<\varepsilon/L$ si $|z-a|<\delta$. Elegimos $t$ tan pequeño que $T_t\subset B(a,\delta)$. Todos sus lados tienen longitud $t$ veces la del lado correspondiente de $T$, así que $\ell(T_t)=tL$. Por la estimación de la integral, $$\left|\int_T g\right|=\left|\int_{T_t}g\right|\leq\max_{z\in T_t}|g(z)|\,\ell(T_t)<\frac{\varepsilon}{L}\,tL=t\varepsilon<\varepsilon.$$ Por tanto, $\int_T g=0$.
->>8. **Caso 3: $a$ está sobre un lado y no es un vértice.** Si, por ejemplo, $a\in[b,c]$, unimos $a$ con el vértice opuesto. El triángulo original queda dividido en dos triángulos que tienen a $a$ como vértice. Sus bordes, orientados positivamente, se cancelan sobre el segmento interior y suman $T$. Aplicando los pasos 5–7 a cada uno, obtenemos $$\int_T g=0+0=0.$$
->>9. **Caso 4: $a$ está en el interior.** Unimos $a$ con los tres vértices y obtenemos tres triángulos $\Delta_1,\Delta_2,\Delta_3$, todos con vértice $a$. Los segmentos interiores se recorren en sentidos opuestos y se cancelan. Por los pasos 5–7, $$\int_T g=\sum_{j=1}^3\int_{\partial\Delta_j}g=0.$$
->>10. **Analiticidad de $g$.** Hemos tratado todos los triángulos del disco y $g$ es continua. Por [[FA - Teo7#^e4b901|Morera]], $g$ es analítica en $B(a,R)$.
->>11. **Extensión de $f$.** Como $g(a)=0$, por [[FA - Teo2#^6fedda|desarrollo de Taylor]] escribimos, cerca de $a$, $$g(z)=\sum_{n=1}^{\infty}c_n(z-a)^n=(z-a)\sum_{n=0}^{\infty}c_{n+1}(z-a)^n.$$ La serie $$F(z)=\sum_{n=0}^{\infty}c_{n+1}(z-a)^n$$ es analítica por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]] y, para $z\neq a$ cercano a $a$, $$F(z)=\frac{g(z)}{z-a}=f(z).$$ Definiendo $F=f$ en el resto del disco perforado, ambas expresiones coinciden donde se superponen y obtenemos una extensión analítica a todo $B(a,R)$.
+>>7. **Estimación en el triángulo pequeño.** Sea $L=\ell(T)>0$ y fijemos $\varepsilon>0$. Como $g(z)\to0$ cuando $z\to a$, existe $\delta>0$ tal que $|g(z)|<\varepsilon/L$ si $|z-a|<\delta$. Elegimos $t$ tan pequeño que $T_t\subset B(a,\delta)$. Todos sus lados tienen longitud $t$ veces la del lado correspondiente de $T$, así que $\ell(T_t)=tL$.
+>>8. Sea $\gamma_t:[0,1]\to\mathbb C$ una parametrización de $T_t$, de clase $C^1$ a trozos. Por definición de integral y la desigualdad triangular, $$\begin{aligned}\left|\int_{T_t}g(z)\,dz\right|&=\left|\int_0^1 g(\gamma_t(s))\gamma_t'(s)\,ds\right|\\&\leq\int_0^1|g(\gamma_t(s))|\,|\gamma_t'(s)|\,ds\\&\leq\max_{z\in T_t}|g(z)|\int_0^1|\gamma_t'(s)|\,ds\\&=\max_{z\in T_t}|g(z)|\,\ell(T_t).\end{aligned}$$ El máximo existe por continuidad de $g$ sobre el compacto $T_t$. Así, $$\left|\int_T g\right|=\left|\int_{T_t}g\right|\leq\max_{z\in T_t}|g(z)|\,\ell(T_t)<\frac{\varepsilon}{L}\,tL=t\varepsilon<\varepsilon.$$ Por tanto, $\int_T g=0$.
+>>9. **Caso 3: $a$ está sobre un lado y no es un vértice.** Si, por ejemplo, $a\in[b,c]$, unimos $a$ con el vértice opuesto. El triángulo original queda dividido en dos triángulos que tienen a $a$ como vértice. Sus bordes, orientados positivamente, se cancelan sobre el segmento interior y suman $T$. Aplicando **Caso 2** a cada uno, obtenemos $$\int_T g=0+0=0.$$
+>>10. **Caso 4: $a$ está en el interior.** Unimos $a$ con los tres vértices y obtenemos tres triángulos $\Delta_1,\Delta_2,\Delta_3$, todos con vértice $a$. Los segmentos interiores se recorren en sentidos opuestos y se cancelan, devuelta por **Caso 2**, $$\int_T g=\sum_{j=1}^3\int_{\partial\Delta_j}g=0.$$
+>>11. **Analiticidad de $g$.** Ahora como $g$ es continua y dado cualquier triangulo en $B(a,R)$ su integral es $0$, entonces por [[FA - Teo7#^e4b901|Morera]], $g$ es analítica en $B(a,R)$.
+>>12. **Extensión de $f$.** Como $g(a)=0$, por [[FA - Teo2#^6fedda|desarrollo de Taylor]] escribimos, cerca de $a$, $$g(z)=\sum_{n=1}^{\infty}c_n(z-a)^n=(z-a)\sum_{n=0}^{\infty}c_{n+1}(z-a)^n.$$ La serie $$F(z)=\sum_{n=0}^{\infty}c_{n+1}(z-a)^n$$ es analítica por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]] y, para $z\neq a$ cercano a $a$, $$F(z)=\frac{g(z)}{z-a}=f(z).$$ y definimos $F:=f$ en el resto del disco perforado, ambas expresiones coinciden donde se superponen y obtenemos una extensión analítica a todo $B(a,R)$. Por que cerca de $a$ lo es por su definicion en serie y en el resto de los puntos es igual a $f$ que es analitica.   
 
 ^a10f01
 
->[!remark] Precisiones de la demostración manuscrita
->En el primer caso, el punto $a$ debe quedar fuera del **triángulo lleno**, no solamente fuera de la curva que forma su borde. También se hizo explícito el caso en que $a$ pertenece a un lado sin ser vértice. La continuidad de $g$ no basta por sí sola para concluir analiticidad: esa es la función del argumento de los triángulos y de Morera.
-
->[!Corollary] Criterio mediante un límite finito
+>[!corollary] Criterio mediante un límite finito
 >Una singularidad aislada $a$ de $f$ es evitable si y solo si existe un límite finito $$\lim_{z\to a}f(z)=L\in\mathbb C.$$ En ese caso, la extensión toma el valor $F(a)=L$.
 >
 >>[!Proof]-
@@ -105,9 +104,6 @@
 >>3. Tampoco se cumple $|f(z)|\to+\infty$, ya que, tomando $x_n=-1/n$, $$|f(x_n)|=e^{-n}\xrightarrow[n\to\infty]{}0.$$ Por [[FA - Teo10#^a10d04|singularidad esencial]], $0$ es esencial para $e^{1/z}$.
 
 ^a10e03
-
->[!warning] Errata del manuscrito
->En el ejemplo de la página 4 se menciona por error una singularidad esencial «de $1/z$». La función del ejemplo es **$e^{1/z}$**; $1/z$ tiene un polo.
 
 ## Representación de una función con un polo
 

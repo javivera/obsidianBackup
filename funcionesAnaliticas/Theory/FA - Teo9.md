@@ -23,13 +23,14 @@
 >
 >>[!Proof]-
 >>1. La curva $\sigma$ es cerrada y rectificable. En efecto, $f'$ es continua y queda acotada en un entorno compacto de la traza de $\gamma$; en discos pequeños de ese entorno, integrar $f'$ sobre segmentos da una cota local de Lipschitz para $f$. Subdividiendo $\gamma$ en tramos contenidos en esos discos, la longitud de cada imagen queda acotada por una constante por la longitud del tramo.
->>2. Por [[FA - Teo6#^1e9a3c|índice de una curva]] y el cambio de variable a lo largo de $\sigma=f\circ\gamma$, $$n(\sigma,\alpha)=\frac1{2\pi i}\int_\sigma\frac{dw}{w-\alpha}=\frac1{2\pi i}\int_\gamma\frac{f'(z)}{f(z)-\alpha}\,dz.$$ Si $\gamma$ es $C^1$ a trozos, la cuenta parametrizada es $$\frac1{2\pi i}\int_0^1\frac{f'(\gamma(t))\gamma'(t)}{f(\gamma(t))-\alpha}\,dt.$$
->>3. Aplicamos [[FA - Teo8#^8a0044|recuento de soluciones]] a la última integral y obtenemos la igualdad del enunciado.
+>>2. Por [[FA - Teo6#^1e9a3c|índice de una curva]] y el cambio de variable a lo largo de $\sigma=f\circ\gamma$, $$n(\sigma,\alpha)=\frac1{2\pi i}\int_\sigma\frac{dw}{w-\alpha}=\frac1{2\pi i}\int_\gamma\frac{f'(z)}{f(z)-\alpha}\,dz.$$
+>>3. Para justificar el cambio de variable, tomamos $P=\{0=t_0<\cdots<t_N=1\}$. Por [[FA - Teo4#^4c8e10|integral de línea]] y [[FA - Teo4#^4c8e11|existencia de la integral de Riemann–Stieltjes]], $$\begin{aligned}\int_\sigma\frac{dw}{w-\alpha}&=\int_0^1\frac1{f(\gamma(t))-\alpha}\,d(f\circ\gamma)(t)=\lim_{\|P\|\to0}\sum_{j=1}^N\frac{f(\gamma(t_j))-f(\gamma(t_{j-1}))}{f(\gamma(t_{j-1}))-\alpha},\\\int_\gamma\frac{f'(z)}{f(z)-\alpha}\,dz&=\int_0^1\frac{f'(\gamma(t))}{f(\gamma(t))-\alpha}\,d\gamma(t)=\lim_{\|P\|\to0}\sum_{j=1}^N\frac{f'(\gamma(t_{j-1}))\bigl(\gamma(t_j)-\gamma(t_{j-1})\bigr)}{f(\gamma(t_{j-1}))-\alpha}.\end{aligned}$$ Queremos ver que estos dos límites son iguales.
+>>4. Llamamos $A(P)$ y $B(P)$ a las dos sumas anteriores. Primero, por el teorema fundamental del cálculo, $$\begin{aligned}\int_0^1f'\bigl(\gamma(t_{j-1})+s(\gamma(t_j)-\gamma(t_{j-1}))\bigr)\bigl(\gamma(t_j)-\gamma(t_{j-1})\bigr)\,ds&=\left[f\bigl(\gamma(t_{j-1})+s(\gamma(t_j)-\gamma(t_{j-1}))\bigr)\right]_0^1\\&=f(\gamma(t_j))-f(\gamma(t_{j-1})).\end{aligned}$$ Restamos $f'(\gamma(t_{j-1}))\bigl(\gamma(t_j)-\gamma(t_{j-1})\bigr)$, que es constante respecto de $s$ y puede introducirse en la integral, y obtenemos $$\begin{aligned}R_j&=f(\gamma(t_j))-f(\gamma(t_{j-1}))-f'(\gamma(t_{j-1}))\bigl(\gamma(t_j)-\gamma(t_{j-1})\bigr)\\&=\int_0^1\Bigl[f'\bigl(\gamma(t_{j-1})+s(\gamma(t_j)-\gamma(t_{j-1}))\bigr)-f'(\gamma(t_{j-1}))\Bigr]\bigl(\gamma(t_j)-\gamma(t_{j-1})\bigr)\,ds.\end{aligned}$$ Como $f'$ es uniformemente continua en un entorno compacto de la traza (continua en un compacto implica uniformemente continua) y $\gamma$ es uniformemente continua, dado $\varepsilon>0$, para una partición suficientemente fina (osea tal que $\left|\gamma(t_{j-1})+s\bigl(\gamma(t_j)-\gamma(t_{j-1})\bigr)-\gamma(t_{j-1})\right|=s\left|\gamma(t_j)-\gamma(t_{j-1})\right|\leq\left|\gamma(t_j)-\gamma(t_{j-1})\right|<\delta.\quad\forall j\leq N$) el corchete tiene módulo menor que $\varepsilon$, para todo $j$ y todo $s\in[0,1]$. Por tanto, $$|R_j|\leq\int_0^1\varepsilon|\gamma(t_j)-\gamma(t_{j-1})|\,ds=\varepsilon|\gamma(t_j)-\gamma(t_{j-1})|.\quad\forall j\leq N$$
+>>5. Como $\alpha\notin\{\sigma\}$, la compacidad da $$H=\max_{t\in[0,1]}\frac1{|f(\gamma(t))-\alpha|}<\infty.$$ Restando las sumas y usando [[FA - Teo4#^a91c04|variación acotada]], $$\begin{aligned}|A(P)-B(P)|&=\left|\sum_{j=1}^N\frac{R_j}{f(\gamma(t_{j-1}))-\alpha}\right|\\&\leq H\sum_{j=1}^N|R_j|\\&\leq H\varepsilon\sum_{j=1}^N|\gamma(t_j)-\gamma(t_{j-1})|\\&\leq H\varepsilon\operatorname{Var}(\gamma).\end{aligned}$$ Los límites existen por el paso 3. Tomando límite cuando $\|P\|\to0$, $$\left|\lim_{\|P\|\to0}A(P)-\lim_{\|P\|\to0}B(P)\right|\leq H\varepsilon\operatorname{Var}(\gamma).$$ Como esto vale para todo $\varepsilon>0$ y $H\operatorname{Var}(\gamma)$ es una constante fija, la diferencia de los límites es cero. Por tanto, $$\boxed{\int_\sigma\frac{dw}{w-\alpha}=\int_\gamma\frac{f'(z)}{f(z)-\alpha}\,dz.}$$ Queda justificado el cambio de variable del paso 2.
+>>6. Como $\gamma$ es homotopica a $0$ y por [[FA - Teo8#^8a0013|indice de homotopia a 0]] podemos aplicar [[FA - Teo8#^8a0044|recuento de soluciones]] a la última integral y obtenemos la igualdad del enunciado.
 
 ^9a0012
 
->[!warning] Hipótesis omitidas en el manuscrito
->La fórmula del apunte se escribe para una curva cerrada rectificable sin repetir las hipótesis del recuento de ceros. Aquí se usa la hipótesis suficiente $\gamma\simeq_G0$; también basta que su índice sea nulo fuera de $G$. La lista de ceros se cuenta con multiplicidad. En la aplicación local siguiente, la curva es una circunferencia contenida con su disco en el dominio, y la finitud de los ceros relevantes se justifica en la demostración.
 
 ## Raíces simples y comportamiento local
 
@@ -39,7 +40,7 @@
 ^9a0021
 
 >[!Theorem] Recuento local de raíces
->Sea $f$ analítica en $B(a,R)$ y sea $\alpha=f(a)$. Si $f-\alpha$ tiene en $a$ un cero de multiplicidad $m\geq1$, existen $\varepsilon,\delta>0$, con $\varepsilon<R$, tales que, para cada $\tau$ con $|\tau-\alpha|<\delta$, la ecuación $f(z)=\tau$ tiene exactamente $m$ raíces en $B(a,\varepsilon)$, **contadas con multiplicidad**. Si $\tau\neq\alpha$, esas raíces son simples y, por tanto, hay exactamente $m$ puntos distintos. En particular, $$B\bigl(f(a),\delta\bigr)\subseteq f\bigl(B(a,\varepsilon)\bigr).\qquad (**)$$
+>Sea $f$ analítica en $B(a,R)$ y sea $\alpha=f(a)$. Si $f-\alpha$ tiene en $a$ un cero de multiplicidad (finita) $m\geq1$, existen $\varepsilon,\delta>0$, con $\varepsilon<R$, tales que, para cada $\tau$ con $|\tau-\alpha|<\delta$, la ecuación $f(z)=\tau$ tiene exactamente $m$ raíces en $B(a,\varepsilon)$, **contadas con multiplicidad**. Si $\tau\neq\alpha$, esas raíces son simples y, por tanto, hay exactamente $m$ puntos distintos. En particular, $$B\bigl(f(a),\delta\bigr)\subseteq f\bigl(B(a,\varepsilon)\bigr).\qquad (**)$$
 >
 >>[!Proof]-
 >>1. Por [[FA - Teo8#^8a0041|multiplicidad de un cero]], cerca de $a$ escribimos $$f(z)-\alpha=(z-a)^m g(z),\qquad g(a)\neq0,$$ con $g$ analítica. Derivando, $$f'(z)=(z-a)^{m-1}h(z),\qquad h(z)=m g(z)+(z-a)g'(z).$$ Como $h(a)=m g(a)\neq0$, la continuidad de $g$ y $h$ permite elegir $0<\varepsilon<R/2$ de modo que ambas sean no nulas en $\overline{B(a,2\varepsilon)}$. Así, $a$ es el único cero de $f-\alpha$ en ese disco, y $f'(z)\neq0$ cuando $0<|z-a|\leq2\varepsilon$.
@@ -52,9 +53,6 @@
 
 ^9a0022
 
->[!remark] Cómo se cuentan las raíces
->Para $\tau=\alpha$, el único punto solución en el disco es $a$, pero cuenta $m$ veces. Para $\tau\neq\alpha$, hay $m$ soluciones distintas, todas simples. Esta distinción precisa la frase «exactamente $m$ raíces» del manuscrito.
-
 ## Teorema de la aplicación abierta
 
 >[!Theorem] Aplicación abierta
@@ -62,15 +60,15 @@
 >
 >>[!Proof]-
 >>1. Sea $U\subseteq G$ abierto y sea $\alpha\in f(U)$. Elegimos $a\in U$ con $f(a)=\alpha$ y $R>0$ tal que $B(a,R)\subseteq U$.
->>2. La función $f-\alpha$ no puede ser idénticamente nula en $B(a,R)$, porque [[FA - Teo5#^6ef1c1|identidad]] implicaría $f\equiv\alpha$ en $G$. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], existe un primer coeficiente no nulo de $f-\alpha$ en $a$, de orden $m\geq1$, que da un cero de multiplicidad $m$.
->>3. Aplicamos [[FA - Teo9#^9a0022|recuento local de raíces]] en $B(a,R)$. Existen $\varepsilon,\delta>0$ tales que $$\alpha\in B(\alpha,\delta)\subseteq f\bigl(B(a,\varepsilon)\bigr)\subseteq f\bigl(B(a,R)\bigr)\subseteq f(U).$$ Así, cada punto de $f(U)$ tiene un disco abierto contenido en $f(U)$.
+>>2. **Taylor y multiplicidad del cero.** Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], cerca de $a$ tenemos $$f(z)-\alpha=\sum_{n=0}^{\infty}c_n(z-a)^n,\qquad c_0=f(a)-\alpha=0.$$ No pueden ser todos los coeficientes nulos: en ese caso la serie daría $f-\alpha=0$ en un disco alrededor de $a$, y [[FA - Teo5#^6ef1c1|identidad]] implicaría $f\equiv\alpha$ en $G$, contradiciendo que $f$ no es constante. Existe, por tanto, un primer índice $m\geq1$ con $c_m\neq0$, mientras que $c_0=\cdots=c_{m-1}=0$. Sacando factor común, $$f(z)-\alpha=(z-a)^m h(z),\qquad h(z)=c_m+c_{m+1}(z-a)+c_{m+2}(z-a)^2+\cdots.$$ La serie que define $h$ es analítica cerca de $a$ y $h(a)=c_m\neq0$; por [[FA - Teo8#^8a0041|multiplicidad de un cero]], $a$ es un cero de multiplicidad $m$ de $f-\alpha$. Así queda justificada la hipótesis necesaria para aplicar el recuento local de raíces.
+>>3. Aplicamos [[FA - Teo9#^9a0022|recuento local de raíces]] en $B(a,R)$. Existen $\varepsilon,\delta>0$ (con $\epsilon<R$) tales que $$\alpha\in B(\alpha,\delta)=B(f(a),\delta )\subseteq f\bigl(B(a,\varepsilon)\bigr)\subseteq f\bigl(B(a,R)\bigr)\subseteq f(U).$$ Así, cada punto de $f(U)$ tiene un disco abierto contenido en $f(U)$.
 
 ^9a0031
 
 ## Teorema de Goursat
 
 >[!Theorem] Goursat
->Sea $G\subseteq\mathbb C$ abierto y sea $f:G\to\mathbb C$ complejamente diferenciable en cada punto de $G$. Entonces $f$ es analítica en $G$. No se supone que $f'$ sea continua.
+>Sea $G\subseteq\mathbb C$ abierto y sea $f:G\to\mathbb C$ complejamente diferenciable en cada punto de $G$. Entonces $f$ es analítica en $G$. (No se supone que $f'$ sea continua)
 >
 >>[!Proof]-
 >>1. **Objetivo local.** Fijamos $x\in G$ y elegimos $R>0$ tal que $\overline{B(x,R)}\subseteq G$. Sea $\Delta\subset B(x,R)$ un triángulo cerrado no degenerado, de vértices $a,b,c$, y sea $T=\partial\Delta=[a,b]+[b,c]+[c,a]$ su borde orientado positivamente. Probaremos que $\int_T f(z)\,dz=0$ y luego aplicaremos [[FA - Teo7#^e4b901|Morera]] en el disco. Los triángulos degenerados tienen integral nula por cancelación de los segmentos recorridos en sentidos opuestos.
