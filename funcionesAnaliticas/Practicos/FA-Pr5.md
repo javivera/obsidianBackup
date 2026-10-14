@@ -35,6 +35,41 @@
 >- **(f)** $f(z)=z\cos(\frac{1}{z})$.
 >- **(g)** $f(z)=\frac{z^2+1}{z(z-1)}$.
 >- **(h)** $f(z)=z^n\operatorname{sen}(\frac{1}{z})$, $(n\in\mathbb N)$.
+>
+>>[!Proof]-
+>>- (a)
+>>	1. Por [[FA - Teo10#^a10e02|extensión analítica de $\sin z/z$]], la singularidad es evitable. Para $z\ne0$, $$\frac{\operatorname{sen}z}{z}=\sum_{n=0}^{\infty}\frac{(-1)^n z^{2n}}{(2n+1)!}=1-\frac{z^2}{3!}+\frac{z^4}{5!}-\cdots.$$ La suma de esta serie es entera y coincide con $f$ fuera del origen; por lo tanto, definimos $f(0)=1$.
+>>- (b)
+>>	1. Como $\cos z\to1$ cuando $z\to0$, tenemos $$|f(z)|=\frac{|\cos z|}{|z|}\xrightarrow[z\to0]{}+\infty.$$ Por lo tanto, $0$ es un polo de $f$.
+>>	2. Aplicamos [[FA - Teo10#^a10e04|reconocer un polo y su orden]] con $g(z)=\cos z$, $a=0$ y $m=1$. Como $g$ es analítica y $g(0)=1\ne0$, el polo es de orden $1$.
+>>	3. Desarrollamos $\cos z$ mediante [[FA - Teo2#^6fedda|Taylor]] y dividimos por $z$: $$\cos z=\sum_{n=0}^{\infty}\frac{(-1)^n z^{2n}}{(2n)!},\qquad f(z)=\sum_{n=0}^{\infty}\frac{(-1)^n z^{2n-1}}{(2n)!}=\frac1z+\sum_{n=1}^{\infty}\frac{(-1)^n z^{2n-1}}{(2n)!}.$$
+>>	4. El término de índice $n=0$ es $1/z$, y para $n\ge1$ los exponentes $2n-1$ son positivos. Por [[FA - Teo10#^a10b04|parte singular y parte analítica]], la parte singular es $1/z$ y la parte analítica es $$h(z)=\sum_{n=1}^{\infty}\frac{(-1)^n z^{2n-1}}{(2n)!}=-\frac{z}{2!}+\frac{z^3}{4!}-\cdots,$$ analítica también en $0$ por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]].
+>>- (c)
+>>	1. Por la regla de L'Hôpital del ejercicio 2(a), $$\lim_{z\to0}\frac{\cos z-1}{z}=\lim_{z\to0}(-\operatorname{sen}z)=0.$$
+>>	2. Por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], la singularidad es evitable y definimos $f(0)=0$ para obtener la extensión analítica en el origen.
+>>- (d)
+>>	1. Aunque $|1/z|\to\infty$ cuando $z\to0$, esto no implica que $|e^{1/z}|\to\infty$: $$|e^{1/z}|=e^{\operatorname{Re}(1/z)}.$$
+>>	2. Por el eje real negativo, $$\lim_{x\to0^-}|e^{1/x}|=0,$$ por lo que el módulo no tiende a infinito cuando $z\to0$. Por tanto, $0$ no es un polo.
+>>	3. Por el eje real positivo, $$\lim_{x\to0^+}e^{1/x}=+\infty.$$
+>>	4. Así, no existe un límite finito en $0$ y, por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], la singularidad no es evitable.
+>>	5. Como no es un polo ni una singularidad evitable, $0$ es una [[FA - Teo10#^a10d04|singularidad esencial]].
+>>- (e)
+>>	1. Consideramos la rama de $\log(1+z)$ analítica cerca de $0$ y con $\log(1)=0$. Por L'Hôpital, $$\lim_{z\to0}\frac{\log(1+z)}{z^2}=\lim_{z\to0}\frac{1}{2z(1+z)}=\infty,$$ pues $|2z(1+z)|\to0$. Por lo tanto, $0$ es un polo.
+>>	2. Para $|z|<1$, el [[FA - Teo2#^6fedda|desarrollo de Taylor]] es $$\log(1+z)=\sum_{n=1}^{\infty}\frac{(-1)^{n+1}z^n}{n}=z-\frac{z^2}{2}+\frac{z^3}{3}-\cdots.$$ Extraemos el factor $z$: $$\log(1+z)=zg(z),\qquad g(z)=\sum_{n=0}^{\infty}\frac{(-1)^n z^n}{n+1}=1-\frac z2+\frac{z^2}{3}-\cdots.$$ Esta serie converge en $|z|<1$, por lo que $g$ es analítica por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], y $g(0)=1\ne0$.
+>>	3. Para $z\ne0$, $$f(z)=\frac{zg(z)}{z^2}=\frac{g(z)}z.$$ Por [[FA - Teo10#^a10e04|reconocer un polo y su orden]], el polo tiene orden $1$. El exponente $2$ del denominador original no determina el orden, porque el numerador original también se anula en $0$.
+>>	4. Dividimos la serie del logaritmo por $z^2$ y separamos el primer término: $$f(z)=\frac1z+h(z),\qquad h(z)=\sum_{n=0}^{\infty}\frac{(-1)^{n+1}z^n}{n+2}=-\frac12+\frac z3-\frac{z^2}{4}+\cdots.$$ Para $0<|z|<1$, esta serie converge por ser la cola convergente del logaritmo dividida por $z^2$; en $0$ vale $-1/2$. Por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], $h$ es analítica en $|z|<1$.
+>>	5. Por [[FA - Teo10#^a10b04|parte singular y parte analítica]], la parte singular es $1/z$ y la parte analítica es $h$. Quitar otro término a $h$ también deja un resto analítico, pero no convierte ese término en parte singular: esta contiene únicamente las potencias negativas, de modo que el término constante $-1/2$ pertenece a la parte analítica.
+>>- (f)
+>>	1. Por el eje real, para $x\ne0$, $$|f(x)|=|x\cos(1/x)|\le|x|\xrightarrow[x\to0]{}0.$$ Por tanto, $0$ no es un polo, ya que el módulo no tiende a infinito por todos los caminos.
+>>	2. Analizamos el eje imaginario positivo: ponemos $z=iy$, con $y>0$. Usando $\cos w=(e^{iw}+e^{-iw})/2$ y $1/(iy)=-i/y$, obtenemos $$\cos(1/(iy))=\frac{e^{1/y}+e^{-1/y}}2,\qquad f(iy)=\frac{iy}{2}(e^{1/y}+e^{-1/y}).$$ Como el paréntesis es real positivo y $|iy|=y$, $$|f(iy)|=\frac y2(e^{1/y}+e^{-1/y}).$$ La cota $|\cos t|\le1$ usada en el primer paso vale para $t$ real, no para argumentos complejos.
+>>	3. Por [[FA - Teo2#^6fedda|Taylor]], $$e^{1/y}=\sum_{n=0}^{\infty}\frac{1}{n!y^n}.$$ Para $y>0$, todos los términos son positivos. Cada suma parcial que incluye el término de índice $n=2$ es mayor o igual que $1/(2y^2)$; pasando al límite de las sumas parciales, $$e^{1/y}\ge\frac1{2y^2}.$$
+>>	4. Como $e^{-1/y}>0$ y $y/2>0$, $$|f(iy)|=\frac y2(e^{1/y}+e^{-1/y})\ge\frac y2e^{1/y}\ge\frac y2\frac1{2y^2}=\frac1{4y}\xrightarrow[y\to0^+]{}+\infty.$$ El segundo sumando es positivo, así que no puede cancelar el crecimiento del primero; la cota inferior prueba que la suma completa tiende a infinito.
+>>	5. El comportamiento por el eje imaginario positivo descarta un límite finito en $0$; por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], la singularidad no es evitable. Como tampoco es un polo, por [[FA - Teo10#^a10d04|singularidad esencial]], $0$ es esencial.
+>>- (g)
+>>	1. Clasificamos la singularidad en $0$, como pide el enunciado. Escribimos $$f(z)=\frac{g(z)}z,\qquad g(z)=\frac{z^2+1}{z-1}.$$ La función $g$ es analítica cerca de $0$ y $g(0)=-1\ne0$. Por [[FA - Teo10#^a10e04|reconocer un polo y su orden]], $0$ es un polo de orden $1$.
+>>	2. Para desarrollar $g$, usamos la serie geométrica: $$\frac1{z-1}=-\frac1{1-z}=-\sum_{n=0}^{\infty}z^n,\qquad |z|<1.$$ Multiplicamos por $1+z^2$ y distribuimos: $$\begin{aligned}g(z)&=-(1+z^2)(1+z+z^2+z^3+\cdots)\\&=-(1+z+z^2+z^3+\cdots)-(z^2+z^3+z^4+\cdots)\\&=-1-z-2\sum_{n=2}^{\infty}z^n.\end{aligned}$$ Los términos constante y lineal aparecen una sola vez; desde $z^2$, cada potencia aparece dos veces.
+>>	3. Dividiendo por $z$ para $0<|z|<1$, $$f(z)=-\frac1z-1-2\sum_{n=1}^{\infty}z^n=-\frac1z+h(z),\qquad h(z)=-1-2z-2z^2-\cdots.$$ La serie de $h$ converge en $|z|<1$ y, por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], es analítica también en $0$.
+>>	4. Por [[FA - Teo10#^a10b04|parte singular y parte analítica]], la parte singular, también llamada parte principal, es $-1/z$; el resto $h$ es la parte analítica.
 
 >[!exercise] Ejercicio 4
 >Sea $f:G\to\mathbb C$ analítica excepto por numerables singularidades aisladas. Probar que las singularidades de $f$ no pueden tener un punto límite en $G$.

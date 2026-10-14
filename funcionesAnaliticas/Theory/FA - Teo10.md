@@ -112,15 +112,12 @@
 >
 >>[!Proof]-
 >>1. **El recíproco está definido cerca del polo.** Como $|f(z)|\to+\infty$, existe $r>0$ tal que $B(a,r)\subseteq G$ y $$|f(z)|>1\qquad\text{si }0<|z-a|<r.$$ En particular, $f$ no se anula en ese disco perforado, y $1/f$ es analítica allí por [[FA - Teo2#^e54e60|reglas de derivación]].
->>2. **Extensión del recíproco.** Por la definición de polo, $$\frac1{f(z)}\xrightarrow[z\to a]{}0,\qquad\frac{z-a}{f(z)}\xrightarrow[z\to a]{}0.$$ Aplicamos [[FA - Teo10#^a10f01|criterio de singularidad evitable]] a $1/f$ y obtenemos una función $h$ analítica en $B(a,r)$ con $$h(z)=\begin{cases}1/f(z),&z\neq a,\\0,&z=a.\end{cases}$$
->>3. **Factorización del cero de $h$.** La función $h$ no es idénticamente nula, pues $h(z)=1/f(z)\neq0$ en el disco perforado. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], existe un primer coeficiente no nulo, de índice $m\geq1$. Así, cerca de $a$, $$h(z)=\sum_{n=m}^{\infty}c_n(z-a)^n=(z-a)^m h_1(z),\qquad h_1(z)=\sum_{j=0}^{\infty}c_{j+m}(z-a)^j,\qquad h_1(a)=c_m\neq0.$$ La función $h_1$ es analítica por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]].
->>4. **Construcción local del numerador.** Por continuidad, $h_1$ no se anula en un disco suficientemente pequeño alrededor de $a$. Allí, $1/h_1$ es analítica por [[FA - Teo2#^e54e60|reglas de derivación]]. Para $z\neq a$ en ese disco, $$\frac1{f(z)}=(z-a)^m h_1(z)\quad\Longrightarrow\quad(z-a)^m f(z)=\frac1{h_1(z)}.$$
+>>2. **Extensión del recíproco.** Por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], $a$ es una singularidad evitable de $1/f$, porque $$\left|\frac1{f(z)}\right|=\frac1{|f(z)|}\xrightarrow[z\to a]{}0\quad\Longrightarrow\quad\lim_{z\to a}\frac1{f(z)}=0.$$ Además, la extensión analítica toma en $a$ el valor de ese límite. Por lo tanto, podemos definir la siguiente función, analítica en $B(a,r)$: $$h(z)=\begin{cases}\dfrac1{f(z)},&z\in B(a,r)\setminus\{a\},\\0,&z=a.\end{cases}$$
+>>3. **Factorización del cero de $h$.** La función $h$ no es idénticamente nula, pues $h(z)=1/f(z)\neq0$ en el disco perforado. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], existe un primer coeficiente no nulo, de índice $m\geq1$ (porque $h(a)=0$). Así, cerca de $a$, $$h(z)=\sum_{n=m}^{\infty}c_n(z-a)^n=(z-a)^m h_1(z),\qquad h_1(z)=\sum_{j=0}^{\infty}c_{j+m}(z-a)^j,\qquad h_1(a)=c_m\neq0.$$ La función $h_1$ es analítica por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]].
+>>4. **Construcción local del numerador.** Por continuidad en $a$, $h_1$ no se anula en un disco suficientemente pequeño alrededor de $a$. Allí, $1/h_1$ es analítica por [[FA - Teo2#^e54e60|reglas de derivación]]. Para $z\neq a$ en ese disco, $$\frac1{f(z)}=(z-a)^m h_1(z)\quad\Longrightarrow\quad(z-a)^m f(z)=\frac1{h_1(z)}.$$
 >>5. **Construcción global de $g$.** Definimos $$g(z)=\begin{cases}(z-a)^m f(z),&z\neq a,\\1/h_1(a),&z=a.\end{cases}$$ Cerca de $a$ coincide con $1/h_1$; fuera de $a$ es un producto de funciones analíticas. Por tanto, $g$ es analítica en todo $G$, $$g(a)=\frac1{h_1(a)}\neq0,$$ y, para $z\neq a$, $$f(z)=\frac{g(z)}{(z-a)^m}.$$
 
 ^a10b02
-
->[!warning] El recíproco se usa solamente cerca del polo
->La función $f$ puede tener ceros en otros puntos de $G$, de modo que $1/f$ no tiene por qué estar definida en todo $G\setminus\{a\}$. La prueba se realiza localmente con $1/f$ y luego define el numerador global mediante $(z-a)^m f(z)$. No se afirma que $g$ carezca de ceros en todo $G$; solo se necesita $g(a)\neq0$.
 
 ## Orden de un polo
 
@@ -133,9 +130,9 @@
 >Si $a$ es un polo de orden $m$ y $$f(z)=\frac{g(z)}{(z-a)^m},$$ con $g$ analítica en un entorno de $a$, entonces $g(a)\neq0$.
 >
 >>[!Proof]-
->>1. Si $g(a)=0$, $g$ no puede ser idénticamente nula cerca de $a$, pues eso daría $f=0$ cerca del supuesto polo. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], existe $k\geq1$ y una función $h$ analítica cerca de $a$, con $h(a)\neq0$, tales que $$g(z)=(z-a)^k h(z).$$ La analiticidad de $h$ se obtiene de [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]] al retirar los primeros $k$ factores del desarrollo.
->>2. Si $k\geq m$, entonces $$f(z)=(z-a)^{k-m}h(z)$$ se extiende analíticamente a $a$. Su límite es finito, lo que contradice que $|f(z)|\to+\infty$.
->>3. Si $k<m$, entonces $$f(z)=\frac{h(z)}{(z-a)^{m-k}},\qquad(z-a)^{m-k}f(z)=h(z).$$ Por tanto, $m-k$ es un entero positivo menor que $m$ que elimina la singularidad, contradiciendo [[FA - Teo10#^a10d05|orden de un polo]]. En ambos casos hay contradicción; luego $g(a)\neq0$.
+>>1. Si $g(a)=0$, $g$ no puede ser idénticamente nula cerca de $a$, pues eso daría $f=0$ cerca del supuesto polo. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], existe $k\geq1$ (dado que el primer coeficiente $g(a)=0$) y una función $h$ analítica cerca de $a$, con $h(a)\neq0$, tales que $$g(z)=(z-a)^k h(z).$$ La analiticidad de $h$ se obtiene de [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]] al retirar los primeros $k$ factores del desarrollo.
+>>2. Si $k\geq m$, entonces $$f(z)=(z-a)^{k-m}h(z)$$ se extiende analíticamente a $a$. Su límite es finito, lo que contradice que $|f(z)|\to+\infty$. (por que $h$ es analitica cerca de $a$ asi que no vale infinito en $a$) 
+>>3. Si $k<m$, entonces $$f(z)=\frac{h(z)}{(z-a)^{m-k}},\qquad(z-a)^{m-k}f(z)=h(z).$$ Como $h$ es analítica en $a$, es continua allí, de modo que $$\lim_{z\to a}(z-a)^{m-k}f(z)=\lim_{z\to a}h(z)=h(a)\in\mathbb C.$$ Por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], la singularidad de $(z-a)^{m-k}f(z)$ en $a$ es evitable. Por tanto, $m-k$ es un entero positivo menor que $m$ que elimina la singularidad, contradiciendo [[FA - Teo10#^a10d05|orden de un polo]]. En ambos casos hay contradicción; luego $g(a)\neq0$.
 
 ^a10b03
 
@@ -145,7 +142,8 @@
 >>[!Proof]-
 >>1. Por continuidad de $g$, existe $r>0$ tal que $$|g(z)|\geq\frac{|g(a)|}{2}>0\qquad\text{si }|z-a|<r.$$ Así, $$|f(z)|=\frac{|g(z)|}{|z-a|^m}\geq\frac{|g(a)|}{2|z-a|^m}\xrightarrow[z\to a]{}+\infty,$$ por lo que $a$ es un polo.
 >>2. El exponente $m$ elimina la singularidad, pues $$(z-a)^m f(z)=g(z)$$ admite la extensión $g$.
->>3. Si $1\leq j<m$, entonces $$|(z-a)^j f(z)|=\frac{|g(z)|}{|z-a|^{m-j}}\geq\frac{|g(a)|}{2|z-a|^{m-j}}\xrightarrow[z\to a]{}+\infty.$$ No puede tener extensión analítica con valor finito en $a$. Por [[FA - Teo10#^a10d05|orden de un polo]], el menor exponente que elimina la singularidad es exactamente $m$.
+>>3. Si $1\leq j<m$, entonces $$|(z-a)^j f(z)|=\frac{|g(z)|}{|z-a|^{m-j}}\geq\frac{|g(a)|}{2|z-a|^{m-j}}\xrightarrow[z\to a]{}+\infty.$$ Como su módulo tiende a $+\infty$, la función $(z-a)^j f(z)$ no puede tener un límite finito en $a$; por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], su singularidad no es evitable. 
+>>4. Por [[FA - Teo10#^a10d05|orden de un polo]], el menor exponente que elimina la singularidad es exactamente $m$.
 
 ^a10e04
 
@@ -160,7 +158,9 @@
 >>[!Proof]-
 >>1. Por [[FA - Teo10#^a10d05|orden de un polo]] y [[FA - Teo10#^a10b03|numerador no nulo en el polo]], escribimos $$f(z)=\frac{g(z)}{(z-a)^m},\qquad g(a)\neq0.$$ Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], cerca de $a$ $$g(z)=\sum_{n=0}^{\infty}a_n(z-a)^n,\qquad a_0=g(a)\neq0.$$
 >>2. Para $z\neq a$, dividimos el desarrollo por $(z-a)^m$ y separamos los primeros $m$ términos: $$\begin{aligned}f(z)&=\frac{\sum_{n=0}^{\infty}a_n(z-a)^n}{(z-a)^m}\\&=\sum_{n=0}^{m-1}a_n(z-a)^{n-m}+\sum_{n=m}^{\infty}a_n(z-a)^{n-m}\\&=\frac{a_0}{(z-a)^m}+\frac{a_1}{(z-a)^{m-1}}+\cdots+\frac{a_{m-1}}{z-a}+\sum_{j=0}^{\infty}a_{j+m}(z-a)^j.\end{aligned}$$
->>3. Definimos $$h(z)=\sum_{j=0}^{\infty}a_{j+m}(z-a)^j.$$ Para $z\neq a$, su convergencia absoluta se obtiene de la de la cola de Taylor de $g$, multiplicando por $|z-a|^{-m}$; en $z=a$ la serie vale $a_m$. Por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], $h$ es analítica en el disco, incluido su centro.
+>>3. Definimos $$h(z)=\sum_{j=0}^{\infty}a_{j+m}(z-a)^j.$$ Sea $R>0$ un radio de convergencia del desarrollo de Taylor de $g$. Para cada $z$ fijo con $0<|z-a|<R$, calculamos $$\begin{aligned}\sum_{j=0}^{\infty}|a_{j+m}(z-a)^j|&=\sum_{n=m}^{\infty}|a_n|\,|z-a|^{n-m}\\&=|z-a|^{-m}\sum_{n=m}^{\infty}|a_n|\,|z-a|^n<\infty.\end{aligned}$$ La última suma es una cola de la serie absolutamente convergente de Taylor de $g$, y $|z-a|^{-m}$ es un número finito para ese $z\neq a$. Esta multiplicación prueba la convergencia absoluta de la serie de $h$ fuera de $a$, pero no se aplica en $a$. 
+>>4. En $z=a$, todos los términos de grado positivo se anulan y la serie vale $h(a)=a_m$.
+>>5. Así, la serie de potencias que define $h$ converge en todo el disco $|z-a|<R$; por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], $h$ es analítica allí, incluido su centro.
 
 ^a10b04
 

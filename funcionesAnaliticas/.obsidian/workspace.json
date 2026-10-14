@@ -37,8 +37,7 @@
               "title": "FA - Teo10"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -252,18 +251,18 @@
                 }
               },
               {
-                "id": "00cbb8674bed3a16",
+                "id": "41932c6b9944f03d",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Examenes/FA-FinalLeo.md",
-                    "mode": "preview",
+                    "file": "Dudas.md",
+                    "mode": "source",
                     "source": false,
                     "backlinks": false
                   },
                   "icon": "lucide-file",
-                  "title": "FA-FinalLeo"
+                  "title": "Dudas"
                 }
               }
             ],
@@ -271,8 +270,8 @@
           }
         ],
         "direction": "vertical",
-        "x": 2572,
-        "y": 108,
+        "x": 3639,
+        "y": 1984,
         "width": 1056,
         "height": 1895,
         "maximize": false,
@@ -280,19 +279,28 @@
       }
     ]
   },
-  "active": "4dfbb8d776d39b70",
+  "active": "67fe374c2ecfa3db",
   "lastOpenFiles": [
     "Practicos/FA-Pr5.md",
-    "Theory/FA - Teo10.md",
+    "Theory/Adjuntos/FA-Teo11/1.jpg",
+    "Theory/Adjuntos/FA-Teo11/5.jpg",
+    "Theory/Adjuntos/FA-Teo11/4.jpg",
+    "Theory/Adjuntos/FA-Teo11/3.jpg",
+    "Theory/Adjuntos/FA-Teo11/2.jpg",
+    "Theory/Adjuntos/FA-Teo11",
+    "Theory/Adjuntos",
+    "Theory/FA - Teo11.md",
     "Theory/FA - Teo9.md",
+    "Theory/FA - Teo10.md",
+    "Dudas.md",
+    "Examenes/FA-FinalLeo.md",
+    "Untitled.md",
     "Theory/FA - Teo7.md",
     "Theory/FA - Teo8.md",
     "Theory/FA - Teo4.md",
     "Theory/FA - Teo6.md",
     "Theory/FA - Teo5.md",
     "Practicos/FA-Pr4.md",
-    "Examenes/FA-FinalLeo.md",
-    "Untitled.md",
     "Apuntes/FA - Clase 2026-10-08.pdf",
     "Theory/FA - Teo3.md",
     "Theory/FA - Teo2.md",
@@ -307,7 +315,6 @@
     "Apuntes/FA-Teo5.pdf",
     "Apuntes/FA-Teo4.pdf",
     "Apuntes/FA-Teo2.pdf",
-    "Untitled 1.md",
     "Practicos/FA-Pr1.md",
     "Apuntes/FA-Teo3.pdf",
     "Misc/imagen-derivada-ej2.png",
@@ -316,17 +323,8 @@
     "Misc/graficar_ej2.py",
     "Resumen 1er parcial.md",
     "Misc/Repaso-puntos-debiles.md",
-    "Misc/Pasted image 20260916101504.png",
-    "Practicos/FA-Pr4-II.pdf",
-    "Misc/Pasted image 20260916101431.png",
-    "Pasted image 20260916101407.png",
-    "Pasted image 20260916101404.png",
-    "Practicos/FA-Pr1.pdf",
     "Practicos/FA-Pr2.md",
-    "Misc/FA-Pr4-II-Ej4-curvas.png",
     "Practicos/FA-Pr3.md",
-    "Misc/Prob9-Mobius-i.md",
-    "Untitled 3.md",
-    "Untitled 2.md"
+    "Misc/Prob9-Mobius-i.md"
   ]
 }
