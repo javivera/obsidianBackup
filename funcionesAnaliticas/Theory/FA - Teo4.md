@@ -147,6 +147,8 @@
 >[!Corollary] Integral sobre curvas cerradas
 >Sea $G\subseteq\mathbb{C}$ abierto y sea $f:G\to\mathbb{C}$ continua con una primitiva $F$ en $G$ (es decir, $F'=f$). Si $\gamma:[a,b]\to G$ es una curva cerrada rectificable, entonces $$\int_\gamma f(z)\,dz=0.$$
 
+^b47e92
+
 >[!Example] En $\mathbb{C}$ no toda función continua tiene primitiva
 >Si $f:[a,b]\to\mathbb{R}$, entonces $F(t)=\int_a^t f(s)\,ds$ es primitiva de $f$. En $\mathbb{C}$ esto no es cierto: sea $f(z)=|z|^2=x^2+y^2$. La función $f$ es continua y supongamos que existe $F$ tal que $F'=f$; entonces $F$ es analítica y $F=u+iv$ cumple Cauchy–Riemann ($u_x=v_y$, $u_y=-v_x$). Como $$F'(z)=f(z)=u_x(x,y)+iv_x(x,y)$$ y $f(z)\in\mathbb{R}$, resulta $v_x(x,y)=0$ y por lo tanto $u_y(x,y)=0$: ¡absurdo!
 

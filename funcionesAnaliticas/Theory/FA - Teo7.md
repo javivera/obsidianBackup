@@ -8,10 +8,10 @@
 ^a7e91c
 
 >[!Theorem] Fórmula integral de Cauchy (v1.5)
->Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$, con $N\ge1$. Si $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad(w\in\mathbb C\setminus G),$$ entonces, para $a\in G\setminus\bigcup_{j=1}^{N}\{\gamma_j\}$, $$f(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{1}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{z-a}\,dz.$$
+>Sean $G\subseteq\mathbb C$ abierto, $f:G\to\mathbb C$ analítica y $\gamma_1,\ldots,\gamma_N$ curvas cerradas rectificables en $G$, con $N\ge1$. Si $$\sum_{j=1}^{N}n(\gamma_j,w)=0\qquad(w\in\mathbb C\setminus G),$$ entonces, para $a\in G\setminus\bigcup_{j=1}^{N}\operatorname{Im}(\gamma_j)$, $$f(a)\sum_{j=1}^{N}n(\gamma_j,a)=\frac{1}{2\pi i}\sum_{j=1}^{N}\int_{\gamma_j}\frac{f(z)}{z-a}\,dz.$$
 >
 >>[!Proof]- Esquema de la demostración de clase
->>1. Se repite la construcción de la prueba de [[FA - Teo7#^a7e91c|FIC v1]], reemplazando cada integral sobre $\gamma$ por la suma de las integrales sobre $\gamma_j$ y poniendo $H=\{w\in\mathbb C\setminus\bigcup_j\{\gamma_j\}:\sum_j n(\gamma_j,w)=0\}$. La hipótesis da $\mathbb C\setminus G\subseteq H$.
+>>1. Se repite la construcción de la prueba de [[FA - Teo7#^a7e91c|FIC v1]], reemplazando cada integral sobre $\gamma$ por la suma de las integrales sobre $\gamma_j$ y poniendo $H=\{w\in\mathbb C\setminus\bigcup_j\operatorname{Im}(\gamma_j):\sum_j n(\gamma_j,w)=0\}$.  La hipótesis da $\mathbb C\setminus G\subseteq H$.
 >>2. Para $z\in G$ se usa $\varphi(z,w)=(f(z)-f(w))/(z-w)$, prolongada por $f'(z)$ cuando $z=w$. En $G\cap H$ las dos expresiones $$\sum_j\int_{\gamma_j}\varphi(z,w)\,dw\quad\text{y}\quad\sum_j\int_{\gamma_j}\frac{f(w)}{w-z}\,dw$$ coinciden porque el término adicional es $f(z)\sum_j n(\gamma_j,z)=0$ (con el factor $2\pi i$ correspondiente).
 >>3. La función definida por esas expresiones en $G$ y $H$, respectivamente, es entera y tiende a $0$ en el infinito; por Liouville es nula. Despejando en $a$ y usando [[FA - Teo6#^1e9a3c|índice de una curva]] resulta la fórmula.
 

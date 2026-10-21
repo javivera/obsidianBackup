@@ -104,7 +104,7 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 
 ## 3. Ideales primos y maximalidad
 
->[!definition] Ideal primo en un anillo no necesariamente conmutativo
+>[!definition]- Ideal primo en un anillo no necesariamente conmutativo
 >Sea $R$ un anillo, sin suponer conmutatividad. Un subconjunto $P\subseteq R$ es un **ideal primo** si satisface las siguientes condiciones:
 >1. $P$ es un [[Teorico 10#^a7d291|ideal bilátero]] de $R$.
 >2. $P$ es propio: $P\neq R$.
@@ -163,13 +163,15 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >[!remark] Divisores de una unidad
 >Si $u=ab$ es invertible, entonces $a$ y $b$ son invertibles: $a(bu^{-1})=1$ y $b(au^{-1})=1$. Por conmutatividad, estas son inversas por ambos lados.
 
->[!definition] Elementos irreducibles y primos
->Un elemento $p\in R$ es **irreducible** si $p\neq0$, $p\notin R^\times$ y toda igualdad $p=ab$ obliga a que $a$ o $b$ sea invertible. Un elemento $p\in R$ es **primo** si $p\neq0$, $p\notin R^\times$ y $p\mid ab$ implica $p\mid a$ o $p\mid b$.
+>[!definition] Elementos irreducibles
+>Un elemento $p\in R$ es **irreducible** si $p\neq0$, $p\notin R^\times$ y toda igualdad $p=ab$ obliga a que $a$ o $b$ sea invertible. 
+
+^85c0bf
+
+>[!Definition] Elementos primos
+>Un elemento $p\in R$ es **primo** si $p\neq0$, $p\notin R^\times$ y $p\mid ab$ implica $p\mid a$ o $p\mid b$.
 
 ^e11010
-
->[!remark] Correcciones de las definiciones manuscritas
->En la definición de irreducible debe decir «$a$ **o** $b$ es invertible», no «$a$ y $b$». Tanto los irreducibles como los primos se toman no nulos y no invertibles.
 
 >[!proposition] Divisibilidad e ideales principales
 >Sea $R$ un dominio íntegro conmutativo. Para $a,b,u\in R$:
@@ -189,11 +191,19 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 
 ^e11011
 
->[!remark] Demostración propuesta como ejercicio
->La hoja deja las tres equivalencias anteriores como ejercicio. Se incluyen aquí sus justificaciones breves para fijar la relación entre divisibilidad e inclusión de ideales que se usa en los resultados siguientes.
+>[!definition] Ideal principal
+>Sea $R$ un anillo conmutativo con unidad. Un ideal $I\subseteq R$ es **principal** si existe $a\in R$ tal que $$I=(a)=\{ra:r\in R\}.$$ Decimos que $a$ es un **generador** de $I$: todos los elementos del ideal, y solo ellos, son múltiplos de $a$. Las notaciones $(a)$ y $\langle a\rangle$ representan el mismo ideal.
+>En particular, $(0)=\{0\}$ y $(1)=R$. Para comprobar que $I=(a)$ hay que verificar ambas inclusiones: todo múltiplo de $a$ pertenece a $I$, y todo elemento de $I$ es múltiplo de $a$.
+
+^e11017
+
+>[!example]- Ideales principales
+>- **(a) En $\mathbb Z$: el ideal generado por $6$.** $$(6)=\{6k:k\in\mathbb Z\}=\{\ldots,-12,-6,0,6,12,\ldots\}.$$
+>- **(b) En $\mathbb Z$: dos generadores que se reemplazan por uno.** $$(6,10)=\{6m+10n:m,n\in\mathbb Z\}=(2).$$ Todos esos elementos son múltiplos de $2$, y $2=2\cdot6-10$. Ser principal significa admitir un solo generador, aunque el ideal se presente inicialmente con varios.
+>- **(c) En $\mathbb R[x]$: un ideal generado por polinomios.** $$(x^2-1,x^2-x)=(x-1)=\{(x-1)q(x):q(x)\in\mathbb R[x]\}.$$ Ambos polinomios tienen el factor $x-1$, y su diferencia es $(x^2-1)-(x^2-x)=x-1$. Aquí los múltiplos se obtienen multiplicando por polinomios arbitrarios, no solamente por números reales.
 
 >[!definition] Dominio de ideales principales
->Un **dominio de ideales principales (DIP)** es un dominio íntegro conmutativo en el que todo ideal tiene la forma $(a)$ para algún $a\in R$.
+>Un **dominio de ideales principales (DIP)** es un dominio íntegro conmutativo en el que todo ideal es principal.
 
 ^e11012
 
@@ -208,19 +218,38 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >
 >>[!Proof]-
 >>- **(a)**
->>	1. Se tiene $(p)\neq R$ si y solo si $p$ no es invertible: $1\in(p)$ equivale a $1=pr$ para algún $r\in R$. Además, $ab\in(p)$ equivale a $p\mid ab$, y análogamente para $a$ y $b$. Aplicamos [[Teorico 11#^e11007|ideal primo]] y [[Teorico 11#^e11010|elementos primos]].
+>>	- **($\Rightarrow$) Supongamos que $p$ es un elemento primo.**
+>>		1. Por [[Teorico 11#^e11010|elementos primos]], $p$ no es una unidad. Por tanto, $(p)\neq R$. En efecto, si $(p)=R$, entonces $1\in(p)$ y existiría $r\in R$ con $1=pr$. Por conmutatividad, también $rp=1$, así que $r$ sería una inversa de $p$, contradiciendo que $p$ no es una unidad.
+>>		2. Sean $a,b\in R$ tales que $ab\in(p)$. Entonces existe $r\in R$ con $ab=pr$, es decir, $p\mid ab$. Como $p$ es primo, obtenemos $p\mid a$ o $p\mid b$. En el primer caso existe $x\in R$ con $a=px$, luego $a\in(p)$; en el segundo existe $y\in R$ con $b=py$, luego $b\in(p)$. Junto con $(p)\neq R$, esto demuestra que $(p)$ es un [[Teorico 11#^e11007|ideal primo]].
+>>	- **($\Leftarrow$) Supongamos que $(p)$ es un ideal primo.**
+>>		1. Por [[Teorico 11#^e11007|ideal primo]], $(p)\neq R$. Por tanto, $p$ no es una unidad: si tuviera una inversa $p^{-1}$, para todo $r\in R$ tendríamos $r=p(p^{-1}r)\in(p)$, de modo que $(p)=R$, contradicción.
+>>		2. Sean $a,b\in R$ tales que $p\mid ab$. Existe $r\in R$ con $ab=pr$, por lo que $ab\in(p)$. Como $(p)$ es primo, $a\in(p)$ o $b\in(p)$. En el primer caso existe $x\in R$ con $a=px$, es decir, $p\mid a$; en el segundo existe $y\in R$ con $b=py$, es decir, $p\mid b$. Como además $p\neq0$ por hipótesis y ya probamos que $p$ no es una unidad, concluimos que $p$ es un [[Teorico 11#^e11010|elemento primo]].
 >>- **(b)**
->>	1. Supongamos $p$ irreducible y $(p)\subseteq(a)\subsetneq R$. Por [[Teorico 11#^e11011|divisibilidad e ideales principales]], $p=ab$ para algún $b$. Como $(a)\neq R$, $a$ no es invertible. Por irreducibilidad, $b$ es invertible, y entonces $a=b^{-1}p$, de donde $(a)=(p)$.
->>	2. Recíprocamente, supongamos la condición sobre $(p)$ y escribamos $p=ab$. Si $a$ es invertible, ya tenemos una de las alternativas. Si no lo es, $(p)\subseteq(a)\subsetneq R$, luego $(a)=(p)$. Existe $c$ con $a=pc=abc$, así que $a(1-bc)=0$. Puesto que $p\neq0$, $a\neq0$, y la integridad da $bc=1$. Luego $b$ es invertible. Como $(p)$ es propio, $p$ tampoco es una unidad.
+>>	- $(\Rightarrow)$
+>>		1. Supongamos $p$ irreducible y $(p)\subseteq(a)\subsetneq R$. Por [[Teorico 11#^e11011|divisibilidad e ideales principales]], $p=ab$ para algún $b$. Como $(a)\neq R$, $a$ no es invertible. Por [[Teorico 11#^85c0bf|irreducibilidad]], $b$ es invertible, y entonces $a=pb^{-1}$ osea $(a)\subseteq (p)$, de donde $(a)=(p)$.
+>>	- ($\Leftarrow$)
+>>		1. Recíprocamente, sea $p=ab$ entonces ya tenemos $(p)\subseteq (a)$. Si $a$ es invertible, ya tenemos una de las alternativas. 
+>>		2. Si no lo es tenemos ademas $(a)\subsetneq R$ osea tenemos $(p)\subseteq(a)\subsetneq R$, luego por hipotesis $(a)=(p)$. 
+>>		3. Existe $c$ con $a=pc=abc$, así que $a(1-bc)=0$ como $p\neq0$ entonces $a\neq0$ luego por ser dominio integro $bc=1$. Luego $b$ es invertible (por conmutatividad se tiene $cb=1$). 
+>>		4. Como $(p)$ es propio, $p$ tampoco es una unidad. (Misma idea que (a) vuelta paso 1). Mostrando que $p$ es [[Teorico 11#^85c0bf|irreducibilidad]]
 >>- **(c)**
->>	1. Si $p=ab$, la primalidad de $p$ da $p\mid a$ o $p\mid b$. Si $a=pc$, entonces $p=pcb$ y $p(1-cb)=0$; como $p\neq0$, $cb=1$ y $b$ es invertible. Si $b=pc$, la misma cuenta da $ca=1$ y $a$ es invertible. Luego $p$ es irreducible.
+>>	1. Si $p=ab$, la primalidad de $p$ da $p\mid a$ o $p\mid b$. Si $a=pc$, entonces $p=pcb$ y $p(1-cb)=0$; como $p\neq0$, $cb=1$ y $b$ es invertible. Si no $b=pc$, la misma cuenta da $ca=1$ y $a$ es invertible. Luego $p$ es irreducible.
 >>- **(d)**
->>	1. La implicación primo a irreducible ya está probada en (c). Si $p$ es irreducible y $R$ es un DIP, cualquier ideal propio que contenga a $(p)$ es principal. La parte (b) muestra entonces que $(p)$ es maximal entre todos los ideales propios.
->>	2. Por [[Teorico 11#^e11008|maximal implica primo]], $(p)$ es primo. La parte (a) da que $p$ es primo.
+>>	- $(\Rightarrow)$
+>>		1. La implicación primo a irreducible ya está probada en (c). 
+>>	- $(\Leftarrow)$
+>>		1. Supongamos que $p$ es irreducible. Por (b), $(p)$ es propio y maximal entre los ideales principales propios. Como $R$ es un DIP, todos los ideales son principales. Por tanto, $(p)$ es maximal entre todos los ideales propios, es decir, es un [[Teorico 11#^e11001|ideal maximal]].
+>>		2. Por [[Teorico 11#^e11008|maximal implica primo]], $(p)$ es primo. La parte (a) da que $p$ es primo.
 >>- **(e)**
->>	1. Como $u$ es invertible, $up\neq0$ y $up$ es una unidad si y solo si $p$ lo es. Además, $(up)=(p)$ por [[Teorico 11#^e11011|divisibilidad e ideales principales]]. Las partes (a) y (b) dan ambas equivalencias.
+>>	1. Por conmutatividad, $up=pu$; como $u$ es invertible, también $p=(up)u^{-1}$. Por [[Teorico 11#^e11011|divisibilidad e ideales principales]], la primera igualdad da $(up)\subseteq(p)$ y la segunda da $(p)\subseteq(up)$. Por tanto, $(up)=(p)$.
+>>	2. Además, $up\neq0$: si $up=0$, multiplicando por $u^{-1}$ obtendríamos $p=0$, contradiciendo la hipótesis. Por tanto, podemos aplicar (a) y (b) tanto a $p$ como a $up$.
+>>	3. **Primalidad.** Por (a), $p$ es primo si y solo si $(p)$ es un ideal primo. Como $(p)=(up)$, esto equivale a que $(up)$ sea un ideal primo, lo cual, nuevamente por (a), equivale a que $up$ sea primo.
+>>	4. **Irreducibilidad.** Por (b), $p$ es irreducible si y solo si $(p)$ es propio y maximal entre los ideales principales propios. Como $(p)=(up)$, esta condición vale para $(p)$ si y solo si vale para $(up)$. Aplicando (b) a $up$, concluimos que $p$ es irreducible si y solo si $up$ es irreducible.
 >>- **(f)**
->>	1. Si $p=xy$, por irreducibilidad $x$ o $y$ es invertible. Si $x$ no es invertible, $y$ sí lo es y $x=y^{-1}p$; basta tomar $u=y^{-1}$.
+>>	1. Como $x\mid p$, por [[Teorico 11#^e11009|divisibilidad]] existe $y\in R$ tal que $p=xy$. Como $p$ es irreducible, por [[Teorico 11#^85c0bf|irreducibilidad]] $x$ o $y$ es invertible.
+>>	2. Si $x$ es invertible, ya tenemos la primera alternativa del enunciado: $x$ es una unidad.
+>>	3. Si $x$ no es invertible, entonces $y$ debe ser invertible. De $p=xy$ obtenemos $x=py^{-1}$ y, por conmutatividad, $x=y^{-1}p$. 
+>>	4. Tomamos $u=y^{-1}$, que es una unidad porque su inversa es $y$. Así, $x=up$ con $u\in R^\times$, que es la segunda alternativa del enunciado.
 
 ^e11013
 
@@ -249,33 +278,46 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >
 >>[!Proof]-
 >>- **(a) Existencia de la factorización**
->>	1. Supongamos que existe $r_0\neq0$, no invertible, que no es producto finito de irreducibles. No puede ser irreducible, pues entonces sería un producto de un solo factor. Por [[Teorico 11#^e11010|irreducibilidad]], $r_0=a_0r_1$ con $a_0,r_1$ no invertibles; ambos son no nulos porque $r_0\neq0$.
->>	2. Al menos uno de los dos factores tampoco es producto finito de irreducibles: de lo contrario, multiplicando sus factorizaciones obtendríamos una para $r_0$. Denotamos por $r_1$ un factor que no admite tal factorización y por $a_0$ el otro.
->>	3. De $r_0=a_0r_1$ se sigue $(r_0)\subseteq(r_1)$. La inclusión es estricta: si fueran iguales, existiría $b$ con $r_1=br_0=ba_0r_1$, y por integridad $1=ba_0$, contradiciendo que $a_0$ no es invertible.
->>	4. Repitiendo el procedimiento con $r_1$ y los factores sucesivos, se obtiene una cadena $(r_0)\subsetneq(r_1)\subsetneq(r_2)\subsetneq\cdots$. Esto contradice [[Teorico 11#^e11015|estabilización de cadenas]]. Por tanto, existe la factorización finita.
+>>	1. Supongamos que existe $r_0\neq0$, no invertible, que no es producto finito de irreducibles. No puede ser irreducible, pues entonces sería un producto de un solo factor irreducible. 
+>>	2. Como $r_{0}$ no es [[Teorico 11#^85c0bf|irreducible]], $r_0=a_0r_1$ con $a_0,r_1$ ambos no invertibles y ambos son no nulos porque $r_0\neq0$.
+>>	3. Al menos uno de los dos factores tampoco es producto finito de irreducibles: si ambos los fueran, multiplicando sus factorizaciones obtendríamos una para $r_0$. 
+>>	4. Supongamos sin perdida de generalidades que $r_1$ es el factor que no admite tal factorización y por $a_0$ el otro.
+>>	5. De $r_0=a_0r_1$ se sigue $(r_0)\subseteq(r_1)$. La inclusión es estricta: si fueran iguales, existiría $b$ con $r_1=br_0=ba_0r_1$, y por integridad $1=ba_0$, contradiciendo que $a_0$ no es invertible.
+>>	6. Repitiendo el procedimiento con $r_1$ y los factores sucesivos, se obtiene una cadena $(r_0)\subsetneq(r_1)\subsetneq(r_2)\subsetneq\cdots$. Esto contradice [[Teorico 11#^e11015|estabilización de cadenas]]. Por tanto, existe la factorización finita.
 >>- **(b) Unicidad salvo orden y asociados**
->>	1. Sean $p_1\cdots p_n=q_1\cdots q_m$ dos factorizaciones en irreducibles. Por [[Teorico 11#^e11013|primos e irreducibles en un DIP]], $p_1$ es primo. Aplicando reiteradamente la condición de primo al producto de los $q_j$, $p_1$ divide a algún $q_j$. Reordenamos los factores para que sea $q_1$.
->>	2. Escribimos $q_1=p_1c$. Como $q_1$ es irreducible y $p_1$ no es una unidad, $c$ es una unidad. Sustituimos en la igualdad y cancelamos $p_1\neq0$, usando integridad: $$p_2\cdots p_n=cq_2\cdots q_m.$$
->>	3. Repetimos el argumento: cada irreducible de la izquierda es primo y no puede dividir a la unidad acumulada de la derecha. En efecto, si una unidad $v$ fuera $ph$, tendríamos $1=p(hv^{-1})$, y $p$ sería invertible. Por ello, el factor considerado divide a uno de los irreducibles restantes de la derecha y es asociado a él, como en el paso 2.
->>	4. Ninguna lista puede agotarse antes que la otra. Si esto ocurriera, un producto no vacío de irreducibles sería una unidad. Si $a_1\cdots a_k=v$ con $v$ invertible, entonces $$a_i\left(v^{-1}\prod_{j\neq i}a_j\right)=1$$ para cada $i$, contradiciendo que los irreducibles no son unidades.
->>	5. Así, $n=m$ y cada $p_i$ es asociado al $q_i$ correspondiente, después de reordenar. Por [[Teorico 11#^e11014|factorización única]], $R$ es un DFU.
+>>	1. Sean $p_1\cdots p_n=q_1\cdots q_m$ dos factorizaciones en irreducibles que las podemos mirar como $p_{1}.(p_{2}\ldots p_{n})=q_{1}(q_{2}\ldots q_{m})$ Entonces $p_{1}|q_{1}(q_{2}\ldots q_{m})$
+>>	2. Por [[Teorico 11#^e11013|primos e irreducibles en un DIP]], $p_1$ es primo por lo tanto $p_{1}|q_{1}$ o $p_{1}|q_{2}\ldots q_{m}$ , aplicando esto recursivamente $p_{1}|q_{k}$ para algun $k$ como es conmutativo el anillo podemos suponer $k=1$ osea $$p_{1}|q_{1}$$  
+>>	3. Luego tenemos $q_1=p_1c$. Ademas como $q_1$ es irreducible y $p_1$ no es una unidad (por que es [[Teorico 11#^e11010|primo]]) entonces $c$ es una unidad por lo tanto $q_{1},p_{1}$ son [[Teorico 11#^e11009|asociados]]
+>>	4. Sustituimos en la igualdad y cancelamos $p_1\neq0$, usando integridad: $$p_2\cdots p_n=cq_2\cdots q_m.$$
+>>	5. Ademas $p_{2}$ tiene que dividir a $c$ o a $q_{2}\ldots q_{m}$ por ser primo (por que es irreducible). Pero si dividiera a $c$ entoncse $c=p_{2}r$ entonces $1=p_{2}(rc^{-1})$ osea $p_{2}$ seria inversible (usando conmutatividad) que es absurdo. Entonces $p_{2}|q_{2}\ldots q_{m}$ y de la misma manera que 2. $p_{2}|q_{2}$ 
+>>	6. Ninguna lista puede agotarse antes que la otra. Si esto ocurriera, un producto no vacío de irreducibles sería una unidad osea $p_{j}\cdots a_n=v$ con $v$ invertible, entonces $$p_j\left(\left(\prod_{i= j+1}p_i\right)v^{-1}\right)=1$$con lo cual $p_{j}$ seria invertible que es absurdo por que es primo 
+>>	7. Así, $n=m$ y cada $p_i$ es asociado al $q_i$ correspondiente, después de reordenar. Por [[Teorico 11#^e11014|factorización única]], $R$ es un DFU.
 
 ^e11016
 
 ## 7. Un dominio que no es de factorización única
 
->[!example] $\mathbb Z[\sqrt{-5}]$ no es un DFU
->Sea $\eta=\sqrt{-5}$ y $$R=\mathbb Z[\eta]=\{a+b\eta:a,b\in\mathbb Z\}\subseteq\mathbb C.$$ Entonces $$6=2\cdot3=(1+\eta)(1-\eta)$$ son dos factorizaciones en irreducibles que no coinciden salvo orden y asociados. Por tanto, $R$ no es un DFU y tampoco es un DIP.
+>[!Example] $\mathbb Z[\sqrt{-5}]$ no es un DFU
+>Sea $$R=\mathbb Z[\sqrt{-5}]=\{a+b\sqrt{-5}:a,b\in\mathbb Z\}\subseteq\mathbb C.$$ Entonces $$6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})$$ son dos factorizaciones en irreducibles que no coinciden salvo orden y asociados. Por tanto, $R$ no es un DFU y tampoco es un DIP.
 >
 >>[!Proof]-
->>1. $R$ es un subanillo de $\mathbb C$, pues $(a+b\eta)(c+d\eta)=(ac-5bd)+(ad+bc)\eta$. Como $\mathbb C$ no tiene divisores de cero, $R$ es un dominio íntegro.
->>2. Definimos $$N(a+b\eta)=(a+b\eta)(a-b\eta)=a^2+5b^2.$$ Esta norma es un entero no negativo, es cero solamente en $0$ y es multiplicativa: por conmutatividad en $\mathbb C$, $$N(\alpha\beta)=\alpha\beta\overline\alpha\,\overline\beta=(\alpha\overline\alpha)(\beta\overline\beta)=N(\alpha)N(\beta).$$
->>3. Si $u$ es una unidad, $N(u)N(u^{-1})=N(1)=1$; ambos factores son enteros positivos, por lo que $N(u)=1$. La ecuación $a^2+5b^2=1$ obliga a $b=0$ y $a=1$ o $a=-1$. Recíprocamente, $1$ y $-1$ son unidades. Por tanto, $R^\times=\{1,-1\}$.
->>4. No hay elementos de norma $2$ ni $3$. Si $b\neq0$, $a^2+5b^2\geq5$; si $b=0$, sería $a^2=2$ o $a^2=3$, imposible para $a\in\mathbb Z$.
->>5. $N(2)=4$. Si $2=\alpha\beta$ con ambos factores no invertibles, sus normas serían enteros mayores que $1$ cuyo producto es $4$, de modo que ambas serían $2$. Esto contradice el paso 4. Luego $2$ es irreducible. Análogamente, $N(3)=9$ obligaría a que ambos factores no invertibles tuvieran norma $3$, por lo que $3$ también es irreducible.
->>6. $N(1+\eta)=N(1-\eta)=6$. En una factorización en dos no unidades, las normas tendrían que ser $2$ y $3$, en algún orden. El paso 4 lo impide. Ambos elementos son irreducibles.
->>7. Las igualdades anunciadas se verifican mediante $(1+\eta)(1-\eta)=1-\eta^2=6$. Pero elementos asociados tienen la misma norma, pues las unidades tienen norma $1$. Las normas de los factores de la primera factorización son $4$ y $9$, mientras que las de la segunda son $6$ y $6$. Ningún factor de la primera es asociado a uno de la segunda.
->>8. Esto contradice [[Teorico 11#^e11014|factorización única]]. Por [[Teorico 11#^e11016|DIP implica DFU]], $R$ tampoco es un DIP.
+>>1. **$R=\mathbb Z[\sqrt{-5}]$ es un subanillo de $\mathbb C$ y un dominio íntegro.** Verificamos:
+>>	- **Contiene a la identidad y es no vacío:** $1=1+0\sqrt{-5}\in R$.
+>>	- **Cerrado bajo resta:** si $x=a+b\sqrt{-5}$ e $y=c+d\sqrt{-5}$ pertenecen a $R$, entonces $$x-y=(a-c)+(b-d)\sqrt{-5}\in R,$$ porque $a-c,b-d\in\mathbb Z$. Como $R$ es no vacío, esto prueba que $(R,+)$ es un subgrupo de $(\mathbb C,+)$.
+>>	- **Cerrado bajo producto:** $$xy=(a+b\sqrt{-5})(c+d\sqrt{-5})=(ac-5bd)+(ad+bc)\sqrt{-5}\in R,$$ porque $ac-5bd,ad+bc\in\mathbb Z$. Así, $R$ es un subanillo de $\mathbb C$ con identidad; además, es conmutativo porque $\mathbb C$ lo es.
+>>	- **Sin divisores de cero:** $1\neq0$ y, si $xy=0$ en $R$, también $xy=0$ en $\mathbb C$, de modo que $x=0$ o $y=0$. Por tanto, $R$ es un dominio íntegro.
+>>2. Definimos $$N(a+b\sqrt{-5})=(a+b\sqrt{-5})(a-b\sqrt{-5})=a^2+5b^2.$$ Esta norma es un entero no negativo, es cero solamente en $0$ y es multiplicativa: por conmutatividad en $\mathbb C$, $$N(\alpha\beta)=\alpha\beta\overline\alpha\,\overline\beta=(\alpha\overline\alpha)(\beta\overline\beta)=N(\alpha)N(\beta).$$
+>>3. **Si $u$ es una unidad, entonces $N(u)=1$:** por multiplicatividad, $N(u)N(u^{-1})=N(1)=1$. Ambos factores son enteros positivos, de modo que $N(u)=N(u^{-1})=1$.
+>>4. **Si $N(u)=1$, entonces $u=\pm1$:** escribimos $u=a+b\sqrt{-5}$, con $a,b\in\mathbb Z$. Tenemos $a^2+5b^2=1$. Si $b\neq0$, entonces $b^2\geq1$ y $a^2+5b^2\geq5$, una contradicción. Por tanto, $b=0$ y $a^2=1$, de donde $a=\pm1$. Sustituyendo en el elemento original, $u=a+b\sqrt{-5}=\pm1$.
+>>5. **Si $u=\pm1$, entonces $u$ es una unidad:** $1\cdot1=1$ y $(-1)(-1)=1$, por lo que cada uno tiene inverso en $R$. Concluimos que $$u\text{ es unidad}\iff N(u)=1\iff u\in\{1,-1\},$$ y por tanto $R^\times=\{1,-1\}$.
+>>6. No hay elementos de norma $2$ ni $3$. Si $b\neq0$, $a^2+5b^2\geq5$; si $b=0$, sería $a^2=2$ o $a^2=3$, imposible para $a\in\mathbb Z$.
+>>7. Todo elemento $\gamma\neq0$ no invertible tiene $N(\gamma)\geq4$ veamoslo, su norma es un entero positivo, no puede ser $1$ (pues la ecuación del paso 4 obligaría a $\gamma=\pm1$, que es invertible), ni $2$ ni $3$ por el paso 6. Si $2=\alpha\beta$ con ambos factores no invertibles, ambos serían no nulos y tendríamos $$4=N(2)=N(\alpha)N(\beta)\geq4\cdot4=16,$$ una contradicción. Como $2\neq0$ y $2$ no es una unidad por el paso 3, es irreducible. Igualmente, si $3=\alpha\beta$ con ambos factores no invertibles, ambos serían no nulos y $$9=N(3)=N(\alpha)N(\beta)\geq4\cdot4=16,$$ otra contradicción. Como $3\neq0$ y $3$ no es una unidad, también es irreducible.
+>>8. **Queremos probar que $1+\sqrt{-5}$ es irreducible.** Comprobamos las tres condiciones: **No es cero:** $1+\sqrt{-5}\neq0$
+>>9. **No es una unidad:** por el paso 3, las únicas unidades de $R$ son $1$ y $-1$. El elemento $1+\sqrt{-5}$ no es ninguno de ellos
+>>10. **No se puede escribir como producto de dos elementos no invertibles:** suponemos, para llegar a una contradicción, que $$1+\sqrt{-5}=\alpha\beta,\qquad\alpha,\beta\in R\text{ ambos no invertibles}.$$ Como el producto no es cero, ninguno de los factores es cero. Por el paso 7, $N(\alpha)\geq4$ y $N(\beta)\geq4$. entonces tendríamos $$6=N(1+\sqrt{-5})=N(\alpha)N(\beta)\geq4\cdot4=16,$$ lo cual es imposible. Por tanto, esa descomposición no existe. Cumplidas las tres condiciones, $1+\sqrt{-5}$ es irreducible.
+>>11. **Para $1-\sqrt{-5}$ hacemos lo mismo** por tanto, $1-\sqrt{-5}$ también es irreducible.
+>>12. Entonces tenemos dos factorizaciones $(1+\sqrt{-5})(1-\sqrt{-5})=6$. Y tambien $6=2.3$. Pero $2$ no esta asociado con $1+\sqrt{ -5 }$ ni con $1-\sqrt{ -5 }$ por que no existe unidad $c$ tal que $2=c(1\pm\sqrt{ -5 })$ por que las unidades son unicamente $\pm1$.
+>>13. Esto contradice [[Teorico 11#^e11014|factorización única]]. Por [[Teorico 11#^e11016|DIP implica DFU]], $R$ tampoco es un DIP.
 
 >[!remark] Irreducible no implica primo en general
->En este mismo ejemplo, $2\mid(1+\eta)(1-\eta)$, porque el producto es $6=2\cdot3$. Sin embargo, $2$ no divide a ninguno de los dos factores: una igualdad $1\pm\eta=2(a+b\eta)$ exigiría $1=2a$ con $a\in\mathbb Z$, lo cual es imposible. Así, $2$ es irreducible pero no primo.
+>En este mismo ejemplo, $2\mid(1+\sqrt{-5})(1-\sqrt{-5})=6=2.3$. Sin embargo, $2$ no divide a ninguno de los dos factores: una igualdad $1\pm\sqrt{-5}=2(a+b\sqrt{-5})$ exigiría $1=2a$ con $a\in\mathbb Z$, lo cual es imposible. Así, $2$ es irreducible pero no primo.

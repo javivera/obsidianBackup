@@ -7,3 +7,4 @@
 - Prefiere ejemplos sencillos y naturales antes que contraejemplos más avanzados o poco obvios.
 - never edit files without user permission
 - The exercise-navigation plugin (arrow-key navigation between exercise callouts, fold/unfold proofs, palette commands, click-selection) must operate only in Reading view; it must never alter or intercept keys/editing in Live Preview or Source mode.
+- In math explanations, avoid division notation with integers (e.g. `m/n`): there is no division in ℤ, so express divisibility as `m = jn` with an explicit integer `j` instead.

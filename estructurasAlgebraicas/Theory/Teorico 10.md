@@ -89,7 +89,7 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 
 ## Ideales y anillos cocientes
 
->[!definition] Ideales
+>[!definition] Ideal
 >Sea $R$ un anillo y sea $I\subseteq R$ un subgrupo aditivo de $(R,+)$.
 >1. $I$ es un **ideal a derecha** si para todo $x\in R$ y todo $r\in I$ se tiene $rx\in I$ (es decir, $IR\subseteq I$).
 >2. $I$ es un **ideal a izquierda** si para todo $x\in R$ y todo $r\in I$ se tiene $xr\in I$ (es decir, $RI\subseteq I$).

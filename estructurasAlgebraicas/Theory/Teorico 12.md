@@ -26,32 +26,6 @@ source: "Cuatro fotos enviadas por Sofía por WhatsApp el 2026-10-02"
 >2. Todo cuerpo $\mathbb k$, con $\varphi(a)=1$ para $a\neq0$: la división tiene siempre resto cero.
 >3. $\mathbb k[x]$, si $\mathbb k$ es un cuerpo, con $\varphi(p)=\deg p$ para $p\neq0$.
 
-### Ideales principales
-
->[!Definition] Ideal principal y dominio de ideales principales
->Sea $R$ un anillo conmutativo con unidad. Un ideal $I\subseteq R$ es **principal** si existe $a\in R$ tal que $$I=(a)=\{ra:r\in R\}.$$ Decimos que $a$ es un **generador** de $I$: todos los elementos del ideal, y solo ellos, son múltiplos de $a$. Las notaciones $(a)$ y $\langle a\rangle$ representan el mismo ideal. Un **dominio de ideales principales** es un dominio íntegro conmutativo en el que todo ideal es principal.
->En particular, $(0)=\{0\}$ y $(1)=R$. Para comprobar que $I=(a)$ hay que verificar ambas inclusiones: todo múltiplo de $a$ pertenece a $I$, y todo elemento de $I$ es múltiplo de $a$.
-
-### Ejemplos de ideales principales
-
->[!example]- Ideales principales
->- **(a) En $\mathbb Z$: el ideal generado por $6$.** $$(6)=\{6k:k\in\mathbb Z\}=\{\ldots,-12,-6,0,6,12,\ldots\}.$$
->- **(b) En $\mathbb Z$: dos generadores que se reemplazan por uno.** $$(6,10)=\{6m+10n:m,n\in\mathbb Z\}=(2).$$
->  Todos esos elementos son múltiplos de $2$, y $2=2\cdot6-10$. Ser principal significa admitir un solo generador, aunque el ideal se presente inicialmente con varios.
->- **(c) En $\mathbb R[x]$: un ideal generado por polinomios.** $$(x^2-1,x^2-x)=(x-1)=\{(x-1)q(x):q(x)\in\mathbb R[x]\}.$$
->  Ambos polinomios tienen el factor $x-1$, y su diferencia es $(x^2-1)-(x^2-x)=x-1$. Aquí los múltiplos se obtienen multiplicando por polinomios arbitrarios, no solamente por números reales.
-
->[!definition] Dominio de factorización única
->Un dominio íntegro conmutativo $R$ es un **dominio de factorización única (DFU)** si cumple las siguientes condiciones:
->1. **Existencia.** Todo elemento $a\neq0$ que no sea una unidad admite una factorización $a=p_1\cdots p_n$, con $n\geq1$ y todos los $p_i$ irreducibles.
->2. **Unicidad salvo orden y asociados.** Si $a=p_1\cdots p_n=q_1\cdots q_m$ son dos factorizaciones en irreducibles, entonces $n=m$ y, después de reordenar los factores, existen unidades $u_1,\ldots,u_n\in R$ tales que $q_i=u_ip_i$ para todo $i$.
-
->[!remark] Terminología
->- Una **unidad** es un elemento invertible.
->- Un elemento $p$ es **irreducible** si es no nulo, no es una unidad y toda igualdad $p=bc$ obliga a que $b$ o $c$ sea una unidad.
->- Dos elementos son **asociados** si uno es el producto del otro por una unidad.
->- Un elemento no nulo y no invertible $p$ es **primo** si $p\mid ab$ implica $p\mid a$ o $p\mid b$.
-
 ### Teorema: de la división euclidiana a la factorización única
 
 >[!Theorem] Todo dominio euclidiano es un dominio de ideales principales y de factorización única
@@ -134,8 +108,8 @@ source: "Cuatro fotos enviadas por Sofía por WhatsApp el 2026-10-02"
 >>[!Proof]-
 >>1. Siempre preserva la suma: $\operatorname{Ev}_c(p+q)=\sum_i(a_i+b_i)c^i=\operatorname{Ev}_c(p)+\operatorname{Ev}_c(q)$; también preserva la unidad.
 >>2. Si $c\in Z(R)$, para $p=\sum_i a_ix^i$ y $q=\sum_j b_jx^j$ se cumple $$\operatorname{Ev}_c(pq)=\sum_{i,j}a_ib_jc^{i+j}=\sum_{i,j}a_ic^ib_jc^j=\operatorname{Ev}_c(p)\operatorname{Ev}_c(q).$$ La igualdad intermedia usa que $c^i$ conmuta con $b_j$.
->>3. Recíprocamente, en $R[x]$ se cumple $xa=ax$ para todo $a\in R$. Si la evaluación es multiplicativa, al evaluar esta identidad obtenemos $ca=ac$ para todo $a\in R$. Por tanto, $c\in Z(R)$.
->>4. El cálculo de las fotos con $p=ax$ y $q=bx$ ilustra el obstáculo: $\operatorname{Ev}_c(pq)=abc^2$, mientras que $\operatorname{Ev}_c(p)\operatorname{Ev}_c(q)=acbc$.
+>>3. Recíprocamente, usando que en $R[x]$ se cumple $xa=ax$ para todo $a\in R$. Como la evaluación es multiplicativa, $$ac=Ev_{c}(a)Ev_{c}(x)=Ev_{c}(ax)=Ev_{c}(xa)=Ev_{c}(x)Ev_{c}(a)=ca$$por tanto, $c\in Z(R)$.
+>>4. El cálculo de las fotos con $p=ax$ y $q=bx$ ilustra el obstáculo si no hay conmutatividad: $\operatorname{Ev}_c(pq)=abc^2$, mientras que $\operatorname{Ev}_c(p)\operatorname{Ev}_c(q)=acbc$.
 
 >[!lemma] Extensión de un morfismo a polinomios
 >Si $\varphi:R\to S$ es un morfismo de anillos, induce un morfismo $\widetilde\varphi:R[x]\to S[x]$ definido por $\widetilde\varphi(\sum_i a_ix^i)=\sum_i\varphi(a_i)x^i$.
@@ -173,12 +147,33 @@ source: "Cuatro fotos enviadas por Sofía por WhatsApp el 2026-10-02"
 ## Un cociente de polinomios reales
 
 >[!example] El cociente $\mathbb R[x]/(x^2+1)$
->Consideramos $\varphi:\mathbb R[x]\to\mathbb C$, $\varphi(\sum_j a_jx^j)=\sum_j a_ji^j$. Es la evaluación en $i$, tomando los coeficientes reales dentro de $\mathbb C$. Como $\varphi(x^2+1)=0$, induce un morfismo $\widehat\varphi:\mathbb R[x]/(x^2+1)\to\mathbb C$ con $\widehat\varphi\circ\pi=\varphi$, donde $\pi$ es la proyección canónica.
->El morfismo $\widehat\varphi$ es sobreyectivo: $a+bi=\varphi(a+bx)$. Para concluir que es un isomorfismo, en las fotos se deja como ejercicio verificar $\ker\varphi=(x^2+1)$.
+>Consideramos $\varphi:\mathbb R[x]\to\mathbb C$, $\varphi(\sum_j a_jx^j)=\sum_j a_ji^j$. Es la evaluación en $i$, tomando los coeficientes reales dentro de $\mathbb C$. Como $\varphi(x^2+1)=0$, induce un morfismo $\widehat\varphi:\mathbb R[x]/(x^2+1)\to\mathbb C$ con $\widehat\varphi\circ\pi=\varphi$, donde $\pi$ es la proyección canónica. El morfismo $\widehat\varphi$ es isomorfismo
+>>[!Proof]-
+>>La idea es demostrar que **$\mathbb R[x]/(x^2+1)$ es otra manera de construir los números complejos**: al pasar al cociente, la clase de $x$ cumple el papel de $i$.
+>>1. **¿Qué significa este cociente?** Escribimos $I=(x^2+1)=\{q(x)(x^2+1):q\in\mathbb R[x]\}$. Los elementos del cociente son clases de polinomios, y la igualdad de clases se define por $$[f]=[g]\quad\Longleftrightarrow\quad f-g\in I.$$ Es decir, dos polinomios representan el mismo elemento cuando su diferencia es un múltiplo de $x^2+1$. Por ejemplo, $$x^2-(-1)=x^2+1\in I\quad\Longrightarrow\quad[x^2]=[-1].$$ Por la definición del producto en el cociente, $[x]^2=[x^2]=[-1]$. **Esto conecta a $[x]$ con $i$: ambos tienen cuadrado $-1$.**
+>>2. **¿Cómo son los elementos del cociente y por qué queda $[p]=[a+bx]$?** Por el [[Teorico 12#^b742e1|algoritmo de la división]], como $x^2+1$ es mónico de grado $2$, cualquier $p\in\mathbb R[x]$ puede escribirse como $$p(x)=q(x)(x^2+1)+a+bx,\qquad a,b\in\mathbb R.$$ Restando el resto $a+bx$, obtenemos $$p(x)-(a+bx)=q(x)(x^2+1)\in I.$$ Por la definición de igualdad de clases del paso anterior, $$[p]=[a+bx].$$ **No estamos diciendo que los polinomios $p$ y $a+bx$ sean iguales**, sino que representan el mismo elemento del cociente porque su diferencia pertenece al ideal. La expresión «el primer sumando desaparece en el cociente» significa precisamente que $[q(x)(x^2+1)]=[0]$. Por ejemplo, $$x^3+2x^2+4x+5=(x+2)(x^2+1)+3x+3,$$ de modo que $$[x^3+2x^2+4x+5]=[3+3x].$$ Así, **todas las clases tienen un representante de la forma $a+bx$**, parecido a la forma $a+bi$ de un complejo.
+>>3. **¿Qué hace el morfismo del ejemplo y qué significa que induce uno sobre el cociente?** Primero definimos $$\varphi:\mathbb R[x]\longrightarrow\mathbb C,\qquad\varphi(p)=p(i).$$ Simplemente reemplazamos $x$ por $i$; por ejemplo, $$\varphi(x^2+3x+2)=i^2+3i+2=1+3i.$$ Es un morfismo de anillos porque $\varphi(1)=1$ y, para cualesquiera $p,r\in\mathbb R[x]$, $$(p+r)(i)=p(i)+r(i),\qquad(pr)(i)=p(i)r(i).$$ Ahora queremos definir una aplicación sobre las **clases** mediante $$\widehat\varphi:\mathbb R[x]/I\longrightarrow\mathbb C,\qquad\widehat\varphi([p])=p(i).$$ Para que esté bien definida, representantes de una misma clase deben dar el mismo resultado. En efecto, si $[p]=[r]$, existe $q\in\mathbb R[x]$ tal que $p-r=q(x)(x^2+1)$, y entonces $$p(i)-r(i)=q(i)(i^2+1)=0.$$ Por tanto, $p(i)=r(i)$: el resultado no depende del representante elegido. Además, $$\widehat\varphi([p]+[r])=(p+r)(i)=p(i)+r(i),\qquad\widehat\varphi([p][r])=(pr)(i)=p(i)r(i),$$ y $\widehat\varphi([1])=1$, de modo que también es un morfismo de anillos. Esto es lo que significa que $\varphi$ **induce** el morfismo $\widehat\varphi$. Si $\pi(p)=[p]$ es la proyección canónica, la igualdad $\widehat\varphi\circ\pi=\varphi$ expresa que $$p\xmapsto{\pi}[p]\xmapsto{\widehat\varphi}p(i):$$ pasar primero a la clase y luego evaluarla da lo mismo que evaluar directamente el polinomio.
+>>- **¿Por qué es un isomorfismo?** 
+>>	1. Es **sobreyectivo** porque todo complejo $a+bi$ es imagen de una clase: $$\widehat\varphi([a+bx])=a+bi.$$
+>>	2. Para comprobar la **inyectividad**, determinamos primero qué polinomios se evalúan en cero. Si escribimos $$p(x)=q(x)(x^2+1)+a+bx,$$ entonces $$p(i)=q(i)(i^2+1)+a+bi=a+bi.$$
+>>	3. Si $p\in \ker\varphi$ entonces $p(i)=0$ por lo que $a=b=0$ entonces queda $p(x)=q(x)(x^2+1)$ que pertenece $I$ por definicion  
+>>	4. Recíprocamente, si $p\in I$ entonces $p(x)=q(x)(x^2+1)$ con lo cual $p(i)=q(i)(i^2+1)=0$. Entonces $p\in \ker\varphi$ 
+>>	5. Esto demuestra $$\ker\varphi=I=(x^2+1).$$
+>>	6. Ahora, si $\widehat\varphi([p])=\widehat\varphi([r])$, tenemos $p(i)=r(i)$, luego $(p-r)(i)=0$. Por lo recién probado, $p-r\in I$, de modo que $[p]=[r]$. Así, $\widehat\varphi$ es inyectivo y, por ser también sobreyectivo, es un isomorfismo. La identificación concreta es $$\boxed{\mathbb R[x]/(x^2+1)\cong\mathbb C,\qquad[a+bx]\longmapsto a+bi.}$$
 
->[!exercise] Identificación con los complejos
->1. Demostrar que $\ker\varphi=(x^2+1)$ y concluir que $\mathbb R[x]/(x^2+1)\cong\mathbb C$.
->2. Como alternativa, demostrar que $x^2+1$ es irreducible en $\mathbb R[x]$ y usar el criterio de maximalidad del ideal generado por un irreducible sobre un cuerpo.
+>[!exercise] Identificación con los complejos (inentendible) 
+>Como alternativa, demostrar que $x^2+1$ es irreducible en $\mathbb R[x]$ y usar el criterio de maximalidad del ideal generado por un irreducible sobre un cuerpo.
+>
+>>[!Proof]-
+>>- **Irreducibilidad de $x^2+1$.** El polinomio $x^2+1$ es no nulo y no es una unidad: si $(x^2+1)h=1$, necesariamente $h\neq0$ y el grado del producto sería $2+\deg h\geq2$, mientras que $\deg1=0$. Si fuera reducible, sería producto de dos polinomios no constantes, pues toda constante real no nula es invertible. Como los grados de los factores suman $2$, ambos tendrían grado $1$ $$x^2+1=(ax+b)(cx+d),\qquad a,c\neq0.$$ Tomando $r=-a^{-1}b\in\mathbb R$, se cumple $ar+b=a(-a^{-1}b)+b=0$, y al evaluar la factorización obtendríamos $r^2+1=0$. Esto contradice que $r^2+1\geq1>0$ para todo $r\in\mathbb R$. Por tanto, $x^2+1$ es irreducible en $\mathbb R[x]$.
+>>- **Maximalidad de $I=(x^2+1)$.** 
+>>	1. Veamos que $\mathbb R[x]$ es un DIP. Es un dominio íntegro porque el producto de los coeficientes principales de dos polinomios no nulos es no nulo. 
+>>	2. Sea $J\neq\{0\}$ un ideal y elijamos $g\in J\setminus\{0\}$ de grado mínimo. Para cualquier $f\in J$, el [[Teorico 12#^b742e1|algoritmo de la división]] da $f=qg+r$, con $r=0$ o $\deg r<\deg g$; se puede aplicar porque el coeficiente principal de $g$ es un real no nulo y, por tanto, invertible. 
+>>	3. Como $r=f-qg\in J$, la minimalidad del grado de $g$ obliga a que $r=0$. Así, $J\subseteq(g)$; la inclusión contraria se sigue de $g\in J$, luego $J=(g)$. El ideal cero también es principal, de modo que $\mathbb R[x]$ es un DIP. 
+>>	4. Aplicando [[Teorico 11#^e11013|irreducibilidad e ideales principales]] (d) a $x^2+1$ (irreducible por primera parte) tenemos que $I$ es propio y maximal entre los ideales principales propios. Como todos los ideales de $\mathbb R[x]$ son principales, $I$ es maximal entre todos los ideales propios.
+>>- **El cociente es un cuerpo.** Por [[Teorico 11#^e11003|cociente de división y maximalidad]], $K=\mathbb R[x]/I$ es un anillo de división. Además, es conmutativo: para cualesquiera clases, $[p][r]=[pr]=[rp]=[r][p]$, porque los polinomios reales conmutan. Por tanto, $K$ es un cuerpo.
+>>- **Inyectividad del morfismo inducido.** Consideramos el morfismo del ejemplo, $$\widehat\varphi:K\longrightarrow\mathbb C,\qquad\widehat\varphi([p])=p(i),$$ que satisface $\widehat\varphi([1])=1$. La ventaja de saber que $K$ es un cuerpo es que toda clase no nula tiene inversa. Si una clase $u\neq[0]$ tuviera imagen cero, existiría $v\in K$ con $uv=[1]$, y entonces $$1=\widehat\varphi([1])=\widehat\varphi(uv)=\widehat\varphi(u)\widehat\varphi(v)=0\cdot\widehat\varphi(v)=0,$$ una contradicción. Por tanto, la única clase con imagen cero es $[0]$. Si $\widehat\varphi(u)=\widehat\varphi(w)$, entonces $\widehat\varphi(u-w)=\widehat\varphi(u)-\widehat\varphi(w)=0$, de modo que $u-w=[0]$ y $u=w$. Así, $\widehat\varphi$ es inyectivo, sin necesidad de calcular explícitamente $\ker\varphi$.
+>>- **Sobreyectividad y conclusión.** Para todo $a+bi\in\mathbb C$, con $a,b\in\mathbb R$, tenemos $$\widehat\varphi([a+bx])=a+bi.$$ Por tanto, $\widehat\varphi$ es sobreyectivo y, por el paso anterior, también inyectivo. En consecuencia, es un isomorfismo: $$\boxed{\mathbb R[x]/(x^2+1)\cong\mathbb C,\qquad[a+bx]\longmapsto a+bi.}$$
 
 ## Polinomios primitivos y reducción módulo un primo
 
@@ -187,45 +182,99 @@ source: "Cuatro fotos enviadas por Sofía por WhatsApp el 2026-10-02"
 
 >[!lemma] Lema de Gauss
 >Si $f,g\in\mathbb Z[x]$ son primitivos, entonces $fg$ es primitivo.
+>
 >>[!Proof]-
 >>1. Supongamos que $fg=\sum_i c_ix^i$ no es primitivo. Existe un primo $\ell\in\mathbb Z$ que divide a todos sus coeficientes $c_i$.
->>2. Consideramos la reducción de coeficientes $\pi:\mathbb Z[x]\to\mathbb F_\ell[x]$. Entonces $\pi(fg)=0$ y, como $\pi$ es un morfismo, $\pi(f)\pi(g)=0$.
->>3. El anillo $\mathbb F_\ell[x]$ es un dominio íntegro, por lo que $\pi(f)=0$ o $\pi(g)=0$. Esto significa que $\ell$ divide a todos los coeficientes de $f$ o a todos los de $g$, contradiciendo que ambos son primitivos.
+>>2. Definimos la reducción de coeficientes $\pi:\mathbb Z[x]\to\mathbb Z_\ell[x]$ mediante $$\pi\left(\sum_i a_ix^i\right)=\sum_i\overline{a_i}x^i$$, donde $\overline{a_i}$ es la clase de $a_i$ módulo $\ell$. Es decir, reemplazamos cada coeficiente por su clase módulo $\ell$ y dejamos la variable $x$ igual. En particular, $\pi(h)=0$ si y solo si $\ell$ divide a todos los coeficientes de $h$. Entonces $\pi(fg)=0$ y, como $\pi$ es un morfismo, $\pi(f)\pi(g)=0$.
+>>3. El anillo $\mathbb Z_\ell[x]$ es un dominio íntegro, por lo que $\pi(f)=0$ o $\pi(g)=0$. Esto significa que $\ell$ divide a todos los coeficientes de $f$ o a todos los de $g$, contradiciendo que ambos son primitivos.
 
 ^ea730c
 
 >[!proposition] Irreducibilidad sobre $\mathbb Z$ y sobre $\mathbb Q$
 >Sea $p\in\mathbb Z[x]$ primitivo y de grado al menos $1$. Entonces $p$ es irreducible en $\mathbb Z[x]$ si y solo si es irreducible en $\mathbb Q[x]$.
 >>[!Proof]-
->>1. Si $p$ es irreducible en $\mathbb Q[x]$ y $p=fg$ en $\mathbb Z[x]$, uno de los factores tiene grado cero, pues los únicos polinomios inversibles de $\mathbb Q[x]$ son los constantes no nulos. Si ese factor constante es $a\in\mathbb Z$, entonces $a$ divide a todos los coeficientes de $p$. Como $p$ es primitivo, $a=\pm1$ y es una unidad en $\mathbb Z[x]$.
->>2. Para la otra dirección, supongamos que $p$ es irreducible en $\mathbb Z[x]$ y que $p=fg$ en $\mathbb Q[x]$, con $\deg f,\deg g\geq1$. Eliminando denominadores y dividiendo luego cada lista de coeficientes por su máximo común divisor, podemos escribir $f=uF$ y $g=vG$, donde $u,v\in\mathbb Q\setminus\{0\}$ y $F,G\in\mathbb Z[x]$ son primitivos.
->>3. Escribimos $uv=A/B$ con $A,B\in\mathbb Z$, $B>0$ y $\gcd(A,B)=1$. Entonces $Bp=AFG$. Cada coeficiente de $AFG$ es divisible por $B$; como $A$ y $B$ son coprimos, $B$ divide a cada coeficiente de $FG$.
->>4. Por [[Teorico 12#^ea730c|lema de Gauss]], $FG$ es primitivo, por lo que $B=1$. Ahora $p=AFG$ y la primitividad de $p$ obliga a $A=\pm1$. Así, $p=(\pm F)G$ es una factorización en $\mathbb Z[x]$ con ambos factores de grado positivo, contradicción.
+>>- ($\Leftarrow$)
+>>	1. Si $p$ es irreducible en $\mathbb Q[x]$ y $p=fg$ en $\mathbb Z[x]$, uno de los factores tiene grado cero, pues los únicos polinomios inversibles de $\mathbb Q[x]$ son los constantes no nulos. 
+>>	2. Si ese factor constante es $a\in\mathbb Z$, entonces $a$ divide a todos los coeficientes de $p$. Como $p$ es primitivo, $a=\pm1$ y es una unidad en $\mathbb Z[x]$.
+>>	3. Con lo cual $p$ es irreducible en $\mathbb{Z}[x]$  
+>>- $(\Rightarrow)$
+>>	1. Tenemos que $p$ es irreducible en $\mathbb Z[x]$ y supongamos que $p=fg$ en $\mathbb Q[x]$ con $\deg f,\deg g\geq1$. (Osea $p$ seria reducible, por que ningun polinomio de grado mayor or igual que $1$ es unidad) 
+>>	2. Eliminando denominadores y dividiendo luego cada lista de coeficientes por su máximo común divisor, podemos escribir $f=uF$ y $g=vG$, donde $u,v\in\mathbb Q\setminus\{0\}$ y $F,G\in\mathbb Z[x]$ son primitivos.
+>>	3. Escribimos $uv=A/B$ con $A,B\in\mathbb Z$, $B>0$ y $\gcd(A,B)=1$. Entonces $Bp=AFG$. 
+>>	4. Si $p_i$ y $c_i$ son los coeficientes de $x^i$ en $p$ y en $FG$, respectivamente, al comparar coeficientes obtenemos $Bp_i=Ac_i$. 
+>>	5. Por tanto, $B\mid Ac_i$; como $A$ y $B$ son coprimos, $B\mid c_i$. Así, $B$ divide a cada coeficiente de $FG$ osea es un divisor comun
+>>	6. Por [[Teorico 12#^ea730c|lema de Gauss]], $FG$ es primitivo, por lo que $B=1$. Ahora $p=AFG$ y la primitividad de $p$ obliga a $A=\pm1$.
+>>	7. Así, $p=(\pm F)G$ es una factorización en $\mathbb Z[x]$ con ambos factores de grado positivo, osea que no pueden ser unidades, contradicción por que $p$ era irreducible.
 
 ^8f41d3
 
 >[!corollary] Criterio de irreducibilidad por reducción
->Sea $f=\sum_{i=0}^{n}a_ix^i\in\mathbb Z[x]$ primitivo, con $n\geq1$. Sea $\ell$ un primo que no divide a $a_n$ y sea $\pi:\mathbb Z[x]\to\mathbb F_\ell[x]$ la reducción de coeficientes. Si $\pi(f)$ es irreducible en $\mathbb F_\ell[x]$, entonces $f$ es irreducible en $\mathbb Q[x]$.
+>Sea $f=\sum_{i=0}^{n}a_ix^i\in\mathbb Z[x]$ primitivo, con $n\geq1$. Sea $\ell$ un primo que no divide a $a_n$ y sea $\pi:\mathbb Z[x]\to \mathbb{Z}_\ell[x]$ la reducción de coeficientes. Si $\pi(f)$ es irreducible en $\mathbb{Z}_{\ell}[x]$, entonces $f$ es irreducible en $\mathbb Q[x]$.
 >>[!Proof]-
->>1. Por [[Teorico 12#^8f41d3|irreducibilidad sobre enteros y racionales]], basta probar que $f$ es irreducible en $\mathbb Z[x]$. Supongamos que $f=gh$ es una factorización en factores no invertibles de $\mathbb Z[x]$.
->>2. Ningún factor puede ser constante: un factor constante no invertible dividiría todos los coeficientes de $f$, contradiciendo que $f$ es primitivo. Luego $\deg g,\deg h\geq1$.
->>3. Si $b_m,c_d$ son los coeficientes principales de $g,h$, entonces $a_n=b_mc_d$. Como $\ell$ no divide a $a_n$, no divide a $b_m$ ni a $c_d$. Por tanto, $\deg\pi(g)=\deg g\geq1$ y $\deg\pi(h)=\deg h\geq1$.
->>4. La igualdad $\pi(f)=\pi(g)\pi(h)$ contradice la irreducibilidad de $\pi(f)$. Así, $f$ es irreducible.
+>>1. Por [[Teorico 12#^8f41d3|irreducibilidad sobre enteros y racionales]], basta probar que $f$ es irreducible en $\mathbb Z[x]$. Supongamos que $f=qh$ es una factorización en factores no invertibles de $\mathbb Z[x]$ osea suponemo que es reducible 
+>>2. Ningún factor puede ser constante: un factor constante no invertible dividiría todos los coeficientes de $f$, contradiciendo que $f$ es primitivo. Luego $\deg q,\deg h\geq1$.
+>>3. Si $q_m,h_d$ son los coeficientes principales de $q,h$, entonces $a_n=q_mh_d$. Como $\ell$ no divide a $a_n$, no divide a $q_m$ ni a $h_d$. Por tanto, $\deg\pi(q)=\deg q\geq1$ y $\deg\pi(h)=\deg h\geq1$. por que al aplicarle $\pi$ se esta tomanndo equivalencia moduloa $\ell$ como $\ell$ no divide el coeficiente en la imagen no es $0$ con lo cual tiene mismo grado que antes de aplicar $\pi$ que por paso 2. sabiamos que era mayor o igual que $1$      
+>>4. Pero entonces $\pi(f)=\pi(q)\pi(h)$ y ambos factores no son unidades por tener gardo mayor que $0$ por lo tanto $\pi(f)$ seria reducible, que es absurdo. Por lo tanto $f$ es irreducible en $\mathbb{Z}[x]$ por lo tanto lo es en $\mathbb{Q}[x]$   
 
 ^c905ab
 
 >[!example] $x^4-x+1$ es irreducible en $\mathbb Q[x]$
 >Sea $p(x)=x^4-x+1$. Es primitivo y su reducción módulo $2$ es $\overline p(x)=x^4+x+1$.
+>
 >>[!Proof]-
->>1. En $\mathbb F_2$, $\overline p(0)=1$ y $\overline p(1)=1$. Por tanto, no tiene factores lineales.
->>2. Si un polinomio de grado $4$ sin factores lineales es reducible sobre un cuerpo, debe ser producto de dos factores de grado $2$. Los polinomios mónicos de grado $2$ sobre $\mathbb F_2$ son $x^2$, $x^2+1$, $x^2+x$ y $x^2+x+1$. Los primeros tres son reducibles: $x^2=x\cdot x$, $x^2+1=(x+1)^2$ y $x^2+x=x(x+1)$.
->>3. El único candidato es entonces $(x^2+x+1)^2=x^4+x^2+1$, que no coincide con $\overline p=x^4+x+1$. Por tanto, $\overline p$ es irreducible.
->>4. Aplicamos [[Teorico 12#^c905ab|criterio por reducción]] con $\ell=2$ y concluimos que $p$ es irreducible en $\mathbb Q[x]$.
+>>1. En $\mathbb F_2$ osea reduciendo los coeficientes modulo $2$, $\overline p(0)=1$ y $\overline p(1)=1$. Por tanto, no tiene factores lineales (osae no tiene raices).
+>>2. Si un polinomio de grado $4$ sin factores lineales es reducible sobre un cuerpo, debe ser producto de dos factores de grado $2$. Los polinomios mónicos de grado $2$ sobre $\mathbb F_2$ son $x^2$, $x^2+1$, $x^2+x$ y $x^2+x+1$. 
+>>3. Los primeros tres tienen factores lineales: $x^2=x\cdot x$, $x^2+1=(x+1)^2$ y $x^2+x=x(x+1)$ 
+>>4. Ninguno de los primeros tres puede ser factor de $\overline p$ porque cada uno se anula en $0$ o en $1$, mientras que $\overline p(0)=\overline p(1)=1$.
+>>5. Por tanto, ambos factores cuadráticos tendrían que ser $x^2+x+1$. Pero $(x^2+x+1)^2=x^4+x^2+1$ en $\mathbb F_2[x]$, que no coincide con $\overline p=x^4+x+1$. Por tanto, $\overline p$ es irreducible.
+>>6. Aplicamos [[Teorico 12#^c905ab|criterio por reducción]] con $\ell=2$ y concluimos que $p$ es irreducible en $\mathbb Q[x]$
 
 >[!remark] Observación inicial de las fotos
->También se observa que $p$ no tiene raíces enteras: si $a^4-a+1=0$, entonces $a(a^3-1)=-1$, de modo que $a=1$ o $a=-1$; sin embargo, $p(1)=1$ y $p(-1)=3$. Esto por sí solo no descarta una factorización en dos cuadráticos.
+>También se observa que $p$ no tiene raíces enteras: Si $a\in \mathbb{Z}$ fuese raiz entonces $$a^4-a+1=0$$luego $a(a^3-1)=-1$, de modo que $a=1$ o $a=-1$; sin embargo, $p(1)=1$ y $p(-1)=3$. 
+>Esto por sí solo no descarta una factorización en dos cuadráticos.
 
 >[!exercise] $x^5-x-1$
 >Sea $f(x)=x^5-x-1\in\mathbb Z[x]$.
 >1. Verificar que su reducción módulo $2$ cumple $\pi_2(f)=(x^2+x+1)(x^3+x^2+1)$ en $\mathbb F_2[x]$.
 >2. Demostrar que su reducción módulo $3$ es irreducible en $\mathbb F_3[x]$ y concluir que $f$ es irreducible en $\mathbb Q[x]$.
+>
+>>[!Proof]-
+>>- **(1) Reducción módulo $2$.**
+>>	1. Tenemos $\pi_2(f)=x^5+x+1$. Multiplicando en $\mathbb F_2[x]$, $$\begin{aligned}(x^2+x+1)(x^3+x^2+1)&=x^5+x^4+x^2+x^4+x^3+x+x^3+x^2+1\\&=x^5+2x^4+2x^3+2x^2+x+1\\&=x^5+x+1=\pi_2(f).\end{aligned}$$ Por tanto, la reducción módulo $2$ es reducible y no permite aplicar el criterio por reducción.
+>>- **(2) Reducción módulo $3$ e irreducibilidad en $\mathbb Q[x]$.**
+>>	1. Sea $g=\pi_3(f)=x^5+2x+2\in\mathbb F_3[x]$. Buscamos descartar factores de grados $1$ y $2$: si un polinomio de grado $5$ fuera reducible, podría escribirse $g=uv$ con $1\leq\deg u\leq\deg v$ y $\deg u+\deg v=5$, por lo que $\deg u=1$ o $\deg u=2$. Podemos tomar $u$ mónico, multiplicándolo por el inverso de su coeficiente principal y compensando ese cambio en $v$.
+>>	2. **No hay factores lineales.** Los únicos elementos de $\mathbb F_3$ son $0,1,2$, y $$g(0)=2,\qquad g(1)=1+2+2=2,\qquad g(2)=2^5+2\cdot2+2=38=2.$$ Todas las igualdades se consideran en $\mathbb F_3$. Por [[Teorico 12#^d62a91|teorema del resto]], $g$ no tiene factores lineales.
+>>	3. **Cuadráticos que hay que comprobar.** Todo cuadrático mónico es $x^2+ax+b$, con $a,b\in\mathbb F_3$. Si $b=0$, se anula en $0$ y no puede dividir a $g$. Para $b=1$, las posibilidades son $x^2+1$, $x^2+x+1=(x-1)^2$ y $x^2+2x+1=(x+1)^2$; los últimos dos tienen raíces y no pueden dividir a $g$. Para $b=2$, las posibilidades son $x^2+2=(x-1)(x+1)$, $x^2+x+2$ y $x^2+2x+2$; el primero tampoco puede dividir a $g$ porque tiene raíces. Solo quedan $x^2+1$, $x^2+x+2$ y $x^2+2x+2$.
+>>	4. **Ninguno de los tres divide a $g$.** Las siguientes identidades en $\mathbb F_3[x]$ muestran los restos explícitamente: $$\begin{aligned}g&=(x^2+1)(x^3+2x)+2,\\g&=(x^2+x+2)(x^3+2x^2+2x)+(x+2),\\g&=(x^2+2x+2)(x^3+x^2+2x)+(x+2).\end{aligned}$$ Los restos son no nulos y tienen grado menor que $2$, de modo que ninguno es divisor de $g$.
+>>	5. Por los pasos anteriores, $g$ no tiene factores de grado $1$ ni de grado $2$. Según el paso 1, esto descarta toda factorización en dos polinomios no constantes. Como $g$ tiene grado $5$, es no nulo y no invertible; por tanto, es irreducible en $\mathbb F_3[x]$.
+>>	6. Finalmente, $f$ es primitivo porque su coeficiente principal es $1$, y $3$ no divide ese coeficiente. Aplicando [[Teorico 12#^c905ab|criterio por reducción]] con $\ell=3$, concluimos que $f=x^5-x-1$ es irreducible en $\mathbb Q[x]$.
+
+## Criterio de Eisenstein
+
+>[!theorem] Criterio de Eisenstein
+>Sea $f(x)=\sum_{i=0}^{n}a_ix^i\in\mathbb Z[x]$, con $n\geq1$ y $a_n\neq0$. Si existe un primo $p\in\mathbb Z$ tal que
+>1. $p\nmid a_n$;
+>2. $p\mid a_i$ para todo $0\leq i<n$;
+>3. $p^2\nmid a_0$;
+>entonces $f$ es irreducible en $\mathbb Q[x]$. Si además $f$ es primitivo, también es irreducible en $\mathbb Z[x]$.
+
+^e13001
+
+### Aplicación: polinomios ciclotómicos de índice primo
+
+>[!definition] Polinomio ciclotómico de índice primo
+>Para un primo $p$, definimos $$\Phi_p(x)=\sum_{i=0}^{p-1}x^i=1+x+x^2+\cdots+x^{p-1}.$$ Se cumple $$x^p-1=(x-1)\Phi_p(x).$$ Sus raíces complejas son las raíces $p$-ésimas de la unidad distintas de $1$; como $p$ es primo, todas ellas tienen orden $p$.
+
+>[!proposition] Irreducibilidad de $\Phi_p$
+>Si $p$ es primo, $\Phi_p$ es irreducible en $\mathbb Q[x]$ y en $\mathbb Z[x]$.
+>
+>>[!Proof]-
+>>1. Sustituimos $x$ por $x+1$ en la identidad anterior: $$x\Phi_p(x+1)=(x+1)^p-1=\sum_{j=1}^{p}\binom pj x^j.$$ Comparando coeficientes, obtenemos $$\Phi_p(x+1)=\sum_{j=1}^{p}\binom pj x^{j-1}=p+\binom p2x+\cdots+\binom p{p-1}x^{p-2}+x^{p-1}.$$
+>>2. Para $1\leq j<p$, la identidad $j\binom pj=p\binom{p-1}{j-1}$ y la coprimalidad de $j$ y $p$ muestran que $p\mid\binom pj$. En efecto, existen $u,v\in\mathbb Z$ con $uj+vp=1$; multiplicando por $\binom pj$, ambos términos de la derecha son múltiplos de $p$.
+>>3. El coeficiente principal es $1$ y el término independiente es $p$, que no es divisible por $p^2$. Aplicamos [[Teorico 12#^e13001|criterio de Eisenstein]] a $\Phi_p(x+1)$; este polinomio es primitivo porque es mónico.
+>>4. La sustitución $h(x)\mapsto h(x+1)$ es un automorfismo de $\mathbb Q[x]$ y de $\mathbb Z[x]$, con inverso $h(x)\mapsto h(x-1)$: preserva sumas y productos por sustitución, y ambas composiciones devuelven $h(x)$. Una factorización no trivial de $\Phi_p$ produciría una de $\Phi_p(x+1)$. Por tanto, $\Phi_p$ es irreducible en ambos anillos.
+
+^e13002
+
+>[!example] Adjuntar una raíz $p$-ésima de la unidad
+>Sea $\zeta\in\mathbb C$ una raíz $p$-ésima de la unidad distinta de $1$. Entonces $$\mathbb Q(\zeta)\cong\mathbb Q[x]/(\Phi_p(x)).$$ El isomorfismo envía la clase de $x$ a $\zeta$. La irreducibilidad de $\Phi_p$ garantiza que el cociente es un cuerpo.

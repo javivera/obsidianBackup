@@ -8,41 +8,11 @@ date: 2026-10-07
 source: "PDF Clase 12 0710_261007_105103.pdf, enviado por Franco por WhatsApp el 2026-10-07"
 ---
 
-# Teórico 13 — Criterio de Eisenstein y módulos sobre anillos
+# Teórico 13 — Módulos sobre anillos
 
 >[!remark] Fuente y numeración
 >Transcripción de las cuatro páginas de [[EA-Teorico-13-7oct.pdf|la clase del 7 de octubre de 2026]]. El PDF se titula «Clase 12»; esta nota continúa la numeración del vault después de [[Teorico 12]], sin reemplazar aquella clase. Se conserva el contenido y se completan las verificaciones esbozadas; los ejercicios quedan sin resolver y los teoremas sin demostración en el original se conservan como enunciados.
 >Se corrigen algunas imprecisiones del manuscrito: Eisenstein da irreducibilidad sobre $\mathbb Q$, y sobre $\mathbb Z$ si además el polinomio es primitivo; los endomorfismos de un grupo abeliano y los endomorfismos lineales no son lo mismo; en el ejemplo del álgebra de Weyl la relación es $dy-yd=1$. Trabajamos con anillos con unidad y módulos unitarios, es decir, con $1_Rm=m$.
-
-## 1. Criterio de Eisenstein
-
->[!theorem] Criterio de Eisenstein
->Sea $f(x)=\sum_{i=0}^{n}a_ix^i\in\mathbb Z[x]$, con $n\geq1$ y $a_n\neq0$. Si existe un primo $p\in\mathbb Z$ tal que
->1. $p\nmid a_n$;
->2. $p\mid a_i$ para todo $0\leq i<n$;
->3. $p^2\nmid a_0$;
->entonces $f$ es irreducible en $\mathbb Q[x]$. Si además $f$ es primitivo, también es irreducible en $\mathbb Z[x]$.
-
-^e13001
-
-### Aplicación: polinomios ciclotómicos de índice primo
-
->[!definition] Polinomio ciclotómico de índice primo
->Para un primo $p$, definimos $$\Phi_p(x)=\sum_{i=0}^{p-1}x^i=1+x+x^2+\cdots+x^{p-1}.$$ Se cumple $$x^p-1=(x-1)\Phi_p(x).$$ Sus raíces complejas son las raíces $p$-ésimas de la unidad distintas de $1$; como $p$ es primo, todas ellas tienen orden $p$.
-
->[!proposition] Irreducibilidad de $\Phi_p$
->Si $p$ es primo, $\Phi_p$ es irreducible en $\mathbb Q[x]$ y en $\mathbb Z[x]$.
->
->>[!Proof]-
->>1. Sustituimos $x$ por $x+1$ en la identidad anterior: $$x\Phi_p(x+1)=(x+1)^p-1=\sum_{j=1}^{p}\binom pj x^j.$$ Comparando coeficientes, obtenemos $$\Phi_p(x+1)=\sum_{j=1}^{p}\binom pj x^{j-1}=p+\binom p2x+\cdots+\binom p{p-1}x^{p-2}+x^{p-1}.$$
->>2. Para $1\leq j<p$, la identidad $j\binom pj=p\binom{p-1}{j-1}$ y la coprimalidad de $j$ y $p$ muestran que $p\mid\binom pj$. En efecto, existen $u,v\in\mathbb Z$ con $uj+vp=1$; multiplicando por $\binom pj$, ambos términos de la derecha son múltiplos de $p$.
->>3. El coeficiente principal es $1$ y el término independiente es $p$, que no es divisible por $p^2$. Aplicamos [[Teorico 13#^e13001|criterio de Eisenstein]] a $\Phi_p(x+1)$; este polinomio es primitivo porque es mónico.
->>4. La sustitución $h(x)\mapsto h(x+1)$ es un automorfismo de $\mathbb Q[x]$ y de $\mathbb Z[x]$, con inverso $h(x)\mapsto h(x-1)$: preserva sumas y productos por sustitución, y ambas composiciones devuelven $h(x)$. Una factorización no trivial de $\Phi_p$ produciría una de $\Phi_p(x+1)$. Por tanto, $\Phi_p$ es irreducible en ambos anillos.
-
-^e13002
-
->[!example] Adjuntar una raíz $p$-ésima de la unidad
->Sea $\zeta\in\mathbb C$ una raíz $p$-ésima de la unidad distinta de $1$. Entonces $$\mathbb Q(\zeta)\cong\mathbb Q[x]/(\Phi_p(x)).$$ El isomorfismo envía la clase de $x$ a $\zeta$. La irreducibilidad de $\Phi_p$ garantiza que el cociente es un cuerpo.
 
 ## 2. Módulos sobre anillos y representaciones
 
