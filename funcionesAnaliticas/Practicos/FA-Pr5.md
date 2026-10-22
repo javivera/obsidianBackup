@@ -57,8 +57,11 @@
 >>	1. Consideramos la rama de $\log(1+z)$ analítica cerca de $0$ y con $\log(1)=0$. Por L'Hôpital, $$\lim_{z\to0}\frac{\log(1+z)}{z^2}=\lim_{z\to0}\frac{1}{2z(1+z)}=\infty,$$ pues $|2z(1+z)|\to0$. Por lo tanto, $0$ es un polo.
 >>	2. Para $|z|<1$, el [[FA - Teo2#^6fedda|desarrollo de Taylor]] es $$\log(1+z)=\sum_{n=1}^{\infty}\frac{(-1)^{n+1}z^n}{n}=z-\frac{z^2}{2}+\frac{z^3}{3}-\cdots.$$ Extraemos el factor $z$: $$\log(1+z)=zg(z),\qquad g(z)=\sum_{n=0}^{\infty}\frac{(-1)^n z^n}{n+1}=1-\frac z2+\frac{z^2}{3}-\cdots.$$ Esta serie converge en $|z|<1$, por lo que $g$ es analítica por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], y $g(0)=1\ne0$.
 >>	3. Para $z\ne0$, $$f(z)=\frac{zg(z)}{z^2}=\frac{g(z)}z.$$ Por [[FA - Teo10#^a10e04|reconocer un polo y su orden]], el polo tiene orden $1$. El exponente $2$ del denominador original no determina el orden, porque el numerador original también se anula en $0$.
->>	4. Dividimos la serie del logaritmo por $z^2$ y separamos el primer término: $$f(z)=\frac1z+h(z),\qquad h(z)=\sum_{n=0}^{\infty}\frac{(-1)^{n+1}z^n}{n+2}=-\frac12+\frac z3-\frac{z^2}{4}+\cdots.$$ Para $0<|z|<1$, esta serie converge por ser la cola convergente del logaritmo dividida por $z^2$; en $0$ vale $-1/2$. Por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], $h$ es analítica en $|z|<1$.
->>	5. Por [[FA - Teo10#^a10b04|parte singular y parte analítica]], la parte singular es $1/z$ y la parte analítica es $h$. Quitar otro término a $h$ también deja un resto analítico, pero no convierte ese término en parte singular: esta contiene únicamente las potencias negativas, de modo que el término constante $-1/2$ pertenece a la parte analítica.
+>>	4. Dividimos la serie del logaritmo por $z^2$ y separamos el primer término: $$f(z)=\frac1z+h(z),\qquad h(z)=\sum_{n=0}^{\infty}\frac{(-1)^{n+1}z^n}{n+2}=-\frac12+\frac z3-\frac{z^2}{4}+\cdots.$$ 
+>>	5. Comprobamos directamente la convergencia de $h$: para $0<|z|<1$ aplicamos el [[FA - Teo1#^049a6c|criterio del cociente]]: $$\begin{aligned}\left|\frac{u_{n+1}(z)}{u_n(z)}\right|&=\frac{|z|^{n+1}/(n+3)}{|z|^n/(n+2)}\\&=|z|\frac{n+2}{n+3}\xrightarrow[n\to\infty]{}|z|<1.\end{aligned}$$ Por tanto, la serie $h(z)$ converge absolutamente para $0<|z|<1$. 
+>>	6. En $z=0$ también converge por que solo queda el término constante $h(0)=-1/2$ 
+>>	7. Por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], $h$ es analítica en $|z|<1$.
+>>	8. Por [[FA - Teo10#^a10b04|parte singular y parte analítica]], la parte singular es $1/z$ y la parte analítica es $h$.
 >>- (f)
 >>	1. Por el eje real, para $x\ne0$, $$|f(x)|=|x\cos(1/x)|\le|x|\xrightarrow[x\to0]{}0.$$ Por tanto, $0$ no es un polo, ya que el módulo no tiende a infinito por todos los caminos.
 >>	2. Analizamos el eje imaginario positivo: ponemos $z=iy$, con $y>0$. Usando $\cos w=(e^{iw}+e^{-iw})/2$ y $1/(iy)=-i/y$, obtenemos $$\cos(1/(iy))=\frac{e^{1/y}+e^{-1/y}}2,\qquad f(iy)=\frac{iy}{2}(e^{1/y}+e^{-1/y}).$$ Como el paréntesis es real positivo y $|iy|=y$, $$|f(iy)|=\frac y2(e^{1/y}+e^{-1/y}).$$ La cota $|\cos t|\le1$ usada en el primer paso vale para $t$ real, no para argumentos complejos.
@@ -70,21 +73,64 @@
 >>	2. Para desarrollar $g$, usamos la serie geométrica: $$\frac1{z-1}=-\frac1{1-z}=-\sum_{n=0}^{\infty}z^n,\qquad |z|<1.$$ Multiplicamos por $z^2+1$ y distribuimos: $$\begin{aligned}g(z)&=-(z^2+1)(1+z+z^2+z^3+\cdots)\\&=-(z^2+z^3+z^4+\cdots)-(1+z+z^2+z^3+\cdots)\\&=-1-z-2\sum_{n=2}^{\infty}z^n.\end{aligned}$$ Los términos constante y lineal aparecen una sola vez; desde $z^2$, cada potencia aparece dos veces.
 >>	3. Dividiendo por $z$ para $0<|z|<1$, $$f(z)=-\frac1z-1-2\sum_{n=1}^{\infty}z^n=-\frac1z+h(z),\qquad h(z)=-1-2z-2z^2-\cdots.$$ La serie de $h$ converge en $|z|<1$ y, por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], es analítica también en $0$.
 >>	4. Por [[FA - Teo10#^a10b04|parte singular y parte analítica]], la parte singular, también llamada parte principal, es $-1/z$; el resto $h$ es la parte analítica.
+>>- (h)
+>>	1. Fijamos $n\ge1$. Por el semieje real positivo, como $-1\le\operatorname{sen}(1/x)\le1$ y $x^n>0$, $$-x^n\le f(x)=x^n\operatorname{sen}(1/x)\le x^n,\qquad x>0.$$ Ambos extremos tienden a $0$ cuando $x\to0^+$, así que, por encaje, $f(x)\to0$. Este camino basta para descartar que $0$ sea un polo.
+>>	2. Por el semieje imaginario positivo, ponemos $z=iy$, con $y>0$. Usando $1/(iy)=-i/y$ y la expresión exponencial del seno, $$\operatorname{sen}\left(\frac1{iy}\right)=\frac{e^{1/y}-e^{-1/y}}{2i},\qquad f(iy)=\frac{i^{n-1}y^n}{2}\left(e^{1/y}-e^{-1/y}\right).$$ Como $e^{1/y}-e^{-1/y}>0$ y $|i^{n-1}|=1$, $$|f(iy)|=\frac{y^n}{2}\left(e^{1/y}-e^{-1/y}\right).$$
+>>	3. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], $$e^{1/y}=\sum_{k=0}^{\infty}\frac{1}{k!y^k}\ge\frac{1}{(n+1)!\,y^{n+1}},\qquad y>0,$$ pues todos los términos son positivos. Además, $e^{-1/y}\le1$. Por tanto, $$\begin{aligned}|f(iy)|&=\frac{y^n}{2}\left(e^{1/y}-e^{-1/y}\right)\\&\ge\frac{y^n}{2}\left(\frac{1}{(n+1)!\,y^{n+1}}-1\right)\\&=\frac{1}{2(n+1)!\,y}-\frac{y^n}{2}\xrightarrow[y\to0^+]{}+\infty.\end{aligned}$$
+>>	4. El crecimiento por el semieje imaginario positivo descarta un límite finito en $0$; por [[FA - Teo10#^a10c01|criterio mediante un límite finito]], la singularidad no es evitable. Como tampoco es un polo, por [[FA - Teo10#^a10d04|singularidad esencial]], $0$ es esencial para todo $n\ge1$.
 
 >[!exercise] Ejercicio 4
 >Sea $f:G\to\mathbb C$ analítica excepto por numerables singularidades aisladas. Probar que las singularidades de $f$ no pueden tener un punto límite en $G$.
+>
+>>[!Proof]-
+>>1. Supongamos por absurdo que el conjunto de singularidades tiene un punto límite $a\in G$. Entonces existe una sucesión de singularidades $a_n\to a$ con $a_n\ne a$ para todo $n$.
+>>2. Si $a$ es un punto regular (osea no es singularidad), existe $r>0$ tal que $B(a,r)\subset G$ y $f$ es analítica en esa bola (simplemente por que es analitica en todo $G$ y a esta dentro, como $G$ es abierto, tengo una bola de centro $a$ contenida en $G$). Por convergencia, existe $N$ tal que $a_n\in B(a,r)$ para todo $n\ge N$, contradiciendo que los $a_n$ sean singularidades.
+>>3. Si $a$ es una singularidad, por hipótesis es aislada. Por [[FA - Teo10#^a10d01|singularidad aislada]], elegimos $R>0$ con $B(a,R)\subset G$ y $f$ analítica en $B(a,R)\setminus\{a\}$. Como $a_n\to a$ y $a_n\ne a$ para todo $n$, existe $N$ tal que $0<|a_n-a|<R$ para todo $n\ge N$. Por tanto, los $a_n$ pertenecen eventualmente al disco perforado, contradiciendo que sean singularidades.
+>>4. Ambos casos llevan a una contradicción. Por tanto, las singularidades de $f$ no pueden tener un punto límite en $G$.
 
 >[!exercise] Ejercicio 5
 >Mostrar que $\tan z$ es analítica en $\mathbb C$ excepto para polos simples en $z=\frac{\pi}{2}+n\pi$, $n\in\mathbb Z$. Determinar la parte singular de $f$ en estos polos.
+>
+>>[!Proof]-
+>>1. **Localizamos las posibles singularidades.** Escribimos $\tan z=\sin z/\cos z$. Como seno y coseno son enteras, por las [[FA - Teo2#^e54e60|reglas de derivación]] el cociente es analítico donde $\cos z\ne0$. Usando la representación exponencial y que $e^{iz}\ne0$, $$\cos z=\frac{e^{iz}+e^{-iz}}2=0\quad\Longleftrightarrow\quad e^{2iz}=-1.$$ Si $z=x+iy$, entonces $e^{2iz}=e^{-2y}e^{2ix}$. Comparando módulos, $e^{-2y}=1$, luego $y=0$; comparando argumentos, $2x=(2n+1)\pi$ para algún $n\in\mathbb Z$. Por tanto, los ceros del coseno son exactamente $$a_n=\frac{\pi}{2}+n\pi,\qquad n\in\mathbb Z.$$
+>>2. **Son polos.** Fijamos $n\in\mathbb Z$. Los ceros anteriores están separados por una distancia de al menos $\pi$, así que $a_n$ es una singularidad aislada. Por continuidad, $\sin z\to\sin(a_n)=(-1)^n\ne0$ y $\cos z\to0$ cuando $z\to a_n$. En consecuencia, $$|\tan z|=\frac{|\sin z|}{|\cos z|}\xrightarrow[z\to a_n]{}+\infty.$$ Por la definición de [[FA - Teo10#^a10d03|polo]], $a_n$ es un polo.
+>>3. **Extraemos un factor del denominador mediante Taylor.** Por el [[FA - Teo2#^6fedda|desarrollo de Taylor]] del coseno centrado en $a_n$, $$\cos z=\sum_{k=0}^{\infty}c_k(z-a_n)^k,\qquad c_k=\frac{\cos^{(k)}(a_n)}{k!}.$$ Como $c_0=\cos(a_n)=0$ y $c_1=\cos'(a_n)=-\sin(a_n)=(-1)^{n+1}\ne0$, sacamos factor común: $$\cos z=(z-a_n)h(z),\qquad h(z)=\sum_{j=0}^{\infty}c_{j+1}(z-a_n)^j.$$ Esta es una igualdad exacta, no una aproximación ni una truncación de la serie.
+>>4. **Convergencia fuera del centro.** Para $z\ne a_n$, la serie de $h$ se obtiene dividiendo la serie convergente del coseno por el número no nulo $z-a_n$; por tanto, converge a $\cos z/(z-a_n)$.
+>>5. **Convergencia en el centro.** En $z=a_n$, la serie de $h$ también converge: su término constante es $c_1$ y todos los términos de grado positivo se anulan. Por tanto, $h(a_n)=c_1$.
+>>6. Entonces la serie de potencias de $h$ converge en todo $\mathbb C$ y, por [[FA - Teo2#^63c6c5|analiticidad de las series de potencias]], $h$ es entera. En particular, $$h(a_n)=c_1=-\sin(a_n)\ne0.$$
+>>7. **Construimos el numerador analítico.** Por continuidad de $h$, elegimos $r>0$ suficientemente pequeño para que $h$ no se anule en $B(a_n,r)$. Allí, $1/h$ es analítica por las [[FA - Teo2#^e54e60|reglas de derivación]], y también lo es $g=\sin/h$. Por tanto, en el disco perforado, $$\tan z=\frac{g(z)}{z-a_n},\qquad g(a_n)=\frac{\sin(a_n)}{h(a_n)}=\frac{\sin(a_n)}{c_1}=\frac{\sin(a_n)}{-\sin(a_n)}=-1\ne0.$$
+>>8. **Determinamos el orden.** Aplicando [[FA - Teo10#^a10e04|reconocer un polo y su orden]] a la representación anterior, $a_n$ es un polo de orden $1$.
+>>9. **Determinamos la parte singular.** Por ser analitica tenemos [[FA - Teo2#^6fedda|desarrollo de Taylor]] de $g$ en $a_n$, entonces en algún disco de radio $\rho>0$ tenemos $$g(z)=\sum_{k=0}^{\infty}b_k(z-a_n)^k,\qquad b_0=g(a_n)=-1.$$ Dividiendo por $z-a_n$, $$\tan z=-\frac1{z-a_n}+H(z),\qquad H(z)=\sum_{j=0}^{\infty}b_{j+1}(z-a_n)^j.$$
+>>10. Como $a_n$ es un polo simple por [[FA - Teo10#^a10b04|descomposición cerca de un polo (Proposición 19)]] el resto $H$ es analítico también en $a_n$. Por tanto, la parte singular en cada polo es $$\boxed{-\frac1{z-a_n}=-\frac1{z-(\pi/2+n\pi)}}.$$
 
 >[!exercise] Ejercicio 6
 >Dar el desarrollo en serie de Laurent de $f(z)=\exp(\frac{1}{z})$.
+>
+>>[!Proof]-
+>>1. Por el [[FA - Teo2#^6fedda|desarrollo de Taylor]] de la exponencial, $$e^w=\sum_{n=0}^{\infty}\frac{w^n}{n!},\qquad w\in\mathbb C.$$
+>>2. Para $z\ne0$, sustituimos $w=1/z$ y obtenemos $$e^{1/z}=\sum_{n=0}^{\infty}\frac{z^{-n}}{n!}=1+\frac1z+\frac1{2!z^2}+\frac1{3!z^3}+\cdots.$$ 
+>>3. La convergencia es absoluta para todo $z\ne0$, pues $$\sum_{n=0}^{\infty}\left|\frac{z^{-n}}{n!}\right|=\sum_{n=0}^{\infty}\frac{(1/|z|)^n}{n!}=e^{1/|z|}<\infty.$$
+>>4. El anillo de convergencia es $$\operatorname{ann}(0;0,\infty)=\{z\in\mathbb C:0<|z|<\infty\}.$$ Allí $f$ es analítica: su derivada $f'(z)=-e^{1/z}/z^2$ existe y es continua, de acuerdo con la [[FA - Teo2#^9f31ac|definición de función analítica]]. Por tanto, la serie obtenida es el desarrollo de Laurent de $f$ centrado en $0$, con coeficientes $$a_k=\begin{cases}\dfrac1{(-k)!},&k\le0,\\0,&k>0.\end{cases}$$
 
->[!exercise] Ejercicio 7
+>[!Exercise] Ejercicio 7
 >Dar el desarrollo en serie de Laurent para $$f(z)=\frac{1}{z(z-1)(z-2)}$$ en las siguientes regiones:
 >- **(a)** $\mathrm{ann}(0;0,1)$.
 >- **(b)** $\mathrm{ann}(0;1,2)$.
 >- **(c)** $\mathrm{ann}(0;2,\infty)$.
+>
+>>[!Proof]-
+>>1. **Fracciones simples.** Escribimos $$f(z)=\frac{A}{z}+\frac{B}{z-1}+\frac{C}{z-2}.$$ Multiplicando por $z(z-1)(z-2)$ y evaluando en $z=0,1,2$, obtenemos $$A=\frac1{(-1)(-2)}=\frac12,\qquad B=\frac1{1(1-2)}=-1,\qquad C=\frac1{2(2-1)}=\frac12.$$ Por tanto, $$f(z)=\frac1{2z}-\frac1{z-1}+\frac1{2(z-2)}.$$
+>>- (a)
+>>	1. Para $|z|<1$, aplicamos la [[FA - Teo11#^c8e4b2|serie geométrica]] con cociente $z$: $$-\frac1{z-1}=\frac1{1-z}=\sum_{n=0}^{\infty}z^n.$$
+>>	2. Para $|z|<2$, aplicamos la misma expansión con cociente $z/2$: $$\frac1{2(z-2)}=-\frac14\frac1{1-z/2}=-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+2}}.$$
+>>	3. Ambos desarrollos convergen absolutamente en $0<|z|<1$. Sumando las potencias iguales, obtenemos el desarrollo de Laurent centrado en $0$: $$\boxed{f(z)=\frac1{2z}+\sum_{n=0}^{\infty}\left(1-\frac1{2^{n+2}}\right)z^n,\qquad 0<|z|<1.}$$
+>>- (b)
+>>	1. Para $|z|>1$, factorizamos $z-1=z(1-1/z)$ y aplicamos la [[FA - Teo11#^c8e4b2|serie geométrica]] con cociente $1/z$: $$-\frac1{z-1}=-\frac1z\frac1{1-1/z}=-\frac1z\sum_{n=0}^{\infty}\frac1{z^n}=-\sum_{n=0}^{\infty}z^{-n-1}.$$
+>>	2. Conservamos el desarrollo de $1/[2(z-2)]$ obtenido en (a), válido para $|z|<2$. Las dos condiciones se cumplen simultáneamente en $1<|z|<2$, por lo que $$\boxed{f(z)=\frac1{2z}-\sum_{n=0}^{\infty}z^{-n-1}-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+2}},\qquad 1<|z|<2.}$$ Ambas series convergen absolutamente en ese anillo.
+>>- (c)
+>>	1. Para $|z|>2$, factorizamos $z-2=z(1-2/z)$ y aplicamos la [[FA - Teo11#^c8e4b2|serie geométrica]] con cociente $2/z$: $$\frac1{2(z-2)}=\frac1{2z}\frac1{1-2/z}=\frac1{2z}\sum_{n=0}^{\infty}\left(\frac2z\right)^n=\sum_{n=0}^{\infty}2^{n-1}z^{-n-1}.$$
+>>	2. El desarrollo de $-1/(z-1)$ obtenido en (b) también converge absolutamente para $|z|>2$. Sumando, $$f(z)=\frac1{2z}+\sum_{n=0}^{\infty}(2^{n-1}-1)z^{-n-1}.$$
+>>	3. El término de índice $n=0$ es $-1/(2z)$ y cancela el término exterior; el de índice $n=1$ es cero. Por tanto, $$\boxed{f(z)=\sum_{n=2}^{\infty}(2^{n-1}-1)z^{-n-1},\qquad |z|>2.}$$
 
 >[!exercise] Ejercicio 8
 >Calcular las siguientes integrales:

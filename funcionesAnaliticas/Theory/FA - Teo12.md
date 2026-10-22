@@ -3,27 +3,23 @@
 > [!remark] Fuente y criterio de transcripción
 > Transcripción de las 11 fotos numeradas compartidas el 16/10/2026 en el grupo de Analíticas del WhatsApp personal. La primera hoja está fechada 15/10. Se conserva el desarrollo de la clase, se completan operaciones intermedias y se corrigen erratas de factores, signos e hipótesis. Los detalles añadidos y las correcciones conceptuales se señalan expresamente.
 
-## 1. Recordatorio: residuos
-
-Por [[FA - Teo11#^a11d01|residuo]] y [[FA - Teo11#^a11f01|desarrollo de Laurent]], si $f(z)=\sum_{n=-\infty}^{\infty}a_n(z-a)^n$ cerca de una singularidad aislada $a$, entonces $$\operatorname{Res}(f,a)=a_{-1}=\frac1{2\pi i}\int_{\gamma_r}f(z)\,dz,$$ donde $\gamma_r$ es una circunferencia positiva pequeña centrada en $a$.
-
-Por [[FA - Teo11#^a11f03|teorema de los residuos]], si $f$ es analítica en una región $G$ salvo en $a_1,\ldots,a_m$, y $\gamma$ es cerrada, rectificable, evita esos puntos y satisface $\gamma\simeq_G0$, entonces $$\frac1{2\pi i}\int_\gamma f(z)\,dz=\sum_{k=1}^{m}n(\gamma,a_k)\operatorname{Res}(f,a_k).$$
-
 ### Infinitas singularidades aisladas
 
 >[!Remark] La suma sigue siendo finita
->La fórmula también vale cuando el conjunto $S\subset G$ de singularidades es infinito, siempre que no tenga puntos de acumulación en $G$ y que $\gamma$ no lo interseque. Solo finitas singularidades tienen índice no nulo respecto de $\gamma$.
+>La [[FA - Teo11#^a11f03|fórmula de los residuos]] también vale cuando el conjunto $S\subset G$ de singularidades es infinito, siempre que no tenga puntos de acumulación en $G$. Se mantienen las demás hipótesis: $f$ es analítica en $G\setminus S$, $\gamma$ es una curva cerrada rectificable en $G\setminus S$ y $\gamma\simeq_G0$. Solo finitas singularidades $a\in S$ tienen índice $n(\gamma,a)\neq0$; por eso, la suma de residuos ponderados por esos índices sigue teniendo solo finitos términos no nulos.
 
->[!exercise] Justificación topológica y de compacidad
->Escribimos $|\gamma|$ para la traza de la curva y definimos $$H=\{z\in\mathbb C\setminus|\gamma|:n(\gamma,z)=0\},\qquad K=|\gamma|\cup\{z\in\mathbb C\setminus|\gamma|:n(\gamma,z)\neq0\}.$$
+>[!proposition] Justificación topológica y de compacidad
+>Sea $G\subset\mathbb C$ region, sea $S\subset G$ el conjunto de singularidades de $f$, todas aisladas, y supongamos que $f$ es analítica en el abierto $G\setminus S$. Sea $\gamma$ una curva cerrada rectificable con traza contenida en $G\setminus S$, y supongamos que $\gamma\simeq_G0$. Escribimos $|\gamma|$ para la traza de la curva y definimos $$H=\{z\in\mathbb C\setminus|\gamma|:n(\gamma,z)=0\},\qquad K=|\gamma|\cup\{z\in\mathbb C\setminus|\gamma|:n(\gamma,z)\neq0\}.$$
 >- **(a)** Si $\partial G\neq\varnothing$ y $r=d(|\gamma|,\partial G)>0$, probar que $\{z:d(z,\partial G)<r/2\}\subset H$.
->- **(b)** Probar que $S$ no puede tener puntos de acumulación en $G$.
+>- **(b)** Probar que $S$ (conjunto de singularidades) no puede tener puntos de acumulación en $G$.
 >- **(c)** Probar que $K$ es un compacto contenido en $G$ y deducir que $S\cap K$ es finito.
 >
 >>[!Proof]- Detalles añadidos al ejercicio de clase
 >>- (a)
->>	1. Por [[FA - Teo8#^8a0013|índice de homotopía a cero]], el índice se anula fuera de $G$, en particular sobre $\partial G$.
->>	2. Si $d(z,\partial G)<r/2$, elegimos $w\in\partial G$ con $|z-w|<r/2$. El segmento de $w$ a $z$ está en $B(w,r/2)$, que no intersecta $|\gamma|$, pues $d(w,|\gamma|)\geq r$. Por constancia local del índice en el complemento de la traza, $n(\gamma,z)=n(\gamma,w)=0$.
+>>	1. Por [[FA - Teo8#^8a0013|índice de homotopía a cero]], el índice se anula fuera de $G$, en particular sobre $\partial G$ (Dado que $G$ es abierto entonces no tiene puntos de su frontera.) entonces $n(\gamma,w)=0$ para todo $w\in\partial G$. 
+>>	2. Tomamos un $z$ arbitrario del conjunto $\{z:d(z,\partial G)<r/2\}$; queremos probar que $z\in H$. Como $d(z,\partial G)<r/2$, elegimos $w\in\partial G$ con $|z-w|<r/2$. 
+>>	3. El segmento de $w$ a $z$ está en $B(w,r/2)$, que no intersecta $|\gamma|$, pues $d(w,|\gamma|)\geq r$ (por que $w\in \partial G$ entonces su distancia a la traza es como minimo $r$). 
+>>	4. Como el segmento que une $w$ con $z$ está contenido en $\mathbb C\setminus|\gamma|$, ambos puntos pertenecen a la misma componente conexa de ese complemento. Por [[FA - Teo6#^c6a183|constancia del índice en cada componente]], $$n(\gamma,z)=n(\gamma,w)=0$$
 >>- (b)
 >>	1. Si un punto de acumulación $a$ de $S$ perteneciera a $G\setminus S$, la analiticidad de $f$ en un entorno de $a$ impediría la presencia de singularidades arbitrariamente próximas.
 >>	2. Si $a\in S$, existiría un entorno perforado de $a$ donde $f$ es analítica, por ser $a$ aislada. Tampoco podría ser punto de acumulación de otras singularidades.
@@ -77,9 +73,9 @@ Por [[FA - Teo11#^a11f03|teorema de los residuos]], si $f$ es analítica en una 
 >[!Definition] Valor principal de Cauchy en el infinito
 >Para una función localmente integrable en $\mathbb R$, definimos, cuando existe, $$\operatorname{VP}\int_{-\infty}^{\infty}f(x)\,dx=\lim_{R\to\infty}\int_{-R}^{R}f(x)\,dx.$$
 
-La integral impropia usual exige la convergencia separada de las dos colas: $$\int_{-\infty}^{\infty}f(x)\,dx=\int_{-\infty}^{0}f(x)\,dx+\int_0^{\infty}f(x)\,dx.$$
-
-Si existe la integral impropia, coincide con el valor principal. La recíproca no vale: por ejemplo, $f(x)=x$ tiene valor principal cero, pero sus dos integrales impropias divergen.
+>[!Remark]
+>La integral impropia usual exige la convergencia separada de las dos colas: $$\int_{-\infty}^{\infty}f(x)\,dx=\int_{-\infty}^{0}f(x)\,dx+\int_0^{\infty}f(x)\,dx.$$
+>Si existe la integral impropia, coincide con el valor principal. La recíproca no vale: por ejemplo, $f(x)=x$ tiene valor principal cero, pero sus dos integrales impropias divergen.
 
 ## 4. Ejemplo: $\displaystyle\int_{-\infty}^{\infty}\frac{x^2}{1+x^4}\,dx$
 

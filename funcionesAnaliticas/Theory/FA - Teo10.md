@@ -2,7 +2,7 @@
 ## Singularidades aisladas y evitables
 
 >[!Definition] Singularidad aislada
->Decimos que $a\in\mathbb C$ es una **singularidad aislada** de $f$ si, para algún $R>0$, la función $f$ es analítica en el disco perforado $$B(a,R)\setminus\{a\}=\{z\in\mathbb C:0<|z-a|<R\}.$$
+>Decimos que $a\in\mathbb C$ es una **singularidad aislada** de $f$ si $f$ no es analítica en $a$ (porque no está definida allí o porque su valor actual no la hace analítica) y, para algún $R>0$, la función $f$ es analítica en el disco perforado $$B(a,R)\setminus\{a\}=\{z\in\mathbb C:0<|z-a|<R\}.$$
 
 ^a10d01
 
@@ -137,7 +137,7 @@
 ^a10b03
 
 >[!exercise] Recíproco: reconocer un polo y su orden
->Sea $m\geq1$ y supongamos que $$f(z)=\frac{g(z)}{(z-a)^m}$$ cerca de $a$, con $g$ analítica y $g(a)\neq0$. Probar que $a$ es un polo de orden $m$.
+>Sea $m\geq1$ y supongamos que $$f(z)=\frac{g(z)}{(z-a)^m}$$ cerca de $a$, con $g$ analítica y $g(a)\neq0$. Entonces $a$ es un polo de orden $m$.
 >
 >>[!Proof]-
 >>1. Por continuidad de $g$, existe $r>0$ tal que $$|g(z)|\geq\frac{|g(a)|}{2}>0\qquad\text{si }|z-a|<r.$$ Así, $$|f(z)|=\frac{|g(z)|}{|z-a|^m}\geq\frac{|g(a)|}{2|z-a|^m}\xrightarrow[z\to a]{}+\infty,$$ por lo que $a$ es un polo.
