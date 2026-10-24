@@ -187,10 +187,11 @@ tags:
 >>	2. Así, $bab$ satisface la misma ecuación que $b$. Por la unicidad de $b$, obtenemos $bab=b$.
 >>- (c)
 >>	1. Como $R$ tiene más de un elemento, elegimos $a\neq0$ y su correspondiente $b$ con $aba=a$.
->>	2. Para todo $r\in R$, por asociatividad y distributividad, $(r(ab)-r)a=raba-ra=r(aba)-ra=ra-ra=0$. Por **(a)** y $a\neq0$, resulta $r(ab)-r=0$, es decir, $r(ab)=r$. Por tanto, $ab$ es identidad a derecha para todo $R$.
->>	3. Análogamente, para todo $r\in R$, $a((ba)r-r)=abar-ar=(aba)r-ar=ar-ar=0$. Por **(a)** y $a\neq0$, resulta $(ba)r-r=0$, es decir, $(ba)r=r$. Por tanto, $ba$ es identidad a izquierda para todo $R$.
->>	4. Tomando $r=ba$ en $r(ab)=r$, obtenemos $(ba)(ab)=ba$. Tomando $r=ab$ en $(ba)r=r$, obtenemos $(ba)(ab)=ab$. Así, $ab=ba$, y este elemento es identidad bilateral de $R$.
->>	5. Este argumento prueba la existencia de una identidad bilateral a partir del par $a,b$ fijado; no estamos demostrando aquí su unicidad.
+>>	2. Para todo $r\in R$, por asociatividad y distributividad, $$(r(ab)-r)a=raba-ra=r(aba)-ra=ra-ra=0$$ 
+>>	3. Por **(a)** y $a\neq0$, resulta $r(ab)-r=0$, es decir, $r(ab)=r$. Por tanto, $ab$ es identidad a derecha para todo $R$.
+>>	4. Análogamente, para todo $r\in R$, $a((ba)r-r)=abar-ar=(aba)r-ar=ar-ar=0$. Por **(a)** y $a\neq0$, resulta $(ba)r-r=0$, es decir, $(ba)r=r$. Por tanto, $ba$ es identidad a izquierda para todo $R$.
+>>	5. Tomando $r=ba$ en $r(ab)=r$, obtenemos $(ba)(ab)=ba$. Tomando $r=ab$ en $(ba)r=r$, obtenemos $(ba)(ab)=ab$. Así, $ab=ba$, y este elemento es identidad bilateral de $R$.
+>>	6. Este argumento prueba la existencia de una identidad bilateral a partir del par $a,b$ fijado; no estamos demostrando aquí su unicidad.
 >>- (d)
 >>	1. Sea $1_R$ la identidad obtenida en **(c)**. Como $R$ tiene más de un elemento, $1_R\neq0$: si $1_R=0$, para todo $r\in R$ tendríamos $r=r1_R=r0=0$, contradicción.
 >>	2. Sea $x\in R$ no nulo arbitrario. Por hipótesis, existe un único $b\in R$ tal que $xbx=x$. Por **(c)**, $xb=bx=1_R$; por tanto, $b$ es inversa bilateral de $x$.

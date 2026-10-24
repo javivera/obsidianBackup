@@ -116,6 +116,8 @@ source: "[[EA-Teorico-8-10sept.pdf]]"
 >>4. El elemento $[1]$ cumple $[1][r]=[1\cdot r]=[r]$ y $[r][1]=[r\cdot 1]=[r]$ para todo $[r]\in R/I$, luego es la unidad de $R/I$.
 >>5. La aplicación $\pi$ preserva sumas, productos y la unidad por construcción de las operaciones en $R/I$, y es claramente sobreyectiva con $\operatorname{Ker}(\pi)=\{r\in R\mid [r]=[0]\}=\{r\in R\mid r\in I\}=I$.
 
+^c710a3
+
 >[!theorem] Primer teorema de isomorfismo para anillos
 >Sean $R, S$ anillos y $f\colon R\to S$ un morfismo de anillos. Entonces:
 >1. $\operatorname{Im}(f)\subseteq S$ es un subanillo de $S$.
