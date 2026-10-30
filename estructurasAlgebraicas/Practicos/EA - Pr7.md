@@ -120,14 +120,44 @@ Fuente: [[EA - Pr7.pdf]]. Estructuras Algebraicas, FaMAF-UNC — 2026.
 
 >[!exercise] Ejercicio 4
 >Sean $R$ un dominio de factorización única (DFU) y $d\in R$, con $d\neq0$. Probar que existe sólo un número finito de ideales principales distintos que contienen al ideal $(d)$.
+>
+>>[!Proof]-
+>>1. Si $d$ es unidad, entonces $1=d^{-1}d\in(d)$, por lo que $(d)=R$. El único ideal que contiene a $R$ es $R=(1)$, de modo que en este caso hay un solo ideal principal que contiene a $(d)$.
+>>2. Supongamos que $d$ no es unidad. Por [[Teorico 11#^e11014|factorización única]], fijamos una factorización $$d=d_1\cdots d_n,$$ donde los $d_i$ son irreducibles y $n\geq1$. Los factores se cuentan con multiplicidad, por lo que pueden aparecer factores repetidos o asociados.
+>>3. Sea $(a)$ un ideal principal que contiene a $(d)$. Como $d\in(d)\subseteq(a)$, existe $r\in R$ tal que $$d=ra$$
+>>4. Puesto que $d\neq0$, tanto $a$ como $r$ son no nulos. Si $a$ es unidad, entonces $(a)=R$. Si $r$ es unidad, entonces $a=r^{-1}d$, por lo que $(a)\subseteq(d)$; junto con la inclusión inicial, obtenemos $(a)=(d)$. Estos dos casos dan únicamente los ideales $R$ y $(d)$. En adelante, suponemos que ni $a$ ni $r$ son unidades.
+>>5. Por [[Teorico 11#^e11014|factorización única]], escribimos $a=a_1\cdots a_\ell$ y $r=r_1\cdots r_m$, donde los $a_i,r_j$ son irreducibles y $\ell,m\geq1$. Sustituyendo en $d=ra$, obtenemos $$d_1\cdots d_n=r_1\cdots r_m a_1\cdots a_\ell.$$ Por unicidad, $n=m+\ell$ y, después de reordenar los factores de $d$, existen unidades $c_1,\ldots,c_\ell$ tales que $d_i=c_i a_i$ para $1\leq i\leq\ell$. En particular, $1\leq\ell\leq n$.
+>>6. Sea $C=c_1\cdots c_\ell$, que es unidad porque su inversa es $c_\ell^{-1}\cdots c_1^{-1}$. Multiplicando las igualdades anteriores, $$d_1\cdots d_\ell=C\,a_1\cdots a_\ell=Ca.$$así, para todo $x\in R$, se tiene $x[d_1\cdots d_\ell]=[xC]a\in(a)$. Osea $(d_{1}\cdots d_{\ell})\subseteq (a)$ 
+>>7. Recíprocamente, $$a=C^{-1}d_1\cdots d_\ell$$(aca es donde se usa que $C$ es unidad) entonces $xa=[xC^{-1}][d_1\cdots d_\ell]\in(d_1\cdots d_\ell)$. Osea $(a)\subseteq (d_{1}\cdots d_{\ell})$ 
+>>8. Por ambas inclusiones, $(a)=(d_1\cdots d_\ell)$.
+>>9. El reordenamiento puede depender de $(a)$, pero la lista original de $n$ factores tiene únicamente finitos reordenamientos y hay únicamente $n+1$ longitudes posibles, $\ell\in\{0,\ldots,n\}$. Cada elección de reordenamiento y longitud determina un producto y, por tanto, un ideal principal, interpretando el producto vacío como $1$. 
+>>10. El ideal $R$ corresponde a $\ell=0$, el ideal $(d)$ a $\ell=n$, y todos los demás ideales considerados aparecen entre esos productos por el paso anterior. 
+>>11. Aunque elecciones diferentes pueden dar el mismo ideal, la cantidad de ideales distintos sigue siendo finita. Esto concluye la prueba.
 
 >[!exercise] Ejercicio 5
 >Si $R$ es un DFU, $a,b\in R$ son coprimos y $a\mid bc$, entonces $a\mid c$.
+>
+>>[!Proof]-
+>>1. Por [[Teorico 11#^e11009|divisibilidad]], existe $d\in R$ tal que $ad=bc$. Queremos escribir $c$ como $a$ multiplicado por un elemento de $R$.
+>>2. **Si $a$ o $b$ es unidad.** Si $a$ es unidad, $c=a(a^{-1}c)$, luego $a\mid c$. Si $b$ es unidad, por conmutatividad, $c=b^{-1}ad=a(b^{-1}d)$, luego también $a\mid c$.
+>>3. **Casos nulos.** Si $c=0$, entonces $c=a\cdot0$, de modo que $a\mid c$. Si $a=0$, no puede ser también $b=0$, pues $0$ sería un divisor común no invertible de ambos, contradiciendo la coprimalidad. Así, $b\neq0$ y $bc=ad=0$; como $R$ es dominio, $c=0$, caso ya resuelto. Si $b=0$, las igualdades $a=a\cdot1$ y $0=a\cdot0$ muestran que $a$ es un **divisor común de $a$ y $b=0$**: la primera establece $a\mid a$ y la segunda $a\mid0$. Por coprimalidad, $a$ es unidad y se aplica el paso 2.
+>>4. **Si $c$ es unidad.** De $ad=bc$ obtenemos $b=a(dc^{-1})$. Por tanto, $a\mid b$ y, como además $a\mid a$, el elemento $a$ es un divisor común de $a$ y $b$. La coprimalidad obliga a que $a$ sea unidad, y nuevamente se aplica el paso 2.
+>>5. En adelante, $a,b,c$ son no nulos y no invertibles. Además, $d\neq0$: si $d=0$, tendríamos $bc=ad=0$, imposible porque $b,c\neq0$ y $R$ es dominio. Por [[Teorico 11#^e11014|factorización única]], escribimos $$a=a_1\cdots a_n,\qquad b=b_1\cdots b_j,\qquad c=c_1\cdots c_t,$$ con todos los factores irreducibles y $n,j,t\geq1$.
+>>6. **Comparación de las factorizaciones de $ad$ y $bc$.** Si $d$ no es unidad, escribimos $d=v_1\cdots v_m$ en irreducibles y obtenemos $$a_1\cdots a_n v_1\cdots v_m=b_1\cdots b_j c_1\cdots c_t.$$ Si $d$ es unidad, obtenemos $$(da_1)a_2\cdots a_n=b_1\cdots b_j c_1\cdots c_t.$$ En este último caso, $da_1$ es irreducible por [[Teorico 11#^e11013|irreducibilidad y asociados]], y es asociado a $a_1$. Así, en ambos casos cada factor de la factorización de $a$ aparece, salvo asociados, entre los factores del miembro izquierdo.
+>>7. Ningún $a_i$ puede ser asociado a un $b_\ell$. En efecto, si $a_i=u b_\ell$ con $u$ unidad, entonces $$a=a_i\prod_{r\neq i}a_r,\qquad b=b_\ell\prod_{s\neq\ell}b_s=a_i\left(u^{-1}\prod_{s\neq\ell}b_s\right).$$ Por tanto, $a_i$ sería un divisor común de $a$ y $b$ y no sería invertible por ser irreducible, contradiciendo la coprimalidad.
+>>8. Aplicando [[Teorico 11#^e11014|factorización única]] a las igualdades del paso 6, los factores correspondientes a $a_1,\ldots,a_n$ deben emparejarse con factores de $c$, pues el paso 7 excluye todos los factores de $b$. El emparejamiento respeta las multiplicidades, de modo que $n\leq t$ y, tras reordenar los factores de $c$, existen unidades $k_1,\ldots,k_n$ tales que $$a_i=k_i c_i\qquad(1\leq i\leq n).$$ Si $d$ es unidad, el primer emparejamiento tiene la forma $da_1=u_1c_1$, de donde $a_1=(d^{-1}u_1)c_1$, así que también en ese caso $k_1$ es unidad.
+>>9. Sea $k=k_1\cdots k_n$, cuya inversa es $k_n^{-1}\cdots k_1^{-1}$. Multiplicando las igualdades anteriores, $$a=k c_1\cdots c_n.$$ Por tanto, $$c=c_1\cdots c_n c_{n+1}\cdots c_t=a\left(k^{-1}c_{n+1}\cdots c_t\right).$$ Si $n=t$, el producto de los factores restantes se interpreta como $1$. En todos los casos, el multiplicador pertenece a $R$, luego $a\mid c$.
 
->[!exercise] Ejercicio 6
+>[!Exercise] Ejercicio 6
 >Sea $(R,\varphi)$ anillo euclidiano (AE). Probar que $a$ es unidad en $R$ si y sólo si $\varphi(a)=\varphi(1)$.
+>
+>>[!Proof]-
+>>1. **($\Rightarrow$)** Si $a$ es unidad, entonces $a\neq0$ y existe $a^{-1}\in R$ con $aa^{-1}=a^{-1}a=1$. Por las propiedades de $\varphi$, $$\varphi(1)\leq\varphi(1a)=\varphi(a)\leq\varphi(aa^{-1})=\varphi(1).$$ Por tanto, $\varphi(a)=\varphi(1)$.
+>>2. **($\Leftarrow$)** Supongamos que $\varphi(a)=\varphi(1)$, donde $a\neq0$ porque $\varphi$ está definida en $R\setminus\{0\}$. Dividiendo $1$ por $a$, existen $q,r\in R$ tales que $$1=qa+r,\qquad r=0\ \text{o}\ \varphi(r)<\varphi(a).$$
+>>3. Si $r\neq0$, por las propiedades de $\varphi$ y la hipótesis obtenemos $$\varphi(r)<\varphi(a)=\varphi(1)\leq\varphi(1r)=\varphi(r),$$ lo cual es absurdo. Por tanto, $r=0$.
+>>4. Así, $1=qa$. Como $R$ es conmutativo, también $aq=qa=1$. Luego $q$ es inversa de $a$, de modo que $a$ es unidad. Esto prueba la equivalencia.
 
->[!exercise] Ejercicio 7
+>[!Exercise] Ejercicio 7
 >Consideremos el anillo de enteros gaussianos $\mathbb Z[i]$.
 >- **(a)** Si $a,n\in\mathbb Z$, con $n>0$, entonces existen $q,r\in\mathbb Z$ tales que $a=qn+r$, donde $|r|\leq n/2$.
 >- **(b)** Probar que $\mathbb Z[i]$ es dominio euclidiano (DE) con $\varphi(a+bi)=a^2+b^2$.
@@ -137,12 +167,72 @@ Fuente: [[EA - Pr7.pdf]]. Estructuras Algebraicas, FaMAF-UNC — 2026.
 >- **(f)** Dividir $a+bi$ por la unidad $i$. ¿Se puede hacer de dos maneras distintas?
 >- **(g)** **∗** Diseñar un algoritmo para dividir dos enteros de Gauss cualesquiera.
 >- **(h)** Calcular el máximo común divisor de $11+7i$ y $18-i$.
+>
+>>[!Proof]-
+>>- (a)
+>>	1. Sean $a,n\in\mathbb Z$, con $n>0$. Por el algoritmo de división en $\mathbb Z$, existen $q_0,r_0\in\mathbb Z$ tales que $$a=q_0n+r_0,\qquad 0\leq r_0<n.$$
+>>	2. Si $2r_0\leq n$, tomamos $q=q_0$ y $r=r_0$. Entonces $a=qn+r$ y, como $r_0\geq0$, se cumple $2|r|=2r_0\leq n$.
+>>	3. Si $2r_0>n$, tomamos $q=q_0+1$ y $r=r_0-n$, ambos enteros. Se tiene $$qn+r=(q_0+1)n+(r_0-n)=q_0n+r_0=a.$$ Además, $r_0<n$ implica $r<0$, de modo que $$2|r|=2(n-r_0)=2n-2r_0<n.$$
+>>	4. En ambos casos obtenemos $a=qn+r$ con $2|r|\leq n$, que es la cota pedida. El resto puede ser negativo, pues el enunciado no exige $r\geq0$.
+>>- (b)
+>>	1. **$\mathbb Z[i]$ es un dominio íntegro.** Contiene a $0$ y a $1\neq0$. Si $z=u+vi$ y $w=x+yi$ pertenecen a $\mathbb Z[i]$, entonces $$z-w=(u-x)+(v-y)i\in\mathbb Z[i],\qquad zw=(ux-vy)+(uy+vx)i\in\mathbb Z[i].$$ Por tanto, es un subanillo de $\mathbb C$ con identidad. Hereda de $\mathbb C$ la conmutatividad y la ausencia de divisores de cero: si $zw=0$, entonces $z=0$ o $w=0$.
+>>	2. **La función propuesta y su multiplicatividad.** Definimos $\varphi(u+vi)=u^2+v^2$ para $u+vi\neq0$. Su valor es un entero positivo, pues al menos una de las componentes es un entero no nulo. Para simplificar las cuentas, extendemos la misma fórmula a $0$, poniendo $\varphi(0)=0$; las condiciones de función euclidiana se verificarán en sus dominios correspondientes. Para cualesquiera $z=u+vi$ y $w=x+yi$, $$\begin{aligned}\varphi(zw)&=(ux-vy)^2+(uy+vx)^2\\&=u^2x^2-2uvxy+v^2y^2+u^2y^2+2uvxy+v^2x^2\\&=(u^2+v^2)(x^2+y^2)=\varphi(z)\varphi(w).\end{aligned}$$
+>>	3. **Primera condición euclidiana.** Si $zw\neq0$, entonces $z,w\neq0$ y $\varphi(w)\geq1$. Por la multiplicatividad, $$\varphi(zw)=\varphi(z)\varphi(w)\geq\varphi(z).$$ La desigualdad requerida no es necesariamente estricta.
+>>	4. **Construcción del cociente y del resto mediante (a).** Sean $\alpha=u+vi$ y $\beta=x+yi$ enteros gaussianos arbitrarios, con $\beta\neq0$. Escribimos $\overline\beta=x-yi\in\mathbb Z[i]$ y ponemos $$n=x^2+y^2>0,\qquad A=ux+vy,\qquad B=vx-uy.$$ Estos tres números son enteros ordinarios. Además, $$\beta\overline\beta=(x+yi)(x-yi)=n,\qquad\alpha\overline\beta=(u+vi)(x-yi)=A+Bi.$$
+>>	5. Aplicamos (a) a los pares de enteros $A,n$ y $B,n$. Existen $h,k,s,t\in\mathbb Z$ tales que $$A=hn+s,\qquad B=kn+t,\qquad 2|s|\leq n,\qquad 2|t|\leq n.$$ Definimos $$q=h+ki\in\mathbb Z[i],\qquad r=\alpha-q\beta\in\mathbb Z[i].$$ Por construcción, $\alpha=q\beta+r$. La aplicación de (a) se hizo a enteros ordinarios, no a enteros gaussianos.
+>>	6. **Control del resto.** Multiplicando por $\overline\beta$ y usando las identidades del paso 4, obtenemos $$\begin{aligned}r\overline\beta&=(\alpha-q\beta)\overline\beta=\alpha\overline\beta-q(\beta\overline\beta)\\&=A+Bi-n(h+ki)=(A-nh)+(B-nk)i=s+ti.\end{aligned}$$ Como $\varphi(\overline\beta)=x^2+(-y)^2=n$, la multiplicatividad da $$n\varphi(r)=\varphi(r\overline\beta)=\varphi(s+ti)=s^2+t^2.$$
+>>	7. De $2|s|\leq n$ y $2|t|\leq n$, al elevar al cuadrado obtenemos $4s^2\leq n^2$ y $4t^2\leq n^2$. Sumando y usando $n>0$, $$4n\varphi(r)=4(s^2+t^2)\leq2n^2<4n^2.$$ Como $4n>0$, resulta $\varphi(r)<n=\varphi(\beta)$. Si $r=0$, se cumple la primera alternativa exigida para el resto; si $r\neq0$, esta desigualdad utiliza la función original definida en $\mathbb Z[i]\setminus\{0\}$.
+>>	8. Para todo $\alpha,\beta\in\mathbb Z[i]$ con $\beta\neq0$, hemos construido $q,r\in\mathbb Z[i]$ tales que $\alpha=q\beta+r$ y $r=0$ o $\varphi(r)<\varphi(\beta)$. Junto con los pasos 1 a 3, esto prueba que $\mathbb Z[i]$ es un dominio euclidiano con la función propuesta.
+>>- (c)
+>>	1. **Condición necesaria.** Sea $z\in\mathbb Z[i]$ una unidad. Entonces $z,z^{-1}\neq0$, pues $zz^{-1}=1\neq0$. Por la multiplicatividad demostrada en (b), $$\varphi(z)\varphi(z^{-1})=\varphi(zz^{-1})=\varphi(1)=1.$$ Ambos factores son enteros positivos: para todo $u+vi\neq0$, alguno de los enteros $u,v$ es no nulo, su cuadrado es al menos $1$ y, por tanto, $u^2+v^2\geq1$. Si alguno de los dos factores fuera mayor que $1$, su producto sería mayor que $1$. Así, $\varphi(z)=\varphi(z^{-1})=1$.
+>>	2. Escribiendo $z=a+bi$, obtenemos $a^2+b^2=1$. Si ambos enteros fueran no nulos, la suma de sus cuadrados sería al menos $2$. Luego alguno es cero: si $b=0$, entonces $a^2=1$ y $a=\pm1$; si $a=0$, entonces $b^2=1$ y $b=\pm1$. Por tanto, toda unidad pertenece a $\{1,-1,i,-i\}$.
+>>	3. **Verificación de los candidatos.** Se cumple $$1\cdot1=1,\qquad(-1)(-1)=1,\qquad i(-i)=(-i)i=-i^2=1.$$ Todos los inversos exhibidos pertenecen a $\mathbb Z[i]$. Concluimos que $$\mathbb Z[i]^\times=\{1,-1,i,-i\}.$$
+>>- (d)
+>>	1. Buscamos dos pares distintos $q,r\in\mathbb Z[i]$ que satisfagan $4+5i=q(2+3i)+r$, con $r=0$ o $\varphi(r)<\varphi(2+3i)=2^2+3^2=13$. No se exige que el resto tenga la menor norma posible, sino solamente que su norma sea menor que $13$.
+>>	2. Para orientar la elección del cociente, calculamos en $\mathbb C$: $$\frac{4+5i}{2+3i}=\frac{(4+5i)(2-3i)}{(2+3i)(2-3i)}=\frac{8-12i+10i+15}{4+9}=\frac{23}{13}-\frac{2}{13}i.$$ La parte real está entre $1$ y $2$, y la imaginaria está cerca de $0$; por eso probamos los cocientes gaussianos $2$ y $1$. Este cálculo sólo sugiere candidatos: verificamos cada uno a continuación.
+>>	3. **Primera división.** Tomamos $q_1=2$. El resto es $$r_1=(4+5i)-2(2+3i)=(4+5i)-(4+6i)=-i.$$ Como $\varphi(-i)=0^2+(-1)^2=1<13$, obtenemos una división válida: $$4+5i=2(2+3i)-i.$$
+>>	4. **Segunda división.** Tomamos $q_2=1$. El resto es $$r_2=(4+5i)-(2+3i)=2+2i.$$ Como $\varphi(2+2i)=2^2+2^2=8<13$, obtenemos otra división válida: $$4+5i=1(2+3i)+(2+2i).$$ Los pares $(2,-i)$ y $(1,2+2i)$ son distintos, de modo que estas son dos maneras distintas de efectuar la división pedida.
+>>- (e)
+>>	1. **Acotación de todos los cocientes posibles.** Escribimos $q=m+ni$, con $m,n\in\mathbb Z$. El resto queda determinado por el cociente: $$\begin{aligned}r&=(4+5i)-(m+ni)(2+3i)\\&=(4-2m+3n)+(5-3m-2n)i.\end{aligned}$$ Usaremos la extensión $\varphi(0)=0$ introducida en (b), de modo que la condición de división válida sea simplemente $\varphi(r)<13$, incluyendo el posible resto cero.
+>>	2. Multiplicamos por $2-3i$ para obtener una condición equivalente más sencilla: $$\begin{aligned}r(2-3i)&=(4+5i)(2-3i)-q(2+3i)(2-3i)\\&=23-2i-13(m+ni)=(23-13m)+(-2-13n)i.\end{aligned}$$ Por multiplicatividad, $$13\varphi(r)=(13m-23)^2+(13n+2)^2.$$ Por tanto, la división es válida si y sólo si $$(13m-23)^2+(13n+2)^2<169.$$
+>>	3. Como ambos cuadrados son no negativos, cada uno debe ser menor que $169=13^2$. En consecuencia, $$-13<13m-23<13,\qquad -13<13n+2<13,$$ es decir, $$10<13m<36,\qquad -15<13n<11.$$ Puesto que $m,n$ son enteros, necesariamente $m\in\{1,2\}$ y $n\in\{-1,0\}$. Así, sólo quedan cuatro cocientes por verificar.
+>>	4. **Verificación exhaustiva.** Para cada candidato calculamos el producto, el resto y su norma: $$\begin{aligned}q=1:&\quad q(2+3i)=2+3i,\quad r=2+2i,\quad\varphi(r)=4+4=8;\\q=2:&\quad q(2+3i)=4+6i,\quad r=-i,\quad\varphi(r)=1;\\q=1-i:&\quad q(2+3i)=5+i,\quad r=-1+4i,\quad\varphi(r)=1+16=17;\\q=2-i:&\quad q(2+3i)=7+4i,\quad r=-3+i,\quad\varphi(r)=9+1=10.\end{aligned}$$ Los cocientes $1$, $2$ y $2-i$ dan normas menores que $13$; el cociente $1-i$ no cumple la condición.
+>>	5. Hay, por tanto, exactamente **tres** maneras distintas de efectuar la división: $$\begin{aligned}4+5i&=1(2+3i)+(2+2i),\\4+5i&=2(2+3i)-i,\\4+5i&=(2-i)(2+3i)+(-3+i).\end{aligned}$$ Son todas las posibilidades porque el paso 3 agotó los cocientes posibles y, dado un cociente, el resto es único.
+>>- (f)
+>>	1. **División por $i$.** Como $i^{-1}=-i$, tomamos $$q=(a+bi)(-i)=b-ai,\qquad r=0.$$ Ambos son gaussianos y verificamos directamente que $$qi+r=(b-ai)i=bi-ai^2=a+bi.$$ Esta es una división válida con resto cero.
+>>	2. **El resto debe ser cero.** En cualquier otra división $a+bi=q'i+r'$, la condición sobre el resto exige $r'=0$ o $\varphi(r')<\varphi(i)=1$. Si $r'\neq0$, su norma es un entero positivo, por lo que $\varphi(r')\geq1$, contradicción. Luego necesariamente $r'=0$.
+>>	3. De $a+bi=q'i$, multiplicando por $-i$ obtenemos $$q'=(a+bi)(-i)=b-ai.$$ Por tanto, el cociente y el resto son únicos: $q=b-ai$ y $r=0$. **No se puede hacer de dos maneras distintas.**
+>>- (g)
+>>	1. **Entrada y preparación.** Recibimos $\alpha=a+bi$ y $\beta=c+di$, con $a,b,c,d\in\mathbb Z$ y $\beta\neq0$. Si $\beta=0$, la división euclidiana no está definida y el algoritmo debe rechazar la entrada. Calculamos los enteros $$N=c^2+d^2>0,\qquad A=ac+bd,\qquad B=bc-ad.$$
+>>	2. **Dos divisiones ordinarias.** Mediante el algoritmo usual en $\mathbb Z$, calculamos $$A=h_0N+s_0,\qquad B=k_0N+t_0,\qquad 0\leq s_0<N,\quad 0\leq t_0<N.$$ Para la primera componente, si $2s_0\leq N$, ponemos $(h,s)=(h_0,s_0)$; si $2s_0>N$, ponemos $(h,s)=(h_0+1,s_0-N)$. Para la segunda, si $2t_0\leq N$, ponemos $(k,t)=(k_0,t_0)$; si $2t_0>N$, ponemos $(k,t)=(k_0+1,t_0-N)$. Por (a), en todos los casos se cumple $$A=hN+s,\qquad B=kN+t,\qquad 2|s|\leq N,\quad 2|t|\leq N.$$
+>>	3. **Salida.** Devolvemos los gaussianos $$q=h+ki,\qquad r=(a-hc+kd)+(b-hd-kc)i.$$ En efecto, $$q\beta=(h+ki)(c+di)=(hc-kd)+(hd+kc)i,$$ por lo que la fórmula de salida da exactamente $r=\alpha-q\beta$ y, en consecuencia, $\alpha=q\beta+r$.
+>>	4. **Corrección de la cota.** Como $\beta\overline\beta=N$ y $\alpha\overline\beta=A+Bi$, tenemos $$r\overline\beta=\alpha\overline\beta-qN=(A-hN)+(B-kN)i=s+ti.$$ La multiplicatividad de (b), con la extensión $\varphi(0)=0$, implica $$N\varphi(r)=s^2+t^2.$$ Las cotas del paso 2 dan $$4N\varphi(r)=4s^2+4t^2\leq2N^2<4N^2.$$ Como $4N>0$, se sigue $\varphi(r)<N=\varphi(\beta)$. Así, si el resto no es cero, tiene norma estrictamente menor que la del divisor.
+>>	5. **Terminación.** Sólo se realizan dos divisiones ordinarias de enteros, dos decisiones sobre sus restos y una cantidad finita de sumas y productos. Por tanto, el algoritmo termina para toda entrada con divisor no nulo y devuelve una división euclidiana válida. En los casos de igualdad $2s_0=N$ o $2t_0=N$, conservar el cociente ordinario fija una elección y evita ambigüedades en la salida.
+>>- (h)
+>>	1. **Algoritmo euclidiano.** Comenzamos dividiendo $18-i$ por $11+7i$ y continuamos con los restos no nulos. Las divisiones son $$\begin{aligned}18-i&=(1-i)(11+7i)+3i,\\11+7i&=(2-4i)(3i)+(-1+i),\\3i&=(2-2i)(-1+i)-i,\\-1+i&=(-1-i)(-i)+0.\end{aligned}$$ Verificamos los productos: $$(1-i)(11+7i)=18-4i,\qquad(2-4i)(3i)=12+6i,\qquad(2-2i)(-1+i)=4i,\qquad(-1-i)(-i)=-1+i.$$ Al sumar los restos indicados se recupera el dividendo en cada igualdad.
+>>	2. **Verificación de las normas.** Todos los restos cumplen la condición euclidiana: $$\varphi(3i)=9<170=\varphi(11+7i),\qquad\varphi(-1+i)=2<9=\varphi(3i),\qquad\varphi(-i)=1<2=\varphi(-1+i).$$ La última división tiene resto cero. El último resto no nulo es $-i$, que es unidad por (c).
+>>	3. **Justificación del máximo común divisor.** Sea $\delta$ un divisor común de $11+7i$ y $18-i$. La primera igualdad del paso 1 muestra que $\delta\mid3i$; la segunda, que $\delta\mid(-1+i)$; y la tercera, que $\delta\mid(-i)$. En cada paso se usa que, si $x=\delta u$ e $y=\delta v$, entonces $x-qy=\delta(u-qv)$. Por tanto, existe $t\in\mathbb Z[i]$ con $-i=\delta t$, y multiplicando por $i$ obtenemos $$1=i(-i)=i\delta t=\delta(it).$$ Así, todo divisor común divide a $1$. Como $1$ divide tanto a $11+7i$ como a $18-i$, concluimos que $$\operatorname{mcd}(11+7i,18-i)=1$$ como elección de representante. Cualquier asociado de $1$, es decir, cualquiera de las unidades $1,-1,i,-i$, es también un máximo común divisor.
 
 >[!exercise] Ejercicio 8
 >Probar que:
 >- **(i)** **∗** $\mathrm{AE}\Rightarrow\mathrm{AIP}$ con identidad.
 >- **(ii)** $\mathrm{DIP}\Rightarrow\mathrm{DFU}$.
 >Dar contraejemplos que muestren que las recíprocas no son ciertas.
+>
+>>[!Proof]-
+>>- (i)
+>>	1. Sea $R$ un anillo euclídeo, con función euclidiana $\varphi$. En esta demostración usamos la convención adoptada en la conversación: los anillos tienen identidad. No suponemos que $R$ sea un dominio íntegro.
+>>	2. Sea $I$ un ideal de $R$. Si $I=\{0\}$, entonces $I=(0)$. Si $I\neq\{0\}$, el conjunto $\{\varphi(x):x\in I\setminus\{0\}\}$ es un subconjunto no vacío de los naturales; por buen orden tiene mínimo. Elegimos $d\in I\setminus\{0\}$ que lo alcanza.
+>>	3. Para cualquier $a\in I$, la división euclidiana da $a=dq+r$, con $q,r\in R$ y $r=0$ o $\varphi(r)<\varphi(d)$. Como $d\in I$, tenemos $dq\in I$; por tanto, $r=a-dq\in I$. Si $r\neq0$, su valor euclidiano contradice la elección de $d$. Luego $r=0$ y $a=dq\in(d)$. Así, $I\subseteq(d)$.
+>>	4. Como $d\in I$ e $I$ es un ideal, $(d)\subseteq I$. Por ambas inclusiones, $I=(d)$. Todo ideal de $R$ es principal y, con la convención del paso 1, $R$ tiene identidad. Esto prueba (i), sin afirmar que $R$ sea un dominio íntegro.
+>>- (ii) **Existencia de la factorización.**
+>>	1. Sea $R$ un DIP. Supongamos que existe $r_0\neq0$, no invertible, que no es producto finito de irreducibles. No puede ser irreducible, pues entonces sería un producto de un solo factor irreducible.
+>>	2. Como $r_{0}$ no es [[Teorico 11#^85c0bf|irreducible]], $r_0=a_0r_1$ con $a_0,r_1$ ambos no invertibles y ambos son no nulos porque $r_0\neq0$.
+>>	3. Al menos uno de los dos factores tampoco es producto finito de irreducibles: si ambos los fueran, multiplicando sus factorizaciones obtendríamos una para $r_0$.
+>>	4. Supongamos sin perdida de generalidades que $r_1$ es el factor que no admite tal factorización y por $a_0$ el otro.
+>>	5. De $r_0=a_0r_1$ se sigue $(r_0)\subseteq(r_1)$. La inclusión es estricta: si fueran iguales, existiría $b$ con $r_1=br_0=ba_0r_1$, y por integridad $1=ba_0$, contradiciendo que $a_0$ no es invertible.
+>>	6. Repitiendo el procedimiento con $r_1$ y los factores sucesivos, se obtiene una cadena $(r_0)\subsetneq(r_1)\subsetneq(r_2)\subsetneq\cdots$. Esto contradice [[Teorico 11#^e11015|estabilización de cadenas]]. Por tanto, existe la factorización finita.
+>>	7. **Pendiente:** demostrar la unicidad salvo orden y asociados. También quedan pendientes los contraejemplos a las recíprocas pedidos en el enunciado.
 
 ## Anillos de polinomios
 
@@ -150,9 +240,52 @@ Fuente: [[EA - Pr7.pdf]]. Estructuras Algebraicas, FaMAF-UNC — 2026.
 >Sean $R$ anillo conmutativo con $1$ y $p=\sum_{j=0}^{n}a_jx^j$ un polinomio en $R[x]$. Probar las siguientes afirmaciones:
 >- **(a)** $p$ es divisor de cero si y sólo si existe $0\neq b\in R$ tal que $ba_n=ba_{n-1}=\cdots=ba_0=0$.
 >- **(b)** $p$ es unidad si y sólo si $a_0$ es unidad y $a_1,\ldots,a_n$ son nilpotentes.
+>
+>>[!Proof]-
+>>- (a)
+>>	- **($\Rightarrow$)** Supongamos que $p$ es divisor de cero.
+>>		1. Escribimos $p=\sum_{i=0}^{n}p_ix^i$, con $p_i=a_i$. Como $p$ es divisor de cero $S=\{\deg h:h\in R[x],\ h\neq0,\ ph=0\}\neq\varnothing$. 
+>>		2. Por buen orden elegimos $$q=\sum_{j=0}^{m}q_jx^j,\qquad pq=0,\qquad m=\deg q=\min S,\qquad q_m\neq0.$$
+>>		3. Para $c\in R$, por asociatividad, conmutatividad y distributividad en $R$: $$\begin{aligned}p_i(cq_j)&=(p_ic)q_j=(cp_i)q_j=c(p_iq_j),\\p(cq)&=\sum_{i=0}^{n}\sum_{j=0}^{m}p_i(cq_j)x^{i+j}=c\sum_{i=0}^{n}\sum_{j=0}^{m}p_iq_jx^{i+j}=c(pq)=0.\end{aligned}$$
+>>		4. **Primero, el coeficiente $p_n$.** El coeficiente de $x^{n+m}$ en $pq=0$ da $$0=\sum_{\substack{i+j=n+m\\0\leq i\leq n,\ 0\leq j\leq m}}p_iq_j=p_nq_m.$$ Entonces $$\begin{aligned}p_nq&=\sum_{j=0}^{m-1}(p_nq_j)x^j+\underbrace{p_nq_m}_{0}x^m\\&=\sum_{j=0}^{m-1}(p_nq_j)x^j\end{aligned}$$ que es un polinomio de grado $m-1$
+>>		5. Ademas $p(p_nq)=p_n(pq)=0$. Si $m=0$, la suma es vacía y $p_nq=0$, si $m\neq0$ tenemos un polinomio $p_{n}q$ de grado $m-1$ que anula a $p$ por minimalidad tiene que ser nulo, entonces $p_nq=0$.
+>>		6. Y ademas notemos que como $p_{n}q=0$ podemos afirmar $$p_nq=0\quad\Longrightarrow\quad p_nq_j=0\quad\text{para todo }j.$$ 
+>>		7. **Ahora, $p_{n-1}$ (si $n\geq1$).** Como $pq=0$, $$\begin{aligned}0=pq&=\sum_{i=0}^{n}\sum_{j=0}^{m}p_iq_jx^{i+j}\\&=\sum_{i=0}^{n-1}\sum_{j=0}^{m}p_iq_jx^{i+j}+\sum_{j=0}^{m}\underbrace{p_nq_j}_{0}x^{n+j}\\&=\left(\sum_{i=0}^{n-1}p_ix^i\right)q.\end{aligned}$$ entonces coeficiente de $x^{n-1+m}$ en el último producto da $p_{n-1}q_m=0$.
+>>		8. Multiplicamos todo $q$ por $p_{n-1}$: $$\begin{aligned}p_{n-1}q&=\sum_{j=0}^{m-1}(p_{n-1}q_j)x^j+\underbrace{p_{n-1}q_m}_{0}x^m\\&=\sum_{j=0}^{m-1}(p_{n-1}q_j)x^j,\end{aligned}$$ que es un polinomio de grado $m-1$
+>>		9. Y analogamente $p(p_{n-1}q)=p_{n-1}(pq)=0$ entonces por la minimalidad $p_{n-1}q=0$, etc.
+>>		10. Repitiendo este mismo argumento con los coeficientes restantes, llegamos a $$p_nq=p_{n-1}q=\cdots=p_0q=0.$$
+>>		11. Pero entonces para cada $i=0,\ldots,n$, $$0=p_iq=\sum_{j=0}^{m}(p_iq_j)x^j\quad\Longrightarrow\quad p_iq_j=0\quad(0\leq j\leq m).$$
+>>		12. Luego elegimos $b=q_m\neq0$ (sabemos que es no nulo por que si no $q$ no tendria grado $m$), que sabemos anula a todo $p_{j}$ 
+>>	- **($\Leftarrow$)**
+>>		1. Sea $b\in R$, $b\neq0$, tal que $bp_i=0$ para todo $i=0,\ldots,n$. Considerado como polinomio constante, $b\neq0$ en $R[x]$ y $$bp=b\sum_{i=0}^{n}p_ix^i=\sum_{i=0}^{n}(bp_i)x^i=0.$$ Por tanto, $p$ es divisor de cero.
+>>- (b)
+>>	- **($\Leftarrow$)** Supongamos que $a_0$ es unidad y que $a_1,\ldots,a_n$ son nilpotentes.
+>>		1. Para cada $j=1,\ldots,n$, elegimos un entero $n_j\geq1$ tal que $a_j^{n_j}=0$, y tomamos $$N=1+\sum_{j=1}^{n}(n_j-1).$$ Si $n=0$, la suma es vacía y $N=1$.
+>>		2. Todo producto de $N$ factores elegidos de $\{a_1,\ldots,a_n\}$ es cero. En efecto, si cada $a_j$ apareciera a lo sumo $n_j-1$ veces, habría a lo sumo $\sum_{j=1}^{n}(n_j-1)=N-1$ factores. Por tanto, algún $a_j$ aparece al menos $n_j$ veces y, por conmutatividad, el producto contiene el factor $a_j^{n_j}=0$.
+>>		3. Sea $h=p-a_0=\sum_{j=1}^{n}a_jx^j$. Si $n=0$, entonces $h=0$. Si $n\geq1$, por distributividad, $$h^N=\sum_{j_1,\ldots,j_N\in\{1,\ldots,n\}}a_{j_1}\cdots a_{j_N}x^{j_1+\cdots+j_N}=0,$$ pues cada producto de coeficientes se anula por el paso anterior. En todos los casos, $h^N=0$.
+>>		4. Como $a_0$ es invertible, podemos normalizar: $$a_0^{-1}p=1+u,\qquad u=a_0^{-1}h.$$ Por conmutatividad de $R[x]$, $$u^N=(a_0^{-1})^Nh^N=0.$$
+>>		5. Construimos una inversa de $1+u$ mediante diferencias de cuadrados: $$\begin{aligned}(1+u)(1-u)&=1-u^2,\\(1+u)(1-u)(1+u^2)&=1-u^4,\\(1+u)(1-u)(1+u^2)(1+u^4)&=1-u^8.\end{aligned}$$ En general, para $r\geq1$, ponemos $$Q_r=(1-u)\prod_{j=1}^{r-1}(1+u^{2^j}),$$ interpretando el producto vacío como $1$. Cada nuevo factor transforma el resto mediante la identidad $$(1-u^{2^j})(1+u^{2^j})=1-u^{2^{j+1}}.$$ Repitiendo estas cancelaciones, obtenemos $$(1+u)Q_r=1-u^{2^r}.$$
+>>		6. Elegimos $r\geq1$ tal que $2^r\geq N$. Si $2^r=N$, tenemos $u^{2^r}=u^N=0$; si $2^r>N$, tenemos $u^{2^r}=u^Nu^{2^r-N}=0$. En consecuencia, $$(1+u)Q_r=1.$$
+>>		7. Volvemos al polinomio original: $$1=(1+u)Q_r=(a_0^{-1}p)Q_r=p(a_0^{-1}Q_r).$$ Como $R[x]$ es conmutativo, $a_0^{-1}Q_r$ es una inversa de $p$. Por tanto, $p$ es unidad.
+>>	- **($\Rightarrow$)** Supongamos que $p$ es unidad.
+>>		1. Elegimos $$q=\sum_{j=0}^{m}b_jx^j,\qquad pq=1.$$ Comparando términos constantes, obtenemos $a_0b_0=1$, por lo que tanto $a_0$ como $b_0$ son unidades de $R$. Si $n=0$, no hay coeficientes de grado positivo y ya terminamos. Supongamos entonces $n\geq1$.
+>>		2. **Empezamos por el coeficiente superior.** El coeficiente de $x^{n+m}$ en $pq=1$ da $$a_nb_m=0.$$ Si $m\geq1$, el siguiente coeficiente da $$a_{n-1}b_m+a_nb_{m-1}=0.$$ Multiplicamos por $a_n$ y usamos conmutatividad: $$0=a_{n-1}(a_nb_m)+a_n^2b_{m-1}=a_n^2b_{m-1}.$$
+>>		3. Si $m\geq2$, el coeficiente siguiente es $$a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_{m-2}=0,$$ omitiendo el primer término si $n=1$. Multiplicamos por $a_n^2$. Como $a_n^2b_m=a_n(a_nb_m)=0$ y $a_n^2b_{m-1}=0$, queda $$a_n^3b_{m-2}=0.$$ Continuamos de la misma manera: al bajar un grado, multiplicamos por la siguiente potencia de $a_n$; todos los términos salvo el último desaparecen por las relaciones ya obtenidas. Así llegamos sucesivamente a $$a_nb_m=0,\quad a_n^2b_{m-1}=0,\quad\ldots,\quad a_n^{m+1}b_0=0.$$ En efecto, en la ecuación del grado $n+m-k$, los términos anteriores al último son $a_{n-t}b_{m-k+t}$, con $1\leq t\leq\min(n,k)$; al multiplicar por $a_n^k$, se anulan porque ya se obtuvo $a_n^{k-t+1}b_{m-k+t}=0$ y $$a_n^ka_{n-t}b_{m-k+t}=a_{n-t}a_n^{t-1}\left(a_n^{k-t+1}b_{m-k+t}\right)=0.$$
+>>		4. Multiplicando la última igualdad por $a_0$, obtenemos $$a_n^{m+1}=a_n^{m+1}b_0a_0=0.$$ Por tanto, $a_n$ es **nilpotente**. Si $m=0$, esta conclusión sale directamente de $a_nb_0=0$.
+>>		5. **Quitamos el término superior y verificamos que lo restante sigue siendo unidad.** Definimos $$z=a_nx^n,\qquad r=p-z=\sum_{j=0}^{n-1}a_jx^j,\qquad L=m+1.$$ Entonces $$z^L=a_n^Lx^{nL}=0.$$ Como $pq=1$, tenemos $$rq=(p-z)q=1-zq.$$ Escribimos $w=zq$; por conmutatividad, $$w^L=z^Lq^L=0.$$
+>>		6. Definimos explícitamente $$s=1+w+\cdots+w^{L-1}.$$ Por distributividad y cancelación, $$\begin{aligned}(1-w)s&=\sum_{j=0}^{L-1}w^j-\sum_{j=1}^{L}w^j\\&=1-w^L=1.\end{aligned}$$ Por tanto, $$r(qs)=(rq)s=(1-w)s=1.$$ Como $R[x]$ es conmutativo, $qs$ es una inversa de $r$.
+>>		7. Ahora repetimos el mismo procedimiento con $r=a_0+\cdots+a_{n-1}x^{n-1}$: como es unidad, el cálculo de los coeficientes superiores con una inversa de $r$ demuestra que $a_{n-1}$ es **nilpotente**; después quitamos $a_{n-1}x^{n-1}$ y construimos una inversa de lo restante exactamente como en los pasos 5 y 6. Continuamos retirando un término cada vez, hasta llegar al polinomio constante $a_0$.
+>>		8. Son a lo sumo $n$ repeticiones, y obtenemos que $a_1,\ldots,a_n$ son nilpotentes. Junto con la invertibilidad de $a_0$, esto completa la recíproca.
 
 >[!exercise] Ejercicio 10
 >Sea $F$ cuerpo. Probar que $(x)$ es un ideal maximal en $F[x]$.
+>
+>>[!Proof]-
+>>1. Sea $J$ un ideal de $F[x]$ tal que $(x)\subsetneq J$. Elegimos $p\in J\setminus(x)$ y escribimos $$p=p_0+p_1x+\cdots+p_nx^n.$$ Necesariamente $p_0\neq0$: si fuera cero, $p$ sería múltiplo de $x$ y pertenecería a $(x)$, contradiciendo su elección.
+>>2. Como $x\in J$, por absorción todo múltiplo de $x$ pertenece a $J$. En particular, $$p-p_0=x\left(\sum_{k=1}^{n}p_kx^{k-1}\right)\in J,$$ interpretando la suma como cero si $n=0$.
+>>3. Como $p\in J$ y $p-p_0\in J$, el cierre bajo restas da $$p_0=p-(p-p_0)\in J.$$
+>>4. Como $p_0\neq0$ y $F$ es un cuerpo, existe $p_0^{-1}\in F$. Considerándolo como polinomio constante, por absorción obtenemos $$1=p_0^{-1}p_0\in J.$$ Para todo $f\in F[x]$, resulta $f=f\cdot1\in J$. Por tanto, $J=F[x]$.
+>>5. Finalmente, $(x)$ es propio: todo múltiplo de $x$ tiene término constante cero, de modo que $1\notin(x)$. Como todo ideal que contiene estrictamente a $(x)$ es $F[x]$, concluimos por [[Teorico 11#^e11001|maximalidad]] que $(x)$ es maximal.
 
 >[!exercise] Ejercicio 11
 >Sea $D$ un dominio íntegro.

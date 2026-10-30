@@ -245,6 +245,11 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >>	2. Además, $up\neq0$: si $up=0$, multiplicando por $u^{-1}$ obtendríamos $p=0$, contradiciendo la hipótesis. Por tanto, podemos aplicar (a) y (b) tanto a $p$ como a $up$.
 >>	3. **Primalidad.** Por (a), $p$ es primo si y solo si $(p)$ es un ideal primo. Como $(p)=(up)$, esto equivale a que $(up)$ sea un ideal primo, lo cual, nuevamente por (a), equivale a que $up$ sea primo.
 >>	4. **Irreducibilidad.** Por (b), $p$ es irreducible si y solo si $(p)$ es propio y maximal entre los ideales principales propios. Como $(p)=(up)$, esta condición vale para $(p)$ si y solo si vale para $(up)$. Aplicando (b) a $up$, concluimos que $p$ es irreducible si y solo si $up$ es irreducible.
+>>	- **Prueba alternativa directa de la irreducibilidad.**
+>>		1. Supongamos que $p$ es irreducible. Tenemos $up\neq0$, pues $up=0$ implicaría $p=u^{-1}(up)=0$. Además, $up$ no es unidad: si existiera $w\in R$ con $(up)w=1$, entonces $p(uw)=1$ y, por conmutatividad, $uw$ sería una inversa de $p$, contradiciendo [[Teorico 11#^85c0bf|irreducibilidad]].
+>>		2. Sea $up=ab$ una factorización arbitraria. Multiplicando por $u^{-1}$, obtenemos $p=(u^{-1}a)b$. Por [[Teorico 11#^85c0bf|irreducibilidad]], $u^{-1}a$ o $b$ es unidad.
+>>		3. Si $b$ es unidad, ya tenemos una de las alternativas necesarias. Si $u^{-1}a$ es unidad, sea $v$ su inversa. Entonces $a=u(u^{-1}a)$ también es unidad: explícitamente, $a(vu^{-1})=u(u^{-1}a)vu^{-1}=u\cdot1\cdot u^{-1}=1$, y por conmutatividad también $(vu^{-1})a=1$. Por tanto, en toda factorización de $up$ alguno de los factores es unidad; junto con el paso 1, esto prueba que $up$ es irreducible.
+>>		4. Recíprocamente, si $up$ es irreducible, aplicamos la implicación anterior al elemento $up$ y a la unidad $u^{-1}$, cuya inversa es $u$. Concluimos que $u^{-1}(up)=p$ es irreducible.
 >>- **(f)**
 >>	1. Como $x\mid p$, por [[Teorico 11#^e11009|divisibilidad]] existe $y\in R$ tal que $p=xy$. Como $p$ es irreducible, por [[Teorico 11#^85c0bf|irreducibilidad]] $x$ o $y$ es invertible.
 >>	2. Si $x$ es invertible, ya tenemos la primera alternativa del enunciado: $x$ es una unidad.
@@ -286,11 +291,11 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 >>	6. Repitiendo el procedimiento con $r_1$ y los factores sucesivos, se obtiene una cadena $(r_0)\subsetneq(r_1)\subsetneq(r_2)\subsetneq\cdots$. Esto contradice [[Teorico 11#^e11015|estabilización de cadenas]]. Por tanto, existe la factorización finita.
 >>- **(b) Unicidad salvo orden y asociados**
 >>	1. Sean $p_1\cdots p_n=q_1\cdots q_m$ dos factorizaciones en irreducibles que las podemos mirar como $p_{1}.(p_{2}\ldots p_{n})=q_{1}(q_{2}\ldots q_{m})$ Entonces $p_{1}|q_{1}(q_{2}\ldots q_{m})$
->>	2. Por [[Teorico 11#^e11013|primos e irreducibles en un DIP]], $p_1$ es primo por lo tanto $p_{1}|q_{1}$ o $p_{1}|q_{2}\ldots q_{m}$ , aplicando esto recursivamente $p_{1}|q_{k}$ para algun $k$ como es conmutativo el anillo podemos suponer $k=1$ osea $$p_{1}|q_{1}$$  
+>>	2. Como $p_{1}$ irreducible por [[Teorico 11#^e11013|primos e irreducibles en un DIP]], $p_1$ es primo por lo tanto $p_{1}|q_{1}$ o $p_{1}|q_{2}\ldots q_{m}$ , aplicando esto recursivamente $p_{1}|q_{k}$ para algun $k$ como es conmutativo el anillo podemos suponer $k=1$ osea $$p_{1}|q_{1}$$  
 >>	3. Luego tenemos $q_1=p_1c$. Ademas como $q_1$ es irreducible y $p_1$ no es una unidad (por que es [[Teorico 11#^e11010|primo]]) entonces $c$ es una unidad por lo tanto $q_{1},p_{1}$ son [[Teorico 11#^e11009|asociados]]
 >>	4. Sustituimos en la igualdad y cancelamos $p_1\neq0$, usando integridad: $$p_2\cdots p_n=cq_2\cdots q_m.$$
->>	5. Ademas $p_{2}$ tiene que dividir a $c$ o a $q_{2}\ldots q_{m}$ por ser primo (por que es irreducible). Pero si dividiera a $c$ entoncse $c=p_{2}r$ entonces $1=p_{2}(rc^{-1})$ osea $p_{2}$ seria inversible (usando conmutatividad) que es absurdo. Entonces $p_{2}|q_{2}\ldots q_{m}$ y de la misma manera que 2. $p_{2}|q_{2}$ 
->>	6. Ninguna lista puede agotarse antes que la otra. Si esto ocurriera, un producto no vacío de irreducibles sería una unidad osea $p_{j}\cdots a_n=v$ con $v$ invertible, entonces $$p_j\left(\left(\prod_{i= j+1}p_i\right)v^{-1}\right)=1$$con lo cual $p_{j}$ seria invertible que es absurdo por que es primo 
+>>	5. Misma idea $p_{2}$ tiene que dividir a $c$ o a $q_{2}\ldots q_{m}$ por ser primo (por que es irreducible). Pero si dividiera a $c$ entonces $c=p_{2}r$ entonces $1=p_{2}(rc^{-1})$ osea $p_{2}$ seria inversible (usando conmutatividad) que es absurdo (por que es primo). Entonces $p_{2}|q_{2}\ldots q_{m}$ y de la misma manera que 2. $p_{2}|q_{2}$ 
+>>	6. Ninguna lista puede agotarse antes que la otra. Si esto ocurriera, un producto no vacío de irreducibles sería una unidad osea $p_{j}\cdots p_n=v$ con $v$ invertible, entonces $$p_j\left(\left(\prod_{i= j+1}p_i\right)v^{-1}\right)=1$$con lo cual $p_{j}$ seria invertible que es absurdo por que es primo 
 >>	7. Así, $n=m$ y cada $p_i$ es asociado al $q_i$ correspondiente, después de reordenar. Por [[Teorico 11#^e11014|factorización única]], $R$ es un DFU.
 
 ^e11016
