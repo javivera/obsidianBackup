@@ -1,6 +1,6 @@
 # Teo 12 — Cálculo de residuos e integrales reales (15/10/2026)
 
-> [!remark] Fuente y criterio de transcripción
+> [!remark]- Fuente y criterio de transcripción
 > Transcripción de las 11 fotos numeradas compartidas el 16/10/2026 en el grupo de Analíticas del WhatsApp personal. La primera hoja está fechada 15/10. Se conserva el desarrollo de la clase, se completan operaciones intermedias y se corrigen erratas de factores, signos e hipótesis. Los detalles añadidos y las correcciones conceptuales se señalan expresamente.
 
 ### Infinitas singularidades aisladas
@@ -28,17 +28,14 @@
 >>	2. La traza está contenida en $G$ y, por [[FA - Teo8#^8a0013|índice de homotopía a cero]], todo punto exterior a $G$ tiene índice cero. Luego $K\subset G$.
 >>	3. Si $S\cap K$ fuera infinito, tendría un punto de acumulación en $K\subset G$, contradiciendo (b). Por tanto, solo finitos términos $n(\gamma,a)\operatorname{Res}(f,a)$ pueden ser no nulos.
 
-> [!warning] Precisiones sobre las fotos 1–2
-> El argumento de compacidad debe aplicarse a $K$, no a todo el conjunto $\{z\in G:d(z,\partial G)\geq r/2\}$, que puede ser no acotado. La suma de la foto 2 también requiere el factor $2\pi i$: $$\int_\gamma f(z)\,dz=2\pi i\sum_{a\in S}n(\gamma,a)\operatorname{Res}(f,a).$$ La suma tiene solo finitos términos no nulos. El caso $G=\mathbb C$ se trata directamente mediante $K$, sin usar distancia a una frontera vacía.
-
 ## 2. Cálculo del residuo en un polo
 
->[!Proposition] Polo de orden $m$
+>[!proposition] Residuo en un polo
 >Supongamos que $a$ es un polo de orden $m$ de $f$. Sea $h$ la extensión analítica de $(z-a)^m f(z)$ a un entorno de $a$. Entonces $$\boxed{\operatorname{Res}(f,a)=\frac{h^{(m-1)}(a)}{(m-1)!}.}$$
 >
 >>[!Proof]- Demostración
 >>1. Por [[FA - Teo11#^a11c01|clasificación por Laurent]], $$f(z)=\frac{a_{-m}}{(z-a)^m}+\cdots+\frac{a_{-1}}{z-a}+\sum_{n=0}^{\infty}a_n(z-a)^n,\qquad a_{-m}\neq0.$$
->>2. Multiplicando por $(z-a)^m$ y extendiendo al centro, $$h(z)=a_{-m}+a_{-m+1}(z-a)+\cdots+a_{-1}(z-a)^{m-1}+\sum_{n=0}^{\infty}a_n(z-a)^{n+m}.$$
+>>2. Multiplicando por $(z-a)^m$ y extendiendo al centro, $$h(z)=a_{-m}+a_{-m+1}(z-a)+\cdots+a_{-1}(z-a)^{m-1}+\sum_{n=0}^{\infty}a_n(z-a)^{n+m}.$$(recordar que $(z-a)^{m}f(z)=h(z)$ si $z\neq a$ por eso hablamos de extension)
 >>3. Por [[FA - Teo2#^6fedda|desarrollo de Taylor]], el coeficiente de $(z-a)^{m-1}$ en esta serie es $h^{(m-1)}(a)/(m-1)!$. Por [[FA - Teo11#^a11d01|residuo]], ese mismo coeficiente es $a_{-1}=\operatorname{Res}(f,a)$.
 
 ^a12b01
@@ -56,17 +53,24 @@
 
 ### Cociente con cero simple en el denominador
 
->[!Proposition] Fórmula $p(a)/q'(a)$
->Sean $p,q$ analíticas cerca de $a$; en particular, pueden ser polinomios. Si $q(a)=0$ y $q'(a)\neq0$, entonces $$\boxed{\operatorname{Res}\left(\frac pq,a\right)=\frac{p(a)}{q'(a)}.}$$ Si $p(a)\neq0$, $a$ es un polo simple; si $p(a)=0$, la singularidad es evitable y el residuo es cero.
->
->>[!Proof]- Demostración
->>1. Para $z\neq a$ suficientemente próximo a $a$, $$ (z-a)\frac{p(z)}{q(z)}=\frac{p(z)}{\frac{q(z)-q(a)}{z-a}}\xrightarrow[z\to a]{}\frac{p(a)}{q'(a)}.$$
->>2. Si $p(a)\neq0$, concluimos por [[FA - Teo12#^a12c01|fórmula del límite]]. Si $p(a)=0$, factorizamos $p(z)=(z-a)p_1(z)$ y $q(z)=(z-a)q_1(z)$, con $q_1(a)=q'(a)\neq0$; el cociente se extiende analíticamente y su residuo es cero por [[FA - Teo11#^a11c01|clasificación por Laurent]].
+>[!proposition]
+>Sean $p,q$ analíticas cerca de $a$; en particular, pueden ser polinomios. Si $q(a)=0$ y $q'(a)\neq 0$, entonces $$\boxed{\operatorname{Res}\left(\frac pq,a\right)=\frac{p(a)}{q'(a)}.}$$
+>Si $p(a)\neq 0$, $a$ es un polo simple; si $p(a)=0$, la singularidad es evitable y el residuo es cero.
+>>[!Proof]- 
+>>1. Miramos la funcion $$h(z)=(z-a) \frac{p(z)}{q(z)}$$ como $q(a)=0$ y $q'(a)\neq 0$, sabemos que $a$ es una singularidad. 
+>>2. Para $z\neq a$ suficientemente próximo a $a$,$$(z-a)\frac{p(z)}{q(z)}=\frac{p(z)}{\frac{q(z)-q(a)}{z-a}}\xrightarrow[z\to a]{}\frac{p(a)}{q'(a)}.$$ con lo cual es evitable.
+>>3. Entonces la funcion $$\widetilde h(z)=\begin{cases}\displaystyle (z-a)\frac{p(z)}{q(z)}, & z\neq a,\\[6pt]\displaystyle \frac{p(a)}{q'(a)}, & z=a.\end{cases}$$ es la extension analitica $h$ osea es analitica  
+>>4. Además, $$h(a)=\frac{p(a)}{q'(a)}\neq 0.$$como $$\frac{p(z)}{q(z)}=\frac{h(z)}{z-a},$$concluimos que $a$ es un **polo simple**. 
+>>5. Ahora sí podemos aplicar la [[FA - Teo12#^a12c01|fórmula del límite]]:
+>> $$\operatorname{Res}\left(\frac pq,a\right)=\lim_{z\to a}(z-a)\frac{p(z)}{q(z)}=\boxed{\frac{p(a)}{q'(a)}}.$$
+>>
+>>6. Si $p(a)=0$, como también $q(a)=0$, para $z\neq a$ suficientemente próximo a $a$ tenemos $$\frac{p(z)}{q(z)}=\frac{\frac{p(z)-p(a)}{z-a}}{\frac{q(z)-q(a)}{z-a}}.$$entonces, como $q'(a)\neq 0$,
+>> $$\lim_{z\to a}\frac{p(z)}{q(z)}=\frac{p'(a)}{q'(a)}\in\mathbb C.$$
+>>
+>> 7. Por el corolario de singularidades evitables, $a$ es una singularidad **evitable** de $p/q$. Por lo tanto, su residuo es cero por clasificación mediante Laurent, coincidiendo con
+>> $$\boxed{\operatorname{Res}\left(\frac pq,a\right)=0=\frac{p(a)}{q'(a)}}$$
 
 ^a12b02
-
-> [!remark] Hipótesis precisada
-> En la foto 3 se afirma que un cero simple del denominador siempre produce un polo simple. Hace falta que el numerador no se anule allí; la fórmula del residuo sigue siendo válida si hay cancelación.
 
 ## 3. Integral impropia y valor principal
 
@@ -84,15 +88,12 @@
 >
 >>[!Proof]- Cálculo mediante residuos
 >>1. **Convergencia — detalle añadido.** La función es continua en $\mathbb R$ y, para $|x|\geq1$, $$0\leq\frac{x^2}{1+x^4}\leq\frac1{x^2}.$$ Las dos colas convergen absolutamente, por lo que podemos identificar la integral impropia con su valor principal.
->>2. **Polos.** Consideramos $f(z)=z^2/(1+z^4)$. Las raíces del denominador son $$a_1=e^{i\pi/4},\quad a_2=e^{3i\pi/4},\quad a_3=e^{5i\pi/4},\quad a_4=e^{7i\pi/4}.$$ Son polos simples porque $4a_k^3\neq0$ y $a_k^2\neq0$.
+>>2. **Polos.** Consideramos $f(z)=z^2/(1+z^4)$. Las raíces del denominador son $$a_1=e^{i\pi/4},\quad a_2=e^{3i\pi/4},\quad a_3=e^{5i\pi/4},\quad a_4=e^{7i\pi/4}.$$ Escribimos $f=p/q$ con $p(z)=z^2$ y $q(z)=1+z^4$, ambos polinomios. Para cada $k$, $q(a_k)=0$, $q'(a_k)=4a_k^3\neq0$ y $p(a_k)=a_k^2\neq0$, pues $|a_k|=1$. Por [[FA - Teo12#^a12b02|cociente con cero simple]], cada $a_k$ es un polo simple.
 >>3. **Contorno.** Para $R>1$, tomamos el segmento real de $-R$ a $R$ y el arco superior $\gamma_R(t)=Re^{it}$, $0\leq t\leq\pi$, recorrido de $R$ a $-R$. La concatenación $\Gamma_R=[-R,R]+\gamma_R$ es positiva. Sus índices en $a_1,a_2$ son $1$ y en $a_3,a_4$ son $0$.
 >>4. **Residuos.** Por [[FA - Teo12#^a12b02|cociente con cero simple]], $$\operatorname{Res}(f,a_k)=\frac{a_k^2}{4a_k^3}=\frac1{4a_k}.$$ En particular, $$\begin{aligned}\operatorname{Res}(f,a_1)+\operatorname{Res}(f,a_2)&=\frac14\left(e^{-i\pi/4}+e^{-3i\pi/4}\right)\\&=\frac14\left(\frac{1-i}{\sqrt2}+\frac{-1-i}{\sqrt2}\right)\\&=-\frac{i}{2\sqrt2}.\end{aligned}$$
->>5. Por [[FA - Teo11#^a11f03|teorema de los residuos]], $$\int_{\Gamma_R}f(z)\,dz=2\pi i\left(-\frac{i}{2\sqrt2}\right)=\frac{\pi}{\sqrt2}.$$ Separando los recorridos, $$\frac{\pi}{\sqrt2}=\int_{-R}^{R}\frac{x^2}{1+x^4}\,dx+\int_{\gamma_R}\frac{z^2}{1+z^4}\,dz.\qquad (1)$$
->>6. **Estimación del arco.** Como $|1+R^4e^{4it}|\geq R^4-1$, $$\begin{aligned}\left|\int_{\gamma_R}\frac{z^2}{1+z^4}\,dz\right|&=\left|\int_0^\pi\frac{R^2e^{2it}}{1+R^4e^{4it}}\,iRe^{it}\,dt\right|\\&\leq R^3\int_0^\pi\frac{dt}{|1+R^4e^{4it}|}\\&\leq\frac{\pi R^3}{R^4-1}\xrightarrow[R\to\infty]{}0.\end{aligned}$$
+>>5. Por [[FA - Teo11#^a11f03|teorema de los residuos]], considerando que los indices de $a_{3},a_{4}$ son $0$, que $f$ es analitica salvo en $a_{k}$ y que la curva es $\Gamma_R\simeq_{G} 0$ por ser [[FA - Teo8#^8a0036|cerrada]], tenemos:  $$\int_{\Gamma_R}f(z)\,dz=2\pi i\left(-\frac{i}{2\sqrt2}\right)=\frac{\pi}{\sqrt2}.$$ Separando los recorridos, $$\frac{\pi}{\sqrt2}=\int_{-R}^{R}\frac{x^2}{1+x^4}\,dx+\int_{\gamma_R}\frac{z^2}{1+z^4}\,dz.\qquad (1)$$
+>>6. **Estimación del arco.** Como $|1+R^4e^{4it}|\geq R^4-1$, (Por desigualdad triangular inveras $|a+b|>|a|-|b|$) $$\begin{aligned}\left|\int_{\gamma_R}\frac{z^2}{1+z^4}\,dz\right|&=\left|\int_0^\pi\frac{R^2e^{2it}}{1+R^4e^{4it}}\,iRe^{it}\,dt\right|\\&\leq R^3\int_0^\pi\frac{dt}{|1+R^4e^{4it}|}\\&\leq\frac{\pi R^3}{R^4-1}\xrightarrow[R\to\infty]{}0.\end{aligned}$$
 >>7. **Conclusión.** Tomando $R\to\infty$ en (1) y usando el paso 1, $$\boxed{\int_{-\infty}^{\infty}\frac{x^2}{1+x^4}\,dx=\frac{\pi}{\sqrt2}.}$$
-
-> [!remark] Errata corregida en la foto 5
-> En una línea intermedia se pierde un factor $1/2$. La suma correcta de residuos es $-i/(2\sqrt2)$, que sí aparece al final del cálculo de la foto.
 
 ## 5. Método general para integrales racionales
 
@@ -103,12 +104,10 @@
 >>1. Sean $m=\deg p$ y $n=\deg q$, y sean $a_m,b_n$ los coeficientes principales. Para $|z|$ grande, $$f(z)=\frac{a_m}{b_n}z^{m-n}A(z),\qquad A(z)=\frac{1+\frac{a_{m-1}}{a_mz}+\cdots+\frac{a_0}{a_mz^m}}{1+\frac{b_{n-1}}{b_nz}+\cdots+\frac{b_0}{b_nz^n}}\xrightarrow[z\to\infty]{}1.$$ Por tanto, existe $M>0$ tal que $|A(z)|\leq M$ para todo $|z|$ suficientemente grande. El caso $p\equiv0$ es inmediato.
 >>2. Para $\gamma_R(t)=Re^{it}$, $0\leq t\leq\pi$, $$\begin{aligned}\left|\int_{\gamma_R}f(z)\,dz\right|&\leq R\int_0^\pi|f(Re^{it})|\,dt\\&=R^{m-n+1}\left|\frac{a_m}{b_n}\right|\int_0^\pi|A(Re^{it})|\,dt\\&\leq\pi M\left|\frac{a_m}{b_n}\right|R^{m-n+1}\xrightarrow[R\to\infty]{}0,\end{aligned}$$ pues $m-n+1\leq-1$.
 >>3. **Convergencia — detalle añadido.** Sobre el eje real, la misma estimación da $|f(x)|\leq C|x|^{m-n}\leq C/|x|^2$ para $|x|$ grande. Como no hay polos reales, la integral converge absolutamente.
->>4. Elegimos $R$ mayor que los módulos de todos los polos. Aplicando [[FA - Teo11#^a11f03|teorema de los residuos]] a $[-R,R]+\gamma_R$, $$\int_{-R}^{R}f(x)\,dx+\int_{\gamma_R}f(z)\,dz=2\pi i\sum_{\operatorname{Im}a>0}\operatorname{Res}(f,a).$$ Al tomar $R\to\infty$, el segundo sumando tiende a cero y obtenemos la fórmula.
+>>4. Elegimos $R$ mayor que los módulos de todos los polos (hay finitos porque son las raices de $q$). Aplicando [[FA - Teo11#^a11f03|teorema de los residuos]] a $[-R,R]+\gamma_R$, $$\int_{-R}^{R}f(x)\,dx+\int_{\gamma_R}f(z)\,dz=2\pi i\sum_{\operatorname{Im}a>0}\operatorname{Res}(f,a).$$ Al tomar $R\to\infty$, el segundo sumando tiende a cero y obtenemos la fórmula.
 
 ^a12b03
 
-> [!remark] Precisiones sobre las fotos 7–8
-> Se trabaja con el cociente después de cancelar factores comunes si los hubiera. La condición de grados implica $m-n+1\leq-1$, no necesariamente $m-n+1<-1$. En la fórmula final de las fotos, «residuos» abrevia $2\pi i$ por la suma de los residuos del semiplano elegido.
 
 ## 6. Integral de Dirichlet: $\displaystyle\int_0^\infty\frac{\sin x}{x}\,dx$
 
@@ -120,11 +119,11 @@
 >>2. **Cauchy, sin residuos.** La curva se contrae dentro del plano cortado $\mathbb C\setminus\{-it:t\geq0\}$, donde $f$ es analítica. Por [[FA - Teo7#^c9f031|Cauchy v1]], $$0=\int_{-R}^{-r}\frac{e^{ix}}x\,dx+\int_{\gamma_r}\frac{e^{iz}}z\,dz+\int_r^R\frac{e^{ix}}x\,dx+\int_{\gamma_R}\frac{e^{iz}}z\,dz.$$
 >>3. **Segmentos reales.** Haciendo $u=-x$ en el segmento negativo, $$\begin{aligned}\int_{-R}^{-r}\frac{e^{ix}}x\,dx+\int_r^R\frac{e^{ix}}x\,dx&=-\int_r^R\frac{e^{-ix}}x\,dx+\int_r^R\frac{e^{ix}}x\,dx\\&=\int_r^R\frac{e^{ix}-e^{-ix}}x\,dx\\&=2i\int_r^R\frac{\sin x}x\,dx.\end{aligned}$$ Por tanto, $$0=2i\int_r^R\frac{\sin x}x\,dx+\int_{\gamma_r}\frac{e^{iz}}z\,dz+\int_{\gamma_R}\frac{e^{iz}}z\,dz.\qquad (2)$$
 >>4. **Arco grande: reducción.** Parametrizando, $$\begin{aligned}\left|\int_{\gamma_R}\frac{e^{iz}}z\,dz\right|&=\left|i\int_0^\pi e^{iRe^{it}}\,dt\right|\\&\leq\int_0^\pi e^{-R\sin t}\,dt\\&=2\int_0^{\pi/2}e^{-R\sin t}\,dt.\end{aligned}$$ Aquí usamos $|e^{iRe^{it}}|=|e^{iR\cos t-R\sin t}|=e^{-R\sin t}$ y la simetría del seno.
->>5. **Arco grande: cota.** En $0\leq t\leq\pi/2$, $\sin t\geq2t/\pi$. Luego $$\begin{aligned}\left|\int_{\gamma_R}\frac{e^{iz}}z\,dz\right|&\leq2\int_0^{\pi/2}e^{-2Rt/\pi}\,dt\\&=2\left[-\frac\pi{2R}e^{-2Rt/\pi}\right]_0^{\pi/2}\\&=\frac\pi R(1-e^{-R})\xrightarrow[R\to\infty]{}0.\end{aligned}$$
+>>5. **Arco grande: cota.** En $0\leq t\leq\pi/2$, $\sin t\geq2t/\pi$. Luego $$\begin{aligned}2\int_0^{\pi/2}e^{-R\sin t}\,dt&\leq2\int_0^{\pi/2}e^{-2Rt/\pi}\,dt\\&=2\left[-\frac\pi{2R}e^{-2Rt/\pi}\right]_0^{\pi/2}\\&=\frac\pi R(1-e^{-R})\xrightarrow[R\to\infty]{}0.\end{aligned}$$
 >>6. **Arco pequeño: parte regular.** Definimos $h(z)=(e^{iz}-1)/z$ para $z\neq0$. Como $$\lim_{z\to0}\frac{e^{iz}-1}z=i,$$ por [[FA - Teo10#^a10c01|criterio mediante un límite finito]] admite extensión analítica a $0$. En particular, existe $M>0$ tal que $|h(z)|\leq M$ cerca de $0$. La longitud de $\gamma_r$ es $\pi r$, así que $$\left|\int_{\gamma_r}\frac{e^{iz}-1}z\,dz\right|\leq M\pi r\xrightarrow[r\to0]{}0.$$
 >>7. **Arco pequeño: término singular.** Por su orientación horaria, $$\int_{\gamma_r}\frac{dz}z=\int_\pi^0\frac{ire^{it}}{re^{it}}\,dt=-\pi i.$$ En consecuencia, $$\int_{\gamma_r}\frac{e^{iz}}z\,dz=\int_{\gamma_r}\frac{e^{iz}-1}z\,dz-\pi i\xrightarrow[r\to0]{}-\pi i.$$
 >>8. **Existencia del límite en el infinito — detalle explicitado.** Fijado $r>0$, (2) y el paso 5 dan $$2i\lim_{R\to\infty}\int_r^R\frac{\sin x}x\,dx=-\int_{\gamma_r}\frac{e^{iz}}z\,dz.$$ Esto prueba la existencia de la integral en el infinito, no solo calcula un límite suponiendo que existe.
->>9. **Conclusión.** La función $\sin x/x$ se extiende continuamente a $0$ con valor $1$. Podemos hacer $r\to0$ en el paso 8; usando el paso 7 obtenemos $$2i\int_0^\infty\frac{\sin x}x\,dx=\pi i,\qquad\boxed{\int_0^\infty\frac{\sin x}x\,dx=\frac\pi2.}$$
+>>9. **Conclusión.** Como la función $\sin x/x$ se extiende continuamente a $0$ con valor $1$. Podemos hacer $r\to0$ en el paso 8; usando el paso 7 obtenemos $$2i\int_0^\infty\frac{\sin x}x\,dx=\pi i,\qquad\boxed{\int_0^\infty\frac{\sin x}x\,dx=\frac\pi2.}$$
 
 > [!warning] Dos erratas corregidas en las fotos 10–11
 > En la cota del arco grande, el factor $2$ de la simetría da $\pi(1-e^{-R})/R$, no $\pi(1-e^{-R})/(2R)$. Además, el resultado final es una integral impropia usual en $[0,\infty)$; no hace falta escribir «VP» porque el integrando es regular en $0$ tras su extensión y el argumento prueba la convergencia en el infinito.

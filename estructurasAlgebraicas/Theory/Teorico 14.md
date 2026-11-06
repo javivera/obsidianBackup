@@ -202,3 +202,15 @@ Este fragmento aparece en la mitad inferior de la cuarta foto; no se mezcla con 
 
 >[!remark] Alcance del fragmento original
 >La foto esboza la existencia de factorización mediante una cadena de ideales que no podría continuar indefinidamente. Se explicitan aquí la estabilización de esa cadena y el argumento de unicidad para completar el enunciado «DIP implica DFU».
+
+
+## Fotos originales
+
+![[Teorico 14 - pagina 1.jpg]]
+
+![[Teorico 14 - pagina 2.jpg]]
+
+![[Teorico 14 - pagina 3.jpg]]
+
+![[Teorico 14 - pagina 4.jpg]]
+

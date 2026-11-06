@@ -227,6 +227,8 @@
 >>2. Sean $r>0$ y $z\in\mathbb{C}$, y consideremos $B(z,r)$. Por el teorema de la cota de Cauchy, $$|f'(z)|\leq\frac{M}{r}\xrightarrow[r\to\infty]{}0.$$
 >>3. Por lo tanto $f'=0$ y $f$ es constante.
 
+^a04b01
+
 >[!Theorem] Teorema fundamental del álgebra
 >Si $p\in\mathbb{C}[z]$ no es constante, entonces existe $a\in\mathbb{C}$ tal que $p(a)=0$.
 >>[!Proof]-
@@ -235,6 +237,8 @@
 >>6. Ahora, $\lim_{z\to\infty}f(z)=0$; luego, dado $M=1$, existe $R>0$ tal que si $|z|>R$ entonces $|f(z)|<1$.
 >>7. Así, $f$ es acotada y entera, por lo que es constante; entonces $p$ es constante, ¡absurdo!
 >>8. Conclusión: existe $a$ tal que $p(a)=0$.
+
+^a04b02
 
 >[!Corollary]
 >Todo polinomio no constante se descompone como producto de factores lineales.

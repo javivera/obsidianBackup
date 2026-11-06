@@ -326,3 +326,15 @@ source: "Cuatro fotos enviadas al chat propio de WhatsApp el 2026-10-04 a las 16
 
 >[!remark] Irreducible no implica primo en general
 >En este mismo ejemplo, $2\mid(1+\sqrt{-5})(1-\sqrt{-5})=6=2.3$. Sin embargo, $2$ no divide a ninguno de los dos factores: una igualdad $1\pm\sqrt{-5}=2(a+b\sqrt{-5})$ exigiría $1=2a$ con $a\in\mathbb Z$, lo cual es imposible. Así, $2$ es irreducible pero no primo.
+
+
+## Fotos originales
+
+![[Teorico 11 - pagina 1.jpg]]
+
+![[Teorico 11 - pagina 2.jpg]]
+
+![[Teorico 11 - pagina 3.jpg]]
+
+![[Teorico 11 - pagina 4.jpg]]
+

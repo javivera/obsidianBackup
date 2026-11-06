@@ -237,3 +237,15 @@ Se interpreta un producto sin factores como $1$. La observación del manuscrito 
 
 >[!exercise] Ejercicio final del manuscrito
 >Ver que $P=\mathbb C[x,y]/(x,y)^2$ es **indescomponible**, es decir, que no puede escribirse como suma directa de dos submódulos no nulos. El manuscrito lo propone como «ejercicio con ChatGPT»; se deja aquí sin resolver.
+
+
+## Fotos originales
+
+![[Teorico 16 - pagina 1.jpg]]
+
+![[Teorico 16 - pagina 2.jpg]]
+
+![[Teorico 16 - pagina 3.jpg]]
+
+![[Teorico 16 - pagina 4.jpg]]
+

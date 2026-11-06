@@ -97,6 +97,26 @@
 
 ^8a0031
 
+>[!Proposition] Todo convexo es simplemente conexo
+>Si $G\subseteq\mathbb C$ es abierto y convexo, entonces $G$ es simplemente conexo.
+>
+>>[!Proof]-
+>>1. **Conexión.** Dados $z,w\in G$, por convexidad el segmento $[z,w]$ está contenido en $G$, y es un camino continuo de $z$ a $w$ dentro de $G$. Luego $G$ es arcoconexo y, por tanto, conexo.
+>>2. **Candidata a homotopía.** Fijamos $a\in G$ y una curva cerrada rectificable $\gamma:[0,1]\to G$. Definimos $$\Pi(s,t)=(1-t)\gamma(s)+ta,\qquad(s,t)\in[0,1]\times[0,1].$$
+>>3. **$\Pi$ toma valores en $G$.** Para $(s,t)$ fijos, $\Pi(s,t)$ es una combinación convexa de $\gamma(s)$ y $a$, o sea un punto del segmento $[\gamma(s),a]$. Como $\gamma(s),a\in G$ y $G$ es convexo, $[\gamma(s),a]\subseteq G$; luego $\Pi(s,t)\in G$.
+>>4. **Condiciones de homotopía.** $\Pi$ es continua por ser suma y producto de funciones continuas. Además, $$\Pi(s,0)=\gamma(s),\qquad\Pi(s,1)=a,\qquad\Pi(0,t)=(1-t)\gamma(0)+ta=(1-t)\gamma(1)+ta=\Pi(1,t),$$ donde usamos que $\gamma$ es cerrada. Por [[FA - Teo7#^f07a2d|homotopía en G]], $\gamma$ es homotópica en $G$ a la curva constante $a$, es decir, $\gamma\simeq_G0$.
+>>5. Como $\gamma$ era una curva cerrada arbitraria en $G$, por los pasos 1 y 4 y por [[FA - Teo8#^8a0031|simple conexión]], $G$ es simplemente conexo.
+
+^8a0035
+
+>[!Corollary] Curvas cerradas en un convexo
+>Si $G\subseteq\mathbb C$ es abierto y convexo, toda curva cerrada rectificable en $G$ es homotópica a cero en $G$.
+>
+>>[!Proof]-
+>>1. Por [[FA - Teo8#^8a0035|todo convexo es simplemente conexo]], $G$ es simplemente conexo. Por [[FA - Teo8#^8a0031|simple conexión]], toda curva cerrada en $G$ es homotópica a cero en $G$.
+
+^8a0036
+
 >[!Theorem] Teorema de Cauchy — cuarta versión
 >Si $G$ es una región simplemente conexa y $f:G\to\mathbb C$ es analítica, entonces $$\int_\gamma f(z)\,dz=0$$ para toda curva cerrada rectificable $\gamma$ en $G$.
 >>[!Proof]-

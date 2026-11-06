@@ -278,3 +278,15 @@ source: "Cuatro fotos enviadas por Sofía por WhatsApp el 2026-10-02"
 
 >[!example] Adjuntar una raíz $p$-ésima de la unidad
 >Sea $\zeta\in\mathbb C$ una raíz $p$-ésima de la unidad distinta de $1$. Entonces $$\mathbb Q(\zeta)\cong\mathbb Q[x]/(\Phi_p(x)).$$ El isomorfismo envía la clase de $x$ a $\zeta$. La irreducibilidad de $\Phi_p$ garantiza que el cociente es un cuerpo.
+
+
+## Fotos originales
+
+![[Teorico 12 - pagina 1.jpg]]
+
+![[Teorico 12 - pagina 2.jpg]]
+
+![[Teorico 12 - pagina 3.jpg]]
+
+![[Teorico 12 - pagina 4.jpg]]
+

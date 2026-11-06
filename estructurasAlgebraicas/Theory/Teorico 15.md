@@ -192,3 +192,15 @@ source: "Últimas cuatro fotos enviadas por Sofía por WhatsApp el 2026-10-14; f
 >>	3. Todos los elementos no nulos son invertibles; luego $\operatorname{End}_R(M)$ es un anillo de división. No se afirma que sea conmutativo.
 
 ^e1500a
+
+
+## Fotos originales
+
+![[Teorico 15 - pagina 1.jpg]]
+
+![[Teorico 15 - pagina 2.jpg]]
+
+![[Teorico 15 - pagina 3.jpg]]
+
+![[Teorico 15 - pagina 4.jpg]]
+

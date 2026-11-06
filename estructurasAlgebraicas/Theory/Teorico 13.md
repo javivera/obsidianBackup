@@ -262,3 +262,20 @@ source: "PDF Clase 12 0710_261007_105103.pdf, enviado por Franco por WhatsApp el
 >Si $\pi:M\to M/N$ es la proyección, las aplicaciones $$U\longmapsto U/N=\pi(U),\qquad W\longmapsto\pi^{-1}(W)$$ son inversas y preservan las inclusiones.
 
 ^e13012
+
+
+## Fotos originales
+
+>[!remark] Origen de las fotos
+>Esta nota se transcribió del PDF de Franco. Las fotos de abajo son los apuntes de Sofía de la misma clase, enviados por WhatsApp el 2026-10-07, en el orden en que llegaron.
+
+![[Teorico 13 - pagina 1.jpg]]
+
+![[Teorico 13 - pagina 2.jpg]]
+
+![[Teorico 13 - pagina 3.jpg]]
+
+![[Teorico 13 - pagina 4.jpg]]
+
+![[Teorico 13 - pagina 5.jpg]]
+

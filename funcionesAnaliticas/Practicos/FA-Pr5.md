@@ -122,15 +122,19 @@
 >>1. **Fracciones simples.** Escribimos $$f(z)=\frac{A}{z}+\frac{B}{z-1}+\frac{C}{z-2}.$$ Multiplicando por $z(z-1)(z-2)$ y evaluando en $z=0,1,2$, obtenemos $$A=\frac1{(-1)(-2)}=\frac12,\qquad B=\frac1{1(1-2)}=-1,\qquad C=\frac1{2(2-1)}=\frac12.$$ Por tanto, $$f(z)=\frac1{2z}-\frac1{z-1}+\frac1{2(z-2)}.$$
 >>- (a)
 >>	1. Para $|z|<1$, aplicamos la [[FA - Teo11#^c8e4b2|serie geométrica]] con cociente $z$: $$-\frac1{z-1}=\frac1{1-z}=\sum_{n=0}^{\infty}z^n.$$
->>	2. Para $|z|<2$, aplicamos la misma expansión con cociente $z/2$: $$\frac1{2(z-2)}=-\frac14\frac1{1-z/2}=-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+2}}.$$
->>	3. Ambos desarrollos convergen absolutamente en $0<|z|<1$. Sumando las potencias iguales, obtenemos el desarrollo de Laurent centrado en $0$: $$\boxed{f(z)=\frac1{2z}+\sum_{n=0}^{\infty}\left(1-\frac1{2^{n+2}}\right)z^n,\qquad 0<|z|<1.}$$
+>>	2. Para $|z|<2$, aplicamos la misma expansión con cociente $z/2$: $$\frac1{2(z-2)}=-\frac14\frac1{1-z/2}=-\frac{1}{2^{2} }\sum_{n=0}^{\infty}\left(\frac{z}{2}\right)^{n}.$$
+>>	3. Ambos desarrollos convergen absolutamente en $0<|z|<1$.  
+>>	4. Sumando las potencias iguales, obtenemos el desarrollo de Laurent centrado en $0$: $$\boxed{f(z)=\frac{1}{2}z^{-1}+\sum_{n=0}^{\infty}\left(1-\frac1{2^{n+2}}\right)z^n,\qquad 0<|z|<1.}$$ 
 >>- (b)
->>	1. Para $|z|>1$, factorizamos $z-1=z(1-1/z)$ y aplicamos la [[FA - Teo11#^c8e4b2|serie geométrica]] con cociente $1/z$: $$-\frac1{z-1}=-\frac1z\frac1{1-1/z}=-\frac1z\sum_{n=0}^{\infty}\frac1{z^n}=-\sum_{n=0}^{\infty}z^{-n-1}.$$
->>	2. Conservamos el desarrollo de $1/[2(z-2)]$ obtenido en (a), válido para $|z|<2$. Las dos condiciones se cumplen simultáneamente en $1<|z|<2$, por lo que $$\boxed{f(z)=\frac1{2z}-\sum_{n=0}^{\infty}z^{-n-1}-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+2}},\qquad 1<|z|<2.}$$ Ambas series convergen absolutamente en ese anillo.
+>>	1. Para $|z|>1$ ya no converge la serie de $-\frac{1}{z-1}$ entonces factorizamos de la siguiente manera: $$-\frac1{z-1}=-\frac1z\frac1{1-1/z}=-\frac1z\sum_{n=0}^{\infty}\frac1{z^n}$$ que si converge por que $1> \frac{1}{|z|}>0$ 
+>>	2. Conservamos el desarrollo de $1/[2(z-2)]$ obtenido en (a), válido para $|z|<2$. 
+>>	3. Las dos condiciones se cumplen simultáneamente en $1<|z|<2$, por lo que $$f(z)=\frac1{2}z^{-1}-\sum_{n=0}^{\infty}z^{-n-1}-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+2}},\qquad 1<|z|<2$$ambas series convergen absolutamente en ese anillo. 
+>>	4. Ordenando terminos llegamos a la expresion de Laureant$$\boxed{f(z)=-\sum_{k=2}^{\infty} z^{-k}-\frac{1}{2}z^{-1}-\sum_{k=0}^{\infty}\frac{z^k}{2^{k+2}}\qquad 1<|z|<2}$$
 >>- (c)
->>	1. Para $|z|>2$, factorizamos $z-2=z(1-2/z)$ y aplicamos la [[FA - Teo11#^c8e4b2|serie geométrica]] con cociente $2/z$: $$\frac1{2(z-2)}=\frac1{2z}\frac1{1-2/z}=\frac1{2z}\sum_{n=0}^{\infty}\left(\frac2z\right)^n=\sum_{n=0}^{\infty}2^{n-1}z^{-n-1}.$$
->>	2. El desarrollo de $-1/(z-1)$ obtenido en (b) también converge absolutamente para $|z|>2$. Sumando, $$f(z)=\frac1{2z}+\sum_{n=0}^{\infty}(2^{n-1}-1)z^{-n-1}.$$
->>	3. El término de índice $n=0$ es $-1/(2z)$ y cancela el término exterior; el de índice $n=1$ es cero. Por tanto, $$\boxed{f(z)=\sum_{n=2}^{\infty}(2^{n-1}-1)z^{-n-1},\qquad |z|>2.}$$
+>>	1. Para $|z|>2$ ya no converge $\frac1{2(z-2)}$ entonces factorizamos de la siguiente manera $$\frac1{2(z-2)}=\frac1{2z}\frac1{1-2/z}=\frac1{2z}\sum_{n=0}^{\infty}\left(\frac2z\right)^n=\sum_{n=0}^{\infty}2^{n-1}z^{-n-1}.$$
+>>	2. El desarrollo de $-1/(z-1)$ obtenido en (b) también converge absolutamente para $|z|>2$por que convergie para $|z|>1$ 
+>>	3. Sumando ambos $$f(z)=\frac1{2}z^{-1}+\sum_{n=0}^{\infty}(2^{n-1}-1)z^{-n-1}.$$
+>>	4. El término de índice $n=0$ es $-1/(2z)$ y cancela el término exterior; el de índice $n=1$ es cero. Por tanto, $$\boxed{f(z)=\sum_{n=2}^{\infty}(2^{n-1}-1)z^{-n-1},\qquad |z|>2.}$$
 
 >[!exercise] Ejercicio 8
 >Calcular las siguientes integrales:

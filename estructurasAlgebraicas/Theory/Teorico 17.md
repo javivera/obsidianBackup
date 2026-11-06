@@ -185,3 +185,13 @@ El manuscrito recuerda [[Teorico 16#^e16008|Wedderburn–Artin]] y comenta que, 
 >>	3. Definimos $h=gi:P\to M$. Entonces $$\pi h=\pi gi=f\rho i=f\operatorname{id}_P=f.$$ Así, $h$ es el levantamiento requerido por [[Teorico 17#^e17007|propiedad de levantamiento]], y $P$ es proyectivo.
 
 ^e1700c
+
+
+## Fotos originales
+
+![[Teorico 17 - pagina 1.jpg]]
+
+![[Teorico 17 - pagina 2.jpg]]
+
+![[Teorico 17 - pagina 3.jpg]]
+
