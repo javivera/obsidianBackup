@@ -3,32 +3,33 @@
 > [!remark] Fuente y criterio de transcripción
 > Transcripción de las 6 fotos de la clase del 20/10/2026, recibidas a las 13:10 en el grupo de Analíticas del WhatsApp personal. Se conserva el orden y la numeración de los ejemplos de clase, continuación de [[FA - Teo12]]. Se completan las operaciones y estimaciones dejadas como ejercicio; las hipótesis añadidas y las erratas corregidas se señalan expresamente. Las fotos originales están al final.
 
-## 1. Recordatorio: teorema de los residuos
-
-La clase comienza recordando [[FA - Teo11#^a11f03|teorema de los residuos]]: si $f$ es analítica en una región $G$ excepto en singularidades aisladas $a_1,\ldots,a_m$, y $\gamma$ es una curva cerrada rectificable en $G$ que evita esos puntos y satisface $\gamma\simeq_G0$, entonces $$\frac1{2\pi i}\int_\gamma f(z)\,dz=\sum_{k=1}^{m}n(\gamma,a_k)\operatorname{Res}(f,a_k).$$
-
 ## 2. Ejemplo 3: integrales con un factor exponencial
 
-La idea es estudiar $$\int_{-\infty}^{\infty}f(x)e^{imx}\,dx=\int_{-\infty}^{\infty}f(x)\cos(mx)\,dx+i\int_{-\infty}^{\infty}f(x)\sin(mx)\,dx,$$ siempre que existan las integrales correspondientes; la misma separación vale para valores principales. Si $f$ es real sobre el eje real, las integrales con coseno y seno son, respectivamente, las partes real e imaginaria de la integral exponencial.
+>[!Remark]
+>La idea es estudiar $$\int_{-\infty}^{\infty}f(x)e^{imx}\,dx=\int_{-\infty}^{\infty}f(x)\cos(mx)\,dx+i\int_{-\infty}^{\infty}f(x)\sin(mx)\,dx,$$ siempre que existan las integrales correspondientes; la misma separación vale para valores principales. Si $f$ es real sobre el eje real, las integrales con coseno y seno son, respectivamente, las partes real e imaginaria de la integral exponencial.
 
-Trabajamos con $m>0$ y cerramos el contorno por el semiplano superior. La condición de decaimiento que se pide a $f$ es $$\lim_{\substack{|z|\to\infty\\ \operatorname{Im}z\geq0}}|f(z)|=0.$$
+>[!Remark] Hipotesis de decaimiento
+>Trabajamos con $m>0$ y cerramos el contorno por el semiplano superior. La condición de decaimiento que se pide a $f$ es $$\lim_{\substack{|z|\to\infty\\ \operatorname{Im}z\geq0}}|f(z)|=0.$$
+
+^62b208
 
 > [!remark] Hipótesis explicitadas
-> En las fotos no se escribe $m>0$, pero se usa en todas las cotas del arco superior. Se supone además que las singularidades relevantes son finitas y que $f$ es analítica en un abierto que contiene el semiplano superior salvo en ellas. Para $m<0$ se cierra por abajo, con orientación horaria; para $m=0$ la estimación siguiente no se aplica.
+> En las fotos no se escribe $m>0$, pero se usa en todas las cotas del arco superior. Se supone además que las singularidades relevantes son finitas y que $f$ es analítica en un abierto que contiene el semiplano superior salvo en ellas. Para $m<0$ se cierra por abajo, con orientación horaria y pidiendo hipotesis de decaimiento pero con $Im z\leq 0$ ; para $m=0$ la estimación siguiente no se aplica.
 
 ### 2.1. Caso 1: sin singularidades sobre el eje real
 
->[!Proposition] Cierre superior para $f(z)e^{imz}$
->Sean $a_1,\ldots,a_k$ las singularidades aisladas de $f$ en el semiplano superior, y supongamos que $f$ no tiene singularidades reales y satisface las hipótesis anteriores. Entonces $$\boxed{\operatorname{VP}\int_{-\infty}^{\infty}f(x)e^{imx}\,dx=2\pi i\sum_{j=1}^{k}\operatorname{Res}\bigl(f(z)e^{imz},a_j\bigr).}$$
+>[!Proposition]
+>Sean $a_1,\ldots,a_k$ las singularidades aisladas de $f$ en el semiplano superior, y supongamos que $f$ no tiene singularidades reales y satisface la [[FA - Teo13#^62b208| hipotesis de decaimiento]] y es analitica en el semiplano superior sin las singularidades. Entonces $$\boxed{\operatorname{VP}\int_{-\infty}^{\infty}f(x)e^{imx}\,dx=2\pi i\sum_{j=1}^{k}\operatorname{Res}\bigl(f(z)e^{imz},a_j\bigr).}$$
 >
->>[!Proof]- Desarrollo de las fotos 1–2
+>>[!Proof]- 
 >>1. **Contorno.** Tomamos $R$ mayor que los módulos de todas las singularidades y definimos $\gamma_R(t)=Re^{it}$, $0\leq t\leq\pi$. El arco va de $R$ a $-R$ por arriba; unido al segmento real de $-R$ a $R$ forma el contorno positivo $\Gamma_R=[-R,R]+\gamma_R$.
 >>2. **Residuos.** Por [[FA - Teo11#^a11f03|teorema de los residuos]], $$\int_{-R}^{R}f(x)e^{imx}\,dx+\int_{\gamma_R}f(z)e^{imz}\,dz=2\pi i\sum_{j=1}^{k}\operatorname{Res}\bigl(f(z)e^{imz},a_j\bigr).\qquad (1)$$
->>3. **Módulo de la exponencial.** Como $imRe^{it}=imR\cos t-mR\sin t$, $$\left|e^{imRe^{it}}\right|=e^{-mR\sin t}.$$ Definimos $$M(R)=\sup_{0\leq t\leq\pi}|f(Re^{it})|.$$
->>4. **Primera estimación.** Parametrizando el arco y usando la simetría del seno, $$\begin{aligned}\left|\int_{\gamma_R}f(z)e^{imz}\,dz\right|&=\left|iR\int_0^\pi f(Re^{it})e^{imRe^{it}}e^{it}\,dt\right|\\&\leq RM(R)\int_0^\pi e^{-mR\sin t}\,dt\\&=2RM(R)\int_0^{\pi/2}e^{-mR\sin t}\,dt.\end{aligned}$$
->>5. **Cota de Jordan.** Para $0\leq t\leq\pi/2$, $\sin t\geq2t/\pi$. Por tanto, $$\begin{aligned}\left|\int_{\gamma_R}f(z)e^{imz}\,dz\right|&\leq2RM(R)\int_0^{\pi/2}e^{-2mRt/\pi}\,dt\\&=2RM(R)\left[-\frac{\pi}{2mR}e^{-2mRt/\pi}\right]_0^{\pi/2}\\&=\frac{\pi M(R)}m(1-e^{-mR}).\end{aligned}$$
->>6. **Por qué $M(R)\to0$: argumento de las fotos.** Sea $R_n\to\infty$. Por definición de supremo, elegimos $t_n\in[0,\pi]$ tal que $$0\leq M(R_n)\leq|f(R_ne^{it_n})|+\frac1n.$$ Dado $\varepsilon>0$, la hipótesis de decaimiento proporciona $A>0$ tal que $|z|>A$, $\operatorname{Im}z\geq0$, implica $|f(z)|<\varepsilon$. Para $n$ grande, $|R_ne^{it_n}|=R_n>A$, de modo que $$0\leq M(R_n)\leq\varepsilon+\frac1n.$$ Así, $\limsup_{n\to\infty}M(R_n)\leq\varepsilon$ para todo $\varepsilon>0$, y $M(R_n)\to0$. Como la sucesión $R_n\to\infty$ era arbitraria, $M(R)\to0$.
->>7. **Conclusión.** El paso 5 da $$\lim_{R\to\infty}\int_{\gamma_R}f(z)e^{imz}\,dz=0.$$ Tomando el límite en (1), existe el límite simétrico de las integrales reales y obtenemos la fórmula enunciada.
+>>3. **Módulo de la exponencial.** Como $imRe^{it}=imR\cos t-mR\sin t$, $$\left|e^{imRe^{it}}\right|=e^{-mR\sin t}.$$
+>>4. Ademas como el arco no toca ninguna singularidad $f$ es contiunua en el y al arco es acotado entonces podemos definir $$M(R)=\max_{0\leq t\leq\pi}|f(Re^{it})|.$$ 
+>>5.  Dado $\varepsilon>0$, por la hipótesis de decaimiento existe $A>0$ tal que $$|z|>A,\quad \operatorname{Im}z\geq0\implies |f(z)|<\varepsilon.$$para todo $R>A$, como $|Re^{it_R}|=R>A$ y $\operatorname{Im}(Re^{it_R})\geq0$, obtenemos $$0\leq M(R)=|f(Re^{it_R})|<\varepsilon.$$por lo tanto, $$\boxed{\lim_{R\to\infty}M(R)=0.}$$
+>>6. **Primera estimación.** Parametrizando el arco y usando la simetría del seno, $$\begin{aligned}\left|\int_{\gamma_R}f(z)e^{imz}\,dz\right|&=\left|iR\int_0^\pi f(Re^{it})e^{imRe^{it}}e^{it}\,dt\right|\\&\leq RM(R)\int_0^\pi e^{-mR\sin t}\,dt\\&=2RM(R)\int_0^{\pi/2}e^{-mR\sin t}\,dt.\end{aligned}$$
+>>7. **Cota de Jordan.** Para $0\leq t\leq\pi/2$, $\sin t\geq2t/\pi$. Por tanto, $$\begin{aligned}2RM(R)\int_0^{\pi/2}e^{-mR\sin t}\,dt&\leq2RM(R)\int_0^{\pi/2}e^{-2mRt/\pi}\,dt\\&=2RM(R)\left[-\frac{\pi}{2mR}e^{-2mRt/\pi}\right]_0^{\pi/2}\\&=\frac{\pi M(R)}m(1-e^{-mR}).\end{aligned}$$
+>>8. **Conclusión.** Luego por paso 5 tenemos $$\lim_{R\to\infty}\int_{\gamma_R}f(z)e^{imz}\,dz=0.$$ por lo tanto tomando límite en (1), existe el límite simétrico de las integrales reales y obtenemos la fórmula enunciada.
 
 ^a13b01
 

@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Theory/FA - Teo12.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -82,7 +82,8 @@
               "title": "FA - Teo16"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -241,6 +242,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "canvas:Create new canvas": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "daily-notes:Open today's daily note": false,
@@ -315,24 +317,25 @@
           }
         ],
         "direction": "vertical",
-        "x": 2572,
-        "y": 108,
-        "width": 1056,
-        "height": 1895,
+        "x": 1799,
+        "y": 1137,
+        "width": 1776,
+        "height": 1105,
         "maximize": false,
         "zoom": -0.5
       }
     ]
   },
-  "active": "07f8395d464a4761",
+  "active": "66a17519cdf8c12d",
   "lastOpenFiles": [
     "Practicos/FA-Pr7.md",
+    "Theory/FA - Teo13.md",
+    "Theory/FA - Teo12.md",
+    "Theory/FA - Teo17.md",
+    "Theory/FA - Teo7.md",
     "Practicos/FA-Pr6.md",
     "Practicos/FA-Pr5.md",
-    "Theory/FA - Teo12.md",
     "Theory/FA - Teo11.md",
-    "Theory/FA - Teo13.md",
-    "Theory/FA - Teo17.md",
     "Theory/Adjuntos/FA-Teo17/foto-4.jpg",
     "Theory/Adjuntos/FA-Teo17/foto-3.jpg",
     "Theory/Adjuntos/FA-Teo17/foto-2.jpg",
@@ -367,7 +370,6 @@
     "Dudas.md",
     "Untitled.md",
     "Examenes/FA-FinalLeo.md",
-    "Theory/FA - Teo7.md",
     "Theory/FA - Teo6.md",
     "Theory/FA - Teo5.md",
     "Examenes/FA - Primer parcial 2026.md",
