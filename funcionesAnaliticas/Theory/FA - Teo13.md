@@ -31,8 +31,6 @@
 >>7. **Cota de Jordan.** Para $0\leq t\leq\pi/2$, $\sin t\geq2t/\pi$. Por tanto, $$\begin{aligned}2RM(R)\int_0^{\pi/2}e^{-mR\sin t}\,dt&\leq2RM(R)\int_0^{\pi/2}e^{-2mRt/\pi}\,dt\\&=2RM(R)\left[-\frac{\pi}{2mR}e^{-2mRt/\pi}\right]_0^{\pi/2}\\&=\frac{\pi M(R)}m(1-e^{-mR}).\end{aligned}$$
 >>8. **Conclusión.** Luego por paso 5 tenemos $$\lim_{R\to\infty}\int_{\gamma_R}f(z)e^{imz}\,dz=0.$$ por lo tanto tomando límite en (1), existe el límite simétrico de las integrales reales y obtenemos la fórmula enunciada.
 
-^a13b01
-
 > [!warning] Residuos del integrando completo y tipo de convergencia
 > En varias líneas de las fotos se abrevia incorrectamente $\operatorname{Res}(f,a_j)$: debe ser $\operatorname{Res}(f(z)e^{imz},a_j)$. Además, el argumento con $[-R,R]$ calcula directamente un valor principal; para identificarlo con la integral impropia usual hay que justificar la convergencia separada de las dos colas. Por ejemplo, si $f(x)=O(|x|^{-k})$ con $k>1$ y no hay singularidades reales, la convergencia es absoluta. Este es el sentido del recordatorio de comparación al final del caso 1 de la foto 2.
 
