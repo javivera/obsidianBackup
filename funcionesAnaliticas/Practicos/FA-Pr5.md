@@ -143,6 +143,17 @@
 >- **(c)** $\int_0^{2\pi}\frac{\cos(\theta)}{5+4\cos(\theta)}\,d\theta$.
 >- **(d)** $\int_0^\pi\frac{d\theta}{(2+\cos\theta)^2}$.
 >- **(e)** $\int_0^\infty\frac{1}{x^4+1}\,dx$.
+>
+>>[!Proof]-
+>>- (a)
+>>	1. **Función y polos.** Consideramos $f(z)=z^2/(z^4+z^2+1)$. Con el cambio $u=z^2$, la ecuación del denominador se reduce a $u^2+u+1=0$, cuyas raíces son $u=(-1\pm i\sqrt3)/2=e^{\pm2\pi i/3}$. Por tanto, los ceros del denominador son $e^{i\pi/3}$, $e^{2i\pi/3}$, $e^{4i\pi/3}$ y $e^{5i\pi/3}$. Son simples: si $q(z)=z^4+z^2+1$, entonces $q'(z)=2z(2z^2+1)$ y, en cada raíz $z_k$, tenemos $z_k\ne0$ y $2z_k^2+1=\pm i\sqrt3\ne0$. Ninguno se cancela con el numerador.
+>>	2. **Contorno.** Para $0<r<1<R$, tomamos la frontera positivamente orientada del semianillo superior $\{z:r<|z|<R,\ \operatorname{Im}z>0\}$. Recorremos el segmento de $-R$ a $-r$, el arco interior $\eta_r(t)=re^{it}$ con $t$ de $\pi$ a $0$, el segmento de $r$ a $R$ y el arco exterior $\gamma_R(t)=Re^{it}$ con $t$ de $0$ a $\pi$. Los únicos polos interiores son $a=e^{i\pi/3}$ y $b=e^{2i\pi/3}$, ambos con índice $1$.
+>>	3. **Identidad de residuos antes de tomar límites.** Por [[FA - Teo11#^a11f03|teorema de los residuos]], $$\int_{-R}^{-r}f(x)\,dx+\int_{\eta_r}f(z)\,dz+\int_r^R f(x)\,dx+\int_{\gamma_R}f(z)\,dz=2\pi i\bigl(\operatorname{Res}(f;a)+\operatorname{Res}(f;b)\bigr).$$ Sustituyendo $x=-t$ en el primer segmento, $$\int_{-R}^{-r}\frac{x^2}{x^4+x^2+1}\,dx=\int_r^R\frac{t^2}{t^4+t^2+1}\,dt.$$ Así obtenemos $$2\int_r^R\frac{x^2}{x^4+x^2+1}\,dx+\int_{\eta_r}f(z)\,dz+\int_{\gamma_R}f(z)\,dz=2\pi i\bigl(\operatorname{Res}(f;a)+\operatorname{Res}(f;b)\bigr).$$
+>>	4. **Arco exterior.** Parametrizando, $$\int_{\gamma_R}f(z)\,dz=\int_0^\pi\frac{iR^3e^{3it}}{R^4e^{4it}+R^2e^{2it}+1}\,dt.$$ Por la desigualdad triangular inversa, $$|R^4e^{4it}+R^2e^{2it}+1|\ge R^4-R^2-1.$$ Para $R\ge2$, el lado derecho es positivo y, por tanto, $$\left|\int_{\gamma_R}f(z)\,dz\right|\le\frac{\pi R^3}{R^4-R^2-1}=\frac{\pi/R}{1-R^{-2}-R^{-4}}\xrightarrow[R\to\infty]{}0.$$
+>>	5. **Arco interior.** Para $0<r\le1/2$, la misma desigualdad da $|1+r^2e^{2it}+r^4e^{4it}|\ge1-r^2-r^4>0$. Parametrizando el arco interior y tomando módulos, $$\left|\int_{\eta_r}f(z)\,dz\right|\le\frac{\pi r^3}{1-r^2-r^4}\xrightarrow[r\to0]{}0.$$
+>>	6. **Paso al límite.** La integral impropia converge: para $0\le x\le1$, $0\le f(x)\le x^2$, y para $x\ge1$, $0\le f(x)\le1/x^2$. Escribiendo $I=\int_0^\infty f(x)\,dx$ y tomando $r\to0$ y $R\to\infty$ en la identidad del paso 3, queda $$2I=2\pi i\bigl(\operatorname{Res}(f;a)+\operatorname{Res}(f;b)\bigr).$$
+>>	7. **Residuos en forma exponencial.** Por [[FA - Teo12#^a12b02|cociente con cero simple]], $$\operatorname{Res}(f;z_k)=\frac{z_k^2}{4z_k^3+2z_k}=\frac{z_k}{2(2z_k^2+1)}.$$ Sustituyendo los dos polos y dividiendo la identidad anterior por $2$, $$I=\pi i\left[\frac{e^{i\pi/3}}{2(2e^{2i\pi/3}+1)}+\frac{e^{2i\pi/3}}{2(2e^{4i\pi/3}+1)}\right].$$
+>>	8. **Simplificación exacta, sin calculadora.** Usando $e^{i\theta}=\cos\theta+i\sin\theta$ y los valores de los ángulos notables, $$e^{i\pi/3}=\frac12+\frac{i\sqrt3}{2},\qquad e^{2i\pi/3}=-\frac12+\frac{i\sqrt3}{2},\qquad e^{4i\pi/3}=-\frac12-\frac{i\sqrt3}{2}.$$ Luego $2e^{2i\pi/3}+1=i\sqrt3$, $2e^{4i\pi/3}+1=-i\sqrt3$ y $e^{i\pi/3}-e^{2i\pi/3}=1$. Por consiguiente, $$I=\pi i\frac{e^{i\pi/3}-e^{2i\pi/3}}{2i\sqrt3}=\boxed{\frac{\pi}{2\sqrt3}}.$$
 
 >[!exercise] Ejercicio 9
 >Demostrar las siguientes igualdades:
